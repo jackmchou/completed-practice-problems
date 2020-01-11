@@ -22,7 +22,7 @@
 function calcBundledTemp(n, temp) {
   const tempNum = +temp.slice(0, temp.indexOf('*'))
   let innerTemp = tempNum
-	for (let i = 0; i < n; i++) {
+  for (let i = 0; i < n; i++) {
     innerTemp += innerTemp * 0.1
   }
   return `${innerTemp.toFixed(1)}*C`
@@ -36,7 +36,7 @@ function calcBundledTemp(n, temp) {
 // Notes
 // The number will be always an 8-bit number.
 function toBinary(num) {
-	return num.toString(2)
+  return num.toString(2)
 }
 // A word is on the loose and now has tried to hide amongst a crowd of tall letters! Help write a function to detect what the word is, knowing the following rules:
 //     The wanted word is in lowercase.
@@ -49,7 +49,7 @@ function toBinary(num) {
 // Notes
 // N/A
 function detectWord(str) {
-	return [...str].filter(ele => ele.toUpperCase() !== ele).join('')
+  return [...str].filter(ele => ele.toUpperCase() !== ele).join('')
 }
 // Create a function to return the amount of potatoes there are in a string.
 // Examples
@@ -70,7 +70,7 @@ function potatoes(str) {
 //     The first array always has two elements.
 //     Use the spread syntax to solve this challenge.
 function tuckIn(arr1, arr2) {
-	return [arr1[0], ...arr2, arr1[1]]
+  return [arr1[0], ...arr2, arr1[1]]
 }
 // You will be given an array of drinks, with each drink being an object with two properties: name and price. Create a function that has the drinks array as an argument and return the drinks objects sorted by price in ascending order.
 // Assume that the following array of drink objects needs to be sorted:
@@ -99,14 +99,14 @@ function sortDrinkByPrice(drinks) {
 //     Check out the Resources tab for some helpful tutorials on JavaScript classes!
 //     If you're really stuck, check out the Solutions tab for answers.
 class Person {
-	constructor(name, age) {
-		this.name = name;
-		this.age = age;
-	}
-	compareAge(other) {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  compareAge(other) {
     if (this.age == other.age) return `${other.name} is the same age as me.`
-		return this.age > other.age ? `${other.name} is younger than me.` : `${other.name} is older than me.`
-	}
+    return this.age > other.age ? `${other.name} is younger than me.` : `${other.name} is older than me.`
+  }
 }
 // You will be given two extremely similar arrays, but exactly one of the items in an array will be valued slightly higher than its counterpart (which means that evaluating the value > the other value will return true).
 // Create a function that returns whether the first array is slightly superior to that of the second.
@@ -126,7 +126,7 @@ class Person {
 //     All values and their counterparts will always be of the same data type.
 //     If the two arrays are the same, return false.
 function isFirstSuperior(arr1, arr2) {
-	return arr1.some((ele, idx) => ele > arr2[idx])
+  return arr1.some((ele, idx) => ele > arr2[idx])
 }
 // An array is given. Return a new array having the sum of all its elements except itself. For more clarity, check the examples below.
 // Clarification
@@ -144,7 +144,7 @@ function isFirstSuperior(arr1, arr2) {
 // N/A
 function arrEleSum(args) {
   // const result = []
-	// for (let i = 0; i < args.length; i++) {
+  // for (let i = 0; i < args.length; i++) {
   //   result.push(args.filter(ele => ele !== args[i]).reduce((acc, cur) => acc + cur))
   // }
   // return result
@@ -170,9 +170,9 @@ function longestSlide(pyramid) {
     }));
   });
   for (let i = pyramidSum.length - 2; i >= 0; i--) {
-      for (let j = 0; j < pyramidSum[i].length; j++) {
-          pyramidSum[i][j] = pyramid[i][j] + Math.max(pyramidSum[i+1][j], pyramidSum[i+1][j+1]);
-      }
+    for (let j = 0; j < pyramidSum[i].length; j++) {
+      pyramidSum[i][j] = pyramid[i][j] + Math.max(pyramidSum[i + 1][j], pyramidSum[i + 1][j + 1]);
+    }
   }
   return pyramidSum[0][0];
 }
@@ -184,14 +184,14 @@ function longestSlide(pyramid) {
 // Notes
 // N/A
 function cubeDiagonal(volume) {
-	return +(Math.sqrt(3) * Math.cbrt(volume)).toFixed(2)
+  return +(Math.sqrt(3) * Math.cbrt(volume)).toFixed(2)
 }
 // Create a function that counts the integer's number of digits.
 // Examples
 // count(318) ➞ 3
- 
+
 // count(-92563) ➞ 5
- 
+
 // count(4666) ➞ 4
 // count(-314890) ➞ 6
 // count(654321) ➞ 6
@@ -200,7 +200,7 @@ function cubeDiagonal(volume) {
 //     For an added challenge, try to solve this without using strings.
 //     Optionally, you can solve this via a recursive approach.
 function count(n) {
-	return ((Math.log((n ^ (n >> 31)) - (n >> 31)) * Math.LOG10E) | 0) + 1
+  return ((Math.log((n ^ (n >> 31)) - (n >> 31)) * Math.LOG10E) | 0) + 1
 }
 // Create a function which takes in a number n as input and returns all numbers up to and including n joined together in a string. Separate each digit from each other with the character "-".
 // Examples
@@ -210,7 +210,7 @@ function count(n) {
 // Notes
 // Remember to start at 1 and include n as the last number.
 function joinDigits(n) {
-	const result = []
+  const result = []
   for (let i = 1; i <= n; i++) {
     if (i > 9) result.push(('' + i).split('').join('-'))
     else result.push(i)
@@ -272,7 +272,7 @@ function memeSum(a, b) {
 function totalSales(sales, product) {
   let productIdx = sales[0].indexOf(product)
   let productSales = []
-	if (!sales[0].includes(product)) return 'Product not found'
+  if (!sales[0].includes(product)) return 'Product not found'
   for (let i = 1; i < sales.length; i++) {
     productSales.push(sales[i][productIdx])
   }
@@ -286,10 +286,12 @@ function totalSales(sales, product) {
 // Notes
 // Amount given will always be less than 100 and more than 0.
 function makeChange(c) {
-	return {q: ~~(c / 25), 
-					d: ~~((c % 25) / 10), 
-					n: ~~(((c % 25) % 10) / 5), 
-					p: ((c % 25) % 10) % 5}
+  return {
+    q: ~~(c / 25),
+    d: ~~((c % 25) / 10),
+    n: ~~(((c % 25) % 10) / 5),
+    p: ((c % 25) % 10) % 5
+  }
 }
 // Create a function that takes a number num and returns its length.
 // Examples
@@ -300,7 +302,7 @@ function makeChange(c) {
 // N/A
 function numberLength(num) {
   if (num == 9999999999999999) return 16
-	return num > Number.MAX_SAFE_INTEGER ? ('' + BigInt(num)).length : ('' + num).length
+  return num > Number.MAX_SAFE_INTEGER ? ('' + BigInt(num)).length : ('' + num).length
 }
 // Create a function that takes an array of numbers and returns the product of the largest and second largest UNIQUE numbers in the array. So, if there are multiple of the same highest integer, only count one towards the highest product -- see the examples below for more.
 // Examples
@@ -332,7 +334,7 @@ function product(arr) {
 // Notes
 // Return "invalid" if a negative number exists inside arr or if there is more/less than two "1"s. Ignore any other string inside arr.
 function spaceApart(arr) {
-	const sum = arr.slice(arr.indexOf('1') + 1, arr.lastIndexOf('1')).filter(ele => typeof ele == 'number').reduce((cur, acc) => cur + acc, 0)
+  const sum = arr.slice(arr.indexOf('1') + 1, arr.lastIndexOf('1')).filter(ele => typeof ele == 'number').reduce((cur, acc) => cur + acc, 0)
   return sum > 0 ? sum : 'invalid'
 }
 // Given a string indicating a range of letters, return a string which includes all the letters in that range, including the last letter. Note that if the range is given in capital letters, return the string in capitals also!
@@ -346,7 +348,7 @@ function spaceApart(arr) {
 //     You don't need to worry about error handling in this one (i.e. both letters will be the same case and the second letter will always be after the first alphabetically).
 function gimmeTheLetters(spectrum) {
   const result = []
-	for (let i = spectrum.charCodeAt(0); i <= spectrum.charCodeAt(2); i++){
+  for (let i = spectrum.charCodeAt(0); i <= spectrum.charCodeAt(2); i++) {
     result.push(String.fromCharCode(i))
   }
   return result.join('')
@@ -359,7 +361,7 @@ function gimmeTheLetters(spectrum) {
 // Notes
 // N/A
 function removeRepeats(str) {
-	return [...str].filter((ele, idx , arr) => arr[idx + 1] == ele ? '' : ele).join('')
+  return [...str].filter((ele, idx, arr) => arr[idx + 1] == ele ? '' : ele).join('')
 }
 // Create a function that takes a word and extends all vowels by a number num.
 // Examples
@@ -370,7 +372,7 @@ function removeRepeats(str) {
 // Return "invalid" if num isn't 0 or a positive integer.
 function extendVowels(word, num) {
   if (num % 1 !== 0 || num < 0) return 'invalid'
-	return [...word].map(ele => 'AEIOUaeiou'.includes(ele) ? ele + ele.repeat(num) : ele).join('')
+  return [...word].map(ele => 'AEIOUaeiou'.includes(ele) ? ele + ele.repeat(num) : ele).join('')
 }
 // Create a function that takes a number n (integer greater than zero) as an argument, and returns 2 if n is odd and 8 if n is even.
 // You can only use the following arithmetic operators: addition of numbers +, subtraction of numbers -, multiplication of number *, division of number /, and exponentiation **.
@@ -382,7 +384,7 @@ function extendVowels(word, num) {
 // Notes
 // N/A
 function f(n) {
-	return n % 2 == 1 ? 2 : 8
+  return n % 2 == 1 ? 2 : 8
 }
 // Create a function addLetters that takes a list/array of letters a, and returns the "sum" of them.
 // To add two letters, take their number value, add them together, and convert it back together. For example, a would be 1, b would be 2, etc. So to add b and c, take 2 + 3 = 5, and then get the fifth letter of the alphabet (e).
@@ -417,7 +419,7 @@ function addLetters(a) {
 // Notes
 // If two numbers have the same number of digits, return them in the order they first appeared (this makes it different to just sorting the numbers normally).
 function numberLenSort(arr) {
-	return arr.sort((a, b) => ('' + a).length - ('' + b).length)
+  return arr.sort((a, b) => ('' + a).length - ('' + b).length)
 }
 // Create a function that takes a string containing integers as well as other characters and return the sum of the negative integers only.
 // Examples
@@ -428,7 +430,7 @@ function numberLenSort(arr) {
 // Notes
 // There is at least one negative integer.
 function negativeSum(chars) {
-	return chars.match(/-\d{0,2}/g).reduce((cur, acc) => cur + +acc, 0)
+  return chars.match(/-\d{0,2}/g).reduce((cur, acc) => cur + +acc, 0)
 }
 // Create a class named User and create a way to check the number of users (number of instances) were created, so that the value can be accessed as a class attribute.
 // Examples
@@ -445,14 +447,14 @@ function negativeSum(chars) {
 // Notes
 // Feel free to check out the resources provided in the Resources tab for some helpful information on JavaScript classes!
 class User {
-	static userCount = 0
-	constructor(username) {
-		this.username = username
-		this.userCount = ++User.userCount
-	}
-	getUserName() {
-		return this.username
-	}
+  static userCount = 0
+  constructor(username) {
+    this.username = username
+    this.userCount = ++User.userCount
+  }
+  getUserName() {
+    return this.username
+  }
 }
 // Create a function that divides a string into parts of size n.
 // Examples
@@ -476,7 +478,7 @@ function partition(str, n) {
 // Notes
 // Return "invalid" if division by zero.
 function validDivision(d) {
-	const nums = d.split('/')
+  const nums = d.split('/')
   if (nums[1] == 0) return 'invalid'
   return nums[0] / nums[1] % 1 == 0
 }
@@ -490,7 +492,7 @@ function validDivision(d) {
 // Notes
 // N/A
 function checkSum(arr, n) {
-	return arr.some(ele => arr.includes(n - ele))
+  return arr.some(ele => arr.includes(n - ele))
 }
 // Create a function that takes both a string and an array of numbers as arguments. Rearrange the letters in the string to be in the order specified by the index numbers. Return the "remixed" string.
 // Examples
@@ -518,7 +520,7 @@ function remix(str, arr) {
 //     Arrays are zero-indexed.
 //     Values in the array will be value-types (don't need to worry about nested arrays).
 function getIndices(arr, el) {
-	return arr.map((ele, idx) => ele == el ? idx : null).filter(ele => ele !== null)
+  return arr.map((ele, idx) => ele == el ? idx : null).filter(ele => ele !== null)
 }
 // Given an array of integers, return the largest gap between elements of the sorted version of that array.
 // Here's an illustrative example. Consider the array:
@@ -540,7 +542,7 @@ function getIndices(arr, el) {
 // N/A
 function largestGap(arr) {
   let tmp
-	for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     for (let ii = i + 1; ii < arr.length; ii++) {
       if (arr[i] > arr[ii]) {
         tmp = arr[i]
@@ -562,7 +564,7 @@ function largestGap(arr) {
 //     The output string must always be lowercase, but the input str may not be (see examples).
 //     Bonus points for submitting a lambda function or a one-liner solution..
 function indexFilter(idx, str) {
-	return idx.map((ele) => ele >= 0 ? str[ele] : str[str.length + ele]).join('').toLowerCase()
+  return idx.map((ele) => ele >= 0 ? str[ele] : str[str.length + ele]).join('').toLowerCase()
 }
 // In cricket, an over consists of six deliveries a bowler bowls from one end. Create a function that takes the number of balls nBalls bowled by a bowler and calculates the number of overs bowled by him/her.
 // Examples
@@ -575,7 +577,7 @@ function indexFilter(idx, str) {
 // Notes
 // The number following the decimal point represents the balls remaining after the last over. Therefore, it will only ever have a value of 1-5.
 function totalOvers(nBalls) {
-	return ~~(nBalls / 6) + ((nBalls / 6 % 1) * 0.6)
+  return ~~(nBalls / 6) + ((nBalls / 6 % 1) * 0.6)
 }
 // Given an array of numbers, of any length, create a function which counts how many of those numbers pass the following criterea:
 //     The first and last digits of a number must add to 10.
@@ -588,7 +590,7 @@ function totalOvers(nBalls) {
 //     Ignore negative signs (see example #2).
 //     If given an empty array, return 0.
 function endsAddTo10(nums) {
-	return nums.filter(ele => {
+  return nums.filter(ele => {
     let numStr = '' + Math.abs(ele)
     return +numStr[0] + +numStr.slice(-1) == 10
   }).length
@@ -613,7 +615,7 @@ function mostExpensive(obj) {
   for (let key in obj) {
     if (obj[key] == Math.max(...Object.values(obj))) mostExpensive = key
   }
-	return `The most expensive one is the ${mostExpensive}`
+  return `The most expensive one is the ${mostExpensive}`
 }
 // Given a number, return a string which is formatted into US Dollars and cents!
 // Remember that:
@@ -629,9 +631,9 @@ function mostExpensive(obj) {
 //     Check the Resources tab for many tutorials on how to approach string formatting.
 function dollaDollaBills(money) {
   if (money == 1000000) return "$1,000,000.00"
-	if (money == 10) return "$10.00"
-	const formattedNum = +money.toFixed(2)
-	return money > 0 ? `$${formattedNum.toLocaleString()}` : `-$${(formattedNum * -1).toLocaleString()}`
+  if (money == 10) return "$10.00"
+  const formattedNum = +money.toFixed(2)
+  return money > 0 ? `$${formattedNum.toLocaleString()}` : `-$${(formattedNum * -1).toLocaleString()}`
 }
 // It's the police again. They need more signatures. You should also sign each room list separately. However, the document they sent is incomplete as there is only one room present. As a good citizen that you are, you sign it nevertheless.
 // This challenge is a bit different as the function you are given already contains some code that you should not change or remove. Also, don't use a return statement, it is already included.
@@ -672,7 +674,7 @@ const obj = {
     stereo: 200,
     signature: ""
   },
-signature: "Rocky Balboa"
+  signature: "Rocky Balboa"
 }
 function signAgain(obj) {
   Object.freeze(obj)
@@ -680,7 +682,7 @@ function signAgain(obj) {
   obj.signature = "Terminator"
   obj.extraProperty = "not possible"
   obj.kitchen.piano = 1000
-	obj.kitchen.signature = "Rocky Balboa"
+  obj.kitchen.signature = "Rocky Balboa"
   return obj
 }
 // Create a function that takes a string and checks if every single character is preceded and followed by a character based on the english alphabet. Example: "c" should be preceded by "b" and followed by "d" (bcd === true).
@@ -694,7 +696,7 @@ function signAgain(obj) {
 // Notes
 // All test cases will be in lower case.
 function neighboring(str) {
-	return [...str].every((letter, idx, arr) => arr[idx + 1] ? Math.abs(letter.charCodeAt(0) - arr[idx + 1].charCodeAt(0)) == 1 : Math.abs(letter.charCodeAt(0) - arr[idx - 1].charCodeAt(0)) == 1)
+  return [...str].every((letter, idx, arr) => arr[idx + 1] ? Math.abs(letter.charCodeAt(0) - arr[idx + 1].charCodeAt(0)) == 1 : Math.abs(letter.charCodeAt(0) - arr[idx - 1].charCodeAt(0)) == 1)
 }
 // Create a function that takes a string and returns a string ordered by the length of the words. From shortest to longest word. If there are words with the same amount of letters, order them alphabetically.
 // Examples
@@ -704,7 +706,7 @@ function neighboring(str) {
 // Notes
 // Punctuation (periods, commas, etc) belongs to the word in front of it.
 function sortByLength(str) {
-	return str.split(' ').sort((a, b) => a.length - b.length || a.localeCompare(b, undefined, {sensitivity: 'base'})).join(' ')
+  return str.split(' ').sort((a, b) => a.length - b.length || a.localeCompare(b, undefined, { sensitivity: 'base' })).join(' ')
 }
 // Given a string, return a sorted array of words formed from the first three letters, then the next three letters, shifting by only one.
 // Worked Example
@@ -722,9 +724,9 @@ function sortByLength(str) {
 // Notes
 // Return an empty array if given a word with less than 3 letters.
 function threeLetterCollection(s) {
-	return [...s].map((ele, idx, arr) => arr[idx + 2] ? ele + arr[idx + 1] + arr[idx + 2] : null)
-               .filter(ele => ele)
-               .sort()
+  return [...s].map((ele, idx, arr) => arr[idx + 2] ? ele + arr[idx + 1] + arr[idx + 2] : null)
+    .filter(ele => ele)
+    .sort()
 }
 // Create a function that takes an integer n and returns multiplication table of 1 to n numbers up to nth multiple.
 // Examples
@@ -749,7 +751,7 @@ function threeLetterCollection(s) {
 function multTable(n) {
   let arr = []
   for (let i = 1; i <= n; i++) {
-    arr.push(Array.from({length: n}, (_, x) => i + (i * x)))
+    arr.push(Array.from({ length: n }, (_, x) => i + (i * x)))
   }
   return arr
 }
@@ -793,7 +795,7 @@ function amountFib(n) {
 // Notes
 // N/A
 function zipIt(women, men) {
-	if (women.length !== men.length) return "sizes don't match"
+  if (women.length !== men.length) return "sizes don't match"
   return women.map((ele, idx) => [ele, men[idx]])
 }
 // Create a function that will remove the letters "a", "b" and "c" from the given string and return the modified version. If the given string does not contain "a", "b", or "c", return null.
@@ -805,7 +807,7 @@ function zipIt(women, men) {
 // If the given string does not contain "a", "b", or "c", return null.
 function removeABC(str) {
   if (!str.match(/[abc]/g)) return null
-	return str.replace(/[abc]/g, '')
+  return str.replace(/[abc]/g, '')
 }
 // Create a function to return the Nth number in the Fibonacci sequence as a string.
 // Examples
@@ -846,7 +848,7 @@ function getMissingLetters(s) {
 // Notes
 // ^ in the context of this challenge means "to the power of", also known as the "exponent" operator.
 function derivative(b, m) {
-	return b * m ** (b - 1)
+  return b * m ** (b - 1)
 }
 // An array that represents a Binary Tree is in the following form:
 // binaryTree = [val, arrLeft, arrRight]
@@ -870,7 +872,7 @@ function derivative(b, m) {
 // Notes
 // The tree will contain integers only and will be presented by an array in the specified format.
 function valueInTree(tree, val) {
-	return tree.flat(Infinity).includes(val)
+  return tree.flat(Infinity).includes(val)
 }
 // A snail goes up the stairs. Every step, he must go up the step, then go across to the next step. He wants to reach the top of the tower.
 // Write a function that returns the distance the snail must travel to the top of the tower given the height and length of each step and the height of the tower.
@@ -885,7 +887,7 @@ function valueInTree(tree, val) {
 //     Number of steps determined by tower height divided by stair height.
 //     For the purposes of this exercise, the last step's length must be counted to complete the journey.
 function totalDistance(height, length, tower) {
-	return +((tower / height) * (height + length)).toFixed(1)
+  return +((tower / height) * (height + length)).toFixed(1)
 }
 // Write a DECIMATOR function which takes a string and decimates it (i.e. it removes the last 1/10 of the characters).
 // Always round up: if the string has 21 characters, 1/10 of the characters would be 2.1 characters, hence the DECIMATOR removes 3 characters. The DECIMATOR shows no mercy!
@@ -901,7 +903,7 @@ function totalDistance(height, length, tower) {
 // Notes
 // Make sure to remove characters from the end of the string.
 function DECIMATOR(str) {
-	return str.length == 10 ? str.slice(0, -1) : str.slice(0, (str.length / 10 | 0) * -1 - 1)
+  return str.length == 10 ? str.slice(0, -1) : str.slice(0, (str.length / 10 | 0) * -1 - 1)
 }
 // Create a function that takes an integer and returns it as an ordinal number. An Ordinal Number is a number that tells the position of something in a list, such as 1st, 2nd, 3rd, 4th, 5th, etc.
 // Examples
@@ -913,7 +915,7 @@ function DECIMATOR(str) {
 // Notes
 // Check the Resources tab for more info on ordinal numbers.
 function returnEndOfNumber(num) {
-	const obj = {1: '-ST', 2: '-ND', 3: '-RD', 11: '-TH', 12: '-TH', 13: '-TH' }
+  const obj = { 1: '-ST', 2: '-ND', 3: '-RD', 11: '-TH', 12: '-TH', 13: '-TH' }
   const lastTwo = ('' + num).slice(-2)
   if (obj[lastTwo]) return num + obj[lastTwo]
   return obj[lastTwo.slice(-1)] ? num + obj[lastTwo.slice(-1)] : num + '-TH'
@@ -928,7 +930,7 @@ function returnEndOfNumber(num) {
 //     Consider a month has 30 days.
 //     Wash your hands.
 function washHands(N, nM) {
-	return `${21 * N * nM * 30 / 60 | 0} minutes and ${(21 * N * nM * 30 / 60) % 1 * 60} seconds`
+  return `${21 * N * nM * 30 / 60 | 0} minutes and ${(21 * N * nM * 30 / 60) % 1 * 60} seconds`
 }
 // Your stereotypical titleCase() function in JavaScript might capitalises the first letter of every word in a given sentence, leaving all the other letters as lowercase.
 // The goal of this challenge, however, is to create a reverseTitle() function, which achieves the complete opposite! Make the first letter of every word lowercase, and the rest uppercase!
@@ -951,7 +953,7 @@ function lettersOnly(str) {
 // Notes
 // 1 is not a prime number.
 function allPrime(nums) {
-	return nums.every(ele => {
+  return nums.every(ele => {
     if (ele < 2) return false
     for (let i = 2; i < ele; i++) {
       if (ele % i === 0) return false
@@ -968,7 +970,7 @@ function allPrime(nums) {
 // Notes
 // Your answer should be rounded to two decimal places.
 function dis(price, discount) {
-	return +(price - price * discount * 0.01).toFixed(2)
+  return +(price - price * discount * 0.01).toFixed(2)
 }
 // Write a program that takes a temperature input in celsius and converts it to Fahrenheit and Kelvin. Return the converted temperature values in an array.
 // The formula to calculate the temperature in Fahrenheit from Celsius is:
@@ -986,7 +988,7 @@ function dis(price, discount) {
 //     Return "Invalid" if K is less than 0.
 function tempConversion(celsius) {
   if (+(celsius + 273.15).toFixed(2) < 0) return 'Invalid'
-	return [+(celsius * 9 / 5 + 32).toFixed(2), +(celsius + 273.15).toFixed(2)]
+  return [+(celsius * 9 / 5 + 32).toFixed(2), +(celsius + 273.15).toFixed(2)]
 }
 // In this challenge you will receive an input of the form:
 // [[[[[[[[[[[]]]]]]]]]]]
@@ -1011,7 +1013,7 @@ function measureDepth(arr) {
 // Notes
 // There is a formula for the nth tetrahedral number.
 function tetra(n) {
-	return (n * (n + 1) * (n + 2)) / 6
+  return (n * (n + 1) * (n + 2)) / 6
 }
 // POV: You are in an exam and time has just run out. While the teacher's back is turned, you hastily take the opportunity to finish scribbling down the last few words of the conclusion.
 // For this challenge, it takes 0.5 seconds to write a character (not including spaces). Given the full sentence and the unfinished sentence as inputs, return the time it takes to finish writing in seconds.
@@ -1041,7 +1043,7 @@ function tetra(n) {
 // Notes
 // The unfinished sentence is always found at the start of a complete sentence.
 function timeToFinish(full, part) {
-	return ([...full].filter(ele => ele !== ' ').length - [...part].filter(ele => ele !== ' ').length) / 2
+  return ([...full].filter(ele => ele !== ' ').length - [...part].filter(ele => ele !== ' ').length) / 2
 }
 // Given an array nums where each integer is between 1 and 100, return another array containing only duplicate numbers from the given nums array.
 // Examples
@@ -1053,7 +1055,7 @@ function timeToFinish(full, part) {
 function duplicateNums(nums) {
   // const dups = [...new Set(nums.filter(ele => nums.indexOf(ele) !== nums.lastIndexOf(ele)))]
   // return dups.length !== 0 ? dups : null
-	const obj = {}
+  const obj = {}
   const arr = []
   for (let i = 0; i < nums.length; i++) {
     if (!obj[nums[i]]) obj[nums[i]] = 1
@@ -1086,7 +1088,7 @@ function isDisarium(n) {
 // The value argument will be a number.
 function addName(obj, name, value) {
   obj[name] = value
-	return obj
+  return obj
 }
 // Create a function that takes an old price oldPrice, a new price newPrice, and returns what percent the price decreased or increased. Round the percentage to the nearest whole percent.
 // Examples
@@ -1098,7 +1100,7 @@ function addName(obj, name, value) {
 function percentageChanged(oldPrice, newPrice) {
   const oldPriceNum = +oldPrice.slice(1), newPriceNum = +newPrice.slice(1)
   const pct = (Math.abs(newPriceNum / oldPriceNum - 1) * 100).toFixed(0)
-	return oldPriceNum < newPriceNum ? `${pct}% increase` : `${pct}% decrease`
+  return oldPriceNum < newPriceNum ? `${pct}% increase` : `${pct}% decrease`
 }
 // Write a class called Name and create the following attributes given a first name and last name (as fname and lname):
 //     An attribute called fullname which returns the first and last names.
