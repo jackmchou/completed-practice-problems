@@ -34,7 +34,6 @@ function countTowers(towers) {
   return towerBase.length;
 }
 
-
 // ---------------------------------------------------------------
 
 // Create a function that takes a number as an argument. Add up all the numbers from 1 to the number you passed to the function. For example, if the input is 4 then your function should return 10 because 1 + 2 + 3 + 4 = 10.
@@ -58,3 +57,23 @@ function addUp(num) {
   return sum;
 }
 addUp(4);
+
+// ------------------------------------------------------------
+// Create a function that returns true when num1 is equal to num2.
+// Examples
+
+// isSameNum(4, 8) ➞ false
+
+// isSameNum(2, 2) ➞  true
+
+// isSameNum(2, "2") ➞ false
+
+// Notes
+
+// Don't forget to return the result.
+
+function isSameNum(num1, num2) {
+	return num1 === num2 ? true : false;
+}
+
+// --------------------------------------------------------------
