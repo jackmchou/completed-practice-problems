@@ -92,3 +92,9 @@ function isSameNum(num1, num2) {
 //     If you get stuck on a challenge, find help in the Resources tab.
 //     If you're really stuck, unlock solutions in the Solutions tab.
 
+function addition(num) {
+	var result = 0;
+	return result = num += 1;
+}
+
+// -----------------------------------------------------
