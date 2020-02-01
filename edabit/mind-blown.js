@@ -138,3 +138,10 @@ function howManySeconds(hours) {
 
 // The sum of angles of any triangle is always 180 degrees.
 
+function missingAngle(angle1, angle2) {
+	let angles = angle1 + angle2;
+	return angles === 90 ? "right"
+	: angles > 90 ? "acute" 
+	: angles < 90 ? "obtuse"
+	: null;
+}
