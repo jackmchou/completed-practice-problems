@@ -331,3 +331,25 @@ function acceptedWords(arr) {
 // Notes
 
 // Your function should return a function, not a string.
+
+function redundant(str) {
+	return () => {return str;};
+}
+
+//---------------------------------------------------
+// Create a function that returns the original value from a matrix with too many sub-arrays.
+// Examples
+
+// deNest([[[[[[[[[[[[3]]]]]]]]]]]]) ➞ 3
+
+// deNest([[[[[[[true]]]]]]]) ➞ true
+
+// deNest([[[[[[[[[[[[[[[[["edabit"]]]]]]]]]]]]]]]]]) ➞ "edabit"
+
+// Notes
+
+// You only need to retrieve one element.
+
+function deNest(arr) {
+	return arr.flat(Infinity)[0];
+}
