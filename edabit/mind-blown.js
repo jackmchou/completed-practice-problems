@@ -193,3 +193,8 @@ function isTruthy(input) {
 
 // You can expect valid strings for all test cases.
 
+function isFourLetters(arr) {
+	return arr.filter(i => i.length === 4);
+}
+
+// --------------------------------------------------------
