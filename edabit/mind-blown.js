@@ -293,3 +293,7 @@ function getEquivalent(note) {
 // Notes
 
 // Note the strict inequality (see example #3).
+
+function canNest(arr1, arr2) {
+	return Math.min(...arr1) > Math.min(...arr2) && Math.max(...arr1) < Math.max(...arr2) ? true : false; 
+}
