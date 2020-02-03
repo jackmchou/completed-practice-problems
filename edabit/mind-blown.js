@@ -353,3 +353,46 @@ function redundant(str) {
 function deNest(arr) {
 	return arr.flat(Infinity)[0];
 }
+
+// ----------------------------------------------------
+// Create a function that takes an array of numbers and return the first and last elements as a new array.
+// Examples
+
+// firstLast([5, 10, 15, 20, 25]) ➞ [5, 25]
+
+// firstLast(["edabit", 13, null, false, true]) ➞ ["edabit", true]
+
+// firstLast([undefined, 4, "6", "hello", null]) ➞ [undefined, null]
+
+// Notes
+
+//     Test input will always contain a minimum of two elements within the array.
+//     Don't forget to return the result.
+//     If you get stuck on a challenge, find help in the Resources tab.
+//     If you're really stuck, unlock solutions in the Solutions tab.
+
+function firstLast(arr) {
+	return [arr.shift(), arr.pop()];
+}
+
+//--------------------------------------------------------
+// Create a function that takes two numbers as arguments (num, length) and returns an array of multiples of num up to length.
+// Examples
+
+// arrayOfMultiples(7, 5) ➞ [7, 14, 21, 28, 35]
+
+// arrayOfMultiples(12, 10) ➞ [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
+
+// arrayOfMultiples(17, 6) ➞ [17, 34, 51, 68, 85, 102]
+
+// Notes
+
+// Notice that num is also included in the returned array.
+
+function arrayOfMultiples (num, length) {
+	let arr = [];
+	for (i = 1; i <= length; i++) {
+		arr.push(num * i);
+	}
+	return arr;
+}
