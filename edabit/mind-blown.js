@@ -1,3 +1,39 @@
+// Write a function that converts an object into an array, where each element represents a key-value pair.
+// Examples
+
+// toArray({ a: 1, b: 2 }) ➞ [["a", 1], ["b", 2]]
+
+// toArray({ shrimp: 15, tots: 12 }) ➞ [["shrimp", 15], ["tots", 12]]
+
+// toArray({}) ➞ []
+
+// Notes
+
+// Return an empty array if the object is empty.
+
+
+
+// -----------------------------------------------------------
+// Return the total number of arrays inside a given array.
+// Examples
+
+// numOfSubbarrays([[1, 2, 3]]) ➞ 1
+
+// numOfSubbarrays([[1, 2, 3], [1, 2, 3], [1, 2, 3]]) ➞ 3
+
+// numOfSubbarrays([[1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3]]) ➞ 4
+
+// numOfSubbarrays([1, 2, 3]) ➞ 0
+
+// Notes
+
+// N/A
+
+function numOfSubbarrays(arr) {
+	return Array.isArray(arr[0]) ? arr.length : 0;
+}
+
+//-------------------------------------------------------
 // Create a function that counts the number of towers.
 // Examples
 
