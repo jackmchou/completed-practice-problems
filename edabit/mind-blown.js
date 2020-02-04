@@ -10,7 +10,9 @@
 // Notes
 
 // Return an empty array if the object is empty.
-
+function toArray(obj) {
+	return Object.entrieso(obj);
+}
 
 
 // -----------------------------------------------------------
