@@ -1,3 +1,22 @@
+//---------------------------------------------------------------
+// Write a regular expression that matches only an even number. Numbers will be presented as strings.
+// Examples
+
+// "2341" ➞ false
+
+// "132" ➞ true
+
+// "29" ➞ false
+
+// "5578" ➞ true
+
+// Notes
+
+// This challenge is designed to use Regex only.
+
+let x = /^\d*[02468]$/;
+
+//-------------------------------------------------------
 // Given a word, write a function that returns the first index and the last index of a character.
 // Examples
 
