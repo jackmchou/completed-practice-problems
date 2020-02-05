@@ -1,3 +1,45 @@
+// A value is omnipresent if it exists in every subarray inside the main array.
+
+// To illustrate:
+
+// [[3, 4], [8, 3, 2], [3], [9, 3], [5, 3], [4, 3]]
+// // 3 exists in every element inside this array, so is omnipresent.
+
+// Create a function that determines whether an input value is omnipresent for a given array.
+// Examples
+
+// isOmnipresent([[1, 1], [1, 3], [5, 1], [6, 1]], 1) ➞ true
+
+// isOmnipresent([[1, 1], [1, 3], [5, 1], [6, 1]], 6) ➞ false
+
+// isOmnipresent([[5], [5], [5], [6, 5]], 5) ➞ true
+
+// isOmnipresent([[5], [5], [5], [6, 5]], 6) ➞ false
+
+// Notes
+
+// Sub-arrays can be any length.
+
+
+
+//------------------------------------------------------
+// Create a function that takes an array of numbers and return "Boom!" if the number 7 appears in the array. Otherwise, return "there is no 7 in the array".
+// Examples
+
+// sevenBoom([1, 2, 3, 4, 5, 6, 7]) ➞ "Boom!"
+
+// sevenBoom([8, 6, 33, 100]) ➞ "there is no 7 in the array"
+
+// sevenBoom([2, 55, 60, 97, 86]) ➞ "Boom!"
+
+// Notes
+
+// N/A
+
+function sevenBoom(arr) {
+	return /7/.test(arr) ? 'Boom!' : 'there is no 7 in the array';
+}
+
 //----------------------------------------------------------
 // A set is a collection of unique items. A set can be formed from an array from removing all duplicate items.
 
