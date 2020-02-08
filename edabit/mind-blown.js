@@ -21,7 +21,9 @@
 //     Ignore all other arrays in the matrix if a throw happens to be doubles and go straight to returning 0.
 //     John only has two dice and will always give you outcomes for three rounds.
 
-
+function diceGame(arr) {
+	return arr.every(i => i[0] !== i[1]) ? arr.flat(Infinity).reduce((acc,cur) => acc + cur) : 0;
+}
 
 //--------------------------------------------------------------------------
 // Create a function that takes an array of numbers and returns only the even values.
