@@ -1,3 +1,21 @@
+// Sam and Frodo need to be close. If they are side by side in the array, your function should return true. If there is a name between them, return false.
+// Examples
+
+// middleEarth(["Frodo", "Sam", "Gandalf"]) ➞ true
+
+// middleEarth(["Frodo", "Saruman", "Sam"]) ➞ false
+
+// middleEarth(["Orc", "Sam", "Frodo", "Legolas"]) ➞ true
+
+// Notes
+
+//     No matter who comes first, the result must be true if Frodo and Sam are side by side.
+//     There is only one Sam and one Frodo in the array.
+
+function middleEarth(arr) {
+	return Math.abs(arr.indexOf('Sam') - arr.indexOf('Frodo')) === 1;
+}
+
 // Throughout the 12 days of Christmas, my true love gave me in total 364 items.
 
 // Create a function where given n days as an argument, return the total amount of items received throughout those days as an integer.
