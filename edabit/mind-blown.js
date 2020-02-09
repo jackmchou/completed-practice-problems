@@ -16,7 +16,9 @@
 //     0 as input should return 0.
 //     Look the specific links into the Resources tab for more informations.
 
-
+function xmasItems(n) {
+	return (n * (n + 1) * (n + 2)) / 6;
+}
 
 // John is playing a dice game. The rules are as follows.
 
