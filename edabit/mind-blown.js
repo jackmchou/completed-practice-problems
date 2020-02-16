@@ -1,3 +1,30 @@
+// Write a function that checks if two numbers are:
+
+//     Smaller than 0
+//     Greater than 0
+//     Exactly 0
+
+// Examples
+
+// both(6, 2) ➞ true
+
+// both(0, 0) ➞ true
+
+// both(-1, 2) ➞ false
+
+// both(0, 2) ➞ false
+
+// Notes
+
+// Inputs will always be two numbers.
+
+function both(n1, n2) {
+	return n1 || n2 > 0 ? true
+	: n1 || n2 < 0 ? true
+	: n1 || n2 === 0 ? true
+	: false;
+}
+
 // Create a function that takes in a year and returns the correct century.
 // Examples
 
