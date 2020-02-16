@@ -1,3 +1,24 @@
+// Create a function that counts the number of syllables a word has. Each syllable is separated with a dash -.
+// Examples
+
+// numberSyllables("buf-fet") ➞ 2
+
+// numberSyllables("beau-ti-ful") ➞ 3
+
+// numberSyllables("mon-u-men-tal") ➞ 4
+
+// numberSyllables("on-o-mat-o-poe-ia") ➞ 6
+
+// Notes
+
+//     Don't forget to return the result.
+//     If you get stuck on a challenge, find help in the Resources tab.
+//     If you're really stuck, unlock solutions in the Solutions tab.
+
+function numberSyllables(word) {
+	return word.split('-').length
+}
+
 // Your function will be passed two functions, f and g, that don't take any parameters. Your function has to call them, and return a string which indicates which function returned the larger number.
 
 //     If f returns the larger number, return the string f.
