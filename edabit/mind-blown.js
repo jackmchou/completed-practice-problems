@@ -1,3 +1,20 @@
+// Write a function, .vreplace() that extends the String prototype by replacing all vowels in a string with a specified vowel.
+// Examples
+
+// "apples and bananas".vreplace("u") ➞ "upplus und bununus"
+
+// "cheese casserole".vreplace("o") ➞ "chooso cossorolo"
+
+// "stuffed jalapeno poppers".vreplace("e") ➞ "steffed jelepene peppers"
+
+// Notes
+
+// Words will be lowercased.
+
+String.prototype.vreplace = function(vowel) {
+	return this.replace(/[aeiou]/g, vowel);
+}
+
 // Write a function that checks if two numbers are:
 
 //     Smaller than 0
@@ -19,10 +36,7 @@
 // Inputs will always be two numbers.
 
 function both(n1, n2) {
-	return n1 || n2 > 0 ? true
-	: n1 || n2 < 0 ? true
-	: n1 || n2 === 0 ? true
-	: false;
+	return Math.sign(n1) === Math.sign(n2) ? true : false
 }
 
 // Create a function that takes in a year and returns the correct century.
