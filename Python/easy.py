@@ -1,21 +1,27 @@
-# Create a function that takes two numbers as arguments and return their sum.
+# Create a function that takes a number as an argument, increments the number by +1 and returns the result.
 # Examples
-
-# addition(3, 2) ➞ 5
-
-# addition(-3, -6) ➞ -9
-
-# addition(7, 3) ➞ 10
-
+# addition(0) ➞ 1
+# addition(9) ➞ 10
+# addition(-3) ➞ -2
 # Notes
-
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
 
+def addition(num):
+	return num + 1
+
+# Create a function that takes two numbers as arguments and return their sum.
+# Examples
+# addition(3, 2) ➞ 5
+# addition(-3, -6) ➞ -9
+# addition(7, 3) ➞ 10
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
 def addition(a, b):
 	return a + b
-
 # Create a function that takes a list and returns the difference between the biggest and smallest numbers.
 # Examples
 # difference_max_min([10, 4, 1, 4, -10, -50, 32, 21]) ➞ 82
