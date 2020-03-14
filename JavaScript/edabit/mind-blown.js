@@ -1,3 +1,91 @@
+// Given an array of math expressions, create a function which sorts the array by their answer. It should be sorted in ascending order.
+// Examples
+
+// sortByAnswer(["1 + 1", "1 + 7", "1 + 5", "1 + 4"]) ➞ ["1 + 1", "1 + 4", "1 + 5", "1 + 7"]
+
+// sortByAnswer(["4 - 4", "2 - 2", "5 - 5", "10 - 10"]) ➞ ["4 - 4", "2 - 2", "5 - 5", "10 - 10"]
+
+// sortByAnswer(["2 + 2", "2 - 2", "2 x 1"]) ➞ ["2 - 2", "2 x 1", "2 + 2"]
+
+// Notes
+
+//     If multiple expressions have the same answer, put them in the order of which they appear (see example #2).
+//     You won't need to worry about divisions by zero.
+
+function sortByAnswer(arr) {
+  for (var i = 0; i < arr.length; i++) {
+      console.log(arr[i]);
+  }
+//   arr.sort((ele1, ele2)=> eval(ele1) - eval(ele2))
+}
+
+// Create the function that takes an array with objects and returns the sum of people's budgets.
+// Examples
+
+// getBudgets([
+//   { name: "John", age: 21, budget: 23000 },
+//   { name: "Steve",  age: 32, budget: 40000 },
+//   { name: "Martin",  age: 16, budget: 2700 }
+// ]) ➞ 65700
+
+// getBudgets([
+//   { name: "John",  age: 21, budget: 29000 },
+//   { name: "Steve",  age: 32, budget: 32000 },
+//   { name: "Martin",  age: 16, budget: 1600 }
+// ]) ➞ 62600
+
+// Notes
+
+// N/A
+
+function getBudgets(arr) {
+	return arr.reduce((acc, cur) => acc + cur.budget, 0);
+}
+
+// Write a function that converts an object into an array of keys and values.
+// Examples
+
+// objectToArray({
+//   D: 1,
+//   B: 2,
+//   C: 3
+// }) ➞ [["D", 1], ["B", 2], ["C", 3]]
+
+// objectToArray({
+//   likes: 2,
+//   dislikes: 3,
+//   followers: 10
+// }) ➞ [["likes", 2], ["dislikes", 3], ["followers", 10]]
+// Notes
+// N/A
+
+function objectToArray(obj) {
+	const newArr = []
+	for (const key in obj) {
+		newArr.push([key , obj[key]])
+	}
+	return newArr
+}
+
+// Create a function that concatenates n input arrays, where n is variable.
+// Examples
+
+// concat([1, 2, 3], [4, 5], [6, 7]) ➞ [1, 2, 3, 4, 5, 6, 7]
+
+// concat([1], [2], [3], [4], [5], [6], [7]) ➞ [1, 2, 3, 4, 5, 6, 7]
+
+// concat([1, 2], [3, 4]) ➞ [1, 2, 3, 4]
+
+// concat([4, 4, 4, 4, 4]) ➞ [4, 4, 4, 4, 4]
+
+// Notes
+
+// Arrays should be concatenated in order of the arguments.
+
+function concat(...args) {
+	return [...args].flat()
+}
+
 // Create a function that takes in two arrays and returns true if the second array follows the first array by one element, and false otherwise. In other words, determine if the second array is the first array shifted to the right by 1.
 // Examples
 // simonSays([1, 2], [5, 1]) ➞ true
@@ -8,7 +96,14 @@
 //     Both input arrays will be of the same length, and will have a minimum length of 2.
 //     The values of the 0-indexed element in the first array and the n-1th indexed element in the second array do not matter.
 
-
+function simonSays(arr1, arr2) {
+	for (let index = 0; index < arr1.length - 1; index++) {
+		if (arr1[index] !== arr2[index + 1]) {
+			return false
+		}
+	}
+	return true
+}
 
 // Create a function that counts the number of syllables a word has. Each syllable is separated with a dash -.
 // Examples
