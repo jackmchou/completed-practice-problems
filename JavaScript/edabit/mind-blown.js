@@ -19,6 +19,46 @@ function sortByAnswer(arr) {
 //   arr.sort((ele1, ele2)=> eval(ele1) - eval(ele2))
 }
 
+// Create a function that takes in a number as a string n and returns the number without trailing and leading zeros.
+
+//     Trailing Zeros are the zeros after a decimal point which don't affect the value (e.g. the last three zeros in 3.4000 and 3.04000).
+//     Leading Zeros are the zeros before a whole number which don't affect the value (e.g. the first three zeros in 000234 and 000230).
+
+// Examples
+
+// removeLeadingTrailing("230.000") ➞ "230"
+
+// removeLeadingTrailing("00402") ➞ "402"
+
+// removeLeadingTrailing("03.1400") ➞ "3.14"
+
+// removeLeadingTrailing("30") ➞ "30"
+
+// Notes
+
+//     Return a string.
+//     If you get a number with .0 on the end, return the integer value (e.g. return "4" rather than "4.0").
+//     If the number is 0, 0.0, 000, 00.00, etc... return "0".
+
+
+
+// Create a function that takes an array of numbers and return both the minimum and maximum numbers, in that order.
+// Examples
+
+// minMax([1, 2, 3, 4, 5]) ➞ [1, 5]
+
+// minMax([2334454, 5]) ➞ [5, 2334454]
+
+// minMax([1]) ➞ [1, 1]
+
+// Notes
+
+// All test arrays will have at least one element and are valid.
+
+function minMax(arr) {
+	return [Math.min(...arr), Math.max(...arr)]
+}
+
 // Create the function that takes an array with objects and returns the sum of people's budgets.
 // Examples
 
