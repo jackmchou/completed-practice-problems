@@ -40,7 +40,50 @@ function sortByAnswer(arr) {
 //     If you get a number with .0 on the end, return the integer value (e.g. return "4" rather than "4.0").
 //     If the number is 0, 0.0, 000, 00.00, etc... return "0".
 
+// Create a function that takes an array of non-negative numbers and strings and return a new array without the strings.
+// Examples
 
+// filterArray([1, 2, "a", "b"]) ➞ [1, 2]
+
+// filterArray([1, "a", "b", 0, 15]) ➞ [1, 0, 15]
+
+// filterArray([1, 2, "aasf", "1", "123", 123]) ➞ [1, 2, 123]
+
+// Notes
+
+// Zero is a non-negative number.
+
+function filterArray(arr) {
+	return arr.filter(ele => typeof ele === 'number');
+}
+
+// Quantifiers indicate numbers of characters or expressions to match. x{n} Where "n" is a positive integer, matches exactly "n" occurrences of the preceding item "x".
+
+// "candy".match(/a{2}/) ➞ null
+// "caandy".match(/a{2}/) ➞ "aa"
+
+// x{n,}
+// Where "n" is a positive integer, matches at least "n" occurrences of the preceding item "x".
+
+// "candy".match(/a{2,}/) ➞ null
+// "caandy".match(/a{2,}/) ➞ "aa" 
+// "caaaaaandy".match(/a{2,}/) ➞ "aaaaaa" 
+
+// x{n,m} Where "n" is 0 or a positive integer, "m" is a positive integer, and m > n, matches at least "n" and at most "m" occurrences of the preceding item "x".
+
+// "cndy".match(/a{1,3}/) ➞ null  
+// "candy".match(/a{1,3}/) ➞ "a" 
+// "caandy".match(/a{1,3}/) ➞ "aa" 
+// "caaaaaaaaaaandy".match(/a{1,3}/) ➞ "aaa" 
+
+// Challenge
+
+//     Create a regexp to find ellipsis: 3 (or more?) dots in a row.
+//     Use one of the 3 quantifiers above in your solution
+
+// "Hello!... Wait. How goes?..... GoodBye!..".match(/REGEXP/g) ➞ "..., ....."
+
+const REGEXP = /[.]{3,}/g
 
 // Create a function that takes an array of numbers and return both the minimum and maximum numbers, in that order.
 // Examples
