@@ -44,6 +44,44 @@ function removeLeadingTrailing(n) {
 	return n.replace(/^0+(\d)|(\d)0+$|(\d)\.0+$/g, '$1$2$3')
 }
 
+// Given a total due and an array representing the amount of change in your pocket, determine whether or not you are able to pay for the item. Change will always be represented in the following order: quarters, dimes, nickels, pennies.
+
+// To illustrate: changeEnough([25, 20, 5, 0], 4.25) should yield true, since having 25 quarters, 20 dimes, 5 nickels and 0 pennies gives you 6.25 + 2 + .25 + 0 = 8.50.
+// Examples
+// changeEnough([2, 100, 0, 0], 14.11) ➞ false
+// changeEnough([0, 0, 20, 5], 0.75) ➞ true
+// changeEnough([30, 40, 20, 5], 12.55) ➞ true
+// changeEnough([10, 0, 0, 50], 3.85) ➞ false
+// changeEnough([1, 0, 5, 219], 19.99) ➞ false
+// Notes
+//     quarter: 25 cents / $0.25
+//     dime: 10 cents / $0.10
+//     nickel: 5 cents / $0.05
+//     penny: 1 cent / $0.01
+
+function changeEnough(change, amountDue) {
+	const q = change[0] * 25
+	const d = change[1] * 10
+	const n = change[2] * 5
+	const p = change[3]
+	const total = [change[0] * 25, change[1] * 10, change[2] * 5, change[3]].reduce((cur, acc) => cur + acc, 0)
+	return total * 0.01 > amountDue
+}
+
+// ES6 Destructuring can come in handy when you use regular expressions. Here is a function that uses a regular expression to parse a URL.
+// const parsedURL = /^(\w+)\:\/\/([^\/]+)\/(.*)$/.exec(url)
+// parseURL("https://developer.mozilla.org/en-US/Web/JavaScript")
+// // returns ["https://developer.mozilla.org/en-US/Web/JavaScript", "https", "developer.mozilla.org", "en-US/Web/JavaScript"]
+// // the protocol = https
+// // the host = developer.mozilla.org
+// // the path = en-US/Web/JavaScript
+// From the parsedURL result you could assign these segments using ES6 array destructuring.
+// Challenge
+//     Assign the variables protocol, host, path inside the brackets of the given string.
+//     Pay close attention to what is being returned from parsedURL, as you will need to skip over any values that are not protocol, host, or path.
+
+const str = `[,protocol,host,path] = parsedURL`
+
 // I'm trying to write a function to flatten an array of subarrays into one array. (Suppose I am unware there is a .flat() method in the Array prototype). In other words, I want to transform this: [[1, 2], [3, 4]] into [1, 2, 3, 4].
 // Here is my code:
 // function flatten(arr) {
