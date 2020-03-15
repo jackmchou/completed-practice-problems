@@ -44,24 +44,55 @@ function removeLeadingTrailing(n) {
 	return n.replace(/^0+(\d)|(\d)0+$|(\d)\.0+$/g, '$1$2$3')
 }
 
+// I'm trying to write a function to flatten an array of subarrays into one array. (Suppose I am unware there is a .flat() method in the Array prototype). In other words, I want to transform this: [[1, 2], [3, 4]] into [1, 2, 3, 4].
+// Here is my code:
+// function flatten(arr) {
+//   arr2 = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     arr2.concat(arr[i]);
+//   }
+//   return arr2;
+// }
+// But...it doesn't seem to be working! Fix my code so that it correctly flattens the array.
+// Examples
+// flatten([[1, 2], [3, 4]]) ➞ []
+// // Expected: [1, 2, 3, 4]
+// flatten([["a", "b"], ["c", "d"]]) ➞ []
+// // Expected: ["a", "b", "c", "d"]
+// flatten([[true, false], [false, false]]) ➞ []
+// // Expected: [true, false, false, false]
+// Notes
+// N/A
+
+function flatten(arr) {
+  arr2 = [];
+  for (let i = 0; i < arr.length; i++) {
+		for (let j = 0; j < arr[i].length; j++) {
+			arr2.push(arr[i][j])
+		}
+  }
+  return arr2; 
+}
+
+
 // Create a function that takes an object and returns the keys and values as separate arrays.
 // Examples
-
 // keysAndValues({ a: 1, b: 2, c: 3 })
 // ➞ [["a", "b", "c"], [1, 2, 3]]
-
 // keysAndValues({ a: "Apple", b: "Microsoft", c: "Google" })
 // ➞ [["a", "b", "c"], ["Apple", "Microsoft", "Google"]]
-
 // keysAndValues({ key1: true, key2: false, key3: undefined })
 // ➞ [["key1", "key2", "key3"], [true, false, undefined]]
-
 // Notes
-
 // N/A
 
 function keysAndValues(obj) {
-	return Object.entries(obj)
+	const keyValArr = [[],[]]
+	for (let [key, value] of Object.entries(obj)) {
+		keyValArr[0].push(key)
+		keyValArr[1].push(value)
+	}
+	return keyValArr;
 }
 
 // Create a function that takes an array of 10 numbers (between 0 and 9) and returns a string of those numbers formatted as a phone number (e.g. (555) 555-5555).
