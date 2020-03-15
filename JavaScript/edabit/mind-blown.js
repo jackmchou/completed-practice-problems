@@ -44,6 +44,26 @@ function removeLeadingTrailing(n) {
 	return n.replace(/^0+(\d)|(\d)0+$|(\d)\.0+$/g, '$1$2$3')
 }
 
+// Create a function that takes an object and returns the keys and values as separate arrays.
+// Examples
+
+// keysAndValues({ a: 1, b: 2, c: 3 })
+// ➞ [["a", "b", "c"], [1, 2, 3]]
+
+// keysAndValues({ a: "Apple", b: "Microsoft", c: "Google" })
+// ➞ [["a", "b", "c"], ["Apple", "Microsoft", "Google"]]
+
+// keysAndValues({ key1: true, key2: false, key3: undefined })
+// ➞ [["key1", "key2", "key3"], [true, false, undefined]]
+
+// Notes
+
+// N/A
+
+function keysAndValues(obj) {
+	return Object.entries(obj)
+}
+
 // Create a function that takes an array of 10 numbers (between 0 and 9) and returns a string of those numbers formatted as a phone number (e.g. (555) 555-5555).
 // Examples
 
