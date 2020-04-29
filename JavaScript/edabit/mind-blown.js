@@ -44,7 +44,27 @@ function removeLeadingTrailing(n) {
 	return n.replace(/^0+(\d)|(\d)0+$|(\d)\.0+$/g, '$1$2$3')
 }
 
- 
+// Create a function that takes in an array (slot machine outcome) and returns true if all elements in the array are identical, and false otherwise. The array will contain 4 elements.
+// Examples
+
+// testJackpot(["@", "@", "@", "@"]) ➞ true
+
+// testJackpot(["abc", "abc", "abc", "abc"]) ➞ true
+
+// testJackpot(["SS", "SS", "SS", "SS"]) ➞ true
+
+// testJackpot(["&&", "&", "&&&", "&&&&"]) ➞ false
+
+// testJackpot(["SS", "SS", "SS", "Ss"]) ➞ false
+
+// Notes
+
+// The elements must be exactly identical for there to be a jackpot.
+
+function testJackpot(result) {
+	const jackPot = new Set(result)
+	return jackPot.size === 1
+}
 
 // Given a total due and an array representing the amount of change in your pocket, determine whether or not you are able to pay for the item. Change will always be represented in the following order: quarters, dimes, nickels, pennies.
 
