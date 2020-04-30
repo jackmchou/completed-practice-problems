@@ -44,6 +44,14 @@ function removeLeadingTrailing (n) {
   return n.replace(/^0+(\d)|(\d)0+$|(\d)\.0+$/g, '$1$2$3')
 }
 
+// Create a function that takes an integer and returns the factorial of that integer. That is, the integer multiplied by all positive lower integers.
+// Examples
+// factorial(3) ➞ 6
+// factorial(5) ➞ 120
+// factorial(13) ➞ 6227020800
+// Notes
+// Assume all inputs are greater than or equal to 0.
+
 // Groups and ranges indicate groups and ranges of expression characters. The regular expression x|y matches either "x" or "y".
 // const REGEXP = /blue|red/
 // "red flag".match(REGEXP)  // red
