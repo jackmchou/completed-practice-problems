@@ -44,13 +44,46 @@ function removeLeadingTrailing (n) {
   return n.replace(/^0+(\d)|(\d)0+$|(\d)\.0+$/g, '$1$2$3')
 }
 
-// Create a function that takes an integer and returns the factorial of that integer. That is, the integer multiplied by all positive lower integers.
-// Examples
-// factorial(3) ➞ 6
-// factorial(5) ➞ 120
-// factorial(13) ➞ 6227020800
-// Notes
-// Assume all inputs are greater than or equal to 0.
+// Create a Book constructor that has two properties :
+
+//     Title
+//     Author
+
+// and two methods:
+
+//     A method named getTitle that returns: "Title: " + the instance title.
+//     A method named getAuthor that returns: "Author: " + the instance author.
+
+// and instantiate this constructor by creating 3 new books:
+
+//     Pride and Prejudice - Jane Austen (PP)
+//     Hamlet - William Shakespeare (H)
+//     War and Peace - Leo Tolstoy (WP)
+
+// Name the new object instances PP, H, and WP, respectively.
+
+// For instance, if I instantiated the following book using this Book constructor function:
+
+//     Harry Potter - J.K. Rowling (HP)
+
+// I would get the following properties and methods:
+
+function Book(title, author) {
+	// Write your properties and methods here
+	this.title = title;
+	this.author = author;
+	this.getTitle = function (title) {
+		return `Title: ${this.title}`
+	}
+	this.getAuthor = function (auhtor) {
+		return `Author: ${this.author}`
+	}
+}
+
+// Instantiate your Book constructor here
+const PP = new Book('Pride and Prejudice', 'Jane Austen' )
+const H = new Book('Hamlet', 'William Shakespeare' )
+const WP = new Book('War and Peace', 'Leo Tolstoy' )
 
 // Groups and ranges indicate groups and ranges of expression characters. The regular expression x|y matches either "x" or "y".
 // const REGEXP = /blue|red/
