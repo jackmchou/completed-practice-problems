@@ -41,7 +41,41 @@ function sortByAnswer (arr) {
 //     If the number is 0, 0.0, 000, 00.00, etc... return "0".
 
 function removeLeadingTrailing (n) {
-  return n.replace(/^0+(\d)|(\d)0+$|(\d)\.0+$/g, '$1$2$3')
+  // return n.replace(/^0+(\d)|(\d)0+$|(\d)\.0+$/g, '$1$2$3')
+}
+
+// In the image below, squares are either empty or filled with a circle.
+// Steps vs Empty Squarest
+// Create a function that takes a number step (which equals HALF the width of a square) and returns the amount of empty squares. The image shows the squares with step 1, 2 and 3. The return value is the number of cells not on a diagonal, which is 0 for the first square, 8 for the second, and 24 for the third.
+// Examples
+// emptySq(1) ➞ 0
+// emptySq(3) ➞ 24
+// emptySq(10) ➞ 360
+// Notes
+//     Test input will always be a positive integer.
+//     The width of the square will always be even.
+
+function emptySq(step) {
+	// return step * (step - 1) / 2
+}
+
+// Create a function that determines whether a number is Oddish or Evenish. A number is Oddish if the sum of all of its digits is odd, and a number is Evenish if the sum of all of its digits is even. If a number is Oddish, return "Oddish". Otherwise, return "Evenish".
+
+// For example, oddishOrEvenish(121) should return "Evenish", since 1 + 2 + 1 = 4. oddishOrEvenish(41) should return "Oddish", since 4 + 1 = 5.
+// Examples
+
+// oddishOrEvenish(43) ➞ "Oddish"
+
+// oddishOrEvenish(373) ➞ "Oddish"
+
+// oddishOrEvenish(4433) ➞ "Evenish"
+
+// Notes
+
+// N/A
+
+function oddishOrEvenish(num) {
+	return num.toString().split('').reduce((a, b) => a + parseInt(b), 0) % 2 === 1 ? 'Oddish' : 'Evenish'
 }
 
 // Create a Book constructor that has two properties :
