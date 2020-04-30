@@ -1,123 +1,66 @@
-// Given an array of math expressions, create a function which sorts the array by their answer. It should be sorted in ascending order.
+// Create a function that returns only strings with unique characters.
 // Examples
-
-// sortByAnswer(["1 + 1", "1 + 7", "1 + 5", "1 + 4"]) ➞ ["1 + 1", "1 + 4", "1 + 5", "1 + 7"]
-
-// sortByAnswer(["4 - 4", "2 - 2", "5 - 5", "10 - 10"]) ➞ ["4 - 4", "2 - 2", "5 - 5", "10 - 10"]
-
-// sortByAnswer(["2 + 2", "2 - 2", "2 x 1"]) ➞ ["2 - 2", "2 x 1", "2 + 2"]
-
+// filterUnique(["abb", "abc", "abcdb", "aea", "bbb"]) ➞ ["abc"]
+// // "b" occurs in "abb" more than once, "b" occurs in "abcdb" more than once, etc.
+// filterUnique(["88", "999", "989", "9988", "9898"]) ➞ []
+// filterUnique(["ABCDE", "DDEB", "BED", "CCA", "BAC"]) ➞ ["ABCDE", "BED", "BAC"]
 // Notes
+// N/A
 
-//     If multiple expressions have the same answer, put them in the order of which they appear (see example #2).
-//     You won't need to worry about divisions by zero.
-
-function sortByAnswer (arr) {
-  for (var i = 0; i < arr.length; i++) {
-    console.log(arr[i])
-  }
-//   arr.sort((ele1, ele2)=> eval(ele1) - eval(ele2))
-}
-
-// Create a function that takes in a number as a string n and returns the number without trailing and leading zeros.
-
-//     Trailing Zeros are the zeros after a decimal point which don't affect the value (e.g. the last three zeros in 3.4000 and 3.04000).
-//     Leading Zeros are the zeros before a whole number which don't affect the value (e.g. the first three zeros in 000234 and 000230).
-
-// Examples
-
-// removeLeadingTrailing("230.000") ➞ "230"
-
-// removeLeadingTrailing("00402") ➞ "402"
-
-// removeLeadingTrailing("03.1400") ➞ "3.14"
-
-// removeLeadingTrailing("30") ➞ "30"
-
-// Notes
-
-//     Return a string.
-//     If you get a number with .0 on the end, return the integer value (e.g. return "4" rather than "4.0").
-//     If the number is 0, 0.0, 000, 00.00, etc... return "0".
-
-function removeLeadingTrailing (n) {
-  // return n.replace(/^0+(\d)|(\d)0+$|(\d)\.0+$/g, '$1$2$3')
-}
-
-// In the image below, squares are either empty or filled with a circle.
-// Steps vs Empty Squarest
-// Create a function that takes a number step (which equals HALF the width of a square) and returns the amount of empty squares. The image shows the squares with step 1, 2 and 3. The return value is the number of cells not on a diagonal, which is 0 for the first square, 8 for the second, and 24 for the third.
-// Examples
-// emptySq(1) ➞ 0
-// emptySq(3) ➞ 24
-// emptySq(10) ➞ 360
-// Notes
-//     Test input will always be a positive integer.
-//     The width of the square will always be even.
-
-function emptySq(step) {
-	// return step * (step - 1) / 2
+function filterUnique(arr) {
+  const resultsArr = []
+  arr.forEach((ele) => {
+    if ([... new Set(ele)].length === ele.split('').length) {
+      resultsArr.push(ele)
+    }
+  })
+  return resultsArr
 }
 
 // Create a function that determines whether a number is Oddish or Evenish. A number is Oddish if the sum of all of its digits is odd, and a number is Evenish if the sum of all of its digits is even. If a number is Oddish, return "Oddish". Otherwise, return "Evenish".
-
 // For example, oddishOrEvenish(121) should return "Evenish", since 1 + 2 + 1 = 4. oddishOrEvenish(41) should return "Oddish", since 4 + 1 = 5.
 // Examples
-
 // oddishOrEvenish(43) ➞ "Oddish"
-
 // oddishOrEvenish(373) ➞ "Oddish"
-
 // oddishOrEvenish(4433) ➞ "Evenish"
-
 // Notes
-
 // N/A
 
 function oddishOrEvenish(num) {
-	return num.toString().split('').reduce((a, b) => a + parseInt(b), 0) % 2 === 1 ? 'Oddish' : 'Evenish'
+  return num.toString().split('').reduce((a, b) => a + parseInt(b), 0) % 2 === 1 ? 'Oddish' : 'Evenish'
 }
 
 // Create a Book constructor that has two properties :
-
 //     Title
 //     Author
-
 // and two methods:
-
 //     A method named getTitle that returns: "Title: " + the instance title.
 //     A method named getAuthor that returns: "Author: " + the instance author.
-
 // and instantiate this constructor by creating 3 new books:
-
 //     Pride and Prejudice - Jane Austen (PP)
 //     Hamlet - William Shakespeare (H)
 //     War and Peace - Leo Tolstoy (WP)
-
 // Name the new object instances PP, H, and WP, respectively.
-
 // For instance, if I instantiated the following book using this Book constructor function:
-
 //     Harry Potter - J.K. Rowling (HP)
-
 // I would get the following properties and methods:
 
 function Book(title, author) {
-	// Write your properties and methods here
-	this.title = title;
-	this.author = author;
-	this.getTitle = function (title) {
-		return `Title: ${this.title}`
-	}
-	this.getAuthor = function (auhtor) {
-		return `Author: ${this.author}`
-	}
+  // Write your properties and methods here
+  this.title = title;
+  this.author = author;
+  this.getTitle = function (title) {
+    return `Title: ${this.title}`
+  }
+  this.getAuthor = function (auhtor) {
+    return `Author: ${this.author}`
+  }
 }
 
 // Instantiate your Book constructor here
-const PP = new Book('Pride and Prejudice', 'Jane Austen' )
-const H = new Book('Hamlet', 'William Shakespeare' )
-const WP = new Book('War and Peace', 'Leo Tolstoy' )
+const PP = new Book('Pride and Prejudice', 'Jane Austen')
+const H = new Book('Hamlet', 'William Shakespeare')
+const WP = new Book('War and Peace', 'Leo Tolstoy')
 
 // Groups and ranges indicate groups and ranges of expression characters. The regular expression x|y matches either "x" or "y".
 // const REGEXP = /blue|red/
@@ -151,7 +94,7 @@ const REGEXP = /red flag|blue flag/g
 
 // The elements must be exactly identical for there to be a jackpot.
 
-function testJackpot (result) {
+function testJackpot(result) {
   const jackPot = new Set(result)
   return jackPot.size === 1
 }
@@ -171,7 +114,7 @@ function testJackpot (result) {
 //     nickel: 5 cents / $0.05
 //     penny: 1 cent / $0.01
 
-function changeEnough (change, amountDue) {
+function changeEnough(change, amountDue) {
   const total = [change[0] * 25, change[1] * 10, change[2] * 5, change[3]].reduce((cur, acc) => cur + acc, 0)
   return total * 0.01 >= amountDue
 }
@@ -210,7 +153,7 @@ const str = '[,protocol,host,path] = parsedURL'
 // Notes
 // N/A
 
-function flatten (arr) {
+function flatten(arr) {
   arr2 = []
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr[i].length; j++) {
@@ -231,7 +174,7 @@ function flatten (arr) {
 // Notes
 // N/A
 
-function keysAndValues (obj) {
+function keysAndValues(obj) {
   const keyValArr = [[], []]
   for (const [key, value] of Object.entries(obj)) {
     keyValArr[0].push(key)
@@ -253,7 +196,7 @@ function keysAndValues (obj) {
 
 // Don't forget the space after the closing parenthesis.
 
-function formatPhoneNumber (numbers) {
+function formatPhoneNumber(numbers) {
   return `(${numbers[0]}${numbers[1]}${numbers[2]}) ${numbers[3]}${numbers[4]}${numbers[5]}-${numbers[6]}${numbers[7]}${numbers[8]}${numbers[9]}`
 }
 
@@ -272,7 +215,7 @@ function formatPhoneNumber (numbers) {
 
 // The term "absolute value" means to remove any negative sign in front of a number, and to think of all numbers as positive (or zero).
 
-function getAbsSum (arr) {
+function getAbsSum(arr) {
   return arr.reduce((cur, acc) => Math.abs(cur) + Math.abs(acc), 0)
 }
 
@@ -289,7 +232,7 @@ function getAbsSum (arr) {
 
 // Zero is a non-negative number.
 
-function filterArray (arr) {
+function filterArray(arr) {
   return arr.filter(ele => typeof ele === 'number')
 }
 
@@ -334,7 +277,7 @@ const REGEXP = /[.]{3,}/g
 
 // All test arrays will have at least one element and are valid.
 
-function minMax (arr) {
+function minMax(arr) {
   return [Math.min(...arr), Math.max(...arr)]
 }
 
@@ -357,7 +300,7 @@ function minMax (arr) {
 
 // N/A
 
-function getBudgets (arr) {
+function getBudgets(arr) {
   return arr.reduce((acc, cur) => acc + cur.budget, 0)
 }
 
@@ -378,7 +321,7 @@ function getBudgets (arr) {
 // Notes
 // N/A
 
-function objectToArray (obj) {
+function objectToArray(obj) {
   const newArr = []
   for (const key in obj) {
     newArr.push([key, obj[key]])
@@ -401,7 +344,7 @@ function objectToArray (obj) {
 
 // Arrays should be concatenated in order of the arguments.
 
-function concat (...args) {
+function concat(...args) {
   return [...args].flat()
 }
 
@@ -415,7 +358,7 @@ function concat (...args) {
 //     Both input arrays will be of the same length, and will have a minimum length of 2.
 //     The values of the 0-indexed element in the first array and the n-1th indexed element in the second array do not matter.
 
-function simonSays (arr1, arr2) {
+function simonSays(arr1, arr2) {
   for (let index = 0; index < arr1.length - 1; index++) {
     if (arr1[index] !== arr2[index + 1]) {
       return false
@@ -434,7 +377,7 @@ function simonSays (arr1, arr2) {
 //     Don't forget to return the result.
 //     If you get stuck on a challenge, find help in the Resources tab.
 //     If you're really stuck, unlock solutions in the Solutions tab.
-function numberSyllables (word) {
+function numberSyllables(word) {
   return word.split('-').length
 }
 // Your function will be passed two functions, f and g, that don't take any parameters. Your function has to call them, and return a string which indicates which function returned the larger number.
@@ -447,7 +390,7 @@ function numberSyllables (word) {
 // whichIsLarger(() => 505050, () => 5050) ➞ "f"
 // Notes
 // This exercise is designed as an introduction to higher order functions (functions which use other functions to do their work).
-function whichIsLarger (f, g) {
+function whichIsLarger(f, g) {
   return f() === g() ? 'neither'
     : f() > g() ? 'f'
       : 'g'
@@ -473,7 +416,7 @@ String.prototype.vreplace = function (vowel) {
 // both(0, 2) ➞ false
 // Notes
 // Inputs will always be two numbers.
-function both (n1, n2) {
+function both(n1, n2) {
   return Math.sign(n1) === Math.sign(n2)
 }
 // Create a function that takes in a year and returns the correct century.
@@ -487,12 +430,12 @@ function both (n1, n2) {
 //     All years will be between 1000 and 2010.
 //     The 11th century is between 1001 and 1100.
 //     The 18th century is between 1701-1800.
-function century (year) {
+function century(year) {
   const cen = String(Math.ceil(year * 0.01)).slice(0, 2)
   return cen === '21' ? `${cen}st century` : `${cen}th century`
 }
 // Repeat a given string str (first argument) for num times (second argument). Return an empty string if num is not a positive number.
-function repeatStringNumTimes (str, num) {
+function repeatStringNumTimes(str, num) {
   // repeat after me
   let result = ''
   while (num > 0) {
@@ -508,7 +451,7 @@ function repeatStringNumTimes (str, num) {
 // reverseArr(12345) ➞ [5, 4, 3, 2, 1]
 // Notes
 // N/A
-function reverseArr (num) {
+function reverseArr(num) {
   return Array.from(String(num)).map(i => parseInt(i)).reverse()
 }
 // Sam and Frodo need to be close. If they are side by side in the array, your function should return true. If there is a name between them, return false.
@@ -519,7 +462,7 @@ function reverseArr (num) {
 // Notes
 //     No matter who comes first, the result must be true if Frodo and Sam are side by side.
 //     There is only one Sam and one Frodo in the array.
-function middleEarth (arr) {
+function middleEarth(arr) {
   return Math.abs(arr.indexOf('Sam') - arr.indexOf('Frodo')) === 1
 }
 // Throughout the 12 days of Christmas, my true love gave me in total 364 items.
@@ -533,7 +476,7 @@ function middleEarth (arr) {
 //     Remember to return as an integer.
 //     0 as input should return 0.
 //     Look the specific links into the Resources tab for more informations.
-function xmasItems (n) {
+function xmasItems(n) {
   return (n * (n + 1) * (n + 2)) / 6
 }
 // John is playing a dice game. The rules are as follows.
@@ -550,7 +493,7 @@ function xmasItems (n) {
 // Notes
 //     Ignore all other arrays in the matrix if a throw happens to be doubles and go straight to returning 0.
 //     John only has two dice and will always give you outcomes for three rounds.
-function diceGame (arr) {
+function diceGame(arr) {
   return arr.every(i => i[0] !== i[1]) ? arr.flat(Infinity).reduce((acc, cur) => acc + cur) : 0
 }
 // --------------------------------------------------------------------------
@@ -563,7 +506,7 @@ function diceGame (arr) {
 //     Return all even numbers in the order they were given.
 // 		All test cases contain valid numbers ranging from 1 to 3000.
 
-function noOdds (arr) {
+function noOdds(arr) {
   return arr.filter(x => x % 2 === 0)
 }
 // --------------------------------------------------------------
@@ -579,7 +522,7 @@ function noOdds (arr) {
 //     Don't forget to return the result.
 //     If you get stuck on a challenge, find help in the Resources tab.
 //     If you're really stuck, unlock solutions in the Solutions tab.
-function addEnding (arr, ending) {
+function addEnding(arr, ending) {
   return arr.map(i => i + ending)
 }
 // ----------------------------------------------------
@@ -595,7 +538,7 @@ function addEnding (arr, ending) {
 // isOmnipresent([[5], [5], [5], [6, 5]], 6) ➞ false
 // Notes
 // Sub-arrays can be any length.
-function isOmnipresent (arr, val) {
+function isOmnipresent(arr, val) {
   return arr.every(i => i.includes(val))
 }
 // ------------------------------------------------------
@@ -606,7 +549,7 @@ function isOmnipresent (arr, val) {
 // sevenBoom([2, 55, 60, 97, 86]) ➞ "Boom!"
 // Notes
 // N/A
-function sevenBoom (arr) {
+function sevenBoom(arr) {
   return /7/.test(arr) ? 'Boom!' : 'there is no 7 in the array'
 }
 // ----------------------------------------------------------
@@ -623,7 +566,7 @@ function sevenBoom (arr) {
 // Notes
 //     For this question, output an array, not a set. These are two distinctly different data structures in JavaScript (although they can be converted from one to the other).
 //     See resources for a hint if you get stuck.
-function set (arr) {
+function set(arr) {
   return [...new Set(arr)]
 }
 // ------------------------------------------------------------
@@ -636,7 +579,7 @@ function set (arr) {
 //     n will not be above 15, to keep this challenge simple.
 //     Round up the last digit if the next digit in PI is greater or equal to 5 (see second example above).
 //     The return value must be a number, not a string.
-function myPi (n) {
+function myPi(n) {
   return parseFloat(Math.PI.toFixed(n))
 }
 // ---------------------------------------------------------------
@@ -664,7 +607,7 @@ const x = /^\d*[02468]$/
 //     If the character does not exist in the word, return undefined.
 //     If only one instance of the character exists, the first and last index will be the same.
 //     Check the Resources tab for hints.
-function charIndex (word, char) {
+function charIndex(word, char) {
   return word.includes(char) ? undefined : [word.indexOf(char), word.lastIndexOf(char)]
 }
 // Create a function that takes a string and returns the number (count) of vowels contained within it.
@@ -675,7 +618,7 @@ function charIndex (word, char) {
 // Notes
 //     a, e, i, o, u are considered vowels (not y).
 //     All test cases are one word and only contain letters.
-function countVowels (str) {
+function countVowels(str) {
   return str.match(/[aeiou]/gi).length
 }
 // --------------------------------------------------------
@@ -686,7 +629,7 @@ function countVowels (str) {
 // toArray({}) ➞ []
 // Notes
 // Return an empty array if the object is empty.
-function toArray (obj) {
+function toArray(obj) {
   return Object.entrieso(obj)
 }
 
@@ -699,7 +642,7 @@ function toArray (obj) {
 // numOfSubbarrays([1, 2, 3]) ➞ 0
 // Notes
 // N/A
-function numOfSubbarrays (arr) {
+function numOfSubbarrays(arr) {
   return Array.isArray(arr[0]) ? arr.length : 0
 }
 // -------------------------------------------------------
@@ -726,7 +669,7 @@ function numOfSubbarrays (arr) {
 //     Towers are two characters in length.
 //     Towers are made only of the character #.
 //     Some tests have no towers, return 0.
-function countTowers (towers) {
+function countTowers(towers) {
   var towerBase = towers[1][0]
   var count = 0
   towerBase = towerBase.split(' ').filter((currentVal) => { return currentVal === '##' ? currentVal : null })
@@ -740,7 +683,7 @@ function countTowers (towers) {
 // addUp(600) ➞ 180300
 // Notes
 // Expect any positive number between 1 and 1000.
-function addUp (num) {
+function addUp(num) {
   var sum = 0
   for (i = 1; i <= num; i++) {
     sum += i
@@ -756,7 +699,7 @@ addUp(4)
 // isSameNum(2, "2") ➞ false
 // Notes
 // Don't forget to return the result.
-function isSameNum (num1, num2) {
+function isSameNum(num1, num2) {
   return num1 === num2
 }
 // --------------------------------------------------------------
@@ -769,7 +712,7 @@ function isSameNum (num1, num2) {
 //     Don't forget to return the result.
 //     If you get stuck on a challenge, find help in the Resources tab.
 //     If you're really stuck, unlock solutions in the Solutions tab.
-function addition (num) {
+function addition(num) {
   var result = 0
   return result = num += 1
 }
@@ -782,7 +725,7 @@ function addition (num) {
 // Notes
 //     60 seconds in a minute, 60 minutes in an hour
 //     Don't forget to return your answer.
-function howManySeconds (hours) {
+function howManySeconds(hours) {
   return hours * 60 * 60
 }
 // --------------------------------------------------------
@@ -798,7 +741,7 @@ function howManySeconds (hours) {
 // missingAngle(45, 45) ➞ "right"
 // Notes
 // The sum of angles of any triangle is always 180 degrees.
-function missingAngle (angle1, angle2) {
+function missingAngle(angle1, angle2) {
   const angles = angle1 + angle2
   return angles === 90 ? 'right'
     : angles > 90 ? 'acute'
@@ -824,7 +767,7 @@ function missingAngle (angle1, angle2) {
 //     You may have to take into account NaN's unique behavior in JavaScript. While other falsey values are equal to themselves, NaN != NaN
 //     If you get stuck on a challenge, find help in the Resources tab.
 //     If you're really stuck, unlock solutions in the Solutions tab.
-function isTruthy (input) {
+function isTruthy(input) {
   return !input ? 0 : 1
 }
 // -----------------------------------------------------
@@ -835,7 +778,7 @@ function isTruthy (input) {
 // isFourLetters(["Ryan", "Kieran", "Jason", "Matt"]) ➞ ["Ryan", "Matt"]
 // Notes
 // You can expect valid strings for all test cases.
-function isFourLetters (arr) {
+function isFourLetters(arr) {
   return arr.filter(i => i.length === 4)
 }
 // --------------------------------------------------------
@@ -848,7 +791,7 @@ function isFourLetters (arr) {
 //     Expect either a positive number or zero (there are no negative numbers).
 //     If you get stuck on a challenge, find help in the Resources tab.
 //     If you're really stuck, unlock solutions in the Solutions tab.
-function findLargestNum (arr) {
+function findLargestNum(arr) {
   return Math.max(...arr)
 }
 // In music, notes can be written out in multiple ways (especially for notes on the black keys). Although these notes are spelled out differently, they still are the same note physically.
@@ -861,7 +804,7 @@ function findLargestNum (arr) {
 // Notes
 //     Note names will always be a capital letter followed by either # or b.
 //     Remember that the note after G is A and vice versa.
-function getEquivalent (note) {
+function getEquivalent(note) {
   switch (note) {
     case 'C#':
       return 'Db'
@@ -909,7 +852,7 @@ function getEquivalent (note) {
 // canNest([1, 2, 3, 4], [2, 3]) ➞ false
 // Notes
 // Note the strict inequality (see example #3).
-function canNest (arr1, arr2) {
+function canNest(arr1, arr2) {
   return !!(Math.min(...arr1) > Math.min(...arr2) && Math.max(...arr1) < Math.max(...arr2))
 }
 // ----------------------------------------------------------
@@ -920,7 +863,7 @@ function canNest (arr1, arr2) {
 // accepted(["Cans", "Worms", "Bugs", "Cold", "Beans"]) ➞ ["Worms", "Bugs", "Beans"]
 // Notes
 // Use a RegEx boundary assertion in your function.
-function acceptedWords (arr) {
+function acceptedWords(arr) {
   return arr.filter(i => i.slice(0, 1) !== 'C')
 }
 // ----------------------------------------------------------
@@ -934,7 +877,7 @@ function acceptedWords (arr) {
 // f3() ➞ ""
 // Notes
 // Your function should return a function, not a string.
-function redundant (str) {
+function redundant(str) {
   return () => { return str }
 }
 // ---------------------------------------------------
@@ -945,7 +888,7 @@ function redundant (str) {
 // deNest([[[[[[[[[[[[[[[[["edabit"]]]]]]]]]]]]]]]]]) ➞ "edabit"
 // Notes
 // You only need to retrieve one element.
-function deNest (arr) {
+function deNest(arr) {
   return arr.flat(Infinity)[0]
 }
 // ----------------------------------------------------
@@ -959,7 +902,7 @@ function deNest (arr) {
 //     Don't forget to return the result.
 //     If you get stuck on a challenge, find help in the Resources tab.
 //     If you're really stuck, unlock solutions in the Solutions tab.
-function firstLast (arr) {
+function firstLast(arr) {
   return [arr.shift(), arr.pop()]
 }
 // --------------------------------------------------------
@@ -970,7 +913,7 @@ function firstLast (arr) {
 // arrayOfMultiples(17, 6) ➞ [17, 34, 51, 68, 85, 102]
 // Notes
 // Notice that num is also included in the returned array.
-function arrayOfMultiples (num, length) {
+function arrayOfMultiples(num, length) {
   const arr = []
   for (i = 1; i <= length; i++) {
     arr.push(num * i)
@@ -988,7 +931,7 @@ function arrayOfMultiples (num, length) {
 // Notes
 //     Take a look at the Resources tab if you need a refresher on the geometry related to this challenge.
 //     The "distance" is the shortest distance between the two points, or the straight line generated from a to b.
-function getDistance (a, b) {
+function getDistance(a, b) {
   const d = parseFloat(Math.hypot(a.x - b.x, a.y - b.y).toFixed(3))
   return d === 0 ? 0 : d
 }
@@ -1003,7 +946,7 @@ function getDistance (a, b) {
 //     Don't forget to return your result as a string.
 //     If you get stuck on a challenge, find help in the Resources tab.
 //     If you're really stuck, unlock solutions in the Solutions tab.
-function Go (num) {
+function Go(num) {
   var str = ''
   var dash = '-'
   str += dash.repeat(num)
@@ -1021,7 +964,7 @@ function Go (num) {
 //     Test cases contain decimals.
 //     If you get stuck on a challenge, find help in the Resources tab.
 //     If you're really stuck, unlock solutions in the Solutions tab.
-function findSmallestNum (arr) {
+function findSmallestNum(arr) {
   return Math.min(...arr)
 }
 // ----------------------------------------------------------
@@ -1032,6 +975,6 @@ function findSmallestNum (arr) {
 // triangle(215) ➞ 23220
 // Notes
 // N/A
-function triangle (n) {
+function triangle(n) {
   return (n * (n + 1)) / 2
 }
