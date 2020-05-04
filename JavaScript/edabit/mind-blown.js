@@ -1,3 +1,28 @@
+// Create a function that returns Burp with num "r"s in it.
+// Examples
+
+// longBurp(3) ➞ "Burrrp"
+
+// longBurp(5) ➞ "Burrrrrp"
+
+// longBurp(9) ➞ "Burrrrrrrrrp"
+
+// Notes
+
+//     Expect num to always be >= 1.
+//     Remember to use a capital "B".
+//     Don't forget to return the result.
+
+function longBurp(num) {
+	let burp = 'Bu';
+  while (num > 0) {
+    burp += 'r'
+    num--
+  }
+  burp += 'p'
+  return burp
+}
+
 // Write a function that takes a two-digit number and determines if it's the largest of two possible digit swaps.
 // To illustrate:
 // largestSwap(27) ➞ false
