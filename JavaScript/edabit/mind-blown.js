@@ -1,3 +1,65 @@
+// Given an object of people and their ages, return how old the people would be after n years have passed. Use the absolute value of n.
+// Examples
+// afterNYears({
+//   "Joel" : 32,
+//   "Fred" : 44,
+//   "Reginald" : 65,
+//   "Susan" : 33,
+//   "Julian" : 13
+// }, 1) ➞ {
+//   "Joel" : 33,
+//   "Fred" : 45,
+//   "Reginald" : 66,
+//   "Susan" : 34,
+//   "Julian" : 14
+// }
+// afterNYears({
+//   "Baby" : 2,
+//   "Child" : 8,
+//   "Teenager" : 15,
+//   "Adult" : 25,
+//   "Elderly" : 71
+// }, 19) ➞ {
+//   "Baby" : 21,
+//   "Child" : 27,
+//   "Teenager" : 34,
+//   "Adult" : 44,
+//   "Elderly" : 90
+// }
+// afterNYears({
+//   "Genie" : 1000,
+//   "Joe" : 40
+// }, 5) ➞ {
+//   "Genie" : 1005,
+//   "Joe" : 45
+// }
+// Notes
+//     Assume that everyone is immortal (it would be a bit grim if I told you to remove names once they reached 75).
+//     n should be a positive number because last time I checked, people don't tend to age backwards. Therefore, use the absolute value of n.
+
+function afterNYears(names, n) {
+	for (const age in names) {
+	  names[age] += Math.abs(n)
+	}
+	return names
+}
+
+// Write a function that returns 0 if the input is 1, and returns 1 if the input is 0.
+// Examples
+// flip(1) ➞ 0
+// flip(0) ➞ 1
+// Notes
+// Try completing this challenge without using any:
+
+//     Conditionals
+//     Ternary operators
+//     Negations
+//     Bit operators
+
+function flip(y) {
+	return 1 - y
+}
+
 // Assume a program only reads .js or .jsx files. Write a function that accepts a file path and returns true if it can read the file and false if it can't.
 // Examples
 // isJS("/users/user.jsx") ➞ true
