@@ -29,6 +29,17 @@ function sortByAnswer (arr) {
 	return arr
 }
 
+// Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
+// Note:
+// The length of both num1 and num2 is < 5100.
+// Both num1 and num2 contains only digits 0-9.
+// Both num1 and num2 does not contain any leading zero.
+// You must not use any built-in BigInteger library or convert the inputs to integer directly.
+
+var addStrings = function(num1, num2) {
+  return  String(Number(num1) + Number(num2))
+};
+
 // Add the Index
 // Given an array of numbers, create a function which returns the same array but with each index 
 // elements index in the array added to itself. This means you add 0 to the number at index 0,
@@ -53,8 +64,6 @@ function addIndex(arr) {
 //arr.length = 5
 //arr = [1, 3, 5]
 addIndex([1, 2, 3, 4, 5]);
-
-
 
 // This challenge will help you interpret mathematical relationships both algebraically and geometrically.
 // Matchstick Houses, Steps 1, 2 and 3
