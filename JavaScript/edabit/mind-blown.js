@@ -1,3 +1,51 @@
+// Given an array of math expressions, create a function which sorts the array by their answer. It should be sorted in ascending order.
+// Examples
+
+// sortByAnswer(["1 + 1", "1 + 7", "1 + 5", "1 + 4"]) ➞ ["1 + 1", "1 + 4", "1 + 5", "1 + 7"]
+
+// sortByAnswer(["4 - 4", "2 - 2", "5 - 5", "10 - 10"]) ➞ ["4 - 4", "2 - 2", "5 - 5", "10 - 10"]
+
+// sortByAnswer(["2 + 2", "2 - 2", "2 x 1"]) ➞ ["2 - 2", "2 x 1", "2 + 2"]
+
+// Notes
+
+//     If multiple expressions have the same answer, put them in the order of which they appear (see example #2).
+//     You won't need to worry about divisions by zero.
+
+function sortByAnswer (arr) {
+  // return arr.sort((a, b) => eval(a.replace(/x/,'*')) - eval(b.replace(/x/,'*')))
+	for (let i = 1; i < arr.length; i++) {
+    for (let j = 0; j < i; j++) {
+      if (eval(arr[i].replace(/x/,'*')) === eval(arr[j].replace(/x/,'*'))) {
+        //How do I maintain order of the original array when the answer is the same?
+      }
+			if (eval(arr[i].replace(/x/,'*')) < eval(arr[j].replace(/x/,'*'))) {
+				let temp = arr[i]
+				arr[i] = arr[j]
+				arr[j] = temp
+			}
+		}
+  }
+	return arr
+}
+
+// This challenge will help you interpret mathematical relationships both algebraically and geometrically.
+// Matchstick Houses, Steps 1, 2 and 3
+// Create a function that takes a number(step) as an argument and returns the amount of matchsticks in that step.See step 1, 2 and 3 in the image above.
+//   Examples
+// matchHouses(1) ➞ 6
+// matchHouses(4) ➞ 21
+// matchHouses(87) ➞ 436
+// Notes
+// Step 0 returns 0 matchsticks.
+// The input(step) will always be a non - negative integer.
+
+function matchHouses(step) {
+  if (step === 0) return 0
+	else return step * 6 - (step - 1)
+}
+
+
 // Create a function that takes an array of strings and return an array, sorted from shortest to longest.
 // Examples
 // sortByLength(["Google", "Apple", "Microsoft"])
@@ -10,16 +58,16 @@
 // All test cases contain arrays with strings of different lengths, so you won't have to deal with multiple strings of the same length.
 
 function sortByLength(arr) {
-	for (let i = 1; i < arr.length; i++) {
-		for (let j = 0; j < i; j++) {
-			if (arr[i].length < arr[j].length) {
-				let temp = arr[i]
-				arr[i] = arr[j]
-				arr[j] = temp
-			}
-		}
-	}
-	return arr
+  for (let i = 1; i < arr.length; i++) {
+    for (let j = 0; j < i; j++) {
+      if (arr[i].length < arr[j].length) {
+        let temp = arr[i]
+        arr[i] = arr[j]
+        arr[j] = temp
+      }
+    }
+  }
+  return arr
 }
 
 // Create a function that takes an array of objects (groceries) which calculates the total price and returns it as a number. A grocery object has a product, a quantity and a price, for example:
@@ -59,7 +107,7 @@ function sortByLength(arr) {
 
 function getTotalPrice(groceries) {
   let totalPrice = 0;
-	for (let i = 0; i < groceries.length; i++) {
+  for (let i = 0; i < groceries.length; i++) {
     totalPrice += ((groceries[i].price * 100) * groceries[i].quantity);
   }
   return totalPrice / 100
@@ -74,9 +122,9 @@ function getTotalPrice(groceries) {
 // Assume all inputs are greater than or equal to 0.
 
 function factorial(int) {
-	if (int < 0) return -1
-	else if (int === 0) return 1
-	else return (int * factorial(int -1))
+  if (int < 0) return -1
+  else if (int === 0) return 1
+  else return (int * factorial(int - 1))
 }
 
 // Create a function that determines whether a shopping order is eligible for free shipping. An order is eligible for free shipping if the total cost of items purchased exceeds $50.00.
@@ -88,7 +136,7 @@ function factorial(int) {
 // Ignore tax or additional fees when calculating the total order cost.
 
 function freeShipping(order) {
-	return Object.values(order).reduce((cur, acc) => cur + acc) > 50
+  return Object.values(order).reduce((cur, acc) => cur + acc) > 50
 }
 
 // Suppose you have a guest list of students and the country they are from, stored as key-value pairs in an object.
@@ -111,11 +159,11 @@ function freeShipping(order) {
 // N/A
 
 const GUEST_LIST = {
-	Randy: "Germany",
-	Karla: "France",
-	Wendy: "Japan",
-	Norman: "England",
-	Sam: "Argentina"
+  Randy: "Germany",
+  Karla: "France",
+  Wendy: "Japan",
+  Norman: "England",
+  Sam: "Argentina"
 }
 
 function greeting(name) {
