@@ -1,3 +1,29 @@
+// Create a function that takes an integer and returns the factorial of that integer. That is, the integer multiplied by all positive lower integers.
+// Examples
+// factorial(3) ➞ 6
+// factorial(5) ➞ 120
+// factorial(13) ➞ 6227020800
+// Notes
+// Assume all inputs are greater than or equal to 0.
+
+function factorial(int) {
+	if (int < 0) return -1
+	else if (int === 0) return 1
+	else return (int * factorial(int -1))
+}
+
+// Create a function that determines whether a shopping order is eligible for free shipping. An order is eligible for free shipping if the total cost of items purchased exceeds $50.00.
+// Examples
+// freeShipping({ "Shampoo": 5.99, "Rubber Ducks": 15.99 }) ➞ false
+// freeShipping({ "Flatscreen TV": 399.99 }) ➞ true
+// freeShipping({ "Monopoly": 11.99, "Secret Hitler": 35.99, "Bananagrams": 13.99 }) ➞ true
+// Notes
+// Ignore tax or additional fees when calculating the total order cost.
+
+function freeShipping(order) {
+	return Object.values(order).reduce((cur, acc) => cur + acc) > 50
+}
+
 // Suppose you have a guest list of students and the country they are from, stored as key-value pairs in an object.
 // const GUEST_LIST = {
 //   Randy: "Germany",
