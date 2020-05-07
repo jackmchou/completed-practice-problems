@@ -1,3 +1,34 @@
+// Suppose you have a guest list of students and the country they are from, stored as key-value pairs in an object.
+// const GUEST_LIST = {
+//   Randy: "Germany",
+//   Karla: "France",
+//   Wendy: "Japan",
+//   Norman: "England",
+//   Sam: "Argentina"
+// }
+// Write a function that takes in a name and returns a name tag, that should read:
+// "Hi! I'm [name], and I'm from [country]."
+// If the name is not in the object, return:
+// "Hi! I'm a guest."
+// Examples
+// greeting("Randy") ➞ "Hi! I'm Randy, and I'm from Germany."
+// greeting("Sam") ➞ "Hi! I'm Sam, and I'm from Argentina."
+// greeting("Monti") ➞ "Hi! I'm a guest."
+// Notes
+// N/A
+
+const GUEST_LIST = {
+	Randy: "Germany",
+	Karla: "France",
+	Wendy: "Japan",
+	Norman: "England",
+	Sam: "Argentina"
+}
+
+function greeting(name) {
+  return GUEST_LIST.hasOwnProperty(name) ? `Hi! I'm ${name}, and I'm from ${GUEST_LIST[name]}.` : "Hi! I'm a guest."
+}
+
 // Given an object of people and their ages, return how old the people would be after n years have passed. Use the absolute value of n.
 // Examples
 // afterNYears({
@@ -38,10 +69,10 @@
 //     n should be a positive number because last time I checked, people don't tend to age backwards. Therefore, use the absolute value of n.
 
 function afterNYears(names, n) {
-	for (const age in names) {
-	  names[age] += Math.abs(n)
-	}
-	return names
+  for (const age in names) {
+    names[age] += Math.abs(n)
+  }
+  return names
 }
 
 // Write a function that returns 0 if the input is 1, and returns 1 if the input is 0.
@@ -57,7 +88,9 @@ function afterNYears(names, n) {
 //     Bit operators
 
 function flip(y) {
-	return 1 - y
+  return 1 - y
+  x = [1, 0]
+  return x[y]
 }
 
 // Assume a program only reads .js or .jsx files. Write a function that accepts a file path and returns true if it can read the file and false if it can't.
@@ -69,7 +102,7 @@ function flip(y) {
 // Use a RegEx boundary assertion in your function.
 
 function isJS(path) {
-	return /.jsx|.js/g.test(path);
+  return /.jsx|.js/g.test(path);
 }
 
 // Create a function that takes two strings as arguments and returns the number of times the first string (the single character) is found in the second string.
@@ -81,13 +114,13 @@ function isJS(path) {
 // Your output must be case-sensitive (see second example).
 
 function charCount(myChar, str) {
-	let count = 0;
-	for (let i = 0; i < str.length; i++) {
-		if (str[i] === myChar) {
-			count++
-		}
-	}
-	return count;
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === myChar) {
+      count++
+    }
+  }
+  return count;
 }
 
 // Christmas Eve is almost upon us, so naturally we need to prepare some milk and cookies for Santa! Create a function that accepts a Date object and returns true if it's Christmas Eve (December 24th) and false otherwise. Keep in mind JavaScript's Date month is 0 based, meaning December is the 11th month while January is 0.
@@ -119,7 +152,7 @@ function timeForMilkAndCookies(date) {
 //     Don't forget to return the result.
 
 function longBurp(num) {
-	let burp = 'Bu';
+  let burp = 'Bu';
   while (num > 0) {
     burp += 'r'
     num--
@@ -142,7 +175,7 @@ function longBurp(num) {
 // Numbers with two identical digits (third example) should yield true (you can't do better).
 
 function largestSwap(num) {
-	const numStr = '' + num
+  const numStr = '' + num
   let swappedStr = []
   let swappedNum
   for (let index = numStr.length; index--;) {
@@ -166,15 +199,15 @@ function largestSwap(num) {
 // Notes
 // Check the Resources tab for more info on promises.
 
-let promise = new Promise( (resolve, reject) => {
-	let animal = "cat"
+let promise = new Promise((resolve, reject) => {
+  let animal = "cat"
   setTimeout(() => {
-		if(animal === "dog") {
-			resolve("It's a dog!")
-		} 
-	  if(animal !== "dog") {
-			reject("It's not a dog!")
-		}
+    if (animal === "dog") {
+      resolve("It's a dog!")
+    }
+    if (animal !== "dog") {
+      reject("It's not a dog!")
+    }
   }, 1000)
 })
 
@@ -196,7 +229,7 @@ let promise = new Promise( (resolve, reject) => {
 // N/A
 
 function getDays(date1, date2) {
-	return Math.abs(date1.getTime() - date2.getTime()) / (1000 * 3600 * 24);
+  return Math.abs(date1.getTime() - date2.getTime()) / (1000 * 3600 * 24);
 }
 
 // Your task is to create a Circle constructor that creates a circle with a radius provided by an argument. 
@@ -216,11 +249,11 @@ function getDays(date1, date2) {
 //considered advanced, yet the challenge is more simple - so if this challenge gets labelled as easy, don't worry too much.
 
 class Circle {
-	constructor(radius) {
-		this.radius = radius
-	}
-	getArea(){return Math.PI * Math.pow(this.radius, 2)}
-	getPerimeter(){return 2 * Math.PI * this.radius}
+  constructor(radius) {
+    this.radius = radius
+  }
+  getArea() { return Math.PI * Math.pow(this.radius, 2) }
+  getPerimeter() { return 2 * Math.PI * this.radius }
 }
 
 // Create a function that returns only strings with unique characters.
