@@ -1,3 +1,27 @@
+// Create a function that takes an array of strings and return an array, sorted from shortest to longest.
+// Examples
+// sortByLength(["Google", "Apple", "Microsoft"])
+// ➞ ["Apple", "Google", "Microsoft"]
+// sortByLength(["Leonardo", "Michelangelo", "Raphael", "Donatello"])
+// ➞ ["Raphael", "Leonardo", "Donatello", "Michelangelo"]
+// sortByLength(["Turing", "Einstein", "Jung"])
+// ➞ ["Jung", "Turing", "Einstein"]
+// Notes
+// All test cases contain arrays with strings of different lengths, so you won't have to deal with multiple strings of the same length.
+
+function sortByLength(arr) {
+	for (let i = 1; i < arr.length; i++) {
+		for (let j = 0; j < i; j++) {
+			if (arr[i].length < arr[j].length) {
+				let temp = arr[i]
+				arr[i] = arr[j]
+				arr[j] = temp
+			}
+		}
+	}
+	return arr
+}
+
 // Create a function that takes an array of objects (groceries) which calculates the total price and returns it as a number. A grocery object has a product, a quantity and a price, for example:
 // {
 //   "product": "Milk",
