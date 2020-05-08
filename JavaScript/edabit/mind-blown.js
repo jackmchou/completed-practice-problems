@@ -29,6 +29,47 @@ function sortByAnswer (arr) {
 	return arr
 }
 
+// Create a function that takes an array of numbers and returns a new array, sorted in ascending order (smallest to biggest).
+//     Sort numbers array in ascending order.
+//     If the function's argument is null, an empty array, or undefined; return an empty array.
+//     Return a new array of sorted numbers.
+// Examples
+// sortNumsAscending([1, 2, 10, 50, 5]) ➞ [1, 2, 5, 10, 50]
+// sortNumsAscending([80, 29, 4, -95, -24, 85]) ➞ [-95, -24, 4, 29, 80, 85]
+// sortNumsAscending(null) ➞ []
+// sortNumsAscending([]) ➞ []
+// Notes
+// Test input can be positive or negative.
+
+function sortNumsAscending(arr) {
+	if (arr) {
+		for (var i = 1; i < arr.length; i++) {
+			for (var j = 0; j < i; j++) {
+				if (arr[i] < arr[j]) {
+        	var x = arr[i];
+        	arr[i] = arr[j];
+        	arr[j] = x;
+    		}
+			}
+		}
+		return arr
+	} else return []
+}
+
+// Write a function that takes a positive integer and return its factorial.
+// Examples
+// factorial(4) ➞ 24
+// factorial(0) ➞ 1
+// factorial(9) ➞ 362880
+// Notes
+//     The factorial of 0 is 1.
+//     The factorial of any positive integer Z is Z * (Z - 1) * (Z - 2) * . . . . . . * 1 (e.g. factorial of 3 is 3 * 2 * 1 = 6).
+
+function factorial(z) {
+  if (z === 0) return 1
+  else return z * factorial(z - 1);
+}
+
 // Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
 // Note:
 // The length of both num1 and num2 is < 5100.
