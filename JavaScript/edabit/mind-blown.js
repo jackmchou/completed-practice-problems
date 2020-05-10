@@ -1,3 +1,252 @@
+// Given an array of math expressions, create a function which sorts the array by their answer. It should be sorted in ascending order.
+// Examples
+
+// sortByAnswer(["1 + 1", "1 + 7", "1 + 5", "1 + 4"]) ➞ ["1 + 1", "1 + 4", "1 + 5", "1 + 7"]
+
+// sortByAnswer(["4 - 4", "2 - 2", "5 - 5", "10 - 10"]) ➞ ["4 - 4", "2 - 2", "5 - 5", "10 - 10"]
+
+// sortByAnswer(["2 + 2", "2 - 2", "2 x 1"]) ➞ ["2 - 2", "2 x 1", "2 + 2"]
+
+// Notes
+
+//     If multiple expressions have the same answer, put them in the order of which they appear (see example #2).
+//     You won't need to worry about divisions by zero.
+
+function sortByAnswer (arr) {
+  // return arr.sort((a, b) => eval(a.replace(/x/,'*')) - eval(b.replace(/x/,'*')))
+	for (let i = 1; i < arr.length; i++) {
+    for (let j = 0; j < i; j++) {
+      if (eval(arr[i].replace(/x/,'*')) === eval(arr[j].replace(/x/,'*'))) {
+        //How do I maintain order of the original array when the answer is the same?
+      }
+			if (eval(arr[i].replace(/x/,'*')) < eval(arr[j].replace(/x/,'*'))) {
+				let temp = arr[i]
+				arr[i] = arr[j]
+				arr[j] = temp
+			}
+		}
+  }
+	return arr
+}
+
+// Create a function that takes an array of numbers and returns a new array, sorted in ascending order (smallest to biggest).
+//     Sort numbers array in ascending order.
+//     If the function's argument is null, an empty array, or undefined; return an empty array.
+//     Return a new array of sorted numbers.
+// Examples
+// sortNumsAscending([1, 2, 10, 50, 5]) ➞ [1, 2, 5, 10, 50]
+// sortNumsAscending([80, 29, 4, -95, -24, 85]) ➞ [-95, -24, 4, 29, 80, 85]
+// sortNumsAscending(null) ➞ []
+// sortNumsAscending([]) ➞ []
+// Notes
+// Test input can be positive or negative.
+
+function sortNumsAscending(arr) {
+	if (arr) {
+		for (var i = 1; i < arr.length; i++) {
+			for (var j = 0; j < i; j++) {
+				if (arr[i] < arr[j]) {
+        	var x = arr[i];
+        	arr[i] = arr[j];
+        	arr[j] = x;
+    		}
+			}
+		}
+		return arr
+	} else return []
+}
+
+// Write a function that takes a positive integer and return its factorial.
+// Examples
+// factorial(4) ➞ 24
+// factorial(0) ➞ 1
+// factorial(9) ➞ 362880
+// Notes
+//     The factorial of 0 is 1.
+//     The factorial of any positive integer Z is Z * (Z - 1) * (Z - 2) * . . . . . . * 1 (e.g. factorial of 3 is 3 * 2 * 1 = 6).
+
+function factorial(z) {
+  if (z === 0) return 1
+  else return z * factorial(z - 1);
+}
+
+// Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
+// Note:
+// The length of both num1 and num2 is < 5100.
+// Both num1 and num2 contains only digits 0-9.
+// Both num1 and num2 does not contain any leading zero.
+// You must not use any built-in BigInteger library or convert the inputs to integer directly.
+
+var addStrings = function(num1, num2) {
+  return  String(Number(num1) + Number(num2))
+};
+
+// Add the Index
+// Given an array of numbers, create a function which returns the same array but with each index 
+// elements index in the array added to itself. This means you add 0 to the number at index 0,
+// add 1 to the number at index 1, etc...
+// input = [1, 2, 3, 4, 5]
+// output = [1, 3, 5, 7, 9]
+
+//Pseudocode
+//Use a for loop to loop through the index
+//With each index add the index number as a number to the index value
+//return the array
+
+function addIndex(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] += i
+  }
+  return arr
+}
+
+//i = 2
+//arr[i] = 3
+//arr.length = 5
+//arr = [1, 3, 5]
+addIndex([1, 2, 3, 4, 5]);
+
+// This challenge will help you interpret mathematical relationships both algebraically and geometrically.
+// Matchstick Houses, Steps 1, 2 and 3
+// Create a function that takes a number(step) as an argument and returns the amount of matchsticks in that step.See step 1, 2 and 3 in the image above.
+//   Examples
+// matchHouses(1) ➞ 6
+// matchHouses(4) ➞ 21
+// matchHouses(87) ➞ 436
+// Notes
+// Step 0 returns 0 matchsticks.
+// The input(step) will always be a non - negative integer.
+
+function matchHouses(step) {
+  if (step === 0) return 0
+	else return step * 6 - (step - 1)
+}
+
+
+// Create a function that takes an array of strings and return an array, sorted from shortest to longest.
+// Examples
+// sortByLength(["Google", "Apple", "Microsoft"])
+// ➞ ["Apple", "Google", "Microsoft"]
+// sortByLength(["Leonardo", "Michelangelo", "Raphael", "Donatello"])
+// ➞ ["Raphael", "Leonardo", "Donatello", "Michelangelo"]
+// sortByLength(["Turing", "Einstein", "Jung"])
+// ➞ ["Jung", "Turing", "Einstein"]
+// Notes
+// All test cases contain arrays with strings of different lengths, so you won't have to deal with multiple strings of the same length.
+
+function sortByLength(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    for (let j = 0; j < i; j++) {
+      if (arr[i].length < arr[j].length) {
+        let temp = arr[i]
+        arr[i] = arr[j]
+        arr[j] = temp
+      }
+    }
+  }
+  return arr
+}
+
+// Create a function that takes an array of objects (groceries) which calculates the total price and returns it as a number. A grocery object has a product, a quantity and a price, for example:
+// {
+//   "product": "Milk",
+//   "quantity": 1,
+//   "price": 1.50
+// }
+// Examples
+// // 1 bottle of milk:
+// getTotalPrice([
+//   { product: "Milk", quantity: 1, price: 1.50 }
+// ]) ➞ 1.5
+// // 1 bottle of milk & 1 box of cereals:
+// getTotalPrice([
+//   { product: "Milk", quantity: 1, price: 1.50 },
+//   { product: "Cereals", quantity: 1, price: 2.50 }
+// ]) ➞ 4
+// // 3 bottles of milk:
+// getTotalPrice([
+//   { product: "Milk", quantity: 3, price: 1.50 }
+// ]) ➞ 4.5
+// // Several groceries:
+// getTotalPrice([
+//   { product: "Milk", quantity: 1, price: 1.50 },
+//   { product: "Eggs", quantity: 12, price: 0.10 },
+//   { product: "Bread", quantity: 2, price: 1.60 },
+//   { product: "Cheese", quantity: 1, price: 4.50 }
+// ]) ➞ 10.4
+// // Some cheap candy:
+// getTotalPrice([
+//   { product: "Chocolate", quantity: 1, price: 0.10 },
+//   { product: "Lollipop", quantity: 1, price: 0.20 }
+// ]) ➞ 0.3
+// Notes
+// There might be a floating point precision problem in here...
+
+function getTotalPrice(groceries) {
+  let totalPrice = 0;
+  for (let i = 0; i < groceries.length; i++) {
+    totalPrice += ((groceries[i].price * 100) * groceries[i].quantity);
+  }
+  return totalPrice / 100
+}
+
+// Create a function that takes an integer and returns the factorial of that integer. That is, the integer multiplied by all positive lower integers.
+// Examples
+// factorial(3) ➞ 6
+// factorial(5) ➞ 120
+// factorial(13) ➞ 6227020800
+// Notes
+// Assume all inputs are greater than or equal to 0.
+
+function factorial(int) {
+  if (int < 0) return -1
+  else if (int === 0) return 1
+  else return (int * factorial(int - 1))
+}
+
+// Create a function that determines whether a shopping order is eligible for free shipping. An order is eligible for free shipping if the total cost of items purchased exceeds $50.00.
+// Examples
+// freeShipping({ "Shampoo": 5.99, "Rubber Ducks": 15.99 }) ➞ false
+// freeShipping({ "Flatscreen TV": 399.99 }) ➞ true
+// freeShipping({ "Monopoly": 11.99, "Secret Hitler": 35.99, "Bananagrams": 13.99 }) ➞ true
+// Notes
+// Ignore tax or additional fees when calculating the total order cost.
+
+function freeShipping(order) {
+  return Object.values(order).reduce((cur, acc) => cur + acc) > 50
+}
+
+// Suppose you have a guest list of students and the country they are from, stored as key-value pairs in an object.
+// const GUEST_LIST = {
+//   Randy: "Germany",
+//   Karla: "France",
+//   Wendy: "Japan",
+//   Norman: "England",
+//   Sam: "Argentina"
+// }
+// Write a function that takes in a name and returns a name tag, that should read:
+// "Hi! I'm [name], and I'm from [country]."
+// If the name is not in the object, return:
+// "Hi! I'm a guest."
+// Examples
+// greeting("Randy") ➞ "Hi! I'm Randy, and I'm from Germany."
+// greeting("Sam") ➞ "Hi! I'm Sam, and I'm from Argentina."
+// greeting("Monti") ➞ "Hi! I'm a guest."
+// Notes
+// N/A
+
+const GUEST_LIST = {
+  Randy: "Germany",
+  Karla: "France",
+  Wendy: "Japan",
+  Norman: "England",
+  Sam: "Argentina"
+}
+
+function greeting(name) {
+  return GUEST_LIST.hasOwnProperty(name) ? `Hi! I'm ${name}, and I'm from ${GUEST_LIST[name]}.` : "Hi! I'm a guest."
+}
+
 // Given an object of people and their ages, return how old the people would be after n years have passed. Use the absolute value of n.
 // Examples
 // afterNYears({
@@ -38,10 +287,10 @@
 //     n should be a positive number because last time I checked, people don't tend to age backwards. Therefore, use the absolute value of n.
 
 function afterNYears(names, n) {
-	for (const age in names) {
-	  names[age] += Math.abs(n)
-	}
-	return names
+  for (const age in names) {
+    names[age] += Math.abs(n)
+  }
+  return names
 }
 
 // Write a function that returns 0 if the input is 1, and returns 1 if the input is 0.
@@ -57,7 +306,9 @@ function afterNYears(names, n) {
 //     Bit operators
 
 function flip(y) {
-	return 1 - y
+  return 1 - y
+  x = [1, 0]
+  return x[y]
 }
 
 // Assume a program only reads .js or .jsx files. Write a function that accepts a file path and returns true if it can read the file and false if it can't.
@@ -69,7 +320,7 @@ function flip(y) {
 // Use a RegEx boundary assertion in your function.
 
 function isJS(path) {
-	return /.jsx|.js/g.test(path);
+  return /.jsx|.js/g.test(path);
 }
 
 // Create a function that takes two strings as arguments and returns the number of times the first string (the single character) is found in the second string.
@@ -81,13 +332,13 @@ function isJS(path) {
 // Your output must be case-sensitive (see second example).
 
 function charCount(myChar, str) {
-	let count = 0;
-	for (let i = 0; i < str.length; i++) {
-		if (str[i] === myChar) {
-			count++
-		}
-	}
-	return count;
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === myChar) {
+      count++
+    }
+  }
+  return count;
 }
 
 // Christmas Eve is almost upon us, so naturally we need to prepare some milk and cookies for Santa! Create a function that accepts a Date object and returns true if it's Christmas Eve (December 24th) and false otherwise. Keep in mind JavaScript's Date month is 0 based, meaning December is the 11th month while January is 0.
@@ -119,7 +370,7 @@ function timeForMilkAndCookies(date) {
 //     Don't forget to return the result.
 
 function longBurp(num) {
-	let burp = 'Bu';
+  let burp = 'Bu';
   while (num > 0) {
     burp += 'r'
     num--
@@ -142,7 +393,7 @@ function longBurp(num) {
 // Numbers with two identical digits (third example) should yield true (you can't do better).
 
 function largestSwap(num) {
-	const numStr = '' + num
+  const numStr = '' + num
   let swappedStr = []
   let swappedNum
   for (let index = numStr.length; index--;) {
@@ -166,15 +417,15 @@ function largestSwap(num) {
 // Notes
 // Check the Resources tab for more info on promises.
 
-let promise = new Promise( (resolve, reject) => {
-	let animal = "cat"
+let promise = new Promise((resolve, reject) => {
+  let animal = "cat"
   setTimeout(() => {
-		if(animal === "dog") {
-			resolve("It's a dog!")
-		} 
-	  if(animal !== "dog") {
-			reject("It's not a dog!")
-		}
+    if (animal === "dog") {
+      resolve("It's a dog!")
+    }
+    if (animal !== "dog") {
+      reject("It's not a dog!")
+    }
   }, 1000)
 })
 
@@ -196,7 +447,7 @@ let promise = new Promise( (resolve, reject) => {
 // N/A
 
 function getDays(date1, date2) {
-	return Math.abs(date1.getTime() - date2.getTime()) / (1000 * 3600 * 24);
+  return Math.abs(date1.getTime() - date2.getTime()) / (1000 * 3600 * 24);
 }
 
 // Your task is to create a Circle constructor that creates a circle with a radius provided by an argument. 
@@ -216,11 +467,11 @@ function getDays(date1, date2) {
 //considered advanced, yet the challenge is more simple - so if this challenge gets labelled as easy, don't worry too much.
 
 class Circle {
-	constructor(radius) {
-		this.radius = radius
-	}
-	getArea(){return Math.PI * Math.pow(this.radius, 2)}
-	getPerimeter(){return 2 * Math.PI * this.radius}
+  constructor(radius) {
+    this.radius = radius
+  }
+  getArea() { return Math.PI * Math.pow(this.radius, 2) }
+  getPerimeter() { return 2 * Math.PI * this.radius }
 }
 
 // Create a function that returns only strings with unique characters.
