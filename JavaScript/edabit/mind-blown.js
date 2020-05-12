@@ -1,3 +1,71 @@
+// In this challenge, you must generate a sequence of consecutive numbers, from a lower bound that will always be equal to 1, up to a variable given higher bound (including the bounds in the sequence).
+// Each number of the sequence that can be exactly divided by 4 must be amplified by 10 (see notes below).
+// Given a higher bound num, implement a function that returns an array with the sequence of numbers, after that every multiple of 4 has been amplified.
+// Examples
+// amplify(4) ➞ [1, 2, 3, 40]
+// // Create a sequence from 1 to 4
+// // 4 is exactly divisible by 4, so it will be 4*10 = 40
+// amplify(3) ➞ [1, 2, 3]
+// // Create a sequence from 1 to 3
+// // There are no numbers that can be exactly divided by 4
+// amplify(25) ➞ [1, 2, 3, 40, 5, 6, 7, 80, 9, 10, 11, 120, 13, 14, 15, 160, 17, 18, 19, 200, 21, 22, 23, 240, 25]
+// // Create a sequence from 1 to 25
+// // The numbers exactly divisible by 4 are: 4 (4*10 = 40), 8 (8 * 10 = 80)... and so on.
+// Notes
+//     The given parameter num will always be equal to or greater than 1.
+//     Remember to include the num as the higher bound of the sequence (see the Examples) above.
+//     A number a amplified by a factor b can also be read as: a * b.
+//     A number a is exactly divisible by a number b when the remainder of the division a / b is equal to 0.
+//     If you get stuck on a challenge, find help in the Resources tab.
+//     If you're really stuck, unlock solutions in the Solutions tab.
+
+function amplify(num) {
+  let resultsArr = []
+  for (let i = 1; i <= num; i++) {
+    if (i % 4 === 0) resultsArr.push(i * 10) 
+    else resultsArr.push(i)
+  }
+  return resultsArr
+}
+
+// Write a function called "computeFactorialOfN".
+// Given a natural number (a whole number greater than 0), "computeFactorialOfN" returns its factorial.
+// var output = computeFactorialOfN(3);
+// console.log(output); // --> 6
+// var output = computeFactorialOfN(4);
+// console.log(output); // --> 24
+
+//Pseudocode
+//Declare a function called computeFactorialOfN that takes parameter of a natural number
+//Make variable for result
+//Use a for loop with the boundry of less than the natural number 
+//With the for loop apply the formula of factorial which is
+//n * (n - 1), assign the result to the variable
+//return the result
+
+function computeFactorialOfN(num) {
+  let result = 1;
+  // for (let i = 1; i <= num; i++) {
+  //   result *= i
+  // }
+  let i = 1
+  while (i <= num) {
+    result *= i
+    i++
+  }
+  return result
+}
+
+//num = 3
+//i = 4
+//result = 6
+
+computeFactorialOfN(3)
+
+//(1)  1
+//(2)  1*2
+//(3)  1*2*3
+
 // Given an array of math expressions, create a function which sorts the array by their answer. It should be sorted in ascending order.
 // Examples
 
@@ -299,7 +367,6 @@ function afterNYears(names, n) {
 // flip(0) ➞ 1
 // Notes
 // Try completing this challenge without using any:
-
 //     Conditionals
 //     Ternary operators
 //     Negations
