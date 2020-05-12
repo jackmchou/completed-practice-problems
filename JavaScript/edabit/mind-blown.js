@@ -1,3 +1,32 @@
+// Groups and ranges indicate groups and ranges of expression characters. Negated character sets match any characters that are NOT inside of brackets [ ]. You differentiate a negated character set from a regular character set by inserting a ^ inside of the [ ].
+// "1234cba5678".match(/[^abc]/g)
+// // "12345678", matches any character that are not a, b, or c.
+// You can also negate ranges, but like with regular character sets, if the hyphen is at the beginning or ending of a range then it will be considered a literal hyphen.
+// "excludenumbers123".match(/[^1-3]/g)
+// // "excludenumbers", matches any character that are not the numbers 1, 2 or 3.
+// Create a REGEXP that matches any characters except letters, digits and spaces. You must use a negated character set in your expression.
+//  "alice15@gmail.com".match(/REGEXP/gi) ➞ ["@", "."]
+// Notes
+// Check the Resources tab if you get stuck.
+
+const REGEXP = /[^a-zA-Z\d\s]/g
+
+// Create a function that takes a string and returns a string in which each character is repeated once.
+// Examples
+// doubleChar("String") ➞ "SSttrriinngg"
+// doubleChar("Hello World!") ➞ "HHeelllloo  WWoorrlldd!!"
+// doubleChar("1234!_ ") ➞ "11223344!!__  "
+// Notes
+// All test cases contain valid strings. Don't worry about spaces, special characters or numbers. They're all considered valid characters.
+
+function doubleChar(str) {
+  let result = []
+	for (let i = 0; i < str.length;i++) {
+    result.push(str[i] += str[i])
+  }
+  return result.join('')
+}
+
 // In this challenge, you must generate a sequence of consecutive numbers, from a lower bound that will always be equal to 1, up to a variable given higher bound (including the bounds in the sequence).
 // Each number of the sequence that can be exactly divided by 4 must be amplified by 10 (see notes below).
 // Given a higher bound num, implement a function that returns an array with the sequence of numbers, after that every multiple of 4 has been amplified.
