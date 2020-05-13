@@ -24,7 +24,17 @@
 // A single printed page uses each color once, so that no prints are possible if there's no more ink in any of the slots (see example #3).
 
 function inkLevels(inks) {
-	
+  const inkLevelsArr = []
+	for (const levels in inks) {
+    inkLevelsArr.push(inks[levels])
+  }
+  let minLevels = inkLevelsArr[0]
+  for (let i = 0; i < inkLevelsArr.length; i++) {
+    if (inkLevelsArr[i] < minLevels) {
+      minLevels = inkLevelsArr[i]
+    }
+  }
+  return minLevels
 }
 
 // Create a function that takes a string and returns a new string with all vowels removed.
