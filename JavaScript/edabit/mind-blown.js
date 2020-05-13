@@ -1,3 +1,71 @@
+// Create a function that takes a string and returns a new string with all vowels removed.
+// Examples
+// removeVowels("I have never seen a thin person drinking Diet Coke.")
+// ➞ " hv nvr sn  thn prsn drnkng Dt Ck."
+// removeVowels("We're gonna build a wall!")
+// ➞ "W'r gnn bld  wll!"
+// removeVowels("Happy Thanksgiving to all--even the haters and losers!")
+// ➞ "Hppy Thnksgvng t ll--vn th htrs nd lsrs!"
+// Notes
+// "y" is not considered a vowel.
+
+function removeVowels(str) {
+  //return str.replace(/[aeiou]/g, '')
+  let newStr = ''
+  for (let i = 0; i < str.length; i++) {
+    
+  }
+}
+
+// Write a function to reverse an array.
+// Examples
+// reverse([1, 2, 3, 4]) ➞ [4, 3, 2, 1]
+// reverse([9, 9, 2, 3, 4]) ➞ [4, 3, 2, 9, 9]
+// reverse([]) ➞ []
+// Notes
+//     Don't forget to return the result.
+//     If you get stuck on a challenge, find help in the Resources tab.
+//     If you're really stuck, unlock solutions in the Solutions tab.
+
+function reverse(arr) {
+  let resultArr = []
+  for (let i = arr.length - 1; i >= 0 ; i--) {
+    resultArr.push(arr[i])
+  }
+  return resultArr
+}
+
+// Create a function that returns true if the first array can be nested inside the second.
+// arr1 can be nested inside arr2 if:
+//     arr1's min is greater than arr2's min.
+//     arr1's max is less than arr2's max.
+// Examples
+// canNest([1, 2, 3, 4], [0, 6]) ➞ true
+// canNest([3, 1], [4, 0]) ➞ true
+// canNest([9, 9, 8], [8, 9]) ➞ false
+// canNest([1, 2, 3, 4], [2, 3]) ➞ false
+// Notes
+// Note the strict inequality (see example #3).
+
+function canNest(arr1, arr2) {
+  function findMinMax(arr) {
+    let max = arr[0]
+    let min = arr[0]
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > max) {
+        max = arr[i]
+      }
+      if (arr[i] < min) {
+        min = arr[i]
+      }
+    }
+    return [min, max]
+  }
+  const arr1MinMax = findMinMax(arr1)
+  const arr2MinMax = findMinMax(arr2)
+  return arr1MinMax[0] > arr2MinMax[0] && arr1MinMax[1] < arr2MinMax[1]
+}
+
 // Groups and ranges indicate groups and ranges of expression characters. Negated character sets match any characters that are NOT inside of brackets [ ]. You differentiate a negated character set from a regular character set by inserting a ^ inside of the [ ].
 // "1234cba5678".match(/[^abc]/g)
 // // "12345678", matches any character that are not a, b, or c.
@@ -9,7 +77,7 @@
 // Notes
 // Check the Resources tab if you get stuck.
 
-const REGEXP = /[^a-zA-Z\d\s]/g
+const REGEXP = /[^a-z\d\s]/gi
 
 // Create a function that takes a string and returns a string in which each character is repeated once.
 // Examples
