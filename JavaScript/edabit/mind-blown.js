@@ -1,3 +1,243 @@
+// Create a function that takes an array of arrays with numbers. Return a new (single) array with the largest numbers of each.
+// Examples
+// findLargestNums([[4, 2, 7, 1], [20, 70, 40, 90], [1, 2, 0]]) ➞ [7, 90, 2]
+// findLargestNums([[-34, -54, -74], [-32, -2, -65], [-54, 7, -43]]) ➞ [-34, -2, 7]
+// findLargestNums([[0.4321, 0.7634, 0.652], [1.324, 9.32, 2.5423, 6.4314], [9, 3, 6, 3]]) ➞ [0.7634, 9.32, 9]
+// Notes
+// Watch out for negative integers (numbers).
+
+function findLargestNums(arr) {
+	let resultArr = []
+  for (let i = 0; i < arr.length; i++) {
+    let arrMax = arr[i][0]
+    for (let ii = 0; ii < arr[i].length; ii++) {
+      if (arr[i][ii] > arrMax) {
+      	arrMax = arr[i][ii]
+      }
+    }
+    resultArr.push(arrMax)
+  }
+  return resultArr
+}
+
+// Given an object of how many more pages each ink color can print, output the maximum number of pages the printer can print before any of the colors run out.
+// Examples
+
+// inkLevels({
+//   "cyan": 23,
+//   "magenta": 12,
+//   "yellow": 10
+// }) ➞ 10
+
+// inkLevels({
+//   "cyan": 432,
+//   "magenta": 543,
+//   "yellow": 777
+// }) ➞ 432
+
+// inkLevels({
+//   "cyan": 700,
+//   "magenta": 700,
+//   "yellow": 0
+// }) ➞ 0
+
+// Notes
+
+// A single printed page uses each color once, so that no prints are possible if there's no more ink in any of the slots (see example #3).
+
+function inkLevels(inks) {
+  const inkLevelsArr = []
+	for (const levels in inks) {
+    inkLevelsArr.push(inks[levels])
+  }
+  let minLevels = inkLevelsArr[0]
+  for (let i = 0; i < inkLevelsArr.length; i++) {
+    if (inkLevelsArr[i] < minLevels) {
+      minLevels = inkLevelsArr[i]
+    }
+  }
+  return minLevels
+}
+
+// Create a function that takes a string and returns a new string with all vowels removed.
+// Examples
+// removeVowels("I have never seen a thin person drinking Diet Coke.")
+// ➞ " hv nvr sn  thn prsn drnkng Dt Ck."
+// removeVowels("We're gonna build a wall!")
+// ➞ "W'r gnn bld  wll!"
+// removeVowels("Happy Thanksgiving to all--even the haters and losers!")
+// ➞ "Hppy Thnksgvng t ll--vn th htrs nd lsrs!"
+// Notes
+// "y" is not considered a vowel.
+
+function removeVowels(str) {
+  //return str.replace(/[aeiou]/gi, '')
+  let strArr = str.split('')
+  for (let i = 0; i < strArr.length; i++) {
+    switch (strArr[i].toLowerCase()) {
+      case 'a':
+      case 'e':
+      case 'i':
+      case 'o':
+      case 'u':
+        strArr.splice(i, 1)
+        i--
+        break;
+    }
+    //How to account for consequtive vowels?
+  }
+  return strArr.join('')
+}
+
+// f bm rsgns frm ffc NW, thrby dng  grt srvc t th cntry— wll gv hm fr lftm glf t ny n f my crss!
+// f bm rsgns frm ffc NW, thrby ding  grat srvc t th cntry— wll gv hm fre lftm glf t ny n f my crss!
+
+// Write a function to reverse an array.
+// Examples
+// reverse([1, 2, 3, 4]) ➞ [4, 3, 2, 1]
+// reverse([9, 9, 2, 3, 4]) ➞ [4, 3, 2, 9, 9]
+// reverse([]) ➞ []
+// Notes
+//     Don't forget to return the result.
+//     If you get stuck on a challenge, find help in the Resources tab.
+//     If you're really stuck, unlock solutions in the Solutions tab.
+
+function reverse(arr) {
+  let resultArr = []
+  for (let i = arr.length - 1; i >= 0 ; i--) {
+    resultArr.push(arr[i])
+  }
+  return resultArr
+}
+
+// Create a function that returns true if the first array can be nested inside the second.
+// arr1 can be nested inside arr2 if:
+//     arr1's min is greater than arr2's min.
+//     arr1's max is less than arr2's max.
+// Examples
+// canNest([1, 2, 3, 4], [0, 6]) ➞ true
+// canNest([3, 1], [4, 0]) ➞ true
+// canNest([9, 9, 8], [8, 9]) ➞ false
+// canNest([1, 2, 3, 4], [2, 3]) ➞ false
+// Notes
+// Note the strict inequality (see example #3).
+
+function canNest(arr1, arr2) {
+  function findMinMax(arr) {
+    let max = arr[0]
+    let min = arr[0]
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > max) {
+        max = arr[i]
+      }
+      if (arr[i] < min) {
+        min = arr[i]
+      }
+    }
+    return [min, max]
+  }
+  const arr1MinMax = findMinMax(arr1)
+  const arr2MinMax = findMinMax(arr2)
+  return arr1MinMax[0] > arr2MinMax[0] && arr1MinMax[1] < arr2MinMax[1]
+}
+
+// Groups and ranges indicate groups and ranges of expression characters. Negated character sets match any characters that are NOT inside of brackets [ ]. You differentiate a negated character set from a regular character set by inserting a ^ inside of the [ ].
+// "1234cba5678".match(/[^abc]/g)
+// // "12345678", matches any character that are not a, b, or c.
+// You can also negate ranges, but like with regular character sets, if the hyphen is at the beginning or ending of a range then it will be considered a literal hyphen.
+// "excludenumbers123".match(/[^1-3]/g)
+// // "excludenumbers", matches any character that are not the numbers 1, 2 or 3.
+// Create a REGEXP that matches any characters except letters, digits and spaces. You must use a negated character set in your expression.
+//  "alice15@gmail.com".match(/REGEXP/gi) ➞ ["@", "."]
+// Notes
+// Check the Resources tab if you get stuck.
+
+const REGEXP = /[^a-z\d\s]/gi
+
+// Create a function that takes a string and returns a string in which each character is repeated once.
+// Examples
+// doubleChar("String") ➞ "SSttrriinngg"
+// doubleChar("Hello World!") ➞ "HHeelllloo  WWoorrlldd!!"
+// doubleChar("1234!_ ") ➞ "11223344!!__  "
+// Notes
+// All test cases contain valid strings. Don't worry about spaces, special characters or numbers. They're all considered valid characters.
+
+function doubleChar(str) {
+  let result = []
+	for (let i = 0; i < str.length;i++) {
+    result.push(str[i] += str[i])
+  }
+  return result.join('')
+}
+
+// In this challenge, you must generate a sequence of consecutive numbers, from a lower bound that will always be equal to 1, up to a variable given higher bound (including the bounds in the sequence).
+// Each number of the sequence that can be exactly divided by 4 must be amplified by 10 (see notes below).
+// Given a higher bound num, implement a function that returns an array with the sequence of numbers, after that every multiple of 4 has been amplified.
+// Examples
+// amplify(4) ➞ [1, 2, 3, 40]
+// // Create a sequence from 1 to 4
+// // 4 is exactly divisible by 4, so it will be 4*10 = 40
+// amplify(3) ➞ [1, 2, 3]
+// // Create a sequence from 1 to 3
+// // There are no numbers that can be exactly divided by 4
+// amplify(25) ➞ [1, 2, 3, 40, 5, 6, 7, 80, 9, 10, 11, 120, 13, 14, 15, 160, 17, 18, 19, 200, 21, 22, 23, 240, 25]
+// // Create a sequence from 1 to 25
+// // The numbers exactly divisible by 4 are: 4 (4*10 = 40), 8 (8 * 10 = 80)... and so on.
+// Notes
+//     The given parameter num will always be equal to or greater than 1.
+//     Remember to include the num as the higher bound of the sequence (see the Examples) above.
+//     A number a amplified by a factor b can also be read as: a * b.
+//     A number a is exactly divisible by a number b when the remainder of the division a / b is equal to 0.
+//     If you get stuck on a challenge, find help in the Resources tab.
+//     If you're really stuck, unlock solutions in the Solutions tab.
+
+function amplify(num) {
+  let resultsArr = []
+  for (let i = 1; i <= num; i++) {
+    if (i % 4 === 0) resultsArr.push(i * 10) 
+    else resultsArr.push(i)
+  }
+  return resultsArr
+}
+
+// Write a function called "computeFactorialOfN".
+// Given a natural number (a whole number greater than 0), "computeFactorialOfN" returns its factorial.
+// var output = computeFactorialOfN(3);
+// console.log(output); // --> 6
+// var output = computeFactorialOfN(4);
+// console.log(output); // --> 24
+
+//Pseudocode
+//Declare a function called computeFactorialOfN that takes parameter of a natural number
+//Make variable for result
+//Use a for loop with the boundry of less than the natural number 
+//With the for loop apply the formula of factorial which is
+//n * (n - 1), assign the result to the variable
+//return the result
+
+function computeFactorialOfN(num) {
+  let result = 1;
+  // for (let i = 1; i <= num; i++) {
+  //   result *= i
+  // }
+  let i = 1
+  while (i <= num) {
+    result *= i
+    i++
+  }
+  return result
+}
+
+//num = 3
+//i = 4
+//result = 6
+
+computeFactorialOfN(3)
+
+//(1)  1
+//(2)  1*2
+//(3)  1*2*3
+
 // Given an array of math expressions, create a function which sorts the array by their answer. It should be sorted in ascending order.
 // Examples
 
@@ -299,7 +539,6 @@ function afterNYears(names, n) {
 // flip(0) ➞ 1
 // Notes
 // Try completing this challenge without using any:
-
 //     Conditionals
 //     Ternary operators
 //     Negations
