@@ -1,3 +1,32 @@
+// Given an object of how many more pages each ink color can print, output the maximum number of pages the printer can print before any of the colors run out.
+// Examples
+
+// inkLevels({
+//   "cyan": 23,
+//   "magenta": 12,
+//   "yellow": 10
+// }) ➞ 10
+
+// inkLevels({
+//   "cyan": 432,
+//   "magenta": 543,
+//   "yellow": 777
+// }) ➞ 432
+
+// inkLevels({
+//   "cyan": 700,
+//   "magenta": 700,
+//   "yellow": 0
+// }) ➞ 0
+
+// Notes
+
+// A single printed page uses each color once, so that no prints are possible if there's no more ink in any of the slots (see example #3).
+
+function inkLevels(inks) {
+	
+}
+
 // Create a function that takes a string and returns a new string with all vowels removed.
 // Examples
 // removeVowels("I have never seen a thin person drinking Diet Coke.")
@@ -10,17 +39,26 @@
 // "y" is not considered a vowel.
 
 function removeVowels(str) {
-  //return str.replace(/[aeiou]/g, '')
+  //return str.replace(/[aeiou]/gi, '')
   let strArr = str.split('')
   for (let i = 0; i < strArr.length; i++) {
-    if (strArr[i] === 'a') strArr.splice(i, 1)
-    if (strArr[i] === 'e') strArr.splice(i, 1)
-    if (strArr[i] === 'i') strArr.splice(i, 1)
-    if (strArr[i] === 'o') strArr.splice(i, 1)
-    if (strArr[i] === 'u') strArr.splice(i, 1)
+    switch (strArr[i].toLowerCase()) {
+      case 'a':
+      case 'e':
+      case 'i':
+      case 'o':
+      case 'u':
+        strArr.splice(i, 1)
+        i--
+        break;
     }
+    //How to account for consequtive vowels?
+  }
   return strArr.join('')
 }
+
+// f bm rsgns frm ffc NW, thrby dng  grt srvc t th cntry— wll gv hm fr lftm glf t ny n f my crss!
+// f bm rsgns frm ffc NW, thrby ding  grat srvc t th cntry— wll gv hm fre lftm glf t ny n f my crss!
 
 // Write a function to reverse an array.
 // Examples
