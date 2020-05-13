@@ -11,10 +11,15 @@
 
 function removeVowels(str) {
   //return str.replace(/[aeiou]/g, '')
-  let newStr = ''
-  for (let i = 0; i < str.length; i++) {
-    
-  }
+  let strArr = str.split('')
+  for (let i = 0; i < strArr.length; i++) {
+    if (strArr[i] === 'a') strArr.splice(i, 1)
+    if (strArr[i] === 'e') strArr.splice(i, 1)
+    if (strArr[i] === 'i') strArr.splice(i, 1)
+    if (strArr[i] === 'o') strArr.splice(i, 1)
+    if (strArr[i] === 'u') strArr.splice(i, 1)
+    }
+  return strArr.join('')
 }
 
 // Write a function to reverse an array.
