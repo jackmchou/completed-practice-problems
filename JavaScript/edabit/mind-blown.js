@@ -1,3 +1,24 @@
+// Create a function that takes a number as an argument and returns true or false 
+// depending on whether the number is symmetrical or not. A number is symmetrical when it is the same as its reverse.
+// Examples
+// isSymmetrical(7227) ➞ true
+// isSymmetrical(12567) ➞ false
+// isSymmetrical(44444444) ➞ true
+// isSymmetrical(9939) ➞ false
+// isSymmetrical(1112111) ➞ true
+// Notes
+// N/A
+
+function isSymmetrical(num) {
+  let numArr = ('' + num).split('')
+  for (let i = 0; i < numArr.length / 2; i++) {
+    if (numArr[i] !== numArr[numArr.length - 1 - i]) {
+      return false
+    }
+  }
+  return true
+}
+
 // A group of friends have decided to start a secret society. The name will be the first letter of each of their names, sorted in alphabetical order.
 
 // Create a function that takes in an array of names and returns the name of the secret society.
