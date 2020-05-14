@@ -1,3 +1,32 @@
+// A group of friends have decided to start a secret society. The name will be the first letter of each of their names, sorted in alphabetical order.
+
+// Create a function that takes in an array of names and returns the name of the secret society.
+// Examples
+
+// societyName(["Adam", "Sarah", "Malcolm"]) ➞ "AMS"
+
+// societyName(["Harry", "Newt", "Luna", "Cho"]) ➞ "CHLN"
+
+// societyName(["Phoebe", "Chandler", "Rachel", "Ross", "Monica", "Joey"]) ➞ "CJMPRR"
+
+// Notes
+
+// The secret society's name should be entirely uppercased.
+
+function societyName(friends) {
+  let tmp;
+  for (let i = 0; i < friends.length; i++) {
+    for (let j = i + 1; j < friends.length; j++) {
+      if (friends[i] > friends[j]) {
+        tmp = friends[i]
+        friends[i] = friends[j]
+        friends[j] = tmp
+      }
+    }
+  }
+  return friends.map(i => i.split('')[0]).join('')
+}
+
 // Create a function that takes an array of arrays with numbers. Return a new (single) array with the largest numbers of each.
 // Examples
 // findLargestNums([[4, 2, 7, 1], [20, 70, 40, 90], [1, 2, 0]]) ➞ [7, 90, 2]
