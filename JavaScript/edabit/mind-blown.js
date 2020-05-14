@@ -1,3 +1,20 @@
+// Given a two digit number, return true if that number contains one even and one odd digit.
+// Example
+// oneOddOneEven(12) ➞ true
+// oneOddOneEven(55) ➞ false
+// oneOddOneEven(22) ➞ false
+// Notes
+// N/A
+
+function oneOddOneEven(n) {
+  let numArr =  ('' + n).split('')
+  for (let i = 0; i < numArr.length; i++) {
+    if (numArr[i] % 2 === 0 && numArr[i + 1] % 2 === 0) return false
+    if (numArr[i] % 2 === 1 && numArr[i + 1] % 2 === 1) return false
+  }
+  return true
+}
+
 // Zip codes consist of 5 consecutive digits. Given a string, write a function to determine whether the input is a valid zip code. A valid zip code is as follows:
 //     Must only contain numbers (no non-digits allowed).
 //     Must not contain any spaces.
