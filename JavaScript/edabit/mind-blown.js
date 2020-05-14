@@ -1,3 +1,136 @@
+// Write a function that reverses all the words in a sentence that start with a particular letter.
+// Examples
+// specialReverse("word searches are super fun", "s")
+// ➞ "word sehcraes are repus fun"
+// specialReverse("first man to walk on the moon", "m")
+// ➞ "first nam to walk on the noom"
+// specialReverse("peter piper picked pickled peppers", "p")
+// ➞ "retep repip dekcip delkcip sreppep"
+// Notes
+//     Reverse the words themselves, not the entire sentence.
+//     All characters in the sentence will be in lower case.
+
+function specialReverse(s, c) {
+  let wordsArr = s.split(' ')
+  let result = []
+  for (let i = 0; i < wordsArr.length; i++) {
+    if (wordsArr[i].split('')[0] === c) {
+      let revStrArr = Array.from(wordsArr[i])
+      let revStr = []
+      for (let j = revStrArr.length - 1; j > -1;j--) {
+        revStr.push(revStrArr[j])
+      }
+      result.push(revStr.join(''))
+    } else {
+      result.push(wordsArr[i])
+    }
+  }
+  return result.join(' ')
+}
+
+// Given a two digit number, return true if that number contains one even and one odd digit.
+// Example
+// oneOddOneEven(12) ➞ true
+// oneOddOneEven(55) ➞ false
+// oneOddOneEven(22) ➞ false
+// Notes
+// N/A
+
+function oneOddOneEven(n) {
+  let numArr =  ('' + n).split('')
+  for (let i = 0; i < numArr.length; i++) {
+    if (numArr[i] % 2 === 0 && numArr[i + 1] % 2 === 0) return false
+    if (numArr[i] % 2 === 1 && numArr[i + 1] % 2 === 1) return false
+  }
+  return true
+}
+
+// Zip codes consist of 5 consecutive digits. Given a string, write a function to determine whether the input is a valid zip code. A valid zip code is as follows:
+//     Must only contain numbers (no non-digits allowed).
+//     Must not contain any spaces.
+//     Must not be greater than 5 digits in length.
+// Examples
+// isValid("59001") ➞ true
+// isValid("853a7") ➞ false
+// isValid("732 32") ➞ false
+// isValid("393939") ➞ false
+// Notes
+// N/A
+
+function isValid(zip) {
+	return /\d{4,5}[^\s\Da-z]/gi.test(zip) && zip.length <= 5
+}
+
+// Create a function that returns the number of hashes and pluses in a string.
+// Examples
+// hashPlusCount("###+") ➞ [3, 1]
+// hashPlusCount("##+++#") ➞ [3, 3]
+// hashPlusCount("#+++#+#++#") ➞ [4, 6]
+// hashPlusCount("") ➞ [0, 0]
+// Notes
+//     Return [0, 0] for an empty string.
+//     Return in the order of [hashes, pluses].
+
+function hashPlusCount(str) {
+  let resultArr = [0, 0]
+  let strArr = str.split('')
+  for (let i = 0; i < strArr.length; i++) {
+    if (strArr[i] === '#') resultArr[0] += 1
+    if (strArr[i] === '+') resultArr[1] += 1
+  }
+  return resultArr
+}
+
+// Create a function that takes a number as an argument and returns true or false 
+// depending on whether the number is symmetrical or not. A number is symmetrical when it is the same as its reverse.
+// Examples
+// isSymmetrical(7227) ➞ true
+// isSymmetrical(12567) ➞ false
+// isSymmetrical(44444444) ➞ true
+// isSymmetrical(9939) ➞ false
+// isSymmetrical(1112111) ➞ true
+// Notes
+// N/A
+
+function isSymmetrical(num) {
+  let numArr = ('' + num).split('')
+  for (let i = 0; i < numArr.length / 2; i++) {
+    if (numArr[i] !== numArr[numArr.length - 1 - i]) {
+      return false
+    }
+  }
+  return true
+}
+
+// A group of friends have decided to start a secret society. The name will be the first letter of each of their names, sorted in alphabetical order.
+
+// Create a function that takes in an array of names and returns the name of the secret society.
+// Examples
+
+// societyName(["Adam", "Sarah", "Malcolm"]) ➞ "AMS"
+
+// societyName(["Harry", "Newt", "Luna", "Cho"]) ➞ "CHLN"
+
+// societyName(["Phoebe", "Chandler", "Rachel", "Ross", "Monica", "Joey"]) ➞ "CJMPRR"
+
+// Notes
+
+// The secret society's name should be entirely uppercased.
+
+function societyName(friends) {
+  let tmp;
+  for (let i = 0; i < friends.length; i++) {
+    for (let j = i + 1; j < friends.length; j++) {
+      if (friends[i] > friends[j]) {
+        tmp = friends[i]
+        friends[i] = friends[j]
+        friends[j] = tmp
+      }
+    }
+  }
+  return friends.map(i => i.split('')[0]).join('')
+}
+
 // Create a function that takes an array of arrays with numbers. Return a new (single) array with the largest numbers of each.
 // Examples
 // findLargestNums([[4, 2, 7, 1], [20, 70, 40, 90], [1, 2, 0]]) ➞ [7, 90, 2]
