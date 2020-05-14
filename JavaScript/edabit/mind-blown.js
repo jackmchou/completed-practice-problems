@@ -1,3 +1,23 @@
+// Create a function that returns the number of hashes and pluses in a string.
+// Examples
+// hashPlusCount("###+") ➞ [3, 1]
+// hashPlusCount("##+++#") ➞ [3, 3]
+// hashPlusCount("#+++#+#++#") ➞ [4, 6]
+// hashPlusCount("") ➞ [0, 0]
+// Notes
+//     Return [0, 0] for an empty string.
+//     Return in the order of [hashes, pluses].
+
+function hashPlusCount(str) {
+  let resultArr = [0, 0]
+  let strArr = str.split('')
+  for (let i = 0; i < strArr.length; i++) {
+    if (strArr[i] === '#') resultArr[0] += 1
+    if (strArr[i] === '+') resultArr[1] += 1
+  }
+  return resultArr
+}
+
 // Create a function that takes a number as an argument and returns true or false 
 // depending on whether the number is symmetrical or not. A number is symmetrical when it is the same as its reverse.
 // Examples
