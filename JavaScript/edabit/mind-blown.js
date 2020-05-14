@@ -1,3 +1,33 @@
+// Write a function that reverses all the words in a sentence that start with a particular letter.
+// Examples
+// specialReverse("word searches are super fun", "s")
+// ➞ "word sehcraes are repus fun"
+// specialReverse("first man to walk on the moon", "m")
+// ➞ "first nam to walk on the noom"
+// specialReverse("peter piper picked pickled peppers", "p")
+// ➞ "retep repip dekcip delkcip sreppep"
+// Notes
+//     Reverse the words themselves, not the entire sentence.
+//     All characters in the sentence will be in lower case.
+
+function specialReverse(s, c) {
+  let wordsArr = s.split(' ')
+  let result = []
+  for (let i = 0; i < wordsArr.length; i++) {
+    if (wordsArr[i].split('')[0] === c) {
+      let revStrArr = Array.from(wordsArr[i])
+      let revStr = []
+      for (let j = revStrArr.length - 1; j > -1;j--) {
+        revStr.push(revStrArr[j])
+      }
+      result.push(revStr.join(''))
+    } else {
+      result.push(wordsArr[i])
+    }
+  }
+  return result.join(' ')
+}
+
 // Given a two digit number, return true if that number contains one even and one odd digit.
 // Example
 // oneOddOneEven(12) ➞ true
