@@ -1,3 +1,69 @@
+// Given an array of scrabble tiles, create a function that outputs the maximum possible score a player can achieve by summing up the total number of points for all the tiles in their hand. Each hand contains 7 scrabble tiles.
+// Here's an example hand:
+// [
+//   { tile: "N", score: 1 },
+//   { tile: "K", score: 5 },
+//   { tile: "Z", score: 10 },
+//   { tile: "X", score: 8 },
+//   { tile: "D", score: 2 },
+//   { tile: "A", score: 1 },
+//   { tile: "E", score: 1 }
+// ]
+// The players maximumScore from playing all these tiles would be 1 + 5 + 10 + 8 + 2 + 1 + 1, or 28.
+// Examples
+// maximumScore([
+//   { tile: "N", score: 1 },
+//   { tile: "K", score: 5 },
+//   { tile: "Z", score: 10 },
+//   { tile: "X", score: 8 },
+//   { tile: "D", score: 2 },
+//   { tile: "A", score: 1 },
+//   { tile: "E", score: 1 }
+// ]) ➞ 28
+// maximumScore([
+//   { tile: "B", score: 2 },
+//   { tile: "V", score: 4 },
+//   { tile: "F", score: 4 },
+//   { tile: "U", score: 1 },
+//   { tile: "D", score: 2 },
+//   { tile: "O", score: 1 },
+//   { tile: "U", score: 1 }
+// ]) ➞ 15
+// Notes
+// Here, each tile is represented as an object with two keys: tile and score.
+
+
+
+// A positive number's population is the number of 1s in its binary representation. An evil number has an even numbered population, whereas an odious number has an odd numbered population. Moreover, a number is pernicious if its population is a prime number.
+// Create a function that takes a number as an argument and returns a sorted array of all its descriptors ("Evil", "Odious", or "Pernicious").
+// Examples
+// howBad(7) ➞ ["Odious", "Pernicious"]
+// // binary = 111
+// howBad(17) ➞ ["Evil", "Pernicious"]
+// // binary = 10001
+// howBad(23) ➞ ["Evil"]
+// // binary = 10111
+// Notes
+// Notice how the example "111" is shown as a prime but in base-10, "111" isn't prime (37 * 3). Convert it back to a "7", and it is.
+
+function howBad(num) {
+  let binary = num.toString(2)
+  let result = []
+  let population = 0
+  function isPrime(num) {
+  for(var j = 2; j < num; j++)
+    if(num % j === 0) return false;
+    return num > 1;
+  }
+  for (let i = 0; i < binary.length; i++) {
+    population += +binary[i]
+  }
+  if (population % 2 === 0) result.push('Evil')
+  else if (population % 2 === 1) result.push('Odious')
+  if (isPrime(population)) result.push('Pernicious')
+  return result
+}
+
 // Write a function that reverses all the words in a sentence that start with a particular letter.
 // Examples
 // specialReverse("word searches are super fun", "s")
