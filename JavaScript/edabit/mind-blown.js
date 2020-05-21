@@ -32,7 +32,18 @@
 // Notes
 // Here, each tile is represented as an object with two keys: tile and score.
 
+// Create a function that takes three numbers as arguments and returns true if it's a triangle and false if not.
+// Examples
+// isTriangle(2, 3, 4) ➞ true
+// isTriangle(3, 4, 5) ➞ true
+// isTriangle(4, 3, 8) ➞ false
+// Notes
+//     a, b and, c are the side lengths of the triangles.
+//     Test input will always be three positive numbers.
 
+function isTriangle(a, b, c) {
+	return (a + b > c) && (a + c > b) && (b + c > a) 
+}
 
 // A positive number's population is the number of 1s in its binary representation. An evil number has an even numbered population, whereas an odious number has an odd numbered population. Moreover, a number is pernicious if its population is a prime number.
 // Create a function that takes a number as an argument and returns a sorted array of all its descriptors ("Evil", "Odious", or "Pernicious").
@@ -51,8 +62,9 @@ function howBad(num) {
   let result = []
   let population = 0
   function isPrime(num) {
-  for(var j = 2; j < num; j++)
-    if(num % j === 0) return false;
+    for(var j = 2; j < num; j++) {
+      if(num % j === 0) return false;
+    }
     return num > 1;
   }
   for (let i = 0; i < binary.length; i++) {
