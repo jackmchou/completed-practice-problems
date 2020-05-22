@@ -32,6 +32,26 @@
 // Notes
 // Here, each tile is represented as an object with two keys: tile and score.
 
+// Write a function that returns the minimum number of swaps to convert the first binary string into the second.
+// Examples
+// minSwaps("1100", "1001") ➞ 1
+// minSwaps("110011", "010111") ➞ 1
+// minSwaps("10011001", "01100110") ➞ 4
+// Notes
+//     Both binary strings will be of equal length.
+//     Both binary strings will have an equal number of zeroes and ones.
+//     A swap is switching two elements in a string (swaps do not have to be adjacent).
+
+function minSwaps(s1, s2) {
+	let counter = 0;
+	for (let i = 0; i < s1.length; i++){
+		if (s1[i] !== s2[i]){
+			counter += 1
+		}
+	}
+	return counter / 2
+}
+
 // The .length property on an array will return the number of elements in the array. For example, the array below contains 2 elements:
 // [1, [2, 3]]
 // // 2 elements, number 1 and array [2, 3]
