@@ -32,6 +32,25 @@
 // Notes
 // Here, each tile is represented as an object with two keys: tile and score.
 
+function maximumScore(tileHand) {
+  let sum = 0 
+  tileHand.forEach(idx => sum += idx.score)
+  return sum
+}
+
+// Write a function that takes two numbers and returns if they should be added, subtracted, multiplied or divided to get 24. If none of the operations can give 24, return null.
+// Examples
+// operation(15, 9) ➞ "added"
+// operation(26, 2) ➞ "subtracted"
+// operation(11, 11) ➞ null
+// Notes
+//     Only integers are used as test input.
+//     Numbers should be added, subtracted, divided or multiplied in the order they appear in the parameters.
+
+function operation(num1, num2) {
+	
+}
+
 // Write a function that returns the minimum number of swaps to convert the first binary string into the second.
 // Examples
 // minSwaps("1100", "1001") ➞ 1
