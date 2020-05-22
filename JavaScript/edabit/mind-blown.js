@@ -1,3 +1,265 @@
+// Create a function that converts color in RGB format to Hex format.
+// Examples
+// rgbToHex("rgb(0, 128, 192)") ➞ "#0080c0"
+// rgbToHex("rgb(45, 255, 192)") ➞ "#2dffc0"
+// rgbToHex("rgb(0, 0, 0)") ➞ "#000000"
+// Notes
+// The Hex format should be displayed in lowercase.
+
+function rgbToHex(col) {
+  const rgbArr = col.slice(4, col.length - 1).split(', ')
+  return '#' + rgbArr.map(idx => idx === '0' ? '00' : Number(idx).toString(16)).join('')
+}
+
+// There are three towers. The objective of the game is to move all the disks over to tower #3, but you can't place a larger disk onto a smaller disk. To play the game or learn more about the Tower of Hanoi, check the Resources tab.
+// Tower of Hanoi
+// Create a function that takes a number discs as an argument and returns the minimum amount of steps needed to complete the game.
+// Examples
+// towerHanoi(3) ➞ 7
+// towerHanoi(5) ➞ 31
+// towerHanoi(0) ➞ 0
+// Notes
+// The amount of discs is always a positive integer.
+
+function towerHanoi(discs) {
+  if (discs === 1) return 1
+  return Math.pow(2, discs) - 1
+}
+
+// Given a string of numbers separated by a comma and space, return the product of the numbers.
+// Examples
+// multiplyNums("2, 3") ➞ 6
+// multiplyNums("1, 2, 3, 4") ➞ 24
+// multiplyNums("54, 75, 453, 0") ➞ 0
+// multiplyNums("10, -2") ➞ -20
+// Note
+// Bonus: Try to complete this challenge in one line!
+
+function multiplyNums(nums) {
+  return nums.split(', ').reduce((cur, acc) => cur * acc, 1)
+}
+
+// Create a function which returns the number of true values there are in an array.
+// Examples
+// countTrue([true, false, false, true, false]) ➞ 2
+// countTrue([false, false, false, false]) ➞ 0
+// countTrue([]) ➞ 0
+// Notes
+//     Return 0 if given an empty array.
+//     All array items are of the type bool (true or false).
+
+function countTrue(arr) {
+	 return arr.filter(idx => idx === true).length
+}
+
+// The additive persistence of an integer, n, is the number of times you have to replace n with the sum of its digits until n becomes a single digit integer.
+// The multiplicative persistence of an integer, n, is the number of times you have to replace n with the product of its digits until n becomes a single digit integer.
+// Create two functions that take an integer as an argument and:
+//     Return its additive persistence.
+//     Return its multiplicative persistence.
+// Examples: Additive Persistence
+// additivePersistence(1679583) ➞ 3
+// // 1 + 6 + 7 + 9 + 5 + 8 + 3 = 39
+// // 3 + 9 = 12
+// // 1 + 2 = 3
+// // It takes 3 iterations to reach a single-digit number.
+// additivePersistence(123456) ➞ 2
+// // 1 + 2 + 3 + 4 + 5 + 6 = 21
+// // 2 + 1 = 3
+// additivePersistence(6) ➞ 0
+// // Because 6 is already a single-digit integer.
+// Examples: Multiplicative Persistence
+// multiplicativePersistence(77) ➞ 4
+// // 7 x 7 = 49
+// // 4 x 9 = 36
+// // 3 x 6 = 18
+// // 1 x 8 = 8
+// // It takes 4 iterations to reach a single-digit number.
+// multiplicativePersistence(123456) ➞ 2
+// // 1 x 2 x 3 x 4 x 5 x 6 = 720
+// // 7 x 2 x 0 = 0
+// multiplicativePersistence(4) ➞ 0
+// // Because 4 is already a single-digit integer.
+// Notes
+// N/A
+
+function additivePersistence(n) {
+  if (('' + n).length === 1) return 0
+  let persistence = 1
+  function getSum(num) {
+    let sum = 0;
+    const numStr = '' + num
+    for (let i = 0; i < numStr.length;i++) {
+      sum += +numStr[i]
+    }
+    if (('' + sum).length !== 1) {
+      getSum(sum)
+      persistence++
+    }
+    return sum
+  }
+  getSum(n)
+  return persistence
+}
+
+function multiplicativePersistence(n) {
+  if (('' + n).length === 1) return 0
+  let persistence = 1
+  function getProduct(num) {
+    let product = 1;
+    const numStr = '' + num
+    for (let i = 0; i < numStr.length;i++) {
+      product *= +numStr[i]
+    }
+    if (('' + product).length !== 1) {
+      getProduct(product)
+      persistence++
+    }
+    return product
+  }
+  getProduct(n)
+  return persistence
+}
+
+// Given an array of scrabble tiles, create a function that outputs the maximum possible score a player can achieve by summing up the total number of points for all the tiles in their hand. Each hand contains 7 scrabble tiles.
+// Here's an example hand:
+// [
+//   { tile: "N", score: 1 },
+//   { tile: "K", score: 5 },
+//   { tile: "Z", score: 10 },
+//   { tile: "X", score: 8 },
+//   { tile: "D", score: 2 },
+//   { tile: "A", score: 1 },
+//   { tile: "E", score: 1 }
+// ]
+// The players maximumScore from playing all these tiles would be 1 + 5 + 10 + 8 + 2 + 1 + 1, or 28.
+// Examples
+// maximumScore([
+//   { tile: "N", score: 1 },
+//   { tile: "K", score: 5 },
+//   { tile: "Z", score: 10 },
+//   { tile: "X", score: 8 },
+//   { tile: "D", score: 2 },
+//   { tile: "A", score: 1 },
+//   { tile: "E", score: 1 }
+// ]) ➞ 28
+// maximumScore([
+//   { tile: "B", score: 2 },
+//   { tile: "V", score: 4 },
+//   { tile: "F", score: 4 },
+//   { tile: "U", score: 1 },
+//   { tile: "D", score: 2 },
+//   { tile: "O", score: 1 },
+//   { tile: "U", score: 1 }
+// ]) ➞ 15
+// Notes
+// Here, each tile is represented as an object with two keys: tile and score.
+
+function maximumScore(tileHand) {
+	let score = 0 
+  tileHand.forEach(idx => score += idx.score)
+  return score
+}
+
+// Write a function that takes two numbers and returns if they should be added, subtracted, multiplied or divided to get 24. If none of the operations can give 24, return null.
+// Examples
+// operation(15, 9) ➞ "added"
+// operation(26, 2) ➞ "subtracted"
+// operation(11, 11) ➞ null
+// Notes
+//     Only integers are used as test input.
+//     Numbers should be added, subtracted, divided or multiplied in the order they appear in the parameters.
+
+function operation(num1, num2) {
+  if (num1 + num2 === 24) return "added"
+  else if (num1 - num2 === 24) return "subtracted"
+  else if (num1 * num2 === 24) return "multiplied"
+  else if (num1 / num2 === 24) return "divided"
+  else return null
+}
+
+// Write a function that returns the minimum number of swaps to convert the first binary string into the second.
+// Examples
+// minSwaps("1100", "1001") ➞ 1
+// minSwaps("110011", "010111") ➞ 1
+// minSwaps("10011001", "01100110") ➞ 4
+// Notes
+//     Both binary strings will be of equal length.
+//     Both binary strings will have an equal number of zeroes and ones.
+//     A swap is switching two elements in a string (swaps do not have to be adjacent).
+
+function minSwaps(s1, s2) {
+	let counter = 0;
+	for (let i = 0; i < s1.length; i++){
+		if (s1[i] !== s2[i]){
+			counter += 1
+		}
+	}
+	return counter / 2
+}
+
+// The .length property on an array will return the number of elements in the array. For example, the array below contains 2 elements:
+// [1, [2, 3]]
+// // 2 elements, number 1 and array [2, 3]
+// Suppose we instead wanted to know the total number of non-nested items in the nested array. In the above case, [1, [2, 3]] contains 3 non-nested items, 1, 2 and 3.
+// Write a function that returns the total number of non-nested items in a nested array.
+// Examples
+// getLength([1, [2, 3]]) ➞ 3
+// getLength([1, [2, [3, 4]]]) ➞ 4
+// getLength([1, [2, [3, [4, [5, 6]]]]]) ➞ 6
+// getLength([1, [2], 1, [2], 1]) ➞ 5
+// Notes
+// An empty array should return 0.
+
+function getLength(arr) {
+  if (!arr.length) return 0
+  return arr.flat(Infinity).length
+}
+
+// Create a function that takes three numbers as arguments and returns true if it's a triangle and false if not.
+// Examples
+// isTriangle(2, 3, 4) ➞ true
+// isTriangle(3, 4, 5) ➞ true
+// isTriangle(4, 3, 8) ➞ false
+// Notes
+//     a, b and, c are the side lengths of the triangles.
+//     Test input will always be three positive numbers.
+
+function isTriangle(a, b, c) {
+	return (a + b > c) && (a + c > b) && (b + c > a) 
+}
+
+// A positive number's population is the number of 1s in its binary representation. An evil number has an even numbered population, whereas an odious number has an odd numbered population. Moreover, a number is pernicious if its population is a prime number.
+// Create a function that takes a number as an argument and returns a sorted array of all its descriptors ("Evil", "Odious", or "Pernicious").
+// Examples
+// howBad(7) ➞ ["Odious", "Pernicious"]
+// // binary = 111
+// howBad(17) ➞ ["Evil", "Pernicious"]
+// // binary = 10001
+// howBad(23) ➞ ["Evil"]
+// // binary = 10111
+// Notes
+// Notice how the example "111" is shown as a prime but in base-10, "111" isn't prime (37 * 3). Convert it back to a "7", and it is.
+
+function howBad(num) {
+  let binary = num.toString(2)
+  let result = []
+  let population = 0
+  function isPrime(num) {
+    for(var j = 2; j < num; j++) {
+      if(num % j === 0) return false;
+    }
+    return num > 1;
+  }
+  for (let i = 0; i < binary.length; i++) {
+    population += +binary[i]
+  }
+  if (population % 2 === 0) result.push('Evil')
+  else if (population % 2 === 1) result.push('Odious')
+  if (isPrime(population)) result.push('Pernicious')
+  return result
+}
+
 // Write a function that reverses all the words in a sentence that start with a particular letter.
 // Examples
 // specialReverse("word searches are super fun", "s")
