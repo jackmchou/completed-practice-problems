@@ -33,9 +33,9 @@
 // Here, each tile is represented as an object with two keys: tile and score.
 
 function maximumScore(tileHand) {
-  let sum = 0 
-  tileHand.forEach(idx => sum += idx.score)
-  return sum
+	let score = 0 
+  tileHand.forEach(idx => score += idx.score)
+  return score
 }
 
 // Write a function that takes two numbers and returns if they should be added, subtracted, multiplied or divided to get 24. If none of the operations can give 24, return null.
@@ -48,7 +48,11 @@ function maximumScore(tileHand) {
 //     Numbers should be added, subtracted, divided or multiplied in the order they appear in the parameters.
 
 function operation(num1, num2) {
-	
+  if (num1 + num2 === 24) return "added"
+  else if (num1 - num2 === 24) return "subtracted"
+  else if (num1 * num2 === 24) return "multiplied"
+  else if (num1 / num2 === 24) return "divided"
+  else return null
 }
 
 // Write a function that returns the minimum number of swaps to convert the first binary string into the second.
