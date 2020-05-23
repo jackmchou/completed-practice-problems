@@ -1,14 +1,34 @@
+// Create a function that returns the frequency distribution of an array. This function should return an object, where the keys are the unique elements and the values are the frequency in which those elements occur.
+// Examples
+// getFrequencies(["A", "B", "A", "A", "A"]) ➞ { A: 4, B: 1 }
+// getFrequencies([1, 2, 3, 3, 2]) ➞ { "1": 1, "2": 2, "3": 2 }
+// getFrequencies([true, false, true, false, false]) ➞ { true: 2, false: 3 }
+// getFrequencies([]) ➞ {}
+// Notes
+//     If given an empty array, return an empty object (see example #4).
+//     The object should be in the same order as in the input array.
+
+function getFrequencies(arr) {
+  let freq = {}
+  let uniqArr = []
+  for (let i = 0; i < arr.length; i++) {
+    if (uniqArr.indexOf(arr[i]) === -1 && arr[i] !== '') {
+      freq[arr[i]] = 1
+      uniqArr.push(arr[i])
+    }
+    if (uniqArr.indexOf(arr[i]) != i) {
+      freq[arr[i]]++
+    }
+  }
+  return freq
+}
+
 // Write a function that creates an object with each (key, value) pair being the (lower case, upper case) versions of a letter, respectively.
 // Examples
-
 // mapping(["p", "s"]) ➞ { "p": "P", "s": "S" }
-
 // mapping(["a", "b", "c"]) ➞ { "a": "A", "b": "B", "c": "C" }
-
 // mapping(["a", "v", "y", "z"]) ➞ { "a": "A", "v": "V", "y": "Y", "z": "Z" }
-
 // Notes
-
 // All of the letters in the input list will always be lowercase.
 
 function mapping(letters) {
