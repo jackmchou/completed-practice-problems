@@ -1,3 +1,24 @@
+// Write a function that creates an object with each (key, value) pair being the (lower case, upper case) versions of a letter, respectively.
+// Examples
+
+// mapping(["p", "s"]) ➞ { "p": "P", "s": "S" }
+
+// mapping(["a", "b", "c"]) ➞ { "a": "A", "b": "B", "c": "C" }
+
+// mapping(["a", "v", "y", "z"]) ➞ { "a": "A", "v": "V", "y": "Y", "z": "Z" }
+
+// Notes
+
+// All of the letters in the input list will always be lowercase.
+
+function mapping(letters) {
+  let letterObj = {}
+	for (let i = 0; i < letters.length; i++) {
+    letterObj[letters[i]] = letters[i].toUpperCase()
+  }
+  return letterObj
+}
+
 // Create a function that converts color in RGB format to Hex format.
 // Examples
 // rgbToHex("rgb(0, 128, 192)") ➞ "#0080c0"
