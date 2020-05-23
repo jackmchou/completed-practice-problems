@@ -1,3 +1,106 @@
+// Your task is to create a class to handle paginated content in a website. A pagination is used to divide long lists of content in a series of pages.
+// Example
+// The pagination class will accept 2 parameters:
+//     items (default: []): An array of contents to paginate.
+//     pageSize (default: 10): The amount of items to show in each page.
+// So for example we could initialize our pagination like this:
+// const alphabetArray = "abcdefghijklmnopqrstuvwxyz".split("");
+// const p = new Pagination(alphabetArray, 4);
+// And then use the method getVisibleItems to show the contents of the paginated array.
+// console.log(p.getVisibleItems()); // ["a", "b", "c", "d"]
+// You will have to implement various methods to go through the pages such as:
+//     prevPage
+//     nextPage
+//     firstPage
+//     lastPage
+//     goToPage
+// Here's a continuation of the example above using nextPage and lastPage:
+// p.nextPage();
+// console.log(p.getVisibleItems());
+// // ["e", "f", "g", "h"]
+// p.lastPage();
+// console.log(p.getVisibleItems());
+// // ["y", "z"]
+// Notes
+//     You don't have to use ES6 class if you don't want to
+//     The second argument (pageSize) could be a float, in that case just convert it to an int (this is also the case for the goToPage method)
+//     The methods used to change page should be chainable, so you can call them one after the other like this: p.nextPage().nextPage();
+//     Please remove the comments I provided before publishing your solution.
+
+class Pagination {
+  constructor(items, pageSize) {
+    this.items;       // Holds the items array
+    this.pageSize;    // Holds the size of each page
+    this.totalPages;  // Holds the total number of pages
+    this.currentPage; // Holds the current page number
+  }
+
+  // Methods
+  // Goes to the previous page
+  prevPage() {
+
+  }
+
+  // Goes to the next page
+  nextPage() {
+
+  }
+
+  // Goes to the first page
+  firstPage() {
+
+  }
+
+  // Goes to the last page
+  lastPage() {
+
+  }
+
+  // Goes to a page determined by the `page` argument
+  goToPage(page) {
+
+  }
+
+  // Returns the currently visible items as an array
+  getVisibleItems() {
+    return 
+  }
+}
+
+// Create a function that takes numbers as arguments, adds them together, and returns the product of digits until the answer is only 1 digit long.
+// Examples
+// sumDigProd(16, 28) ➞ 6
+// // 16 + 28 = 44
+// // 4 * 4 =  16
+// // 1 * 6 = 6
+// sumDigProd(0) ➞ 0
+// sumDigProd(1, 2, 3, 4, 5, 6) ➞ 2
+// Notes
+// The input of the function is at least one number.
+
+function sumDigProd(...arg) {
+  if (arg[0].length === 1) return arg[0]
+  let sum = 0
+  let result = 0
+  for (let i = 0; i < arg.length; i++) {
+    sum += arg[i]
+  }
+  function getProduct(num) {
+    let numStr = '' + num
+    let product = 1
+    for (let j = 0; j < numStr.length; j++) {
+      product *= numStr[j]
+    }
+    if (('' + product).length > 1) {
+      getProduct(product)
+    } else {
+      result = product
+    }
+  }
+  getProduct(sum)
+  return result
+}
+
 // Create a function that returns the frequency distribution of an array. This function should return an object, where the keys are the unique elements and the values are the frequency in which those elements occur.
 // Examples
 // getFrequencies(["A", "B", "A", "A", "A"]) ➞ { A: 4, B: 1 }
