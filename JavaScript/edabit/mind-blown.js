@@ -82,9 +82,10 @@ class Pagination {
 
 function rps(p1, p2) {
   if (p1 === p2) return "It's a draw"
-  else if (p1 === 'Rock' && p2 === 'Scissors' || p1 === 'Scissors' && p2 === 'Paper' || p1 === 'Paper' && p2 === 'Rock') return 'The winner is p1'
-  if () return 'The winner is p1'
-  return 'The winner is p2'
+  else if (p1 === 'Rock' && p2 === 'Scissors' 
+  || p1 === 'Scissors' && p2 === 'Paper' 
+  || p1 === 'Paper' && p2 === 'Rock') return 'The winner is p1'
+  else return 'The winner is p2'
 }
 
 // Create a function that takes numbers as arguments, adds them together, and returns the product of digits until the answer is only 1 digit long.
