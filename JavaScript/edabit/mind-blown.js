@@ -67,6 +67,22 @@ class Pagination {
   }
 }
 
+// function shirtSize({size = "big"}) {
+//   return size
+// }
+// shirtSize()  // error: Cannot destructure property "size" of "undefined" or "null"
+// The preceding code produces an error because no object was passed to the function. Fix the function to return the default size, even if nothing is passed to the function. Don't remove the {size = "big"} object in the parameter and don't change the return statement.
+// Example
+// shirtSize( ) ➞ "big"
+// Notes
+// If you get stuck the answer is in one of the yellow notes on the MDN docs page (link in the Resources tab).
+
+const str = `
+function shirtSize({size = "big"} = {} ) { 
+  return size
+}
+`
+
 // You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
 // Here are a list of the characters classes in JavaScript:
 // ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh, [\b]
