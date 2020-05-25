@@ -1,3 +1,328 @@
+// Your task is to create a class to handle paginated content in a website. A pagination is used to divide long lists of content in a series of pages.
+// Example
+// The pagination class will accept 2 parameters:
+//     items (default: []): An array of contents to paginate.
+//     pageSize (default: 10): The amount of items to show in each page.
+// So for example we could initialize our pagination like this:
+// const alphabetArray = "abcdefghijklmnopqrstuvwxyz".split("");
+// const p = new Pagination(alphabetArray, 4);
+// And then use the method getVisibleItems to show the contents of the paginated array.
+// console.log(p.getVisibleItems()); // ["a", "b", "c", "d"]
+// You will have to implement various methods to go through the pages such as:
+//     prevPage
+//     nextPage
+//     firstPage
+//     lastPage
+//     goToPage
+// Here's a continuation of the example above using nextPage and lastPage:
+// p.nextPage();
+// console.log(p.getVisibleItems());
+// // ["e", "f", "g", "h"]
+// p.lastPage();
+// console.log(p.getVisibleItems());
+// // ["y", "z"]
+// Notes
+//     You don't have to use ES6 class if you don't want to
+//     The second argument (pageSize) could be a float, in that case just convert it to an int (this is also the case for the goToPage method)
+//     The methods used to change page should be chainable, so you can call them one after the other like this: p.nextPage().nextPage();
+//     Please remove the comments I provided before publishing your solution.
+
+class Pagination {
+  constructor(items, pageSize) {
+    this.items;       // Holds the items array
+    this.pageSize;    // Holds the size of each page
+    this.totalPages;  // Holds the total number of pages
+    this.currentPage; // Holds the current page number
+  }
+
+  // Methods
+  // Goes to the previous page
+  prevPage() {
+
+  }
+
+  // Goes to the next page
+  nextPage() {
+
+  }
+
+  // Goes to the first page
+  firstPage() {
+
+  }
+
+  // Goes to the last page
+  lastPage() {
+
+  }
+
+  // Goes to a page determined by the `page` argument
+  goToPage(page) {
+
+  }
+
+  // Returns the currently visible items as an array
+  getVisibleItems() {
+    return 
+  }
+}
+
+// Given an array of 10 numbers, return the maximum possible total made by summing just 5 of the 10 numbers.
+// Examples
+// maxTotal([1, 1, 0, 1, 3, 10, 10, 10, 10, 1]) ➞ 43
+// maxTotal([0, 0, 0, 0, 0, 0, 0, 0, 0, 100]) ➞ 100
+// maxTotal([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) ➞ 40
+// Notes
+// N/A
+
+function maxTotal(nums) {
+  let tmp;
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] < nums[j]) {
+        tmp = nums[i]
+        nums[i] = nums[j]
+        nums[j] = tmp
+      }
+    }
+  }
+  return nums.slice(0, 5).reduce((cur, acc) => cur + acc,0)
+}
+
+// A repdigit is a positive number composed out of the same digit.
+// Create a function that takes an integer and returns whether it's a repdigit or not.
+// Examples
+// isRepdigit(66) ➞ true
+// isRepdigit(0) ➞ true
+// isRepdigit(-11) ➞ false
+// Notes
+//     The number 0 should return true (even though it's not a positive number).
+//     Check the Resources tab for more info on repdigits.
+
+function isRepdigit(num) {
+  const numStr = '' + num
+  if (numStr.length == 1) return true
+  if (num < 0) return false
+  for (let i = 0; i < numStr.length; i++) {
+    if (numStr[i] !== numStr[i + 1]) {
+      return false
+    } else {
+      return true
+    }
+  }
+}
+
+// Create a function that returns an Earned Run Average (ERA). An ERA is calculated by multiplying 9 by the quotient of Earned Runs Allowed er divided by ip Innings Pitched.
+// In baseball statistics, innings are represented with a fractional part of .1 (1/3) or .2 (2/3) to represent the number of outs in an inning. A whole number or a number with a fractional part of .0 represents a full inning with three outs. Check the Resources tab for a deeper explanation.
+// Examples
+// era(22, 99) ➞ 2.00
+// era(23, 99.1) ➞ 2.08
+// era(24, 99.2) ➞ 2.17
+// Notes
+//     ERA is represented with a scale of 2: 2.08
+//     For 1/3 and 2/3, use a scale of 2.
+
+function era(er, ip) {
+  const eraNum = (er / ip) * 9
+  return (eraNum) % 1 == 0 ? (eraNum).toFixed(2) : ('' + eraNum).slice(0, 4)
+}
+
+// You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
+// Here are a list of the characters classes in JavaScript:
+// ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh,
+// You might get text that looks like it's all English characters but it very well may not be:
+// pànts !== pants
+// To ensure that you only get the characters you want in a string you will need to use the character classes that accept hexadecimal digits.
+// Create a regex that matches the word "edabit". You cannot use character classes \w, \d, [], or . to solve.
+// Notes
+// Use the handy text to hex converter tool in the Resources tab.
+
+const REGEXP = /\x65\x64\x61\x62\x69\x74/g
+
+// Create a function which validates whether a number n is exclusively within the bounds of lower and upper. Return false if n is not an integer.
+// Examples
+// intWithinBounds(3, 1, 9) ➞ true
+// intWithinBounds(6, 1, 6) ➞ false
+// intWithinBounds(4.5, 3, 8) ➞ false
+// Notes
+//     Exclusively means that a number is considered not within the bounds if it is equal to the upper bound (see example #2).
+//     Bounds will be always given as integers.
+
+function intWithinBounds(n, lower, upper) {
+  if (n % 1 != 0) return false 
+  else return lower <= n && n < upper
+}
+
+// Given a number between 1-26, return what letter is at that position in the alphabet. Return "invalid" if the number given is not within that range, or isn't an integer.
+// Examples
+// letterAtPosition(1) ➞ "a"
+// letterAtPosition(26.0) ➞ "z"
+// letterAtPosition(0) ➞ "invalid"
+// letterAtPosition(4.5) ➞ "invalid"
+// Notes
+//     Return a lowercase letter.
+//     Numbers that end with ".0" are valid.
+
+function letterAtPosition(n) {
+  if (n == 0 || n % 1 != 0) return 'invalid'
+  let alphabetArr = ''
+  for (let i = 9; ++i < 36;) {
+    alphabetArr += (i).toString(36)
+  }
+  return alphabetArr[n - 1]
+}
+
+// function shirtSize({size = "big"}) {
+//   return size
+// }
+// shirtSize()  // error: Cannot destructure property "size" of "undefined" or "null"
+// The preceding code produces an error because no object was passed to the function. Fix the function to return the default size, even if nothing is passed to the function. Don't remove the {size = "big"} object in the parameter and don't change the return statement.
+// Example
+// shirtSize( ) ➞ "big"
+// Notes
+// If you get stuck the answer is in one of the yellow notes on the MDN docs page (link in the Resources tab).
+
+const str = `
+function shirtSize({size = "big"} = {} ) { 
+  return size
+}
+`
+
+// You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
+// Here are a list of the characters classes in JavaScript:
+// ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh, [\b]
+// HTML elements are everything from the start tag to the end tag. An example of one div element would be: <div>edabit</div>.
+// Find out how many <div> elements are used in a string. Use the character class \W in your expression.
+// Example
+// const str = "<div>Hello.</div><div>My name is <b>George</b>.</div>"
+// // 2 times
+// const str = "<div><h1>The Word for Today</h1><div>aardvark</div></div>"
+// // 2 times
+// const str = "<div></div>"
+// // 1 time
+// Notes
+// Check the Resources tab for details on character classes if you're stuck.
+
+const REGEXP = /<\Wdiv\W/g
+
+// In this challenge, you have to establish if a given integer n is a Sastry number. If the number resulting from the concatenation of an integer n with its successor is a perfect square, then n is a Sastry Number.
+// Given a positive integer n, implement a function that returns true if n is a Sastry number, or false if it's not.
+// Examples
+// isSastry(183) ➞ true
+// // Concatenation of n and its successor = 183184
+// // 183184 is a perfect square (428 ^ 2)
+// isSastry(184) ➞ false
+// // Concatenation of n and its successor = 184185
+// // 184185 is not a perfect square
+// isSastry(106755) ➞ true
+// // Concatenation of n and its successor = 106755106756
+// // 106755106756 is a perfect square (326734 ^ 2)
+// Notes
+//     A perfect square is a number with a square root equals to a whole integer.
+//     You can expect only valid positive integers greater than 0 as input, without exceptions to handle. Zero is a perfect square, but the concatenation 00 isn't considered as a valid result to check.
+//     In JavaScript, despite the specific challenge the results are proofed, the method used to calculate if an integer greater of 2 ** 53 - 1 is a Sastry number can lead to errors due to the approximation of the JS engine.
+
+function isSastry(number) {
+  let numStr = '' + number + ('' + (number + 1))
+  return Math.sqrt(+numStr) % 1 == 0
+}
+
+// Create a function which takes two strings (p1 and p2 ⁠— which represent player 1 and 2) as arguments and returns a string stating the winner in a game of Rock, Paper, Scissors.
+// Each argument will contain a single string: "Rock", "Paper", or "Scissors". Return the winner according to the following rules:
+//     Rock beats Scissors
+//     Scissors beats Paper
+//     Paper beats Rock
+// If p1 wins, return the string "The winner is p1". If p2 wins, return the string "The winner is p2" and if p1 and p2 are the same, return "It's a draw".
+// Examples
+// rps("Rock", "Paper") ➞ "The winner is p2"
+// rps("Scissors", "Paper") ➞ "The winner is p1"
+// rps("Paper", "Paper") ➞ "It's a draw"
+// Notes
+// All inputs will be valid strings.
+
+function rps(p1, p2) {
+  if (p1 === p2) return "It's a draw"
+  else if (p1 === 'Rock' && p2 === 'Scissors' 
+  || p1 === 'Scissors' && p2 === 'Paper' 
+  || p1 === 'Paper' && p2 === 'Rock') return 'The winner is p1'
+  else return 'The winner is p2'
+}
+
+// Create a function that takes numbers as arguments, adds them together, and returns the product of digits until the answer is only 1 digit long.
+// Examples
+// sumDigProd(16, 28) ➞ 6
+// // 16 + 28 = 44
+// // 4 * 4 =  16
+// // 1 * 6 = 6
+// sumDigProd(0) ➞ 0
+// sumDigProd(1, 2, 3, 4, 5, 6) ➞ 2
+// Notes
+// The input of the function is at least one number.
+
+function sumDigProd(...arg) {
+  if (arg[0].length === 1) return arg[0]
+  let sum = 0
+  let result = 0
+  for (let i = 0; i < arg.length; i++) {
+    sum += arg[i]
+  }
+  function getProduct(num) {
+    let numStr = '' + num
+    let product = 1
+    for (let j = 0; j < numStr.length; j++) {
+      product *= numStr[j]
+    }
+    if (('' + product).length > 1) {
+      getProduct(product)
+    } else {
+      result = product
+    }
+  }
+  getProduct(sum)
+  return result
+}
+
+// Create a function that returns the frequency distribution of an array. This function should return an object, where the keys are the unique elements and the values are the frequency in which those elements occur.
+// Examples
+// getFrequencies(["A", "B", "A", "A", "A"]) ➞ { A: 4, B: 1 }
+// getFrequencies([1, 2, 3, 3, 2]) ➞ { "1": 1, "2": 2, "3": 2 }
+// getFrequencies([true, false, true, false, false]) ➞ { true: 2, false: 3 }
+// getFrequencies([]) ➞ {}
+// Notes
+//     If given an empty array, return an empty object (see example #4).
+//     The object should be in the same order as in the input array.
+
+function getFrequencies(arr) {
+  let freq = {}
+  let uniqArr = []
+  for (let i = 0; i < arr.length; i++) {
+    if (uniqArr.indexOf(arr[i]) === -1 && arr[i] !== '') {
+      freq[arr[i]] = 1
+      uniqArr.push(arr[i])
+    }
+    if (uniqArr.indexOf(arr[i]) != i) {
+      freq[arr[i]]++
+    }
+  }
+  return freq
+}
+
+// Write a function that creates an object with each (key, value) pair being the (lower case, upper case) versions of a letter, respectively.
+// Examples
+// mapping(["p", "s"]) ➞ { "p": "P", "s": "S" }
+// mapping(["a", "b", "c"]) ➞ { "a": "A", "b": "B", "c": "C" }
+// mapping(["a", "v", "y", "z"]) ➞ { "a": "A", "v": "V", "y": "Y", "z": "Z" }
+// Notes
+// All of the letters in the input list will always be lowercase.
+
+function mapping(letters) {
+  let letterObj = {}
+	for (let i = 0; i < letters.length; i++) {
+    letterObj[letters[i]] = letters[i].toUpperCase()
+  }
+  return letterObj
+}
+
 // Create a function that converts color in RGB format to Hex format.
 // Examples
 // rgbToHex("rgb(0, 128, 192)") ➞ "#0080c0"
