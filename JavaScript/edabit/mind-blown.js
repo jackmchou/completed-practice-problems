@@ -67,6 +67,28 @@ class Pagination {
   }
 }
 
+// Given an array of 10 numbers, return the maximum possible total made by summing just 5 of the 10 numbers.
+// Examples
+// maxTotal([1, 1, 0, 1, 3, 10, 10, 10, 10, 1]) ➞ 43
+// maxTotal([0, 0, 0, 0, 0, 0, 0, 0, 0, 100]) ➞ 100
+// maxTotal([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) ➞ 40
+// Notes
+// N/A
+
+function maxTotal(nums) {
+  let tmp;
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] < nums[j]) {
+        tmp = nums[i]
+        nums[i] = nums[j]
+        nums[j] = tmp
+      }
+    }
+  }
+  return nums.slice(0, 5).reduce((cur, acc) => cur + acc,0)
+}
+
 // A repdigit is a positive number composed out of the same digit.
 // Create a function that takes an integer and returns whether it's a repdigit or not.
 // Examples
