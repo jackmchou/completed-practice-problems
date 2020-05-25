@@ -67,6 +67,29 @@ class Pagination {
   }
 }
 
+// A repdigit is a positive number composed out of the same digit.
+// Create a function that takes an integer and returns whether it's a repdigit or not.
+// Examples
+// isRepdigit(66) ➞ true
+// isRepdigit(0) ➞ true
+// isRepdigit(-11) ➞ false
+// Notes
+//     The number 0 should return true (even though it's not a positive number).
+//     Check the Resources tab for more info on repdigits.
+
+function isRepdigit(num) {
+  const numStr = '' + num
+  if (numStr.length == 1) return true
+  if (num < 0) return false
+  for (let i = 0; i < numStr.length; i++) {
+    if (numStr[i] !== numStr[i + 1]) {
+      return false
+    } else {
+      return true
+    }
+  }
+}
+
 // Create a function that returns an Earned Run Average (ERA). An ERA is calculated by multiplying 9 by the quotient of Earned Runs Allowed er divided by ip Innings Pitched.
 // In baseball statistics, innings are represented with a fractional part of .1 (1/3) or .2 (2/3) to represent the number of outs in an inning. A whole number or a number with a fractional part of .0 represents a full inning with three outs. Check the Resources tab for a deeper explanation.
 // Examples
