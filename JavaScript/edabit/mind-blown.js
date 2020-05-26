@@ -67,6 +67,26 @@ class Pagination {
   }
 }
 
+// Create a function that takes a string and censors words over four characters with *.
+// Examples
+// censor("The code is fourty") ➞ "The code is ******"
+// censor("Two plus three is five") ➞ "Two plus ***** is five"
+// censor("aaaa aaaaa 1234 12345") ➞ "aaaa ***** 1234 *****"
+// Notes
+//     Don't censor words with exactly four characters.
+//     If all words have four characters or less, return the original string.
+//     The amount of * is the same as the length of the word.
+
+function censor(str) {
+  const strArr = str.split(' ')
+  for (let i = 0; i < strArr.length; i++) {
+    if (strArr[i].length > 4) {
+      strArr[i] = strArr[i].replace(/\w/gi, '*')
+    }
+  }
+  return strArr.join(' ')
+}
+
 // Write a function that takes an integer n, reverses the binary representation of that integer, and returns the new integer from the reversed binary.
 // Examples
 // reversedBinaryInteger(10) ➞ 5
