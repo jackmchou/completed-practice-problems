@@ -67,6 +67,18 @@ class Pagination {
   }
 }
 
+// Create a function that returns the number of syllables in a simple string. The string is made up of short repeated words like "Lalalalalalala" (which would have 7 syllables).
+// Examples
+// countSyllables("Hehehehehehe") ➞ 6
+// countSyllables("bobobobobobobobo") ➞ 8
+// countSyllables("NANANA") ➞ 3
+// Notes
+// Your code should accept strings of any case (upper, lower and mixed case).
+
+function countSyllables(str) {
+  return str.match(/[aeiou]/g).length
+}
+
 // Create a function that returns true if smaller arrays can concatenate to form the target array and false otherwise.
 // Examples
 // canConcatenate([[1, 2, 3, 4], [5, 6], [7]], [1, 2, 3, 4, 5, 6, 7]) ➞ true
