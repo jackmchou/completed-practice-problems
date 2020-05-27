@@ -29,42 +29,76 @@
 
 class Pagination {
   constructor(items, pageSize) {
-    this.items;       // Holds the items array
-    this.pageSize;    // Holds the size of each page
-    this.totalPages;  // Holds the total number of pages
-    this.currentPage; // Holds the current page number
+    this.items = [];       // Holds the items array
+    this.pageSize = 10;    // Holds the size of each page
+    this.totalPages = Math.ceil(items.length / pageSize);  // Holds the total number of pages
+    this.currentPage = 0; // Holds the current page number
   }
 
-  // Methods
-  // Goes to the previous page
   prevPage() {
-
+    this.currentPage -= this.pageSize
+    return this
   }
 
-  // Goes to the next page
   nextPage() {
-
+    this.currentPage += this.pageSize
+    return this
   }
 
-  // Goes to the first page
   firstPage() {
-
+    this.currentPage = 0
+    return this
   }
 
-  // Goes to the last page
   lastPage() {
-
+    this.currentPage = this.pageSize * this.totalPages - this.pageSize
+    return this
   }
 
-  // Goes to a page determined by the `page` argument
   goToPage(page) {
-
+    return this.currentPage = (page * this.pageSize) - this.pageSize
   }
 
-  // Returns the currently visible items as an array
   getVisibleItems() {
-    return 
+    console.log(this.items)
+    return this.items.slice(this.currentPage, this.currentPage + this.pageSize)
   }
+}
+
+// Create a function which takes an array of instances from the class IceCream and returns the sweetness value of the sweetest icecream.
+// Sweetness is calculated from the flavor and number of sprinkles. Each sprinkle has a sweetness value of 1, and the sweetness values for the flavors are as follows:
+// Flavours	Sweetness Value
+// Plain	0
+// Vanilla	5
+// ChocolateChip	5
+// Strawberry	10
+// Chocolate	10
+//     You'll be given instance properties in the order flavor, numSprinkles.
+// Examples
+// ice1 = IceCream("Chocolate", 13)         // value of 23
+// ice2 = IceCream("Vanillla", 0)           // value of 5
+// ice3 = IceCream("Strawberry", 7)        // value of 17
+// ice4 = IceCream("Plain", 18)             // value of 18
+// ice5 = IceCream("ChocolateChip", 3)      // value of 8
+// sweetestIcecream([ice1, ice2, ice3, ice4, ice5]) ➞ 23
+// sweetestIcecream([ice3, ice1]) ➞ 23
+// sweetestIcecream([ice3, ice5]) ➞ 17
+// Notes
+// Remember to only return the sweetness value.
+
+function sweetestIcecream(arr) {
+  const sweetVal = {
+    Plain:	0,
+    Vanilla:	5,
+    ChocolateChip: 5,
+    Strawberry: 10,
+    Chocolate: 10,
+  }
+  let result = []
+  for (let i = 0; i < arr.length; i++) {
+    result.push(sweetVal[arr[i].flavor] + arr[i].numSprinkles)
+  }
+  return Math.max(...result)
 }
 
 // Create a function that returns the number of syllables in a simple string. The string is made up of short repeated words like "Lalalalalalala" (which would have 7 syllables).
