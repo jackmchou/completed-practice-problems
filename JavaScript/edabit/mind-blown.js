@@ -65,6 +65,24 @@ class Pagination {
   }
 }
 
+// Create a function that takes an array as an argument and returns true or false depending on whether the average of all elements in the array is a whole number or not.
+// Examples
+// isAvgWhole([1, 3]) ➞ true
+// isAvgWhole([1, 2, 3, 4]) ➞ false
+// isAvgWhole([1, 5, 6]) ➞ true
+// isAvgWhole([1, 1, 1]) ➞ true
+// isAvgWhole([9, 2, 2, 5]) ➞ false
+// Notes
+// N/A
+
+function isAvgWhole(arr) {
+  let sum = 0
+	for (let i = 0; i < arr.length; i++) {
+    sum += arr[i]
+  }
+  return (sum / arr.length) % 1 === 0
+}
+
 // Promises are just objects that contain the outcome of asynchronous operations. So when do you use one? When you want to control the outcome of an asynchronous operation. All you have to do is wrap the asynchronous function with a promise constructor.
 // The promise constructor requires you to pass a function called the executor which takes two parameters, resolve and reject. Both are functions that you use to pass or reject a value that is usually the result of the async operation. Here's an example of a simple promise:
 // let promise = new Promise( (resolve, reject) => {
