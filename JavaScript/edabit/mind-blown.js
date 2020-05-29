@@ -76,6 +76,17 @@ class Pagination {
 //     There will always be at least one number in the input string.
 //     Output string must be two numbers separated by a single space, and highest number is first.
 
+function highLow(str) {
+	const strArr = str.split(' ')
+  let max = strArr[0]
+  let min = strArr[0]
+  for (let i = 0; i < strArr.length; i++) {
+    if (+strArr[i] > max) max = strArr[i]
+    if (+strArr[i] < min) min = strArr[i]
+  }
+  return [max, min].join(' ')
+}
+
 // You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
 // Here are a list of the characters classes in JavaScript:
 // ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh, [\b]
@@ -86,7 +97,7 @@ class Pagination {
 // Notes
 // Check the Resources tab for details on character classes if you're stuck.
 
-
+const REGEXP = /\d+ \w+ \w+./g
 
 // Create a function that takes an array of strings and returns an array with only the strings that have numbers in them. If there are no strings containing numbers, return an empty array.
 // Examples
