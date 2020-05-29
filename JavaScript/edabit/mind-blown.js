@@ -65,6 +65,41 @@ class Pagination {
   }
 }
 
+// Create a function that accepts a string of space separated numbers and returns the highest and lowest number (as a string).
+// Examples
+// highLow("1 2 3 4 5") ➞ "5 1"
+// highLow("1 2 -3 4 5") ➞ "5 -3"
+// highLow("1 9 3 4 -5") ➞ "9 -5"
+// highLow("13") ➞ "13 13"
+// Notes
+//     All numbers are valid Int32, no need to validate them.
+//     There will always be at least one number in the input string.
+//     Output string must be two numbers separated by a single space, and highest number is first.
+
+// Create a function that takes an array of strings and returns an array with only the strings that have numbers in them. If there are no strings containing numbers, return an empty array.
+// Examples
+// numInStr(["1a", "a", "2b", "b"]) ➞ ["1a", "2b"]
+// numInStr(["abc", "abc10"]) ➞ ["abc10"]
+// numInStr(["abc", "ab10c", "a10bc", "bcd"]) ➞ ["ab10c", "a10bc"]
+// numInStr(["this is a test", "test1"]) ➞ ["test1"]
+// Notes
+//     The strings can contain white spaces or any type of characters.
+//     Bonus: Try solving this without regex.
+
+function numInStr(arr) {
+	const result = []
+  const nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  for (let i = 0; i < arr.length; i++) {
+    for (let ii = 0; ii < arr.length; ii++) {
+      if (arr[i].indexOf(nums[ii]) !== -1) {
+        result.push(arr[i])
+        break
+      }
+    }
+  }
+  return result
+}
+
 // JavaScript doesn't really have classes like other languages. They are actually functions behind the scenes. There are several ways to create classes.
 // Challenge
 //     Create a Book class using a JavaScript function - instantiable.
