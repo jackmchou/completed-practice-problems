@@ -29,42 +29,373 @@
 
 class Pagination {
   constructor(items, pageSize) {
-    this.items;       // Holds the items array
-    this.pageSize;    // Holds the size of each page
-    this.totalPages;  // Holds the total number of pages
-    this.currentPage; // Holds the current page number
+    this.items = [];       // Holds the items array
+    this.pageSize = 10;    // Holds the size of each page
+    this.totalPages = Math.ceil(items.length / pageSize);  // Holds the total number of pages
+    this.currentPage = 0; // Holds the current page number
   }
 
-  // Methods
-  // Goes to the previous page
   prevPage() {
-
+    this.currentPage -= this.pageSize
+    return this
   }
 
-  // Goes to the next page
   nextPage() {
-
+    this.currentPage += this.pageSize
+    return this
   }
 
-  // Goes to the first page
   firstPage() {
-
+    this.currentPage = 0
+    return this
   }
 
-  // Goes to the last page
   lastPage() {
-
+    this.currentPage = this.pageSize * this.totalPages - this.pageSize
+    return this
   }
 
-  // Goes to a page determined by the `page` argument
   goToPage(page) {
-
+    return this.currentPage = (page * this.pageSize) - this.pageSize
   }
 
-  // Returns the currently visible items as an array
   getVisibleItems() {
-    return 
+    console.log(this.items)
+    return this.items.slice(this.currentPage, this.currentPage + this.pageSize)
   }
+}
+
+// Create a function that takes an array as an argument and returns true or false depending on whether the average of all elements in the array is a whole number or not.
+// Examples
+// isAvgWhole([1, 3]) ➞ true
+// isAvgWhole([1, 2, 3, 4]) ➞ false
+// isAvgWhole([1, 5, 6]) ➞ true
+// isAvgWhole([1, 1, 1]) ➞ true
+// isAvgWhole([9, 2, 2, 5]) ➞ false
+// Notes
+// N/A
+
+function isAvgWhole(arr) {
+  let sum = 0
+	for (let i = 0; i < arr.length; i++) {
+    sum += arr[i]
+  }
+  return (sum / arr.length) % 1 === 0
+}
+
+// Promises are just objects that contain the outcome of asynchronous operations. So when do you use one? When you want to control the outcome of an asynchronous operation. All you have to do is wrap the asynchronous function with a promise constructor.
+// The promise constructor requires you to pass a function called the executor which takes two parameters, resolve and reject. Both are functions that you use to pass or reject a value that is usually the result of the async operation. Here's an example of a simple promise:
+// let promise = new Promise( (resolve, reject) => {
+//   setTimeout(( ) => {
+//      resolve("edabit")
+//   }, 1000)
+// })
+// setTimeout is a built-in JavaScript function that is very commonly used in tutorials to represent async operations. After 1000ms has passed, we call the callback function in setTimeout() and pass a string "edabit" to the resolve function.
+// Create a simple promise and pass the resolve function a string value of your choice. Use the setTimeout function as your asynchronous operation. Your setTimeout() function should not exceed 1000ms. Store the promise inside a variable named promise.
+// Notes
+// Check the Resources tab for more info on promises.
+
+let promise = new Promise( (resolve, reject) => {
+  setTimeout(( ) => {
+     resolve("edabit")
+  }, 1000)
+})
+
+// Create a function that takes three parameters and returns an array with the first parameter x, the second parameter y, and every number in between the first and second parameter in ascending order. Then filter through the array and return the array with numbers that are only divisible by the third parameter n.
+// Examples
+// arrayOperation(1, 10, 3) ➞ [3, 6, 9]
+// arrayOperation(7, 9, 2) ➞ [8]
+// arrayOperation(15, 20, 7) ➞ []
+// Notes
+//     The final array should consist of all numbers between x and y inclusive that are divisible by n.
+//     Return an empty array if there are no numbers that are divisible by n.
+
+function arrayOperation(x, y, n) {
+	let arr = []
+  for (x; x <= y;x++) {
+    if (x % n === 0) arr.push(x)
+  }
+  return arr
+}
+
+// Given a number, return a string of the word "Boom", which varies in the following ways:
+//     The string should include n number of "o"s, unless n is below 2 (in that case, return "boom").
+//     If n is evenly divisible by 2, add an exclamation mark to the end.
+//     If n is evenly divisible by 5, return the string in ALL CAPS.
+//     If n is evenly divisible by both 2 and 5, return the string in ALL CAPS and add an exclamation mark to the end.
+// The example below should help clarify these instructions.
+// Examples
+// boomIntensity(4) ➞ "Boooom!"
+// // There are 4 "o"s and 4 is divisible by 2 (exclamation mark included)
+// boomIntensity(1) ➞ "boom"
+// // 1 is lower than 2, so we return "boom"
+// boomIntensity(5) ➞ "BOOOOOM"
+// // There are 5 "o"s and 5 is divisible by 5 (all caps)
+// boomIntensity(10) ➞ "BOOOOOOOOOOM!"
+// // There are 10 "o"s and 10 is divisible by 2 and 5 (all caps and exclamation mark included)
+// Notes
+//     A number which is evenly divisible by 2 and 5 will have both effects applied (see example #4).
+//     "Boom" will always start with a capital "B", except when n is less than 2, then return a minature explosion as "boom".
+
+function boomIntensity(n) {
+	if (2 > n) return 'boom'
+  let result = 'B'
+  for (let i = 0; i < n; i++) {
+    result += 'o'
+  }
+  if (n % 2 === 0 && n % 5 === 0) return `${result.toUpperCase()}M!`
+  else if (n % 2 === 0) return `${result}m!`
+  else if (n % 5 === 0) return `${result.toUpperCase()}M`
+  else return `${result}m`
+}
+
+// Create a function that squares every digit of a number.
+// Examples
+// squareDigits(9119) ➞ 811181
+// squareDigits(2483) ➞ 416649
+// squareDigits(3212) ➞ 9414
+// Notes
+// The function receives an integer and must return an integer.
+
+function squareDigits(n) {
+	const nStr = '' + n
+  let result = ''
+  for (let i = 0; i < nStr.length; i++) {
+    result += nStr[i] * nStr[i]
+  }
+  return +result
+}
+
+// Create a function that takes an array of strings and return an array, sorted from shortest to longest.
+// Examples
+// sortByLength(["Google", "Apple", "Microsoft"])
+// ➞ ["Apple", "Google", "Microsoft"]
+// sortByLength(["Leonardo", "Michelangelo", "Raphael", "Donatello"])
+// ➞ ["Raphael", "Leonardo", "Donatello", "Michelangelo"]
+// sortByLength(["Turing", "Einstein", "Jung"])
+// ➞ ["Jung", "Turing", "Einstein"]
+// Notes
+// All test cases contain arrays with strings of different lengths, so you won't have to deal with multiple strings of the same length.
+
+function sortByLength(arr) {
+  let tmp
+  for (let i = 0; i < arr.length; i++) {
+    for(let j = i + 1; j < arr.length; j++) {
+      if (arr[i].length > arr[j].length) {
+        tmp = arr[i]
+        arr[i] = arr[j]
+        arr[j] = tmp
+      }
+    }
+  }
+  return arr
+}
+
+// Create a function that accepts a string of space separated numbers and returns the highest and lowest number (as a string).
+// Examples
+// highLow("1 2 3 4 5") ➞ "5 1"
+// highLow("1 2 -3 4 5") ➞ "5 -3"
+// highLow("1 9 3 4 -5") ➞ "9 -5"
+// highLow("13") ➞ "13 13"
+// Notes
+//     All numbers are valid Int32, no need to validate them.
+//     There will always be at least one number in the input string.
+//     Output string must be two numbers separated by a single space, and highest number is first.
+
+function highLow(str) {
+	const strArr = str.split(' ')
+  let max = strArr[0]
+  let min = strArr[0]
+  for (let i = 0; i < strArr.length; i++) {
+    if (+strArr[i] > max) max = strArr[i]
+    if (+strArr[i] < min) min = strArr[i]
+  }
+  return [max, min].join(' ')
+}
+
+// You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
+// Here are a list of the characters classes in JavaScript:
+// ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh, [\b]
+// Extract the addresses from this string:
+// const str = "123 Redding Dr. 1560 Knoxville Ave. 3030 Norwalk Dr. 5 South St."
+// // ["123 Redding Dr.", "1560 Knoxville Ave", "3030 Norwalk Dr.", "5 South St."]
+// Write the regular expression that matches all street addresses. All street addresses begin with a number. Use the character class \d in your expression.
+// Notes
+// Check the Resources tab for details on character classes if you're stuck.
+
+const REGEXP = /\d+ \w+ \w+./g
+
+// Create a function that takes an array of strings and returns an array with only the strings that have numbers in them. If there are no strings containing numbers, return an empty array.
+// Examples
+// numInStr(["1a", "a", "2b", "b"]) ➞ ["1a", "2b"]
+// numInStr(["abc", "abc10"]) ➞ ["abc10"]
+// numInStr(["abc", "ab10c", "a10bc", "bcd"]) ➞ ["ab10c", "a10bc"]
+// numInStr(["this is a test", "test1"]) ➞ ["test1"]
+// Notes
+//     The strings can contain white spaces or any type of characters.
+//     Bonus: Try solving this without regex.
+
+function numInStr(arr) {
+	const result = []
+  const nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  for (let i = 0; i < arr.length; i++) {
+    for (let ii = 0; ii < arr.length; ii++) {
+      if (arr[i].indexOf(nums[ii]) !== -1) {
+        result.push(arr[i])
+        break
+      }
+    }
+  }
+  return result
+}
+
+// JavaScript doesn't really have classes like other languages. They are actually functions behind the scenes. There are several ways to create classes.
+// Challenge
+//     Create a Book class using a JavaScript function - instantiable.
+//     It should have a author and published property.
+//     Create an Author class using a literal object - singleton.
+//     It should have a name and books property.
+//     Create a Publisher class by using the new constructor and an anonymous function - singleton.
+//     It should have a authors and books property.
+//     Create a Review class using a class declaration - instantiable.
+//     It should have a rating and user property.
+// Bonus (optional)
+// Create a Bookstore class using an IIFE - singleton. It should have a books and prices property.
+// Notes
+//     All classes should begin with Capital letters.
+//     All class properties should have default(initial) values.
+//     There are a few other ways to make classes but are not in this challenge, you can check the Resources tab to learn more.
+
+function Book (author, published) {
+  this.author = author;
+  this.published = published;
+}
+
+const Author = {
+  name: 'J',
+  books: 'C',
+  getAuthor() {
+    return this.name + '' + this.books
+  }
+}
+
+const Publisher = new function (authors, books) {
+  this.authors = authors
+  this.books = books
+}
+
+class Review {
+  constructor(rating, user) {
+    this.rating = rating
+    this.user = user
+  }
+}
+
+// Create a function which takes an array of instances from the class IceCream and returns the sweetness value of the sweetest icecream.
+// Sweetness is calculated from the flavor and number of sprinkles. Each sprinkle has a sweetness value of 1, and the sweetness values for the flavors are as follows:
+// Flavours	Sweetness Value
+// Plain	0
+// Vanilla	5
+// ChocolateChip	5
+// Strawberry	10
+// Chocolate	10
+//     You'll be given instance properties in the order flavor, numSprinkles.
+// Examples
+// ice1 = IceCream("Chocolate", 13)         // value of 23
+// ice2 = IceCream("Vanillla", 0)           // value of 5
+// ice3 = IceCream("Strawberry", 7)        // value of 17
+// ice4 = IceCream("Plain", 18)             // value of 18
+// ice5 = IceCream("ChocolateChip", 3)      // value of 8
+// sweetestIcecream([ice1, ice2, ice3, ice4, ice5]) ➞ 23
+// sweetestIcecream([ice3, ice1]) ➞ 23
+// sweetestIcecream([ice3, ice5]) ➞ 17
+// Notes
+// Remember to only return the sweetness value.
+
+function sweetestIcecream(arr) {
+  const sweetVal = {
+    Plain:	0,
+    Vanilla:	5,
+    ChocolateChip: 5,
+    Strawberry: 10,
+    Chocolate: 10,
+  }
+  let result = []
+  for (let i = 0; i < arr.length; i++) {
+    result.push(sweetVal[arr[i].flavor] + arr[i].numSprinkles)
+  }
+  return Math.max(...result)
+}
+
+// Create a function that returns the number of syllables in a simple string. The string is made up of short repeated words like "Lalalalalalala" (which would have 7 syllables).
+// Examples
+// countSyllables("Hehehehehehe") ➞ 6
+// countSyllables("bobobobobobobobo") ➞ 8
+// countSyllables("NANANA") ➞ 3
+// Notes
+// Your code should accept strings of any case (upper, lower and mixed case).
+
+function countSyllables(str) {
+  return str.match(/[aeiou]/g).length
+}
+
+// Create a function that returns true if smaller arrays can concatenate to form the target array and false otherwise.
+// Examples
+// canConcatenate([[1, 2, 3, 4], [5, 6], [7]], [1, 2, 3, 4, 5, 6, 7]) ➞ true
+// canConcatenate([[2, 1, 3], [5, 4, 7, 6]], [7, 6, 5, 4, 3, 2, 1]) ➞ true
+// canConcatenate([[2, 1, 3], [5, 4, 7, 6, 7]], [1, 2, 3, 4, 5, 6, 7]) ➞ false
+// // Duplicate 7s not found in target array.
+// canConcatenate([[2, 1, 3], [5, 4, 7]], [1, 2, 3, 4, 5, 6, 7]) ➞ false
+// // Missing 6 from target array.
+// Notes
+//     Arrays do not have to be sorted (see example #2).
+//     Arrays should concatenate to create the final array exactly (see examples #3 and #4).
+
+function canConcatenate(arr, target) {
+  const sortedTarget = target.sort()
+  return arr.flat().sort().every((val, idx) => val === sortedTarget[idx])
+}
+
+// Create a function that takes a string and censors words over four characters with *.
+// Examples
+// censor("The code is fourty") ➞ "The code is ******"
+// censor("Two plus three is five") ➞ "Two plus ***** is five"
+// censor("aaaa aaaaa 1234 12345") ➞ "aaaa ***** 1234 *****"
+// Notes
+//     Don't censor words with exactly four characters.
+//     If all words have four characters or less, return the original string.
+//     The amount of * is the same as the length of the word.
+
+function censor(str) {
+  const strArr = str.split(' ')
+  for (let i = 0; i < strArr.length; i++) {
+    if (strArr[i].length > 4) {
+      strArr[i] = strArr[i].replace(/\w/gi, '*')
+    }
+  }
+  return strArr.join(' ')
+}
+
+// Write a function that takes an integer n, reverses the binary representation of that integer, and returns the new integer from the reversed binary.
+// Examples
+// reversedBinaryInteger(10) ➞ 5
+// // 10 = 1010 -> 0101 = 5
+// reversedBinaryInteger(12) ➞ 3
+// // 12 = 1100 -> 0011 = 3
+// reversedBinaryInteger(25) ➞ 19
+// // 25 = 11001 -> 10011 = 19
+// reversedBinaryInteger(45) ➞ 45
+// // 45 = 101101 -> 101101 = 45
+// Notes
+// All values of n will be positive.
+
+function reversedBinaryInteger(num) {
+  const binary = (num).toString(2)
+  let reversedBinary = []
+  for (let i = binary.length; --i >= 0;) {
+    reversedBinary.push(binary[i])
+  }
+  return parseInt(reversedBinary.join(''), 2)
 }
 
 // Given an array of 10 numbers, return the maximum possible total made by summing just 5 of the 10 numbers.
