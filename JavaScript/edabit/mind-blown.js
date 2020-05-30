@@ -65,6 +65,25 @@ class Pagination {
   }
 }
 
+// The Fizz Buzz test is a poplular interview question used to 'help filter out the 99.5% of programming job candidates who can't seem to program their way out of a wet paper bag.'
+//     Write a program that returns array of all the numbers from 1 to an interger argument. But for multiples of three use “Fizz” instead of the number and for the multiples of five use “Buzz”. For numbers which are multiples of both three and five use “FizzBuzz”
+// Example
+// fizzBuzz(10) ➞ [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz']
+// fizzBuzz(15) ➞ [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'FizzBuzz']
+// Notes
+//     Make sure to return array.
+
+function fizzBuzz(number){
+  const arr = []
+  for (let i = 1; i <= number; i++) {
+    if (i % 3 === 0 && i % 5 === 0) arr.push('FizzBuzz')
+    else if (i % 3 === 0) arr.push('Fizz')
+    else if (i % 5 === 0) arr.push('Buzz')
+    else arr.push(i)
+  }
+  return arr
+}
+
 // Create a function that takes an array as an argument and returns true or false depending on whether the average of all elements in the array is a whole number or not.
 // Examples
 // isAvgWhole([1, 3]) ➞ true
