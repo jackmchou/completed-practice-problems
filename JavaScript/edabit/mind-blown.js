@@ -65,6 +65,25 @@ class Pagination {
   }
 }
 
+// The instructor assigns Boron two tasks(Regarding the use of Array.prototype.reduce() method after lecturing in array methods).
+// The first task is to create a function calculateSum that takes a string and returns the sum of the ASCII values of all the characters in the string using Array.prototype.reduce().
+// The second task is to create a function reverseString that reverses and returns an input string using Array.prototype.reduce().
+// While solving the problem, Boron has encountered errors.Help him fix the errors.
+// Examples
+// calculateSum("lime") ➞ 423  //108 + 105 + 109 + 101 = 423                                    
+// calculateSum("a") ➞ 97  // a = 97
+// reverseString("hello") ➞ "olleh"
+// Notes
+// Usage of the Array.prototype.reduce() method.
+
+function calculateSum(txt) {
+  return txt.split('').reduce((cur, acc) => cur + acc.charCodeAt(0), 0);
+}
+
+function reverseString(txt) {
+	return txt.split('').reduce((cur, acc) => acc + cur);
+}
+
 // Create a function that transforms a string of upvote counts into an array of numbers. Each k represents a thousand.
 // Examples
 // transformUpvotes("6.8k 13.5k") ➞ [6800, 13500]
