@@ -65,6 +65,160 @@ class Pagination {
   }
 }
 
+// Create a function that takes a variable number of groups of items, and returns the number of ways the items can be arranged, with one item from each group. Order does not matter.
+// Examples
+// combinations(2, 3) ➞ 6
+// combinations(3, 7, 4) ➞ 84
+// combinations(2, 3, 4, 5) ➞ 120
+// Notes
+// Don't overthink this one.
+
+function combinations(...items) {
+  return items.reduce((cur, acc) => acc === 0 ? cur * 1 : cur * acc)
+}
+
+// Create a function that takes a number (step) as an argument and returns the amount of boxes in that step of the sequence.
+// Box Sequence Image
+//     Step 0: Start with 0
+//     Step 1: Add 3
+//     Step 2: Subtract 1
+//     Repeat Step 1 & 2 ...
+// Examples
+// boxSeq(0) ➞ 0
+// boxSeq(1) ➞ 3
+// boxSeq(2) ➞ 2
+// Notes
+// Step (the input) is always a positive integer (or zero).
+
+function boxSeq(step) {
+  if (step === 0) return 0
+  let box = 0
+	for (let i = 1; i <= step; i++) {
+    if (i % 2 === 1) box += 3
+    else box -= 1
+  }
+  return box
+}
+
+// The instructor assigns Boron two tasks(Regarding the use of Array.prototype.reduce() method after lecturing in array methods).
+// The first task is to create a function calculateSum that takes a string and returns the sum of the ASCII values of all the characters in the string using Array.prototype.reduce().
+// The second task is to create a function reverseString that reverses and returns an input string using Array.prototype.reduce().
+// While solving the problem, Boron has encountered errors.Help him fix the errors.
+// Examples
+// calculateSum("lime") ➞ 423  //108 + 105 + 109 + 101 = 423                                    
+// calculateSum("a") ➞ 97  // a = 97
+// reverseString("hello") ➞ "olleh"
+// Notes
+// Usage of the Array.prototype.reduce() method.
+
+function calculateSum(txt) {
+  return txt.split('').reduce((cur, acc) => cur + acc.charCodeAt(0), 0);
+}
+
+function reverseString(txt) {
+	return txt.split('').reduce((cur, acc) => acc + cur);
+}
+
+// Create a function that transforms a string of upvote counts into an array of numbers. Each k represents a thousand.
+// Examples
+// transformUpvotes("6.8k 13.5k") ➞ [6800, 13500]
+// transformUpvotes("5.5k 8.9k 32") ➞ [5500, 8900, 32]
+// transformUpvotes("20.3k 3.8k 7.7k 992") ➞ [20300, 3800, 7700, 992]
+// Notes
+// Return the upvotes as an array.
+
+function transformUpvotes(str) {
+	const strArr = str.split(' ')
+  const upvotes = []
+  for (let i = 0; i < strArr.length; i++) {
+    if (strArr[i].indexOf('k') !== -1) {
+      const convertedStr = strArr[i].slice(0, strArr[i].length - 1)
+      upvotes.push(+convertedStr * 1000)
+    } else {
+      upvotes.push(+strArr[i])
+    }
+  }
+  return upvotes
+}
+
+// Create a function that takes two numbers and a mathematical operator + - / * and will perform a calculation with the given numbers.
+// Examples
+// calculator(2, "+", 2) ➞ 4
+// calculator(2, "*", 2) ➞ 4
+// calculator(4, "/", 2) ➞ 2
+// Notes
+// If the input tries to divide by 0, return: "Can't divide by 0!"
+
+function calculator(num1, operator, num2) {
+	if (operator == '+') return num1 + num2
+  if (operator == '-') return num1 - num2
+  if (operator == '*') return num1 * num2
+  return operator === '/' && num2 !== 0 ? num1 / num2 : "Can't divide by 0!"
+}
+
+// Create a function that returns true if two arrays contain identical values, and false otherwise.
+
+// To solve this question, your friend writes the following code:
+
+// function checkEquals(arr1, arr2) {
+// if (arr1 === arr2) {
+//   return true
+//  } else {
+//   return false
+//  }
+// }
+
+// But testing the code, you see that something is not quite right. Running the code yields the following results:
+
+// checkEquals([1, 2], [1, 3]) ➞ false
+// // Good so far...
+
+// checkEquals([1, 2], [1, 2]) ➞ false
+// // Yikes! What happened?
+
+// Rewrite your friend's code so that it correctly checks if two arrays are equal. The tests below should pass:
+// Examples
+
+// checkEquals([1, 2], [1, 3]) ➞ false
+
+// checkEquals([1, 2], [1, 2]) ➞ true
+
+// checkEquals([4, 5, 6], [4, 5, 6]) ➞ true
+
+// checkEquals([4, 7, 6], [4, 5, 6]) ➞ false
+
+// Notes
+
+// Hint: This has to do with value vs. reference types.
+
+function checkEquals(arr1, arr2) {
+	for (let i = 0; i < arr1.length; i++) {
+  	if (arr1[i] !== arr2[i]) {
+    	return false
+    }
+  }
+  return true
+}
+
+// The Fizz Buzz test is a poplular interview question used to 'help filter out the 99.5% of programming job candidates who can't seem to program their way out of a wet paper bag.'
+//     Write a program that returns array of all the numbers from 1 to an interger argument. But for multiples of three use “Fizz” instead of the number and for the multiples of five use “Buzz”. For numbers which are multiples of both three and five use “FizzBuzz”
+// Example
+// fizzBuzz(10) ➞ [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz']
+// fizzBuzz(15) ➞ [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'FizzBuzz']
+// Notes
+//     Make sure to return array.
+
+function fizzBuzz(number){
+  const arr = []
+  for (let i = 1; i <= number; i++) {
+    if (i % 3 === 0 && i % 5 === 0) arr.push('FizzBuzz')
+    else if (i % 3 === 0) arr.push('Fizz')
+    else if (i % 5 === 0) arr.push('Buzz')
+    else arr.push(i)
+  }
+  return arr
+}
+
 // Create a function that takes an array as an argument and returns true or false depending on whether the average of all elements in the array is a whole number or not.
 // Examples
 // isAvgWhole([1, 3]) ➞ true
