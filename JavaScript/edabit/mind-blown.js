@@ -65,6 +65,28 @@ class Pagination {
   }
 }
 
+// Create a function that transforms a string of upvote counts into an array of numbers. Each k represents a thousand.
+// Examples
+// transformUpvotes("6.8k 13.5k") ➞ [6800, 13500]
+// transformUpvotes("5.5k 8.9k 32") ➞ [5500, 8900, 32]
+// transformUpvotes("20.3k 3.8k 7.7k 992") ➞ [20300, 3800, 7700, 992]
+// Notes
+// Return the upvotes as an array.
+
+function transformUpvotes(str) {
+	const strArr = str.split(' ')
+  const upvotes = []
+  for (let i = 0; i < strArr.length; i++) {
+    if (strArr[i].indexOf('k') !== -1) {
+      const convertedStr = strArr[i].slice(0, strArr[i].length - 1)
+      upvotes.push(+convertedStr * 1000)
+    } else {
+      upvotes.push(+strArr[i])
+    }
+  }
+  return upvotes
+}
+
 // Create a function that takes two numbers and a mathematical operator + - / * and will perform a calculation with the given numbers.
 // Examples
 // calculator(2, "+", 2) ➞ 4
@@ -74,10 +96,10 @@ class Pagination {
 // If the input tries to divide by 0, return: "Can't divide by 0!"
 
 function calculator(num1, operator, num2) {
-  if (operator == '+') return num1 + num2
+	if (operator == '+') return num1 + num2
   if (operator == '-') return num1 - num2
   if (operator == '*') return num1 * num2
-  if (operator == '/') return num1 / num2
+  return operator === '/' && num2 !== 0 ? num1 / num2 : "Can't divide by 0!"
 }
 
 // Create a function that returns true if two arrays contain identical values, and false otherwise.
