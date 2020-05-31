@@ -65,6 +65,29 @@ class Pagination {
   }
 }
 
+// Create a function that takes a number (step) as an argument and returns the amount of boxes in that step of the sequence.
+// Box Sequence Image
+//     Step 0: Start with 0
+//     Step 1: Add 3
+//     Step 2: Subtract 1
+//     Repeat Step 1 & 2 ...
+// Examples
+// boxSeq(0) ➞ 0
+// boxSeq(1) ➞ 3
+// boxSeq(2) ➞ 2
+// Notes
+// Step (the input) is always a positive integer (or zero).
+
+function boxSeq(step) {
+  if (step === 0) return 0
+  let box = 0
+	for (let i = 1; i <= step; i++) {
+    if (i % 2 === 1) box += 3
+    else box -= 1
+  }
+  return box
+}
+
 // The instructor assigns Boron two tasks(Regarding the use of Array.prototype.reduce() method after lecturing in array methods).
 // The first task is to create a function calculateSum that takes a string and returns the sum of the ASCII values of all the characters in the string using Array.prototype.reduce().
 // The second task is to create a function reverseString that reverses and returns an input string using Array.prototype.reduce().
