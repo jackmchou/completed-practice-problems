@@ -65,6 +65,26 @@ class Pagination {
   }
 }
 
+// Create a function that keeps only strings with repeating identical characters (in other words, it has a set size of 1).
+// Examples
+// identicalFilter(["aaaaaa", "bc", "d", "eeee", "xyz"]) 
+// ➞ ["aaaaaa", "d", "eeee"]
+// identicalFilter(["88", "999", "22", "545", "133"]) 
+// ➞ ["88", "999", "22"]
+// identicalFilter(["xxxxo", "oxo", "xox", "ooxxoo", "oxo"]) 
+// ➞ []
+// Notes
+//     A string with a single character is trivially counted as a string with repeating identical characters.
+//     If there are no strings with repeating identical characters, return an empty array (see example #3).
+
+function identicalFilter(arr) {
+  const result = []
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].split('').every((val, i, arr) => val === arr[0])) result.push(arr[i])
+  }
+  return result
+}
+
 // Create a function that takes a variable number of groups of items, and returns the number of ways the items can be arranged, with one item from each group. Order does not matter.
 // Examples
 // combinations(2, 3) ➞ 6
