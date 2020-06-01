@@ -87,7 +87,18 @@ class Pagination {
 // Notes
 // Check the Resources tab for more info on callbacks.
 
+function anotherFunc() {
+	let str = "bye"
+	setTimeout(() => {
+    callback(str)
+	}, 100)
+}
 
+var doc = "hello"
+
+function callback(str) {
+	doc = str
+}
 
 // Create a function that keeps only strings with repeating identical characters (in other words, it has a set size of 1).
 // Examples
