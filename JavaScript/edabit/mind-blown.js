@@ -65,6 +65,28 @@ class Pagination {
   }
 }
 
+// Closures are functions that remember their lexical environments. Lexical environments mean the environment in which the function was declared.
+// function parent(x) {
+//   return function closure() {    // Closure is declared here.
+//     return x
+//   }
+// }
+// const remember = parent("remembers me")
+// // Seems like the variable x would be gone after
+// // parent is executed, but it's not.
+// closure()
+// // Returns "remembers me" because the inner
+// // function remembers x.
+//     Fix the greetingMaker() function so that it works with the greeting() function.
+//     The greeting() function has already been created (check the Tests tab).
+// Example
+// const greeting = greetingMaker("Hello")
+// greeting("James") ➞ "Hello, James"
+// Notes
+// Check the Resources tab for more info on closures.
+
+
+
 // Create a function which returns the word in the string, but with all the fog letters removed. However, if the string is clear from fog, return "It's a clear day!".
 // Examples
 // clearFog("sky") ➞ "It's a clear day!"
@@ -74,7 +96,10 @@ class Pagination {
 //     There won't be any fog inside of any of the actual words (won't include the letters f, o or g).
 //     Hidden words are always in lowercase.
 
-
+function clearFog(str) {
+	const patt = /[fog]/g
+  return str.match(patt) ? str.replace(patt, '') : "It's a clear day!"
+}
 
 // Callbacks are first-class functions. This means they have first-class characteristics, like being able to be passed to other functions. There was a time when callbacks were used to handle async operations, but we needed something better because of a few shortcomings (like problems with nested callbacks).
 // Here's a simple example of a callback:
