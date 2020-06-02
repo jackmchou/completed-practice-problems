@@ -65,6 +65,23 @@ class Pagination {
   }
 }
 
+// Count the amount of ones in the binary representation of an integer. So for example, since 12 is '1100' in binary, the return value should be 2.
+// Examples
+// countOnes(0) ➞ 0
+// countOnes(100) ➞ 3
+// countOnes(999) ➞ 8
+// Notes
+// The input will always be a valid integer (number).
+
+function countOnes(i) {
+	const binary = i.toString(2)
+  let count = 0
+  for (let i = 0; i < binary.length; i++) {
+    if (binary[i] == 1) count += +binary[i]
+  }
+  return count
+}
+
 // Closures are functions that remember their lexical environments. Lexical environments mean the environment in which the function was declared.
 // function parent(x) {
 //   return function closure() {    // Closure is declared here.
@@ -85,7 +102,11 @@ class Pagination {
 // Notes
 // Check the Resources tab for more info on closures.
 
-
+function greetingMaker(salutation) {
+	return function closure(name) {
+	  return salutation + ", " + name 	
+	}
+}
 
 // Create a function which returns the word in the string, but with all the fog letters removed. However, if the string is clear from fog, return "It's a clear day!".
 // Examples
