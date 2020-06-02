@@ -78,7 +78,15 @@ class Pagination {
 // Notes
 // 0 neither counts as a positive nor a negative value.
 
-
+function isPositiveDominant(a) {
+	let pos = 0
+  let neg = 0
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] > 0 && a[i] !== a[i + 1]) pos++
+    else if (a[i] < 0 && a[i] !== a[i + 1]) neg++
+  }
+  return pos > neg
+}
 
 // Count the amount of ones in the binary representation of an integer. So for example, since 12 is '1100' in binary, the return value should be 2.
 // Examples
