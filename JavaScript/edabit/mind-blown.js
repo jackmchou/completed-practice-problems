@@ -65,6 +65,41 @@ class Pagination {
   }
 }
 
+// Write a function that returns the least common multiple (LCM) of two integers.
+// Examples
+// lcm(9, 18) ➞ 18
+// lcm(8, 5) ➞ 40
+// lcm(17, 11) ➞ 187
+// Notes
+//     Both values will be positive.
+//     The LCM is the smallest integer that divides both numbers such that the remainder is zero.
+
+function lcm(n1, n2) {
+  return Math.abs((n1 * n2) / gcd(n1, n2))
+}
+function gcd(n1, n2) {
+  n1 = Math.abs(n1)
+  n2 = Math.abs(n2)
+  while (n2) {
+    let z = n2
+    n2 = n1 % n2
+    n1 = z
+  }
+  return n1
+}
+
+function primeFactors(n) {
+  const factors = []
+  let divisor = 2
+  while (n > 2) {
+    if (n % divisor == 0) {
+      factors.push(divisor);
+      n /= divisor
+    } else divisor++
+  }
+  return factors
+}
+
 // Given a string, reverse all the words which have odd length. The even length words are not changed.
 // Examples
 // reverseOdd("Bananas") ➞ "sananaB"
@@ -75,7 +110,7 @@ class Pagination {
 // There is exactly one space between each word and no punctuation is used.
 
 function reverseOdd(str) {
-	const strArr = str.split(' ')
+  const strArr = str.split(' ')
   for (let i = 0; i < strArr.length; i++) {
     if (strArr[i].length % 2 === 1) {
       const wordArr = strArr[i].split('')
@@ -98,7 +133,7 @@ function reverseOdd(str) {
 // 0 neither counts as a positive nor a negative value.
 
 function isPositiveDominant(a) {
-	let pos = 0
+  let pos = 0
   let neg = 0
   for (let i = 0; i < a.length; i++) {
     if (a[i] > 0 && a[i] !== a[i + 1]) pos++
@@ -116,7 +151,7 @@ function isPositiveDominant(a) {
 // The input will always be a valid integer (number).
 
 function countOnes(i) {
-	const binary = i.toString(2)
+  const binary = i.toString(2)
   let count = 0
   for (let i = 0; i < binary.length; i++) {
     if (binary[i] == 1) count += +binary[i]
@@ -145,9 +180,9 @@ function countOnes(i) {
 // Check the Resources tab for more info on closures.
 
 function greetingMaker(salutation) {
-	return function closure(name) {
-	  return salutation + ", " + name 	
-	}
+  return function closure(name) {
+    return salutation + ", " + name
+  }
 }
 
 // Create a function which returns the word in the string, but with all the fog letters removed. However, if the string is clear from fog, return "It's a clear day!".
@@ -160,7 +195,7 @@ function greetingMaker(salutation) {
 //     Hidden words are always in lowercase.
 
 function clearFog(str) {
-	const patt = /[fog]/g
+  const patt = /[fog]/g
   return str.match(patt) ? str.replace(patt, '') : "It's a clear day!"
 }
 
@@ -187,16 +222,16 @@ function clearFog(str) {
 // Check the Resources tab for more info on callbacks.
 
 function anotherFunc() {
-	let str = "bye"
-	setTimeout(() => {
+  let str = "bye"
+  setTimeout(() => {
     callback(str)
-	}, 100)
+  }, 100)
 }
 
 var doc = "hello"
 
 function callback(str) {
-	doc = str
+  doc = str
 }
 
 // Create a function that keeps only strings with repeating identical characters (in other words, it has a set size of 1).
@@ -247,7 +282,7 @@ function combinations(...items) {
 function boxSeq(step) {
   if (step === 0) return 0
   let box = 0
-	for (let i = 1; i <= step; i++) {
+  for (let i = 1; i <= step; i++) {
     if (i % 2 === 1) box += 3
     else box -= 1
   }
@@ -270,7 +305,7 @@ function calculateSum(txt) {
 }
 
 function reverseString(txt) {
-	return txt.split('').reduce((cur, acc) => acc + cur);
+  return txt.split('').reduce((cur, acc) => acc + cur);
 }
 
 // Create a function that transforms a string of upvote counts into an array of numbers. Each k represents a thousand.
@@ -282,7 +317,7 @@ function reverseString(txt) {
 // Return the upvotes as an array.
 
 function transformUpvotes(str) {
-	const strArr = str.split(' ')
+  const strArr = str.split(' ')
   const upvotes = []
   for (let i = 0; i < strArr.length; i++) {
     if (strArr[i].indexOf('k') !== -1) {
@@ -304,7 +339,7 @@ function transformUpvotes(str) {
 // If the input tries to divide by 0, return: "Can't divide by 0!"
 
 function calculator(num1, operator, num2) {
-	if (operator == '+') return num1 + num2
+  if (operator == '+') return num1 + num2
   if (operator == '-') return num1 - num2
   if (operator == '*') return num1 * num2
   return operator === '/' && num2 !== 0 ? num1 / num2 : "Can't divide by 0!"
@@ -346,9 +381,9 @@ function calculator(num1, operator, num2) {
 // Hint: This has to do with value vs. reference types.
 
 function checkEquals(arr1, arr2) {
-	for (let i = 0; i < arr1.length; i++) {
-  	if (arr1[i] !== arr2[i]) {
-    	return false
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return false
     }
   }
   return true
@@ -362,7 +397,7 @@ function checkEquals(arr1, arr2) {
 // Notes
 //     Make sure to return array.
 
-function fizzBuzz(number){
+function fizzBuzz(number) {
   const arr = []
   for (let i = 1; i <= number; i++) {
     if (i % 3 === 0 && i % 5 === 0) arr.push('FizzBuzz')
@@ -385,7 +420,7 @@ function fizzBuzz(number){
 
 function isAvgWhole(arr) {
   let sum = 0
-	for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     sum += arr[i]
   }
   return (sum / arr.length) % 1 === 0
@@ -403,9 +438,9 @@ function isAvgWhole(arr) {
 // Notes
 // Check the Resources tab for more info on promises.
 
-let promise = new Promise( (resolve, reject) => {
-  setTimeout(( ) => {
-     resolve("edabit")
+let promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("edabit")
   }, 1000)
 })
 
@@ -419,8 +454,8 @@ let promise = new Promise( (resolve, reject) => {
 //     Return an empty array if there are no numbers that are divisible by n.
 
 function arrayOperation(x, y, n) {
-	let arr = []
-  for (x; x <= y;x++) {
+  let arr = []
+  for (x; x <= y; x++) {
     if (x % n === 0) arr.push(x)
   }
   return arr
@@ -446,7 +481,7 @@ function arrayOperation(x, y, n) {
 //     "Boom" will always start with a capital "B", except when n is less than 2, then return a minature explosion as "boom".
 
 function boomIntensity(n) {
-	if (2 > n) return 'boom'
+  if (2 > n) return 'boom'
   let result = 'B'
   for (let i = 0; i < n; i++) {
     result += 'o'
@@ -466,7 +501,7 @@ function boomIntensity(n) {
 // The function receives an integer and must return an integer.
 
 function squareDigits(n) {
-	const nStr = '' + n
+  const nStr = '' + n
   let result = ''
   for (let i = 0; i < nStr.length; i++) {
     result += nStr[i] * nStr[i]
@@ -488,7 +523,7 @@ function squareDigits(n) {
 function sortByLength(arr) {
   let tmp
   for (let i = 0; i < arr.length; i++) {
-    for(let j = i + 1; j < arr.length; j++) {
+    for (let j = i + 1; j < arr.length; j++) {
       if (arr[i].length > arr[j].length) {
         tmp = arr[i]
         arr[i] = arr[j]
@@ -511,7 +546,7 @@ function sortByLength(arr) {
 //     Output string must be two numbers separated by a single space, and highest number is first.
 
 function highLow(str) {
-	const strArr = str.split(' ')
+  const strArr = str.split(' ')
   let max = strArr[0]
   let min = strArr[0]
   for (let i = 0; i < strArr.length; i++) {
@@ -544,7 +579,7 @@ const REGEXP = /\d+ \w+ \w+./g
 //     Bonus: Try solving this without regex.
 
 function numInStr(arr) {
-	const result = []
+  const result = []
   const nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   for (let i = 0; i < arr.length; i++) {
     for (let ii = 0; ii < arr.length; ii++) {
@@ -574,7 +609,7 @@ function numInStr(arr) {
 //     All class properties should have default(initial) values.
 //     There are a few other ways to make classes but are not in this challenge, you can check the Resources tab to learn more.
 
-function Book (author, published) {
+function Book(author, published) {
   this.author = author;
   this.published = published;
 }
@@ -622,8 +657,8 @@ class Review {
 
 function sweetestIcecream(arr) {
   const sweetVal = {
-    Plain:	0,
-    Vanilla:	5,
+    Plain: 0,
+    Vanilla: 5,
     ChocolateChip: 5,
     Strawberry: 10,
     Chocolate: 10,
@@ -725,7 +760,7 @@ function maxTotal(nums) {
       }
     }
   }
-  return nums.slice(0, 5).reduce((cur, acc) => cur + acc,0)
+  return nums.slice(0, 5).reduce((cur, acc) => cur + acc, 0)
 }
 
 // A repdigit is a positive number composed out of the same digit.
@@ -788,7 +823,7 @@ const REGEXP = /\x65\x64\x61\x62\x69\x74/g
 //     Bounds will be always given as integers.
 
 function intWithinBounds(n, lower, upper) {
-  if (n % 1 != 0) return false 
+  if (n % 1 != 0) return false
   else return lower <= n && n < upper
 }
 
@@ -881,9 +916,9 @@ function isSastry(number) {
 
 function rps(p1, p2) {
   if (p1 === p2) return "It's a draw"
-  else if (p1 === 'Rock' && p2 === 'Scissors' 
-  || p1 === 'Scissors' && p2 === 'Paper' 
-  || p1 === 'Paper' && p2 === 'Rock') return 'The winner is p1'
+  else if (p1 === 'Rock' && p2 === 'Scissors'
+    || p1 === 'Scissors' && p2 === 'Paper'
+    || p1 === 'Paper' && p2 === 'Rock') return 'The winner is p1'
   else return 'The winner is p2'
 }
 
@@ -956,7 +991,7 @@ function getFrequencies(arr) {
 
 function mapping(letters) {
   let letterObj = {}
-	for (let i = 0; i < letters.length; i++) {
+  for (let i = 0; i < letters.length; i++) {
     letterObj[letters[i]] = letters[i].toUpperCase()
   }
   return letterObj
