@@ -65,6 +65,21 @@ class Pagination {
   }
 }
 
+
+// An array is positive dominant if it contains strictly more unique positive values than unique negative values.
+// Write a function that returns true if an array is positive dominant.
+// Examples
+// [1, 1, 1, 1, -3, -4] ➞ false
+// // there is only 1 unique positive value (1)
+// // there are 2 unique negative values (-3, -4)
+// [5, 99, 832, -3, -4] ➞ true
+// [5, 0] ➞ true
+// [0, -4, -1] ➞ false
+// Notes
+// 0 neither counts as a positive nor a negative value.
+
+
+
 // Count the amount of ones in the binary representation of an integer. So for example, since 12 is '1100' in binary, the return value should be 2.
 // Examples
 // countOnes(0) ➞ 0
