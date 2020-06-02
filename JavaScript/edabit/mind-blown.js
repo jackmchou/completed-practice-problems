@@ -65,6 +65,17 @@ class Pagination {
   }
 }
 
+// Create a function which returns the word in the string, but with all the fog letters removed. However, if the string is clear from fog, return "It's a clear day!".
+// Examples
+// clearFog("sky") ➞ "It's a clear day!"
+// clearFog("fogfogfffoooofftreesggfoogfog") ➞ "trees"
+// clearFog("fogFogFogffffooobirdsandthebeesGGGfogFog") ➞ "birdsandthebees"
+// Notes
+//     There won't be any fog inside of any of the actual words (won't include the letters f, o or g).
+//     Hidden words are always in lowercase.
+
+
+
 // Callbacks are first-class functions. This means they have first-class characteristics, like being able to be passed to other functions. There was a time when callbacks were used to handle async operations, but we needed something better because of a few shortcomings (like problems with nested callbacks).
 // Here's a simple example of a callback:
 // function asyncFunc(cb) {
