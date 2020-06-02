@@ -65,6 +65,118 @@ class Pagination {
   }
 }
 
+// Count the amount of ones in the binary representation of an integer. So for example, since 12 is '1100' in binary, the return value should be 2.
+// Examples
+// countOnes(0) ➞ 0
+// countOnes(100) ➞ 3
+// countOnes(999) ➞ 8
+// Notes
+// The input will always be a valid integer (number).
+
+function countOnes(i) {
+	const binary = i.toString(2)
+  let count = 0
+  for (let i = 0; i < binary.length; i++) {
+    if (binary[i] == 1) count += +binary[i]
+  }
+  return count
+}
+
+// Closures are functions that remember their lexical environments. Lexical environments mean the environment in which the function was declared.
+// function parent(x) {
+//   return function closure() {    // Closure is declared here.
+//     return x
+//   }
+// }
+// const remember = parent("remembers me")
+// // Seems like the variable x would be gone after
+// // parent is executed, but it's not.
+// closure()
+// // Returns "remembers me" because the inner
+// // function remembers x.
+//     Fix the greetingMaker() function so that it works with the greeting() function.
+//     The greeting() function has already been created (check the Tests tab).
+// Example
+// const greeting = greetingMaker("Hello")
+// greeting("James") ➞ "Hello, James"
+// Notes
+// Check the Resources tab for more info on closures.
+
+function greetingMaker(salutation) {
+	return function closure(name) {
+	  return salutation + ", " + name 	
+	}
+}
+
+// Create a function which returns the word in the string, but with all the fog letters removed. However, if the string is clear from fog, return "It's a clear day!".
+// Examples
+// clearFog("sky") ➞ "It's a clear day!"
+// clearFog("fogfogfffoooofftreesggfoogfog") ➞ "trees"
+// clearFog("fogFogFogffffooobirdsandthebeesGGGfogFog") ➞ "birdsandthebees"
+// Notes
+//     There won't be any fog inside of any of the actual words (won't include the letters f, o or g).
+//     Hidden words are always in lowercase.
+
+function clearFog(str) {
+	const patt = /[fog]/g
+  return str.match(patt) ? str.replace(patt, '') : "It's a clear day!"
+}
+
+// Callbacks are first-class functions. This means they have first-class characteristics, like being able to be passed to other functions. There was a time when callbacks were used to handle async operations, but we needed something better because of a few shortcomings (like problems with nested callbacks).
+// Here's a simple example of a callback:
+// function asyncFunc(cb) {
+//   let result = ""
+//   // After some time the result of an async opertion comes back and is put in the "result" variable.  We'll use a string for this example.   
+//   result = "hello"
+//   cb(result)
+// }
+// function callback(str) {
+//   console.log(str)
+// }
+// asyncFunc(callback)
+// console.log("goodbye")
+// // goodbye
+// // hello
+// "goodbye" appears before "hello" because the async operation in asyncFunc() is non-blocking, meaning that it is set aside until it finishes but in the meantime we go ahead and call the next function.
+// Challenge
+//     Fix anotherFunc() so that calls to it will change the doc variable to bye.
+//     Keep the setTimeout to 100ms and do not change the callback function or the doc variable.
+// Notes
+// Check the Resources tab for more info on callbacks.
+
+function anotherFunc() {
+	let str = "bye"
+	setTimeout(() => {
+    callback(str)
+	}, 100)
+}
+
+var doc = "hello"
+
+function callback(str) {
+	doc = str
+}
+
+// Create a function that keeps only strings with repeating identical characters (in other words, it has a set size of 1).
+// Examples
+// identicalFilter(["aaaaaa", "bc", "d", "eeee", "xyz"]) 
+// ➞ ["aaaaaa", "d", "eeee"]
+// identicalFilter(["88", "999", "22", "545", "133"]) 
+// ➞ ["88", "999", "22"]
+// identicalFilter(["xxxxo", "oxo", "xox", "ooxxoo", "oxo"]) 
+// ➞ []
+// Notes
+//     A string with a single character is trivially counted as a string with repeating identical characters.
+//     If there are no strings with repeating identical characters, return an empty array (see example #3).
+
+function identicalFilter(arr) {
+  const result = []
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].split('').every((val, i, arr) => val === arr[0])) result.push(arr[i])
+  }
+  return result
+}
+
 // Create a function that takes a variable number of groups of items, and returns the number of ways the items can be arranged, with one item from each group. Order does not matter.
 // Examples
 // combinations(2, 3) ➞ 6
