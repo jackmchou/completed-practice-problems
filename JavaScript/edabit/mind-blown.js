@@ -65,6 +65,25 @@ class Pagination {
   }
 }
 
+// Given a string, reverse all the words which have odd length. The even length words are not changed.
+// Examples
+// reverseOdd("Bananas") ➞ "sananaB"
+// reverseOdd("One two three four") ➞ "enO owt eerht four"
+// reverseOdd("Make sure uoy only esrever sdrow of ddo length")
+// ➞ "Make sure you only reverse words of odd length"
+// Notes
+// There is exactly one space between each word and no punctuation is used.
+
+function reverseOdd(str) {
+	const strArr = str.split(' ')
+  for (let i = 0; i < strArr.length; i++) {
+    if (strArr[i].length % 2 === 1) {
+      const wordArr = strArr[i].split('')
+      strArr.splice(i, 1, wordArr.reduce((cur, acc) => acc + cur))
+    }
+  }
+  return strArr.join(' ')
+}
 
 // An array is positive dominant if it contains strictly more unique positive values than unique negative values.
 // Write a function that returns true if an array is positive dominant.
