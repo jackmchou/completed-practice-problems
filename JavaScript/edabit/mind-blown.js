@@ -76,7 +76,14 @@ class Pagination {
 //     Try to use new data type introduced in ES6.
 //     Notice that a string is iterable.
 
-
+function unrepeated(str) {
+  const strSet = new Set([...str])
+  const result = []
+  for (val of strSet) {
+    result.push(val)
+  }
+  return result.join('')
+}
 
 // You are in charge of the barbecue grill. A vegetarian skewer is a skewer that has only vegetables (-o). A non-vegetarian skewer is a skewer with at least one piece of meat (-x).
 // For example, the grill below has 4 non-vegetarian skewers and 1 vegetarian skewer (the one in the middle).
