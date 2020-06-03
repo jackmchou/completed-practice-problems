@@ -65,6 +65,19 @@ class Pagination {
   }
 }
 
+// Try to remove any repeated charcters in a word that will be passed to our function. Any character could be used, even special ones and numbers.
+// Examples
+// unrepeated("hello") ➞ "helo"
+// unrepeated("aaaaa") ➞ "a"
+// unrepeated("WWE!!!") ➞ "WE!"
+// unrepeated("call 911") ➞ "cal 91"
+// Notes
+//     No more than two words will be passed.
+//     Try to use new data type introduced in ES6.
+//     Notice that a string is iterable.
+
+
+
 // You are in charge of the barbecue grill. A vegetarian skewer is a skewer that has only vegetables (-o). A non-vegetarian skewer is a skewer with at least one piece of meat (-x).
 // For example, the grill below has 4 non-vegetarian skewers and 1 vegetarian skewer (the one in the middle).
 // ["--xo--x--ox--",
