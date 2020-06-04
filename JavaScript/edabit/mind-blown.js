@@ -65,6 +65,21 @@ class Pagination {
   }
 }
 
+/**
+ * Given an arbitrary input string, return the first nonrepeated character in
+ * the string. For example:
+ *
+ *   firstNonRepeatedCharacter('ABA'); // => 'B'
+ *   firstNonRepeatedCharacter('AACBDB'); // => 'C'
+ */
+
+function firstNonRepeatedCharacter(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== str[i + 1]) return str[i + 1]
+  }
+}
+firstNonRepeatedCharacter('AACBDB')
+
 // Create a function that returns the mean of all digits.
 // Examples
 // mean(42) ➞ 3
