@@ -65,6 +65,23 @@ class Pagination {
   }
 }
 
+// Create a function to convert an array of percentages to their decimal equivalents.
+// Examples
+// convertToDecimal(["1%", "2%", "3%"]) ➞ [0.01, 0.02, 0.03]
+// convertToDecimal(["45%", "32%", "97%", "33%"]) ➞ [0.45, 0.32, 0.97, 0.33]
+// convertToDecimal(["33%", "98.1%", "56.44%", "100%"]) ➞ [0.33, 0.981, 0.5644, 1]
+// Notes
+// N/A
+
+function convertToDecimal(perc) {
+	let deci = []
+  for (let i = 0; i < perc.length; i++) {
+    perc[i] = +(perc[i].slice(0, perc[i].length - 1)) * 0.01
+    deci.push(perc[i])
+  }
+  return deci
+}
+
 // To train for an upcoming marathon, Johnny goes on one long-distance run each Saturday. He wants to track how often the number of miles he runs this Saturday exceeds the number of miles run the previous Saturday. This is called a progress day.
 // Create a function that takes in an array of miles run every Saturday and returns Johnny's total number of progress days.
 // Examples
