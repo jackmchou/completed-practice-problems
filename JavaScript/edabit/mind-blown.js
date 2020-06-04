@@ -65,6 +65,19 @@ class Pagination {
   }
 }
 
+// Create a function that returns "even" if a number has an even number of factors and "odd" if a number has an odd number of factors.
+// Examples
+// factorGroup(33) ➞ "even"
+// factorGroup(36) ➞ "odd"
+// factorGroup(7) ➞ "even"
+// Notes
+//     You don't need to actually calculate the factors to solve this problem.
+//     Think about why a number would have an odd number of factors.
+
+function factorGroup(num) {
+	return Math.sqrt(num) % 1 === 0 ? 'odd' : 'even'
+}
+
 // Try to remove any repeated charcters in a word that will be passed to our function. Any character could be used, even special ones and numbers.
 // Examples
 // unrepeated("hello") ➞ "helo"
