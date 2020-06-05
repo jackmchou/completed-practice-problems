@@ -65,6 +65,123 @@ class Pagination {
   }
 }
 
+// Create a function that takes an integer n and reverses it.
+// Examples
+// rev(5121) ➞ "1215"
+// rev(69) ➞ "96"
+// rev(-122157) ➞ "751221"
+// Notes
+//     This challenge is about using two operators that are related to division.
+//     If the number is negative, treat it like it's positive.
+
+function rev(n) {
+	const numArr = ('' + n).split('')
+  let result = []
+  for (let i = numArr.length; i >= 0; i--) {
+    if (parseInt(numArr[i])) result.push(numArr[i])
+  }
+  return result.join('')
+}
+
+/**
+ * Given an arbitrary input string, return the first nonrepeated character in
+ * the string. For example:
+ *
+ *   firstNonRepeatedCharacter('ABA'); // => 'B'
+ *   firstNonRepeatedCharacter('AACBDB'); // => 'C'
+ */
+
+function firstNonRepeatedCharacter(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== str[i + 1]) return str[i + 1]
+  }
+}
+firstNonRepeatedCharacter('AACBDB')
+
+// Create a function that returns the mean of all digits.
+// Examples
+// mean(42) ➞ 3
+// mean(12345) ➞ 3
+// mean(666) ➞ 6
+// Notes
+//     The mean of all digits is the sum of digits / how many digits there are (e.g. mean of digits in 512 is (5+1+2)/3(number of digits) = 8/3=2).
+//     The mean will always be a integer.
+
+function mean(num) {
+	let sum = 0
+  const numArr = ('' + num).split('')
+  for (let i = 0; i < numArr.length; i++) {
+    sum += +numArr[i]
+  }
+  return sum / numArr.length
+}
+
+// Create a function to convert an array of percentages to their decimal equivalents.
+// Examples
+// convertToDecimal(["1%", "2%", "3%"]) ➞ [0.01, 0.02, 0.03]
+// convertToDecimal(["45%", "32%", "97%", "33%"]) ➞ [0.45, 0.32, 0.97, 0.33]
+// convertToDecimal(["33%", "98.1%", "56.44%", "100%"]) ➞ [0.33, 0.981, 0.5644, 1]
+// Notes
+// N/A
+
+function convertToDecimal(perc) {
+	let deci = []
+  for (let i = 0; i < perc.length; i++) {
+    perc[i] = +(perc[i].slice(0, perc[i].length - 1)) * 0.01
+    deci.push(perc[i])
+  }
+  return deci
+}
+
+// To train for an upcoming marathon, Johnny goes on one long-distance run each Saturday. He wants to track how often the number of miles he runs this Saturday exceeds the number of miles run the previous Saturday. This is called a progress day.
+// Create a function that takes in an array of miles run every Saturday and returns Johnny's total number of progress days.
+// Examples
+// progressDays([3, 4, 1, 2]) ➞ 2
+// // There are two progress days, (3->4) and (1->2)
+// progressDays([10, 11, 12, 9, 10]) ➞ 3
+// progressDays([6, 5, 4, 3, 2, 9]) ➞ 1
+// progressDays([9, 9])  ➞ 0
+// Notes
+// Running the same number of miles as last week does not count as a progress day.
+
+function progressDays(runs) {
+	let days = 0 
+  for (let i = 0; i < runs.length; i++) {
+    if (runs[i] < runs[i + 1]) days++
+  }
+  return days
+}
+
+// Return the sum of all items in an array, where each item is multiplied by its index (zero-based). For empty arrays, return 0.
+// Examples
+// indexMultiplier([1, 2, 3, 4, 5]) ➞ 40
+// // (1*0 + 2*1 + 3*2 + 4*3 + 5*4)
+// indexMultiplier([-3, 0, 8, -6]) ➞ -2
+// // (-3*0 + 0*1 + 8*2 + -6*3)
+// Notes
+// All items in the array will be integers.
+
+function indexMultiplier(arr) {
+	let result = 0
+  for (let i = 0; i < arr.length; i++) {
+    result += arr[i] * i
+  }
+  return result
+}
+
+// Create a function that returns "even" if a number has an even number of factors and "odd" if a number has an odd number of factors.
+// Examples
+// factorGroup(33) ➞ "even"
+// factorGroup(36) ➞ "odd"
+// factorGroup(7) ➞ "even"
+// Notes
+//     You don't need to actually calculate the factors to solve this problem.
+//     Think about why a number would have an odd number of factors.
+
+function factorGroup(num) {
+	return Math.sqrt(num) % 1 === 0 ? 'odd' : 'even'
+}
+
 // Try to remove any repeated charcters in a word that will be passed to our function. Any character could be used, even special ones and numbers.
 // Examples
 // unrepeated("hello") ➞ "helo"
