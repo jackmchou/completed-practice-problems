@@ -65,6 +65,29 @@ class Pagination {
   }
 }
 
+// Create a function that takes an array of items, removes all duplicate items and returns a new array in the same sequential order as the old array (minus duplicates).
+// Examples
+// removeDups([1, 0, 1, 0]) ➞ [1, 0]
+// removeDups(["The", "big", "cat"]) ➞ ["The", "big", "cat"]
+// removeDups(["John", "Taylor", "John"]) ➞ ["John", "Taylor"]
+// Notes
+//     Tests contain arrays with both strings and numbers.
+//     Tests are case sensitive.
+
+function removeDups(arr) {
+  let dups = {}
+	let uniques = []
+  let j = 0
+  for (let i = 0; i < arr.length; i++) {
+    let element = arr[i]
+    if (dups[element] !== true) {
+      dups[element] = true
+      uniques[j++] = element
+    }
+  }
+  return uniques
+}
+
 // In this challenge, you have to establish if the digits of a given number form a straight arithmetic sequence (either increasing or decreasing). A straight sequence has an equal step between every pair of digits.
 // Given an integer n, implement a function that returns:
 //     "Not Straight" if n is lower than 100 or if its digits are not an arithmetic sequence.
