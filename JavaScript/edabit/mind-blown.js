@@ -1,68 +1,60 @@
-// Your task is to create a class to handle paginated content in a website. A pagination is used to divide long lists of content in a series of pages.
-// Example
-// The pagination class will accept 2 parameters:
-//     items (default: []): An array of contents to paginate.
-//     pageSize (default: 10): The amount of items to show in each page.
-// So for example we could initialize our pagination like this:
-// const alphabetArray = "abcdefghijklmnopqrstuvwxyz".split("");
-// const p = new Pagination(alphabetArray, 4);
-// And then use the method getVisibleItems to show the contents of the paginated array.
-// console.log(p.getVisibleItems()); // ["a", "b", "c", "d"]
-// You will have to implement various methods to go through the pages such as:
-//     prevPage
-//     nextPage
-//     firstPage
-//     lastPage
-//     goToPage
-// Here's a continuation of the example above using nextPage and lastPage:
-// p.nextPage();
-// console.log(p.getVisibleItems());
-// // ["e", "f", "g", "h"]
-// p.lastPage();
-// console.log(p.getVisibleItems());
-// // ["y", "z"]
+// Create a function that takes in a number as a string n and returns the number without trailing and leading zeros.
+//     Trailing Zeros are the zeros after a decimal point which don't affect the value (e.g. the last three zeros in 3.4000 and 3.04000).
+//     Leading Zeros are the zeros before a whole number which don't affect the value (e.g. the first three zeros in 000234 and 000230).
+// Examples
+// removeLeadingTrailing("230.000") ➞ "230"
+// removeLeadingTrailing("00402") ➞ "402"
+// removeLeadingTrailing("03.1400") ➞ "3.14"
+// removeLeadingTrailing("30") ➞ "30"
 // Notes
-//     You don't have to use ES6 class if you don't want to
-//     The second argument (pageSize) could be a float, in that case just convert it to an int (this is also the case for the goToPage method)
-//     The methods used to change page should be chainable, so you can call them one after the other like this: p.nextPage().nextPage();
-//     Please remove the comments I provided before publishing your solution.
+//     Return a string.
+//     If you get a number with .0 on the end, return the integer value (e.g. return "4" rather than "4.0").
+//     If the number is 0, 0.0, 000, 00.00, etc... return "0".
 
-class Pagination {
-  constructor(items, pageSize) {
-    this.items = [];       // Holds the items array
-    this.pageSize = 10;    // Holds the size of each page
-    this.totalPages = Math.ceil(items.length / pageSize);  // Holds the total number of pages
-    this.currentPage = 0; // Holds the current page number
+function removeLeadingTrailing(n) {
+	const numArr = ('' + n).split('')
+  let boundry = {}
+  let result = []
+  for (let i = 0; i < numArr.length; i++) {
+    if (numArr[i] !== '.') result.push()
   }
+}
+removeLeadingTrailing("03.1400")
 
-  prevPage() {
-    this.currentPage -= this.pageSize
-    return this
-  }
+// Create a function that returns true if an asterisk * is inside a box.
+// Examples
+// inBox([
+//   "###",
+//   "#*#",
+//   "###"
+// ]) ➞ true
+// inBox([
+//   "####",
+//   "#* #",
+//   "#  #",
+//   "####"
+// ]) ➞ true
+// inBox([
+//   "*####",
+//   "# #",
+//   "#  #*",
+//   "####"
+// ]) ➞ false
+// inBox([
+//   "#####",
+//   "#   #",
+//   "#   #",
+//   "#   #",
+//   "#####"
+// ]) ➞ false
+// Notes
+// The asterisk may be in the array, however, it must be inside the box, if it exists.
 
-  nextPage() {
-    this.currentPage += this.pageSize
-    return this
+function inBox(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].indexOf('*') !== -1) return true
   }
-
-  firstPage() {
-    this.currentPage = 0
-    return this
-  }
-
-  lastPage() {
-    this.currentPage = this.pageSize * this.totalPages - this.pageSize
-    return this
-  }
-
-  goToPage(page) {
-    return this.currentPage = (page * this.pageSize) - this.pageSize
-  }
-
-  getVisibleItems() {
-    console.log(this.items)
-    return this.items.slice(this.currentPage, this.currentPage + this.pageSize)
-  }
+  return false
 }
 
 // Create a function that takes an array of items, removes all duplicate items and returns a new array in the same sequential order as the old array (minus duplicates).
