@@ -21,6 +21,27 @@ function removeLeadingTrailing(n) {
 }
 removeLeadingTrailing("03.1400")
 
+// Create a function that converts a string of letters to their respective number in the alphabet.
+// A	B	C	D	E	F	G	H	I	J	K	L	M	N	O	P	Q	R	S	T	U	V	W	...
+// 0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	20	21	22	...
+// Examples
+// alphNum("XYZ") ➞ "23 24 25"
+// alphNum("ABCDEF") ➞ "0 1 2 3 4 5"
+// alphNum("JAVASCRIPT") ➞ "9 0 21 0 18 2 17 8 15 19"
+// Notes
+// Make sure the numbers are spaced.
+
+function alphNum(str) {
+	const alphObj = {A: 0, B: 1, C: 2, D: 3, X: 23, Y: 24, Z: 25}
+  const result = []
+  for (let i = 0; i < str.length; i++) {
+    if (alphObj[str[i]] === 0 || alphObj[str[i]]) {
+      result.push(alphObj[str[i]])
+    }
+  }
+  return result.join(' ')
+}
+
 // Create a function that takes a string as an argument and returns a coded (h4ck3r 5p34k) version of the string.
 // Examples
 // hackerSpeak("javascript is cool") ➞ "j4v45cr1pt 15 c00l"
@@ -29,7 +50,19 @@ removeLeadingTrailing("03.1400")
 // Notes
 // In order to work properly, the function should replace all 'a's with 4, 'e's with 3, 'i's with 1, 'o's with 0, and 's's with 5.
 
-
+function hackerSpeak(str) {
+  const obj = { a: '4', e: '3', i: '1', o: '0', s: '5'}
+	const strArr = str.split('')
+  let result = []
+  for (let i = 0; i < strArr.length; i++) {
+    let char = strArr[i]
+    if (obj[char]) {
+      strArr[i] = obj[char]
+      result.push(strArr[i])
+    } else result.push(strArr[i])
+  }
+  return result.join('')
+}
 
 // Create a function that takes the height and radius of a cone as arguments and returns the volume of the cone. See the resources tab for the formula.
 // Volume of a Cone Image
