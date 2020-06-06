@@ -21,6 +21,25 @@ function removeLeadingTrailing(n) {
 }
 removeLeadingTrailing("03.1400")
 
+// Create a function that takes an array of items and checks if the last item matches the rest of the array.
+// Examples
+// matchLastItem(["rsq", "6hi", "g", "rsq6hig"]) ➞ true
+// // The last item is the rest joined.
+// matchLastItem([1, 1, 1, "11"]) ➞ false
+// // The last item should be "111".
+// matchLastItem([8, "thunder", true, "8thundertrue"]) ➞ true
+// Notes
+// The array is always filled with items.
+
+function matchLastItem(arr) {
+  const lastItem = arr[arr.length - 1]
+  let bundle = ''
+	for (let i = 0; i < arr.length - 1; i++) {
+    bundle += arr[i]
+  }
+  return bundle === lastItem
+}
+
 // Create a function that returns true if an asterisk * is inside a box.
 // Examples
 // inBox([
