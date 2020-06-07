@@ -21,6 +21,83 @@ function removeLeadingTrailing(n) {
 }
 removeLeadingTrailing("03.1400")
 
+// Create a function that takes an array of names and returns an array where only the first letter of each name is capitalized.
+// Examples
+// capMe(["mavis", "senaida", "letty"]) ➞ ["Mavis", "Senaida", "Letty"]
+// capMe(["samuel", "MABELLE", "letitia", "meridith"]) ➞ ["Samuel", "Mabelle", "Letitia", "Meridith"]
+// capMe(["Slyvia", "Kristal", "Sharilyn", "Calista"]) ➞ ["Slyvia", "Kristal", "Sharilyn", "Calista"]
+// Notes
+//     Don't change the order of the original array.
+//     Notice in the second example above, "MABELLE" is returned as "Mabelle".
+
+function capMe(arr) {
+	for (let i = 0; i < arr.length; i++) {
+    arr[i] = arr[i][0].toUpperCase() + arr[i].slice(1).toLowerCase()
+  }
+  return arr
+}
+
+// Create a function that takes a string, checks if it has the same number of x's and o's and returns either true or false.
+//     Return a boolean value (true or false).
+//     The string can contain any character.
+//     When no x and no o are in the string, return true.
+// Examples
+// XO("ooxx") ➞ true
+// XO("xooxx") ➞ false
+// XO("ooxXm") ➞ true
+// // Case insensitive.
+// XO("zpzpzpp") ➞ true
+// // Returns true if no x and o.
+// XO("zzoo") ➞ false
+// Notes
+//     Remember to return true if there aren't any x's or o's.
+//     Must be case insensitive.
+
+function XO(str) {
+  let xoObj = {x: 0, o: 0}
+  let strLower = str.toLowerCase()
+  for (let i = 0; i < strLower.length; i++) {
+    if (Object.keys(xoObj)[0] === (strLower[i])) xoObj[strLower[i]]++
+    if (Object.keys(xoObj)[1] === (strLower[i])) xoObj[strLower[i]]++
+  }
+  return xoObj.x === xoObj.o
+}
+
+// Given an array of numbers, write a function that returns an array that...
+//     Has all duplicate elements removed.
+//     Is sorted from least to greatest value.
+// Examples
+// uniqueSort([1, 2, 4, 3]) ➞ [1, 2, 3, 4]
+// uniqueSort([1, 4, 4, 4, 4, 4, 3, 2, 1, 2]) ➞ [1, 2, 3, 4]
+// uniqueSort([6, 7, 3, 2, 1]) ➞ [1, 2, 3, 6, 7]
+// Notes
+// N/A
+
+function uniqueSort(arr) {
+  const dups = {}
+  const uniq = []
+  let j = 0
+  let tmp
+  for (let i = 0; i < arr.length; i++) {
+    let element = arr[i]
+    if (dups[element] !== 1) {
+      dups[element] = 1
+      uniq[j++] = element
+    }
+  }
+  for (let k = 0; k < uniq.length; k++) {
+    for(let kk = k + 1; kk < uniq.length; kk++) {
+      if (uniq[k] > uniq[kk]) {
+        tmp = uniq[k]
+        uniq[k] = uniq[kk]
+        uniq[kk] = tmp
+      }
+    }
+  }
+  return uniq
+}
+
+
 // Create a function that converts a string of letters to their respective number in the alphabet.
 // A	B	C	D	E	F	G	H	I	J	K	L	M	N	O	P	Q	R	S	T	U	V	W	...
 // 0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	20	21	22	...
