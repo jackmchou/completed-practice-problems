@@ -21,6 +21,41 @@ function removeLeadingTrailing(n) {
 }
 removeLeadingTrailing("03.1400")
 
+// Given an array of numbers, write a function that returns an array that...
+//     Has all duplicate elements removed.
+//     Is sorted from least to greatest value.
+// Examples
+// uniqueSort([1, 2, 4, 3]) ➞ [1, 2, 3, 4]
+// uniqueSort([1, 4, 4, 4, 4, 4, 3, 2, 1, 2]) ➞ [1, 2, 3, 4]
+// uniqueSort([6, 7, 3, 2, 1]) ➞ [1, 2, 3, 6, 7]
+// Notes
+// N/A
+
+function uniqueSort(arr) {
+  const dups = {}
+  const uniq = []
+  let j = 0
+  let tmp
+  for (let i = 0; i < arr.length; i++) {
+    let element = arr[i]
+    if (dups[element] !== 1) {
+      dups[element] = 1
+      uniq[j++] = element
+    }
+  }
+  for (let k = 0; k < uniq.length; k++) {
+    for(let kk = k + 1; kk < uniq.length; kk++) {
+      if (uniq[k] > uniq[kk]) {
+        tmp = uniq[k]
+        uniq[k] = uniq[kk]
+        uniq[kk] = tmp
+      }
+    }
+  }
+  return uniq
+}
+
+
 // Create a function that converts a string of letters to their respective number in the alphabet.
 // A	B	C	D	E	F	G	H	I	J	K	L	M	N	O	P	Q	R	S	T	U	V	W	...
 // 0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	20	21	22	...
