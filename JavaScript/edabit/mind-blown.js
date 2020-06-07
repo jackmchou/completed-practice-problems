@@ -21,6 +21,22 @@ function removeLeadingTrailing(n) {
 }
 removeLeadingTrailing("03.1400")
 
+// Create a function that takes an array of names and returns an array where only the first letter of each name is capitalized.
+// Examples
+// capMe(["mavis", "senaida", "letty"]) ➞ ["Mavis", "Senaida", "Letty"]
+// capMe(["samuel", "MABELLE", "letitia", "meridith"]) ➞ ["Samuel", "Mabelle", "Letitia", "Meridith"]
+// capMe(["Slyvia", "Kristal", "Sharilyn", "Calista"]) ➞ ["Slyvia", "Kristal", "Sharilyn", "Calista"]
+// Notes
+//     Don't change the order of the original array.
+//     Notice in the second example above, "MABELLE" is returned as "Mabelle".
+
+function capMe(arr) {
+	for (let i = 0; i < arr.length; i++) {
+    arr[i] = arr[i][0].toUpperCase() + arr[i].slice(1).toLowerCase()
+  }
+  return arr
+}
+
 // Create a function that takes a string, checks if it has the same number of x's and o's and returns either true or false.
 //     Return a boolean value (true or false).
 //     The string can contain any character.
