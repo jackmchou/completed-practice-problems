@@ -21,6 +21,32 @@ function removeLeadingTrailing(n) {
 }
 removeLeadingTrailing("03.1400")
 
+// Create a function that takes a string, checks if it has the same number of x's and o's and returns either true or false.
+//     Return a boolean value (true or false).
+//     The string can contain any character.
+//     When no x and no o are in the string, return true.
+// Examples
+// XO("ooxx") ➞ true
+// XO("xooxx") ➞ false
+// XO("ooxXm") ➞ true
+// // Case insensitive.
+// XO("zpzpzpp") ➞ true
+// // Returns true if no x and o.
+// XO("zzoo") ➞ false
+// Notes
+//     Remember to return true if there aren't any x's or o's.
+//     Must be case insensitive.
+
+function XO(str) {
+  let xoObj = {x: 0, o: 0}
+  let strLower = str.toLowerCase()
+  for (let i = 0; i < strLower.length; i++) {
+    if (Object.keys(xoObj)[0] === (strLower[i])) xoObj[strLower[i]]++
+    if (Object.keys(xoObj)[1] === (strLower[i])) xoObj[strLower[i]]++
+  }
+  return xoObj.x === xoObj.o
+}
+
 // Given an array of numbers, write a function that returns an array that...
 //     Has all duplicate elements removed.
 //     Is sorted from least to greatest value.
