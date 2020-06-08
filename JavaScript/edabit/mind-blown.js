@@ -21,6 +21,20 @@ function removeLeadingTrailing(n) {
 }
 removeLeadingTrailing("03.1400")
 
+// Write a function that, given a date (in the format MM/DD/YYYY), returns the day of the week as a string. Each day name must be one of the following strings: "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", or "Saturday".
+// To illustrate, the day of the week for "12/07/2016" is "Wednesday".
+// Examples
+// getDay("12/07/2016") ➞ "Wednesday"
+// getDay("09/04/2016") ➞ "Sunday"
+// getDay("12/08/2011") ➞ "Thursday"
+// Notes
+// This challenge assumes the week starts on Sunday.
+
+function getDay(day) {
+	const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"]
+  return days[new Date(day).getDay()]
+}
+
 // Create a function that takes a string as an argument and converts the first character of each word to uppercase. Return the newly formatted string.
 // Examples
 // makeTitle("This is a title") ➞ "This Is A Title"
