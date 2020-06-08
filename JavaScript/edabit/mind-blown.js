@@ -21,6 +21,25 @@ function removeLeadingTrailing(n) {
 }
 removeLeadingTrailing("03.1400")
 
+// Someone has attempted to censor my strings by replacing every vowel with a *, l*k* th*s. Luckily, I've been able to find the vowels that were removed.
+// Given a censored string and a string of the censored vowels, return the original uncensored string.
+// Example
+// uncensor("Wh*r* d*d my v*w*ls g*?", "eeioeo") ➞ "Where did my vowels go?"
+// uncensor("abcd", "") ➞ "abcd"
+// uncensor("*PP*RC*S*", "UEAE") ➞ "UPPERCASE"
+// Notes
+//     The vowels are given in the correct order.
+//     The number of vowels will match the number of * characters in the censored string.
+
+function uncensor(str, vowels) {
+  const strArr = str.split('')
+  let j = 0
+  for (let i = 0; i < strArr.length; i++) {
+    if (strArr[i] == '*') strArr[i] = vowels[j++]
+  }
+  return strArr.join('')
+}
+
 // Create a function that takes three integer arguments (a, b, c) and returns the amount of integers which are of equal value.
 // Examples
 // equal(3, 4, 3) ➞ 2
@@ -30,7 +49,9 @@ removeLeadingTrailing("03.1400")
 // Your function must return 0, 2 or 3.
 
 function equal(a, b, c) {
-	
+	if (a == b && a == c) return 3
+  else if (a == b || a == c) return 2
+  else return 0
 }
 
 // Write a function that, given a date (in the format MM/DD/YYYY), returns the day of the week as a string. Each day name must be one of the following strings: "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", or "Saturday".
