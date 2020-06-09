@@ -12,14 +12,9 @@
 //     If the number is 0, 0.0, 000, 00.00, etc... return "0".
 
 function removeLeadingTrailing(n) {
-	const numArr = ('' + n).split('')
-  let boundry = {}
-  let result = []
-  for (let i = 0; i < numArr.length; i++) {
-    if (numArr[i] !== '.') result.push()
-  }
+  const result = Number(n)
+  return '' + result
 }
-removeLeadingTrailing("03.1400")
 
 // In this challenge, sort an array containing a series of dates given as strings. Each date is given in the format DD-MM-YYYY_HH:MM:
 // "12-02-2012_13:44"
