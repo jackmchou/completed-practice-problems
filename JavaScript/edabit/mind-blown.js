@@ -21,6 +21,20 @@ function removeLeadingTrailing(n) {
 }
 removeLeadingTrailing("03.1400")
 
+// Given a simple math expression as a string, neatly format it as an equation.
+// Examples
+// formatMath("3 + 4") ➞ "3 + 4 = 7"
+// formatMath("3 - 2") ➞ "3 - 2 = 1"
+// formatMath("4 x 5") ➞ "4 x 5 = 20"
+// formatMath("6 / 3") ➞ "6 / 3 = 2"
+// Notes
+//     You will need to deal with addition, subtraction, multiplication and division.
+//     Division will have whole number answers (and will obviously not involve 0).
+
+function formatMath(expr) {
+	return `${expr} = ${expr.indexOf('x') !== -1 ? eval(expr.replace(/x/, '*')) : eval(expr)}`
+}
+
 // Someone has attempted to censor my strings by replacing every vowel with a *, l*k* th*s. Luckily, I've been able to find the vowels that were removed.
 // Given a censored string and a string of the censored vowels, return the original uncensored string.
 // Example
