@@ -21,6 +21,21 @@ function removeLeadingTrailing(n) {
 }
 removeLeadingTrailing("03.1400")
 
+// Create a function that takes a single character as an argument and returns the char code of its lowercased / uppercased counterpart.
+// Examples
+// Given that:
+//   - "A" char code is: 65
+//   - "a" char code is: 97
+// counterpartCharCode("A") ➞ 97
+// counterpartCharCode("a") ➞ 65
+// Notes
+//     The argument will always be a single character.
+//     Not all inputs will have a counterpart (e.g. numbers), in which case return the inputs char code.
+
+function counterpartCharCode(char) {
+	return char.toUpperCase() === char ? char.toLowerCase().charCodeAt() : char.toUpperCase().charCodeAt()
+}
+
 // Create a function that performs an even-odd transform to an array, n times. Each even-odd transformation:
 //     Adds two (+2) to each odd integer.
 //     Subtracts two (-2) to each even integer.
