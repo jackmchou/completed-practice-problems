@@ -21,6 +21,64 @@ function removeLeadingTrailing(n) {
 }
 removeLeadingTrailing("03.1400")
 
+// In this challenge, sort an array containing a series of dates given as strings. Each date is given in the format DD-MM-YYYY_HH:MM:
+// "12-02-2012_13:44"
+// The priority of criteria used for sorting will be:
+//     Year
+//     Month
+//     Day
+//     Hours
+//     Minutes
+// Given an array arr and a string type, implement a function that returns:
+
+//     if type is equal to "ASC", the array arr sorted ascendigly;
+//     if type is equal to "DSC", the array arr sorted descendigly;
+// Examples
+// sortDates(["10-02-2018_12:30", "10-02-2016_12:30", "10-02-2018_12:15"], "ASC") ➞ [
+//   "10-02-2016_12:30", "10-02-2018_12:15", "10-02-2018_12:30"
+// ]
+// sortDates(["10-02-2018_12:30", "10-02-2016_12:30", "10-02-2018_12:15"], "DSC") ➞ [
+//   "10-02-2018_12:30", "10-02-2018_12:15", "10-02-2016_12:30"
+// ]
+// sortDates(["09-02-2000_10:03", "10-02-2000_18:29", "01-01-1999_00:55"], "ASC") ➞ [
+//   "01-01-1999_00:55", "09-02-2000_10:03", "10-02-2000_18:29"
+// ]
+// Notes
+//     Remember: the date is in the format DD-MM-YYYY_HH:MM.
+//     You can expect only valid formatted dates, without exceptions to handle.
+
+function sortDates(arr, type) {
+  const dateArr = []
+  let tmp;
+  arr.forEach(idx => {
+    const day = idx.slice(0, 2)
+    const month = idx.slice(3, 5)
+    const year = idx.slice(6, 10)
+    const hours = idx.slice(11, 13)
+    const minutes = idx.slice(14, 16)
+    dateArr.push(new Date(`${year}-${month}-${day}T${hours}:${minutes}`))
+  })
+  for (let i = 0; i < dateArr.length; i++) {
+    for (let j = i + 1; j < dateArr.length; j++) {
+      if (type === 'ASC') {
+        if (dateArr[i] > dateArr[j]) {
+          tmp = dateArr[i]
+          dateArr[i] = dateArr[j]
+          dateArr[j] = tmp
+        }
+      } else {
+        if (dateArr[i] < dateArr[j]) {
+          tmp = dateArr[i]
+          dateArr[i] = dateArr[j]
+          dateArr[j] = tmp
+        }
+      }
+    }
+  }
+  const padZero = (date) => date < 10 ? '0' + date : date
+  return dateArr.map(idx => `${padZero(idx.getDate())}-${(idx.getMonth() + 1) < 10 ? '0' + (idx.getMonth() + 1) : idx.getMonth() + 1}-${idx.getFullYear()}_${padZero(idx.getHours())}:${padZero(idx.getMinutes())}`)
+}
+
 // Create a function that takes a single character as an argument and returns the char code of its lowercased / uppercased counterpart.
 // Examples
 // Given that:
