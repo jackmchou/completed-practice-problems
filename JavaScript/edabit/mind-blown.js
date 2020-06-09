@@ -21,6 +21,47 @@ function removeLeadingTrailing(n) {
 }
 removeLeadingTrailing("03.1400")
 
+// There are many different styles of music and many albums exhibit multiple styles. Create a function that takes an array of musical styles from albums and returns how many styles are unique.
+// Examples
+// uniqueStyles([
+//   "Dub, Dancehall",
+//   "Industrial, Heavy Metal",
+//   "Techno, Dubstep",
+//   "Synth-pop, Euro-Disco",
+//   "Industrial, Techno, Minimal"
+// ]) ➞ 9
+// uniqueStyles([
+//   "Soul",
+//   "House, Folk",
+//   "Trance, Downtempo, Big Beat, House",
+//   "Deep House",
+//   "Soul"
+// ]) ➞ 7
+// Notes
+// N/A
+
+function uniqueStyles(albums) {
+	const dups = {}
+  const uniq = []
+  let j = 0
+  for (let i = 0; i < albums.length; i++) {
+    let genre = albums[i]
+    if (albums[i].indexOf(',') !== -1) {
+      genre = albums[i].split(',')
+      genre.forEach(idx => {
+        if (dups[idx] !== true) {
+          dups[idx] = true
+          uniq[j++] = idx
+        }
+      })
+    } else if (dups[genre] !== true) {
+      dups[genre] = true
+      uniq[j++] = genre
+    }
+  }
+  return uniq.length
+}
+
 // Create a function to find NaN in an array of numbers. The return value should be the index where NaN is found. If NaN is not found in the array, then return -1.
 // Examples
 // findNaN([1, 2, NaN]) ➞ 2
