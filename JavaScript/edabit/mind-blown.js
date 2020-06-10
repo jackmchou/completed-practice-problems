@@ -12,14 +12,256 @@
 //     If the number is 0, 0.0, 000, 00.00, etc... return "0".
 
 function removeLeadingTrailing(n) {
-	const numArr = ('' + n).split('')
-  let boundry = {}
-  let result = []
-  for (let i = 0; i < numArr.length; i++) {
-    if (numArr[i] !== '.') result.push()
-  }
+  const result = Number(n)
+  return '' + result
 }
-removeLeadingTrailing("03.1400")
+
+// In this challenge, sort an array containing a series of dates given as strings. Each date is given in the format DD-MM-YYYY_HH:MM:
+// "12-02-2012_13:44"
+// The priority of criteria used for sorting will be:
+//     Year
+//     Month
+//     Day
+//     Hours
+//     Minutes
+// Given an array arr and a string type, implement a function that returns:
+
+//     if type is equal to "ASC", the array arr sorted ascendigly;
+//     if type is equal to "DSC", the array arr sorted descendigly;
+// Examples
+// sortDates(["10-02-2018_12:30", "10-02-2016_12:30", "10-02-2018_12:15"], "ASC") ➞ [
+//   "10-02-2016_12:30", "10-02-2018_12:15", "10-02-2018_12:30"
+// ]
+// sortDates(["10-02-2018_12:30", "10-02-2016_12:30", "10-02-2018_12:15"], "DSC") ➞ [
+//   "10-02-2018_12:30", "10-02-2018_12:15", "10-02-2016_12:30"
+// ]
+// sortDates(["09-02-2000_10:03", "10-02-2000_18:29", "01-01-1999_00:55"], "ASC") ➞ [
+//   "01-01-1999_00:55", "09-02-2000_10:03", "10-02-2000_18:29"
+// ]
+// Notes
+//     Remember: the date is in the format DD-MM-YYYY_HH:MM.
+//     You can expect only valid formatted dates, without exceptions to handle.
+
+function sortDates(arr, type) {
+  const dateArr = []
+  let tmp;
+  arr.forEach(idx => {
+    const day = idx.slice(0, 2)
+    const month = idx.slice(3, 5)
+    const year = idx.slice(6, 10)
+    const hours = idx.slice(11, 13)
+    const minutes = idx.slice(14, 16)
+    dateArr.push(new Date(`${year}-${month}-${day}T${hours}:${minutes}`))
+  })
+  for (let i = 0; i < dateArr.length; i++) {
+    for (let j = i + 1; j < dateArr.length; j++) {
+      if (type === 'ASC') {
+        if (dateArr[i] > dateArr[j]) {
+          tmp = dateArr[i]
+          dateArr[i] = dateArr[j]
+          dateArr[j] = tmp
+        }
+      } else {
+        if (dateArr[i] < dateArr[j]) {
+          tmp = dateArr[i]
+          dateArr[i] = dateArr[j]
+          dateArr[j] = tmp
+        }
+      }
+    }
+  }
+  const padZero = (date) => date < 10 ? '0' + date : date
+  return dateArr.map(idx => `${padZero(idx.getDate())}-${(idx.getMonth() + 1) < 10 ? '0' + (idx.getMonth() + 1) : idx.getMonth() + 1}-${idx.getFullYear()}_${padZero(idx.getHours())}:${padZero(idx.getMinutes())}`)
+}
+
+// Create a function that takes a single character as an argument and returns the char code of its lowercased / uppercased counterpart.
+// Examples
+// Given that:
+//   - "A" char code is: 65
+//   - "a" char code is: 97
+// counterpartCharCode("A") ➞ 97
+// counterpartCharCode("a") ➞ 65
+// Notes
+//     The argument will always be a single character.
+//     Not all inputs will have a counterpart (e.g. numbers), in which case return the inputs char code.
+
+function counterpartCharCode(char) {
+	return char.toUpperCase() === char ? char.toLowerCase().charCodeAt() : char.toUpperCase().charCodeAt()
+}
+
+// Create a function that performs an even-odd transform to an array, n times. Each even-odd transformation:
+//     Adds two (+2) to each odd integer.
+//     Subtracts two (-2) to each even integer.
+// Examples
+// evenOddTransform([3, 4, 9], 3) ➞ [9, -2, 15]
+// // Since [3, 4, 9] => [5, 2, 11] => [7, 0, 13] => [9, -2, 15]
+// evenOddTransform([0, 0, 0], 10) ➞ [-20, -20, -20]
+// evenOddTransform([1, 2, 3], 1) ➞ [3, 0, 5]
+// Notes
+// N/A
+
+function evenOddTransform(arr, n) {
+	while (n > 0) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] % 2 === 0) arr[i] -= 2
+      else arr[i] += 2
+    }
+    n--
+  }
+  return arr
+}
+
+// There are many different styles of music and many albums exhibit multiple styles. Create a function that takes an array of musical styles from albums and returns how many styles are unique.
+// Examples
+// uniqueStyles([
+//   "Dub, Dancehall",
+//   "Industrial, Heavy Metal",
+//   "Techno, Dubstep",
+//   "Synth-pop, Euro-Disco",
+//   "Industrial, Techno, Minimal"
+// ]) ➞ 9
+// uniqueStyles([
+//   "Soul",
+//   "House, Folk",
+//   "Trance, Downtempo, Big Beat, House",
+//   "Deep House",
+//   "Soul"
+// ]) ➞ 7
+// Notes
+// N/A
+
+function uniqueStyles(albums) {
+	const dups = {}
+  const uniq = []
+  let j = 0
+  for (let i = 0; i < albums.length; i++) {
+    let genre = albums[i]
+    if (albums[i].indexOf(',') !== -1) {
+      genre = albums[i].split(',')
+      genre.forEach(idx => {
+        if (dups[idx] !== true) {
+          dups[idx] = true
+          uniq[j++] = idx
+        }
+      })
+    } else if (dups[genre] !== true) {
+      dups[genre] = true
+      uniq[j++] = genre
+    }
+  }
+  return uniq.length
+}
+
+// Create a function to find NaN in an array of numbers. The return value should be the index where NaN is found. If NaN is not found in the array, then return -1.
+// Examples
+// findNaN([1, 2, NaN]) ➞ 2
+// findNaN([NaN, 1, 2, 3, 4]) ➞ 0
+// findNaN([0, 1, 2, 3, 4]) ➞ -1
+// Notes
+// Inputs are array of numbers.
+
+function findNaN(number) {
+	for (let i = 0; i < number.length; i++) {
+    if (!(number[i] === number[i])) return i
+  }
+  return -1
+}
+
+// Given a simple math expression as a string, neatly format it as an equation.
+// Examples
+// formatMath("3 + 4") ➞ "3 + 4 = 7"
+// formatMath("3 - 2") ➞ "3 - 2 = 1"
+// formatMath("4 x 5") ➞ "4 x 5 = 20"
+// formatMath("6 / 3") ➞ "6 / 3 = 2"
+// Notes
+//     You will need to deal with addition, subtraction, multiplication and division.
+//     Division will have whole number answers (and will obviously not involve 0).
+
+function formatMath(expr) {
+	return `${expr} = ${expr.indexOf('x') !== -1 ? eval(expr.replace(/x/, '*')) : eval(expr)}`
+}
+
+// Someone has attempted to censor my strings by replacing every vowel with a *, l*k* th*s. Luckily, I've been able to find the vowels that were removed.
+// Given a censored string and a string of the censored vowels, return the original uncensored string.
+// Example
+// uncensor("Wh*r* d*d my v*w*ls g*?", "eeioeo") ➞ "Where did my vowels go?"
+// uncensor("abcd", "") ➞ "abcd"
+// uncensor("*PP*RC*S*", "UEAE") ➞ "UPPERCASE"
+// Notes
+//     The vowels are given in the correct order.
+//     The number of vowels will match the number of * characters in the censored string.
+
+function uncensor(str, vowels) {
+  const strArr = str.split('')
+  let j = 0
+  for (let i = 0; i < strArr.length; i++) {
+    if (strArr[i] == '*') strArr[i] = vowels[j++]
+  }
+  return strArr.join('')
+}
+
+// Create a function that takes three integer arguments (a, b, c) and returns the amount of integers which are of equal value.
+// Examples
+// equal(3, 4, 3) ➞ 2
+// equal(1, 1, 1) ➞ 3
+// equal(3, 4, 1) ➞ 0
+// Notes
+// Your function must return 0, 2 or 3.
+
+function equal(a, b, c) {
+	if (a == b && a == c) return 3
+  else if (a == b || a == c) return 2
+  else return 0
+}
+
+// Write a function that, given a date (in the format MM/DD/YYYY), returns the day of the week as a string. Each day name must be one of the following strings: "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", or "Saturday".
+// To illustrate, the day of the week for "12/07/2016" is "Wednesday".
+// Examples
+// getDay("12/07/2016") ➞ "Wednesday"
+// getDay("09/04/2016") ➞ "Sunday"
+// getDay("12/08/2011") ➞ "Thursday"
+// Notes
+// This challenge assumes the week starts on Sunday.
+
+function getDay(day) {
+	const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"]
+  return days[new Date(day).getDay()]
+}
+
+// Create a function that takes a string as an argument and converts the first character of each word to uppercase. Return the newly formatted string.
+// Examples
+// makeTitle("This is a title") ➞ "This Is A Title"
+// makeTitle("capitalize every word") ➞ "Capitalize Every Word"
+// makeTitle("I Like Pizza") ➞ "I Like Pizza"
+// makeTitle("PIZZA PIZZA PIZZA") ➞ "PIZZA PIZZA PIZZA"
+// Notes
+// You can expect a valid string for each test case.
+
+function makeTitle(str) {
+  const strArr = str.split(' ')
+	for (let i = 0; i < strArr.length; i++) {
+    strArr[i] = strArr[i][0].toUpperCase() + strArr[i].slice(1)
+  }
+  return strArr.join(' ')
+}
+
+// Create a function that takes a number as its argument and returns an array of all its factors.
+// Examples
+// factorize(12) ➞ [1, 2, 3, 4, 6, 12]
+// factorize(4) ➞ [1, 2, 4]
+// factorize(17) ➞ [1, 17]
+// Notes
+//     The input integer will be positive.
+//     A factor is a number that evenly divides into another number without leaving a remainder. The second example is a factor of 12, because 12 / 2 = 6, with remainder 0.
+
+function factorize(num) {
+  const factors = []
+	for (let i = 0; i <= num; i++) {
+    if (num % i == 0) factors.push(i)
+  }
+  return factors
+}
+factorize(24)
 
 // Create a function that takes an array of names and returns an array where only the first letter of each name is capitalized.
 // Examples
