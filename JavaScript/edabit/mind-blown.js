@@ -1,3 +1,17 @@
+// Create a function that takes a string and returns the middle character(s). If the word's length is odd, return the middle character. If the word's length is even, return the middle two characters.
+// Examples
+// getMiddle("test") ➞ "es"
+// getMiddle("testing") ➞ "t"
+// getMiddle("middle") ➞ "dd"
+// getMiddle("A") ➞ "A"
+// Notes
+// All test cases contain a single word (as a string).
+
+function getMiddle(str) {
+  const strMid = Math.floor(str.length / 2)
+	return str.length % 2 == 0 ? str.slice(strMid - 1, strMid + 1) : str.slice(strMid, strMid + 1)
+}
+
 // Create a function that takes in a number as a string n and returns the number without trailing and leading zeros.
 //     Trailing Zeros are the zeros after a decimal point which don't affect the value (e.g. the last three zeros in 3.4000 and 3.04000).
 //     Leading Zeros are the zeros before a whole number which don't affect the value (e.g. the first three zeros in 000234 and 000230).
