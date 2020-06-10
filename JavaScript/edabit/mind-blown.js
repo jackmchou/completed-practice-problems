@@ -1,3 +1,43 @@
+// Create a function that takes four arrays as arguments and returns a count of the total number of identical arrays.
+// Examples
+// countIdenticalArrays([0, 0, 0], [0, 1, 2], [0, 0, 0], [2, 1, 0]) ➞ 2
+// countIdenticalArrays([0, 1, 0], [0, 1, 2], [0, 2, 0], [2, 1, 0]) ➞ 0
+// countIdenticalArrays([0, 1, 2], [0, 1, 2], [0, 1, 2], [2, 1, 0]) ➞ 3
+// Notes
+//     Don't forget to return the result.
+//     If you get stuck on a challenge, find help in the Resources tab.
+//     If you're really stuck, unlock solutions in the Solutions tab.
+
+function countIdenticalArrays(arr1, arr2, arr3, arr4) {
+  let count = 0
+  function compareArrays(a1, a2) {
+    if (a1.length !== a2.length) return false
+    for (let i = 0; i < a1.length; i++) {
+      if (a1[i] !== a2[i]) return false
+    }
+    return true
+  }
+  if (compareArrays(arr1, arr2)) count++
+  if (compareArrays(arr1, arr3)) count++
+  if (compareArrays(arr1, arr4)) count++
+  if (count >= 1) count++
+  return count
+}
+
+// Create a function that takes a string and returns the middle character(s). If the word's length is odd, return the middle character. If the word's length is even, return the middle two characters.
+// Examples
+// getMiddle("test") ➞ "es"
+// getMiddle("testing") ➞ "t"
+// getMiddle("middle") ➞ "dd"
+// getMiddle("A") ➞ "A"
+// Notes
+// All test cases contain a single word (as a string).
+
+function getMiddle(str) {
+  const strMid = Math.floor(str.length / 2)
+	return str.length % 2 == 0 ? str.slice(strMid - 1, strMid + 1) : str.slice(strMid, strMid + 1)
+}
+
 // Create a function that takes in a number as a string n and returns the number without trailing and leading zeros.
 //     Trailing Zeros are the zeros after a decimal point which don't affect the value (e.g. the last three zeros in 3.4000 and 3.04000).
 //     Leading Zeros are the zeros before a whole number which don't affect the value (e.g. the first three zeros in 000234 and 000230).
