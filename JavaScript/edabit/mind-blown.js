@@ -1,3 +1,16 @@
+// Create a function that takes an array of numbers between 1 and 10 (excluding one number) and returns the missing number.
+// Examples
+// missingNum([1, 2, 3, 4, 6, 7, 8, 9, 10]) ➞ 5
+// missingNum([7, 2, 3, 6, 5, 9, 1, 4, 8]) ➞ 10
+// missingNum([10, 5, 1, 2, 4, 6, 8, 3, 9]) ➞ 7
+// Notes
+//     The array of numbers will be unsorted (not in order).
+//     Only one number will be missing.
+
+function missingNum(arr) {
+  return 55- arr.reduce((cur, acc) => cur + acc, 0)
+}
+
 // You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
 // Here are a list of the characters classes in JavaScript:
 // ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh, [\b]
