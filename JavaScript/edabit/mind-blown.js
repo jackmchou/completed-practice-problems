@@ -1,3 +1,29 @@
+// Create a function that takes an array of numbers and returns the sum of the two lowest positive numbers.
+// Examples
+// sumTwoSmallestNums([19, 5, 42, 2, 77]) ➞ 7
+// sumTwoSmallestNums([10, 343445353, 3453445, 3453545353453]) ➞ 3453455
+// sumTwoSmallestNums([2, 9, 6, -1]) ➞ 8
+// sumTwoSmallestNums([879, 953, 694, -847, 342, 221, -91, -723, 791, -587]) ➞ 563
+// sumTwoSmallestNums([3683, 2902, 3951, -475, 1617, -2385]) ➞ 4519
+// Notes
+//     Don't count negative numbers.
+//     Floats and empty arrays will not be used in any of the test cases.
+
+function sumTwoSmallestNums(arr) {
+  let tmp
+	for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] > arr[j]) {
+        tmp = arr[i]
+        arr[i] = arr[j]
+        arr[j] = tmp
+      }
+    }
+  }
+  const postiveOnly = arr.filter(idx => idx > 0)
+  return postiveOnly[0] + postiveOnly[1]
+}
+
 // Create a function that takes an array of numbers between 1 and 10 (excluding one number) and returns the missing number.
 // Examples
 // missingNum([1, 2, 3, 4, 6, 7, 8, 9, 10]) ➞ 5
