@@ -1,3 +1,21 @@
+// Create a function that takes a word and returns true if the word has two consecutive identical letters.
+// Examples
+// doubleLetters("loop") ➞ true
+// doubleLetters("yummy") ➞ true
+// doubleLetters("orange") ➞ false
+// doubleLetters("munchkin") ➞ false
+// Notes
+// N/A
+
+function doubleLetters(word) {
+	for (let i = 0; i < word.length; i++) {
+    if (word[i] === word[i + 1]) {
+      return true
+    }
+  }
+  return false
+}
+
 // Create a function that takes an array of numbers and returns the sum of the two lowest positive numbers.
 // Examples
 // sumTwoSmallestNums([19, 5, 42, 2, 77]) ➞ 7
