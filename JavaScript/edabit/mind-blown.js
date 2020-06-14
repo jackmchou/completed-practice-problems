@@ -1,3 +1,22 @@
+// Create a function which adds spaces before every capital in a word. Uncapitalize the whole string afterwards.
+// Examples
+// capSpace("helloWorld") ➞ "hello world"
+// capSpace("iLoveMyTeapot") ➞ "i love my teapot"
+// capSpace("stayIndoors") ➞ "stay indoors"
+// Notes
+// The first letter will stay uncapitalized.
+
+function capSpace(txt) {
+  const txtArr = txt.split('')
+  for (let i = 0; i < txtArr.length; i++) {
+    if (txtArr[i].toUpperCase() === txtArr[i]) {
+      txtArr[i] = txtArr[i].toLowerCase()
+      txtArr.splice(i, 0, ' ')
+    }
+  }
+  return txtArr.join('')
+}
+
 // Create a function that checks to see if two object arguments are equal to one another. Return true if the objects are equal, otherwise, return false.
 // Example #1
 // // The first object parameter.
@@ -33,6 +52,22 @@
 function isEqual(objOne, objTwo) {
   return JSON.stringify(objOne) === JSON.stringify(objTwo)
 }
+
+// if (objOne instanceof Object) {
+//   var a = Object.keys(objOne);
+//   var b = Object.keys(objTwo);
+//   for (var i in a) {
+//     if (a[i] !== b[i]) return false;
+//   }
+// }
+// for (var i in objOne) {
+//   if ((objOne[i] instanceof Array) || (objOne[i] instanceof Object)) {
+//     if (!isEqual(objOne[i], objTwo[i])) return false;
+//   } else {
+//     if (objOne[i] !== objTwo[i]) return false;
+//   }
+// }
+// return true;
 
 // As you complete questions on Edabit, you gain experience points depending on the difficulty of the question. The points for each difficulty are as follows:
 // Difficulty	Experience Points
