@@ -1,3 +1,238 @@
+// Groups and ranges indicate groups and ranges of expression characters. Character Sets match any characters inside of brackets [ ]. You can specify a range of characters by using a hyphen.
+// /[abcd]/ === /[a-d]/
+// If the hyphen appears as the first or last character then it is considered a literal hyphen.
+// "non-profit".match(/[abc-]/g)  // "-"
+// "non-profit".match(/[-abc]/g)  // "-"
+// You can also use character classes in a character set. So instead of this:
+// /[A-Za-z0-9_-]/
+// You can do this:
+// /[\w]/
+// Create the regex to match "x" followed by two digits or letters from A to F. Case sensitive.
+// Examples
+// "Exception 0xAF".match(REGEXP) ➞ "xAF"
+// "Exception 0xD3".match(REGEXP) ➞ "xD3"
+// "Exception 0xd3".match(REGEXP) ➞ null
+// "Exception 0xZZ".match(REGEXP) ➞ null
+// Notes
+// Check the Resources tab if you get stuck.
+
+const REGEXP = /x[A-F\d]{2}/g
+
+// You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
+// Here are a list of the characters classes in JavaScript:
+// ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh, [\b]
+// We have the \t and \v character classes that match any tabs in a string. But more specifically \t is used to match horizontal tabs while \v matches vertical tabs. Vertical tabs were once a thing but are rarely used anymore. We generally use horizontal tabs which are produced by the tab key on our keyboards.
+// Find how many tabs with one literal whitespace immediately following the tab are in a string.
+// Notes
+//     Not all whitespaces are the same.
+//     See Resources for help.
+
+const REGEXP = /\t /g
+
+// Create a function which adds spaces before every capital in a word. Uncapitalize the whole string afterwards.
+// Examples
+// capSpace("helloWorld") ➞ "hello world"
+// capSpace("iLoveMyTeapot") ➞ "i love my teapot"
+// capSpace("stayIndoors") ➞ "stay indoors"
+// Notes
+// The first letter will stay uncapitalized.
+
+function capSpace(txt) {
+  const txtArr = txt.split('')
+  for (let i = 0; i < txtArr.length; i++) {
+    if (txtArr[i].toUpperCase() === txtArr[i]) {
+      txtArr[i] = txtArr[i].toLowerCase()
+      txtArr.splice(i, 0, ' ')
+    }
+  }
+  return txtArr.join('')
+}
+
+// Create a function that checks to see if two object arguments are equal to one another. Return true if the objects are equal, otherwise, return false.
+// Example #1
+// // The first object parameter.
+// {
+//   name: "Benny",
+//   phone: "3325558745",
+//   email: "benny@edabit.com"
+// }
+// // The second object parameter.
+// {
+//   name: "Jason",
+//   phone: "9853759720",
+//   email: "jason@edabit.com"
+// }
+// ➞ false
+// Example #2
+// // The first object parameter.
+// {
+//   name: "Jason",
+//   phone: "9853759720",
+//   email: "jason@edabit.com"
+// }
+// // The second object parameter.
+// {
+//   name: "Jason",
+//   phone: "9853759720",
+//   email: "jason@edabit.com"
+// }
+// ➞ true
+// Notes
+// If you have a suggestion on how to make these instructions easier to understand, please leave a comment. Your feedback is greatly appreciated.
+
+function isEqual(objOne, objTwo) {
+  return JSON.stringify(objOne) === JSON.stringify(objTwo)
+}
+
+// if (objOne instanceof Object) {
+//   var a = Object.keys(objOne);
+//   var b = Object.keys(objTwo);
+//   for (var i in a) {
+//     if (a[i] !== b[i]) return false;
+//   }
+// }
+// for (var i in objOne) {
+//   if ((objOne[i] instanceof Array) || (objOne[i] instanceof Object)) {
+//     if (!isEqual(objOne[i], objTwo[i])) return false;
+//   } else {
+//     if (objOne[i] !== objTwo[i]) return false;
+//   }
+// }
+// return true;
+
+// As you complete questions on Edabit, you gain experience points depending on the difficulty of the question. The points for each difficulty are as follows:
+// Difficulty	Experience Points
+// Very Easy	5XP
+// Easy	10XP
+// Medium	20XP
+// Hard	40XP
+// Very Hard	80XP
+// Given an object of how many questions a person has completed of each difficulty, return how many experience points they'll have.
+// Examples
+// getXP({
+//   "Very Easy" : 89,
+//   "Easy" : 77,
+//   "Medium" : 30,
+//   "Hard" : 4,
+//   "Very Hard" : 1
+// }) ➞ "2055XP"
+// getXP({
+//   "Very Easy" : 254,
+//   "Easy" : 32,
+//   "Medium" : 65,
+//   "Hard" : 51,
+//   "Very Hard" : 34
+// }) ➞ "7650XP"
+// getXP({
+//   "Very Easy" : 11,
+//   "Easy" : 0,
+//   "Medium" : 2,
+//   "Hard" : 0,
+//   "Very Hard" : 27
+// }) ➞ "2255XP"
+// Notes
+// Return values as a string and make sure to add "XP" to the end.
+
+function getXP(obj) {
+  const exp = {	
+    'Very Easy' : 5,
+	  'Easy' : 10,
+	  'Medium' : 20,
+	  'Hard' : 40,
+	  'Very Hard' : 80
+  }
+	for (let key in obj) {
+    obj[key] *= exp[key]
+  }
+  return `${Object.values(obj).reduce((acc, cur) => acc + cur, 0)}XP`
+}
+
+// Given a fraction frac (given in the format "1/2" for example) and n number of decimal places, return a sentence in the following format:
+// "{fraction} rounded to {n} decimal places is {answer}"
+// Examples
+// fracRound("1/3", 5) ➞ "1/3 rounded to 5 decimal places is 0.33333"
+// fracRound("2/8", 4) ➞ "2/8 rounded to 4 decimal places is 0.2500"
+// fracRound("22/7", 2) ➞ "22/7 rounded to 2 decimal places is 3.14"
+// Notes
+//     Add trailing zeros if n is greater than the actual number of decimal places the fraction has (see example #2).
+//     Numbers greater than one may be given as top-heavy fractions (no mixed numbers).
+//     n won't be 1 because that would cause "decimal places" to be "decimal place", making the challenge more cumbersome than it needs to be.
+
+function fracRound(frac, n) {
+	const operandIdx = frac.indexOf('/')
+  const answer = +frac.slice(0, operandIdx) / frac.slice(operandIdx + 1)
+  return `${frac} rounded to ${n} decimal places is ${answer.toFixed(n)}`
+}
+
+// Create a function that takes a word and returns true if the word has two consecutive identical letters.
+// Examples
+// doubleLetters("loop") ➞ true
+// doubleLetters("yummy") ➞ true
+// doubleLetters("orange") ➞ false
+// doubleLetters("munchkin") ➞ false
+// Notes
+// N/A
+
+function doubleLetters(word) {
+	for (let i = 0; i < word.length; i++) {
+    if (word[i] === word[i + 1]) {
+      return true
+    }
+  }
+  return false
+}
+
+// Create a function that takes an array of numbers and returns the sum of the two lowest positive numbers.
+// Examples
+// sumTwoSmallestNums([19, 5, 42, 2, 77]) ➞ 7
+// sumTwoSmallestNums([10, 343445353, 3453445, 3453545353453]) ➞ 3453455
+// sumTwoSmallestNums([2, 9, 6, -1]) ➞ 8
+// sumTwoSmallestNums([879, 953, 694, -847, 342, 221, -91, -723, 791, -587]) ➞ 563
+// sumTwoSmallestNums([3683, 2902, 3951, -475, 1617, -2385]) ➞ 4519
+// Notes
+//     Don't count negative numbers.
+//     Floats and empty arrays will not be used in any of the test cases.
+
+function sumTwoSmallestNums(arr) {
+  let tmp
+	for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] > arr[j]) {
+        tmp = arr[i]
+        arr[i] = arr[j]
+        arr[j] = tmp
+      }
+    }
+  }
+  const postiveOnly = arr.filter(idx => idx > 0)
+  return postiveOnly[0] + postiveOnly[1]
+}
+
+// Create a function that takes an array of numbers between 1 and 10 (excluding one number) and returns the missing number.
+// Examples
+// missingNum([1, 2, 3, 4, 6, 7, 8, 9, 10]) ➞ 5
+// missingNum([7, 2, 3, 6, 5, 9, 1, 4, 8]) ➞ 10
+// missingNum([10, 5, 1, 2, 4, 6, 8, 3, 9]) ➞ 7
+// Notes
+//     The array of numbers will be unsorted (not in order).
+//     Only one number will be missing.
+
+function missingNum(arr) {
+  return 55- arr.reduce((cur, acc) => cur + acc, 0)
+}
+
+// You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
+// Here are a list of the characters classes in JavaScript:
+// ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh, [\b]
+// Write a regex that will return true if the bio does not have any spaces before the last ending punctuation ?. You must use the \S character class in your expression.
+// "Can read a spray chart and a balance sheet. 1 part Executive, 1 part entrepreneur, 2 parts geek and 3 parts baseball coach. Too many parts?"
+// The bio above is in the correct format. Therefore your regex should return true for it.
+// Notes
+//     Check the Resources tab for details on character classes if you're stuck.
+//     Mark Gallion's twitter bio is used for educational purposes only.
+
+const REGEXP = /\S[\?]/g
+
 // Create a function that takes an array and returns the sum of all items in the array.
 // Examples
 // sumArray([1, 2, 3]) ➞ 6
