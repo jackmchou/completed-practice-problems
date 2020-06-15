@@ -1,3 +1,26 @@
+// Create a function that takes a "base number" as an argument. This function should return another function which takes a new argument, and returns the sum of the "base number" and the new argument.
+// Please check the examples below for a clearer representation of the behavior expected.
+// Examples
+// // Calling makePlusFunction(5) returns a new function that takes an input,
+// // and returns the result when adding 5 to it.
+// const plusFive = makePlusFunction(5)
+// plusFive(2) ➞ 7
+// plusFive(-8) ➞ -3
+// // Calling makePlusFunction(10) returns a new function that takes an input,
+// // and returns the result when adding 10 to it.
+// const plusTen = makePlusFunction(10)
+// plusTen(0) ➞ 10
+// plusTen(188) ➞ 198
+// plusFive(plusTen(0)) ➞ 15
+// Notes
+// All inputs will be valid numbers.
+
+function makePlusFunction(baseNum) {
+	return function(num) {
+    return baseNum + num
+  }
+}
+
 // Groups and ranges indicate groups and ranges of expression characters. Character Sets match any characters inside of brackets [ ]. You can specify a range of characters by using a hyphen.
 // /[abcd]/ === /[a-d]/
 // If the hyphen appears as the first or last character then it is considered a literal hyphen.
