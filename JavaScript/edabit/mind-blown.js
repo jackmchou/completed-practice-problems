@@ -1,3 +1,41 @@
+// Suppose an image can be represented as a 2D array of 0s and 1s. Write a function to reverse an image. Replace the 0s with 1s and vice versa.
+// Examples
+// reverseImage([
+//   [1, 0, 0],
+//   [0, 1, 0],
+//   [0, 0, 1]
+// ]) ➞ [
+//   [0, 1, 1],
+//   [1, 0, 1],
+//   [1, 1, 0]
+// ]
+// reverseImage([
+//   [1, 1, 1],
+//   [0, 0, 0]
+// ]) ➞ [
+//   [0, 0, 0],
+//   [1, 1, 1]
+// ]
+// reverseImage([
+//   [1, 0, 0],
+//   [1, 0, 0]
+// ]) ➞ [
+//   [0, 1, 1],
+//   [0, 1, 1]
+// ]
+// Notes
+// N/A
+
+function reverseImage(image) {
+  for (let i = 0; i < image.length; i++) {
+    for (let ii = 0; ii < image[i].length; ii++) {
+      if (image[i][ii] === 1) image[i][ii] = 0
+      else image[i][ii] = 1
+    }
+  }
+  return image
+}
+
 // Write a function that returns the position of the second occurrence of "zip" in a string, or -1 if it does not occur at least twice. Your code should be general enough to pass every possible case where "zip" can occur in a string.
 // Examples
 // findZip("all zip files are zipped") ➞ 18
