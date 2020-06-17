@@ -1,3 +1,18 @@
+// Given a number, n, return a function which adds n to the number passed to it.
+// Examples
+// add(10)(20) ➞ 30
+// add(0)(20) ➞ 20
+// add(-30)(80) ➞ 50
+// Notes
+//     All numbers used in the tests will be integers (whole numbers).
+//     Returning a function from a function is a key part of understanding higher order functions (functions which operate on and return functions).
+
+function add(n) {
+	return function(n2) {
+    return n + n2
+  }
+}
+
 // Suppose an image can be represented as a 2D array of 0s and 1s. Write a function to reverse an image. Replace the 0s with 1s and vice versa.
 // Examples
 // reverseImage([
