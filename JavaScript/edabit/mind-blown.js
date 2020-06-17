@@ -1,3 +1,26 @@
+// Create a function that takes two strings and returns either true or false depending on whether they're anagrams or not.
+// Examples
+// isAnagram("cristian", "Cristina") ➞ true
+// isAnagram("Dave Barry", "Ray Adverb") ➞ true
+// isAnagram("Nope", "Note") ➞ false
+// Notes
+//     Should be case insensitive.
+//     The two given strings can be of different lengths.
+
+function isAnagram(s1, s2) {
+	if (s1.length !== s2.length) return false
+  let s1Count = {}
+  Array.prototype.forEach.call(s1.toLowerCase(), (char) => {
+    s1Count[char] = s1Count[char] ? 1 + s1Count[char] : 1
+  })
+  s2 = s2.toLowerCase()
+  for (let i = 0; i < s2.length; i++) {
+    if (!s1Count[s2[i]]) return false
+    else s1Count[s2[i]] -= 1
+  }
+  return true
+}
+
 // Write a function that takes an array of 10 integers (between 0 and 9) and returns a string in form of a phone number.
 // Examples
 // createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) ➞ "(123) 456-7890"
@@ -7,7 +30,7 @@
 // N/A
 
 function createPhoneNumber(numbers) {
-	return `(${numbers.splice(0, 3).join('')}) ${numbers.splice(0, 3).join('')} - ${numbers.slice(0, 4).join('')}`
+	return `(${numbers.splice(0, 3).join('')}) ${numbers.splice(0, 3).join('')}-${numbers.slice(0, 4).join('')}`
 }
 
 // Create a function which takes a parameter n and returns a function such that it, when called n times, returns the string "edabit".
