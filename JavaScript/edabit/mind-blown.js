@@ -1,3 +1,21 @@
+// An isogram is a word that has no repeating letters, consecutive or nonconsecutive. Create a function that takes a string and returns either true or false depending on whether or not it's an "isogram".
+// Examples
+// isIsogram("Algorism") ➞ true
+// isIsogram("PasSword") ➞ false
+// // Not case sensitive.
+// isIsogram("Consecutive") ➞ false
+// Notes
+//     Ignore letter case (should not be case sensitive).
+//     All test cases contain valid one word strings.
+
+function isIsogram(str) {
+	const dups = {}
+  Array.prototype.forEach.call(str.toLowerCase(), (char) => {
+    dups[char] = dups[char] ? 1 + dups[char] : 1
+  })
+  return Object.values(dups).every(idx => idx == 1)
+}
+
 // Create a function that takes two strings and returns either true or false depending on whether they're anagrams or not.
 // Examples
 // isAnagram("cristian", "Cristina") ➞ true
