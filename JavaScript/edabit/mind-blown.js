@@ -1,3 +1,221 @@
+// ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits. Your task is to create a function that takes a string and returns true if the PIN is valid and false if it's not.
+// Examples
+// validatePIN("1234") ➞ true
+// validatePIN("12345") ➞ false
+// validatePIN("a234") ➞ false
+// validatePIN("") ➞ false
+// Notes
+//     Some test cases contain special characters.
+//     Empty strings must return false.
+
+function validatePIN(pin) {
+  // return /([\d]{6}|[\d]{4})/.test(pin)
+  if (!pin) return false
+  if (pin.length === 4 || pin.length === 6) {
+    for (let i = 0; i < pin.length; i++) {
+      if (isNaN(parseInt(pin[i]))) return false
+    }
+  } else return false
+  return true
+}
+
+// Write a function that takes a string of one or more words as an argument and returns the same string, but with all five or more letter words reversed. Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
+// Examples
+// reverse("Reverse") ➞ "esreveR"
+// reverse("This is a typical sentence.") ➞ "This is a lacipyt .ecnetnes"
+// reverse("The dog is big.") ➞ "The dog is big."
+// Notes
+// You can expect a valid string to be provided for each test case.
+
+function reverse(str) {
+	const strArr = [...str.split(' ')]
+  for (let i = 0; i < strArr.length; i++) {
+    if (strArr[i].length > 4) {
+      strArr[i] = [...strArr[i]].reverse().join('')
+    }
+  }
+  return strArr.join(' ')
+}
+
+// Create a function that takes a number as an argument and returns a string formatted to separate thousands.
+// Examples
+// formatNum(1000) ➞ "1,000"
+// formatNum(100000) ➞ "100,000"
+// formatNum(20) ➞ "20"
+// Notes
+// You can expect a valid number for all test cases.
+
+function formatNum(num) {
+	return num.toLocaleString();
+}
+
+// An isogram is a word that has no repeating letters, consecutive or nonconsecutive. Create a function that takes a string and returns either true or false depending on whether or not it's an "isogram".
+// Examples
+// isIsogram("Algorism") ➞ true
+// isIsogram("PasSword") ➞ false
+// // Not case sensitive.
+// isIsogram("Consecutive") ➞ false
+// Notes
+//     Ignore letter case (should not be case sensitive).
+//     All test cases contain valid one word strings.
+
+function isIsogram(str) {
+	const dups = {}
+  Array.prototype.forEach.call(str.toLowerCase(), (char) => {
+    dups[char] = dups[char] ? 1 + dups[char] : 1
+  })
+  return Object.values(dups).every(idx => idx == 1)
+}
+
+// Create a function that takes two strings and returns either true or false depending on whether they're anagrams or not.
+// Examples
+// isAnagram("cristian", "Cristina") ➞ true
+// isAnagram("Dave Barry", "Ray Adverb") ➞ true
+// isAnagram("Nope", "Note") ➞ false
+// Notes
+//     Should be case insensitive.
+//     The two given strings can be of different lengths.
+
+function isAnagram(s1, s2) {
+	if (s1.length !== s2.length) return false
+  let s1Count = {}
+  Array.prototype.forEach.call(s1.toLowerCase(), (char) => {
+    s1Count[char] = s1Count[char] ? 1 + s1Count[char] : 1
+  })
+  s2 = s2.toLowerCase()
+  for (let i = 0; i < s2.length; i++) {
+    if (!s1Count[s2[i]]) return false
+    else s1Count[s2[i]] -= 1
+  }
+  return true
+}
+
+// Write a function that takes an array of 10 integers (between 0 and 9) and returns a string in form of a phone number.
+// Examples
+// createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) ➞ "(123) 456-7890"
+// createPhoneNumber([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]) ➞ "(111) 111-1111"
+// createPhoneNumber([8, 7, 4, 1, 2, 5, 6, 5, 8, 2]) ➞ "(874) 125-6582"
+// Notes
+// N/A
+
+function createPhoneNumber(numbers) {
+	return `(${numbers.splice(0, 3).join('')}) ${numbers.splice(0, 3).join('')}-${numbers.slice(0, 4).join('')}`
+}
+
+// Create a function which takes a parameter n and returns a function such that it, when called n times, returns the string "edabit".
+// Examples
+// lambdaDepth(0) ➞ "edabit"
+// lambdaDepth(1)() ➞ "edabit"
+// lambdaDepth(2)()() ➞ "edabit"
+// typeof lambdaDepth(2)() ➞ "function"
+// Notes
+//     num will always be a non-negative integer.
+//     If num == 0, return "edabit".
+//     If num > 0, return a function.
+//     All non-example test cases come in two forms: checking whether lambda_depth(k), after being called k times, returns a string, and checking whether lambda_depth(k) returns a function.
+
+lambdaDepth = n => eval('() => '.repeat(n) + '"edabit"')
+
+// Given a number, n, return a function which adds n to the number passed to it.
+// Examples
+// add(10)(20) ➞ 30
+// add(0)(20) ➞ 20
+// add(-30)(80) ➞ 50
+// Notes
+//     All numbers used in the tests will be integers (whole numbers).
+//     Returning a function from a function is a key part of understanding higher order functions (functions which operate on and return functions).
+
+function add(n) {
+	return function(n2) {
+    return n + n2
+  }
+}
+
+// Suppose an image can be represented as a 2D array of 0s and 1s. Write a function to reverse an image. Replace the 0s with 1s and vice versa.
+// Examples
+// reverseImage([
+//   [1, 0, 0],
+//   [0, 1, 0],
+//   [0, 0, 1]
+// ]) ➞ [
+//   [0, 1, 1],
+//   [1, 0, 1],
+//   [1, 1, 0]
+// ]
+// reverseImage([
+//   [1, 1, 1],
+//   [0, 0, 0]
+// ]) ➞ [
+//   [0, 0, 0],
+//   [1, 1, 1]
+// ]
+// reverseImage([
+//   [1, 0, 0],
+//   [1, 0, 0]
+// ]) ➞ [
+//   [0, 1, 1],
+//   [0, 1, 1]
+// ]
+// Notes
+// N/A
+
+function reverseImage(image) {
+  for (let i = 0; i < image.length; i++) {
+    for (let ii = 0; ii < image[i].length; ii++) {
+      if (image[i][ii] === 1) image[i][ii] = 0
+      else image[i][ii] = 1
+    }
+  }
+  return image
+}
+
+// Write a function that returns the position of the second occurrence of "zip" in a string, or -1 if it does not occur at least twice. Your code should be general enough to pass every possible case where "zip" can occur in a string.
+// Examples
+// findZip("all zip files are zipped") ➞ 18
+// findZip("all zip files are compressed") ➞ -1
+// Notes
+// Uppercase "Zip" is not the same as lowercase "zip".
+
+function findZip(str) {
+  return str.indexOf('zip') !== str.lastIndexOf('zip') ?str.split('zip', 2).join('zip').length : -1
+}
+
+// Write a function that returns an anonymous function, which adds n to its input
+// Examples
+// adds1 = addsNum(1)
+// adds1(3) ➞ 4
+// adds1(5.7) ➞ 6.7
+// adds10 = addsNum(10)
+// adds10(44) ➞ 54
+// adds10(20) ➞ 30
+// Notes
+// N/A
+
+const addsNum = (n) => (n2) => n + n2
+
+// Create a function that takes a "base number" as an argument. This function should return another function which takes a new argument, and returns the sum of the "base number" and the new argument.
+// Please check the examples below for a clearer representation of the behavior expected.
+// Examples
+// // Calling makePlusFunction(5) returns a new function that takes an input,
+// // and returns the result when adding 5 to it.
+// const plusFive = makePlusFunction(5)
+// plusFive(2) ➞ 7
+// plusFive(-8) ➞ -3
+// // Calling makePlusFunction(10) returns a new function that takes an input,
+// // and returns the result when adding 10 to it.
+// const plusTen = makePlusFunction(10)
+// plusTen(0) ➞ 10
+// plusTen(188) ➞ 198
+// plusFive(plusTen(0)) ➞ 15
+// Notes
+// All inputs will be valid numbers.
+
+function makePlusFunction(baseNum) {
+	return function(num) {
+    return baseNum + num
+  }
+}
+
 // Groups and ranges indicate groups and ranges of expression characters. Character Sets match any characters inside of brackets [ ]. You can specify a range of characters by using a hyphen.
 // /[abcd]/ === /[a-d]/
 // If the hyphen appears as the first or last character then it is considered a literal hyphen.
