@@ -1,3 +1,15 @@
+// Create a function that takes a string, removes all "special" characters (e.g. !, @, #, $, %, ^, &, \, *, (, )) and returns the new string. The only non-alphanumeric characters allowed are dashes -, underscores _ and spaces.
+// Examples
+// removeSpecialCharacters("The quick brown fox!") ➞ "The quick brown fox"
+// removeSpecialCharacters("%fd76$fd(-)6GvKlO.") ➞ "fd76fd-6GvKlO"
+// removeSpecialCharacters("D0n$c sed 0di0 du1") ➞ "D0nc sed 0di0 du1"
+// Notes
+// N/A
+
+function removeSpecialCharacters(str) {
+  return str.replace(/[^\w-_ ]/g, '')
+}
+
 // Given two lines, determine whether or not they are parallel.
 // Lines are represented by an array [a, b, c], which corresponds to the line ax+by=c.
 // Examples
