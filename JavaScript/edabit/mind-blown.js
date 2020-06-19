@@ -1,3 +1,21 @@
+// Create a function that takes an integer and returns it as an ordinal number. An Ordinal Number is a number that tells the position of something in a list, such as 1st, 2nd, 3rd, 4th, 5th etc.
+// Examples
+// returnEndOfNumber(553) ➞ "553-RD"
+// returnEndOfNumber(34) ➞ "34-TH"
+// returnEndOfNumber(1231) ➞ "1231-ST"
+// returnEndOfNumber(22) ➞ "22-ND"
+// Notes
+// Check the Resources tab for more info on ordinal numbers.
+
+function returnEndOfNumber(num) {
+	const numArr = [...'' + num]
+  const suffix = {1: '-ST', 2: '-ND', 3: '-RD', 4: '-TH'}
+  if (suffix[numArr[numArr.length - 1]]) {
+    numArr.splice(numArr.length, 0, suffix[numArr[numArr.length - 1]])
+  }
+  return numArr.join('')
+}
+
 // Create a function that accepts a string, checks if it's a valid email address and returns either true or false, depending on the evaluation.
 //     The string must contain an @ character.
 //     The string must contain a . character.
