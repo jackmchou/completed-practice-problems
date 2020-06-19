@@ -1,3 +1,30 @@
+// Create a function that accepts a string, checks if it's a valid email address and returns either true or false, depending on the evaluation.
+//     The string must contain an @ character.
+//     The string must contain a . character.
+//     The @ must have at least one character in front of it.
+//         e.g. "e@edabit.com" is valid while "@edabit.com" is invalid.
+//     The . and the @ must be in the appropriate places.
+//         e.g. "hello.email@com" is invalid while "john.smith@email.com" is valid.
+// If the string passes these tests, it's considered a valid email address.
+// Examples
+// validateEmail("@gmail.com") ➞ false
+// validateEmail("hello.gmail@com") ➞ false
+// validateEmail("gmail") ➞ false
+// validateEmail("hello@gmail") ➞ false
+// validateEmail("hello@edabit.com") ➞ true
+// Notes
+//     Check the Tests tab to see exactly what's being evaluated.
+//     You can solve this challenge with RegEx, but it's intended to be solved with logic.
+//     Solutions using RegEx will be accepted but frowned upon :(
+
+  function validateEmail(str) {
+    if (str.includes('@') && str.includes('.')) {
+     if (!str[str.indexOf('@') - 1]) return false
+     if (!str.slice(str.indexOf('@')).includes('.')) return false
+    } else return false
+    return true
+  }
+
 // ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits. Your task is to create a function that takes a string and returns true if the PIN is valid and false if it's not.
 // Examples
 // validatePIN("1234") ➞ true
