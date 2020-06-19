@@ -1,3 +1,20 @@
+// Given two lines, determine whether or not they are parallel.
+// Lines are represented by an array [a, b, c], which corresponds to the line ax+by=c.
+// Examples
+// linesAreParallel([1, 2, 3], [1, 2, 4]) ➞ true
+// // x+2y=3 and x+2y=4 are parallel.
+// linesAreParallel([2, 4, 1], [4, 2, 1]) ➞ false
+// // 2x+4y=1 and 4x+2y=1 are not parallel.
+// linesAreParallel([0, 1, 5], [0, 1, 5]) ➞ true
+// // Lines are parallel to themselves.
+// Notes
+//     All the test cases use valid input (so no arrays of the wrong size, for example).
+//     All the coefficients will be integers (whole numbers).
+
+function linesAreParallel(l1, l2) {
+	return l1[0] / l1[1] === l2[0] / l2[1]
+}
+
 // Usually when you sign up for an account to buy something, your credit card number, phone number or answer to a secret question is partially obscured in some way. Since someone could look over your shoulder, you don't want that shown on your screen. Hence, the website masks these strings.
 // Your task is to create a function that takes a string, transforms all but the last four characters into "#" and returns the new masked string.
 // Examples
