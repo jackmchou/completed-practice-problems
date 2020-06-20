@@ -1,3 +1,30 @@
+// Create a function which takes in a sentence str and a string of characters chars and return the sentence but with all the specified characters removed.
+// Examples
+// stripSentence("the quick brown fox jumps over the lazy dog", "aeiou") ➞ "th qck brwn fx jmps vr th lzy dg"
+// stripSentence("the hissing snakes sinisterly slither across the rustling leaves", "s") ➞ "the hiing nake initerly lither acro the rutling leave"
+// stripSentence("gone, reduced to atoms", "go, muscat nerd") ➞ ""
+// Notes
+//     You may be asked to remove punctuation and spaces.
+//     Return an empty string if every charcter is specified (see example #3).
+//     All tests will be in lowercase.
+
+
+
+// There has been a masterdata issue which affected the prices of the products. All prices need to be checked if they are a valid number and zero or higher (>= 0). Products with a price of 0 are free and is a valid price.
+// The return value should be a Boolean.
+// Examples
+// hasValidPrice({ "product": "Milk", price: 1.50 }) ➞ true
+// hasValidPrice({ "product": "Cheese", price: -1 }) ➞ false
+// hasValidPrice({ "product": "Eggs", price: 0 }) ➞ true
+// hasValidPrice({ "product": "Cerials", price: '3.0' }) ➞ false
+// hasValidPrice() ➞ false
+// Notes
+// Run the tests first to see the results before making changes and understand why eggs is returning 0 and flour is returning undefined.
+
+function hasValidPrice(product) {
+	return (product && typeof product.price === 'number' && product.price >= 0) || false
+}
+
 // Create a function that takes a string, removes all "special" characters (e.g. !, @, #, $, %, ^, &, \, *, (, )) and returns the new string. The only non-alphanumeric characters allowed are dashes -, underscores _ and spaces.
 // Examples
 // removeSpecialCharacters("The quick brown fox!") ➞ "The quick brown fox"
