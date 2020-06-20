@@ -1,14 +1,24 @@
-// Create a function which takes in a sentence str and a string of characters chars and return the sentence but with all the specified characters removed.
+// Write a function that takes an array and returns a new array with unique positive (more than 0) numbers.
 // Examples
-// stripSentence("the quick brown fox jumps over the lazy dog", "aeiou") ➞ "th qck brwn fx jmps vr th lzy dg"
-// stripSentence("the hissing snakes sinisterly slither across the rustling leaves", "s") ➞ "the hiing nake initerly lither acro the rutling leave"
-// stripSentence("gone, reduced to atoms", "go, muscat nerd") ➞ ""
+// uniqueArr([-5, 1, -7, -5, -2, 3, 3, -5, -1, -1]) ➞ [1, 3]
+// uniqueArr([3, -3, -3, 5, 5, -6, -2, -4, -1, 3]) ➞ [3, 5]
+// uniqueArr([10, 6, -12, 13, 5, 5, 13, 6, 5]) ➞ [10, 6, 13, 5]
 // Notes
-//     You may be asked to remove punctuation and spaces.
-//     Return an empty string if every charcter is specified (see example #3).
-//     All tests will be in lowercase.
+//     Return the elements in the order that they are found in the array.
+//     Your function should also work for empty arrays.
 
-
+function uniqueArr(arr) {
+  const dups = {}
+  const result = []
+  let j = 0
+  for (let i = 0; i < arr.length; i++) {
+    if (dups[arr[i]] !== true && arr[i] > 0) {
+      dups[arr[i]] = true
+      result[j++] = arr[i]
+    }
+  }
+  return result 
+}
 
 // There has been a masterdata issue which affected the prices of the products. All prices need to be checked if they are a valid number and zero or higher (>= 0). Products with a price of 0 are free and is a valid price.
 // The return value should be a Boolean.
