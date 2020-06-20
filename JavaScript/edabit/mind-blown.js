@@ -1,3 +1,131 @@
+// Write a function that takes an array and returns a new array with unique positive (more than 0) numbers.
+// Examples
+// uniqueArr([-5, 1, -7, -5, -2, 3, 3, -5, -1, -1]) ➞ [1, 3]
+// uniqueArr([3, -3, -3, 5, 5, -6, -2, -4, -1, 3]) ➞ [3, 5]
+// uniqueArr([10, 6, -12, 13, 5, 5, 13, 6, 5]) ➞ [10, 6, 13, 5]
+// Notes
+//     Return the elements in the order that they are found in the array.
+//     Your function should also work for empty arrays.
+
+function uniqueArr(arr) {
+  const dups = {}
+  const result = []
+  let j = 0
+  for (let i = 0; i < arr.length; i++) {
+    if (dups[arr[i]] !== true && arr[i] > 0) {
+      dups[arr[i]] = true
+      result[j++] = arr[i]
+    }
+  }
+  return result 
+}
+
+// There has been a masterdata issue which affected the prices of the products. All prices need to be checked if they are a valid number and zero or higher (>= 0). Products with a price of 0 are free and is a valid price.
+// The return value should be a Boolean.
+// Examples
+// hasValidPrice({ "product": "Milk", price: 1.50 }) ➞ true
+// hasValidPrice({ "product": "Cheese", price: -1 }) ➞ false
+// hasValidPrice({ "product": "Eggs", price: 0 }) ➞ true
+// hasValidPrice({ "product": "Cerials", price: '3.0' }) ➞ false
+// hasValidPrice() ➞ false
+// Notes
+// Run the tests first to see the results before making changes and understand why eggs is returning 0 and flour is returning undefined.
+
+function hasValidPrice(product) {
+	return (product && typeof product.price === 'number' && product.price >= 0) || false
+}
+
+// Create a function that takes a string, removes all "special" characters (e.g. !, @, #, $, %, ^, &, \, *, (, )) and returns the new string. The only non-alphanumeric characters allowed are dashes -, underscores _ and spaces.
+// Examples
+// removeSpecialCharacters("The quick brown fox!") ➞ "The quick brown fox"
+// removeSpecialCharacters("%fd76$fd(-)6GvKlO.") ➞ "fd76fd-6GvKlO"
+// removeSpecialCharacters("D0n$c sed 0di0 du1") ➞ "D0nc sed 0di0 du1"
+// Notes
+// N/A
+
+function removeSpecialCharacters(str) {
+  return str.replace(/[^\w-_ ]/g, '')
+}
+
+// Given two lines, determine whether or not they are parallel.
+// Lines are represented by an array [a, b, c], which corresponds to the line ax+by=c.
+// Examples
+// linesAreParallel([1, 2, 3], [1, 2, 4]) ➞ true
+// // x+2y=3 and x+2y=4 are parallel.
+// linesAreParallel([2, 4, 1], [4, 2, 1]) ➞ false
+// // 2x+4y=1 and 4x+2y=1 are not parallel.
+// linesAreParallel([0, 1, 5], [0, 1, 5]) ➞ true
+// // Lines are parallel to themselves.
+// Notes
+//     All the test cases use valid input (so no arrays of the wrong size, for example).
+//     All the coefficients will be integers (whole numbers).
+
+function linesAreParallel(l1, l2) {
+	return l1[0] / l1[1] === l2[0] / l2[1]
+}
+
+// Usually when you sign up for an account to buy something, your credit card number, phone number or answer to a secret question is partially obscured in some way. Since someone could look over your shoulder, you don't want that shown on your screen. Hence, the website masks these strings.
+// Your task is to create a function that takes a string, transforms all but the last four characters into "#" and returns the new masked string.
+// Examples
+// maskify("4556364607935616") ➞ "############5616"
+// maskify("64607935616") ➞ "#######5616"
+// maskify("1") ➞ "1"
+// maskify("") ➞ ""
+// Notes
+//     The maskify function must accept a string of any length.
+//     An empty string should return an empty string (fourth example above).
+
+function maskify(str) {
+	if (str == '') return ''
+  const strArr = [...str]
+  return strArr.length > 4 ? strArr.fill('#', 0, strArr.length - 4).join('') : strArr.join('')
+}
+
+// Create a function that takes an integer and returns it as an ordinal number. An Ordinal Number is a number that tells the position of something in a list, such as 1st, 2nd, 3rd, 4th, 5th etc.
+// Examples
+// returnEndOfNumber(553) ➞ "553-RD"
+// returnEndOfNumber(34) ➞ "34-TH"
+// returnEndOfNumber(1231) ➞ "1231-ST"
+// returnEndOfNumber(22) ➞ "22-ND"
+// Notes
+// Check the Resources tab for more info on ordinal numbers.
+
+function returnEndOfNumber(num) {
+	const numArr = [...'' + num]
+  const suffix = {1: '-ST', 2: '-ND', 3: '-RD', 4: '-TH'}
+  if (suffix[numArr[numArr.length - 1]]) {
+    numArr.splice(numArr.length, 0, suffix[numArr[numArr.length - 1]])
+  }
+  return numArr.join('')
+}
+
+// Create a function that accepts a string, checks if it's a valid email address and returns either true or false, depending on the evaluation.
+//     The string must contain an @ character.
+//     The string must contain a . character.
+//     The @ must have at least one character in front of it.
+//         e.g. "e@edabit.com" is valid while "@edabit.com" is invalid.
+//     The . and the @ must be in the appropriate places.
+//         e.g. "hello.email@com" is invalid while "john.smith@email.com" is valid.
+// If the string passes these tests, it's considered a valid email address.
+// Examples
+// validateEmail("@gmail.com") ➞ false
+// validateEmail("hello.gmail@com") ➞ false
+// validateEmail("gmail") ➞ false
+// validateEmail("hello@gmail") ➞ false
+// validateEmail("hello@edabit.com") ➞ true
+// Notes
+//     Check the Tests tab to see exactly what's being evaluated.
+//     You can solve this challenge with RegEx, but it's intended to be solved with logic.
+//     Solutions using RegEx will be accepted but frowned upon :(
+
+  function validateEmail(str) {
+    if (str.includes('@') && str.includes('.')) {
+     if (!str[str.indexOf('@') - 1]) return false
+     if (!str.slice(str.indexOf('@')).includes('.')) return false
+    } else return false
+    return true
+  }
+
 // ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits. Your task is to create a function that takes a string and returns true if the PIN is valid and false if it's not.
 // Examples
 // validatePIN("1234") ➞ true
