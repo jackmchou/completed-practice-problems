@@ -1,3 +1,23 @@
+// Return true if the sum of ASCII values of the first string is same as the sum of ASCII values of the second string, otherwise return false.
+// Examples
+// sameAscii("a", "a") ➞ true
+// sameAscii("AA", "B@") ➞ true
+// sameAscii("EdAbIt", "EDABIT") ➞ false
+// Notes
+// If you need some help with ASCII codes, check the Resources tab for an image of all ASCII codes used in this challenge.
+
+function sameAscii(a, b) {
+  let sumA = 0
+  let sumB = 0
+	for (let i = 0; i < a.length; i++) {
+    sumA += a.charCodeAt(i)
+  }
+  for (let ii = 0; ii < b.length; ii++) {
+    sumB += b.charCodeAt(ii)
+  }
+  return sumA === sumB
+}
+
 // Create a function that accepts a string and returns true if it's in the format of a proper phone number and false if it's not. Assume any number between 0-9 (in the appropriate spots) will produce a valid phone number.
 // This is what a valid phone number looks like:
 // (123) 456-7890
