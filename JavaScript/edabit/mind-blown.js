@@ -1,3 +1,23 @@
+// Create a function that returns the total number of steps it takes to transform each element to the maximal element in the array. Each step consists of incrementing a digit by one.
+// Examples
+// incrementToTop([3, 4, 5]) ➞ 3
+// // 3 increments: 3 -> 4, 4 -> 5; 4 -> 5
+// incrementToTop([4, 3, 4]) ➞ 1
+// incrementToTop([3, 3, 3]) ➞ 0
+// incrementToTop([3, 10, 3]) ➞ 14
+// Notes
+//     If the array contains only the same digits, return 0 (see example #2).
+//     Bonus: Can you write a solution that achieves this by only traversing the array once? (i.e. without finding the max before hand)
+
+function incrementToTop(arr) {
+	let steps = 0
+  const arrMax = Math.max(...arr)
+  for (let i = 0; i < arrMax; i++) {
+    if (arr[i] < arrMax) steps += (arrMax - arr[i])
+  }
+  return steps
+}
+
 // Your job is to make a "Twitter link" regular expression rx. This RegEx searches a tweet to find the @handle and the #handle.
 //     The function is already written in the Tests tab, so you only need to provide the RegEx variable in the Code tab.
 //     Only return the @ and # handles.
