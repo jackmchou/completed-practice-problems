@@ -1,3 +1,26 @@
+// Create a function that changes all the elements in an array as follows:
+//     Add 1 to all even integers, nothing to odd integers.
+//     Concatenates "!" to all strings and capitalises them.
+//     Changes all boolean values to its opposite.
+// Examples
+// changeTypes(["a", 12, true]) ➞ ["A!", 13, false]
+// changeTypes([13, "13", "12", "twelve"]) ➞ [13, "13!", "12!", "Twelve!"]
+// changeTypes([false, "false", "true"]) ➞ [true, "False!", "True!"]
+// Notes
+//     There won't be any float values.
+//     You won't get strings with both numbers and letters in them.
+//     Although the task may be easy, try keeping your code as clean and as readable as possible!
+
+function changeTypes(arr) {
+	return arr.map(ele => {
+		if (typeof ele === 'number' && ele % 2 === 0 ) return ele += 1
+    if (typeof ele === 'string' && isNaN(ele)) return ele = ele[0].toUpperCase() + ele.slice(1) + '!'
+    if (typeof ele === 'string' && !isNaN(ele)) return ele + '!'
+    if (typeof ele === 'boolean') return ele = !ele
+    return ele
+  })
+}
+
 // You are to read each part of the date into its own integer type variable. The year should be a 4 digit number. You can assume the user enters a correct date formatted d m yyyy (no error checking required).
 // Determine whether the entered date is a magic date. Here are the rules for a magic date:
 //     mm * dd is a 1-digit number that matches the last digit of yyyy or
