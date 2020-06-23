@@ -1,3 +1,24 @@
+// A number is considered slidey if for every digit in the number, the next digit from that has an absolute difference of one. Check the examples below.
+// Examples
+// isSlidey(123454321) ➞ true
+// isSlidey(54345) ➞ true
+// isSlidey(987654321) ➞ true
+// isSlidey(1123) ➞ false
+// isSlidey(1357) ➞ false
+// Notes
+//     A number cannot slide properly if there is a "flat surface" (example #4), or has gaps (example #5).
+//     All single digit numbers can be considered slidey numbers!
+
+function isSlidey(n) {
+	const nArr = [...('' + n)]
+  for (let i = 0; i < nArr.length - 1; i++) {
+    const diff = +nArr[i] - nArr[i + 1]
+    const absdiff = diff < 0 ? -diff : diff
+    if (absdiff !== 1) return false
+  } 
+  return true
+}
+
 // Create a function that returns the total number of steps it takes to transform each element to the maximal element in the array. Each step consists of incrementing a digit by one.
 // Examples
 // incrementToTop([3, 4, 5]) ➞ 3
