@@ -1,3 +1,27 @@
+// Return the smallest number of steps it takes to convert a string entirely into uppercase or entirely into lower case, whichever takes the fewest number of steps. A step consists of changing one character from lower to upper case, or vice versa.
+// Examples
+// stepsToConvert("abC") ➞ 1
+// // "abC" converted to "abc" in 1 step
+// stepsToConvert("abCBA") ➞ 2
+// // "abCBA" converted to "ABCBA" in 2 steps
+// stepsToConvert("aba") ➞ 0
+// stepsToConvert("abaCCC") ➞ 3
+// Notes
+//     Return 0 if empty string.
+//     Return 0 if the string is already entirely in one case.
+//     Only alphabetic characters.
+//     Input has no spaces.
+
+function stepsToConvert(str) {
+  let upperCount = 0
+  let lowerCount = 0
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i].toUpperCase()) upperCount++
+    if (str[i] === str[i].toLowerCase()) lowerCount++
+  }
+  return upperCount > lowerCount ? lowerCount : upperCount
+}
+
 // Write a function that returns an anonymous function, which transforms its input by adding a particular suffix at the end.
 // Examples
 // add_ly = add_suffix("ly")
