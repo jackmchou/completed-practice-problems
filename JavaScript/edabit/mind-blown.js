@@ -1,3 +1,20 @@
+// Write a function that returns an anonymous function, which transforms its input by adding a particular suffix at the end.
+// Examples
+// add_ly = add_suffix("ly")
+// add_ly("hopeless") ➞ "hopelessly"
+// add_ly("total") ➞"totally"
+// add_less = add_suffix("less")
+// add_less("fear") ➞ "fearless"
+// add_less("ruth") ➞ "ruthless"
+// Notes
+// N/A
+
+function add_suffix(suffix) {
+	return function(str) {
+    return str + suffix
+  }
+}
+
 // Create a function which takes in a sentence str and a string of characters chars and return the sentence but with all the specified characters removed.
 // Examples
 // stripSentence("the quick brown fox jumps over the lazy dog", "aeiou") ➞ "th qck brwn fx jmps vr th lzy dg"
@@ -21,7 +38,6 @@ function stripSentence(str, chars) {
   }
   return result.join('')
 }
-
 
 // Create a function that changes all the elements in an array as follows:
 //     Add 1 to all even integers, nothing to odd integers.
