@@ -1,3 +1,25 @@
+// Write a function that takes a string, breaks it up and returns it with vowels first, consonants second. For any character that's not a vowel (like special characters or spaces), treat them like consonants.
+// Examples
+// split("abcde") ➞ "aebcd"
+// split("Hello!") ➞ "eoHll!"
+// split("What's the time?") ➞ "aeieWht's th tm?"
+// Notes
+//     Vowels are a, e, i, o, u.
+//     Define a separate isVowel() function for easier to read code (recommendation).
+
+function split(str) {
+	const strArr = [...str]
+  const vowels = 'aeiou'
+  const result = []
+  for (let i = 0; i < strArr.length; i++) {
+    if (vowels.indexOf(strArr[i]) !== -1) result.push(strArr[i])
+  }
+  for (let i = 0; i < strArr.length; i++) {
+    if (vowels.indexOf(strArr[i]) === -1) result.push(strArr[i])
+  }
+  return result.join('')
+}
+
 // Wurst is the best. Create a function that takes a string and replaces every mention of any type of sausage with the German word "Wurst," unless—of course—the sausage is already a type of German "Wurst" (i.e. "Bratwurst", see below), then leave the sausage name unchanged.
 // German Wursts	Convert to Wurst
 // Bratwurst	Kielbasa
