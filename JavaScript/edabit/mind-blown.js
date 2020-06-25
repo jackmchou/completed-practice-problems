@@ -1,3 +1,31 @@
+// Wurst is the best. Create a function that takes a string and replaces every mention of any type of sausage with the German word "Wurst," unless—of course—the sausage is already a type of German "Wurst" (i.e. "Bratwurst", see below), then leave the sausage name unchanged.
+// German Wursts	Convert to Wurst
+// Bratwurst	Kielbasa
+// Kochwurst	Chorizo
+// Leberwurst	Moronga
+// Mettwurst	Salami
+// Rostbratwurst	Sausage
+// ~	Andouille
+// ~	Naem
+// ~	Merguez
+// ~	Gurka
+// ~	Snorkers
+// ~	Pepperoni
+// Rules
+//     Append sausages from the "Convert to Wurst" column with "wurst".
+//     Do not replace any German sausage with the word "Wurst".
+//     The word "Wurst" must be title case.
+// Examples
+// wurstIsBetter("I like chorizos, but not sausages") ➞ "I like Wursts, but not Wursts"
+// wurstIsBetter("sich die Wurst vom Brot nehmen lassen") ➞ "sich die Wurst vom Brot nehmen lassen"
+// wurstIsBetter("Bratwurst and Rostbratwurst are sausages") ➞ "Bratwurst and Rostbratwurst are Wursts"
+// Notes
+// All German sausage names contain the word "wurst".
+
+function wurstIsBetter(str) {
+	return str.replace(/sausage|salami|moronga|chorizo|kielbasa|andouille|naem/gi, 'Wurst')
+}
+
 // Quantifiers indicate numbers of characters or expressions to match. By default quantifiers like * and + are "greedy", meaning that they try to match as much of the string as possible. The ? character after the quantifier makes the quantifier "non-greedy": meaning that it will stop as soon as it finds a match.
 // "some <foo> <bar> new </bar> </foo> thing".match(/<.*>/) ➞ "<foo> <bar> new </bar> </foo>"
 // "some <foo> <bar> new </bar> </foo> thing".match(/<.*?>/) ➞ "<foo>"
