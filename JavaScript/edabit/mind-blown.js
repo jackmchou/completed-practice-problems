@@ -1,3 +1,18 @@
+// A number n is automorphic if n^2 ends in n.
+// For example: n=5, n^2=25
+// Create a function that takes a number and returns true if the number is automorphic, false if it isn't.
+// Examples
+// isAutomorphic(5) ➞ true
+// isAutomorphic(8) ➞ false
+// isAutomorphic(76) ➞ true
+// Notes
+// N/A
+
+function isAutomorphic(n) {
+  const nStr = '' + n
+	return ('' + (n * n)).slice(-nStr.length) === nStr
+}
+
 // Create a function that takes a number as input and returns true if the sum of its digits has the same parity as the entire number. Otherwise, return false.
 // Examples
 // parityAnalysis(243) ➞ true
