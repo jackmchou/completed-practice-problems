@@ -1,3 +1,44 @@
+// Create a function that takes in a sentence and a character to find. Return an object of each word in the sentence, with the count of the specified character as the value.
+// Examples
+// findOccurrences("Hello World", "o") ➞ {
+//   "hello" : 1,
+//   "world" : 1
+// }
+// findOccurrences("Create a nice JUICY function", "c") ➞  {
+//   "create" : 1,
+//   "a" : 0,
+//   "nice" : 1,
+//   "juicy" : 1,
+//   "function" : 1
+// }
+// findOccurrences("An APPLE a day keeps an Archeologist AWAY...", "A") ➞ {
+//   "an" : 1,
+//   "apple" : 1,
+//   "a" : 1,
+//   "day" : 1,
+//   "keeps" : 0,
+//   "archeologist" : 1,
+//   "away..." : 2
+// }
+// Notes
+//     The function shouldn't be case sensitive.
+//     Words in the dictionary should be in lowercase.
+//     You may be required to find punctuation.
+//     Duplicate words should be ignored (see example #3 for the word "an").
+
+function findOccurrences(str, char) {
+	const dups = {}
+  const strArr = [...str.split(' ')]
+  let j = 0
+  for (let i = 0; i < strArr.length; i++) {
+    let word = strArr[i].toLowerCase()
+    if (!dups[word]) {
+      dups[word] = word.split(char.toLowerCase()).length - 1
+    }
+  }
+  return dups
+}
+
 // Write a function that takes a string, breaks it up and returns it with vowels first, consonants second. For any character that's not a vowel (like special characters or spaces), treat them like consonants.
 // Examples
 // split("abcde") ➞ "aebcd"
