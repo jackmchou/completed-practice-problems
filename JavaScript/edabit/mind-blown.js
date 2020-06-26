@@ -1,3 +1,25 @@
+// Create a function that takes a string and replaces the vowels with another character.
+//     a = 1
+//     e = 2
+//     i = 3
+//     o = 4
+//     u = 5
+// Examples
+// replaceVowel("karachi") ➞ "k1r1ch3"
+// replaceVowel("chembur") ➞ "ch2mb5r"
+// replaceVowel("khandbari") ➞ "kh1ndb1ri"
+// Notes
+// The input will always be in lowercase.
+
+function replaceVowel(word) {
+	const vowels = { a: 1, e: 2, i: 3, o: 4, u: 5 }
+  const wordArr = [...word]
+  for (let i = 0; i < wordArr.length; i++) {
+    if (vowels[wordArr[i]]) wordArr[i] = vowels[wordArr[i]]
+  }
+  return wordArr.join('')
+}
+
 // Create a function that takes in a sentence and a character to find. Return an object of each word in the sentence, with the count of the specified character as the value.
 // Examples
 // findOccurrences("Hello World", "o") ➞ {
