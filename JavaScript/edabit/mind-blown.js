@@ -1,3 +1,15 @@
+// Write a function that returns the longest sequence of consecutive zeroes in a binary string.
+// Examples
+// longestZero("01100001011000") ➞ "0000"
+// longestZero("100100100") ➞ "00"
+// longestZero("11111") ➞ ""
+// Notes
+// If no zeroes exist in the input, return an empty string.
+
+function longestZero(s) {
+	return s.split('1').reduce((cur, acc) => cur.length > acc.length ? cur : acc)
+}
+
 // Create a function that takes a strings characters as ASCII and returns each characters hexadecimal value as a string.
 // Examples
 // toHex("hello world") ➞ "68 65 6c 6c 6f 20 77 6f 72 6c 64"
