@@ -1,3 +1,15 @@
+// Given the month and year as numbers, return whether that month contains a Friday 13th.
+// Examples
+// hasFriday13(3, 2020) ➞ true
+// hasFriday13(10, 2017) ➞ true
+// hasFriday13(1, 1985) ➞ false
+// Notes
+// January will be given as 1, February as 2, etc ...
+
+function hasFriday13(month, year) {
+	return new Date(`${year}-${month}-13`).getDay() === 5
+}
+
 // Stalactites hang from the ceiling of a cave while stalagmites grow from the floor.
 // Create a function that determines whether the input represents "stalactites" or "stalagmites". If it represents both, return "both". Input will be a 2D array, with 1 representing a piece of rock, and 0 representing air space.
 // Examples
