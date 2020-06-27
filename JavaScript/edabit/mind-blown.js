@@ -1,3 +1,36 @@
+// Stalactites hang from the ceiling of a cave while stalagmites grow from the floor.
+// Create a function that determines whether the input represents "stalactites" or "stalagmites". If it represents both, return "both". Input will be a 2D array, with 1 representing a piece of rock, and 0 representing air space.
+// Examples
+// mineralFormation([
+//   [0, 1, 0, 1],
+//   [0, 1, 0, 1],
+//   [0, 0, 0, 1],
+//   [0, 0, 0, 0]
+// ]) ➞ "stalactites"
+// mineralFormation([
+//   [0, 0, 0, 0],
+//   [0, 1, 0, 1],
+//   [0, 1, 1, 1],
+//   [0, 1, 1, 1]
+// ]) ➞ "stalagmites"
+// mineralFormation([
+//   [1, 0, 1, 0],
+//   [1, 1, 0, 1],
+//   [0, 1, 1, 1],
+//   [0, 1, 1, 1]
+// ]) ➞ "both"
+// Notes
+//     There won't be any examples where both stalactites and stalagmites meet (because those are called pillars).
+//     There won't be any example of neither stalactites nor stalagmites.
+
+function mineralFormation(cave) {
+  const tites = cave[0].some(ele => ele === 1)
+  const mites = cave[cave.length - 1].some(ele => ele === 1)
+  if (tites && mites) return 'both'
+  else if (tites) return 'stalactites'
+  else if (mites) return 'stalagmites'
+}
+
 // Write a function that returns true if the binary string can be rearranged to form a string of alternating 0s and 1s.
 // Examples
 // canAlternate("0001111") ➞ true
