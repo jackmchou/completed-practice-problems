@@ -1,3 +1,16 @@
+// Write a function that returns true if an integer is a power of 2, and false otherwise.
+// Examples
+// powerOfTwo(32) ➞ true
+// powerOfTwo(1) ➞ true
+// powerOfTwo(-7) ➞ false
+// powerOfTwo(18) ➞ false
+// Notes
+// N/A
+
+function powerOfTwo(num) {
+	return Math.log2(num) % 1 === 0
+}
+
 // A game of table tennis almost always sounds like Ping! followed by Pong! Therefore, you know that Player 2 has won if you hear Pong! as the last sound (since Player 1 didn't return the ball back).
 // Given an array of Ping!, create a function that inserts Pong! in between each element. Also:
 //     If win equals true, end the list with Pong!.
