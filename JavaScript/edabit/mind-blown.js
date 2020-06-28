@@ -1,3 +1,20 @@
+// Create a function that returns true if a number is prime and false if it's not. A prime number is any positive integer that is evenly divisible by only two divisors: 1 and itself. The first ten prime numbers are 2, 3, 5, 7, 11, 13, 17, 19, 23 and 29.
+// Examples
+// isPrime(7) ➞ true
+// isPrime(9) ➞ false
+// isPrime(10) ➞ false
+// Notes
+//     1 is not a prime number.
+//     If a number is odd it is not divisible by an even number.
+
+function isPrime(num) {
+  const factors = []
+  for (let i = 0; i <= num; i++) {
+    if (num % i === 0) factors.push(i)
+  }
+  return factors.length === 2
+}
+
 // Create a function that takes an array of positive and negative numbers. Return an array where the first element is the count of positive numbers and the second element is the sum of negative numbers.
 // Examples
 // countPosSumNeg([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]) ➞ [10, -65]
