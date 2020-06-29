@@ -1,3 +1,21 @@
+// Create a function that takes multidimensional array, converts into one dimensional array and returns it using Recursion.
+// Examples
+// flatten([[17.2, 5, "code"]]) ➞ [17.2, 5, "code"]
+// flatten([[[[[2, 14, "rubber"]]], 2, 3, 4]])) ➞ [2, 14, "rubber", 2, 3, 4]
+// flatten([["balkot"]]) ➞ ["balkot"]
+// Notes
+//     Input contains at least one element.
+//     Use of built in methods is discouraged.
+
+function flatten(arr, result = []) {
+  //return arr.flat(Infinity)
+	arr.forEach(ele => {
+		if (Array.isArray(ele)) flatten(ele, result)
+    else result.push(ele)
+	})
+  return result
+}
+
 // Write a function that takes an array and a number as arguments. Add the number to the end of the array, then remove the first element of the array. The function should then return the updated array.
 // Exampless
 // nextInLine([5, 6, 7, 8, 9], 1) ➞ [6, 7, 8, 9, 1]
