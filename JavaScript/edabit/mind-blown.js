@@ -1,3 +1,455 @@
+// Imagine a school that kids attend for 6 years. In each year, there are five groups started, marked with the letters a, b, c, d, e. For the first year, the groups are 1a, 1b, 1c, 1d, 1e and for the last year, the groups are 6a, 6b, 6c, 6d, 6e.
+// Write a function that returns the groups in the school by year (as a string), separated with a comma and a space in the form of "1a, 1b, 1c, 1d, 1e, 2a, 2b (....) 5d, 5e, 6a, 6b, 6c, 6d, 6e".
+// Examples
+// printAllGroups() ➞ "1a, 1b, 1c, 1d, 1e, 2a, 2b, 2c, 2d, 2e, 3a, 3b, 3c, 3d, 3e, 4a, 4b, 4c, 4d, 4e, 5a, 5b, 5c, 5d, 5e, 6a, 6b, 6c, 6d, 6e "
+// Notes
+// Use nested "for" loops to achieve this, as well as the array of ["a", "b", "c", "d", "e"] groups.
+
+function printAllGroups(letters = ["a", "b", "c", "d", "e"], result = []) {
+  for (let i = 1; i < 7; i++) {
+    for (let ii = 0; ii < letters.length; ii++) {
+      result.push(i + letters[ii])
+    }
+  }
+  return result.join(', ')
+}
+
+// Write a function that transforms an array of characters into an array of objects, where:
+//     The keys are the characters themselves.
+//     The values are the ASCII codes of those characters.
+// Examples
+// toObj(["a", "b", "c"]) ➞ [{a: 97}, {b: 98}, {c: 99}]
+// toObj(["z"]) ➞ [{z: 122}]
+// toObj([]) ➞ []
+// Notes
+// N/A
+
+function toObj(arr) {
+	return arr.map(ele => arr[ele] = {[ele]: ele.charCodeAt(0)})
+}
+
+// Create a function that takes multidimensional array, converts into one dimensional array and returns it using Recursion.
+// Examples
+// flatten([[17.2, 5, "code"]]) ➞ [17.2, 5, "code"]
+// flatten([[[[[2, 14, "rubber"]]], 2, 3, 4]])) ➞ [2, 14, "rubber", 2, 3, 4]
+// flatten([["balkot"]]) ➞ ["balkot"]
+// Notes
+//     Input contains at least one element.
+//     Use of built in methods is discouraged.
+
+function flatten(arr, result = []) {
+  //return arr.flat(Infinity)
+	arr.forEach(ele => {
+		if (Array.isArray(ele)) flatten(ele, result)
+    else result.push(ele)
+	})
+  return result
+}
+
+// Write a function that takes an array and a number as arguments. Add the number to the end of the array, then remove the first element of the array. The function should then return the updated array.
+// Exampless
+// nextInLine([5, 6, 7, 8, 9], 1) ➞ [6, 7, 8, 9, 1]
+// nextInLine([7, 6, 3, 23, 17], 10) ➞ [6, 3, 23, 17, 10]
+// nextInLine([1, 10, 20, 42 ], 6) ➞ [10, 20, 42, 6]
+// nextInLine([], 6) ➞ "No array has been selected"
+// Notes
+// For an empty array input, return: "No array has been selected"
+
+function nextInLine(arr, num) {
+	if (!arr.length) return 'No array has been selected'
+  else {
+    arr.shift()
+    arr.push(num)
+  }
+  return arr
+}
+
+// Create a function that compares two words based on the sum of their ASCII codes and returns the word with the smaller ASCII sum.
+// Examples
+// asciiSort(["hey", "man"]) ➞ "man"
+// // ["h", "e", "y"] ➞ sum([104, 101, 121]) ➞ 326
+// // ["m", "a", "n"] ➞ sum([109, 97, 110]) ➞ 316
+// asciiSort(["majorly", "then"]) ➞ "then"
+// asciiSort(["victory", "careless"]) ➞ "victory"
+// Notes
+// Both words will have strictly different ASCII sums.
+
+function asciiSort(arr) {
+	const asciiArr = arr.map(ele => ele.split('').reduce((cur, acc) => cur + acc.charCodeAt(0), 0))
+  return arr[asciiArr.indexOf(Math.min.apply(null, asciiArr))]
+}
+
+// Create a function that returns true if a number is prime and false if it's not. A prime number is any positive integer that is evenly divisible by only two divisors: 1 and itself. The first ten prime numbers are 2, 3, 5, 7, 11, 13, 17, 19, 23 and 29.
+// Examples
+// isPrime(7) ➞ true
+// isPrime(9) ➞ false
+// isPrime(10) ➞ false
+// Notes
+//     1 is not a prime number.
+//     If a number is odd it is not divisible by an even number.
+
+function isPrime(num) {
+  const factors = []
+  for (let i = 0; i <= num; i++) {
+    if (num % i === 0) factors.push(i)
+  }
+  return factors.length === 2
+}
+
+// Create a function that takes an array of positive and negative numbers. Return an array where the first element is the count of positive numbers and the second element is the sum of negative numbers.
+// Examples
+// countPosSumNeg([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]) ➞ [10, -65]
+// // There are a total of 10 positive numbers.
+// // The sum of all negative numbers equals -65.
+// countPosSumNeg([92, 6, 73, -77, 81, -90, 99, 8, -85, 34]) ➞ [7, -252]
+// countPosSumNeg([91, -4, 80, -73, -28]) ➞ [2, -105]
+// countPosSumNeg([]) ➞ []
+// Notes
+//     If given an empty array, return an empty array: []
+//     0 is not positive.
+
+function countPosSumNeg(arr, countPos = 0, sumNeg = 0) {
+  if (!arr.length) return []
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) countPos++
+    else if (arr[i] < 0) sumNeg += arr[i]
+  }
+  return [countPos, sumNeg]
+}
+
+// Write a function that returns true if an integer is a power of 2, and false otherwise.
+// Examples
+// powerOfTwo(32) ➞ true
+// powerOfTwo(1) ➞ true
+// powerOfTwo(-7) ➞ false
+// powerOfTwo(18) ➞ false
+// Notes
+// N/A
+
+function powerOfTwo(num) {
+	return Math.log2(num) % 1 === 0
+}
+
+// A game of table tennis almost always sounds like Ping! followed by Pong! Therefore, you know that Player 2 has won if you hear Pong! as the last sound (since Player 1 didn't return the ball back).
+// Given an array of Ping!, create a function that inserts Pong! in between each element. Also:
+//     If win equals true, end the list with Pong!.
+//     If win equals false, end with Ping! instead.
+// Examples
+// pingPong(["Ping!"], true) ➞ ["Ping!", "Pong!"]
+// pingPong(["Ping!", "Ping!"], false) ➞ ["Ping!", "Pong!", "Ping!"]
+// pingPong(["Ping!", "Ping!", "Ping!"], true) ➞ ["Ping!", "Pong!", "Ping!", "Pong!", "Ping!", "Pong!"]
+// Notes
+//     You will always return the ball (i.e. the Pongs are yours).
+//     Player 1 serves the ball and makes Ping!.
+//     Return an array of strings.
+
+function pingPong(arr, win) {
+  if (arr.length === 1) {
+    arr[arr.length] = 'Pong!'
+    return arr
+  }
+	for (let i = arr.length - 1; i >= 1; i--) {
+    if (win === true) {
+      arr.splice(i, 0, 'Pong!')
+      arr[arr.length] = 'Pong!'
+      arr.length = 6
+    }
+    else arr.splice(i, 0, 'Pong!')
+  }
+  return arr
+}
+
+// Write a function that takes three arguments (x, y, z) and returns an array containing x subarrays (e.g. [[], [], []]), each containing y number of item z.
+//     x Number of subarrays contained within the main array.
+//     y Number of items contained within each subarray.
+//     z Item contained within each subarray.
+// Examples
+// matrix(3, 2, 3) ➞ [[3, 3], [3, 3], [3, 3]]
+// matrix(2, 1, "edabit") ➞ [["edabit"], ["edabit"]]
+// matrix(3, 2, 0) ➞ [[0, 0], [0, 0], [0, 0]]
+// Notes
+//     The first two arguments will always be integers.
+//     The third argument is either a string or an integer.
+
+function matrix(x, y, z) {
+	// return Array(x).fill(Array(y).fill(z))
+  const mainArr = []
+  mainArr.length = x
+  for (let i = 0; i < x; i++) {
+    mainArr[i] = []
+    mainArr[i].length = y
+    mainArr[i].fill(z)
+  }
+  return mainArr
+}
+
+// Given the month and year as numbers, return whether that month contains a Friday 13th.
+// Examples
+// hasFriday13(3, 2020) ➞ true
+// hasFriday13(10, 2017) ➞ true
+// hasFriday13(1, 1985) ➞ false
+// Notes
+// January will be given as 1, February as 2, etc ...
+
+function hasFriday13(month, year) {
+	return new Date(`${year}-${month}-13`).getDay() === 5
+}
+
+// Stalactites hang from the ceiling of a cave while stalagmites grow from the floor.
+// Create a function that determines whether the input represents "stalactites" or "stalagmites". If it represents both, return "both". Input will be a 2D array, with 1 representing a piece of rock, and 0 representing air space.
+// Examples
+// mineralFormation([
+//   [0, 1, 0, 1],
+//   [0, 1, 0, 1],
+//   [0, 0, 0, 1],
+//   [0, 0, 0, 0]
+// ]) ➞ "stalactites"
+// mineralFormation([
+//   [0, 0, 0, 0],
+//   [0, 1, 0, 1],
+//   [0, 1, 1, 1],
+//   [0, 1, 1, 1]
+// ]) ➞ "stalagmites"
+// mineralFormation([
+//   [1, 0, 1, 0],
+//   [1, 1, 0, 1],
+//   [0, 1, 1, 1],
+//   [0, 1, 1, 1]
+// ]) ➞ "both"
+// Notes
+//     There won't be any examples where both stalactites and stalagmites meet (because those are called pillars).
+//     There won't be any example of neither stalactites nor stalagmites.
+
+function mineralFormation(cave) {
+  const tites = cave[0].some(ele => ele === 1)
+  const mites = cave[cave.length - 1].some(ele => ele === 1)
+  if (tites && mites) return 'both'
+  else if (tites) return 'stalactites'
+  else if (mites) return 'stalagmites'
+}
+
+// Write a function that returns true if the binary string can be rearranged to form a string of alternating 0s and 1s.
+// Examples
+// canAlternate("0001111") ➞ true
+// // Can make: "1010101"
+// canAlternate("01001") ➞ true
+// // Can make: "01010"
+// canAlternate("010001") ➞ false
+// canAlternate("1111") ➞ false
+// Notes
+//     No substring of the output may contain more than one consecutive repeating character (e.g. 00 or 11 are not allowed).
+//     Return false if a string only contains 0s or only contains 1s.
+
+function canAlternate(s, zeros = 0, ones = 0) {
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '0') zeros++
+    else ones++
+  }
+  return zeros === ones || zeros - 1 === ones || zeros + 1 === ones
+}
+
+// Write a function that returns the longest sequence of consecutive zeroes in a binary string.
+// Examples
+// longestZero("01100001011000") ➞ "0000"
+// longestZero("100100100") ➞ "00"
+// longestZero("11111") ➞ ""
+// Notes
+// If no zeroes exist in the input, return an empty string.
+
+function longestZero(s) {
+	return s.split('1').reduce((cur, acc) => cur.length > acc.length ? cur : acc)
+}
+
+// Create a function that takes a strings characters as ASCII and returns each characters hexadecimal value as a string.
+// Examples
+// toHex("hello world") ➞ "68 65 6c 6c 6f 20 77 6f 72 6c 64"
+// toHex("Big Boi") ➞ "42 69 67 20 42 6f 69"
+// toHex("Marty Poppinson") ➞ "4d 61 72 74 79 20 50 6f 70 70 69 6e 73 6f 6e"
+// Notes
+//     Each byte must be seperated by a space.
+//     All alpha hex characters must be lowercase.
+
+function toHex(str, result = []) {
+	for (let i = 0; i < str.length; i++) {
+    result.push(str.charCodeAt(i).toString(16))
+  }
+  return result.join(' ')
+}
+
+// Create a function that takes a multidimensional array and return the total count of numbers in that array.
+// Examples
+// countNumber([["", 17.2, 5, "edabit"]]) ➞ 2
+// // 17.2 and 5.
+// countNumber([[[[[2, 14]]], 2, 3, 4]]) ➞ 5
+// // 2, 14, 2, 3 and 4.
+// countNumber([["balkot"]]) ➞ 0
+// Notes
+// Input may be array of numbers, strings and empty arrays.
+
+const countNumber = arr => {
+	const flatten = (arr, result = []) => {
+    for (let i = 0; i < arr.length; i++) {
+      const value = arr[i]
+      if (Array.isArray(value)) flatten(value, result)
+      else result.push(value)
+    }
+    return result
+  }
+  return flatten(arr).filter(ele => typeof ele === 'number').length
+};
+
+// Create a function that takes a string and replaces the vowels with another character.
+//     a = 1
+//     e = 2
+//     i = 3
+//     o = 4
+//     u = 5
+// Examples
+// replaceVowel("karachi") ➞ "k1r1ch3"
+// replaceVowel("chembur") ➞ "ch2mb5r"
+// replaceVowel("khandbari") ➞ "kh1ndb1ri"
+// Notes
+// The input will always be in lowercase.
+
+function replaceVowel(word) {
+	const vowels = { a: 1, e: 2, i: 3, o: 4, u: 5 }
+  const wordArr = [...word]
+  for (let i = 0; i < wordArr.length; i++) {
+    if (vowels[wordArr[i]]) wordArr[i] = vowels[wordArr[i]]
+  }
+  return wordArr.join('')
+}
+
+// Create a function that takes in a sentence and a character to find. Return an object of each word in the sentence, with the count of the specified character as the value.
+// Examples
+// findOccurrences("Hello World", "o") ➞ {
+//   "hello" : 1,
+//   "world" : 1
+// }
+// findOccurrences("Create a nice JUICY function", "c") ➞  {
+//   "create" : 1,
+//   "a" : 0,
+//   "nice" : 1,
+//   "juicy" : 1,
+//   "function" : 1
+// }
+// findOccurrences("An APPLE a day keeps an Archeologist AWAY...", "A") ➞ {
+//   "an" : 1,
+//   "apple" : 1,
+//   "a" : 1,
+//   "day" : 1,
+//   "keeps" : 0,
+//   "archeologist" : 1,
+//   "away..." : 2
+// }
+// Notes
+//     The function shouldn't be case sensitive.
+//     Words in the dictionary should be in lowercase.
+//     You may be required to find punctuation.
+//     Duplicate words should be ignored (see example #3 for the word "an").
+
+function findOccurrences(str, char) {
+	const dups = {}
+  const strArr = [...str.split(' ')]
+  let j = 0
+  for (let i = 0; i < strArr.length; i++) {
+    let word = strArr[i].toLowerCase()
+    if (!dups[word]) {
+      dups[word] = word.split(char.toLowerCase()).length - 1
+    }
+  }
+  return dups
+}
+
+// Write a function that takes a string, breaks it up and returns it with vowels first, consonants second. For any character that's not a vowel (like special characters or spaces), treat them like consonants.
+// Examples
+// split("abcde") ➞ "aebcd"
+// split("Hello!") ➞ "eoHll!"
+// split("What's the time?") ➞ "aeieWht's th tm?"
+// Notes
+//     Vowels are a, e, i, o, u.
+//     Define a separate isVowel() function for easier to read code (recommendation).
+
+function split(str) {
+	const strArr = [...str]
+  const vowels = 'aeiou'
+  const result = []
+  for (let i = 0; i < strArr.length; i++) {
+    if (vowels.indexOf(strArr[i]) !== -1) result.push(strArr[i])
+  }
+  for (let i = 0; i < strArr.length; i++) {
+    if (vowels.indexOf(strArr[i]) === -1) result.push(strArr[i])
+  }
+  return result.join('')
+}
+
+// Wurst is the best. Create a function that takes a string and replaces every mention of any type of sausage with the German word "Wurst," unless—of course—the sausage is already a type of German "Wurst" (i.e. "Bratwurst", see below), then leave the sausage name unchanged.
+// German Wursts	Convert to Wurst
+// Bratwurst	Kielbasa
+// Kochwurst	Chorizo
+// Leberwurst	Moronga
+// Mettwurst	Salami
+// Rostbratwurst	Sausage
+// ~	Andouille
+// ~	Naem
+// ~	Merguez
+// ~	Gurka
+// ~	Snorkers
+// ~	Pepperoni
+// Rules
+//     Append sausages from the "Convert to Wurst" column with "wurst".
+//     Do not replace any German sausage with the word "Wurst".
+//     The word "Wurst" must be title case.
+// Examples
+// wurstIsBetter("I like chorizos, but not sausages") ➞ "I like Wursts, but not Wursts"
+// wurstIsBetter("sich die Wurst vom Brot nehmen lassen") ➞ "sich die Wurst vom Brot nehmen lassen"
+// wurstIsBetter("Bratwurst and Rostbratwurst are sausages") ➞ "Bratwurst and Rostbratwurst are Wursts"
+// Notes
+// All German sausage names contain the word "wurst".
+
+function wurstIsBetter(str) {
+	return str.replace(/sausage|salami|moronga|chorizo|kielbasa|andouille|naem/gi, 'Wurst')
+}
+
+// Quantifiers indicate numbers of characters or expressions to match. By default quantifiers like * and + are "greedy", meaning that they try to match as much of the string as possible. The ? character after the quantifier makes the quantifier "non-greedy": meaning that it will stop as soon as it finds a match.
+// "some <foo> <bar> new </bar> </foo> thing".match(/<.*>/) ➞ "<foo> <bar> new </bar> </foo>"
+// "some <foo> <bar> new </bar> </foo> thing".match(/<.*?>/) ➞ "<foo>"
+// Find all HTML comments in the text. Use the ? in your expression.
+// let str = `... <!-- My -- comment test --> ..  <!----> .. `;
+// str.match(regexp) ➞ "<!-- My -- comment test -->", "<!---->"
+// Notes
+// Check the Resources if you get stuck.
+
+const REGEXP = /<!--.*?-->/g
+
+// Given an array of prices prices and a "supposed" total t, return true if there is a hidden fee added to the total (i.e. the total is greater than the sum of prices), otherwise return false.
+// Examples
+// hasHiddenFee(["$2", "$4", "$1", "$8"], "$15") ➞ false
+// hasHiddenFee(["$1", "$2", "$3"], "$6") ➞ false
+// hasHiddenFee(["$1"], "$4") ➞ true
+// Notes
+//     Remember that each price is given as a string.
+//     All $ signs will be at the beginning of the number.
+
+function hasHiddenFee(prices, t) {
+	return prices.reduce((cur, acc) => +acc.slice(1) + cur, 0) < t.slice(1)
+}
+
+// A number n is automorphic if n^2 ends in n.
+// For example: n=5, n^2=25
+// Create a function that takes a number and returns true if the number is automorphic, false if it isn't.
+// Examples
+// isAutomorphic(5) ➞ true
+// isAutomorphic(8) ➞ false
+// isAutomorphic(76) ➞ true
+// Notes
+// N/A
+
+function isAutomorphic(n) {
+  const nStr = '' + n
+	return ('' + (n * n)).slice(-nStr.length) === nStr
+}
+
 // Create a function that takes a number as input and returns true if the sum of its digits has the same parity as the entire number. Otherwise, return false.
 // Examples
 // parityAnalysis(243) ➞ true
