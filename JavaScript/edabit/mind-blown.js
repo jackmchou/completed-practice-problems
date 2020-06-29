@@ -1,3 +1,17 @@
+// Write a function that transforms an array of characters into an array of objects, where:
+//     The keys are the characters themselves.
+//     The values are the ASCII codes of those characters.
+// Examples
+// toObj(["a", "b", "c"]) ➞ [{a: 97}, {b: 98}, {c: 99}]
+// toObj(["z"]) ➞ [{z: 122}]
+// toObj([]) ➞ []
+// Notes
+// N/A
+
+function toObj(arr) {
+	return arr.map(ele => arr[ele] = {[ele]: ele.charCodeAt(0)})
+}
+
 // Create a function that takes multidimensional array, converts into one dimensional array and returns it using Recursion.
 // Examples
 // flatten([[17.2, 5, "code"]]) ➞ [17.2, 5, "code"]
