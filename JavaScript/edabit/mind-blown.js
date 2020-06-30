@@ -1,3 +1,18 @@
+// Imagine a messaging device with only one button. For the letter A, you press the button one time, for E, you press it five times, for G, it's pressed seven times, etc, etc.
+// Write a function that takes a string (the message) and returns the total number of times the button is pressed.
+// Examples
+// howManyTimes("abde") ➞ 12
+// howManyTimes("azy") ➞ 52
+// howManyTimes("qudusayo") ➞ 123
+// Notes
+// Ignore spaces.
+
+function howManyTimes(msg) {
+	const alphObj = {}
+  for (let i = 9; ++i < 36;) alphObj[i.toString(36)] = i - 9
+  return [...msg].reduce((cur, acc) => cur + alphObj[acc], 0)
+}
+
 // Create a function that takes an input (e.g. "5 + 4") and returns true if it's a mathematical expression or false if not.
 // Examples
 // mathExpr("4 + 5") ➞ true
