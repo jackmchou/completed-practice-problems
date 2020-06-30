@@ -1,3 +1,15 @@
+// The Code tab has a code which attempts to add a clone of an array to itself. There is no error message, but the results are not as expected. Can you fix the code?
+// Examples
+// clone([1, 2, 3]) ➞ [1, 2, 3, [1, 2, 3]]
+// clone(["x", "y"]) ➞ ["x", "y", ["x", "y"]]
+// Notes
+// N/A
+
+function clone(arr) {
+	arr.push([...arr])
+	return arr
+}
+
 // A man named Thomas Malthus described what is now called a Malthusian Catastrophe. According to him, food production grows by a fixed amount, but population grows by a percentage. So, the food supply would soon be insufficient for the population.
 // Your job is to find out when that will occur. For this challenge, assume 1 population needs 1 unit of food production. Food production and population both start at 100. The year starts at 0.
 // The catastrophe happens when the population is larger than food production.
