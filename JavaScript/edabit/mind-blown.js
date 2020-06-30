@@ -1,3 +1,17 @@
+// Create a function that takes an input (e.g. "5 + 4") and returns true if it's a mathematical expression or false if not.
+// Examples
+// mathExpr("4 + 5") ➞ true
+// mathExpr("4*6") ➞ true
+// mathExpr("4*no") ➞ false
+// Notes
+//     Should only work with the following operations: +, -, *, /, %
+//     You don't need to test for floats.
+//     int1 and int2 will only be from 0-9.
+
+function mathExpr(expr) {
+	return !isNaN(+expr[0])
+}
+
 // Additional spaces have been added to a sentence. Return the correct sentence by removing them. All words should be separated by one space, and there should be no spaces at the beginning or end of the sentence.
 // Examples
 // correctSpacing("The film   starts       at      midnight. ")
