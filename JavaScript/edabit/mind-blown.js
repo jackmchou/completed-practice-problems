@@ -1,3 +1,12 @@
+// const obj =  { first: "James", last: "Baker", alias: "JB"  }
+// var { first = "John", last = "Doe", alias } = obj
+// console.log(nickname) // outputs nickname is not defined
+// There may be times where we would like the property name to be different from the object property names we receive and also give those new property names a default value. Use ES6 object destructuring to rename the variable alias to nickname and give nickname a default value of "JD". Ignore the .toString() function (used for validation).
+// Notes
+// Use double quotes for "JD" If you know how to use object destructuring, go ahead and complete this challenge, otherwise check the Resources tab for some examples.
+
+const str = `({ first = "John", last = "Doe", alias : nickname = "JD" } = { first: "James", last: "Baker" }).toString()`;
+
 // Imagine a messaging device with only one button. For the letter A, you press the button one time, for E, you press it five times, for G, it's pressed seven times, etc, etc.
 // Write a function that takes a string (the message) and returns the total number of times the button is pressed.
 // Examples
