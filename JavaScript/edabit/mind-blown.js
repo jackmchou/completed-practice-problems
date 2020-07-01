@@ -1,3 +1,21 @@
+// Write a function that inserts a white space between every instance of a lower character followed immediately by an upper character.
+// Examples
+// insertWhitespace("SheWalksToTheBeach") ➞ "She Walks To The Beach"
+// insertWhitespace("MarvinTalksTooMuch") ➞ "Marvin Talks Too Much"
+// insertWhitespace("TheGreatestUpsetInHistory") ➞ "The Greatest Upset In History"
+// Notes
+// Each word in the phrase will be at least two characters long.
+
+function insertWhitespace(s) {
+  const sArr = [...s]
+  for (let i = 0; i < sArr.length - 1; i++) {
+    if (sArr[i] === sArr[i].toLowerCase() && sArr[i + 1] === sArr[i + 1].toUpperCase()) {
+      sArr[i] += ' '
+    }
+  }
+  return sArr.join('')
+}
+
 // Given what is supposed to be typed and what is actually typed, write a function that returns the broken key(s). The function looks like:
 // findBrokenKeys(correct phrase, what you actually typed)
 // Examples
