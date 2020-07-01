@@ -1,3 +1,42 @@
+// Write a function that counts how many concentric layers a rug.
+// Examples
+// countLayers([
+//   "AAAA",
+//   "ABBA",
+//   "AAAA"
+// ]) ➞ 2
+// countLayers([
+//   "AAAAAAAAA",
+//   "ABBBBBBBA",
+//   "ABBAAABBA",
+//   "ABBBBBBBA",
+//   "AAAAAAAAA"
+// ]) ➞ 3
+// countLayers([
+//   "AAAAAAAAAAA",
+//   "AABBBBBBBAA",
+//   "AABCCCCCBAA",
+//   "AABCAAACBAA",
+//   "AABCADACBAA",
+//   "AABCAAACBAA",
+//   "AABCCCCCBAA",
+//   "AABBBBBBBAA",
+//   "AAAAAAAAAAA"
+// ]) ➞ 5
+// Notes
+//     Multiple layers can share the same component so count them separately (example #2).
+//     Layers will be horizontally and vertically symmetric.
+//     There will be at least one layer for each rug.
+
+function countLayers(rug, count = 1) {
+	const midStr = rug[Math.floor(rug.length / 2)]
+  for (let i = 0; i < Math.floor(midStr.length / 2); i++) {
+    if (midStr[i] !== midStr[i + 1]) count++
+  }
+  return count
+}
+
+
 // Andy, Ben and Charlotte are playing a board game. The three of them decided to come up with a new scoring system. A player's first initial ("A", "B" or "C") denotes that player scoring a single point. Given a string of capital letters, return an array of the players' scores.
 // For instance, if ABBACCCCAC is written when the game is over, then Andy scored 3 points, Ben scored 2 points, and Charlotte scored 5 points, since there are 3 instances of letter A, 2 instances of letter B, and 5 instances of letter C. So the array [3, 2, 5] should be returned.
 // Examples
