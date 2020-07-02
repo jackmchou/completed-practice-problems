@@ -1,3 +1,26 @@
+// So we can use resolve and reject callbacks to help us store async results whether successful or unsuccessful, but what good are those if we don't have access to those results. Thus we have the then function which returns a promise that appends either a fulfilled or rejection handler(callback) or just returns the settled value.
+// let promise = new Promise( (resolve, reject) => {
+//   setTimeout(( ) => {
+//      resolve("success!")
+//   }, 1000)
+// })
+// promise.then() // returns the settled value
+// promise.then((val) => console.log(val)) // logs the result of the **onFufilled** callback
+// Challenge
+//     Add the necessary pieces to fix the promise and the then function.
+//     It should resolve to a message success!.
+//     Re-assign the result to the settled value inside the then function.
+// Notes
+// Check the Resources tab for more info on promises.
+
+var result = ""
+
+let promise = new Promise((res, rej) => {
+	res('success!')
+})
+
+promise.then(() => result = 'success!')
+
 // An employee working at a very bizzare company, earns one penny on their first day. However, for every day that passes, their base amount doubles, so they earn two pennies on the second day and four pennies on the third day (totalling 7 pennies). Given a number of days, return how many pennies the employee accumulates.
 // Examples
 // doubledPay(1) ➞ 1
