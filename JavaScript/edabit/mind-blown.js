@@ -1,3 +1,31 @@
+// Create a function that creates a pattern as a 2D array for a given number.
+// Examples
+//  >
+//  >>
+//  >>>
+//  >>
+//  >
+// arrow(3) ➞ [">", ">>", ">>>", ">>", ">"]
+//  >
+//  >>
+//  >>>
+//  >>>>
+//  >>>>
+//  >>>
+//  >>
+//  >
+// arrow(4) ➞ [">", ">>", ">>>", ">>>>", ">>>>", ">>>", ">>", ">"]
+// Notes
+// Function argument will always be a number greater than 0.
+
+function arrow(n, result = []) {
+  for (let i = 1; i <= n; i++) result.push('>'.repeat(i))
+  for (let ii = n % 2 === 0 ? n : n - 1 ; ii > 0; ii--) {
+    result.push('>'.repeat(ii))
+  }
+  return result
+}
+
 // So we can use resolve and reject callbacks to help us store async results whether successful or unsuccessful, but what good are those if we don't have access to those results. Thus we have the then function which returns a promise that appends either a fulfilled or rejection handler(callback) or just returns the settled value.
 // let promise = new Promise( (resolve, reject) => {
 //   setTimeout(( ) => {
