@@ -1,3 +1,21 @@
+// Create a function which validates whether a given array alternates between positive and negative numbers.
+// Examples
+// alternatePosNeg([3, -2, 5, -5, 2, -8]) ➞ tru
+// alternatePosNeg([-6, 1, -1, 4, -3]) ➞ true
+// alternatePosNeg([4, 4, -2, 3, -6, 10]) ➞ false
+// Notes
+//     It doesn't matter if an array begins/ends with a positive or negative, as long as it alternates.
+//     If an array contains 0, return false (as it is neither positive nor negative).
+
+function alternatePosNeg(arr) {
+	for (let i = 0; i < arr.length; i++) {
+    const dualPos = arr[i] > 0 && arr[i + 1] > 0
+    const dualNeg = arr[i] < 0 && arr[i + 1] < 0
+    if (dualPos || dualNeg || arr[i] === 0) return false
+  }
+  return true
+}
+
 // Write a program to find all the prime factors of a given number. The program must return an array containing all the prime factors, sorted in ascending order. Remember that 1 is neither prime nor composite and should not be included in your output array.
 // Examples
 // primeFactorize(25) ➞ [5, 5]
