@@ -1,3 +1,21 @@
+// Quantifiers indicate numbers of characters or expressions to match.
+// x* matches the preceding item "x" 0 or more times.
+// "A ghost booooed".match(/bo*/) ➞ "boooo"
+// x+ matches the preceding item "x" 1 or more times. Equivalent to {1,}.
+// "caaaaaaandy".match(/a+/) ➞ "aaaaaa"
+// x? matches the preceding item "x" 0 or 1 times. If used immediately after any of the quantifiers *, +, ?, or {}, makes the quantifier non-greedy (matching the minimum number of times), as opposed to the default, which is greedy (matching the maximum number of times).
+// "angle.".match(/e?le?/) ➞ "le"
+// "angel.".match(/e?le?/) ➞ "el"
+//     Write the regex to match only the street.
+//     Use a quantifier in your expression.
+// Example
+// let address = "Harry Potter, 4 Privet Drive, Little Whinging, Surrey"
+// address.match(REGEXP) ➞ "4 Privet Drive"
+// Notes
+// Check the Resources tab if you get stuck.
+
+const REGEXP = /\w+ \w* [St|Drive|Avenue]+/
+
 // Unfair hurdles are hurdles which are either too high, or way too close together.
 // Create a function which takes in an array of strings, representing hurdles, and returns whether or not they are unfair. For the purposes of this challenge, unfair hurdles are:
 //     At least 4 characters tall.
@@ -28,11 +46,11 @@
 //     Hurdles are always evenly spaced.
 
 function isUnfairHurdle(hurdles, distance = []) {
-  if (hurdles.length < 4) return false
   for (let i = 0; i < hurdles[0].length; i++) {
     if (hurdles[0][i] === '#') distance.push(i)
   }
-  return (distance[1] - distance[0] - 1) <= 4
+  const spaces = distance[1] - distance[0]
+  return spaces < 5 || hurdles.length > 3
 }
 
 // Create a function which validates whether a given array alternates between positive and negative numbers.
