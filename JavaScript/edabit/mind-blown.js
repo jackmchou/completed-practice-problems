@@ -1,3 +1,24 @@
+// Create a function that will find all primes below a given number. Return the result as an array.
+// Examples
+// primesBelowNum(5) ➞ [2, 3, 5]
+// primesBelowNum(10) ➞ [2, 3, 5, 7]
+// primesBelowNum(20) ➞ [2, 3, 5, 7, 11, 13, 17, 19]
+// Notes
+// If n is a prime, it is included in the array.
+
+function primesBelowNum(n, result = []) {
+  const isPrime = (num) => {
+    for (let i = 2; i < num; i++) {
+      if (num % i === 0) return false
+    }
+    return true
+  }
+  for (let ii = 2; ii <= n; ii++) {
+    if (isPrime(ii)) result.push(ii)
+  }
+  return result
+}
+
 // Create a function that takes an array of objects like { name: 'John', notes: [3, 5, 4]} and returns an array of objects like { name: "John", topNote: 5 }.
 // If student has no notes (an empty array) then let's assume topNote: 0.
 // Examples
