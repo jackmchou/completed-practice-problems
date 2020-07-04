@@ -1,3 +1,20 @@
+// Create a function that takes an array of objects like { name: 'John', notes: [3, 5, 4]} and returns an array of objects like { name: "John", topNote: 5 }.
+// If student has no notes (an empty array) then let's assume topNote: 0.
+// Examples
+// [
+//   { name: "John", notes: [3, 5, 4]}
+// ] ➞ [
+//   { name: "John", topNote: 5}
+// ]
+// Notes
+// Try doing it with an arrow function.
+
+function getStudentsWithNamesAndTopNotes(students) {
+  return students.map(obj => {
+    return {name: obj.name, topNote: obj.notes.length ? Math.max(...obj.notes) : 0}
+  })
+}
+
 // Quantifiers indicate numbers of characters or expressions to match.
 // x* matches the preceding item "x" 0 or more times.
 // "A ghost booooed".match(/bo*/) ➞ "boooo"
