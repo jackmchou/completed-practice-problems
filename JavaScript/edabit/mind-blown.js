@@ -1,3 +1,578 @@
+// Create a function that will find all primes below a given number. Return the result as an array.
+// Examples
+// primesBelowNum(5) ➞ [2, 3, 5]
+// primesBelowNum(10) ➞ [2, 3, 5, 7]
+// primesBelowNum(20) ➞ [2, 3, 5, 7, 11, 13, 17, 19]
+// Notes
+// If n is a prime, it is included in the array.
+
+function primesBelowNum(n, result = []) {
+  const isPrime = (num) => {
+    for (let i = 2; i < num; i++) {
+      if (num % i === 0) return false
+    }
+    return true
+  }
+  for (let ii = 2; ii <= n; ii++) {
+    if (isPrime(ii)) result.push(ii)
+  }
+  return result
+}
+
+// Create a function that takes an array of objects like { name: 'John', notes: [3, 5, 4]} and returns an array of objects like { name: "John", topNote: 5 }.
+// If student has no notes (an empty array) then let's assume topNote: 0.
+// Examples
+// [
+//   { name: "John", notes: [3, 5, 4]}
+// ] ➞ [
+//   { name: "John", topNote: 5}
+// ]
+// Notes
+// Try doing it with an arrow function.
+
+function getStudentsWithNamesAndTopNotes(students) {
+  return students.map(obj => {
+    return {name: obj.name, topNote: obj.notes.length ? Math.max(...obj.notes) : 0}
+  })
+}
+
+// Quantifiers indicate numbers of characters or expressions to match.
+// x* matches the preceding item "x" 0 or more times.
+// "A ghost booooed".match(/bo*/) ➞ "boooo"
+// x+ matches the preceding item "x" 1 or more times. Equivalent to {1,}.
+// "caaaaaaandy".match(/a+/) ➞ "aaaaaa"
+// x? matches the preceding item "x" 0 or 1 times. If used immediately after any of the quantifiers *, +, ?, or {}, makes the quantifier non-greedy (matching the minimum number of times), as opposed to the default, which is greedy (matching the maximum number of times).
+// "angle.".match(/e?le?/) ➞ "le"
+// "angel.".match(/e?le?/) ➞ "el"
+//     Write the regex to match only the street.
+//     Use a quantifier in your expression.
+// Example
+// let address = "Harry Potter, 4 Privet Drive, Little Whinging, Surrey"
+// address.match(REGEXP) ➞ "4 Privet Drive"
+// Notes
+// Check the Resources tab if you get stuck.
+
+const REGEXP = /\w+ \w* [St|Drive|Avenue]+/
+
+// Unfair hurdles are hurdles which are either too high, or way too close together.
+// Create a function which takes in an array of strings, representing hurdles, and returns whether or not they are unfair. For the purposes of this challenge, unfair hurdles are:
+//     At least 4 characters tall.
+//     Strictly less than 4 spaces apart.
+// Examples
+// // Hurdle are good distance apart but are way too tall.
+// isUnfairHurdle([
+//   "#    #    #    #",
+//   "#    #    #    #",
+//   "#    #    #    #",
+//   "#    #    #    #"
+// ]) ➞ true
+// // Hurdles are a fine height but are way too close together.
+// isUnfairHurdle([
+//   "#  #  #  #",
+//   "#  #  #  #",
+//   "#  #  #  #"
+// ]) ➞ true
+// // These hurdles are mighty splendid.
+// isUnfairHurdle([
+//   "#      #      #      #",
+//   "#      #      #      #"
+// ]) ➞ false
+// Notes
+//     Hurdles will be represented with a hashtag "#".
+//     There will be the same spacing between hurdles.
+//     Hurdles are always as high as the length of the array.
+//     Hurdles are always evenly spaced.
+
+function isUnfairHurdle(hurdles, distance = []) {
+  for (let i = 0; i < hurdles[0].length; i++) {
+    if (hurdles[0][i] === '#') distance.push(i)
+  }
+  const spaces = distance[1] - distance[0]
+  return spaces < 5 || hurdles.length > 3
+}
+
+// Create a function which validates whether a given array alternates between positive and negative numbers.
+// Examples
+// alternatePosNeg([3, -2, 5, -5, 2, -8]) ➞ tru
+// alternatePosNeg([-6, 1, -1, 4, -3]) ➞ true
+// alternatePosNeg([4, 4, -2, 3, -6, 10]) ➞ false
+// Notes
+//     It doesn't matter if an array begins/ends with a positive or negative, as long as it alternates.
+//     If an array contains 0, return false (as it is neither positive nor negative).
+
+function alternatePosNeg(arr) {
+	for (let i = 0; i < arr.length; i++) {
+    const dualPos = arr[i] > 0 && arr[i + 1] > 0
+    const dualNeg = arr[i] < 0 && arr[i + 1] < 0
+    if (dualPos || dualNeg || arr[i] === 0) return false
+  }
+  return true
+}
+
+// Write a program to find all the prime factors of a given number. The program must return an array containing all the prime factors, sorted in ascending order. Remember that 1 is neither prime nor composite and should not be included in your output array.
+// Examples
+// primeFactorize(25) ➞ [5, 5]
+// primeFactorize(19) ➞ [19]
+// primeFactorize(77) ➞ [7, 11]
+// Notes
+//     Output array must be sorted in ascending order
+//     The only positive integer which is neither prime nor composite is 1. Return an empty array if 1 is the input.
+
+function primeFactorize(num) {
+	const factors = []
+  let divisor = 2
+  while (num >= 2) {
+    if (num % divisor == 0) {
+      factors.push(divisor);
+      num /= divisor
+    } else divisor++
+  }
+  return factors
+}
+
+// Javascript has a String prototype default in the language which contains properties and methods such as .length and .toLowerCase(). Extend the String prototype by creating two new methods:
+//     .consonants(), which returns the number of consonants in a word when called.
+//     .vowels(), which returns the number of vowels in a word when called.
+// Examples
+// "hello".consonants() ➞ 3
+// "hello".vowels() ➞ 2
+// "greatly".consonants() ➞ 5
+// "greatly".vowels() ➞ 2
+// "Smithsonian".consonants() ➞ 7
+// "Smithsonian".vowels() ➞ 4
+// Notes
+//     Treat y as a consonant, not a vowel.
+//     Upper vs. lower case does not matter.
+//     Hint: See comments for another example if you get stuck.
+// It is not mandatory for this exercise, but in general it is a good idea to double-check if there exists methods with the same name a your custom functions before using them to extend the prototype. This is to prevent the accidental overwrite of a pre-existing method. (See comments for additional info).
+
+String.prototype.consonants = function(count = 0) {
+	for (let i = 0; i < this.length; i++) {
+    if ('aeiou'.indexOf(this[i]) === -1) count++
+  }
+  return count
+}
+
+String.prototype.vowels = function(count = 0) {
+  for (let i = 0; i < this.length; i++) {
+    if ('aeiou'.indexOf(this[i]) !== -1) count++
+  }
+  return count
+}
+
+// A word nest is created by taking a starting word, and generating a new string by placing the word inside itself. This process is then repeated.
+// Nesting 3 times with the word "incredible":
+// start  = incredible
+// first  = incre|incredible|dible
+// second = increin|incredible|credibledible
+// third  = increinincr|incredible|ediblecredibledible
+// The final nest is "increinincrincredibleediblecredibledible" (depth = 3).
+// Given a starting word and the final word nest, return the depth of the word nest.
+// Examples
+// wordNest("floor", "floor") ➞ 0
+// wordNest("code", "cocodccococodededeodeede") ➞ 5
+// wordNest("incredible", "increinincrincredibleediblecredibledible") ➞ 3
+// Notes
+// N/A
+
+function wordNest(word, nest) {
+	return nest.length / word.length - 1
+}
+
+// Create a function that creates a pattern as a 2D array for a given number.
+// Examples
+//  >
+//  >>
+//  >>>
+//  >>
+//  >
+// arrow(3) ➞ [">", ">>", ">>>", ">>", ">"]
+//  >
+//  >>
+//  >>>
+//  >>>>
+//  >>>>
+//  >>>
+//  >>
+//  >
+// arrow(4) ➞ [">", ">>", ">>>", ">>>>", ">>>>", ">>>", ">>", ">"]
+// Notes
+// Function argument will always be a number greater than 0.
+
+function arrow(n, result = []) {
+  for (let i = 1; i <= n; i++) result.push('>'.repeat(i))
+  for (let ii = n % 2 === 0 ? n : n - 1 ; ii > 0; ii--) {
+    result.push('>'.repeat(ii))
+  }
+  return result
+}
+
+// So we can use resolve and reject callbacks to help us store async results whether successful or unsuccessful, but what good are those if we don't have access to those results. Thus we have the then function which returns a promise that appends either a fulfilled or rejection handler(callback) or just returns the settled value.
+// let promise = new Promise( (resolve, reject) => {
+//   setTimeout(( ) => {
+//      resolve("success!")
+//   }, 1000)
+// })
+// promise.then() // returns the settled value
+// promise.then((val) => console.log(val)) // logs the result of the **onFufilled** callback
+// Challenge
+//     Add the necessary pieces to fix the promise and the then function.
+//     It should resolve to a message success!.
+//     Re-assign the result to the settled value inside the then function.
+// Notes
+// Check the Resources tab for more info on promises.
+
+var result = ""
+
+let promise = new Promise((res, rej) => {
+	res('success!')
+})
+
+promise.then(() => result = 'success!')
+
+// An employee working at a very bizzare company, earns one penny on their first day. However, for every day that passes, their base amount doubles, so they earn two pennies on the second day and four pennies on the third day (totalling 7 pennies). Given a number of days, return how many pennies the employee accumulates.
+// Examples
+// doubledPay(1) ➞ 1
+// doubledPay(2) ➞ 3
+// doubledPay(3) ➞ 7
+// Notes
+// You will only get tests for valid positive integers.
+
+function doubledPay(n, pay = 1) {
+	for(let i = 1; i <= n; i++) {
+    pay *= 2
+  }
+  return pay - 1
+}
+
+// Write a function to replace all instances of character c1 with character c2 and vice versa.
+// Examples
+// doubleSwap( "aabbccc", "a", "b") ➞ "bbaaccc"
+// doubleSwap("random w#rds writt&n h&r&", "#", "&")
+// ➞ "random w&rds writt#n h#r#"
+// doubleSwap("128 895 556 788 999", "8", "9")
+// ➞ "129 985 556 799 888"
+// Notes
+// Both characters will show up at least once in the string.
+
+function doubleSwap(str, c1, c2) {
+  const strArr = [...str]
+  for (let i = 0; i < strArr.length; i++) {    
+    switch (strArr[i]) {
+      case c1:
+       strArr[i] = c2
+       break;
+      case c2:
+       strArr[i] = c1
+       break;
+    }
+  }
+  return strArr.join('')
+}
+
+// Write a function that inserts a white space between every instance of a lower character followed immediately by an upper character.
+// Examples
+// insertWhitespace("SheWalksToTheBeach") ➞ "She Walks To The Beach"
+// insertWhitespace("MarvinTalksTooMuch") ➞ "Marvin Talks Too Much"
+// insertWhitespace("TheGreatestUpsetInHistory") ➞ "The Greatest Upset In History"
+// Notes
+// Each word in the phrase will be at least two characters long.
+
+function insertWhitespace(s) {
+  const sArr = [...s]
+  for (let i = 0; i < sArr.length - 1; i++) {
+    if (sArr[i] === sArr[i].toLowerCase() && sArr[i + 1] === sArr[i + 1].toUpperCase()) {
+      sArr[i] += ' '
+    }
+  }
+  return sArr.join('')
+}
+
+// Given what is supposed to be typed and what is actually typed, write a function that returns the broken key(s). The function looks like:
+// findBrokenKeys(correct phrase, what you actually typed)
+// Examples
+// findBrokenKeys("happy birthday", "hawwy birthday") ➞ ["p"]
+// findBrokenKeys("starry night", "starrq light") ➞ ["y", "n"]
+// findBrokenKeys("beethoven", "affthoif5") ➞ ["b", "e", "v", "n"]
+// Notes
+//     Broken keys should be ordered by when they first appear in the sentence.
+//     Only one broken key per letter should be listed.
+//     Letters will all be in lower case.
+
+function findBrokenKeys(str1, str2) {
+	const broken = []
+  for (let i = 0; i < str1.length; i++) {
+    if (str1[i] !== str2[i] && broken.indexOf(str1[i]) === -1) broken.push(str1[i])
+  }
+  return broken
+}
+
+// A pandigital number contains all digits (0-9) at least once. Write a function that takes an integer, returning true if the integer is pandigital, and false otherwise.
+// Examples
+// isPandigital(98140723568910) ➞ true
+// isPandigital(90864523148909) ➞ false
+// // 7 is missing.
+// isPandigital(112233445566778899) ➞ false
+// Notes
+// Think about the properties of a pandigital number when all duplicates are removed.
+
+function isPandigital(num) {
+	const numStr = '' + num
+  const dups = {}
+  const uniq = []
+  let j = 0
+  for (let i = 0; i < numStr.length; i++) {
+    let n = numStr[i]
+    if(dups[n] !== 0) {
+      dups[n] = 0
+      uniq[j++] = n
+    }
+  }
+  for (let i = 0; i < 10; i++) {
+    if (uniq.join('').indexOf(i) === -1) return false
+  }
+  return true
+}
+
+// We handle resolve callbacks with then, but what about reject callbacks? We have a catch function that we can use to handle errors or rejected promises. It is generally a good idea to have an error handler at the end of your promises.
+// Challenge
+//     Write an error handler for the provided promise. Re-assign errorLog to the error inside your error handler.
+//     The error handler must be added to the original promise. So you can't do promise.catch(/error handling/). See the Comments for more details.
+// Notes
+// Check the Resources tab for more info on promises.
+
+let errorLog = {}
+
+let promise = new Promise((resolve, reject) => {
+  throw new Error('Something failed')
+}).catch(err => {
+  errorLog.message = err.message
+  return err
+})
+
+// Groups and ranges indicate groups and ranges of expression characters. Named capturing groups matches "x" in (?\<Name>x) and stores it on the groups property of the returned matches under the name specified by \<Name>. The angle brackets (< and >) are required for group name.
+// To extract the United States area code from a phone number, we could use:
+// let match = "(214) 987-6482".match(/\((?<area>\d\d\d)\)/)
+// console.log(match.groups.area) ➞ 214
+// Grab the year, month and day from a string of dates. Name your groups with year, month, and day and in that order in your expression. You only have to come up with the regular expression. The replace() function is already implemented in the test.
+// let REGEXP = your solution
+// let str = "2019-10-30, 2020-01-01"
+// str.replace(regexp, "$<day>.$<month>.$<year>") ➞ "30.10.2019, 01.01.2020"
+// Notes
+//     Dates do not go back before 1900.
+//     Dates always come in year-month-day format.
+//     Check the Resources tab if you get stuck.
+
+let REGEXP = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/g
+
+// A boomerang is a V-shaped sequence that is either upright or upside down. Specifically, a boomerang can be defined as: sub-array of length 3, with the first and last digits being the same and the middle digit being different.
+// Some boomerang examples: [3, 7, 3], [1, -1, 1], [5, 6, 5]
+// Create a function that returns the total number of boomerangs in an array.
+// To illustrate:
+// [3, 7, 3, 2, 1, 5, 1, 2, 2, -2, 2]
+// // 3 boomerangs in this sequence:  [3, 7, 3], [1, 5, 1], [2, -2, 2]
+// Be aware that boomerangs can overlap, like so:
+// [1, 7, 1, 7, 1, 7, 1]
+// // 5 boomerangs (from left to right): [1, 7, 1], [7, 1, 7], [1, 7, 1], [7, 1, 7], and [1, 7, 1]
+// Examples
+// countBoomerangs([9, 5, 9, 5, 1, 1, 1]) ➞ 2
+// countBoomerangs([5, 6, 6, 7, 6, 3, 9]) ➞ 1
+// countBoomerangs([4, 4, 4, 9, 9, 9, 9]) ➞ 0
+// Notes
+// [5, 5, 5] (triple identical digits) is NOT considered a boomerang because the middle digit is identical to the first and last.
+
+function countBoomerangs(arr, count = 0) {
+	for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== arr[i + 1] && arr[i] === arr[i + 2]) count++
+  }
+  return count
+}
+
+// Write a function that counts how many concentric layers a rug.
+// Examples
+// countLayers([
+//   "AAAA",
+//   "ABBA",
+//   "AAAA"
+// ]) ➞ 2
+// countLayers([
+//   "AAAAAAAAA",
+//   "ABBBBBBBA",
+//   "ABBAAABBA",
+//   "ABBBBBBBA",
+//   "AAAAAAAAA"
+// ]) ➞ 3
+// countLayers([
+//   "AAAAAAAAAAA",
+//   "AABBBBBBBAA",
+//   "AABCCCCCBAA",
+//   "AABCAAACBAA",
+//   "AABCADACBAA",
+//   "AABCAAACBAA",
+//   "AABCCCCCBAA",
+//   "AABBBBBBBAA",
+//   "AAAAAAAAAAA"
+// ]) ➞ 5
+// Notes
+//     Multiple layers can share the same component so count them separately (example #2).
+//     Layers will be horizontally and vertically symmetric.
+//     There will be at least one layer for each rug.
+
+function countLayers(rug, count = 1) {
+	const midStr = rug[Math.floor(rug.length / 2)]
+  for (let i = 0; i < Math.floor(midStr.length / 2); i++) {
+    if (midStr[i] !== midStr[i + 1]) count++
+  }
+  return count
+}
+
+// Andy, Ben and Charlotte are playing a board game. The three of them decided to come up with a new scoring system. A player's first initial ("A", "B" or "C") denotes that player scoring a single point. Given a string of capital letters, return an array of the players' scores.
+// For instance, if ABBACCCCAC is written when the game is over, then Andy scored 3 points, Ben scored 2 points, and Charlotte scored 5 points, since there are 3 instances of letter A, 2 instances of letter B, and 5 instances of letter C. So the array [3, 2, 5] should be returned.
+// Examples
+// calculateScores("A") ➞ [1, 0, 0]
+// calculateScores("ABC") ➞ [1, 1, 1]
+// calculateScores("ABCBACC") ➞ [2, 2, 3]
+// Notes
+// If given an empty string as an input, return [0, 0, 0].
+
+function calculateScores(str) {
+  let players = { A:0, B:0, C:0 }
+	for (let i = 0; i < str.length; i++) players[str[i]]++
+  return Object.values(players)
+}
+
+// Two sisters are eating chocolate, whose pieces are represented as subarrays of [l x w].
+// Write a function that returns true if the total area of chocolate is the same for each sister.
+// To illustrate:
+// testFairness([[4, 3], [2, 4], [1, 2]],
+// [[6, 2], [4, 2], [1, 1], [1, 1]])
+// ➞ true
+// // Agatha's pieces: [4, 3], [2, 4], [1, 2]
+// // Bertha's pieces: [6, 2], [4, 2], [1, 1], [1, 1]
+// // Total area of Agatha's chocolate
+// // 4x3 + 2x4 + 1x2 = 12 + 8 + 2 = 22
+// // Total area of Bertha's chocolate is:
+// // 6x2 + 4x2 + 1x1 + 1x1 = 12 + 8 + 1 + 1 = 22
+// Examples
+// testFairness([[1, 2], [2, 1]], [[2, 2]]) ➞ true
+// testFairness([[1, 2], [2, 1]], [[2, 2], [4, 4]]) ➞ false
+// testFairness([[2, 2], [2, 2], [2, 2], [2, 2]], [[4, 4]]) ➞ true
+// testFairness([[1, 5], [6, 3], [1, 1]], [[7, 1], [2, 2], [1, 1]]) ➞ false
+// Notes
+// N/A
+
+function testFairness(agatha, bertha) {
+  const sum = arr => arr.map(ele => ele.reduce((cur, acc) => cur * acc)).reduce((cur, acc) => cur + acc)
+  return sum(agatha) === sum(bertha)
+}
+
+// const obj =  { first: "James", last: "Baker", alias: "JB"  }
+// var { first = "John", last = "Doe", alias } = obj
+// console.log(nickname) // outputs nickname is not defined
+// There may be times where we would like the property name to be different from the object property names we receive and also give those new property names a default value. Use ES6 object destructuring to rename the variable alias to nickname and give nickname a default value of "JD". Ignore the .toString() function (used for validation).
+// Notes
+// Use double quotes for "JD" If you know how to use object destructuring, go ahead and complete this challenge, otherwise check the Resources tab for some examples.
+
+const str = `({ first = "John", last = "Doe", alias : nickname = "JD" } = { first: "James", last: "Baker" }).toString()`;
+
+// Imagine a messaging device with only one button. For the letter A, you press the button one time, for E, you press it five times, for G, it's pressed seven times, etc, etc.
+// Write a function that takes a string (the message) and returns the total number of times the button is pressed.
+// Examples
+// howManyTimes("abde") ➞ 12
+// howManyTimes("azy") ➞ 52
+// howManyTimes("qudusayo") ➞ 123
+// Notes
+// Ignore spaces.
+
+function howManyTimes(msg) {
+	const alphObj = {}
+  for (let i = 9; ++i < 36;) alphObj[i.toString(36)] = i - 9
+  return [...msg].reduce((cur, acc) => cur + alphObj[acc], 0)
+}
+
+// Create a function that takes an input (e.g. "5 + 4") and returns true if it's a mathematical expression or false if not.
+// Examples
+// mathExpr("4 + 5") ➞ true
+// mathExpr("4*6") ➞ true
+// mathExpr("4*no") ➞ false
+// Notes
+//     Should only work with the following operations: +, -, *, /, %
+//     You don't need to test for floats.
+//     int1 and int2 will only be from 0-9.
+
+function mathExpr(expr) {
+	return !isNaN(+expr[0])
+}
+
+// Additional spaces have been added to a sentence. Return the correct sentence by removing them. All words should be separated by one space, and there should be no spaces at the beginning or end of the sentence.
+// Examples
+// correctSpacing("The film   starts       at      midnight. ")
+// ➞ "The film starts at midnight."
+// correctSpacing("The     waves were crashing  on the     shore.   ")
+// ➞ "The waves were crashing on the shore."
+// correctSpacing(" Always look on    the bright   side of  life.")
+// ➞ "Always look on the bright side of life."
+// Notes
+// N/A
+
+function correctSpacing(sentence) {
+	return sentence.trim().split(' ').filter(ele => ele !== '').join(' ')
+}
+
+// The Code tab has a code which attempts to add a clone of an array to itself. There is no error message, but the results are not as expected. Can you fix the code?
+// Examples
+// clone([1, 2, 3]) ➞ [1, 2, 3, [1, 2, 3]]
+// clone(["x", "y"]) ➞ ["x", "y", ["x", "y"]]
+// Notes
+// N/A
+
+function clone(arr) {
+	arr.push([...arr])
+	return arr
+}
+
+// A man named Thomas Malthus described what is now called a Malthusian Catastrophe. According to him, food production grows by a fixed amount, but population grows by a percentage. So, the food supply would soon be insufficient for the population.
+// Your job is to find out when that will occur. For this challenge, assume 1 population needs 1 unit of food production. Food production and population both start at 100. The year starts at 0.
+// The catastrophe happens when the population is larger than food production.
+// The function will pass:
+//     foodGrowth ⁠— an integer ⁠— food production increase per year.
+//     popMult ⁠— a floating-point number ⁠— population growth multiplier per year.
+// Examples
+// malthusian(4255, 1.41) ➞ 20
+// // { foodProd: 85,200, pop: 96,467.77..., year: 20 }
+// malthusian(9433, 1.09) ➞ 107
+// // { foodProd: 1,009,431, pop: 1,010,730.28..., year: 107 }
+// malthusian(5879, 1.77) ➞ 12
+// // { foodProd: 70,648, pop: 94,553.84..., year: 12 }
+// Notes
+//     Return the year that the overtake happens, not the next year.
+//     Make sure you don't make the mistake of adding a year, then calculating the changes to food and population. That way, you miss year 0.
+//     If the population and food production are equal, that is not a catastrophe.
+
+function malthusian(foodGrowth, popMult) {
+	const obj = {foodProd: 100, pop: 100, year: 0}
+  do {
+    obj.foodProd += foodGrowth
+    obj.pop *= popMult
+    obj.year++
+  } while (obj.foodProd >= obj.pop)
+  return obj.year
+}
+
+// This is a reverse coding challenge. Normally you're given explicit directions with how to create a function. Here, you must generate your own function to satisfy the relationship between the inputs and outputs.
+// Your task is to create a function that, when fed the inputs below, produces the sample outputs shown.
+// Examples
+// mysteryFunc(152) ➞ 10
+// mysteryFunc(832) ➞ 48
+// mysteryFunc(19) ➞ 9
+// mysteryFunc(133) ➞ 9
+// Notes
+// N/A
+
+function mysteryFunc(num) {
+  return [...('' + num)].reduce((cur, acc) => cur * +acc)
+}
+
 // Imagine a school that kids attend for 6 years. In each year, there are five groups started, marked with the letters a, b, c, d, e. For the first year, the groups are 1a, 1b, 1c, 1d, 1e and for the last year, the groups are 6a, 6b, 6c, 6d, 6e.
 // Write a function that returns the groups in the school by year (as a string), separated with a comma and a space in the form of "1a, 1b, 1c, 1d, 1e, 2a, 2b (....) 5d, 5e, 6a, 6b, 6c, 6d, 6e".
 // Examples
