@@ -29,6 +29,24 @@
 //     Curiosity: the first number to repeat in the sequence is 42...
 //     Curiosity: the first number with a BIG delay in the sequence is 19.
 
+// You are given an input array of bigrams, and an array of words.
+// Write a function that returns true if you can find every single bigram from this array can be found at least once in an array of words.
+// Examples
+// canFind(["at", "be", "th", "au"], ["beautiful", "the", "hat"]) ➞ true
+// canFind(["ay", "be", "ta", "cu"], ["maybe", "beta", "abet", "course"]) ➞ false
+// # "cu" does not exist in any of the words
+// canFind(["th", "fo", "ma", "or"], ["the", "many", "for", "forest"]) ➞ true
+// canFind(["oo", "mi", "ki", "la"], ["milk", "chocolate", "cooks"]) ➞ false
+// Notes
+// A bigram is string of two consecutive characters.
+
+function canFind(bigrams, words) {
+	for (let i = 0; i < bigrams.length; i++) {
+    if (words.join('').indexOf(bigrams[i]) === -1) return false
+  }
+  return true
+}
+
 // You have an array of item codes with the following format: "[letters][digits]"
 // Create a function that splits these strings into their alphabetic and numeric parts.
 // Examples
@@ -41,8 +59,7 @@
 function splitCode(item, result = []) {
   for (let i = 0; i < item.length; i++) {
     if (isNaN(item[i]) && parseInt(item[i + 1], 10)) {
-      result.push(item.slice(0, i + 1))
-      result.push(parseInt(item.slice(i + 1)))
+      result = [item.slice(0, i + 1), parseInt(item.slice(i + 1))]
     }
   }
   return result 
