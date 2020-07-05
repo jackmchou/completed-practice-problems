@@ -29,6 +29,25 @@
 //     Curiosity: the first number to repeat in the sequence is 42...
 //     Curiosity: the first number with a BIG delay in the sequence is 19.
 
+// You have an array of item codes with the following format: "[letters][digits]"
+// Create a function that splits these strings into their alphabetic and numeric parts.
+// Examples
+// splitCode("TEWA8392") ➞ ["TEWA", 8392]
+// splitCode("MMU778") ➞ ["MMU", 778]
+// splitCode("SRPE5532") ➞ ["SRPE", 5532]
+// Notes
+// N/A
+
+function splitCode(item, result = []) {
+  for (let i = 0; i < item.length; i++) {
+    if (isNaN(item[i]) && parseInt(item[i + 1], 10)) {
+      result.push(item.slice(0, i + 1))
+      result.push(parseInt(item.slice(i + 1)))
+    }
+  }
+  return result 
+}
+
 // Write a function that returns all the elements in an array that are strictly greater than their adjacent left and right neighbors.
 // Examples
 // miniPeaks([4, 5, 2, 1, 4, 9, 7, 2]) ➞ [5, 9]
