@@ -29,6 +29,53 @@
 //     Curiosity: the first number to repeat in the sequence is 42...
 //     Curiosity: the first number with a BIG delay in the sequence is 19.
 
+// Make a function that encrypts a given input with these steps:
+// Input: "apple"
+// Step 1: Reverse the input: "elppa"
+// Step 2: Replace all vowels using the following chart:
+// a => 0
+// e => 1
+// i => 2
+// o => 2
+// u => 3
+// // "1lpp0"
+// Step 3: Add "aca" to the end of the word: "1lpp0aca"
+// Output: "1lpp0aca"
+// Examples
+// encrypt("banana") ➞ "0n0n0baca"
+// encrypt("karaca") ➞ "0c0r0kaca"
+// encrypt("burak") ➞ "k0r3baca"
+// encrypt("alpaca") ➞ "0c0pl0aca"
+// Notes
+// All inputs are strings, no uppercases and all output must be strings.
+
+
+
+// Your job is to create a function, that takes 3 numbers: a, b, c and returns true if the last digit of (the last digit of a * the last digit of b) = the last digit of c. Check examples for explanation.
+// Examples
+// lastDig(25, 21, 125) ➞ true
+// // The last digit of 25 is 5, the last digit of 21 is 1, and the last
+// // digit of 125 is 5, and the last digit of 5*1 = 5, which is equal
+// // to the last digit of 125(5).
+// lastDig(55, 226, 5190) ➞ true
+// // The last digit of 55 is 5, the last digit of 226 is 6, and the last
+// // digit of 5190 is 0, and the last digit of 5*6 = 30 is 0, which is
+// // equal to the last digit of 5190(0).
+// lastDigit(12, 215, 2142) ➞ false
+// // The last digit of 12 is 2, the last digit of 215 is 5, and the last
+// // digit of 2142 is 2, and the last digit of 2*5 = 10 is 0, which is
+// // not equal to the last digit of 2142(2).
+// Notes
+//     If you still don't understand:
+//         The last digit of a = aa, the last digit of b = bb, and the last digit of c = cc.
+//         Return true if the last digit of aa*bb is equal to cc, and false otherwise.
+//     Numbers can be negative.
+
+function lastDig(a, b, c) {
+	a = '' + a; b = '' + b; c = '' + c;
+  return ('' + (a[a.length - 1] * b[b.length - 1])).slice(-1) === c[c.length - 1]
+}
+
 // You are given an input array of bigrams, and an array of words.
 // Write a function that returns true if you can find every single bigram from this array can be found at least once in an array of words.
 // Examples
