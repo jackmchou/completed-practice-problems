@@ -1,3 +1,26 @@
+// Your open-plan office building has a scrolling message screen on the far wall. One day, you notice that the messages are starting to glitch. Some of the lower case letters are being replaced by their position in the alphabet ("a" = 1, "b" = 2, ..., "z" = 26). Given the glitched text, return the corrected message.
+// Examples
+// messageGlitch("T21e19d1y's m1r11e20i14g m5e20i14g w9l12 14o23 2e i14 20h5 3o14f5r5n3e r15o13.")
+// ➞ "Tuesday's marketing meeting will now be in the conference room."
+// messageGlitch("A s9l22e18 Pr9u19 9s d15u2l5-16a18k5d o21t19i4e. Wi12l t8e o23n5r p12e1s5 13o22e i20.")
+// ➞ "A silver Prius is double-parked outside. Will the owner please move it."
+// messageGlitch("P12e1s5 4o14'20 13i3r15w1v5 6i19h i14 20h5 20h9r4 6l15o18 11i20c8e14!")
+// ➞ "Please don't microwave fish in the third floor kitchen!"
+// Notes
+// Each group of numbers will always refer to one letter only (e.g. 14 = "n", not "ad").
+
+function messageGlitch(txt) {
+  const alphObj = {}
+  const txtArr = [...txt]
+  for (let i = 9; ++i < 36;) alphObj[i - 9] = i.toString(36)
+  for (let j = 0; j < txtArr.length; j++) {
+    if (parseInt(txtArr[j], 10) && (parseInt(txtArr[j + 1], 10) || txtArr[j + 1] === '0')) {
+      txtArr.splice(j, 2, alphObj[txtArr[j] + txtArr[j + 1]])
+    } else if (alphObj[txtArr[j]]) txtArr[j] = alphObj[txtArr[j]]
+  }
+  return txtArr.join('')
+}
+
 // The Recamán Sequence is a numeric sequence that starts always with 0. The position of a positive integer in the sequence, or Recamán Index, can be established with the following algorithm:
 //     For every number to find, two variables are considered: the value of the last element of the sequence (last element from now on), and the actual sequence length (length from now on).
 //     If the subtraction of the length from the last element returns a number greater than 0 and not already present in the sequence, it is added to the sequence.
