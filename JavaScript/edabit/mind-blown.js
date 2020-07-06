@@ -49,7 +49,19 @@
 // Notes
 // All inputs are strings, no uppercases and all output must be strings.
 
-
+function encrypt(word) {
+  let result = []
+  const vowels = {a: 0, e: 1, i: 2, o: 2, u: 3}
+  for (let i = word.length - 1; i >= 0; i--) {
+    result.push(word[i])
+  }
+  for (let i = 0; i < result.length; i++) {
+    if (vowels[result[i]] || result[i] == 'a') {
+      result[i] = vowels[result[i]]
+    }
+  }
+  return result.join('').concat('aca')
+}
 
 // Your job is to create a function, that takes 3 numbers: a, b, c and returns true if the last digit of (the last digit of a * the last digit of b) = the last digit of c. Check examples for explanation.
 // Examples
