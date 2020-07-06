@@ -29,6 +29,20 @@
 //     Curiosity: the first number to repeat in the sequence is 42...
 //     Curiosity: the first number with a BIG delay in the sequence is 19.
 
+function recamanIndex(n) {
+  let seq = [0]
+  for (let i = 0; i < 10001; i++) {
+    const last = seq[seq.length - 1]
+    const sub = last - seq.length
+    if (sub > 0 && seq.indexOf(sub) === -1) {
+      seq.push(sub)
+    } else {
+      seq.push(last + seq.length)
+    }
+  }
+  return seq.indexOf(n)
+}
+
 // Make a function that encrypts a given input with these steps:
 // Input: "apple"
 // Step 1: Reverse the input: "elppa"
