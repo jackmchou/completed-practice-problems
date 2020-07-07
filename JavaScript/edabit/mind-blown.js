@@ -1,3 +1,15 @@
+// Remove enemies from the list of people, even if the enemy shows up twice.
+// Examples
+// removeEnemies(["Fred"], []) ➞ ["Fred"]
+// removeEnemies(["Adam", "Emmy", "Tanya", "Emmy"], ["Emmy"]) ➞ ["Adam", "Tanya"]
+// removeEnemies(["John", "Emily", "Steve", "Sam"], ["Sam", "John"]) ➞ ["Emily", "Steve"]
+// Notes
+// All names to be removed will be in the enemies list; simply return the list, no fancy strings.
+
+function removeEnemies(names, enemies) {
+  return names.filter(ele => ele !== enemies[0]).filter(ele => ele !== enemies[1])
+}
+
 // Given a string containing mostly spaces and one non-space character, return whether the character is positioned in the very centre of the string. This means the number of spaces on both sides should be the same.
 // Examples
 // isCentral("  #  ") ➞ true
