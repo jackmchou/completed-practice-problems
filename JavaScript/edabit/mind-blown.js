@@ -1,3 +1,15 @@
+// Given a string containing mostly spaces and one non-space character, return whether the character is positioned in the very centre of the string. This means the number of spaces on both sides should be the same.
+// Examples
+// isCentral("  #  ") ➞ true
+// isCentral(" 2    ") ➞ false
+// isCentral("@") ➞ true
+// Notes
+// Only one character other than spaces will be given at a time.
+
+function isCentral(str) {
+  return str.trimStart().length === str.trimEnd().length
+}
+
 // Your open-plan office building has a scrolling message screen on the far wall. One day, you notice that the messages are starting to glitch. Some of the lower case letters are being replaced by their position in the alphabet ("a" = 1, "b" = 2, ..., "z" = 26). Given the glitched text, return the corrected message.
 // Examples
 // messageGlitch("T21e19d1y's m1r11e20i14g m5e20i14g w9l12 14o23 2e i14 20h5 3o14f5r5n3e r15o13.")
