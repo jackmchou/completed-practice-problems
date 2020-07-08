@@ -1,3 +1,49 @@
+// Create a function that takes a date object and return string in the following format:
+// YYYYMMDDHHmmSS
+// The format should contain a 4 digit year, 2 digit month, 2 digit day, 2 digit hour(00-23), 2 digit minute and 2 digit second. If any of the value has only signle digit, you must use zero prefix, so that the result string length is always same.
+// Examples
+// formatDate(new Date(2020, 6, 4, 8, 0, 0)) ➞ "20200704080000"
+// formatDate(new Date(2019, 11, 31, 23, 59, 59)) ➞ "20191231235959"
+// formatDate(new Date(2020, 6, 4)) ➞ "20200704000000"
+// Notes
+//     Assume Date year input will always be greater than 1970.
+//     Try not to rely on default Date.toString() output in your impelementation.
+//     Be aware that the Date's month field is zero based (0 is January and 11 is December).
+
+function formatDate(date) {
+  console.log(date.getMinutes())
+	return `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}${date.getHours()}${date.getMinutes()}${date.getSeconds()}`
+}
+formatDate(new Date(1970, 0, 1, 00, 00, 00))
+
+// Given an array of boxes, create a function that returns the total volume of all those boxes combined together. A box is represented by an array with three elements: length, width and height.
+// For instance, totalVolume([2, 3, 2], [6, 6, 7], [1, 2, 1]) should return 266 since (2 x 3 x 2) + (6 x 6 x 7) + (1 x 2 x 1) = 12 + 252 + 2 = 266.
+// Examples
+// totalVolume([4, 2, 4], [3, 3, 3], [1, 1, 2], [2, 1, 1]) ➞ 63
+// totalVolume([2, 2, 2], [2, 1, 1]) ➞ 10
+// totalVolume([1, 1, 1]) ➞ 1
+// Notes
+//     You will be given at least one box.
+//     Each box will always have three dimensions included.
+
+function totalVolume(...boxes) {
+	const container = [...boxes]
+  // return container.map(subarray => subarray.reduce((cur, acc) => cur * acc)).reduce((cur, acc) => cur + acc)
+  let result = 0
+  const sum = []
+  for (let i = 0; i < container.length; i++) {
+    let product = 1
+    for(let j = 0; j < container[i].length; j++) {
+      product *= container[i][j]
+    }
+    sum.push(product)
+  }
+  for (let k = 0; k < sum.length; k++) {
+    result += sum[k]
+  }
+  return result
+}
+
 // Your task is to create a fence worth $1 million. You are given the price of the material (per character), meaning the length of the fence will change depending on the cost of the material.
 // Create a function which constructs this pricey pricey fence, using the letter "H" to build.
 // constructFence("$50,000") ➞ "HHHHHHHHHHHHHHHHHHHHHHHHHHHH"
