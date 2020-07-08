@@ -1,3 +1,25 @@
+// Create a function that takes two numbers as arguments and returns the GCD of the two numbers.
+// Examples
+// gcd(3, 5) ➞ 1
+// gcd(14, 28) ➞ 14
+// gcd(4, 18) ➞ 2
+// Notes
+// GCD looks at all the divisors of each number and finds the greatest one.
+
+function gcd(a, b) {
+	// if (b == 0)
+  //   return a;
+  // else
+  //   return gcd(b, (a % b));
+  let remainder;
+  while ((a % b) > 0) {
+    remainder = a % b;
+    a = b
+    b = remainder
+  }
+  return b
+}
+
 // Create a function that takes a date object and return string in the following format:
 // YYYYMMDDHHmmSS
 // The format should contain a 4 digit year, 2 digit month, 2 digit day, 2 digit hour(00-23), 2 digit minute and 2 digit second. If any of the value has only signle digit, you must use zero prefix, so that the result string length is always same.
