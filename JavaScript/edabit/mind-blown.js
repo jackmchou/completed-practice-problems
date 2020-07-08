@@ -1,3 +1,24 @@
+// Create a function that takes a string and returns a new string with its first and last characters swapped, except under three conditions:
+//     If the length of the string is less than two, return "Incompatible.".
+//     If the argument is not a string, return "Incompatible.".
+//     If the first and last characters are the same, return "Two's a pair.".
+// Examples
+// flipEndChars("Cat, dog, and mouse.") ➞ ".at, dog, and mouseC"
+// flipEndChars("ada") ➞ "Two's a pair.
+// flipEndChars("Ada") ➞ "adA"
+// flipEndChars("z") ➞ "Incompatible."
+// flipEndChars([1, 2, 3]) ➞ "Incompatible."
+// Notes
+// Tests are case sensitive (e.g. "A" and "a" are not the same character).
+
+function flipEndChars(str) {
+	if (str.length < 2 || typeof str !== 'string') return "Incompatible."
+  else if (str[0] === str[str.length - 1]) return "Two's a pair."
+  else {
+    return str.slice(-1) + str.slice(1, -1) + str.slice(0, 1)
+  }
+}
+
 // Create a function that determines whether a string is a valid hex code.
 // A hex code must begin with a pound key # and is exactly 6 characters in length. Each character must be a digit from 0-9 or an alphabetic character from A-F. All alphabetic characters may be uppercase or lowercase.
 // Examples
