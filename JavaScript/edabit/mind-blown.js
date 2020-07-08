@@ -1,3 +1,16 @@
+// Create a function to check whether the given parameter is an Object or not.
+// Examples
+// isObject(function add(x,y) {return x + y;}) ➞ true
+// isObject(new Regex("^[a-zA-Z0-9]+$)","g")) ➞ true
+// isObject(null) ➞ false
+// isObject("") ➞ false
+// Notes
+// Inputs may be null, primitive wrapper types, dates.
+
+function isObject(value) {
+	return value === null ? false : typeof value === 'object'
+}
+
 // Create a function that takes a string and returns a new string with its first and last characters swapped, except under three conditions:
 //     If the length of the string is less than two, return "Incompatible.".
 //     If the argument is not a string, return "Incompatible.".
