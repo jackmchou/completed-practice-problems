@@ -1,3 +1,20 @@
+// Create a function that takes two vectors as arrays and checks if the two vectors are orthogonal or not. The return value is boolean. Two vectors a and b are orthogonal if their dot product is equal to zero.
+// Examples
+// isOrthogonal([1, 2], [2, -1]) ➞ true
+// isOrthogonal([3, -1], [7, 5]) ➞ false
+// isOrthogonal([1, 2, 0], [2, -1, 10]) ➞ true
+// Notes
+//     The two arrays will be of same length.
+//     Check out the Resources tab.
+
+function isOrthogonal(arr1, arr2) {
+  let dotProduct = 0
+  for (let i = 0; i < arr1.length; i++) {
+    dotProduct += arr1[i] * arr2[i]
+  }
+  return dotProduct === 0
+}
+
 // Create a function to check whether the given parameter is an Object or not.
 // Examples
 // isObject(function add(x,y) {return x + y;}) ➞ true
