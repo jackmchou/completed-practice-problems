@@ -1,3 +1,16 @@
+// Create a function that takes the month and year (as integers) and returns the number of days in that month.
+// Examples
+// days(2, 2018) ➞ 28
+// days(4, 654) ➞ 30
+// days(2, 200) ➞ 28
+// days(2, 1000) ➞ 28
+// Notes
+// N/A
+
+function days(month, year) {
+	return new Date(year, month, 0).getDate()
+}
+
 // Create a function that takes two vectors as arrays and checks if the two vectors are orthogonal or not. The return value is boolean. Two vectors a and b are orthogonal if their dot product is equal to zero.
 // Examples
 // isOrthogonal([1, 2], [2, -1]) ➞ true
