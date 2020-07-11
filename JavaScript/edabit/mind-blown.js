@@ -1,3 +1,486 @@
+// Suppose that you invest $10,000 for 10 years at an interest rate of 6% compounded monthly. What will be the value of your investment at the end of the 10 year period?
+// Create a function that accepts the principal p, the term in years t, the interest rate r, and the number of compounding periods per year n. The function returns the value at the end of term rounded to the nearest cent.
+// For the example above:
+// compoundInterest(10000, 10, 0.06, 12) ➞ 18193.97
+// Note that the interest rate is given as a decimal and n=12 because with monthly compounding there are 12 periods per year. Compounding can also be done annually, quarterly, weekly or daily.
+// Examples
+// compoundInterest(100, 1, 0.05, 1) ➞ 105.0
+// compoundInterest(3500, 15, 0.1, 4) ➞ 15399.26
+// compoundInterest(100000, 20, 0.15, 365) ➞ 2007316.26
+// Notes
+// See the Resources tab for the interest formula and more information.
+
+function compoundInterest(p, t, r, n) {
+	return +(p * (1 + r / n) ** (n * t)).toFixed(2)
+}
+
+// One cause for speeding is the desire to shorten the time spent traveling. While in long distance trips speeding does save an appreciable amount of time, the same cannot be said about short distance trips.
+// Create a function that calculates the amount of time saved (in minutes) were you traveling with an average speed that is above the speed-limit as compared to traveling with an average speed exactly at the speed-limit.
+// Examples
+// // The paramater's format is as follows:
+// // (speed limit, avg speed, distance traveled at avg speed)
+// timeSaved(80, 90, 40) ➞ 3.3
+// timeSaved(80, 90, 4000) ➞ 333.3 
+// timeSaved(80, 100, 40 ) ➞ 6.0
+// timeSaved(80, 100, 10) ➞ 1.5
+// Notes
+//     Speed = distance/time
+//     The time returned should be in minutes, not in hours!
+
+function timeSaved(lim, avg, d) {
+  return +((d / lim) * 60 - (d / avg) * 60).toFixed(1)
+}
+
+// Write a function that takes two arrays and adds the first element in the first array with the first element in the second array, the second element in the first array with the second element in the second array, etc, etc. Return true if all element combinations add up to the same number. Otherwise, return false.
+// Examples
+// puzzlePieces([1, 2, 3, 4], [4, 3, 2, 1]) ➞ true
+// // 1 + 4 = 5;  2 + 3 = 5;  3 + 2 = 5;  4 + 1 = 5
+// // Both arrays sum to [5, 5, 5, 5]
+// puzzlePieces([1, 8, 5, 0, -1, 7], [0, -7, -4, 1, 2, -6]) ➞ true
+// puzzlePieces([1, 2], [-1, -1]) ➞ false
+// puzzlePieces([9, 8, 7], [7, 8, 9, 10]) ➞ false
+// Notes
+//     Each array will have at least one element.
+//     Return false if both arrays are of different length.
+
+function puzzlePieces(a1, a2) {
+  if (a1.length !== a2.length) return false
+  for (let i = 0; i < a1.length - 1; i++) {
+    if ((a1[i] + a2[i]) !== (a1[i + 1] + a2[i + 1])) return false
+  }
+  return true
+}
+
+// The "Reverser" takes a string as input and returns that string in reverse order, with the opposite case.
+// Examples
+// reverse("Hello World") ➞ "DLROw OLLEh"
+// reverse("ReVeRsE") ➞ "eSrEvEr"
+// reverse("Radar") ➞ "RADAr"
+// Notes
+// There will be no punctuation in any of the test cases.
+
+function reverse(str) {
+  let result = ''
+  for (let i = str.length - 1; i >= 0; i--) {
+    if (str[i].toLowerCase() === str[i]) result += str[i].toUpperCase()
+    else result += str[i].toLowerCase()
+  }
+  return result
+}
+
+// An array is special, if every even index contains an even number and every odd index contains an odd number. Create a function that returns true if an array is special, and false otherwise.
+// Examples
+// isSpecialArray([2, 7, 4, 9, 6, 1, 6, 3]) ➞ true
+// // Even indices: [2, 4, 6, 6]; Odd indices: [7, 9, 1, 3]
+// isSpecialArray([2, 7, 9, 1, 6, 1, 6, 3]) ➞ false
+// // Index 2 has an odd number 9.
+// isSpecialArray([2, 7, 8, 8, 6, 1, 6, 3]) ➞ false
+// // Index 3 has an even number 8.
+// Notes
+// N/A
+
+function isSpecialArray(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 == 0 && arr[i] % 2 == 1) return false
+    if (i % 2 == 1 && arr[i] % 2 == 0) return false
+  }
+  return true
+}
+
+// Array A is contained inside array B if each element in A also exists in B.
+// The number of times a number is present doesn't matter. In other words, if we transformed both arrays into sets, A would be a subset of B.
+// A = [3, 3, 9, 9, 9, 5]
+// B = [1, 3, 9, 5, 8, 44, 44]
+// A_Set = [3, 9, 5]
+// B_Set = [1, 3, 9, 5, 8, 44]
+// // A_Set is a subset of B_Se
+// Create a function that determines if the first array is a subset of the second.
+// Examples
+// subset([1, 3], [1, 3, 3, 5]) ➞ true
+// subset([4, 8, 7], [7, 4, 4, 4, 9, 8]) ➞ true
+// subset([1, 3], [1, 33]) ➞ false
+// subset([1, 3, 10], [10, 8, 8, 8]) ➞ false
+// Notes
+//     Each input array will have at least one element.
+//     Check the resources tab for a hint.
+
+function subset(arr1, arr2) {
+  // return arr1.every(ele => arr2.includes(ele))
+  for (let i = 0; i < arr1.length; i++) {
+    if (!(arr2.includes(arr1[i]))) return false
+  }
+  return true
+}
+
+// Create a function that takes the month and year (as integers) and returns the number of days in that month.
+// Examples
+// days(2, 2018) ➞ 28
+// days(4, 654) ➞ 30
+// days(2, 200) ➞ 28
+// days(2, 1000) ➞ 28
+// Notes
+// N/A
+
+function days(month, year) {
+	return new Date(year, month, 0).getDate()
+}
+
+// Create a function that takes two vectors as arrays and checks if the two vectors are orthogonal or not. The return value is boolean. Two vectors a and b are orthogonal if their dot product is equal to zero.
+// Examples
+// isOrthogonal([1, 2], [2, -1]) ➞ true
+// isOrthogonal([3, -1], [7, 5]) ➞ false
+// isOrthogonal([1, 2, 0], [2, -1, 10]) ➞ true
+// Notes
+//     The two arrays will be of same length.
+//     Check out the Resources tab.
+
+function isOrthogonal(arr1, arr2) {
+  let dotProduct = 0
+  for (let i = 0; i < arr1.length; i++) {
+    dotProduct += arr1[i] * arr2[i]
+  }
+  return dotProduct === 0
+}
+
+// Create a function to check whether the given parameter is an Object or not.
+// Examples
+// isObject(function add(x,y) {return x + y;}) ➞ true
+// isObject(new Regex("^[a-zA-Z0-9]+$)","g")) ➞ true
+// isObject(null) ➞ false
+// isObject("") ➞ false
+// Notes
+// Inputs may be null, primitive wrapper types, dates.
+
+function isObject(value) {
+	return value === null ? false : typeof value === 'object'
+}
+
+// Create a function that takes a string and returns a new string with its first and last characters swapped, except under three conditions:
+//     If the length of the string is less than two, return "Incompatible.".
+//     If the argument is not a string, return "Incompatible.".
+//     If the first and last characters are the same, return "Two's a pair.".
+// Examples
+// flipEndChars("Cat, dog, and mouse.") ➞ ".at, dog, and mouseC"
+// flipEndChars("ada") ➞ "Two's a pair.
+// flipEndChars("Ada") ➞ "adA"
+// flipEndChars("z") ➞ "Incompatible."
+// flipEndChars([1, 2, 3]) ➞ "Incompatible."
+// Notes
+// Tests are case sensitive (e.g. "A" and "a" are not the same character).
+
+function flipEndChars(str) {
+	if (str.length < 2 || typeof str !== 'string') return "Incompatible."
+  else if (str[0] === str[str.length - 1]) return "Two's a pair."
+  else {
+    return str.slice(-1) + str.slice(1, -1) + str.slice(0, 1)
+  }
+}
+
+// Create a function that determines whether a string is a valid hex code.
+// A hex code must begin with a pound key # and is exactly 6 characters in length. Each character must be a digit from 0-9 or an alphabetic character from A-F. All alphabetic characters may be uppercase or lowercase.
+// Examples
+// isValidHexCode("#CD5C5C") ➞ true
+// isValidHexCode("#EAECEE") ➞ true
+// isValidHexCode("#eaecee") ➞ true
+// isValidHexCode("#CD5C58C") ➞ false
+// // Length exceeds 6
+// isValidHexCode("#CD5C5Z") ➞ false
+// // Not all alphabetic characters in A-F
+// isValidHexCode("#CD5C&C") ➞ false
+// // Contains unacceptable character
+// isValidHexCode("CD5C5C") ➞ false
+// // Missing #
+// Notes
+// N/A
+
+function isValidHexCode(str) {
+	return /^#[A-Fa-f\d]{6}$/g.test(str)
+}
+
+// Create a function that takes two numbers as arguments and returns the GCD of the two numbers.
+// Examples
+// gcd(3, 5) ➞ 1
+// gcd(14, 28) ➞ 14
+// gcd(4, 18) ➞ 2
+// Notes
+// GCD looks at all the divisors of each number and finds the greatest one.
+
+function gcd(a, b) {
+	// if (b == 0)
+  //   return a;
+  // else
+  //   return gcd(b, (a % b));
+  let remainder;
+  while ((a % b) > 0) {
+    remainder = a % b;
+    a = b
+    b = remainder
+  }
+  return b
+}
+
+// Create a function that takes a date object and return string in the following format:
+// YYYYMMDDHHmmSS
+// The format should contain a 4 digit year, 2 digit month, 2 digit day, 2 digit hour(00-23), 2 digit minute and 2 digit second. If any of the value has only signle digit, you must use zero prefix, so that the result string length is always same.
+// Examples
+// formatDate(new Date(2020, 6, 4, 8, 0, 0)) ➞ "20200704080000"
+// formatDate(new Date(2019, 11, 31, 23, 59, 59)) ➞ "20191231235959"
+// formatDate(new Date(2020, 6, 4)) ➞ "20200704000000"
+// Notes
+//     Assume Date year input will always be greater than 1970.
+//     Try not to rely on default Date.toString() output in your impelementation.
+//     Be aware that the Date's month field is zero based (0 is January and 11 is December).
+
+function formatDate(date) {
+	return `${date.getFullYear()}${date.getMonth() + 1 < 10 ? ('' + (date.getMonth() + 1)).padStart(2, '0') : date.getMonth() + 1}${date.getDate() < 10 ? ('' + date.getDate()).padStart(2, '0') : date.getDate()}${date.getHours() < 10 ? ('' + date.getHours()).padStart(2, '0') : date.getHours()}${date.getMinutes() || "00"}${date.getSeconds() || "00"}`
+}
+
+// Given an array of boxes, create a function that returns the total volume of all those boxes combined together. A box is represented by an array with three elements: length, width and height.
+// For instance, totalVolume([2, 3, 2], [6, 6, 7], [1, 2, 1]) should return 266 since (2 x 3 x 2) + (6 x 6 x 7) + (1 x 2 x 1) = 12 + 252 + 2 = 266.
+// Examples
+// totalVolume([4, 2, 4], [3, 3, 3], [1, 1, 2], [2, 1, 1]) ➞ 63
+// totalVolume([2, 2, 2], [2, 1, 1]) ➞ 10
+// totalVolume([1, 1, 1]) ➞ 1
+// Notes
+//     You will be given at least one box.
+//     Each box will always have three dimensions included.
+
+function totalVolume(...boxes) {
+	const container = [...boxes]
+  // return container.map(subarray => subarray.reduce((cur, acc) => cur * acc)).reduce((cur, acc) => cur + acc)
+  let result = 0
+  const sum = []
+  for (let i = 0; i < container.length; i++) {
+    let product = 1
+    for(let j = 0; j < container[i].length; j++) {
+      product *= container[i][j]
+    }
+    sum.push(product)
+  }
+  for (let k = 0; k < sum.length; k++) {
+    result += sum[k]
+  }
+  return result
+}
+
+// Your task is to create a fence worth $1 million. You are given the price of the material (per character), meaning the length of the fence will change depending on the cost of the material.
+// Create a function which constructs this pricey pricey fence, using the letter "H" to build.
+// constructFence("$50,000") ➞ "HHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+// // 20 fence posts were set up ($1,000,000 / $50,000 = 20)
+// Examples
+// constructFence("$50,000") ➞ "HHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+// constructFence("$100,000") ➞ "HHHHHHHHHH"
+// constructFence("$1,000,000") ➞ "H"
+// Notes
+// You are ordered to spend all of your $1,000,000 budget...
+
+function constructFence(price) {
+	return "H".repeat(1000000 / price.slice(1).split(',').join(''))
+}
+
+// Remove enemies from the list of people, even if the enemy shows up twice.
+// Examples
+// removeEnemies(["Fred"], []) ➞ ["Fred"]
+// removeEnemies(["Adam", "Emmy", "Tanya", "Emmy"], ["Emmy"]) ➞ ["Adam", "Tanya"]
+// removeEnemies(["John", "Emily", "Steve", "Sam"], ["Sam", "John"]) ➞ ["Emily", "Steve"]
+// Notes
+// All names to be removed will be in the enemies list; simply return the list, no fancy strings.
+
+function removeEnemies(names, enemies) {
+  return names.filter(ele => ele !== enemies[0]).filter(ele => ele !== enemies[1])
+}
+
+// Given a string containing mostly spaces and one non-space character, return whether the character is positioned in the very centre of the string. This means the number of spaces on both sides should be the same.
+// Examples
+// isCentral("  #  ") ➞ true
+// isCentral(" 2    ") ➞ false
+// isCentral("@") ➞ true
+// Notes
+// Only one character other than spaces will be given at a time.
+
+function isCentral(str) {
+  return str.trimStart().length === str.trimEnd().length
+}
+
+// Your open-plan office building has a scrolling message screen on the far wall. One day, you notice that the messages are starting to glitch. Some of the lower case letters are being replaced by their position in the alphabet ("a" = 1, "b" = 2, ..., "z" = 26). Given the glitched text, return the corrected message.
+// Examples
+// messageGlitch("T21e19d1y's m1r11e20i14g m5e20i14g w9l12 14o23 2e i14 20h5 3o14f5r5n3e r15o13.")
+// ➞ "Tuesday's marketing meeting will now be in the conference room."
+// messageGlitch("A s9l22e18 Pr9u19 9s d15u2l5-16a18k5d o21t19i4e. Wi12l t8e o23n5r p12e1s5 13o22e i20.")
+// ➞ "A silver Prius is double-parked outside. Will the owner please move it."
+// messageGlitch("P12e1s5 4o14'20 13i3r15w1v5 6i19h i14 20h5 20h9r4 6l15o18 11i20c8e14!")
+// ➞ "Please don't microwave fish in the third floor kitchen!"
+// Notes
+// Each group of numbers will always refer to one letter only (e.g. 14 = "n", not "ad").
+
+function messageGlitch(txt) {
+  const alphObj = {}
+  const txtArr = [...txt]
+  for (let i = 9; ++i < 36;) alphObj[i - 9] = i.toString(36)
+  for (let j = 0; j < txtArr.length; j++) {
+    if (parseInt(txtArr[j], 10) && (parseInt(txtArr[j + 1], 10) || txtArr[j + 1] === '0')) {
+      txtArr.splice(j, 2, alphObj[txtArr[j] + txtArr[j + 1]])
+    } else if (alphObj[txtArr[j]]) txtArr[j] = alphObj[txtArr[j]]
+  }
+  return txtArr.join('')
+}
+
+// The Recamán Sequence is a numeric sequence that starts always with 0. The position of a positive integer in the sequence, or Recamán Index, can be established with the following algorithm:
+//     For every number to find, two variables are considered: the value of the last element of the sequence (last element from now on), and the actual sequence length (length from now on).
+//     If the subtraction of the length from the last element returns a number greater than 0 and not already present in the sequence, it is added to the sequence.
+//     When the conditions of the above statement are not met, will be added always the sum of the last element plus the length (even if it is a number already present in the sequence).
+//     Repeat until the number of interest is found.
+// Look at example below for the steps to do for to establish the Recamán Index of number 2:
+// Sequence = [0]
+// Last - Length = 0 - 1 = -1 (lower than zero)
+// Last + Length = 0 + 1 = 1
+// Sequence = [0, 1]
+// Last - Length = 1 - 2 = -1 (lower than 0)
+// Last + Length = 1 + 2 = 3
+// Sequence = [0, 1, 3]
+// Last - Length = 3 - 3 = 0 (already present in sequence)
+// Last + Length = 3 + 3 = 6
+// Sequence = [0, 1, 3, 6]
+// Last - Length = 6 - 4 = 2 (greater than 0 and not already in sequence)
+// Sequence = [0, 1, 3, 6, 2]
+// // The Recaman Index of 2 is: 4
+// Given a positive integer n, implement a function that returns its Recamán Index.
+// Examples
+// recamanIndex(2) ➞ 4
+// recamanIndex(3) ➞ 2
+// recamanIndex(7) ➞ 5
+// Notes
+//     The sequence starts always with 0.
+//     The step with the subtraction Last Element - Sequence Length (verifying that is not already present in the sequence) has the precedence over the second step.
+//     Remember: if the number to add is the result of a subtraction it can't be already in the sequence (first step), if it is the result of an addition it can be already present (second step).
+//     Curiosity: the first number to repeat in the sequence is 42...
+//     Curiosity: the first number with a BIG delay in the sequence is 19.
+
+function recamanIndex(n) {
+  let seq = [0]
+  for (let i = 0; i < 10001; i++) {
+    const last = seq[seq.length - 1]
+    const sub = last - seq.length
+    if (sub > 0 && seq.indexOf(sub) === -1) {
+      seq.push(sub)
+    } else {
+      seq.push(last + seq.length)
+    }
+  }
+  return seq.indexOf(n)
+}
+
+// Make a function that encrypts a given input with these steps:
+// Input: "apple"
+// Step 1: Reverse the input: "elppa"
+// Step 2: Replace all vowels using the following chart:
+// a => 0
+// e => 1
+// i => 2
+// o => 2
+// u => 3
+// // "1lpp0"
+// Step 3: Add "aca" to the end of the word: "1lpp0aca"
+// Output: "1lpp0aca"
+// Examples
+// encrypt("banana") ➞ "0n0n0baca"
+// encrypt("karaca") ➞ "0c0r0kaca"
+// encrypt("burak") ➞ "k0r3baca"
+// encrypt("alpaca") ➞ "0c0pl0aca"
+// Notes
+// All inputs are strings, no uppercases and all output must be strings.
+
+function encrypt(word) {
+  let result = []
+  const vowels = {a: 0, e: 1, i: 2, o: 2, u: 3}
+  for (let i = word.length - 1; i >= 0; i--) {
+    result.push(word[i])
+  }
+  for (let i = 0; i < result.length; i++) {
+    if (vowels[result[i]] || result[i] == 'a') {
+      result[i] = vowels[result[i]]
+    }
+  }
+  return result.join('').concat('aca')
+}
+
+// Your job is to create a function, that takes 3 numbers: a, b, c and returns true if the last digit of (the last digit of a * the last digit of b) = the last digit of c. Check examples for explanation.
+// Examples
+// lastDig(25, 21, 125) ➞ true
+// // The last digit of 25 is 5, the last digit of 21 is 1, and the last
+// // digit of 125 is 5, and the last digit of 5*1 = 5, which is equal
+// // to the last digit of 125(5).
+// lastDig(55, 226, 5190) ➞ true
+// // The last digit of 55 is 5, the last digit of 226 is 6, and the last
+// // digit of 5190 is 0, and the last digit of 5*6 = 30 is 0, which is
+// // equal to the last digit of 5190(0).
+// lastDigit(12, 215, 2142) ➞ false
+// // The last digit of 12 is 2, the last digit of 215 is 5, and the last
+// // digit of 2142 is 2, and the last digit of 2*5 = 10 is 0, which is
+// // not equal to the last digit of 2142(2).
+// Notes
+//     If you still don't understand:
+//         The last digit of a = aa, the last digit of b = bb, and the last digit of c = cc.
+//         Return true if the last digit of aa*bb is equal to cc, and false otherwise.
+//     Numbers can be negative.
+
+function lastDig(a, b, c) {
+	a = '' + a; b = '' + b; c = '' + c;
+  return ('' + (a[a.length - 1] * b[b.length - 1])).slice(-1) === c[c.length - 1]
+}
+
+// You are given an input array of bigrams, and an array of words.
+// Write a function that returns true if you can find every single bigram from this array can be found at least once in an array of words.
+// Examples
+// canFind(["at", "be", "th", "au"], ["beautiful", "the", "hat"]) ➞ true
+// canFind(["ay", "be", "ta", "cu"], ["maybe", "beta", "abet", "course"]) ➞ false
+// # "cu" does not exist in any of the words
+// canFind(["th", "fo", "ma", "or"], ["the", "many", "for", "forest"]) ➞ true
+// canFind(["oo", "mi", "ki", "la"], ["milk", "chocolate", "cooks"]) ➞ false
+// Notes
+// A bigram is string of two consecutive characters.
+
+function canFind(bigrams, words) {
+	for (let i = 0; i < bigrams.length; i++) {
+    if (words.join('').indexOf(bigrams[i]) === -1) return false
+  }
+  return true
+}
+
+// You have an array of item codes with the following format: "[letters][digits]"
+// Create a function that splits these strings into their alphabetic and numeric parts.
+// Examples
+// splitCode("TEWA8392") ➞ ["TEWA", 8392]
+// splitCode("MMU778") ➞ ["MMU", 778]
+// splitCode("SRPE5532") ➞ ["SRPE", 5532]
+// Notes
+// N/A
+
+function splitCode(item, result = []) {
+  for (let i = 0; i < item.length; i++) {
+    if (isNaN(item[i]) && parseInt(item[i + 1], 10)) {
+      result = [item.slice(0, i + 1), parseInt(item.slice(i + 1))]
+    }
+  }
+  return result 
+}
+
+// Write a function that returns all the elements in an array that are strictly greater than their adjacent left and right neighbors.
+// Examples
+// miniPeaks([4, 5, 2, 1, 4, 9, 7, 2]) ➞ [5, 9]
+// miniPeaks([1, 2, 1, 1, 3, 2, 5, 4, 4]) ➞ [2, 3, 5]
+// miniPeaks([1, 2, 3, 4, 5, 6]) ➞ []
+// Notes
+//     Do not count boundary numbers, since they only have one left/right neighbor.
+//     If no such numbers exist, return an empty array.
+
+function miniPeaks(arr, result = []) {
+	for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) result.push(arr[i])
+  }
+  return result
+}
+
 // Create a function that will find all primes below a given number. Return the result as an array.
 // Examples
 // primesBelowNum(5) ➞ [2, 3, 5]
