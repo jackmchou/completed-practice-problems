@@ -1,3 +1,17 @@
+// Create a function that takes a string of four numbers. These numbers represent two separat points on a graph known as the x-axis (horizontal axis) and y-axis (vertical axis). Each number corresponds as follows: "x1, y1, x2, y2". Calculate the distance between x and y.
+// Examples
+// shortestDistance("1,1,2,1") ➞ 1
+// shortestDistance("1,1,3,1") ➞ 2
+// shortestDistance("-5,1,3,1") ➞ 8
+// shortestDistance("-5,2,3,1") ➞ 8.06
+// Notes
+// All floats fixed to 2 decimal places (e.g. 2.34).
+
+function shortestDistance(str) {
+  const coord = str.split(',')
+	return +Math.hypot((coord[0] - coord[2]), (coord[1] - coord[3])).toFixed(2)
+}
+
 // Suppose that you invest $10,000 for 10 years at an interest rate of 6% compounded monthly. What will be the value of your investment at the end of the 10 year period?
 // Create a function that accepts the principal p, the term in years t, the interest rate r, and the number of compounding periods per year n. The function returns the value at the end of term rounded to the nearest cent.
 // For the example above:
