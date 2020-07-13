@@ -1,3 +1,18 @@
+// Write a function that returns the greatest common divisor (GCD) of two integers.
+// Examples
+// gcd(32, 8) ➞ 8
+// gcd(8, 12) ➞ 4
+// gcd(17, 13) ➞ 1
+// Notes
+
+//     Both values will be positive.
+//     The GCD is the largest factor that divides both numbers.
+
+function gcd(n1, n2) {
+	if (n2 == 0) return n1;
+	else return gcd(n2, (n1 % n2))
+}
+
 // Given a very long string of ASCII characters, split the string up into equal sized groups of size width. To properly display the image, join up the groups with the newline character \n and return the output string.
 // See the following examples for clarity!
 // Examples
