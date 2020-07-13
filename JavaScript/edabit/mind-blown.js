@@ -1,3 +1,20 @@
+// Given a very long string of ASCII characters, split the string up into equal sized groups of size width. To properly display the image, join up the groups with the newline character \n and return the output string.
+// See the following examples for clarity!
+// Examples
+// formatAscii('0123456789', 2) ➞ '01\n23\n45\n67\n89'
+// formatAscii('................................', 8) ➞ '........\n........\n........\n........'
+// formatAscii('^^^^^^^^', 1) ➞ '^\n^\n^\n^\n^\n^\n^\n^'
+// Notes
+// Enjoy the (somewhat oversized) art in the Tests tab!
+
+function formatAscii(str, width) {
+	const strArr = [...str]
+  for (let i = strArr.length - 1; i >= 0; i--) {
+    if (i && i % width == 0) strArr.splice(i, 0, '\n')
+  }
+  return strArr.join('')
+}
+
 // Your friend is trying to write a function to accomplish the following transformations:
 // let x = [3, 3, 3, 3, 3, 3, 3]
 // // Each time x is called, the following results are shown:
