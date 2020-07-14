@@ -1,3 +1,16 @@
+// Noddy has written a mysterious function which takes in a word and returns true if it's passed a specific test. Solve the riddle of what Noddy's function is by having a look at some of the examples below.
+// Examples
+// noddyFunction("FANTASTIC") ➞ true
+// noddyFunction("wonderful") ➞ false
+// noddyFunction("NODDY") ➞ false
+// Notes
+//     Check the Tests tab for more examples.
+//     This isn't really a coding challenge, more of a fun riddle ;)
+
+function noddyFunction(str) {
+	return str.indexOf('d') === -1 && str.indexOf('D') === -1
+}
+
 // Create a function that takes an array of objects like { name: "John", notes: [3, 5, 4]} and returns an array of objects like { name: "John", avgNote: 4 }. If student has no notes (an empty array) then let's assume avgNote: 0.
 // Examples
 // [
