@@ -1,3 +1,19 @@
+// Create a function that takes a sequence of either strings or numbers, removes the surrounding duplicates and returns an array of items without any items with the same value next to each other and preserves the original order of items.
+// Examples
+// uniqueInOrder("AAAABBBCCDAABBB") ➞ ["A", "B", "C", "D", "A", "B"]
+// uniqueInOrder("ABBCcAD") ➞ ["A", "B", "C", "c", "A", "D"]
+// uniqueInOrder([1, 2, 2, 3, 3]) ➞ [1, 2, 3]
+// Notes
+//     The initial sequence of items can be either a string or an array.
+//     Tests are case sensitive.
+
+function uniqueInOrder(sequence, result = []) {
+  for (let i = 0; i < sequence.length; i++) {
+    if (sequence[i] !== sequence[i + 1]) result.push(sequence[i])
+  }
+  return result
+}
+
 // Create a function that takes a single word string and does the following:
 //     Concatenates inator to the end if the word ends with a consonant otherwise, concatenate -inator instead.
 //     Adds the word length of the original word to the end, supplied with '000'.
