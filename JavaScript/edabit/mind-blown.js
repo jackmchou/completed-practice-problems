@@ -1,3 +1,19 @@
+// Create a function that takes an array of objects like { name: "John", notes: [3, 5, 4]} and returns an array of objects like { name: "John", avgNote: 4 }. If student has no notes (an empty array) then let's assume avgNote: 0.
+// Examples
+// [
+//   { name: "John", notes: [3, 5, 4]}
+// ] ➞ [
+//   { name: "John", avgNote: 4 }
+// ]
+// Notes
+// Try doing it with an arrow function.
+
+function getStudentsWithNamesAndAvgNote(students) {
+	return students.map(obj => {
+    return {name: obj.name, avgNote: obj.notes.length ? obj.notes.reduce((cur, acc) => cur + acc) / obj.notes.length : 0 } 
+  })
+}
+
 // You will be given an object with various consumer products and thier respective prices. Return a list of the products with a minimum price of 500 in descending order.
 // Examples
 // products({"Computer" : 600, "TV" : 800, "Radio" : 50}) ➞ ["TV","Computer"]
