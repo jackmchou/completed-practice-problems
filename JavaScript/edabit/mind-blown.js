@@ -1,3 +1,28 @@
+// You will be given an object with various consumer products and thier respective prices. Return a list of the products with a minimum price of 500 in descending order.
+// Examples
+// products({"Computer" : 600, "TV" : 800, "Radio" : 50}) ➞ ["TV","Computer"]
+// products({"Bike1" : 510, "Bike2" : 401, "Bike3" : 501}) ➞ ["Bike1", "Bike3"]) 
+// products({"Loafers" : 50, "Vans" : 10, "Crocs" : 20}) ➞ []
+// Notes
+// N/A
+
+function products(r) {
+  const result = []
+  const productArr = Object.entries(r)
+  let tmp;
+  for (let i = 0; i < productArr.length - 1; i++) {
+    if (productArr[i][1] < productArr[i + 1][1]) {
+      tmp = productArr[i]
+      productArr[i] = productArr[i + 1]
+      productArr[i + 1] = tmp
+    }
+  }
+  productArr.filter(ele => {
+   if (ele[1] >= 500) result.push(ele[0])
+  })
+  return result
+}
+
 // Create a function that calculates the number of different squares in an n * n square grid. Check the Resources tab.
 // Examples
 // numberSquares(2) ➞ 5
