@@ -1,3 +1,17 @@
+// Shreeya first year computer science student is taking an intro to regex class.Her professor gives her the assignment to write a function that checks whether an input date as a string is in the format yyyy/mm/dd.She has written a regular expression but the regular expression does not seem to be correct.Help Shreeya, fix the error.
+// Examples
+// assignment("12/1/1") ➞ false
+// assignment("1234/12/01") ➞ true
+// assignment("2012/1/1") ➞ false
+// assignment("2012/01/07") ➞ true
+// Notes
+//     Resource can be helpful.
+
+function assignment(d){
+	return /^(?:\d{4})\/(\d{2})\/(\d{2})$/.test(d);
+}
+
+
 // Create a function that takes a number (from 1 to 12) and returns its corresponding month name as a string. For example, if you're given 3 as input, your function should return "March", because March is the 3rd month.
 // Number	Month Name
 // 1	January
