@@ -1,3 +1,18 @@
+// Write a function that takes the base and height of a triangle and return its area.
+// Examples
+// triArea(3, 2) ➞ 3
+// triArea(7, 4) ➞ 14
+// triArea(10, 10) ➞ 50
+// Notes
+//     The area of a triangle is: (base * height) / 2
+//     Don't forget to return the result.
+//     If you get stuck on a challenge, find help in the Resources tab.
+//     If you're really stuck, unlock solutions in the Solutions tab.
+
+function triArea(base, height) {
+	return (base * height) / 2
+}
+
 // Shreeya first year computer science student is taking an intro to regex class.Her professor gives her the assignment to write a function that checks whether an input date as a string is in the format yyyy/mm/dd.She has written a regular expression but the regular expression does not seem to be correct.Help Shreeya, fix the error.
 // Examples
 // assignment("12/1/1") ➞ false
