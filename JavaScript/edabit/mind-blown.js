@@ -1,3 +1,21 @@
+// Create a function that takes two "sorted" arrays of numbers and returns an array of numbers which are common to both the input arrays.
+// Examples
+// commonElements([-1, 3, 4, 6, 7, 9], [1, 3]) ➞ [3]
+// commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10]) ➞ [1, 3, 4, 7]
+// commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5]) ➞ [1, 2, 4, 5]
+// commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15]) ➞ []
+// Notes
+// Arrays are Sorted!! Try doing this problem with O(n + m) time complexity
+
+function commonElements(arr1, arr2) {
+	// return arr2.filter(ele => arr1.includes(ele))
+  const result = []
+  for (let i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) !== -1) result.push(arr2[i])
+  }
+  return result
+}
+
 // Create a function that takes a sequence of either strings or numbers, removes the surrounding duplicates and returns an array of items without any items with the same value next to each other and preserves the original order of items.
 // Examples
 // uniqueInOrder("AAAABBBCCDAABBB") ➞ ["A", "B", "C", "D", "A", "B"]
