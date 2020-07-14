@@ -1,3 +1,35 @@
+// Given an array of user objects.
+// let names = []
+// let users = [
+//   { name: "John", email: "john@example.com" },
+//   { name: "Jason", email: "jason@example.com" },
+//   { name: "Jeremy", email: "jeremy@example.com" },
+//   { name: "Jacob", email: "jacob@example.com" }
+// ]
+// for(/* add code inside these parenthesis only */) {
+//       names.push(name)
+// }
+// console.log(names) // should log ["John", "Jason", "Jeremy", "Jacob"]
+// Push the first names of all users in the names array.
+// Notes
+//     You only have to change the "for...of" loop parameters.
+//     Ignore the const str assignment. This is only used for validation purposes.
+//     Check the MDN docs to find out more about object destructuring in "for...of" loops (check the Resources tab).
+
+let names = []
+
+let users = [
+  { name: "John", email: "john@example.com" },
+  { name: "Jason", email: "jason@example.com" },
+  { name: "Jeremy", email: "jeremy@example.com" },
+  { name: "Jacob", email: "jacob@example.com" }
+] 
+
+const str = `
+	for(const {name: name} of users) {
+			names.push(name)
+	}`
+
 // Given a word, create an object that stores the indexes of each letter in an array.
 //     Make sure the letters are the keys.
 //     Make sure the letters are symbols.
@@ -19,7 +51,7 @@ function mapLetters(word) {
   }
   return obj
 }
-Map the Letters in a String
+
 // Regex Series: Initials
 // Write a regular expression that checks if a string is a valid initial. Valid initials either look like (ex. for Chandler Muriel Bing):
 //     C. B.
