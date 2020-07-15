@@ -1,3 +1,18 @@
+// Create a function that takes a string containing integers as well as other characters and return the sum of the positive integers only.
+// Examples
+// positiveSum("-12#-33 13%14&-11") ➞ 27
+// // 13 + 14 = 27
+// positiveSum("22 13%14&-11-22 13 12 0") ➞ 74
+// // 22 + 13 + 14 + 13 + 12 = -33
+// Notes
+//     There is at least one positive integer.
+//     Each integer is separated by space,#,%,& etc.
+
+const positiveSum = (chars) => {
+  const numArr = chars.match(/[^#%& a-z]\d*/g)
+  return +(numArr.filter(ele => ele > 0).reduce((cur, acc) => +cur + +acc))
+};
+
 // A point on the screen (pt1) wants to move a certain distance (dist) closer to another point on the screen (pt2) The function has three arguments, two of which are objects with x & y values, and the third being the distance, e.g. {x:50, y:60}, {x: 100, y: 100}, 10. The expected result is a similar object with the new co-ordinate.
 // Examples
 // getNextPosition({x: 50, y: 60}, {x: 100, y: 100}, 10) ➞ {x: 58, y: 66}
