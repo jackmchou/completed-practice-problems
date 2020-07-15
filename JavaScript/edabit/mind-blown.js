@@ -1,3 +1,22 @@
+// A quadratic equation a x² + b x + c = 0 has either 0, 1, or 2 distinct solutions for real values of x. Given a, b and c, you should return the number of solutions to the equation.
+// Examples
+// solutions(1, 0, -1) ➞ 2
+// // x² - 1 = 0 has two solutions (x = 1 and x = -1).
+// solutions(1, 0, 0) ➞ 1
+// // x² = 0 has one solution (x = 0).
+// solutions(1, 0, 1) ➞ 0
+// // x² + 1 = 0 has no solutions.
+// Notes
+//     You do not have to calculate the solutions, just return how many there are.
+//     a will always be non-zero.
+
+function solutions(a, b, c) {
+  const discriminant = b ** 2 - 4 * a * c
+  if (discriminant > 0) return 2
+  else if (discriminant === 0) return 1
+  else return 0
+}
+
 // Create a function that converts dates from one of five string formats:
 //     "January 9, 2019" (MM D, YYYY)
 //     "Jan 9, 2019" (MM D, YYYY)
@@ -17,6 +36,10 @@
 function convertDate(date) {
   const dateObj = new Date(date)
   return [dateObj.getMonth() + 1, dateObj.getDate(),dateObj.getFullYear()]
+  // const day = /\d{0,2}/
+  // const month = /^(January|Jan|March|Mar|August|Nov|\d{0,2})/
+  // const year = /\d{4}$/
+  // return [ +date.match(day), +date.match(year)[0]]
 }
 
 // Noddy has written a mysterious function which takes in a word and returns true if it's passed a specific test. Solve the riddle of what Noddy's function is by having a look at some of the examples below.
