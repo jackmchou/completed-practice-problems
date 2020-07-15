@@ -1,3 +1,21 @@
+// A palindrome is a word, phrase, number or other sequence of characters which reads the same backward or forward, such as madam or kayak.
+// Write a function that takes a string and determines whether it's a palindrome or not. The function should return a boolean (true or false value).
+// Examples
+// isPalindrome("Neuquen") ➞ true
+// isPalindrome("Not a palindrome") ➞ false
+// isPalindrome("A man, a plan, a cat, a ham, a yak, a yam, a hat, a canal-Panama!") ➞ true
+// Notes
+//     Should be case insensitive.
+//     Special characters (punctuation or spaces) should be ignored.
+
+function isPalindrome(str) {
+	const cleanedStr = str.toLowerCase().replace(/[\W_]/g, '')
+  for (let i = 0; i < cleanedStr.length / 2; i++) {
+    if (cleanedStr[i] !== cleanedStr[cleanedStr.length - 1 - i]) return false
+  }
+  return true
+}
+
 // A quadratic equation a x² + b x + c = 0 has either 0, 1, or 2 distinct solutions for real values of x. Given a, b and c, you should return the number of solutions to the equation.
 // Examples
 // solutions(1, 0, -1) ➞ 2
