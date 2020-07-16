@@ -1,3 +1,31 @@
+// Create a function that counts the number of times a particular letter shows up in the word search.
+// Examples
+// letterCounter([
+//   ["D", "E", "Y", "H", "A", "D"],
+//   ["C", "B", "Z", "Y", "J", "K"],
+//   ["D", "B", "C", "A", "M", "N"],
+//   ["F", "G", "G", "R", "S", "R"],
+//   ["V", "X", "H", "A", "S", "S"]
+// ], "D") ➞ 3
+// // "D" shows up 3 times: twice in the first row, once in the third row.
+// letterCounter([
+//   ["D", "E", "Y", "H", "A", "D"],
+//   ["C", "B", "Z", "Y", "J", "K"],
+//   ["D", "B", "C", "A", "M", "N"],
+//   ["F", "G", "G", "R", "S", "R"],
+//   ["V", "X", "H", "A", "S", "S"]
+// ], "H") ➞ 2
+// Notes
+// You will always be given an array with five sub-arrays.
+
+function letterCounter(arr, letter) {
+	let count = 0
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].forEach(ele => ele === letter ? count++ : null)
+  }
+  return count
+}
+
 // Create a function that takes a string containing integers as well as other characters and return the sum of the positive integers only.
 // Examples
 // positiveSum("-12#-33 13%14&-11") ➞ 27
