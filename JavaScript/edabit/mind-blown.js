@@ -1,3 +1,19 @@
+// Write a function that recursively determines if a string is a palindrome.
+// Examples
+// isPalindrome("abcba") ➞ true
+// isPalindrome("b") ➞ true
+// isPalindrome("") ➞ true
+// isPalindrome("ad") ➞ false
+// Notes
+// An empty string counts as a palindrome.
+
+function isPalindrome(str) {
+	for (let i = 0; i < str.length; i++) {
+    if (str[i] !== str[str.length - 1 - i]) return false
+  }
+  return true
+}
+
 // A number is narcissistic when the sum of its digits, with each digit raised to the power of digits quantity, is equal to the number itself.
 // 153 ➞ 3 digits ➞ 1³ + 5³ + 3³ = 1 + 125 + 27 = 153 ➞ Narcissistic
 // 84 ➞ 2 digits ➞ 8² + 4² = 64 + 16 = 80 ➞ Not narcissistic
