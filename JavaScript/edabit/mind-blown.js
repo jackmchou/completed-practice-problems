@@ -1,3 +1,18 @@
+// Create a function based on the input and output. Look at the examples, there is a pattern.
+// Examples
+// secret(24) ➞ 8
+// secret(42) ➞ 8
+// secret(15) ➞ -4
+// secret(52) ➞ 15
+// Notes
+//     num >= 10 and num <= 52
+//     Math.pow, * and - can be helpful.
+
+function secret(num) {
+  const numArr = [...('' + num)]
+  return numArr[0] ** numArr[1] - numArr[0] * numArr[1]
+}
+
 // Create two functions:
 //     The first is isOdd() to check if a given number is odd using bitwise operator.
 //     The second is isEven() to check if a given input is even using regular expressions.
