@@ -1,3 +1,28 @@
+// Create two functions:
+//     The first is isOdd() to check if a given number is odd using bitwise operator.
+//     The second is isEven() to check if a given input is even using regular expressions.
+// Use of % operator is disallowed.
+// Examples
+// isOdd(3) ➞ "Yes" // Use Bitwise Operator
+// isOdd(58) ➞ "No" // Use Bitwise Operator
+// isEven("0") ➞ "Yes" // Use Regular Expression
+// isEven("-99") ➞ "No" // Use Regular Expression
+// Notes
+//     Input will only be integers (positive/negative/zero).
+//     For the second function, input will be numbers in string.
+//     For more info on regular expressions, check the Resources tab.
+
+// Use Bitwise Operator (% operator disallowed.)
+function isOdd(number) {
+	return number & 1 ? "Yes" : "No"
+}
+
+
+// Use Regular Expression (% operator disallowed.)
+function isEven(number) {
+	return /\d*[02468]/.test(number) ? "Yes" : 'No'
+}
+
 // Create a function that determines if there is an upward trend.
 // Examples
 // upwardTrend([1, 2, 3, 4]) ➞ true
