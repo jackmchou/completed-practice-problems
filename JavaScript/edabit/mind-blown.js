@@ -1,3 +1,15 @@
+// Create a function that capitalizes the last letter of every word.
+// Examples
+// capLast("hello") ➞ "hellO"
+// capLast("My Name Is Edabit") ➞ "MY NamE IS EdabiT"
+// capLast("HELp THe LASt LETTERs CAPITALISe") ➞ "HELP THE LAST LETTERS CAPITALISE"
+// Notes
+// There won't be any cases of punctuation in the tests.
+
+function capLast(txt) {
+  return [...txt.split(' ')].map(ele => ele.slice(0, -1) + ele.slice(-1).toUpperCase()).join(' ')
+}
+
 // Create a function that returns the characters from an array or string r on odd or even positions, depending on the specifier s. The specifier will be "odd" for items on odd positions (1, 3, 5, ...) and "even" for items on even positions (2, 4, 6, ...).
 // Examples
 // charAtPos([2, 4, 6, 8, 10], "even") ➞ [4, 8]
