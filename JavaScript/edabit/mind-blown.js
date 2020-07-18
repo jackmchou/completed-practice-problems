@@ -1,3 +1,37 @@
+// Create a function that takes an integer and outputs an n x n square solely consisting of the integer n.
+// Examples
+// squarePatch(3) ➞ [
+//   [3, 3, 3],
+//   [3, 3, 3],
+//   [3, 3, 3]
+// ]
+// squarePatch(5) ➞ [
+//   [5, 5, 5, 5, 5],
+//   [5, 5, 5, 5, 5],
+//   [5, 5, 5, 5, 5],
+//   [5, 5, 5, 5, 5],
+//   [5, 5, 5, 5, 5]
+// ]
+// squarePatch(1) ➞ [
+//   [1]
+// ]
+// squarePatch(0) ➞ []
+// Notes
+//     n >= 0.
+//     If n === 0, return an empty array.
+
+function squarePatch(n) {
+	// return Array.from({length: n}, ele => Array.from({length: n}).fill(n))
+  let result = []
+  for (let i = 0; i < n; i++) {
+    result.push([])
+  }
+  for (let ii = 0; ii < result.length; ii++) {
+    result.map(ele => ele.push(n))
+  }
+  return result
+}
+
 // Create a function that extracts the characters from an array (or a string) on odd or even positions, depending on the specifier. The string "odd" for items on odd positions (... 3, 2, 1) and "even" for even positions (... 6, 4, 2) from the last item of that array or string.
 // Examples
 // charAtPos([2, 4, 6, 8, 10], "even") ➞ [4, 8]
