@@ -1,3 +1,24 @@
+// Create a function that extracts the characters from an array (or a string) on odd or even positions, depending on the specifier. The string "odd" for items on odd positions (... 3, 2, 1) and "even" for even positions (... 6, 4, 2) from the last item of that array or string.
+// Examples
+// charAtPos([2, 4, 6, 8, 10], "even") ➞ [4, 8]
+// // 4 & 8 occupy the 4th & 2nd positions from right.
+// charAtPos("EDABIT", "odd") ➞ "DBT"
+// // "D", "B" and "T" occupy the 5th, 3rd and 1st positions from right.
+// charAtPos([")", "(", "*", "&", "^", "%", "$", "#", "@", "!"], "odd") ➞ ["(", "&", "%", "#", "!"]
+// Notes
+//     Arrays are zero-indexed, so, index+1 = position or position-1 = index.
+//     The prior version of this challenge can be found here.
+//     The recursive prior version of this challenge can be found here.
+
+function charAtPos(r, s) {
+	let result = []
+  let specifier = s === 'even' ? 0 : 1
+  for (let i = 0; i < r.length; i++) {
+    if (Math.abs(i - r.length) % 2 === specifier) result.push(r[i])
+  }
+  return typeof r === 'string' ? result.join('') : result
+}
+
 // Create a function that takes an array and returns a new array containing only prime numbers.
 // Examples
 // filterPrimes([7, 9, 3, 9, 10, 11, 27]) ➞ [7, 3, 11]
