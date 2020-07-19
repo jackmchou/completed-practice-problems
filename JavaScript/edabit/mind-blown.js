@@ -1,3 +1,747 @@
+// Create a function that takes an integer and outputs an n x n square solely consisting of the integer n.
+// Examples
+// squarePatch(3) ➞ [
+//   [3, 3, 3],
+//   [3, 3, 3],
+//   [3, 3, 3]
+// ]
+// squarePatch(5) ➞ [
+//   [5, 5, 5, 5, 5],
+//   [5, 5, 5, 5, 5],
+//   [5, 5, 5, 5, 5],
+//   [5, 5, 5, 5, 5],
+//   [5, 5, 5, 5, 5]
+// ]
+// squarePatch(1) ➞ [
+//   [1]
+// ]
+// squarePatch(0) ➞ []
+// Notes
+//     n >= 0.
+//     If n === 0, return an empty array.
+
+function squarePatch(n) {
+	// return Array.from({length: n}, ele => Array.from({length: n}).fill(n))
+  let result = []
+  for (let i = 0; i < n; i++) {
+    result.push([])
+  }
+  for (let ii = 0; ii < result.length; ii++) {
+    result.map(ele => ele.push(n))
+  }
+  return result
+}
+
+// Create a function that extracts the characters from an array (or a string) on odd or even positions, depending on the specifier. The string "odd" for items on odd positions (... 3, 2, 1) and "even" for even positions (... 6, 4, 2) from the last item of that array or string.
+// Examples
+// charAtPos([2, 4, 6, 8, 10], "even") ➞ [4, 8]
+// // 4 & 8 occupy the 4th & 2nd positions from right.
+// charAtPos("EDABIT", "odd") ➞ "DBT"
+// // "D", "B" and "T" occupy the 5th, 3rd and 1st positions from right.
+// charAtPos([")", "(", "*", "&", "^", "%", "$", "#", "@", "!"], "odd") ➞ ["(", "&", "%", "#", "!"]
+// Notes
+//     Arrays are zero-indexed, so, index+1 = position or position-1 = index.
+//     The prior version of this challenge can be found here.
+//     The recursive prior version of this challenge can be found here.
+
+function charAtPos(r, s) {
+	let result = []
+  let specifier = s === 'even' ? 0 : 1
+  for (let i = 0; i < r.length; i++) {
+    if (Math.abs(i - r.length) % 2 === specifier) result.push(r[i])
+  }
+  return typeof r === 'string' ? result.join('') : result
+}
+
+// Create a function that takes an array and returns a new array containing only prime numbers.
+// Examples
+// filterPrimes([7, 9, 3, 9, 10, 11, 27]) ➞ [7, 3, 11]
+// filterPrimes([10007, 1009, 1007, 27, 147, 77, 1001, 70]) ➞ [10007, 1009]
+// filterPrimes([1009, 10, 10, 10, 3, 33, 9, 4, 1, 61, 63, 69, 1087, 1091, 1093, 1097]) ➞ [1009, 3, 61, 1087, 1091, 1093, 1097]
+// Notes
+//     New array must maintain the order of primes as they first appear in the original array.
+//     Check the Resources tab for help.
+
+function filterPrimes(num) {
+  return num.filter(ele => {
+    for (let i = 2; i < ele; i++) {
+      if (ele % i === 0) return false
+    }
+    return ele > 1
+  })
+}
+
+// Create a function that capitalizes the last letter of every word.
+// Examples
+// capLast("hello") ➞ "hellO"
+// capLast("My Name Is Edabit") ➞ "MY NamE IS EdabiT"
+// capLast("HELp THe LASt LETTERs CAPITALISe") ➞ "HELP THE LAST LETTERS CAPITALISE"
+// Notes
+// There won't be any cases of punctuation in the tests.
+
+function capLast(txt) {
+  return [...txt.split(' ')].map(ele => ele.slice(0, -1) + ele.slice(-1).toUpperCase()).join(' ')
+}
+
+// Create a function that returns the characters from an array or string r on odd or even positions, depending on the specifier s. The specifier will be "odd" for items on odd positions (1, 3, 5, ...) and "even" for items on even positions (2, 4, 6, ...).
+// Examples
+// charAtPos([2, 4, 6, 8, 10], "even") ➞ [4, 8]
+// // 4 & 8 occupy the 2nd & 4th positions
+// charAtPos("EDABIT", "odd") ➞ "EAI"
+// // "E", "A" and "I" occupy the 1st, 3rd and 5th positions
+// charAtPos(["A", "R", "B", "I", "T", "R", "A", "R", "I", "L", "Y"], "odd") ➞ ["A", "B", "T", "A", "I", "Y"]
+// Notes
+//     Arrays are zero-indexed, so, index+1 = position or position-1 = index.
+//     A slightly different version of this challenge is found here.
+//     A recursive version of this challenge is found here.
+
+function charAtPos(r, s) {
+  let result = []
+  let specifier = s === 'even' ? 0 : 1
+  for (let i = 0; i < r.length; i++) {
+    if ((i + 1) % 2 === specifier) result.push(r[i])
+  }
+  return typeof r === 'string' ? result.join('') : result
+}
+
+// Create a function based on the input and output. Look at the examples, there is a pattern.
+// Examples
+// secret(24) ➞ 8
+// secret(42) ➞ 8
+// secret(15) ➞ -4
+// secret(52) ➞ 15
+// Notes
+//     num >= 10 and num <= 52
+//     Math.pow, * and - can be helpful.
+
+function secret(num) {
+  const numArr = [...('' + num)]
+  return numArr[0] ** numArr[1] - numArr[0] * numArr[1]
+}
+
+// Create two functions:
+//     The first is isOdd() to check if a given number is odd using bitwise operator.
+//     The second is isEven() to check if a given input is even using regular expressions.
+// Use of % operator is disallowed.
+// Examples
+// isOdd(3) ➞ "Yes" // Use Bitwise Operator
+// isOdd(58) ➞ "No" // Use Bitwise Operator
+// isEven("0") ➞ "Yes" // Use Regular Expression
+// isEven("-99") ➞ "No" // Use Regular Expression
+// Notes
+//     Input will only be integers (positive/negative/zero).
+//     For the second function, input will be numbers in string.
+//     For more info on regular expressions, check the Resources tab.
+
+// Use Bitwise Operator (% operator disallowed.)
+function isOdd(number) {
+	return number & 1 ? "Yes" : "No"
+}
+
+
+// Use Regular Expression (% operator disallowed.)
+function isEven(number) {
+	return /\d*[02468]/.test(number) ? "Yes" : 'No'
+}
+
+// Create a function that determines if there is an upward trend.
+// Examples
+// upwardTrend([1, 2, 3, 4]) ➞ true
+// upwardTrend([1, 2, 6, 5, 7, 8]) ➞ false
+// upwardTrend([1, 2, 3, "4"]) ➞ "Strings not permitted!"
+// upwardTrend([1, 2, 3, 6, 7]) ➞ true
+// Notes
+//     If there is a string element in the array, return "Strings not permitted!".
+//     The numbers don't have to be consecutive (e.g. [1, 3, 5] should still return true).
+
+function upwardTrend(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'string') return "Strings not permitted!"
+    else if (arr[i] > arr[i + 1]) return false
+  }
+  return true
+}
+
+// Write a function that recursively determines if a string is a palindrome.
+// Examples
+// isPalindrome("abcba") ➞ true
+// isPalindrome("b") ➞ true
+// isPalindrome("") ➞ true
+// isPalindrome("ad") ➞ false
+// Notes
+// An empty string counts as a palindrome.
+
+function isPalindrome(str) {
+	for (let i = 0; i < str.length; i++) {
+    if (str[i] !== str[str.length - 1 - i]) return false
+  }
+  return true
+}
+
+// A number is narcissistic when the sum of its digits, with each digit raised to the power of digits quantity, is equal to the number itself.
+// 153 ➞ 3 digits ➞ 1³ + 5³ + 3³ = 1 + 125 + 27 = 153 ➞ Narcissistic
+// 84 ➞ 2 digits ➞ 8² + 4² = 64 + 16 = 80 ➞ Not narcissistic
+// Given a positive integer n, implement a function that returns true if the number is narcissistic, and false if it's not.
+// Examples
+// isNarcissistic(8208) ➞ true
+// // 8⁴ + 2⁴ + 0⁴ + 8⁴ = 8208
+// isNarcissistic(22) ➞ false
+// // 2² + 2² = 8
+// isNarcissistic(9) ➞ true
+// // 9¹ = 9
+// Notes
+//     Trivially, any number in the 1-9 range is narcissistic and any two-digit number is not.
+//     Curious fact: Only 88 numbers are narcissistic.
+
+function isNarcissistic(n) {
+	const nArr = [...('' + n)]
+  let sum = 0
+  for (let i = 0; i < nArr.length; i++) {
+    sum += nArr[i] ** nArr.length
+  }
+  return sum == n
+}
+
+// Extend the global Array object to have an instance method called isEqual(). The method should accept an array as the first argument, and a second optional argument that is a flag to ignore the order of the arrays. This second argument should default to false
+// Examples
+// [1, 2, 3].isEqual([1, 2, 3]) ➞ true
+// [1, 2, 3].isEqual([1, 3, 2]) ➞ false
+// [1, 2, 3].isEqual([1, 3, 2], true) ➞ true
+// Notes
+// This method does not need to compare Arrays, Objects, and non-primitives. It just needs to consider numbers, booleans, and strings.
+
+Array.prototype.isEqual = function(arr, ignoreOrder = false) {
+  if (ignoreOrder) this.sort()
+  const sorted = ignoreOrder ? arr.sort() : arr
+  for(let i = 0; i < this.length; i++) {
+      if (this[i] !== sorted[i]) return false
+  }
+  return true
+}
+
+// A museum wants to get rid of some exhibitions. Katya, the interior architect, comes up with a plan to remove the most boring exhibitions. She gives them a rating, and removes the one with the lowest rating. Just as she finishes rating the exhibitions, she's called off to an important meeting. She asks you to write a program that tells her the ratings of the items after the lowest one is removed.
+// Create a function that takes an array of integers and removes the smallest value.
+// Examples
+// removeSmallest([1, 2, 3, 4, 5] ) ➞ [2, 3, 4, 5]
+// removeSmallest([5, 3, 2, 1, 4]) ➞ [5, 3, 2, 4]
+// removeSmallest([2, 2, 1, 2, 1]) ➞ [2, 2, 2, 1]
+// Notes
+//     Don't change the order of the left over items.
+//     If you get an empty array, return an empty array: [] ➞ [].
+//     If there are multiple items with the same value, remove item with lower index (3rd example).
+
+function removeSmallest(arr) {
+	// arr.splice(arr.indexOf(Math.min(...arr)), 1) 
+  // return arr
+  let min = arr[0]
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < min) min = arr[i]
+  }
+  arr.splice(arr.indexOf(min), 1)
+  return arr
+}
+
+// Create a function that counts the number of times a particular letter shows up in the word search.
+// Examples
+// letterCounter([
+//   ["D", "E", "Y", "H", "A", "D"],
+//   ["C", "B", "Z", "Y", "J", "K"],
+//   ["D", "B", "C", "A", "M", "N"],
+//   ["F", "G", "G", "R", "S", "R"],
+//   ["V", "X", "H", "A", "S", "S"]
+// ], "D") ➞ 3
+// // "D" shows up 3 times: twice in the first row, once in the third row.
+// letterCounter([
+//   ["D", "E", "Y", "H", "A", "D"],
+//   ["C", "B", "Z", "Y", "J", "K"],
+//   ["D", "B", "C", "A", "M", "N"],
+//   ["F", "G", "G", "R", "S", "R"],
+//   ["V", "X", "H", "A", "S", "S"]
+// ], "H") ➞ 2
+// Notes
+// You will always be given an array with five sub-arrays.
+
+function letterCounter(arr, letter) {
+	let count = 0
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].forEach(ele => ele === letter ? count++ : null)
+  }
+  return count
+}
+
+// Create a function that takes a string containing integers as well as other characters and return the sum of the positive integers only.
+// Examples
+// positiveSum("-12#-33 13%14&-11") ➞ 27
+// // 13 + 14 = 27
+// positiveSum("22 13%14&-11-22 13 12 0") ➞ 74
+// // 22 + 13 + 14 + 13 + 12 = -33
+// Notes
+//     There is at least one positive integer.
+//     Each integer is separated by space,#,%,& etc.
+
+const positiveSum = (chars) => {
+  const numArr = chars.match(/[^#%& a-z]\d*/g)
+  return +(numArr.filter(ele => ele > 0).reduce((cur, acc) => +cur + +acc))
+};
+
+// A point on the screen (pt1) wants to move a certain distance (dist) closer to another point on the screen (pt2) The function has three arguments, two of which are objects with x & y values, and the third being the distance, e.g. {x:50, y:60}, {x: 100, y: 100}, 10. The expected result is a similar object with the new co-ordinate.
+// Examples
+// getNextPosition({x: 50, y: 60}, {x: 100, y: 100}, 10) ➞ {x: 58, y: 66}
+// getNextPosition({x: 0, y: 0}, {x: 100, y: 0}, 10) ➞ {x: 10, y: 0}
+// getNextPosition({x: 0, y: 0}, {x: 100, y: 100}, 10) ➞ {x: 7, y: 7}
+// getNextPosition({x: 250, y: 10}, {x: -20, y: 35}, 55) ➞ {x: 195, y: 15}
+// Notes
+//     The returned x & y values should be rounded to the closest integer
+//     If the distance between the two points is less than distance wanting to be traveled, then the returned co-ordinate should overshoot the mark, e.g. {x: 50, y: 0}, {x: 70, y: 0}, 30) ➞ {x: 80, y: 0}.
+
+function getNextPosition(pt1, pt2, dist) {
+	let vector = {v1: pt2.x - pt1.x, v2: pt2.y - pt1.y}
+  let vectorLen = {x: vector.v1 / Math.hypot(vector.v1, vector.v2), y: vector.v2 / Math.hypot(vector.v1, vector.v2) }
+  let distTimesVectorLen = {x: dist * vectorLen.x, y: dist * vectorLen.y}
+  return {x: Math.round(pt1.x + distTimesVectorLen.x), y: Math.round(pt1.y + distTimesVectorLen.y)}
+}
+
+// A palindrome is a word, phrase, number or other sequence of characters which reads the same backward or forward, such as madam or kayak.
+// Write a function that takes a string and determines whether it's a palindrome or not. The function should return a boolean (true or false value).
+// Examples
+// isPalindrome("Neuquen") ➞ true
+// isPalindrome("Not a palindrome") ➞ false
+// isPalindrome("A man, a plan, a cat, a ham, a yak, a yam, a hat, a canal-Panama!") ➞ true
+// Notes
+//     Should be case insensitive.
+//     Special characters (punctuation or spaces) should be ignored.
+
+function isPalindrome(str) {
+	const cleanedStr = str.toLowerCase().replace(/[\W_]/g, '')
+  for (let i = 0; i < cleanedStr.length / 2; i++) {
+    if (cleanedStr[i] !== cleanedStr[cleanedStr.length - 1 - i]) return false
+  }
+  return true
+}
+
+// A quadratic equation a x² + b x + c = 0 has either 0, 1, or 2 distinct solutions for real values of x. Given a, b and c, you should return the number of solutions to the equation.
+// Examples
+// solutions(1, 0, -1) ➞ 2
+// // x² - 1 = 0 has two solutions (x = 1 and x = -1).
+// solutions(1, 0, 0) ➞ 1
+// // x² = 0 has one solution (x = 0).
+// solutions(1, 0, 1) ➞ 0
+// // x² + 1 = 0 has no solutions.
+// Notes
+//     You do not have to calculate the solutions, just return how many there are.
+//     a will always be non-zero.
+
+function solutions(a, b, c) {
+  const discriminant = b ** 2 - 4 * a * c
+  if (discriminant > 0) return 2
+  else if (discriminant === 0) return 1
+  else return 0
+}
+
+// Create a function that converts dates from one of five string formats:
+//     "January 9, 2019" (MM D, YYYY)
+//     "Jan 9, 2019" (MM D, YYYY)
+//     "01/09/2019" (MM/DD/YYYY)
+//     "01-09-2019" (MM-DD-YYYY)
+//     "01.09.2019" (MM.DD.YYYY)
+// The return value will be an array formatted like: [MM, DD, YYYY], where MM, DD, and YYYY are all integers. Using the examples above:
+// Examples
+// convertDate("January 9, 2019") ➞ [1, 9, 2019]
+// convertDate("Jan 9, 2019") ➞ [1, 9, 2019]
+// convertDate("01/09/2019") ➞ [1, 9, 2019]
+// convertDate("01-09-2019") ➞ [1, 9, 2019]
+// convertDate("01.09.2019") ➞ [1, 9, 2019]
+// Notes
+// You can solve this any number of ways, but using JavaScript's new Date() method is probably the easiest. Check the Resources tab for documentation.
+
+function convertDate(date) {
+  const dateObj = new Date(date)
+  return [dateObj.getMonth() + 1, dateObj.getDate(),dateObj.getFullYear()]
+  // const day = /\d{0,2}/
+  // const month = /^(January|Jan|March|Mar|August|Nov|\d{0,2})/
+  // const year = /\d{4}$/
+  // return [ +date.match(day), +date.match(year)[0]]
+}
+
+// Noddy has written a mysterious function which takes in a word and returns true if it's passed a specific test. Solve the riddle of what Noddy's function is by having a look at some of the examples below.
+// Examples
+// noddyFunction("FANTASTIC") ➞ true
+// noddyFunction("wonderful") ➞ false
+// noddyFunction("NODDY") ➞ false
+// Notes
+//     Check the Tests tab for more examples.
+//     This isn't really a coding challenge, more of a fun riddle ;)
+
+function noddyFunction(str) {
+	return str.indexOf('d') === -1 && str.indexOf('D') === -1
+}
+
+// Create a function that takes an array of objects like { name: "John", notes: [3, 5, 4]} and returns an array of objects like { name: "John", avgNote: 4 }. If student has no notes (an empty array) then let's assume avgNote: 0.
+// Examples
+// [
+//   { name: "John", notes: [3, 5, 4]}
+// ] ➞ [
+//   { name: "John", avgNote: 4 }
+// ]
+// Notes
+// Try doing it with an arrow function.
+
+function getStudentsWithNamesAndAvgNote(students) {
+	return students.map(obj => {
+    return {name: obj.name, avgNote: obj.notes.length ? obj.notes.reduce((cur, acc) => cur + acc) / obj.notes.length : 0 } 
+  })
+}
+
+// You will be given an object with various consumer products and thier respective prices. Return a list of the products with a minimum price of 500 in descending order.
+// Examples
+// products({"Computer" : 600, "TV" : 800, "Radio" : 50}) ➞ ["TV","Computer"]
+// products({"Bike1" : 510, "Bike2" : 401, "Bike3" : 501}) ➞ ["Bike1", "Bike3"]) 
+// products({"Loafers" : 50, "Vans" : 10, "Crocs" : 20}) ➞ []
+// Notes
+// N/A
+
+function products(r) {
+  const result = []
+  const productArr = Object.entries(r)
+  let tmp;
+  for (let i = 0; i < productArr.length - 1; i++) {
+    if (productArr[i][1] < productArr[i + 1][1]) {
+      tmp = productArr[i]
+      productArr[i] = productArr[i + 1]
+      productArr[i + 1] = tmp
+    }
+  }
+  productArr.filter(ele => {
+   if (ele[1] >= 500) result.push(ele[0])
+  })
+  return result
+}
+
+// Create a function that calculates the number of different squares in an n * n square grid. Check the Resources tab.
+// Examples
+// numberSquares(2) ➞ 5
+// numberSquares(4) ➞ 30
+// numberSquares(5) ➞ 55
+// Notes
+//     Input is a positive integer.
+//     Square pyramidal number.
+
+function numberSquares(n) {
+  return (n * (n + 1) * (2 * n + 1)) / 6
+}
+
+// Write a function that takes the base and height of a triangle and return its area.
+// Examples
+// triArea(3, 2) ➞ 3
+// triArea(7, 4) ➞ 14
+// triArea(10, 10) ➞ 50
+// Notes
+//     The area of a triangle is: (base * height) / 2
+//     Don't forget to return the result.
+//     If you get stuck on a challenge, find help in the Resources tab.
+//     If you're really stuck, unlock solutions in the Solutions tab.
+
+function triArea(base, height) {
+	return (base * height) / 2
+}
+
+// Shreeya first year computer science student is taking an intro to regex class.Her professor gives her the assignment to write a function that checks whether an input date as a string is in the format yyyy/mm/dd.She has written a regular expression but the regular expression does not seem to be correct.Help Shreeya, fix the error.
+// Examples
+// assignment("12/1/1") ➞ false
+// assignment("1234/12/01") ➞ true
+// assignment("2012/1/1") ➞ false
+// assignment("2012/01/07") ➞ true
+// Notes
+//     Resource can be helpful.
+
+function assignment(d){
+	return /^(?:\d{4})\/(\d{2})\/(\d{2})$/.test(d);
+}
+
+
+// Create a function that takes a number (from 1 to 12) and returns its corresponding month name as a string. For example, if you're given 3 as input, your function should return "March", because March is the 3rd month.
+// Number	Month Name
+// 1	January
+// 2	February
+// 3	March
+// 4	April
+// 5	May
+// 6	June
+// 7	July
+// 8	August
+// 9	September
+// 10	October
+// 11	November
+// 12	December
+// Examples
+// monthName(3) ➞ "March"
+// monthName(12) ➞ "December"
+// monthName(6) ➞ "June"
+// Notes
+//     You can expect only integers ranging from 1 to 12 as test input.
+//     If you get stuck on a challenge, find help in the Resources tab.
+//     If you're really stuck, unlock solutions in the Solutions tab.
+
+function monthName(num) {
+  // const months = ["January", "February", "March", "April", "May", "June",
+  // "July", "August", "September", "October", "November", "December"]
+  // return months[num - 1]
+  return new Date(2020, num - 1).toLocaleString('default', {month : 'long'})
+}
+
+// Given an array of user objects.
+// let names = []
+// let users = [
+//   { name: "John", email: "john@example.com" },
+//   { name: "Jason", email: "jason@example.com" },
+//   { name: "Jeremy", email: "jeremy@example.com" },
+//   { name: "Jacob", email: "jacob@example.com" }
+// ]
+// for(/* add code inside these parenthesis only */) {
+//       names.push(name)
+// }
+// console.log(names) // should log ["John", "Jason", "Jeremy", "Jacob"]
+// Push the first names of all users in the names array.
+// Notes
+//     You only have to change the "for...of" loop parameters.
+//     Ignore the const str assignment. This is only used for validation purposes.
+//     Check the MDN docs to find out more about object destructuring in "for...of" loops (check the Resources tab).
+
+let names = []
+
+let users = [
+  { name: "John", email: "john@example.com" },
+  { name: "Jason", email: "jason@example.com" },
+  { name: "Jeremy", email: "jeremy@example.com" },
+  { name: "Jacob", email: "jacob@example.com" }
+] 
+
+const str = `
+	for(const {name: name} of users) {
+			names.push(name)
+	}`
+
+// Given a word, create an object that stores the indexes of each letter in an array.
+//     Make sure the letters are the keys.
+//     Make sure the letters are symbols.
+//     Make sure the indexes are stored in an array and those arrays are values.
+// Examples
+// mapLetters("dodo") ➞ { d: [0, 2], o: [1, 3] }
+// mapLetters("froggy") ➞ { f: [0], r: [1], o: [2], g: [3, 4], y: [5] }
+// mapLetters("grapes") ➞ { g: [0], r: [1], a: [2], p: [3], e: [4], s: [5] }
+// Notes
+// All strings given will be lowercase.
+
+function mapLetters(word) {
+	const obj = {}
+  for (let i = 0; i < word.length; i++) {
+    obj[word[i]] = []
+  }
+  for (let j = 0; j < word.length; j++) {
+    obj[word[j]].push(j)
+  }
+  return obj
+}
+
+// Regex Series: Initials
+// Write a regular expression that checks if a string is a valid initial. Valid initials either look like (ex. for Chandler Muriel Bing):
+//     C. B.
+//     C. M. B.
+// Rules for a valid initial:
+//     Each letter must be upper case.
+//     Each letter must be immediately followed by a period.
+//     There must be exactly one space separating each letter-period pair.
+//     Leading or trailing whitespaces are valid.
+// Examples
+// "C. B." ➞ true
+// "    C. B." ➞ true
+// // Leading and trailing spaces are OK!
+// "C. B. k." ➞ false
+// // One of the initials is lower cased 
+// "C B" ➞ false
+// // Missing a dot to immediately follow. 
+// Notes
+// This challenge is designed to use RegEx only.
+
+let x = /^\s*([A-Z]\.\s?){1,3}\s*$/
+
+// Create a function that takes two "sorted" arrays of numbers and returns an array of numbers which are common to both the input arrays.
+// Examples
+// commonElements([-1, 3, 4, 6, 7, 9], [1, 3]) ➞ [3]
+// commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10]) ➞ [1, 3, 4, 7]
+// commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5]) ➞ [1, 2, 4, 5]
+// commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15]) ➞ []
+// Notes
+// Arrays are Sorted!! Try doing this problem with O(n + m) time complexity
+
+function commonElements(arr1, arr2) {
+	// return arr2.filter(ele => arr1.includes(ele))
+  const result = []
+  for (let i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) !== -1) result.push(arr2[i])
+  }
+  return result
+}
+
+// Create a function that takes a sequence of either strings or numbers, removes the surrounding duplicates and returns an array of items without any items with the same value next to each other and preserves the original order of items.
+// Examples
+// uniqueInOrder("AAAABBBCCDAABBB") ➞ ["A", "B", "C", "D", "A", "B"]
+// uniqueInOrder("ABBCcAD") ➞ ["A", "B", "C", "c", "A", "D"]
+// uniqueInOrder([1, 2, 2, 3, 3]) ➞ [1, 2, 3]
+// Notes
+//     The initial sequence of items can be either a string or an array.
+//     Tests are case sensitive.
+
+function uniqueInOrder(sequence, result = []) {
+  for (let i = 0; i < sequence.length; i++) {
+    if (sequence[i] !== sequence[i + 1]) result.push(sequence[i])
+  }
+  return result
+}
+
+// Create a function that takes a single word string and does the following:
+//     Concatenates inator to the end if the word ends with a consonant otherwise, concatenate -inator instead.
+//     Adds the word length of the original word to the end, supplied with '000'.
+// The examples should make this clear.
+// Examples
+// inatorInator("Shrink") ➞ "Shrinkinator 6000"
+// inatorInator("Doom") ➞ "Doominator 4000"
+// inatorInator("EvilClone") ➞ "EvilClone-inator 9000"
+// Notes
+// N/A
+
+function inatorInator(inv) {
+  const vowels = {a:1, e:1, i:1, o:1, u:1}
+  if (vowels[inv[inv.length - 1]] || vowels[inv[inv.length - 1].toLowerCase()]) return `${inv}-inator ${inv.length}000`
+  return `${inv}inator ${inv.length}000`
+}
+
+// Create a function that returns the sum of all even elements in a 2D matrix.
+// Examples
+// sumOfEvens([
+//   [1, 0, 2],
+//   [5, 5, 7],
+//   [9, 4, 3]
+// ]) ➞ 6
+// // 2 + 4 = 6
+// sumOfEvens([
+//   [1, 1],
+//   [1, 1]
+// ]) ➞ 0
+// sumOfEvens([
+//   [42, 9],
+//   [16, 8]
+// ]) ➞ 66
+// sumOfEvens([
+//   [],
+//   [],
+//   []
+// ]) ➞ 0
+// Notes
+
+//     Submatrices will be of equal length.
+//     Return 0 if the 2D matrix only consists of empty submatrices.
+
+function sumOfEvens(arr) {
+	return arr.map(ele => ele.reduce((cur, acc) => cur + (acc % 2 == 0 ? acc : 0), 0)).reduce((cur, acc) => cur + acc)
+}
+
+// Write a function that returns the greatest common divisor (GCD) of two integers.
+// Examples
+// gcd(32, 8) ➞ 8
+// gcd(8, 12) ➞ 4
+// gcd(17, 13) ➞ 1
+// Notes
+
+//     Both values will be positive.
+//     The GCD is the largest factor that divides both numbers.
+
+function gcd(n1, n2) {
+	if (n2 == 0) return n1;
+	else return gcd(n2, (n1 % n2))
+}
+
+// Given a very long string of ASCII characters, split the string up into equal sized groups of size width. To properly display the image, join up the groups with the newline character \n and return the output string.
+// See the following examples for clarity!
+// Examples
+// formatAscii('0123456789', 2) ➞ '01\n23\n45\n67\n89'
+// formatAscii('................................', 8) ➞ '........\n........\n........\n........'
+// formatAscii('^^^^^^^^', 1) ➞ '^\n^\n^\n^\n^\n^\n^\n^'
+// Notes
+// Enjoy the (somewhat oversized) art in the Tests tab!
+
+function formatAscii(str, width) {
+	const strArr = [...str]
+  for (let i = strArr.length - 1; i >= 0; i--) {
+    if (i && i % width == 0) strArr.splice(i, 0, '\n')
+  }
+  return strArr.join('')
+}
+
+// Your friend is trying to write a function to accomplish the following transformations:
+// let x = [3, 3, 3, 3, 3, 3, 3]
+// // Each time x is called, the following results are shown:
+// change(x, 0)  // [3, 3, 3, 3, 3, 3, 3]
+// change(x, 1)  // [3, 2, 2, 2, 2, 2, 3]
+// change(x, 2)  // [3, 2, 1, 1, 1, 2, 3]
+// change(x, 3)  // [3, 2, 1, 0, 1, 2, 3]
+// Note: The change() function should not mutate the original array. After each call to the function, the original x should still equal [3, 3, 3, 3, 3, 3, 3].
+// He comes up with the following code:
+// function change(x, times) {
+//   for(let i = 0; i < x.length; i++) {
+//     let j = 1; 
+//     while (j <= times) {
+//       if (i >= j && i < x.length-j) {
+//         x[i]--; 
+//       }
+//       j++; 
+//     }
+//   }
+//   return x; 
+// }
+// Oops! The code appears to mutate the original array. Fix this incorrect code so that the function no longer mutates the original array.
+// See below:
+// Examples
+// let x = [3, 3, 3, 3, 3, 3, 3]
+// // What we want:
+// change(x, 2) => [3, 2, 1, 1, 1, 2, 3]
+// change(x, 2) => [3, 2, 1, 1, 1, 2, 3]
+// // What we get:
+// change(x, 2) => [3, 2, 1, 1, 1, 2, 3]  // Good so far...
+// change(x, 2) => [3, 1, -1, -1, -1, 1, 3] // Array is mutated :(
+// Notes
+//     If this is confusing, copy and paste the incorrect code in a REPL environment and play around with the code to understand what the function is doing.
+//     Hint: Try to make a copy of the input array.
+//     If this looks familiar, it is part of a solution for the Concentric Rug problem.
+
+function change(x, times) {
+  let result = [...x]
+  for (let i = 0; i < x.length; i++) {
+		let j = 1; 
+		while (j <= times) {
+			if (i >= j && i < x.length - j) {
+				result[i]--;
+			}
+			j++; 
+		}
+	}
+	return result; 
+}
+
+// Create a function that takes a string of four numbers. These numbers represent two separat points on a graph known as the x-axis (horizontal axis) and y-axis (vertical axis). Each number corresponds as follows: "x1, y1, x2, y2". Calculate the distance between x and y.
+// Examples
+// shortestDistance("1,1,2,1") ➞ 1
+// shortestDistance("1,1,3,1") ➞ 2
+// shortestDistance("-5,1,3,1") ➞ 8
+// shortestDistance("-5,2,3,1") ➞ 8.06
+// Notes
+// All floats fixed to 2 decimal places (e.g. 2.34).
+
+function shortestDistance(str) {
+  const coord = str.split(',')
+	return +Math.hypot((coord[0] - coord[2]), (coord[1] - coord[3])).toFixed(2)
+}
+
 // Suppose that you invest $10,000 for 10 years at an interest rate of 6% compounded monthly. What will be the value of your investment at the end of the 10 year period?
 // Create a function that accepts the principal p, the term in years t, the interest rate r, and the number of compounding periods per year n. The function returns the value at the end of term rounded to the nearest cent.
 // For the example above:
