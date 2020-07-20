@@ -1,3 +1,28 @@
+// Write a function that replaces all letters within a specified range with the hash symbol #.
+// Examples
+// replace("abcdef", "c-e") ➞ "ab###f"
+// replace("rattle", "r-z") ➞ "#a##le"
+// replace("microscopic", "i-i") ➞ "m#croscop#c"
+// replace("", "a-z") ➞ ""
+// Notes
+//     The range will always be in order, a.k.a. for m-n, character m will always come before or equal n.
+//     Strings will be in lower case letters only.
+//     Return an empty string if the input is an empty string.
+
+function replace(str, r) {
+  // const pattern = new RegExp(`[${r}]`,'g' )
+  // return str.replace(pattern, '#')
+  const strArr = [...str]
+  const charCodeRange = [r.charCodeAt(0), r.charCodeAt(2)]
+  for (let i = 0; i < strArr.length; i++) {
+    const charCode = str.charCodeAt(i)
+    if(charCode >= charCodeRange[0] && charCode <= charCodeRange[1]) {
+      strArr[i] = '#'
+    }
+  }
+  return strArr.join('')
+}
+
 // Write a function that finds the longest word in a sentence given as a string and returns it If two or more words are the biggest, return the word closest to the start of the sentence. Characters such as apostophe, commas, full stops etc count as letters. Eg. O'Connor is 8 characters long.
 // Examples
 // longestWord("Hello darkness my old friend") ➞ "darkness"
