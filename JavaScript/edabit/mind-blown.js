@@ -1,3 +1,19 @@
+// Write a function that finds the longest word in a sentence given as a string and returns it If two or more words are the biggest, return the word closest to the start of the sentence. Characters such as apostophe, commas, full stops etc count as letters. Eg. O'Connor is 8 characters long.
+// Examples
+// longestWord("Hello darkness my old friend") ➞ "darkness"
+// longestWord("Hello there mate")  ➞ "Hello"
+// longestWord("Kayla's toy is plastic")  ➞ "Kayla's"
+// Notes
+
+function longestWord(sentence) {
+	const wordArr = [...sentence.split(' ')]
+  let longest = wordArr[0]
+  for (let i = 0; i < wordArr.length; i++) {
+    if (wordArr[i].length > longest.length) longest = wordArr[i]
+  }
+  return longest
+}
+
 // Given an array of user objects. If we just wanted to get the name of the third object in the array, one way could be to use an array method like:
 // let users = [
 //   { name: "John", email: "john@example.com" },
