@@ -1,3 +1,28 @@
+// Hermione has come up with a precise formula for determining whether or not a phrase was ssspoken by a parssseltongue (a reference from the Harry Potter universe; the language of ssserpents and those who can converse with them).
+// Each word in a sssentence must contain either:
+//     At least 2 instances of the letter "s" (i.e. must be together ss), or...
+//     Zero instances of the letter "s".
+// Examples
+// isParselTongue("Sshe ssselects to eat that apple. ") ➞ true
+// isParselTongue("She ssselects to eat that apple. ") ➞ false
+// // "She" only contains one "s".
+// isParselTongue("Beatrice samples lemonade") ➞ false
+// // While "samples" has 2 instances of "s", they are not together.
+// isParselTongue("You ssseldom sssspeak sso boldly, ssso messmerizingly.") ➞ true
+// Notes
+// There should be no words with only one instance of the letter "s" (see example #2).
+
+function isParselTongue(sentence) {
+  const arr = [...sentence.toLowerCase().split(' ')]
+	for (let i = 0; i < arr.length; i++) {
+    if (arr[i].includes('s')) {
+      const sIndex = arr[i].indexOf('s')
+      if (arr[i][sIndex] !== arr[i][sIndex + 1]) return false
+    }
+  }
+  return true
+}
+
 // An ultrarelativistic particle is one whose speed v is very close to the speed of light c (or equivalently, one whose β = v/c is very close to 1). But a number like 0.9999999999999999999 is inconvenient to work with: calculators round it to 1, and trying to write it in scientific notation does the same (because any 9 you stop at gets rounded up by the following 9). It's better to work with the quantity (1 - β) instead.
 // Fortunately, we don't need to deal directly with β to calculate an ultrarelativistic particle's (1 - β). There are some other wieldier quantities that we can use to approximate (1 - β) with great precision. One of them is the particle's rapidity φ, which is related to β by the equation:
 // tanh φ = β
