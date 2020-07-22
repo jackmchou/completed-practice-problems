@@ -1,3 +1,23 @@
+// Create a function that takes an array of superheroes / superheroines names and returns an array of only superheroe names ending in "man". Return the names in alphabetical order.
+// Wonder-Woman, Catwoman and Invisible-Woman are Superheroines, not Superheroes. Return only Superheroes.
+// Examples
+// superheroes(["Batman", "Superman", "Spider-man", "Hulk", "Wolverine", "Wonder-Woman"])
+// ➞ ["Batman", "Spider-man", "Superman"]
+// superheroes(["Catwoman", "Deadpool", "Dr.Strange", "Captain-America", "Aquaman", "Hawkeye"])
+// ➞ ["Aquaman"]
+// superheroes(["Wonder-Woman", "Catwoman", "Invisible-Woman"])
+// ➞ []
+// Notes
+// N/A
+
+function superheroes(heroes) {
+  const result = []
+	for (let i = 0; i < heroes.length; i++) {
+    if (heroes[i].slice(-3) === 'man' && heroes[i].slice(-5).toLowerCase() !== 'woman') result.push(heroes[i])
+  }
+  return result.sort()
+}
+
 // Write a function that searches an array of names (unsorted) for the name "Bob" and returns the location in the array. If Bob is not in the array, return -1.
 // Examples
 // findBob(["Jimmy", "Layla", "Bob"]) ➞ 2
