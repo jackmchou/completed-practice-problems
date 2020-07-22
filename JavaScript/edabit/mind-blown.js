@@ -1,3 +1,22 @@
+// Create a function that returns the amount of duplicate characters in a string. It will be case sensitive and spaces are included. If there are no duplicates, return 0.
+// Examples
+// duplicates("Hello World!") ➞ 3
+// duplicates("foobar") ➞ 1
+// duplicates("helicopter") ➞ 1
+// duplicates("birthday") ➞ 0
+// // If there are no duplicates, return 0
+// Notes
+// Make sure to only start counting the second time a character appears.
+
+function duplicates(str) {
+  const charCount = {}
+  for (let i = 0; i < str.length; i++) {
+    if (charCount[str[i]]) charCount[str[i]]++
+    else charCount[str[i]] = 1
+  }
+  return Object.values(charCount).map(ele => ele - 1).filter(ele => ele > 0).reduce((cur, acc) => cur + acc, 0)
+}
+
 // Given an array of numbers and a value n, write a function that returns the probability of choosing a number greater than or equal to n from the array. The probability should be expressed as a percentage, rounded to one decimal place.
 // Examples
 // probability([5, 1, 8, 9], 6) ➞ 50.0
