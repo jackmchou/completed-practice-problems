@@ -1,3 +1,19 @@
+// Write a function that searches an array of names (unsorted) for the name "Bob" and returns the location in the array. If Bob is not in the array, return -1.
+// Examples
+// findBob(["Jimmy", "Layla", "Bob"]) ➞ 2
+// findBob(["Bob", "Layla", "Kaitlyn", "Patricia"]) ➞ 0
+// findBob(["Jimmy", "Layla", "James"]) ➞ -1
+// Notes
+// Assume all names start with a capital letter and are lowercase thereafter (i.e. don't worry about finding "BOB" or "bob").
+
+function findBob(names) {
+	// return names.indexOf('Bob')
+  for (let i = 0; i < names.length; i++) {
+    if (names[i] == 'Bob') return i
+  }
+  return -1
+}
+
 // Create a function that returns the amount of duplicate characters in a string. It will be case sensitive and spaces are included. If there are no duplicates, return 0.
 // Examples
 // duplicates("Hello World!") ➞ 3
