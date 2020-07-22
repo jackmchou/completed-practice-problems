@@ -1,3 +1,19 @@
+// Create a function that outputs true if a number is prime, and false otherwise.
+// Examples
+// isPrime(31) ➞ true
+// isPrime(18) ➞ false
+// isPrime(11) ➞ true
+// Notes
+//     A prime number has no other factors except 1 and itself.
+//     1 is not considered a prime number.
+
+function isPrime(num) {
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) return false
+  }
+  return num > 1
+}
+
 // Create a function that takes a single string as argument and returns an ordered array containing the indices of all capital letters in the string.
 // Examples
 // indexOfCaps("eDaBiT") ➞ [1, 3, 5]
@@ -10,7 +26,7 @@
 //     Special characters ($#@%) and numbers will be included in some test cases.
 
 function indexOfCaps(str) {
-  // return [...str].map((ele, idx) => /[A-z]/.test(ele) && ele.toUpperCase() === ele ? idx : null).filter(ele => ele)
+  // return [...str].map((ele, idx) => /[A-z]/.test(ele) && ele.toUpperCase() === ele ? idx : null).filter(ele => ele !== null)
   const result = []
   for (let i = 0; i < str.length; i++) {
     if (/[A-z]/g.test(str[i]) && str[i].toUpperCase() === str[i]) {
