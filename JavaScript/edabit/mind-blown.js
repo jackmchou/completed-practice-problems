@@ -1,3 +1,25 @@
+// Create a function that takes a single string as argument and returns an ordered array containing the indices of all capital letters in the string.
+// Examples
+// indexOfCaps("eDaBiT") ➞ [1, 3, 5]
+// indexOfCaps("eQuINoX") ➞ [1, 3, 4, 6]
+// indexOfCaps("determine") ➞ []
+// indexOfCaps("STRIKE") ➞ [0, 1, 2, 3, 4, 5]
+// indexOfCaps("sUn") ➞ [1]
+// Notes
+//     Return an empty array if no uppercase letters are found in the string.
+//     Special characters ($#@%) and numbers will be included in some test cases.
+
+function indexOfCaps(str) {
+  // return [...str].map((ele, idx) => /[A-z]/.test(ele) && ele.toUpperCase() === ele ? idx : null).filter(ele => ele)
+  const result = []
+  for (let i = 0; i < str.length; i++) {
+    if (/[A-z]/g.test(str[i]) && str[i].toUpperCase() === str[i]) {
+      result.push(i)
+    }
+  }
+  return result
+}
+
 // Hermione has come up with a precise formula for determining whether or not a phrase was ssspoken by a parssseltongue (a reference from the Harry Potter universe; the language of ssserpents and those who can converse with them).
 // Each word in a sssentence must contain either:
 //     At least 2 instances of the letter "s" (i.e. must be together ss), or...
