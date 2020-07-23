@@ -1,3 +1,29 @@
+// Create a function which simulates the game "rock, paper, scissors". The function takes the input of both players (rock, paper or scissors), first parameter from first player, second from second player. The function returns the result as such:
+//     "Player 1 wins"
+//     "Player 2 wins"
+//     "TIE" (if both inputs are the same)
+// The rules of rock, paper, scissors, if not known:
+//     Both players have to say either "rock", "paper" or "scissors" at the same time.
+//     Rock beats scissors, paper beats rock, scissors beat paper.
+// Examples
+// rps("rock", "paper") ➞ "Player 2 wins"
+// rps("paper", "rock") ➞ "Player 1 wins"
+// rps("paper", "scissors") ➞ "Player 2 wins"
+// rps("scissors", "scissors") ➞ "TIE"
+// rps("scissors", "paper") ➞ "Player 1 wins"
+// Notes
+// There are several ways to solve this challenge.
+
+function rps(s1, s2) {
+	if (s1 == s2) return 'TIE'
+  // if (s1 == 'rock' && s2 == 'paper') return 'Player 2 wins'
+  // if (s1 == 'paper' && s2 == 'rock') return 'Player 1 wins'
+  // if (s1 == 'paper' && s2 == 'scissors') return 'Player 2 wins'
+  // if (s1 == 'scissors' && s2 == 'paper') return 'Player 1 wins'
+  let condition = {paper: 'rock', scissors: 'paper', rock: 'scissors'}
+  return condition[s1] === s2 ? 'Player 1 wins' : 'Player 2 wins'
+}
+
 // Can you spare a square?
 // Try to imagine a world in which you might have to stay home for 14 days at any given time. Do you have enough TP to make it through?
 // Although the number of squares per roll of TP varies significantly, we'll assume each roll has 500 sheets, and the average person uses 57 sheets per day.
