@@ -1,3 +1,34 @@
+// Creates a function that takes two integers, num and n, and returns an integer which is divisible by n and is the closest to num. If there are two numbers equidistant from num and divisible by n, select the larger one.
+// Examples
+// roundNumber(33, 25) ➞ 25
+// roundNumber(46, 7) ➞ 49
+// roundNumber(133, 14) ➞ 140
+// Notes
+// n will always be a positive number.
+
+function roundNumber(num, n) {
+  // return Math.round(num / n) * n;
+  const arr = []
+  for (let i = num; i++;) {
+    if (i % n === 0) {
+      arr.push(i)
+      break
+    }
+  }
+  let j = num
+  while (j >= 0) {
+    if (j % n == 0) {
+      arr.push(j)
+      break
+    }
+    j--
+  }
+  const dist1 = Math.abs(arr[0] - num)
+  const dist2 = Math.abs(arr[1] - num)
+  if (dist2 < dist1) return arr[1]
+  else return arr[0]
+}
+
 // Create a function which simulates the game "rock, paper, scissors". The function takes the input of both players (rock, paper or scissors), first parameter from first player, second from second player. The function returns the result as such:
 //     "Player 1 wins"
 //     "Player 2 wins"
