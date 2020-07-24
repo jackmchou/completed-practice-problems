@@ -1,3 +1,28 @@
+// In this challenge, you have to convert a weight weighed on a planet of the Solar System to the corresponding weight on another planet.
+// To convert the weight, you have to divide it by the gravitational force of the planet on which is weighed and multiply the result (the mass) for the gravitational force of the other planet. See the table below for a list of gravitational forces:
+// weight on planetA / gravitational force of planetA * gravitational force of planetB
+// Planet	m/s²
+// Mercury	3.7
+// Venus	8.87
+// Earth	9.81
+// Mars	3.711
+// Jupiter	24.79
+// Saturn	10.44
+// Uranus	8.69
+// Neptune	11.15
+// Given a weight weighed on planetA, return the converted value for planetB rounded to the nearest hundredth.
+// Examples
+// spaceWeights("Earth", 1, "Mars") ➞ 0.38
+// spaceWeights("Earth", 1, "Jupiter") ➞ 2.53
+// spaceWeights("Earth", 1, "Neptune") ➞ 1.14
+// Notes
+// N/A
+
+function spaceWeights(planetA, weight, planetB) {
+	const planetGF = {'Mercury':	3.7, 'Venus':	8.87, 'Earth':	9.81,'Mars':	3.711,'Jupiter':	24.79, 'Saturn':	10.44, 'Uranus':	8.69, 'Neptune':	11.15}
+  return +(weight / planetGF[planetA] * planetGF[planetB]).toFixed(2)
+}
+
 // Create a recursive function that takes two parameters and repeats the string n number of times. The first parameter txt is the string to be repeated and the second parameter is the number of times the string is to be repeated.
 // String.prototype.repeat() is not allowed
 // Examples
