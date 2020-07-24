@@ -1,3 +1,17 @@
+// Write a function that returns the length of a string. Make your function recursive.
+// Examples
+// length("apple") ➞ 5
+// length("make") ➞ 4
+// length("a") ➞ 1
+// length("") ➞ 0
+// Notes
+// Check the Resources tab for info on recursion.
+
+function length(str) {
+	if (!str) return 0
+	else return 1 + length(str.substring(1))
+}
+
 // Write a function that sorts a given array in an alternative fashion. The result should be a array sorted in ascending order (number then letter). Array will contain equal amounts of integer numbers and single characters.
 // Examples
 // alternateSort(["a", "b", "c", 1, 2, 3]) ➞ [1, "a", 2, "b", 3, "c"]
