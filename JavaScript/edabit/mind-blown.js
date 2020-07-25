@@ -1,3 +1,18 @@
+// Create a function which takes in an array of numbers and a number to find. Return the sum of every index in the array which matches the chosen number.
+// Examples
+// sumFoundIndexes([0, 3, 3, 0, 0, 3], 3) ➞ 8
+// // The number 3 was found at indexes 1, 2 and 5.
+// // 8 = 1 + 2 + 5
+// sumFoundIndexes([1, 2, 3, 4, 5, 6], 3) ➞ 2
+// sumFoundIndexes([100, 100, 100, 100, 100], 100) ➞ 10
+// sumFoundIndexes([5, 10, 15, 20], 2) ➞ 0
+// Notes
+// 0 can be the result if no number in the array matches or if the only matching element is at index 0.
+
+function sumFoundIndexes(arr, n) {
+	return arr.map((ele, idx) => ele === n ? idx : 0).filter(idx => idx !== 0).reduce((acc, cur) => acc + cur, 0)
+}
+
 // You have one job and one job only, to ruin the day of any unsuspecting victim using the toString function. Hook the String prototype toString to instead return a string that is in reverse.
 // Examples
 // ("Hello World!").toString() ➞ "!dlroW olleH"
