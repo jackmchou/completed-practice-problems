@@ -1,3 +1,19 @@
+// You have one job and one job only, to ruin the day of any unsuspecting victim using the toString function. Hook the String prototype toString to instead return a string that is in reverse.
+// Examples
+// ("Hello World!").toString() ➞ "!dlroW olleH"
+// ("My hooking function! :3").toString() ➞ "3: !noitcnuf gnikooh yM"
+// ("RaceCar")toString() ➞ "raCecaR"
+// Notes
+// Remember that this is an object!
+
+String.prototype.toString = function() {
+  const reversed = []
+	for (let i = this.length - 1; i >= 0; i--) {
+    reversed.push(this[i])
+  }
+  return reversed.join('')
+}
+
 // In this challenge, you have to convert a weight weighed on a planet of the Solar System to the corresponding weight on another planet.
 // To convert the weight, you have to divide it by the gravitational force of the planet on which is weighed and multiply the result (the mass) for the gravitational force of the other planet. See the table below for a list of gravitational forces:
 // weight on planetA / gravitational force of planetA * gravitational force of planetB
