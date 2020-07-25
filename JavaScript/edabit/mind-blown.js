@@ -1,3 +1,15 @@
+// Create a function that moves all capital letters to the front of a word.
+// Examples
+// capToFront("hApPy") ➞ "APhpy"
+// capToFront("moveMENT") ➞ "MENTmove"
+// capToFront("shOrtCAKE") ➞ "OCAKEshrt"
+// Notes
+// Keep the original relative order of the upper and lower case letters the same.
+
+function capToFront(s) {
+  return s.match(/[A-Z]/g).concat(s.match(/[a-z]/g)).join('')
+}
+
 // Create a function which takes in an array of numbers and a number to find. Return the sum of every index in the array which matches the chosen number.
 // Examples
 // sumFoundIndexes([0, 3, 3, 0, 0, 3], 3) ➞ 8
