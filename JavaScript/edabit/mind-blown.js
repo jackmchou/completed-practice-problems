@@ -1,3 +1,17 @@
+// Given an array of integers, replace every number with the average mean of the whole array.
+// Examples
+// flattenCurve([1, 2, 3, 4, 5]) ➞ [3, 3, 3, 3, 3]
+// flattenCurve([0, 0, 0, 2, 7, 3]) ➞ [2, 2, 2, 2, 2, 2]
+// flattenCurve([4]) ➞ [4]
+// flattenCurve([]) ➞ []
+// Notes
+//     Round averages to 1 decimal point.
+//     Return an empty array if given an empty array (see example #4).
+
+function flattenCurve(arr) {
+	return arr.fill(+(arr.reduce((cur, acc) => cur + acc, 0) / arr.length).toFixed(1))
+}
+
 // Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city and returns to the origin city?
 // Return the total number of possible paths a salesman can travel, given n paths.
 // Examples
