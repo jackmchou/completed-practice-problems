@@ -1,3 +1,30 @@
+// Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city and returns to the origin city?
+// Return the total number of possible paths a salesman can travel, given n paths.
+// Examples
+// paths(4) ➞ 24
+// paths(1) ➞ 1
+// paths(9) ➞ 362880
+// Notes
+// Inspired by a video from Dr. Peter Merz.
+
+function paths(n) {
+	if (n <= 1) return n
+  else return n * paths(n - 1)
+}
+
+// Write a function that removes all capitals letters from a sentence except the first letter, put quotation marks around the sentence and add ", whispered Edabit." to the end.
+// Examples
+// shhh("HI THERE!") ➞ "'Hi there!', whispered Edabit."
+// shhh("tHaT'S Pretty awesOme") ➞ "'That's pretty awesome', whispered Edabit."
+// shhh("") ➞ "'', whispered Edabit."
+// Notes
+// Don't forget to surround the original string with quotation marks "".
+
+function shhh(sentence) {
+  if (!sentence) return `"${sentence}"` + ', whispered Edabit.'
+  return `"${sentence[0].toUpperCase() + [...sentence.slice(1)].map(ele => ele.toLowerCase()).join('')}", whispered Edabit.`
+}
+
 // Create a function which concantenates the number 7 to the end of every chord in an array. Ignore all chords which already end with 7.
 // Examples
 // jazzify(["G", "F", "C"]) ➞ ["G7", "F7", "C7"]
