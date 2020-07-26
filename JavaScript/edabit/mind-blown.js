@@ -1,3 +1,666 @@
+// Given an array of integers, replace every number with the average mean of the whole array.
+// Examples
+// flattenCurve([1, 2, 3, 4, 5]) ➞ [3, 3, 3, 3, 3]
+// flattenCurve([0, 0, 0, 2, 7, 3]) ➞ [2, 2, 2, 2, 2, 2]
+// flattenCurve([4]) ➞ [4]
+// flattenCurve([]) ➞ []
+// Notes
+//     Round averages to 1 decimal point.
+//     Return an empty array if given an empty array (see example #4).
+
+function flattenCurve(arr) {
+	return arr.fill(+(arr.reduce((cur, acc) => cur + acc, 0) / arr.length).toFixed(1))
+}
+
+// Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city and returns to the origin city?
+// Return the total number of possible paths a salesman can travel, given n paths.
+// Examples
+// paths(4) ➞ 24
+// paths(1) ➞ 1
+// paths(9) ➞ 362880
+// Notes
+// Inspired by a video from Dr. Peter Merz.
+
+function paths(n) {
+	if (n <= 1) return n
+  else return n * paths(n - 1)
+}
+
+// Write a function that removes all capitals letters from a sentence except the first letter, put quotation marks around the sentence and add ", whispered Edabit." to the end.
+// Examples
+// shhh("HI THERE!") ➞ "'Hi there!', whispered Edabit."
+// shhh("tHaT'S Pretty awesOme") ➞ "'That's pretty awesome', whispered Edabit."
+// shhh("") ➞ "'', whispered Edabit."
+// Notes
+// Don't forget to surround the original string with quotation marks "".
+
+function shhh(sentence) {
+  if (!sentence) return `"${sentence}"` + ', whispered Edabit.'
+  return `"${sentence[0].toUpperCase() + [...sentence.slice(1)].map(ele => ele.toLowerCase()).join('')}", whispered Edabit.`
+}
+
+// Create a function which concantenates the number 7 to the end of every chord in an array. Ignore all chords which already end with 7.
+// Examples
+// jazzify(["G", "F", "C"]) ➞ ["G7", "F7", "C7"]
+// jazzify(["Dm", "G", "E", "A"]) ➞ ["Dm7", "G7", "E7", "A7"]
+// jazzify(["F7", "E7", "A7", "Ab7", "Gm7", "C7"]) ➞ ["F7", "E7", "A7", "Ab7", "Gm7", "C7"]
+// jazzify([]) ➞ []
+// Notes
+//     Return an empty array if the given array is empty.
+//     You can expect all the tests to have valid chords.
+
+function jazzify(arr) {
+	return arr.map(ele => ele[ele.length - 1] !== '7' ? ele + '7' : ele)
+}
+
+// Create a function that moves all capital letters to the front of a word.
+// Examples
+// capToFront("hApPy") ➞ "APhpy"
+// capToFront("moveMENT") ➞ "MENTmove"
+// capToFront("shOrtCAKE") ➞ "OCAKEshrt"
+// Notes
+// Keep the original relative order of the upper and lower case letters the same.
+
+function capToFront(s) {
+  return s.match(/[A-Z]/g).concat(s.match(/[a-z]/g)).join('')
+}
+
+// Create a function which takes in an array of numbers and a number to find. Return the sum of every index in the array which matches the chosen number.
+// Examples
+// sumFoundIndexes([0, 3, 3, 0, 0, 3], 3) ➞ 8
+// // The number 3 was found at indexes 1, 2 and 5.
+// // 8 = 1 + 2 + 5
+// sumFoundIndexes([1, 2, 3, 4, 5, 6], 3) ➞ 2
+// sumFoundIndexes([100, 100, 100, 100, 100], 100) ➞ 10
+// sumFoundIndexes([5, 10, 15, 20], 2) ➞ 0
+// Notes
+// 0 can be the result if no number in the array matches or if the only matching element is at index 0.
+
+function sumFoundIndexes(arr, n) {
+	return arr.map((ele, idx) => ele === n ? idx : 0).filter(idx => idx !== 0).reduce((acc, cur) => acc + cur, 0)
+}
+
+// You have one job and one job only, to ruin the day of any unsuspecting victim using the toString function. Hook the String prototype toString to instead return a string that is in reverse.
+// Examples
+// ("Hello World!").toString() ➞ "!dlroW olleH"
+// ("My hooking function! :3").toString() ➞ "3: !noitcnuf gnikooh yM"
+// ("RaceCar")toString() ➞ "raCecaR"
+// Notes
+// Remember that this is an object!
+
+String.prototype.toString = function() {
+  const reversed = []
+	for (let i = this.length - 1; i >= 0; i--) {
+    reversed.push(this[i])
+  }
+  return reversed.join('')
+}
+
+// In this challenge, you have to convert a weight weighed on a planet of the Solar System to the corresponding weight on another planet.
+// To convert the weight, you have to divide it by the gravitational force of the planet on which is weighed and multiply the result (the mass) for the gravitational force of the other planet. See the table below for a list of gravitational forces:
+// weight on planetA / gravitational force of planetA * gravitational force of planetB
+// Planet	m/s²
+// Mercury	3.7
+// Venus	8.87
+// Earth	9.81
+// Mars	3.711
+// Jupiter	24.79
+// Saturn	10.44
+// Uranus	8.69
+// Neptune	11.15
+// Given a weight weighed on planetA, return the converted value for planetB rounded to the nearest hundredth.
+// Examples
+// spaceWeights("Earth", 1, "Mars") ➞ 0.38
+// spaceWeights("Earth", 1, "Jupiter") ➞ 2.53
+// spaceWeights("Earth", 1, "Neptune") ➞ 1.14
+// Notes
+// N/A
+
+function spaceWeights(planetA, weight, planetB) {
+	const planetGF = {'Mercury':	3.7, 'Venus':	8.87, 'Earth':	9.81,'Mars':	3.711,'Jupiter':	24.79, 'Saturn':	10.44, 'Uranus':	8.69, 'Neptune':	11.15}
+  return +(weight / planetGF[planetA] * planetGF[planetB]).toFixed(2)
+}
+
+// Create a recursive function that takes two parameters and repeats the string n number of times. The first parameter txt is the string to be repeated and the second parameter is the number of times the string is to be repeated.
+// String.prototype.repeat() is not allowed
+// Examples
+// repetition("ab", 3) ➞ "ababab"
+// repetition("kiwi", 1) ➞ "kiwi"
+// repetition("cherry", 2) ➞ "cherrycherry"
+// Notes
+// The second parameter of the function is positive integer.
+
+function repetition(txt, n) {
+	return n <= 1 ? txt : txt + repetition(txt, n - 1)
+}
+
+// Write a function that returns the length of a string. Make your function recursive.
+// Examples
+// length("apple") ➞ 5
+// length("make") ➞ 4
+// length("a") ➞ 1
+// length("") ➞ 0
+// Notes
+// Check the Resources tab for info on recursion.
+
+function length(str) {
+	if (!str) return 0
+	else return 1 + length(str.substring(1))
+}
+
+// Write a function that sorts a given array in an alternative fashion. The result should be a array sorted in ascending order (number then letter). Array will contain equal amounts of integer numbers and single characters.
+// Examples
+// alternateSort(["a", "b", "c", 1, 2, 3]) ➞ [1, "a", 2, "b", 3, "c"]
+// alternateSort([-2, "f", "A", 0, 100, "z"]) ➞ [-2, "A", 0, "f", 100, "z"]
+// alternateSort(["X", 15, 12, 18, "Y", "Z"]) ➞ [12, "X", 15, "Y", 18, "Z"]
+// Notes
+
+function alternateSort(arr) {
+  let result = []
+  const letters = arr.filter(letter => typeof letter === 'string').sort()
+  const numbers = arr.filter(number => typeof number === 'number').sort((a, b) => a - b)
+  let index = 0
+  for (const item of numbers) {
+    result.push(item)
+    result.push(letters[index])
+    index++
+  }
+  return result
+}
+
+// This robot roams around a 2D grid. It starts at (0, 0) facing North. After each time it moves, the robot rotates 90 degrees clockwise. Given the amount the robot has moved each time, you have to calculate the robot's final position.
+// To illustrate, if the robot is given the movements 20, 30, 10, 40 then it will move:
+//     20 steps North, now at (0, 20)
+//     30 steps East, now at (30, 20)
+//     10 steps South. now at (30, 10)
+//     40 steps West, now at (-10, 10)
+// ...and will end up at coordinates (-10, 10).
+// Examples
+// trackRobot(20, 30, 10, 40) ➞ [-10, 10]
+// trackRobot() ➞ [0, 0]
+// // No movement means the robot stays at (0, 0).
+// trackRobot(-10, 20, 10) ➞ [20, -20]
+// // The amount to move can be negative.
+// Notes
+// Each movement is an integer (whole number).
+
+function trackRobot(...steps) {
+  const pos = [0, 0]
+  for (let i = 0; i < steps.length; i++) {
+    const ns = i % 4
+    const ew = i % 2
+    if (ns == 0) pos[1] += steps[i]
+    else if (ns == 1) pos[0] += steps[i]
+    else if (ew == 0) pos[1] -= steps[i]
+    else if (ew == 1) pos[0] -= steps[i]
+  }
+  return pos
+}
+
+// Creates a function that takes two integers, num and n, and returns an integer which is divisible by n and is the closest to num. If there are two numbers equidistant from num and divisible by n, select the larger one.
+// Examples
+// roundNumber(33, 25) ➞ 25
+// roundNumber(46, 7) ➞ 49
+// roundNumber(133, 14) ➞ 140
+// Notes
+// n will always be a positive number.
+
+function roundNumber(num, n) {
+  // return Math.round(num / n) * n;
+  const arr = []
+  for (let i = num; i++;) {
+    if (i % n === 0) {
+      arr.push(i)
+      break
+    }
+  }
+  let j = num
+  while (j >= 0) {
+    if (j % n == 0) {
+      arr.push(j)
+      break
+    }
+    j--
+  }
+  const dist1 = Math.abs(arr[0] - num)
+  const dist2 = Math.abs(arr[1] - num)
+  if (dist2 < dist1) return arr[1]
+  else return arr[0]
+}
+
+// Create a function which simulates the game "rock, paper, scissors". The function takes the input of both players (rock, paper or scissors), first parameter from first player, second from second player. The function returns the result as such:
+//     "Player 1 wins"
+//     "Player 2 wins"
+//     "TIE" (if both inputs are the same)
+// The rules of rock, paper, scissors, if not known:
+//     Both players have to say either "rock", "paper" or "scissors" at the same time.
+//     Rock beats scissors, paper beats rock, scissors beat paper.
+// Examples
+// rps("rock", "paper") ➞ "Player 2 wins"
+// rps("paper", "rock") ➞ "Player 1 wins"
+// rps("paper", "scissors") ➞ "Player 2 wins"
+// rps("scissors", "scissors") ➞ "TIE"
+// rps("scissors", "paper") ➞ "Player 1 wins"
+// Notes
+// There are several ways to solve this challenge.
+
+function rps(s1, s2) {
+	if (s1 == s2) return 'TIE'
+  // if (s1 == 'rock' && s2 == 'paper') return 'Player 2 wins'
+  // if (s1 == 'paper' && s2 == 'rock') return 'Player 1 wins'
+  // if (s1 == 'paper' && s2 == 'scissors') return 'Player 2 wins'
+  // if (s1 == 'scissors' && s2 == 'paper') return 'Player 1 wins'
+  let condition = {paper: 'rock', scissors: 'paper', rock: 'scissors'}
+  return condition[s1] === s2 ? 'Player 1 wins' : 'Player 2 wins'
+}
+
+// Can you spare a square?
+// Try to imagine a world in which you might have to stay home for 14 days at any given time. Do you have enough TP to make it through?
+// Although the number of squares per roll of TP varies significantly, we'll assume each roll has 500 sheets, and the average person uses 57 sheets per day.
+// Create a function that will receive an object with two key/values:
+//     people ⁠— Number of people in the household.
+//     tp ⁠— Number of rolls.
+// Return a statement telling the user if they need to buy more TP!
+// Examples
+// tpChecker({people: 4, tp: 1}) ➞ "Your TP will only last 2 days, buy more!"
+// tpChecker({people: 3, tp: 20}) ➞ "Your TP will last 58 days, no need to panic!"
+// tpChecker({people: 4, tp: 12} ➞ "Your TP will last 26 days, no need to panic!"
+// Notes
+// Stay safe, and happy coding!
+
+function tpChecker(home) {
+  const days = ((home.tp * 500) / (home.people * 57)) | 0
+  const threshold = days < 14
+	return `Your TP will ${threshold ? 'only ' : ''}last ${days} days, ${threshold ? 'buy more!' : 'no need to panic!'}`
+}
+
+// Create a function that takes three arguments a, b, c and returns the sum of the numbers that are evenly divided by c from the range a, b inclusive.
+// Examples
+// evenlyDivisible(1, 10, 20) ➞ 0
+// // No number between 1 and 10 can be evenly divided by 20.
+// evenlyDivisible(1, 10, 2) ➞ 30
+// // 2 + 4 + 6 + 8 + 10 = 30
+// evenlyDivisible(1, 10, 3) ➞ 18
+// // 3 + 6 + 9 = 18
+// Notes
+// Return 0 if there is no number between a and b that can be evenly divided by c.
+
+function evenlyDivisible(a, b, c) {
+  let sum = 0
+	for (a; a <= b; a++) {
+    if (a % c == 0) sum += a
+  }
+  return sum
+}
+
+// Create a Circle() constructor that takes the radius as a single argument and has the following properties and methods:
+//     .radius
+//     .diameter
+//     .getC() (get circumference)
+//     .getA() (get area)
+// Instantiate this constructor with two circles:
+//     c1 has radius 3
+//     c2 has radius 5
+// For example, if I used the Circle constructor to instantiate a new instance called c0 with a radius of 1, I would have:
+// Examples
+// c0.radius ➞ 1
+// c0.diameter ➞ 2
+// c0.getC() ➞ 6.28
+// c0.getA() ➞ 3.14
+// Notes
+//     Circumference: 2πr. Area: πr^2.
+//     Use Math.PI for calculating circumference and area.
+//     Round the perimeter and area results to the nearest hundredths place.
+
+function Circle(radius) {
+	// Write your properties and methods here
+	this.radius = radius
+	this.diameter = radius * 2
+}
+
+Circle.prototype.getC = function () {
+    return +(2 * Math.PI * this.radius).toFixed(2)
+}
+
+Circle.prototype.getA = function () {
+    return +(Math.PI * this.radius ** 2).toFixed(2)
+}
+
+
+// Instantiate your constructor class here
+const c1 = new Circle(3)
+const c2 = new Circle(5)
+
+// Create a function that outputs true if a number is prime, and false otherwise.
+// Examples
+// isPrime(31) ➞ true
+// isPrime(18) ➞ false
+// isPrime(11) ➞ true
+// Notes
+//     A prime number has no other factors except 1 and itself.
+//     1 is not considered a prime number.
+
+function isPrime(num) {
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) return false
+  }
+  return num > 1
+}
+
+// Create a function that takes a single string as argument and returns an ordered array containing the indices of all capital letters in the string.
+// Examples
+// indexOfCaps("eDaBiT") ➞ [1, 3, 5]
+// indexOfCaps("eQuINoX") ➞ [1, 3, 4, 6]
+// indexOfCaps("determine") ➞ []
+// indexOfCaps("STRIKE") ➞ [0, 1, 2, 3, 4, 5]
+// indexOfCaps("sUn") ➞ [1]
+// Notes
+//     Return an empty array if no uppercase letters are found in the string.
+//     Special characters ($#@%) and numbers will be included in some test cases.
+
+function indexOfCaps(str) {
+  // return [...str].map((ele, idx) => /[A-z]/.test(ele) && ele.toUpperCase() === ele ? idx : null).filter(ele => ele !== null)
+  const result = []
+  for (let i = 0; i < str.length; i++) {
+    if (/[A-z]/g.test(str[i]) && str[i].toUpperCase() === str[i]) {
+      result.push(i)
+    }
+  }
+  return result
+}
+
+// Hermione has come up with a precise formula for determining whether or not a phrase was ssspoken by a parssseltongue (a reference from the Harry Potter universe; the language of ssserpents and those who can converse with them).
+// Each word in a sssentence must contain either:
+//     At least 2 instances of the letter "s" (i.e. must be together ss), or...
+//     Zero instances of the letter "s".
+// Examples
+// isParselTongue("Sshe ssselects to eat that apple. ") ➞ true
+// isParselTongue("She ssselects to eat that apple. ") ➞ false
+// // "She" only contains one "s".
+// isParselTongue("Beatrice samples lemonade") ➞ false
+// // While "samples" has 2 instances of "s", they are not together.
+// isParselTongue("You ssseldom sssspeak sso boldly, ssso messmerizingly.") ➞ true
+// Notes
+// There should be no words with only one instance of the letter "s" (see example #2).
+
+function isParselTongue(sentence) {
+  const arr = [...sentence.toLowerCase().split(' ')]
+	for (let i = 0; i < arr.length; i++) {
+    if (arr[i].includes('s')) {
+      const sIndex = arr[i].indexOf('s')
+      if (arr[i][sIndex] !== arr[i][sIndex + 1]) return false
+    }
+  }
+  return true
+}
+
+// An ultrarelativistic particle is one whose speed v is very close to the speed of light c (or equivalently, one whose β = v/c is very close to 1). But a number like 0.9999999999999999999 is inconvenient to work with: calculators round it to 1, and trying to write it in scientific notation does the same (because any 9 you stop at gets rounded up by the following 9). It's better to work with the quantity (1 - β) instead.
+// Fortunately, we don't need to deal directly with β to calculate an ultrarelativistic particle's (1 - β). There are some other wieldier quantities that we can use to approximate (1 - β) with great precision. One of them is the particle's rapidity φ, which is related to β by the equation:
+// tanh φ = β
+// (where tanh is the hyperbolic tangent function).
+// For an ultrarelativistic particle, the rapidity lets us approximate (1 - β) like this:
+// 1 - β ≈ sech(2φ)
+// (where sech is the hyperbolic secant).
+// Write a function that takes an ultrarelativistic particle's rapidity (a number) and uses the approximation formula given above to return the particle's (1 - β) to three significant figures. The output should be a string in scientific notation, formatted like "6.63e-34".
+// Examples
+// howCloseToC(3.14) ➞ "3.75e-3"
+// howCloseToC(42) ➞ "6.61e-37"
+// howCloseToC(355) ➞ "8.95e-309"
+// Notes
+// N/A
+
+function howCloseToC(rapidity) {
+	return (1 / Math.cosh(2 * rapidity)).toExponential(2)
+}
+
+// Create a function that takes an array of superheroes / superheroines names and returns an array of only superheroe names ending in "man". Return the names in alphabetical order.
+// Wonder-Woman, Catwoman and Invisible-Woman are Superheroines, not Superheroes. Return only Superheroes.
+// Examples
+// superheroes(["Batman", "Superman", "Spider-man", "Hulk", "Wolverine", "Wonder-Woman"])
+// ➞ ["Batman", "Spider-man", "Superman"]
+// superheroes(["Catwoman", "Deadpool", "Dr.Strange", "Captain-America", "Aquaman", "Hawkeye"])
+// ➞ ["Aquaman"]
+// superheroes(["Wonder-Woman", "Catwoman", "Invisible-Woman"])
+// ➞ []
+// Notes
+// N/A
+
+function superheroes(heroes) {
+  const result = []
+	for (let i = 0; i < heroes.length; i++) {
+    if (heroes[i].slice(-3) === 'man' && heroes[i].slice(-5).toLowerCase() !== 'woman') result.push(heroes[i])
+  }
+  return result.sort()
+}
+
+// Write a function that searches an array of names (unsorted) for the name "Bob" and returns the location in the array. If Bob is not in the array, return -1.
+// Examples
+// findBob(["Jimmy", "Layla", "Bob"]) ➞ 2
+// findBob(["Bob", "Layla", "Kaitlyn", "Patricia"]) ➞ 0
+// findBob(["Jimmy", "Layla", "James"]) ➞ -1
+// Notes
+// Assume all names start with a capital letter and are lowercase thereafter (i.e. don't worry about finding "BOB" or "bob").
+
+function findBob(names) {
+	// return names.indexOf('Bob')
+  for (let i = 0; i < names.length; i++) {
+    if (names[i] == 'Bob') return i
+  }
+  return -1
+}
+
+// Create a function that returns the amount of duplicate characters in a string. It will be case sensitive and spaces are included. If there are no duplicates, return 0.
+// Examples
+// duplicates("Hello World!") ➞ 3
+// duplicates("foobar") ➞ 1
+// duplicates("helicopter") ➞ 1
+// duplicates("birthday") ➞ 0
+// // If there are no duplicates, return 0
+// Notes
+// Make sure to only start counting the second time a character appears.
+
+function duplicates(str) {
+  const charCount = {}
+  for (let i = 0; i < str.length; i++) {
+    if (charCount[str[i]]) charCount[str[i]]++
+    else charCount[str[i]] = 1
+  }
+  return Object.values(charCount).map(ele => ele - 1).filter(ele => ele > 0).reduce((cur, acc) => cur + acc, 0)
+}
+
+// Given an array of numbers and a value n, write a function that returns the probability of choosing a number greater than or equal to n from the array. The probability should be expressed as a percentage, rounded to one decimal place.
+// Examples
+// probability([5, 1, 8, 9], 6) ➞ 50.0
+// probability([7, 4, 17, 14, 12, 3], 16) ➞ 16.7
+// probability([4, 6, 2, 9, 15, 18, 8, 2, 10, 8], 6) ➞ 70.0
+// Notes
+// Probability of event = (num of favourable outcomes) / (total num of possible outcomes)
+
+function probability(arr, num) {
+  return +(arr.filter(ele => ele >= num).length / arr.length * 100).toFixed(1)
+}
+
+// In BlackJack, cards are counted with -1, 0, 1 values:
+//     2, 3, 4, 5, 6 are counted as +1
+//     7, 8, 9 are counted as 0
+//     10, J, Q, K, A are counted as -1
+// Create a function that counts the number and returns it from the array of cards provided.
+// Examples
+// count([5, 9, 10, 3, "J", "A", 4, 8, 5]) ➞ 1
+// count(["A", "A", "K", "Q", "Q", "J"]) ➞ -6
+// count(["A", 5, 5, 2, 6, 2, 3, 8, 9, 7]) ➞ 5
+// Notes
+//     String inputs will always be upper case.
+//     You do not need to consider case sensitivity.
+//     If the argument is empty, return 0.
+//     No input other than: 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A".
+
+function count(deck) {
+	let counter = 0
+  for (let i = 0; i < deck.length; i++) {
+    if ('23456'.includes(deck[i])) counter++
+    else if ([10, 'J', 'Q','K','A'].includes(deck[i])) counter--
+  }
+  return counter
+}
+
+// In JavaScript, the modulo operator is very bad. For example, -13 % 64 = -13, when the actual answer is 51. Create a function to fix this. It should also work for positive numbers.
+// Examples
+// mod(-13, 64) ➞ 51
+// mod(50, 25) ➞ 0
+// mod(-6, 3) ➞ 0
+// Notes
+// All test cases contain valid numbers.
+
+function mod(m, n) {
+	return ((m%n)+n)%n
+}
+
+// Create a function that takes a number of a guitar string and the number of the fret and returns the corresponding frequency of the note.
+//     Check the Resources Tab, for the correct frequencies per string.
+//     The formula to calculate the frequency is: String Frequency * 2^(fret/12).
+//     Round the frequency to the nearest hundreth.
+//     For this challenge, we use "Standard Tuning".
+// So, one fret = a semitone = a half step. From D to D♯ for instance.
+// Examples
+// fretFreq(5, 12) ➞ 220
+// fretFreq(4, 6) ➞ 207.65
+// fretFreq(2, 23) ➞ 932.32
+// Notes
+// N/A
+
+function fretFreq(gStr, fret) {
+  const strFreq = {1:329.63,2:246.94,3:196,4:146.83,5:110,6:82.41}
+  return +(strFreq[gStr] * 2 ** (fret/12)).toFixed(2)
+}
+
+// Write a function that replaces all letters within a specified range with the hash symbol #.
+// Examples
+// replace("abcdef", "c-e") ➞ "ab###f"
+// replace("rattle", "r-z") ➞ "#a##le"
+// replace("microscopic", "i-i") ➞ "m#croscop#c"
+// replace("", "a-z") ➞ ""
+// Notes
+//     The range will always be in order, a.k.a. for m-n, character m will always come before or equal n.
+//     Strings will be in lower case letters only.
+//     Return an empty string if the input is an empty string.
+
+function replace(str, r) {
+  // const pattern = new RegExp(`[${r}]`,'g' )
+  // return str.replace(pattern, '#')
+  const strArr = [...str]
+  const charCodeRange = [r.charCodeAt(0), r.charCodeAt(2)]
+  for (let i = 0; i < strArr.length; i++) {
+    const charCode = str.charCodeAt(i)
+    if(charCode >= charCodeRange[0] && charCode <= charCodeRange[1]) {
+      strArr[i] = '#'
+    }
+  }
+  return strArr.join('')
+}
+
+// Write a function that finds the longest word in a sentence given as a string and returns it If two or more words are the biggest, return the word closest to the start of the sentence. Characters such as apostophe, commas, full stops etc count as letters. Eg. O'Connor is 8 characters long.
+// Examples
+// longestWord("Hello darkness my old friend") ➞ "darkness"
+// longestWord("Hello there mate")  ➞ "Hello"
+// longestWord("Kayla's toy is plastic")  ➞ "Kayla's"
+// Notes
+
+function longestWord(sentence) {
+	const wordArr = [...sentence.split(' ')]
+  let longest = wordArr[0]
+  for (let i = 0; i < wordArr.length; i++) {
+    if (wordArr[i].length > longest.length) longest = wordArr[i]
+  }
+  return longest
+}
+
+// Given an array of user objects. If we just wanted to get the name of the third object in the array, one way could be to use an array method like:
+// let users = [
+//   { name: "John", email: "john@example.com" },
+//   { name: "Jason", email: "jason@example.com" },
+//   { name: "Jeremy", email: "jeremy@example.com" },
+//   { name: "Jacob", email: "jacob@example.com" }
+// ]
+// let thirdUser = users.filter((e, i) => i === 2 )[0].name
+// console.log(thirdUser)  // "Jeremy"
+// However, you can combine array and Object destructuring to extract it more declaratively. Use array and object destructuring to extract the name from the third object in the users array and assign it to the variable thirdUser. Provide the solution inside the brackets only. Ignore the .toString() function (used for validation).
+// Notes
+// N/A
+
+const str = `[,,{name:thirdUser}] = users`
+
+// Create a function which adds zeros to the start of a binary string, so that its length is a mutiple of 8.
+// Examples
+// completeBinary("1100") ➞ "00001100"
+// completeBinary("1101100") ➞ "01101100"
+// completeBinary("110010100010") ➞ "0000110010100010"
+// Notes
+// Return the same string if its length is already a multiple of 8.
+
+function completeBinary(str) {
+	if (str.length % 8 === 0) return str
+  else return '0'.repeat(8 - str.length % 8) + str
+}
+
+// In normal object literals you can create dynamic property names by using computed values:
+// let key = "name"
+// let foo = {[key]: "bar"}
+// console.log(foo.name); // "bar"
+// However, in object destructuring it works a little different:
+// let key = "foo"
+// let {[key]: "foo"} = {foo: "Jessie"}
+// console.log(foo)  // Invalid destructuring assignment target
+// The error above is caused by the literal string "foo". You cannot rename variables this way. You can read the MDN Docs Assigning to new variable names section to find the correct way.
+// Fix the function so console.log(foo) returns Jessie. Leave all variable names unchanged. Ignore the .toString() function (used for validation).
+// Example
+// console.log(foo) ➞ "Jessie"
+// Notes
+// If you know how to use object destructuring, go ahead and complete this challenge, otherwise check the Resources tab for some examples.
+
+let key = "foo"
+const str = `({[key] : foo} = {foo: "Jessie"}).toString()`
+
+// Create a function that returns true if the given string has any of the following:
+//     Only letters and no numbers.
+//     Only numbers and no letters.
+// If a string has both numbers and letters, or contains characters which don't fit into any category, return false
+// Examples
+// alphanumericRestriction("Bold") ➞ true
+// alphanumericRestriction("123454321") ➞ true
+// alphanumericRestriction("H3LL0") ➞ false
+// alphanumericRestriction("ed@bit") ➞ false
+// Notes
+// Any string that contains spaces or is empty should return false.
+
+function alphanumericRestriction(str) {
+  return /^[A-z]+$|^[0-9]+$/.test(str)
+}
+
+// Create a function that returns the data type of a given variable. These are the eight data types this challenge will be testing for:
+//     Array
+//     Object
+//     String
+//     Number
+//     Boolean
+//     Null
+//     Undefined
+//     Date
+// Examples
+// dataType([1, 2, 3, 4]) ➞ "array"
+// dataType({key: "value"}) ➞ "object"
+// dataType("This is an example string.") ➞ "string"
+// dataType(new Date()) ➞ "date"
+// Notes
+// Return the name of the data type as a lowercase string.
+
+function dataType(value) {
+  if (Array.isArray(value)) return 'array'
+  if (value === null) return 'null'
+  if (value instanceof Date) return 'date'
+  return typeof value
+}
+
 // Create a function that takes an integer and outputs an n x n square solely consisting of the integer n.
 // Examples
 // squarePatch(3) ➞ [
