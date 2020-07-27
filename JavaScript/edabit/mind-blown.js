@@ -1,3 +1,34 @@
+// Given a number with an even number of digits, return a new number according to the rules below:
+//     Split the number into groups of two digit numbers. If the number has an odd number of digits, return "invalid".
+//     For each group of two digit numbers, concatenate the last digit to a string to the same number of times as the value of the first digit.
+//     Return the result as an integer.
+// lookAndSay(3132) ➞ 111222
+// // By reading the number digit by digit, you get three "1" and three "2".
+// // Therefore, you put three ones and three two's together.
+// // Remember to return an integer.
+// Examples
+// lookAndSay(95) ➞ 555555555
+// lookAndSay(1213141516171819) ➞ 23456789
+
+// lookAndSay(120520) ➞ 200
+
+// lookAndSay(231) ➞ "invalid"
+
+// Notes
+
+//     Note that the number 0 can be included (see example #3).
+//     Check the Resources tab for a TED-Ed video for extra clarity.
+
+function lookAndSay(n) {
+	const nArr = [...('' + n)]
+  if (nArr.length % 2 == 1) return 'invalid'
+  const result = []
+  for (let i = 0; i < nArr.length; i++) {
+    if ((i - 1) % 2 == 0 ) result.push(nArr[i].repeat(nArr[i - 1]))
+  }
+  return +(result.join(''))
+}
+
 // Transcribe the given DNA strand into corresponding mRNA - a type of RNA, that will be formed from DNA after transcription. DNA has the bases A, T, G and C, while RNA has U in place of T and all of the other bases remains the same.
 // Examples
 // dnaToRna("ATTAGCGCGATATACGCGTAC") ➞ "UAAUCGCGCUAUAUGCGCAUG"
