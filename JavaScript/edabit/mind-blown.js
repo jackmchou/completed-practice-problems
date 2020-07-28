@@ -1,3 +1,28 @@
+// Create a function that ends the first word of a phrase with "ed", essentially verbifying a noun.
+// Examples
+
+// verbify("cheese burger") ➞ "cheesed burger"
+
+// verbify("salt water") ➞ "salted water"
+
+// verbify("orange juice") ➞ "oranged juice"
+
+// verbify("shredded cheese") ➞ "shredded cheese"
+
+// Notes
+
+//     Change only the first word.
+//     Note that some words may already end in "e" or "ed".
+//     All phrases will be in lowercase.
+
+function verbify(str) {
+	const arr = [...str.split(' ')]
+  if (arr[0].endsWith('ed')) return str
+  else if (arr[0].endsWith('e')) arr[0] += 'd'
+  else arr[0] += 'ed'
+  return arr.join(' ')
+}
+
 // Given a number with an even number of digits, return a new number according to the rules below:
 //     Split the number into groups of two digit numbers. If the number has an odd number of digits, return "invalid".
 //     For each group of two digit numbers, concatenate the last digit to a string to the same number of times as the value of the first digit.
