@@ -1,3 +1,32 @@
+// Create a function which validates whether a 3 character string is a vowel sandwich. In order to have a valid sandwich, the string must satisfy the following rules:
+
+//     The first and last characters must be a consonant.
+//     The character in the middle must be a vowel.
+
+// Examples
+
+// isVowelSandwich("cat") ➞ true
+
+// isVowelSandwich("ear") ➞ false
+
+// isVowelSandwich("bake") ➞ false
+
+// isVowelSandwich("try") ➞ false
+
+// Notes
+
+//     Return false if the word is not 3 characters in length.
+//     All words will be given in lowercase.
+//     y is not considered a vowel.
+
+function isVowelSandwich(str) {
+	if (str.length !== 3) return false
+  const vowels = {a: 1, e: 1, i: 1, o: 1, u: 1}
+  if (!vowels[str[1]]) return false
+  if (vowels[str[0]] || vowels[str[2]]) return false
+  return true
+}
+
 // Create a function that ends the first word of a phrase with "ed", essentially verbifying a noun.
 // Examples
 
