@@ -1,3 +1,20 @@
+// Create a function that takes a string and returns the first character of every word if the length is even and the middle character if the length is odd.
+// Examples
+
+// stmid("Alexa have to paid") ➞ "ehtp"
+
+// stmid("Th3 0n3 4nd 0n1y") ➞ "hnn0"
+
+// stmid("who is the winner") ➞ "hihw"
+
+// Notes
+
+// N/A
+
+function stmid(str) {
+	return [...str.split(' ')].map(ele => ele.length % 2 === 0 ? ele[0] : ele[ele.length / 2 | 0]).join('')
+}
+
 // You have a pack of 5 randomly numbered cards, which can range from 0-9. You can win if you can produce a higher two-digit number from your cards than your opponent. Return true if your cards win that round.
 // Worked Example
 
