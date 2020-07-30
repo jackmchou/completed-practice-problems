@@ -1,3 +1,19 @@
+//Make a tree
+let christmasTree = (num) => {
+  for (let i = 0; i <= num; i++) {
+    let star = ''
+    for (let j = 1; j <= num - i; j++) {
+      star += ' '
+    }
+    for (let k = 0; k <= i; k++) {
+      star += ' $'
+    }
+    console.log(star)
+  }
+}
+christmasTree(20);
+
+
 // Create a function which returns the type of triangle, given the side lengths. Return the following values if they match the criteria.
 
 //     No sides equal: "scalene"
