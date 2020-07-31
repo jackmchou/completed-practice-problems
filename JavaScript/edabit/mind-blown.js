@@ -1,3 +1,26 @@
+// You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
+
+// Here are a list of the characters classes in JavaScript:
+
+// ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh, [\b]
+
+// You probably know already know the string method trim(). It will remove all of the leading and trailing whitespaces in a string.
+
+// Create a regular expression that will function like the trim() method. Your regex will work together with this function: string.replace(REGEXP, ""). You must use the \s character class in your expression.
+// Example
+
+// const str = "    Hello World    "
+// // "Hello World"
+
+// const str = "    We need more space   "
+// // "We need more space"
+
+// Notes
+
+// Check the Resources tab for details on character classes if you're stuck.
+
+const REGEXP = /^\s+|\s+$/g
+
 // Create a function which takes a sentence and returns its abbreviation. Get all of the words over or equal to n characters in length and return the first letter of each, capitalised and overall returned as a single string.
 // Examples
 
@@ -17,7 +40,7 @@
 // There may not be an argument given for n so set the default to 4.
 
 function abbreviate(sentence, n = 4) {
-	return sentence.split(' ').map(ele => ele.length > n ? ele.slice(0, 1).toUpperCase() : undefined).join('')
+	return sentence.split(' ').map(ele => ele.length >= n ? ele.slice(0, 1).toUpperCase() : undefined).join('')
 }
 
 // If today was Monday, in two days, it would be Wednesday.
