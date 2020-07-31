@@ -1,3 +1,26 @@
+// Create a function that returns true if the given circular areas are intersecting, otherwise return false. The circles are given as two arrays containing the values in the following order:
+
+//     Radius of the circle.
+//     Center position on the x-axis.
+//     Center position on the y-axis.
+
+// Examples
+
+// isCircleCollision([10, 0, 0], [10, 10, 10]) ➞ true
+
+// isCircleCollision([1, 0, 0], [1, 10, 10]) ➞ false
+
+// Notes
+
+//     You can expect useable input and positive radii.
+//     The given coordinates are the centers of the circles.
+//     We are looking for intersecting areas, not intersection outlines.
+//     Check the Resources tab for help.
+
+function isCircleCollision(c1, c2) {
+	return Math.hypot(c1[1] - c2[1], c1[2] - c2[2]) < (c1[0] + c2[0])
+}
+
 // You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
 
 // Here are a list of the characters classes in JavaScript:
