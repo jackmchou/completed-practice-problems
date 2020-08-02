@@ -1,3 +1,27 @@
+// The Fibonacci Sequence is the sequence of numbers (Fibonacci Numbers) whose sum is the two preceding numbers (e.g. 0, 1, 1, 2, 3, etc). Using 0 and 1 as the starting values, create a function that returns an array containing all of the Fibonacci numbers less than 255.
+// Examples
+
+// On generating a Fibonacci number where input is the two preceding values starting from 0 and 1 [0, 1, ...].
+
+// fibonacciSequence(0, 1) ➞ 1
+
+// fibonacciSequence(1, 1) ➞ 2
+
+// fibonacciSequence(1, 2) ➞ 3
+
+// Notes
+
+// This function will take no parameters.
+
+function fibonacciSequence() {
+  const result = [0, 1]
+	for (let i = 0; i < 255; i++) {
+    let sum = result[i] + result[i + 1]
+    if (sum < 255) result.push(sum)
+  }
+  return result
+}
+
 // When creating variables, the variable name must always start with a letter and cannot contain spaces, though numbers and underscores are allowed to be contained in it also.
 
 // Create a function which returns true if a given variable name is valid, otherwise return false.
