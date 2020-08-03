@@ -1,17 +1,28 @@
-// Create a function that takes a string and returns a new string with each new character accumulating by +1. Separate each set with a dash.
+// Create a function that takes three numbers — the width and height of a rectangle, and the radius of a circle and returns true if the rectangle can fit inside the circle, false if it can't.
 // Examples
 
-// accum("abcd") ➞ "A-Bb-Ccc-Dddd"
+// rectangleInCircle(8, 6, 5) ➞ true
 
-// accum("RqaEzty") ➞ "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// rectangleInCircle(5, 9, 5) ➞ false
 
-// accum("cwAt") ➞ "C-Ww-Aaa-Tttt"
+// rectangleInCircle(4, 7, 4) ➞ false
 
 // Notes
 
+// N/A
+
+function rectangleInCircle(w, h, radius) {
+  return Math.hypot(w, h) <= (2 * radius)
+}
+
+// Create a function that takes a string and returns a new string with each new character accumulating by +1. Separate each set with a dash.
+// Examples
+// accum("abcd") ➞ "A-Bb-Ccc-Dddd"
+// accum("RqaEzty") ➞ "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// accum("cwAt") ➞ "C-Ww-Aaa-Tttt"
+// Notes
 //     Capitalize the first letter of each set.
 //     All tests contain valid strings with alphabetic characters (a-z, A-Z).
-
 function accum(str) {
 	const result = []
   for (let i = 0; i < str.length; i++) {
@@ -19,21 +30,14 @@ function accum(str) {
   }
   return result.join('-')
 }
-
 // Write a function that returns the first n vowels of a string.
 // Examples
-
 // firstNVowels("sharpening skills", 3) ➞ "aei"
-
 // firstNVowels("major league", 5) ➞ "aoeau"
-
 // firstNVowels("hostess", 5) ➞ "invalid"
-
 // Notes
-
 //     Return "invalid" if the n exceeds the number of vowels in a string.
 //     Vowels are: a, e, i, o, u
-
 function firstNVowels(s, n) {
 	const vowels = {a: 1, e: 1, i: 1, o: 1, u: 1}
   const result = []
@@ -42,40 +46,25 @@ function firstNVowels(s, n) {
   }
   return result.length < n ? 'invalid' : result.join('')
 }
-
 // Write a function that moves all elements of one type to the end of the array.
 // Examples
-
 // moveToEnd([1, 3, 2, 4, 4, 1], 1) ➞ [3, 2, 4, 4, 1, 1]
 // // Move all the 1s to the end of the array.
-
 // moveToEnd([7, 8, 9, 1, 2, 3, 4], 9) ➞ [7, 8, 1, 2, 3, 4, 9]
-
 // moveToEnd(["a", "a", "a", "b"], "a") ➞ ["b", "a", "a", "a"]
-
 // Notes
-
 // Keep the order of the un-moved items the same.
-
 function moveToEnd(arr, el) {
   return arr.filter(ele => ele !== el).concat(arr.filter(ele => ele == el))
 }
-
 // The Fibonacci Sequence is the sequence of numbers (Fibonacci Numbers) whose sum is the two preceding numbers (e.g. 0, 1, 1, 2, 3, etc). Using 0 and 1 as the starting values, create a function that returns an array containing all of the Fibonacci numbers less than 255.
 // Examples
-
 // On generating a Fibonacci number where input is the two preceding values starting from 0 and 1 [0, 1, ...].
-
 // fibonacciSequence(0, 1) ➞ 1
-
 // fibonacciSequence(1, 1) ➞ 2
-
 // fibonacciSequence(1, 2) ➞ 3
-
 // Notes
-
 // This function will take no parameters.
-
 function fibonacciSequence() {
   const result = [0, 1]
 	for (let i = 0; i < 255; i++) {
@@ -84,71 +73,46 @@ function fibonacciSequence() {
   }
   return result
 }
-
 // When creating variables, the variable name must always start with a letter and cannot contain spaces, though numbers and underscores are allowed to be contained in it also.
-
 // Create a function which returns true if a given variable name is valid, otherwise return false.
 // Examples
-
 // variableValid("result") ➞ true
-
 // variableValid("odd_nums") ➞ true
-
 // variableValid("2TimesN") ➞ false
-
 // Notes
-
 //     Inputs are given as strings.
 //     Variable names with spaces are not allowed.
 //     Although this question may seem like otherwise, you can't actually assign words with quotes around them as variables.
 //     The rules exposed in this challenge are an oversimplification on how variable and identifier names are considered valid in JavaScript.
-
 function variableValid(variable) {
 	return /^[A-z](?!\w+ \w+)/gi.test(variable)
 }
-
 // Create a function which returns the word in the string, but with all the fog letters removed. However, if the string is clear from fog, return "It's a clear day!".
 // Examples
-
 // clearFog("sky") ➞ "It's a clear day!"
-
 // clearFog("fogfogfffoooofftreesggfoogfog") ➞ "trees"
-
 // clearFog("fogFogFogffffooobirdsandthebeesGGGfogFog") ➞ "birdsandthebees"
-
 // Notes
-
 //     Hidden words won't include the letters f, o or g.
 //     Hidden words are always in lowercase.
-
 function clearFog(str) {
   if (!/[fog]/gi.test(str)) return "It's a clear day!"
   return str.replace(/[fog]/gi, '')
 }
-
 // A Collatz sequence is generated like this. Start with a positive number. If it's even, halve it. If it's odd, multiply it by three and add one. Repeat the process with the resulting number. The Collatz Conjecture is that every sequence eventually reaches 1 (continuing past 1 just results in an endless repeat of the sequence: 4, 2, 1).
-
 // The length of the sequence from starting number to 1 varies widely.
-
 // Create a function that takes a number as an argument and returns an array of two elements — the number of steps in the Collatz sequence of the number, and the highest number reached.
 // Examples
-
 // collatz(2) ➞ [2, 2]
 // // seq = [2, 1]
-
 // collatz(3) ➞ [8, 16]
 // // seq = [3, 10, 5, 16, 8, 4, 2, 1]
-
 // collatz(7) ➞ [17, 52]
 // // seq = [7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1]
-
 // collatz(8) ➞ [4, 8]
 // // seq = [8, 4, 2, 1]
-
 // Notes
-
 // (Improbable) Bonus: Find a positive starting number that doesn't reach 1, and score a place in Math history plus a cash prize.
-
 function collatz(n) {
   const seq = []
   while (n !== 1) {
@@ -157,92 +121,58 @@ function collatz(n) {
   }
   return [seq.length + 1, Math.max(...seq)]
 }
-
 // Create a function that returns true if the given circular areas are intersecting, otherwise return false. The circles are given as two arrays containing the values in the following order:
-
 //     Radius of the circle.
 //     Center position on the x-axis.
 //     Center position on the y-axis.
-
 // Examples
-
 // isCircleCollision([10, 0, 0], [10, 10, 10]) ➞ true
-
 // isCircleCollision([1, 0, 0], [1, 10, 10]) ➞ false
-
 // Notes
-
 //     You can expect useable input and positive radii.
 //     The given coordinates are the centers of the circles.
 //     We are looking for intersecting areas, not intersection outlines.
 //     Check the Resources tab for help.
-
 function isCircleCollision(c1, c2) {
 	return Math.hypot(c1[1] - c2[1], c1[2] - c2[2]) < (c1[0] + c2[0])
 }
-
 // You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
-
 // Here are a list of the characters classes in JavaScript:
-
 // ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh, [\b]
-
 // You probably know already know the string method trim(). It will remove all of the leading and trailing whitespaces in a string.
-
 // Create a regular expression that will function like the trim() method. Your regex will work together with this function: string.replace(REGEXP, ""). You must use the \s character class in your expression.
 // Example
-
 // const str = "    Hello World    "
 // // "Hello World"
-
 // const str = "    We need more space   "
 // // "We need more space"
-
 // Notes
-
 // Check the Resources tab for details on character classes if you're stuck.
-
 const REGEXP = /^\s+|\s+$/g
-
 // Create a function which takes a sentence and returns its abbreviation. Get all of the words over or equal to n characters in length and return the first letter of each, capitalised and overall returned as a single string.
 // Examples
-
 // abbreviate("do it yourself") ➞ "Y"
-
 // abbreviate("do it yourself", 2) ➞ "DIY"
 // // "do" and "it" are included because the second parameter specified that word lengths 2 are allowed.
-
 // abbreviate("attention AND deficit OR hyperactivity THE disorder")➞ "ADHD"
 // // Words below the default 4 characters are not included in the abbreviation.
-
 // abbreviate("the acronym of long word lengths", 5) ➞ "AL"
 // // "acronym" and "lengths" have 5 or more characters.
-
 // Notes
-
 // There may not be an argument given for n so set the default to 4.
-
 function abbreviate(sentence, n = 4) {
 	return sentence.split(' ').map(ele => ele.length >= n ? ele.slice(0, 1).toUpperCase() : undefined).join('')
 }
-
 // If today was Monday, in two days, it would be Wednesday.
-
 // Create a function that takes in an array of days as input and the number of days to increment by. Return an array of days after n number of days has passed.
 // Examples
-
 // afterNDays(["Thursday", "Monday"], 4) ➞ ["Monday", "Friday"]
-
 // afterNDays(["Sunday", "Sunday", "Sunday"], 1) ➞ ["Monday", "Monday", "Monday"]
-
 // afterNDays(["Monday", "Tuesday", "Friday"], 1) ➞ ["Tuesday", "Wednesday", "Saturday"]
-
 // Notes
-
 //     Return as an array.
 //     All test cases will have the first letter of each day capitalized.
 //     n number of days may be greater than 7.
-
 function afterNDays(days, n) {
 	const day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   // return days.map(ele => day[(day.indexOf(days[i]) + n) % 7])
@@ -251,7 +181,6 @@ function afterNDays(days, n) {
   }
   return days
 }
-
 //Make a tree
 let christmasTree = (num) => {
   for (let i = 0; i <= num; i++) {
@@ -266,26 +195,17 @@ let christmasTree = (num) => {
   }
 }
 christmasTree(20);
-
 // Create a function which returns the type of triangle, given the side lengths. Return the following values if they match the criteria.
-
 //     No sides equal: "scalene"
 //     Two sides equal: "isosceles"
 //     All sides equal: "equilateral"
 //     Less or more than 3 sides given: "not a triangle"
-
 // Examples
-
 // getTriangleType([2, 6, 5]) ➞ "scalene"
-
 // getTriangleType([4, 4, 7]) ➞ "isosceles"
-
 // getTriangleType([8, 8, 8]) ➞ "equilateral"
-
 // getTriangleType([3, 5, 5, 2]) ➞ "not a triangle"
-
 // Notes
-
 //     You will be given an array of positive integers.
 //     Check the Resources tab for more information on the types of triangles.
 function getTriangleType(arr) {
@@ -293,50 +213,33 @@ function getTriangleType(arr) {
   const triangleTypes = {1: 'equilateral', 2: 'isosceles', 3: 'scalene'}
   return triangleTypes[new Set(arr).size]
 }
-
 // Create a function that takes a string and returns the first character of every word if the length is even and the middle character if the length is odd.
 // Examples
-
 // stmid("Alexa have to paid") ➞ "ehtp"
-
 // stmid("Th3 0n3 4nd 0n1y") ➞ "hnn0"
-
 // stmid("who is the winner") ➞ "hihw"
-
 // Notes
-
 // N/A
-
 function stmid(str) {
 	return [...str.split(' ')].map(ele => ele.length % 2 === 0 ? ele[0] : ele[ele.length / 2 | 0]).join('')
 }
-
 // You have a pack of 5 randomly numbered cards, which can range from 0-9. You can win if you can produce a higher two-digit number from your cards than your opponent. Return true if your cards win that round.
 // Worked Example
-
 // winRound([2, 5, 2, 6, 9], [3, 7, 3, 1, 2]) ➞ true
 // // Your cards can make the number 96
 // // Your opponent can make the number 73
 // // You win the round since 96 > 73
-
 // Examples
-
 // winRound([2, 5, 2, 6, 9], [3, 7, 3, 1, 2]) ➞ true
-
 // winRound([1, 2, 3, 4, 5], [9, 8, 7, 6, 5]) ➞ false
-
 // winRound([4, 3, 4, 4, 5], [3, 2, 5, 4, 1]) ➞ false
-
 // Notes
-
 // Return false if you and your opponent reach the same maximum number (see example #3).
-
 function winRound(you, opp) {
   const compare = (a, b) => b - a
   const num = arr => arr.slice(0, 2).join('')
 	return num(you.sort(compare)) > num(opp.sort(compare))
 }
-
 // Create a function that takes three values:
 //     h hours
 //     m minutes
@@ -348,13 +251,11 @@ function winRound(you, opp) {
 // longestTime(15, 955, 59400) ➞ 59400
 // Notes
 // No two durations will be the same.
-
 function longestTime(h, m, s) {
   const convertedArr = [h * 60 * 60, m * 60, s]
   const arr = [h, m, s]
   return arr[convertedArr.indexOf(Math.max(...convertedArr))]
 }
-
 // Create a function which validates whether a 3 character string is a vowel sandwich. In order to have a valid sandwich, the string must satisfy the following rules:
 //     The first and last characters must be a consonant.
 //     The character in the middle must be a vowel.
