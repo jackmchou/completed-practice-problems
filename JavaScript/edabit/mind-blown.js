@@ -1,3 +1,20 @@
+// A number n is a Harshad (also called Niven) number if it is divisible by the sum of its digits. For example, 666 is divisible by 6 + 6 + 6, so it is a Harshad number.
+// Examples
+
+// isHarshad(209) ➞ true
+
+// isHarshad(41) ➞ false
+
+// isHarshad(12255) ➞ true
+
+// Notes
+
+// N/A
+
+function isHarshad(num) {
+  return num % [...('' + num)].reduce((cur, acc) => cur + +acc, 0) == 0
+}
+
 // Create a function that takes three numbers — the width and height of a rectangle, and the radius of a circle and returns true if the rectangle can fit inside the circle, false if it can't.
 // Examples
 
