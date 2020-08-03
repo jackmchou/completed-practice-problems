@@ -1,3 +1,21 @@
+// Write a function that moves all elements of one type to the end of the array.
+// Examples
+
+// moveToEnd([1, 3, 2, 4, 4, 1], 1) ➞ [3, 2, 4, 4, 1, 1]
+// // Move all the 1s to the end of the array.
+
+// moveToEnd([7, 8, 9, 1, 2, 3, 4], 9) ➞ [7, 8, 1, 2, 3, 4, 9]
+
+// moveToEnd(["a", "a", "a", "b"], "a") ➞ ["b", "a", "a", "a"]
+
+// Notes
+
+// Keep the order of the un-moved items the same.
+
+function moveToEnd(arr, el) {
+  return arr.filter(ele => ele !== el).concat(arr.filter(ele => ele == el))
+}
+
 // The Fibonacci Sequence is the sequence of numbers (Fibonacci Numbers) whose sum is the two preceding numbers (e.g. 0, 1, 1, 2, 3, etc). Using 0 and 1 as the starting values, create a function that returns an array containing all of the Fibonacci numbers less than 255.
 // Examples
 
