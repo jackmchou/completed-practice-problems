@@ -1,3 +1,26 @@
+// Write a function that returns the first n vowels of a string.
+// Examples
+
+// firstNVowels("sharpening skills", 3) ➞ "aei"
+
+// firstNVowels("major league", 5) ➞ "aoeau"
+
+// firstNVowels("hostess", 5) ➞ "invalid"
+
+// Notes
+
+//     Return "invalid" if the n exceeds the number of vowels in a string.
+//     Vowels are: a, e, i, o, u
+
+function firstNVowels(s, n) {
+	const vowels = {a: 1, e: 1, i: 1, o: 1, u: 1}
+  const result = []
+  for (let i = 0; i < s.length; i++) {
+    if (vowels[s[i]] && result.length !== n) result.push(s[i])
+  }
+  return result.length < n ? 'invalid' : result.join('')
+}
+
 // Write a function that moves all elements of one type to the end of the array.
 // Examples
 
