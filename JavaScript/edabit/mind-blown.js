@@ -1,3 +1,41 @@
+// Create a function that checks if the box is completely filled with the asterisk symbol *.
+// Examples
+
+// completelyFilled([
+//   "#####",
+//   "#***#",
+//   "#***#",
+//   "#***#",
+//   "#####"
+// ]) ➞ true
+
+// completelyFilled([
+//   "#####",
+//   "#* *#",
+//   "#***#",
+//   "#***#",
+//   "#####"
+// ]) ➞ false
+
+// completelyFilled([
+//   "###",
+//   "#*#",
+//   "###"
+// ]) ➞ true
+
+// completelyFilled([
+//   "##",
+//   "##"
+// ]) ➞ true
+
+// Notes
+
+// Boxes of size n <= 2 are considered automatically filled (see example #4).
+
+function completelyFilled(arr) {
+	return arr[0].length > 2 ? arr.every(ele => !ele.includes(' ')) : true
+}
+
 // You are given three inputs: a string, one letter, and a second letter.
 
 // Write a function that returns true if every instance of the first letter occurs before every instance of the second letter.
