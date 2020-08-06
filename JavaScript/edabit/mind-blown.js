@@ -1,3 +1,39 @@
+// Given two strings comprised of + and -, return a new string which shows how the two strings interact in the following way:
+
+//     When positives and positives interact, they remain positive.
+//     When negatives and negatives interact, they remain negative.
+//     But when negatives and positives interact, they become neutral, and are shown as the number 0.
+
+// Worked Example
+
+// neutralise("+-+", "+--") ➞ "+-0"
+// // Compare the first characters of each string, then the next in turn.
+// // "+" against a "+" returns another "+".
+// // "-" against a "-" returns another "-".
+// // "+" against a "-" returns "0".
+// // Return the string of characters.
+
+// Examples
+
+// neutralise("--++--", "++--++") ➞ "000000"
+
+// neutralise("-+-+-+", "-+-+-+") ➞ "-+-+-+"
+
+// neutralise("-++-", "-+-+") ➞ "-+00"
+
+// Notes
+
+// The two strings will be the same length.
+
+function neutralise(s1, s2) {
+  const result = []
+  for(let i = 0; i < s1.length; i++) {
+    if (s1[i] !== s2[i]) result.push('0')
+    else result.push(s1[i])
+  }
+  return result.join('')
+}
+
 // Create a function that validates whether three given integers form a Pythagorean triplet. The sum of the squares of the two smallest integers must equal the square of the largest number to be validated.
 // Examples
 
