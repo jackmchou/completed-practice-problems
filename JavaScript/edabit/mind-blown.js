@@ -1,6 +1,43 @@
+// Given a square matrix (i.e. same number of rows as columns), its trace is the sum of the entries in the main diagonal (i.e. the diagonal line from the top left to the bottom right).
+// As an example, for:
+// [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9]
+// ]
+// ... the trace is 1 + 5 + 9 = 15.
+// Write a function that takes a square matrix and computes its trace.
+// Examples
+// trace([
+//   [1, 4],
+//   [4, 1]
+// ]) ➞ 2
+// // 1 + 1 = 2
+// trace([
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9]
+// ]) ➞ 15
+// // 1 + 5 + 9 = 15
+// trace([
+//   [1, 0, 1, 0],
+//   [0, 2, 0, 2],
+//   [3, 0, 3, 0],
+//   [0, 4, 0, 4]
+// ]) ➞ 10
+// // 1 + 2 + 3 + 4 = 10
+// Notes
+// As in the examples, the size of the matrices will vary (but they will always be square).
+function trace(arr) {
+  let sum = 0
+  let j = 0
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i][j++]
+  }
+  return sum
+}
 // Create a function that checks if the box is completely filled with the asterisk symbol *.
 // Examples
-
 // completelyFilled([
 //   "#####",
 //   "#***#",
@@ -8,7 +45,6 @@
 //   "#***#",
 //   "#####"
 // ]) ➞ true
-
 // completelyFilled([
 //   "#####",
 //   "#* *#",
@@ -16,46 +52,32 @@
 //   "#***#",
 //   "#####"
 // ]) ➞ false
-
 // completelyFilled([
 //   "###",
 //   "#*#",
 //   "###"
 // ]) ➞ true
-
 // completelyFilled([
 //   "##",
 //   "##"
 // ]) ➞ true
-
 // Notes
-
 // Boxes of size n <= 2 are considered automatically filled (see example #4).
-
 function completelyFilled(arr) {
 	return arr[0].length > 2 ? arr.every(ele => !ele.includes(' ')) : true
 }
-
 // You are given three inputs: a string, one letter, and a second letter.
-
 // Write a function that returns true if every instance of the first letter occurs before every instance of the second letter.
 // Examples
-
 // firstBeforeSecond("a rabbit jumps joyfully", "a", "j") ➞ true
 // // every instance of "a" occurs before every instance of "j"
-
 // firstBeforeSecond("knaves knew about waterfalls", "k", "w") ➞  true
-
 // firstBeforeSecond("happy birthday", "a", "y") ➞ false
 // // the "a" in "birthday" occurs after the "y" in "happy"
-
 // firstBeforeSecond("precarious kangaroos", "k", "a") ➞ false
-
 // Notes
-
 //     All strings will be in lower case.
 //     All strings will contain the first and second letters at least once.
-
 function firstBeforeSecond(s, first, second) {
 	const firstIdx = []
   const secondIdx = []
@@ -65,85 +87,53 @@ function firstBeforeSecond(s, first, second) {
   }
   return firstIdx.every((ele, idx) => ele < Math.min(...secondIdx))
 }
-
 // Write a function that changes every letter to the next letter:
-
 //     "a" becomes "b"
 //     "b" becomes "c"
 //     "d" becomes "e"
 //     and so on ...
-
 // Examples
-
 // move("hello") ➞ "ifmmp"
-
 // move("bye") ➞ "czf"
-
 // move("welcome") ➞ "xfmdpnf"
-
 // Notes
-
 // There will be no z's in the tests.
-
 function move(word) {
 	return [...word].map((ele, idx) => String.fromCharCode(word.charCodeAt(idx) + 1)).join('')
 }
-
 // Mary wants to run a 25-mile marathon. When she attempts to sign up for the marathon, she notices the sign-up sheet doesn't directly state the marathon's length. Instead, the marathon's length is listed in small, different portions. Help Mary find out how long the marathon actually is.
-
 // Return true if the marathon is 25 miles long, otherwise, return false.
 // Examples
-
 // marathonDistance([1, 2, 3, 4]) ➞ false
-
 // marathonDistance([1, 9, 5, 8, 2]) ➞ true
-
 // marathonDistance([-6, 15, 4]) ➞ true
-
 // Notes
-
 //     Items in the array will always be integers.
 //     Items in the array may be negative or positive, but since negative distance isn't possible, find a way to convert the sum of the distance into a positive integer.
 //     Return false if the arguments are empty or not provided.
-
 function marathonDistance(d) {
 	return d.reduce((cur, acc) => cur + Math.abs(acc), 0) == 25
 }
-
 // A number n is a Harshad (also called Niven) number if it is divisible by the sum of its digits. For example, 666 is divisible by 6 + 6 + 6, so it is a Harshad number.
 // Examples
-
 // isHarshad(209) ➞ true
-
 // isHarshad(41) ➞ false
-
 // isHarshad(12255) ➞ true
-
 // Notes
-
 // N/A
-
 function isHarshad(num) {
   return num % [...('' + num)].reduce((cur, acc) => cur + +acc, 0) == 0
 }
-
 // Create a function that takes three numbers — the width and height of a rectangle, and the radius of a circle and returns true if the rectangle can fit inside the circle, false if it can't.
 // Examples
-
 // rectangleInCircle(8, 6, 5) ➞ true
-
 // rectangleInCircle(5, 9, 5) ➞ false
-
 // rectangleInCircle(4, 7, 4) ➞ false
-
 // Notes
-
 // N/A
-
 function rectangleInCircle(w, h, radius) {
   return Math.hypot(w, h) <= (2 * radius)
 }
-
 // Create a function that takes a string and returns a new string with each new character accumulating by +1. Separate each set with a dash.
 // Examples
 // accum("abcd") ➞ "A-Bb-Ccc-Dddd"
