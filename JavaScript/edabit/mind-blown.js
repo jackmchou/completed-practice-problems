@@ -1,22 +1,24 @@
-// Given the parameters day, month and year, return whether that date is a valid date.
+// Your function will get an array with a number sequence. However, one item will be missing. It's your job to find out which one is not in the array.
+
+// To illustrate, given the array [1, 3, 4, 5], 2 is missing so the output must be 2.
 // Examples
 
-// isValidDate(35, 2, 2020) ➞ false
-// // February doesn't have 35 days.
+// missing([1, 3, 4, 5]) ➞ 2
 
-// isValidDate(8, 3, 2020) ➞ true
-// // 8th March 2020 is a real date.
+// missing([2, 4, 6, 8, 10, 14, 16]) ➞ 12
 
-// isValidDate(31, 6, 1980) ➞ false
-// // June only has 30 days.
+// missing([1.5, 2, 3]) ➞ 2.5
 
 // Notes
 
-// N/A
+//     The missing item will never be the smallest or largest number in the array.
+//     In every array, exactly one item is missing.
 
-function isValidDate(d, m, y) {
-  const date = new Date(`${y}/${m}/${d}`)
-	return date.getTime() === date.getTime()
+function missing(arr) {
+  let diff = (arr[arr.length - 1] - arr[0]) / arr.length
+  for (let i = 0; i < arr.length; i++) {
+    if ((arr[i + 1] - arr[i]) !== diff) return arr[i] + diff
+  }
 }
 
 // Create a function to find only the root value of x in any quadratic equation ax^2 + bx + c. The function will take three arguments:
