@@ -1,3 +1,26 @@
+// Create a function that takes a string and returns the first character that repeats. If there is no repeat of a character, return "-1".
+// Examples
+
+// firstRepeat("legolas") ➞ "l"
+
+// firstRepeat("Gandalf") ➞ "a"
+
+// firstRepeat("Balrog") ➞ "-1"
+
+// firstRepeat("Isildur") ➞ "-1"
+// // Case sensitive "I" not equal to "i"
+
+// Notes
+
+// Tests are case sensitive.
+
+function firstRepeat(chars) {
+  for (let i = 0; i < chars.length; i++) {
+    if (chars.indexOf(chars[i]) !== chars.lastIndexOf(chars[i])) return chars[i]
+  }
+  return '-1'
+}
+
 // Create a function that turns an array of words into a comma separated list, where the last word is separated by the word "and".
 // Examples
 
