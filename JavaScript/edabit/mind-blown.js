@@ -1,3 +1,23 @@
+// Create a function that turns an array of words into a comma separated list, where the last word is separated by the word "and".
+// Examples
+
+// wordsToSentence(["edabit"]) ➞ "edabit"
+
+// wordsToSentence(["Hello", "", "Bye"]) ➞ "Hello and Bye"
+
+// wordsToSentence(["Hello", "Bye", "See you soon"]) ➞ "Hello, Bye and See you soon"
+
+// Notes
+
+// null values, empty arrays or arrays with only empty or null values should return an empty string (e.g. "").
+
+function wordsToSentence(words) {
+  if (!words || words.length == 0) return ''
+  const cleaned = words.filter(ele => ele)
+  if (words.length == 1) return words[0]
+  else return cleaned.slice(0, -1).join(', ') + ' and ' + cleaned.slice(-1)
+}
+
 // If a person traveled up a hill for 18mins at 20mph and then traveled back down the same path at 60mph then their average speed traveled was 30mph.
 
 // Write a function that returns the average speed traveled given an uphill time, uphill rate and a downhill rate. Uphill time is given in minutes. Return the rate as an integer (mph). No rounding is necessary.
