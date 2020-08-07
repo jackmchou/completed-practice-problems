@@ -1,3 +1,22 @@
+// Create a function that accepts an array of two strings and checks if the letters in the second string are present in the first string.
+// Examples
+
+// letterCheck(["trances", "nectar"]) ➞ true
+
+// letterCheck(["compadres", "DRAPES"]) ➞ true
+
+// letterCheck(["parses", "parsecs"]) ➞ false
+
+// Notes
+
+//     Function should not be case sensitive (as indicated in the second example).
+//     Both strings are presented as a single argument in the form of an array.
+//     Bonus: Solve this without RegEx.
+
+function letterCheck(arr) {
+	return [...arr[1]].every(char => arr[0].includes(char))
+}
+
 // Given a string including a bunch of characters and numbers, return the sum of all the numbers in the string. Note that multiple digits next to each other are counted as a whole number rather than separate digits.
 // Examples
 
