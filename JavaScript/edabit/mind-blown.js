@@ -1,3 +1,20 @@
+// Create a function that returns a RegEx that can be used to extract a value between two values. The two arguments are values that encapsule the value we want to extract.
+// Examples
+
+// "The red Car is fast".match(extractValueRegExp("The "," is fast"))[0] ➞ "red Car"
+
+// "We'll meet at 5am at the Circus".match(extractValueRegExp("We'll meet at "," at the Circus"))[0] ➞ "5am"
+
+// "I want a Lollipop".match(extractValueRegExp("want "," Lollipop"))[0] ➞ "a"
+
+// Notes
+
+// You must to use lookaheads and lookbehinds (see Resources for details).
+
+function extractValueRegExp(val1, val2) {
+	return new RegExp(`(?<=${val1}).*(?=${val2})`, 'g')
+}
+
 // Create a function that takes a string and returns the first character that repeats. If there is no repeat of a character, return "-1".
 // Examples
 
