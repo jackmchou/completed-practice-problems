@@ -1,3 +1,21 @@
+// You're needed to finish a program that lists how many tall people work in your company. All that is needed is a regular expression that will make the function work correctly.
+
+// const res = ["tall height", "tall height", "short height", "medium height", "tall height"]
+
+// function countTall(res) {
+//   const REGEXP = /* YOU FILL IN */
+//   return res.filter( x => REGEXP.test(x)).length
+// }
+
+// countTall(res) // should output 3
+
+// Write the regular expression to make the function output the correct number. You're required to use a positive lookbehind assertion in your expression.
+// Notes
+
+// Check the Resources tab for details on lookbehind assertions.
+
+const REGEXP = /(?<=tall) \w+/
+
 // Create a function that accepts an array of two strings and checks if the letters in the second string are present in the first string.
 // Examples
 
@@ -14,7 +32,7 @@
 //     Bonus: Solve this without RegEx.
 
 function letterCheck(arr) {
-	return [...arr[1]].every(char => arr[0].includes(char))
+	return [...arr[1]].every(char => arr[0].toLowerCase().includes(char))
 }
 
 // Given a string including a bunch of characters and numbers, return the sum of all the numbers in the string. Note that multiple digits next to each other are counted as a whole number rather than separate digits.
