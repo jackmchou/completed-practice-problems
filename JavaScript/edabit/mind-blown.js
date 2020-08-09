@@ -1,3 +1,27 @@
+Write a function to return the city from each of these vacation spots.
+Examples
+
+grabCity("[Last Day!] Beer Festival [Munich]") ➞ "Munich"
+
+grabCity("Cheese Factory Tour [Portland]") ➞ "Portland"
+
+grabCity("[50% Off!][Group Tours Included] 5-Day Trip to Onsen [Kyoto]") ➞ "Kyoto"
+
+Notes
+
+There may be additional brackets, but the city will always be in the last bracket pair.
+
+function grabCity(str) {
+  // return str.slice(str.lastIndexOf('[') + 1, str.length - 1)
+	let city = ''
+  let i = str.length - 2
+  while (str[i] !== '[') {
+    city += str[i]
+    i--
+  }
+  return [...city].reverse().join('')
+}
+
 // Given an array of integers, find the pair of adjacent elements that have the largest product and return that product.
 // Examples
 
