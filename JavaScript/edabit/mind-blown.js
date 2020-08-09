@@ -1,18 +1,570 @@
-// The Fibonacci Sequence is the sequence of numbers (Fibonacci Numbers) whose sum is the two preceding numbers (e.g. 0, 1, 1, 2, 3, etc). Using 0 and 1 as the starting values, create a function that returns an array containing all of the Fibonacci numbers less than 255.
+Write a function to return the city from each of these vacation spots.
+Examples
+
+grabCity("[Last Day!] Beer Festival [Munich]") ➞ "Munich"
+
+grabCity("Cheese Factory Tour [Portland]") ➞ "Portland"
+
+grabCity("[50% Off!][Group Tours Included] 5-Day Trip to Onsen [Kyoto]") ➞ "Kyoto"
+
+Notes
+
+There may be additional brackets, but the city will always be in the last bracket pair.
+
+function grabCity(str) {
+  // return str.slice(str.lastIndexOf('[') + 1, str.length - 1)
+	let city = ''
+  let i = str.length - 2
+  while (str[i] !== '[') {
+    city += str[i]
+    i--
+  }
+  return [...city].reverse().join('')
+}
+
+// Given an array of integers, find the pair of adjacent elements that have the largest product and return that product.
 // Examples
 
-// On generating a Fibonacci number where input is the two preceding values starting from 0 and 1 [0, 1, ...].
+// adjacentProduct([3, 6, -2, -5, 7, 3] ) ➞ 21
 
-// fibonacciSequence(0, 1) ➞ 1
+// adjacentProduct([5, 6, -4, 2, 3, 2, -23]) ➞ 30
 
-// fibonacciSequence(1, 1) ➞ 2
-
-// fibonacciSequence(1, 2) ➞ 3
+// adjacentProduct([0, -1, 1, 24, 1, -4, 8, 10]) ➞ 80
 
 // Notes
 
-// This function will take no parameters.
+// Each array has at least two elements.
 
+function adjacentProduct(arr) {
+  let largest = -1000
+  for (let i = 0; i < arr.length; i++) {
+    let product = arr[i] * arr[i + 1]
+    if (largest < product) largest = product
+  }
+  return largest
+}
+
+// Create a function that returns a RegEx that can be used to extract a value between two values. The two arguments are values that encapsule the value we want to extract.
+// Examples
+
+// "The red Car is fast".match(extractValueRegExp("The "," is fast"))[0] ➞ "red Car"
+
+// "We'll meet at 5am at the Circus".match(extractValueRegExp("We'll meet at "," at the Circus"))[0] ➞ "5am"
+
+// "I want a Lollipop".match(extractValueRegExp("want "," Lollipop"))[0] ➞ "a"
+
+// Notes
+
+// You must to use lookaheads and lookbehinds (see Resources for details).
+
+function extractValueRegExp(val1, val2) {
+	return new RegExp(`(?<=${val1}).*(?=${val2})`, 'g')
+}
+
+// Create a function that takes a string and returns the first character that repeats. If there is no repeat of a character, return "-1".
+// Examples
+
+// firstRepeat("legolas") ➞ "l"
+
+// firstRepeat("Gandalf") ➞ "a"
+
+// firstRepeat("Balrog") ➞ "-1"
+
+// firstRepeat("Isildur") ➞ "-1"
+// // Case sensitive "I" not equal to "i"
+
+// Notes
+
+// Tests are case sensitive.
+
+function firstRepeat(chars) {
+  for (let i = 0; i < chars.length; i++) {
+    if (chars.indexOf(chars[i]) !== chars.lastIndexOf(chars[i])) return chars[i]
+  }
+  return '-1'
+}
+
+// Create a function that turns an array of words into a comma separated list, where the last word is separated by the word "and".
+// Examples
+
+// wordsToSentence(["edabit"]) ➞ "edabit"
+
+// wordsToSentence(["Hello", "", "Bye"]) ➞ "Hello and Bye"
+
+// wordsToSentence(["Hello", "Bye", "See you soon"]) ➞ "Hello, Bye and See you soon"
+
+// Notes
+
+// null values, empty arrays or arrays with only empty or null values should return an empty string (e.g. "").
+
+function wordsToSentence(words) {
+  if (!words || words.length == 0) return ''
+  const cleaned = words.filter(ele => ele)
+  if (words.length == 1) return words[0]
+  else return cleaned.slice(0, -1).join(', ') + ' and ' + cleaned.slice(-1)
+}
+
+// If a person traveled up a hill for 18mins at 20mph and then traveled back down the same path at 60mph then their average speed traveled was 30mph.
+
+// Write a function that returns the average speed traveled given an uphill time, uphill rate and a downhill rate. Uphill time is given in minutes. Return the rate as an integer (mph). No rounding is necessary.
+// Examples
+
+// aveSpd(18, 20, 60) ➞ 30
+
+// aveSpd(30, 10, 30) ➞ 15
+
+// aveSpd(30, 8, 24) ➞ 12
+
+// Notes
+
+//     The solution is not dividing the sum of the speeds by 2.
+//     Check the Resources tab if your stuck.
+
+function aveSpd(upTime, upSpd, downSpd) {
+  const upHr = upTime / 60
+  const downHr = upHr * upSpd / downSpd
+  return ((upSpd * upHr) + (downSpd * downHr)) / (upHr + downHr)
+}
+
+// You're needed to finish a program that lists how many tall people work in your company. All that is needed is a regular expression that will make the function work correctly.
+
+// const res = ["tall height", "tall height", "short height", "medium height", "tall height"]
+
+// function countTall(res) {
+//   const REGEXP = /* YOU FILL IN */
+//   return res.filter( x => REGEXP.test(x)).length
+// }
+
+// countTall(res) // should output 3
+
+// Write the regular expression to make the function output the correct number. You're required to use a positive lookbehind assertion in your expression.
+// Notes
+
+// Check the Resources tab for details on lookbehind assertions.
+
+const REGEXP = /(?<=tall) \w+/
+
+// Create a function that accepts an array of two strings and checks if the letters in the second string are present in the first string.
+// Examples
+
+// letterCheck(["trances", "nectar"]) ➞ true
+
+// letterCheck(["compadres", "DRAPES"]) ➞ true
+
+// letterCheck(["parses", "parsecs"]) ➞ false
+
+// Notes
+
+//     Function should not be case sensitive (as indicated in the second example).
+//     Both strings are presented as a single argument in the form of an array.
+//     Bonus: Solve this without RegEx.
+
+function letterCheck(arr) {
+	return [...arr[1]].every(char => arr[0].toLowerCase().includes(char))
+}
+
+// Given a string including a bunch of characters and numbers, return the sum of all the numbers in the string. Note that multiple digits next to each other are counted as a whole number rather than separate digits.
+// Examples
+
+// grabNumberSum("aeiou250abc10") ➞ 260
+
+// grabNumberSum("one1two2twenty20") ➞ 23
+
+// grabNumberSum("900uwu50uwuuwuuwu25uwu25") ➞ 1000
+
+// Notes
+
+// Remember not to just add single digit numbers together, it should be possible for answers to easily get into the 100s!
+
+function grabNumberSum(s) {
+  return s.match(/\d+/g).reduce((cur, acc) => cur + +acc, 0)
+}
+
+// Given an array with an odd number of elements, return whether the scale will tip "left" or "right" based on the sum of the numbers. The scale will tip on the direction of the largest total. If both sides are equal, return "balanced".
+// Examples
+
+// scaleTip([0, 0, "I", 1, 1]) ➞ "right"
+// // 0 < 2 so it will tip right
+
+// scaleTip([1, 2, 3, "I", 4, 0, 0]) ➞ "left"
+// // 6 > 4 so it will tip left
+
+// scaleTip([5, 5, 5, 0, "I", 10, 2, 2, 1]) ➞ "balanced"
+// // 15 = 15 so it will stay balanced
+
+// Notes
+
+//     The middle element will always be "I" so you can just ignore it.
+//     Assume the numbers all represent the same unit.
+//     Both sides will have the same number of elements.
+//     There are no such things as negative weights in both real life and the tests!
+
+function scaleTip(arr) {
+  const results = [0, 0]
+  results[0] = arr.slice(0, arr.indexOf('I')).reduce((cur, acc) => cur + acc, 0)
+  results[1] = arr.slice(arr.indexOf('I') + 1).reduce((cur, acc) => cur + acc, 0)
+  if (results[0] > results[1]) return 'left'
+  else if (results[1] > results[0]) return 'right'
+  return 'balanced'
+}
+
+// You have an array of strings, each consisting of a book title and an author's name.
+
+// To illustrate:
+
+// [
+//   ["   Death of a Salesman - Arthur Miller    "],
+//   ["   Macbeth - William Shakespeare    "],
+//   ["    A Separate Peace - John Knowles     "],
+//   [" Lord of the Flies - William Golding"],
+//   ["A Tale of Two Cities - Charles Dickens"]
+// ]
+
+// Create a function that takes an array like the one above and transforms it into the same format as the one below:
+
+// [
+//   ["Death of a Salesman", "Arthur Miller"],
+//   ["Macbeth", "William Shakespeare"],
+//   ["A Separate Peace", "John Knowles"],
+//   ["Lord of the Flies", "William Golding"],
+//   ["A Tale of Two Cities", "Charles Dickens"]
+// ]
+
+// Examples
+
+// tidyBooks([
+//   "     The Catcher in the Rye - J. D. Salinger    ",
+//   "    Brave New World - Aldous Huxley   ",
+//   "    Of Mice and Men - John Steinbeck    "
+// ]) ➞ [
+//   "The Catcher in the Rye", "J. D. Salinger",
+//   "Brave New World", "Aldous Huley",
+//   "Of Mice and Men", "John Steinbeck"
+// ]
+
+// Notes
+
+// Some of these entries have excess white space. Remove this white space in your final output.
+
+function tidyBooks(arr) {
+	return arr.map(ele => ele.trim().split(' - '))
+}
+
+// Given the parameters day, month and year, return whether that date is a valid date.
+// Examples
+
+// isValidDate(35, 2, 2020) ➞ false
+// // February doesn't have 35 days.
+
+// isValidDate(8, 3, 2020) ➞ true
+// // 8th March 2020 is a real date.
+
+// isValidDate(31, 6, 1980) ➞ false
+// // June only has 30 days.
+
+// Notes
+
+// N/A
+
+function isValidDate(d, m, y) {
+  const date = new Date(`${y}-${m}-${d}`)
+  return date.getFullYear() == y && date.getMonth() ==  (m - 1) && date.getDate() == d
+}
+
+// Your function will get an array with a number sequence. However, one item will be missing. It's your job to find out which one is not in the array.
+
+// To illustrate, given the array [1, 3, 4, 5], 2 is missing so the output must be 2.
+// Examples
+
+// missing([1, 3, 4, 5]) ➞ 2
+
+// missing([2, 4, 6, 8, 10, 14, 16]) ➞ 12
+
+// missing([1.5, 2, 3]) ➞ 2.5
+
+// Notes
+
+//     The missing item will never be the smallest or largest number in the array.
+//     In every array, exactly one item is missing.
+
+function missing(arr) {
+  let diff = (arr[arr.length - 1] - arr[0]) / arr.length
+  for (let i = 0; i < arr.length; i++) {
+    if ((arr[i + 1] - arr[i]) !== diff) return arr[i] + diff
+  }
+}
+
+// Create a function to find only the root value of x in any quadratic equation ax^2 + bx + c. The function will take three arguments:
+
+//     a as the coefficient of x^2
+//     b as the coefficient of x
+//     c as the constant term
+
+// Examples
+
+// quadraticEquation(1, 2, -3) ➞ 1
+
+// quadraticEquation(2, -7, 3) ➞ 3
+
+// quadraticEquation(1, -12, -28) ➞ 14
+
+// Notes
+
+//     Quadratic equation is always guaranteed to have a root.
+//     Check the Resources tab for more information on quadratic equations.
+//     Calculate only the root that sums the square root of the discriminant, not the one that subtracts it.
+//     Round the value / return only integer value.
+
+function quadraticEquation(a, b, c) {
+  return ((b * -1) + Math.sqrt((b ** 2) - (4 * a * c))) / (a * 2)
+}
+
+// Given two strings comprised of + and -, return a new string which shows how the two strings interact in the following way:
+
+//     When positives and positives interact, they remain positive.
+//     When negatives and negatives interact, they remain negative.
+//     But when negatives and positives interact, they become neutral, and are shown as the number 0.
+
+// Worked Example
+
+// neutralise("+-+", "+--") ➞ "+-0"
+// // Compare the first characters of each string, then the next in turn.
+// // "+" against a "+" returns another "+".
+// // "-" against a "-" returns another "-".
+// // "+" against a "-" returns "0".
+// // Return the string of characters.
+
+// Examples
+
+// neutralise("--++--", "++--++") ➞ "000000"
+
+// neutralise("-+-+-+", "-+-+-+") ➞ "-+-+-+"
+
+// neutralise("-++-", "-+-+") ➞ "-+00"
+
+// Notes
+
+// The two strings will be the same length.
+
+function neutralise(s1, s2) {
+  const result = []
+  for(let i = 0; i < s1.length; i++) {
+    if (s1[i] !== s2[i]) result.push('0')
+    else result.push(s1[i])
+  }
+  return result.join('')
+}
+
+// Create a function that validates whether three given integers form a Pythagorean triplet. The sum of the squares of the two smallest integers must equal the square of the largest number to be validated.
+// Examples
+
+// isTriplet(3, 4, 5) ➞ true
+// // 3² + 4² = 25
+// // 5² = 25
+
+// isTriplet(13, 5, 12) ➞ true
+// // 5² + 12² = 169
+// // 13² = 169
+
+// isTriplet(1, 2, 3) ➞ false
+// // 1² + 2² = 5
+// // 3² = 9
+
+// Notes
+
+// Numbers may not be given in a sorted order.
+
+function isTriplet(n1, n2, n3) {
+	const sorted = [...arguments].sort((a,b) => a - b)
+  return (sorted[0] ** 2 + sorted[1] ** 2) == (sorted[2] ** 2)
+}
+
+// Given a square matrix (i.e. same number of rows as columns), its trace is the sum of the entries in the main diagonal (i.e. the diagonal line from the top left to the bottom right).
+// As an example, for:
+// [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9]
+// ]
+// ... the trace is 1 + 5 + 9 = 15.
+// Write a function that takes a square matrix and computes its trace.
+// Examples
+// trace([
+//   [1, 4],
+//   [4, 1]
+// ]) ➞ 2
+// // 1 + 1 = 2
+// trace([
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9]
+// ]) ➞ 15
+// // 1 + 5 + 9 = 15
+// trace([
+//   [1, 0, 1, 0],
+//   [0, 2, 0, 2],
+//   [3, 0, 3, 0],
+//   [0, 4, 0, 4]
+// ]) ➞ 10
+// // 1 + 2 + 3 + 4 = 10
+// Notes
+// As in the examples, the size of the matrices will vary (but they will always be square).
+function trace(arr) {
+  let sum = 0
+  let j = 0
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i][j++]
+  }
+  return sum
+}
+// Create a function that checks if the box is completely filled with the asterisk symbol *.
+// Examples
+// completelyFilled([
+//   "#####",
+//   "#***#",
+//   "#***#",
+//   "#***#",
+//   "#####"
+// ]) ➞ true
+// completelyFilled([
+//   "#####",
+//   "#* *#",
+//   "#***#",
+//   "#***#",
+//   "#####"
+// ]) ➞ false
+// completelyFilled([
+//   "###",
+//   "#*#",
+//   "###"
+// ]) ➞ true
+// completelyFilled([
+//   "##",
+//   "##"
+// ]) ➞ true
+// Notes
+// Boxes of size n <= 2 are considered automatically filled (see example #4).
+function completelyFilled(arr) {
+	return arr[0].length > 2 ? arr.every(ele => !ele.includes(' ')) : true
+}
+// You are given three inputs: a string, one letter, and a second letter.
+// Write a function that returns true if every instance of the first letter occurs before every instance of the second letter.
+// Examples
+// firstBeforeSecond("a rabbit jumps joyfully", "a", "j") ➞ true
+// // every instance of "a" occurs before every instance of "j"
+// firstBeforeSecond("knaves knew about waterfalls", "k", "w") ➞  true
+// firstBeforeSecond("happy birthday", "a", "y") ➞ false
+// // the "a" in "birthday" occurs after the "y" in "happy"
+// firstBeforeSecond("precarious kangaroos", "k", "a") ➞ false
+// Notes
+//     All strings will be in lower case.
+//     All strings will contain the first and second letters at least once.
+function firstBeforeSecond(s, first, second) {
+	const firstIdx = []
+  const secondIdx = []
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] == first) firstIdx.push(i)
+    if (s[i] == second) secondIdx.push(i)
+  }
+  return firstIdx.every((ele, idx) => ele < Math.min(...secondIdx))
+}
+// Write a function that changes every letter to the next letter:
+//     "a" becomes "b"
+//     "b" becomes "c"
+//     "d" becomes "e"
+//     and so on ...
+// Examples
+// move("hello") ➞ "ifmmp"
+// move("bye") ➞ "czf"
+// move("welcome") ➞ "xfmdpnf"
+// Notes
+// There will be no z's in the tests.
+function move(word) {
+	return [...word].map((ele, idx) => String.fromCharCode(word.charCodeAt(idx) + 1)).join('')
+}
+// Mary wants to run a 25-mile marathon. When she attempts to sign up for the marathon, she notices the sign-up sheet doesn't directly state the marathon's length. Instead, the marathon's length is listed in small, different portions. Help Mary find out how long the marathon actually is.
+// Return true if the marathon is 25 miles long, otherwise, return false.
+// Examples
+// marathonDistance([1, 2, 3, 4]) ➞ false
+// marathonDistance([1, 9, 5, 8, 2]) ➞ true
+// marathonDistance([-6, 15, 4]) ➞ true
+// Notes
+//     Items in the array will always be integers.
+//     Items in the array may be negative or positive, but since negative distance isn't possible, find a way to convert the sum of the distance into a positive integer.
+//     Return false if the arguments are empty or not provided.
+function marathonDistance(d) {
+	return d.reduce((cur, acc) => cur + Math.abs(acc), 0) == 25
+}
+// A number n is a Harshad (also called Niven) number if it is divisible by the sum of its digits. For example, 666 is divisible by 6 + 6 + 6, so it is a Harshad number.
+// Examples
+// isHarshad(209) ➞ true
+// isHarshad(41) ➞ false
+// isHarshad(12255) ➞ true
+// Notes
+// N/A
+function isHarshad(num) {
+  return num % [...('' + num)].reduce((cur, acc) => cur + +acc, 0) == 0
+}
+// Create a function that takes three numbers — the width and height of a rectangle, and the radius of a circle and returns true if the rectangle can fit inside the circle, false if it can't.
+// Examples
+// rectangleInCircle(8, 6, 5) ➞ true
+// rectangleInCircle(5, 9, 5) ➞ false
+// rectangleInCircle(4, 7, 4) ➞ false
+// Notes
+// N/A
+function rectangleInCircle(w, h, radius) {
+  return Math.hypot(w, h) <= (2 * radius)
+}
+// Create a function that takes a string and returns a new string with each new character accumulating by +1. Separate each set with a dash.
+// Examples
+// accum("abcd") ➞ "A-Bb-Ccc-Dddd"
+// accum("RqaEzty") ➞ "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// accum("cwAt") ➞ "C-Ww-Aaa-Tttt"
+// Notes
+//     Capitalize the first letter of each set.
+//     All tests contain valid strings with alphabetic characters (a-z, A-Z).
+function accum(str) {
+	const result = []
+  for (let i = 0; i < str.length; i++) {
+    result.push(str[i].toUpperCase() + str[i].toLowerCase().repeat(i))
+  }
+  return result.join('-')
+}
+// Write a function that returns the first n vowels of a string.
+// Examples
+// firstNVowels("sharpening skills", 3) ➞ "aei"
+// firstNVowels("major league", 5) ➞ "aoeau"
+// firstNVowels("hostess", 5) ➞ "invalid"
+// Notes
+//     Return "invalid" if the n exceeds the number of vowels in a string.
+//     Vowels are: a, e, i, o, u
+function firstNVowels(s, n) {
+	const vowels = {a: 1, e: 1, i: 1, o: 1, u: 1}
+  const result = []
+  for (let i = 0; i < s.length; i++) {
+    if (vowels[s[i]] && result.length !== n) result.push(s[i])
+  }
+  return result.length < n ? 'invalid' : result.join('')
+}
+// Write a function that moves all elements of one type to the end of the array.
+// Examples
+// moveToEnd([1, 3, 2, 4, 4, 1], 1) ➞ [3, 2, 4, 4, 1, 1]
+// // Move all the 1s to the end of the array.
+// moveToEnd([7, 8, 9, 1, 2, 3, 4], 9) ➞ [7, 8, 1, 2, 3, 4, 9]
+// moveToEnd(["a", "a", "a", "b"], "a") ➞ ["b", "a", "a", "a"]
+// Notes
+// Keep the order of the un-moved items the same.
+function moveToEnd(arr, el) {
+  return arr.filter(ele => ele !== el).concat(arr.filter(ele => ele == el))
+}
+// The Fibonacci Sequence is the sequence of numbers (Fibonacci Numbers) whose sum is the two preceding numbers (e.g. 0, 1, 1, 2, 3, etc). Using 0 and 1 as the starting values, create a function that returns an array containing all of the Fibonacci numbers less than 255.
+// Examples
+// On generating a Fibonacci number where input is the two preceding values starting from 0 and 1 [0, 1, ...].
+// fibonacciSequence(0, 1) ➞ 1
+// fibonacciSequence(1, 1) ➞ 2
+// fibonacciSequence(1, 2) ➞ 3
+// Notes
+// This function will take no parameters.
 function fibonacciSequence() {
   const result = [0, 1]
 	for (let i = 0; i < 255; i++) {
@@ -21,71 +573,46 @@ function fibonacciSequence() {
   }
   return result
 }
-
 // When creating variables, the variable name must always start with a letter and cannot contain spaces, though numbers and underscores are allowed to be contained in it also.
-
 // Create a function which returns true if a given variable name is valid, otherwise return false.
 // Examples
-
 // variableValid("result") ➞ true
-
 // variableValid("odd_nums") ➞ true
-
 // variableValid("2TimesN") ➞ false
-
 // Notes
-
 //     Inputs are given as strings.
 //     Variable names with spaces are not allowed.
 //     Although this question may seem like otherwise, you can't actually assign words with quotes around them as variables.
 //     The rules exposed in this challenge are an oversimplification on how variable and identifier names are considered valid in JavaScript.
-
 function variableValid(variable) {
 	return /^[A-z](?!\w+ \w+)/gi.test(variable)
 }
-
 // Create a function which returns the word in the string, but with all the fog letters removed. However, if the string is clear from fog, return "It's a clear day!".
 // Examples
-
 // clearFog("sky") ➞ "It's a clear day!"
-
 // clearFog("fogfogfffoooofftreesggfoogfog") ➞ "trees"
-
 // clearFog("fogFogFogffffooobirdsandthebeesGGGfogFog") ➞ "birdsandthebees"
-
 // Notes
-
 //     Hidden words won't include the letters f, o or g.
 //     Hidden words are always in lowercase.
-
 function clearFog(str) {
   if (!/[fog]/gi.test(str)) return "It's a clear day!"
   return str.replace(/[fog]/gi, '')
 }
-
 // A Collatz sequence is generated like this. Start with a positive number. If it's even, halve it. If it's odd, multiply it by three and add one. Repeat the process with the resulting number. The Collatz Conjecture is that every sequence eventually reaches 1 (continuing past 1 just results in an endless repeat of the sequence: 4, 2, 1).
-
 // The length of the sequence from starting number to 1 varies widely.
-
 // Create a function that takes a number as an argument and returns an array of two elements — the number of steps in the Collatz sequence of the number, and the highest number reached.
 // Examples
-
 // collatz(2) ➞ [2, 2]
 // // seq = [2, 1]
-
 // collatz(3) ➞ [8, 16]
 // // seq = [3, 10, 5, 16, 8, 4, 2, 1]
-
 // collatz(7) ➞ [17, 52]
 // // seq = [7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1]
-
 // collatz(8) ➞ [4, 8]
 // // seq = [8, 4, 2, 1]
-
 // Notes
-
 // (Improbable) Bonus: Find a positive starting number that doesn't reach 1, and score a place in Math history plus a cash prize.
-
 function collatz(n) {
   const seq = []
   while (n !== 1) {
@@ -94,92 +621,58 @@ function collatz(n) {
   }
   return [seq.length + 1, Math.max(...seq)]
 }
-
 // Create a function that returns true if the given circular areas are intersecting, otherwise return false. The circles are given as two arrays containing the values in the following order:
-
 //     Radius of the circle.
 //     Center position on the x-axis.
 //     Center position on the y-axis.
-
 // Examples
-
 // isCircleCollision([10, 0, 0], [10, 10, 10]) ➞ true
-
 // isCircleCollision([1, 0, 0], [1, 10, 10]) ➞ false
-
 // Notes
-
 //     You can expect useable input and positive radii.
 //     The given coordinates are the centers of the circles.
 //     We are looking for intersecting areas, not intersection outlines.
 //     Check the Resources tab for help.
-
 function isCircleCollision(c1, c2) {
 	return Math.hypot(c1[1] - c2[1], c1[2] - c2[2]) < (c1[0] + c2[0])
 }
-
 // You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
-
 // Here are a list of the characters classes in JavaScript:
-
 // ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh, [\b]
-
 // You probably know already know the string method trim(). It will remove all of the leading and trailing whitespaces in a string.
-
 // Create a regular expression that will function like the trim() method. Your regex will work together with this function: string.replace(REGEXP, ""). You must use the \s character class in your expression.
 // Example
-
 // const str = "    Hello World    "
 // // "Hello World"
-
 // const str = "    We need more space   "
 // // "We need more space"
-
 // Notes
-
 // Check the Resources tab for details on character classes if you're stuck.
-
 const REGEXP = /^\s+|\s+$/g
-
 // Create a function which takes a sentence and returns its abbreviation. Get all of the words over or equal to n characters in length and return the first letter of each, capitalised and overall returned as a single string.
 // Examples
-
 // abbreviate("do it yourself") ➞ "Y"
-
 // abbreviate("do it yourself", 2) ➞ "DIY"
 // // "do" and "it" are included because the second parameter specified that word lengths 2 are allowed.
-
 // abbreviate("attention AND deficit OR hyperactivity THE disorder")➞ "ADHD"
 // // Words below the default 4 characters are not included in the abbreviation.
-
 // abbreviate("the acronym of long word lengths", 5) ➞ "AL"
 // // "acronym" and "lengths" have 5 or more characters.
-
 // Notes
-
 // There may not be an argument given for n so set the default to 4.
-
 function abbreviate(sentence, n = 4) {
 	return sentence.split(' ').map(ele => ele.length >= n ? ele.slice(0, 1).toUpperCase() : undefined).join('')
 }
-
 // If today was Monday, in two days, it would be Wednesday.
-
 // Create a function that takes in an array of days as input and the number of days to increment by. Return an array of days after n number of days has passed.
 // Examples
-
 // afterNDays(["Thursday", "Monday"], 4) ➞ ["Monday", "Friday"]
-
 // afterNDays(["Sunday", "Sunday", "Sunday"], 1) ➞ ["Monday", "Monday", "Monday"]
-
 // afterNDays(["Monday", "Tuesday", "Friday"], 1) ➞ ["Tuesday", "Wednesday", "Saturday"]
-
 // Notes
-
 //     Return as an array.
 //     All test cases will have the first letter of each day capitalized.
 //     n number of days may be greater than 7.
-
 function afterNDays(days, n) {
 	const day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   // return days.map(ele => day[(day.indexOf(days[i]) + n) % 7])
@@ -188,7 +681,6 @@ function afterNDays(days, n) {
   }
   return days
 }
-
 //Make a tree
 let christmasTree = (num) => {
   for (let i = 0; i <= num; i++) {
@@ -203,26 +695,17 @@ let christmasTree = (num) => {
   }
 }
 christmasTree(20);
-
 // Create a function which returns the type of triangle, given the side lengths. Return the following values if they match the criteria.
-
 //     No sides equal: "scalene"
 //     Two sides equal: "isosceles"
 //     All sides equal: "equilateral"
 //     Less or more than 3 sides given: "not a triangle"
-
 // Examples
-
 // getTriangleType([2, 6, 5]) ➞ "scalene"
-
 // getTriangleType([4, 4, 7]) ➞ "isosceles"
-
 // getTriangleType([8, 8, 8]) ➞ "equilateral"
-
 // getTriangleType([3, 5, 5, 2]) ➞ "not a triangle"
-
 // Notes
-
 //     You will be given an array of positive integers.
 //     Check the Resources tab for more information on the types of triangles.
 function getTriangleType(arr) {
@@ -230,50 +713,33 @@ function getTriangleType(arr) {
   const triangleTypes = {1: 'equilateral', 2: 'isosceles', 3: 'scalene'}
   return triangleTypes[new Set(arr).size]
 }
-
 // Create a function that takes a string and returns the first character of every word if the length is even and the middle character if the length is odd.
 // Examples
-
 // stmid("Alexa have to paid") ➞ "ehtp"
-
 // stmid("Th3 0n3 4nd 0n1y") ➞ "hnn0"
-
 // stmid("who is the winner") ➞ "hihw"
-
 // Notes
-
 // N/A
-
 function stmid(str) {
 	return [...str.split(' ')].map(ele => ele.length % 2 === 0 ? ele[0] : ele[ele.length / 2 | 0]).join('')
 }
-
 // You have a pack of 5 randomly numbered cards, which can range from 0-9. You can win if you can produce a higher two-digit number from your cards than your opponent. Return true if your cards win that round.
 // Worked Example
-
 // winRound([2, 5, 2, 6, 9], [3, 7, 3, 1, 2]) ➞ true
 // // Your cards can make the number 96
 // // Your opponent can make the number 73
 // // You win the round since 96 > 73
-
 // Examples
-
 // winRound([2, 5, 2, 6, 9], [3, 7, 3, 1, 2]) ➞ true
-
 // winRound([1, 2, 3, 4, 5], [9, 8, 7, 6, 5]) ➞ false
-
 // winRound([4, 3, 4, 4, 5], [3, 2, 5, 4, 1]) ➞ false
-
 // Notes
-
 // Return false if you and your opponent reach the same maximum number (see example #3).
-
 function winRound(you, opp) {
   const compare = (a, b) => b - a
   const num = arr => arr.slice(0, 2).join('')
 	return num(you.sort(compare)) > num(opp.sort(compare))
 }
-
 // Create a function that takes three values:
 //     h hours
 //     m minutes
@@ -285,13 +751,11 @@ function winRound(you, opp) {
 // longestTime(15, 955, 59400) ➞ 59400
 // Notes
 // No two durations will be the same.
-
 function longestTime(h, m, s) {
   const convertedArr = [h * 60 * 60, m * 60, s]
   const arr = [h, m, s]
   return arr[convertedArr.indexOf(Math.max(...convertedArr))]
 }
-
 // Create a function which validates whether a 3 character string is a vowel sandwich. In order to have a valid sandwich, the string must satisfy the following rules:
 //     The first and last characters must be a consonant.
 //     The character in the middle must be a vowel.
