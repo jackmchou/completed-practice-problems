@@ -1,3 +1,22 @@
+// Write a function that calculates the factorial of a number recursively.
+// Examples
+
+// factorial(5) ➞ 120
+
+// factorial(3) ➞ 6
+
+// factorial(1) ➞ 1
+
+// factorial(0) ➞ 1
+
+// Notes
+
+// N/A
+
+function factorial(num) {
+	return num <= 1 ? 1 : num * factorial(num - 1)
+}
+
 // Welcome to the beginning of this collection on Computer Science Algorithms. Admittedly there are other challenges on Edabit that deal with recursion and algorithmic processes, but these particular challenges are designed to give examples and to educate users on the topics being covered.
 // Recursion
 
