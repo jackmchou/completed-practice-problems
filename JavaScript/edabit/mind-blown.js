@@ -1,16 +1,54 @@
-Write a function to return the city from each of these vacation spots.
-Examples
+// Welcome to the beginning of this collection on Computer Science Algorithms. Admittedly there are other challenges on Edabit that deal with recursion and algorithmic processes, but these particular challenges are designed to give examples and to educate users on the topics being covered.
+// Recursion
 
-grabCity("[Last Day!] Beer Festival [Munich]") ➞ "Munich"
+// In computer science, "recursion" is the act of writing a function that calls itself from within its own code. The function below better helps explain and illustrate recursion by simply counting down from a given number to zero:
 
-grabCity("Cheese Factory Tour [Portland]") ➞ "Portland"
+// function factorial(num) {
+//   let targetNumber = 0
 
-grabCity("[50% Off!][Group Tours Included] 5-Day Trip to Onsen [Kyoto]") ➞ "Kyoto"
+//   if (num == targetNumber)
+//     {console.log("Countdown complete!")}
+//   else
+//     {factorial(num - 1)}
+// }
 
-Notes
+// Explanation
 
-There may be additional brackets, but the city will always be in the last bracket pair.
+// The above function starts by initializing the target number, which is zero, then it creates a base case by checking if the inputted number has reached the target number yet. If it has, then the function ends and it prints the statement, else the function inputs num subtracted by one and then runs the function again.
 
+// When using recursive functions a "Base Case" is needed. A base case will stop the function once it reaches its intended goal. In the absence of a base case, the program can either crash due to "Stack Overflow" or by initiating an "Infinite Loop."
+
+// On a side note, initializing variables in recursive functions can sometimes be problematic because when the function runs again it will reset the value of that variable. For this specific recursive function the variable works fine because the target number we're trying to reach is consistently zero.
+// Instructions
+
+// The recursive function for this challenge should return the factorial of an inputted integer. If anyone needs a refresher, factorials in mathematics are represented by an exclamation point placed to the right of a number: 4! = 4 x 3 x 2 x 1 = 24
+// Examples
+
+// factorial(5) ➞ 120
+
+// factorial(3) ➞ 6
+
+// factorial(2) ➞ 2
+
+// Notes
+
+//     Puts statements can be added to the Countdown function example for illustrative purposes if need be.
+//     Terms that are placed in italics ("example"), while not always necessary to completing the challenge, can be helpful or just generally good to know as an aspiring programmer or computer science student/enthusiast.
+//     Several of the challenges that will be covered in this collection on algorithms can be solved non-recursively and without implementing the algorithms described in each challenge. I implore anyone solving these challenges to do them as intended. Not understanding the concepts taught will be an obstacle to later challenges and won't aid anyone in advancing their skills as a programmer.
+//     If you are stuck please check the Resources tab, Comments tab, or if you're really stuck, use the Solutions tab to unlock the answers.
+
+function factorial(num) {
+	if (num <= 1) return 1
+  return num * factorial(num - 1)
+}
+
+// Write a function to return the city from each of these vacation spots.
+// Examples
+// grabCity("[Last Day!] Beer Festival [Munich]") ➞ "Munich"
+// grabCity("Cheese Factory Tour [Portland]") ➞ "Portland"
+// grabCity("[50% Off!][Group Tours Included] 5-Day Trip to Onsen [Kyoto]") ➞ "Kyoto"
+// Notes
+// There may be additional brackets, but the city will always be in the last bracket pair.
 function grabCity(str) {
   // return str.slice(str.lastIndexOf('[') + 1, str.length - 1)
 	let city = ''
@@ -21,20 +59,13 @@ function grabCity(str) {
   }
   return [...city].reverse().join('')
 }
-
 // Given an array of integers, find the pair of adjacent elements that have the largest product and return that product.
 // Examples
-
 // adjacentProduct([3, 6, -2, -5, 7, 3] ) ➞ 21
-
 // adjacentProduct([5, 6, -4, 2, 3, 2, -23]) ➞ 30
-
 // adjacentProduct([0, -1, 1, 24, 1, -4, 8, 10]) ➞ 80
-
 // Notes
-
 // Each array has at least two elements.
-
 function adjacentProduct(arr) {
   let largest = -1000
   for (let i = 0; i < arr.length; i++) {
@@ -43,162 +74,104 @@ function adjacentProduct(arr) {
   }
   return largest
 }
-
 // Create a function that returns a RegEx that can be used to extract a value between two values. The two arguments are values that encapsule the value we want to extract.
 // Examples
-
 // "The red Car is fast".match(extractValueRegExp("The "," is fast"))[0] ➞ "red Car"
-
 // "We'll meet at 5am at the Circus".match(extractValueRegExp("We'll meet at "," at the Circus"))[0] ➞ "5am"
-
 // "I want a Lollipop".match(extractValueRegExp("want "," Lollipop"))[0] ➞ "a"
-
 // Notes
-
 // You must to use lookaheads and lookbehinds (see Resources for details).
-
 function extractValueRegExp(val1, val2) {
 	return new RegExp(`(?<=${val1}).*(?=${val2})`, 'g')
 }
-
 // Create a function that takes a string and returns the first character that repeats. If there is no repeat of a character, return "-1".
 // Examples
-
 // firstRepeat("legolas") ➞ "l"
-
 // firstRepeat("Gandalf") ➞ "a"
-
 // firstRepeat("Balrog") ➞ "-1"
-
 // firstRepeat("Isildur") ➞ "-1"
 // // Case sensitive "I" not equal to "i"
-
 // Notes
-
 // Tests are case sensitive.
-
 function firstRepeat(chars) {
   for (let i = 0; i < chars.length; i++) {
     if (chars.indexOf(chars[i]) !== chars.lastIndexOf(chars[i])) return chars[i]
   }
   return '-1'
 }
-
 // Create a function that turns an array of words into a comma separated list, where the last word is separated by the word "and".
 // Examples
-
 // wordsToSentence(["edabit"]) ➞ "edabit"
-
 // wordsToSentence(["Hello", "", "Bye"]) ➞ "Hello and Bye"
-
 // wordsToSentence(["Hello", "Bye", "See you soon"]) ➞ "Hello, Bye and See you soon"
-
 // Notes
-
 // null values, empty arrays or arrays with only empty or null values should return an empty string (e.g. "").
-
 function wordsToSentence(words) {
   if (!words || words.length == 0) return ''
   const cleaned = words.filter(ele => ele)
   if (words.length == 1) return words[0]
   else return cleaned.slice(0, -1).join(', ') + ' and ' + cleaned.slice(-1)
 }
-
 // If a person traveled up a hill for 18mins at 20mph and then traveled back down the same path at 60mph then their average speed traveled was 30mph.
-
 // Write a function that returns the average speed traveled given an uphill time, uphill rate and a downhill rate. Uphill time is given in minutes. Return the rate as an integer (mph). No rounding is necessary.
 // Examples
-
 // aveSpd(18, 20, 60) ➞ 30
-
 // aveSpd(30, 10, 30) ➞ 15
-
 // aveSpd(30, 8, 24) ➞ 12
-
 // Notes
-
 //     The solution is not dividing the sum of the speeds by 2.
 //     Check the Resources tab if your stuck.
-
 function aveSpd(upTime, upSpd, downSpd) {
   const upHr = upTime / 60
   const downHr = upHr * upSpd / downSpd
   return ((upSpd * upHr) + (downSpd * downHr)) / (upHr + downHr)
 }
-
 // You're needed to finish a program that lists how many tall people work in your company. All that is needed is a regular expression that will make the function work correctly.
-
 // const res = ["tall height", "tall height", "short height", "medium height", "tall height"]
-
 // function countTall(res) {
 //   const REGEXP = /* YOU FILL IN */
 //   return res.filter( x => REGEXP.test(x)).length
 // }
-
 // countTall(res) // should output 3
-
 // Write the regular expression to make the function output the correct number. You're required to use a positive lookbehind assertion in your expression.
 // Notes
-
 // Check the Resources tab for details on lookbehind assertions.
-
 const REGEXP = /(?<=tall) \w+/
-
 // Create a function that accepts an array of two strings and checks if the letters in the second string are present in the first string.
 // Examples
-
 // letterCheck(["trances", "nectar"]) ➞ true
-
 // letterCheck(["compadres", "DRAPES"]) ➞ true
-
 // letterCheck(["parses", "parsecs"]) ➞ false
-
 // Notes
-
 //     Function should not be case sensitive (as indicated in the second example).
 //     Both strings are presented as a single argument in the form of an array.
 //     Bonus: Solve this without RegEx.
-
 function letterCheck(arr) {
 	return [...arr[1]].every(char => arr[0].toLowerCase().includes(char))
 }
-
 // Given a string including a bunch of characters and numbers, return the sum of all the numbers in the string. Note that multiple digits next to each other are counted as a whole number rather than separate digits.
 // Examples
-
 // grabNumberSum("aeiou250abc10") ➞ 260
-
 // grabNumberSum("one1two2twenty20") ➞ 23
-
 // grabNumberSum("900uwu50uwuuwuuwu25uwu25") ➞ 1000
-
 // Notes
-
 // Remember not to just add single digit numbers together, it should be possible for answers to easily get into the 100s!
-
 function grabNumberSum(s) {
   return s.match(/\d+/g).reduce((cur, acc) => cur + +acc, 0)
 }
-
 // Given an array with an odd number of elements, return whether the scale will tip "left" or "right" based on the sum of the numbers. The scale will tip on the direction of the largest total. If both sides are equal, return "balanced".
 // Examples
-
 // scaleTip([0, 0, "I", 1, 1]) ➞ "right"
 // // 0 < 2 so it will tip right
-
 // scaleTip([1, 2, 3, "I", 4, 0, 0]) ➞ "left"
 // // 6 > 4 so it will tip left
-
 // scaleTip([5, 5, 5, 0, "I", 10, 2, 2, 1]) ➞ "balanced"
 // // 15 = 15 so it will stay balanced
-
 // Notes
-
 //     The middle element will always be "I" so you can just ignore it.
 //     Assume the numbers all represent the same unit.
 //     Both sides will have the same number of elements.
 //     There are no such things as negative weights in both real life and the tests!
-
 function scaleTip(arr) {
   const results = [0, 0]
   results[0] = arr.slice(0, arr.indexOf('I')).reduce((cur, acc) => cur + acc, 0)
@@ -207,11 +180,8 @@ function scaleTip(arr) {
   else if (results[1] > results[0]) return 'right'
   return 'balanced'
 }
-
 // You have an array of strings, each consisting of a book title and an author's name.
-
 // To illustrate:
-
 // [
 //   ["   Death of a Salesman - Arthur Miller    "],
 //   ["   Macbeth - William Shakespeare    "],
@@ -219,9 +189,7 @@ function scaleTip(arr) {
 //   [" Lord of the Flies - William Golding"],
 //   ["A Tale of Two Cities - Charles Dickens"]
 // ]
-
 // Create a function that takes an array like the one above and transforms it into the same format as the one below:
-
 // [
 //   ["Death of a Salesman", "Arthur Miller"],
 //   ["Macbeth", "William Shakespeare"],
@@ -229,9 +197,7 @@ function scaleTip(arr) {
 //   ["Lord of the Flies", "William Golding"],
 //   ["A Tale of Two Cities", "Charles Dickens"]
 // ]
-
 // Examples
-
 // tidyBooks([
 //   "     The Catcher in the Rye - J. D. Salinger    ",
 //   "    Brave New World - Aldous Huxley   ",
@@ -241,111 +207,73 @@ function scaleTip(arr) {
 //   "Brave New World", "Aldous Huley",
 //   "Of Mice and Men", "John Steinbeck"
 // ]
-
 // Notes
-
 // Some of these entries have excess white space. Remove this white space in your final output.
-
 function tidyBooks(arr) {
 	return arr.map(ele => ele.trim().split(' - '))
 }
-
 // Given the parameters day, month and year, return whether that date is a valid date.
 // Examples
-
 // isValidDate(35, 2, 2020) ➞ false
 // // February doesn't have 35 days.
-
 // isValidDate(8, 3, 2020) ➞ true
 // // 8th March 2020 is a real date.
-
 // isValidDate(31, 6, 1980) ➞ false
 // // June only has 30 days.
-
 // Notes
-
 // N/A
-
 function isValidDate(d, m, y) {
   const date = new Date(`${y}-${m}-${d}`)
   return date.getFullYear() == y && date.getMonth() ==  (m - 1) && date.getDate() == d
 }
-
 // Your function will get an array with a number sequence. However, one item will be missing. It's your job to find out which one is not in the array.
-
 // To illustrate, given the array [1, 3, 4, 5], 2 is missing so the output must be 2.
 // Examples
-
 // missing([1, 3, 4, 5]) ➞ 2
-
 // missing([2, 4, 6, 8, 10, 14, 16]) ➞ 12
-
 // missing([1.5, 2, 3]) ➞ 2.5
-
 // Notes
-
 //     The missing item will never be the smallest or largest number in the array.
 //     In every array, exactly one item is missing.
-
 function missing(arr) {
   let diff = (arr[arr.length - 1] - arr[0]) / arr.length
   for (let i = 0; i < arr.length; i++) {
     if ((arr[i + 1] - arr[i]) !== diff) return arr[i] + diff
   }
 }
-
 // Create a function to find only the root value of x in any quadratic equation ax^2 + bx + c. The function will take three arguments:
-
 //     a as the coefficient of x^2
 //     b as the coefficient of x
 //     c as the constant term
-
 // Examples
-
 // quadraticEquation(1, 2, -3) ➞ 1
-
 // quadraticEquation(2, -7, 3) ➞ 3
-
 // quadraticEquation(1, -12, -28) ➞ 14
-
 // Notes
-
 //     Quadratic equation is always guaranteed to have a root.
 //     Check the Resources tab for more information on quadratic equations.
 //     Calculate only the root that sums the square root of the discriminant, not the one that subtracts it.
 //     Round the value / return only integer value.
-
 function quadraticEquation(a, b, c) {
   return ((b * -1) + Math.sqrt((b ** 2) - (4 * a * c))) / (a * 2)
 }
-
 // Given two strings comprised of + and -, return a new string which shows how the two strings interact in the following way:
-
 //     When positives and positives interact, they remain positive.
 //     When negatives and negatives interact, they remain negative.
 //     But when negatives and positives interact, they become neutral, and are shown as the number 0.
-
 // Worked Example
-
 // neutralise("+-+", "+--") ➞ "+-0"
 // // Compare the first characters of each string, then the next in turn.
 // // "+" against a "+" returns another "+".
 // // "-" against a "-" returns another "-".
 // // "+" against a "-" returns "0".
 // // Return the string of characters.
-
 // Examples
-
 // neutralise("--++--", "++--++") ➞ "000000"
-
 // neutralise("-+-+-+", "-+-+-+") ➞ "-+-+-+"
-
 // neutralise("-++-", "-+-+") ➞ "-+00"
-
 // Notes
-
 // The two strings will be the same length.
-
 function neutralise(s1, s2) {
   const result = []
   for(let i = 0; i < s1.length; i++) {
@@ -354,31 +282,23 @@ function neutralise(s1, s2) {
   }
   return result.join('')
 }
-
 // Create a function that validates whether three given integers form a Pythagorean triplet. The sum of the squares of the two smallest integers must equal the square of the largest number to be validated.
 // Examples
-
 // isTriplet(3, 4, 5) ➞ true
 // // 3² + 4² = 25
 // // 5² = 25
-
 // isTriplet(13, 5, 12) ➞ true
 // // 5² + 12² = 169
 // // 13² = 169
-
 // isTriplet(1, 2, 3) ➞ false
 // // 1² + 2² = 5
 // // 3² = 9
-
 // Notes
-
 // Numbers may not be given in a sorted order.
-
 function isTriplet(n1, n2, n3) {
 	const sorted = [...arguments].sort((a,b) => a - b)
   return (sorted[0] ** 2 + sorted[1] ** 2) == (sorted[2] ** 2)
 }
-
 // Given a square matrix (i.e. same number of rows as columns), its trace is the sum of the entries in the main diagonal (i.e. the diagonal line from the top left to the bottom right).
 // As an example, for:
 // [
