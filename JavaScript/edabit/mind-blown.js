@@ -1,3 +1,25 @@
+// Create a function that converts Celcius to Fahrenheit and vice versa.
+// Examples
+
+// convert("35°C") ➞ "95°F"
+
+// convert("19°F") ➞ "-7°C"
+
+// convert("33") ➞ "Error"
+
+// Notes
+
+//     Round to the nearest integer.
+//     If the input is incorrect, return "Error".
+//     For the formulae to convert back and forth, check the Resources tab.
+
+function convert(deg) {
+  const tempNum = deg.slice(0, -2)
+  if (deg.endsWith('C')) return `${Math.round(tempNum * 1.8 + 32)}°F`
+  else if (deg.endsWith('F')) return `${Math.round((tempNum - 32) * (5 / 9))}°C`
+  else return 'Error'
+}
+
 // In this challenge, the goal is recomposing scrambled strings made of two or more words.
 
 // Every string has to be reversed not in its totality, but by vowels or consonants clusters in the order they are found; after splitting the string in groups, and reversing every group with more than a letter, you'll obtain the correct sequence:
