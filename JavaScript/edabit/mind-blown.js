@@ -1,3 +1,20 @@
+// Create a function that takes two number strings and returns their sum as a string.
+// Examples
+
+// add("111", "111") ➞ "222"
+
+// add("10", "80") ➞ "90"
+
+// add("", "20") ➞ "Invalid Operation"
+
+// Notes
+
+// If any input is "", undefined or null, return "Invalid Operation".
+
+function add(numberOne, numberTwo) {
+	return numberOne && numberTwo ? '' + (+numberOne + +numberTwo) : 'Invalid Operation'
+}
+
 // You're given a string of words. You need to find the word "Nemo", and return a string like this: "I found Nemo at [the order of the word you find nemo]!".
 
 // If you can't find Nemo, return "I can't find Nemo :(".
