@@ -1,3 +1,26 @@
+// You're given a string of words. You need to find the word "Nemo", and return a string like this: "I found Nemo at [the order of the word you find nemo]!".
+
+// If you can't find Nemo, return "I can't find Nemo :(".
+// Examples
+
+// findNemo("I am finding Nemo !") ➞ "I found Nemo at 4!"
+
+// findNemo("Nemo is me") ➞ "I found Nemo at 1!"
+
+// findNemo("I Nemo am") ➞ "I found Nemo at 2!"
+
+// Notes
+
+//     ! , ? . are always separated from the last word.
+//     Nemo will always look like Nemo, and not NeMo or other capital variations.
+//     Nemo's, or anything that says Nemo with something behind it, doesn't count as Finding Nemo.
+//     If there are multiple Nemo's in the sentence, only return for the first one.
+
+function findNemo(sentence) {
+  const nemoIdx = sentence.split(' ').indexOf('Nemo')
+	return nemoIdx !== -1 ? `I found Nemo at ${nemoIdx + 1}!` : "I can't find Nemo :("
+}
+
 // Create a function that receives a non-negative integer and returns the factorial of that number.
 // Examples
 
@@ -14,8 +37,7 @@
 // Avoid using built-in functions to solve this challenge.
 
 function fact(n) {
-  if (n == 1) return 1
-  return n * fact(n - 1)	
+	return n ? n * fact(n - 1) : 1
 }
 
 // Write a function that returns the string "something" joined with a space " " and the given argument a.
