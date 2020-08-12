@@ -1,3 +1,23 @@
+// Create a function that receives a non-negative integer and returns the factorial of that number.
+// Examples
+
+// fact(0) ➞ 1
+
+// fact(1) ➞ 1
+
+// fact(3) ➞ 6
+
+// fact(6) ➞ 720
+
+// Notes
+
+// Avoid using built-in functions to solve this challenge.
+
+function fact(n) {
+  if (n == 1) return 1
+  return n * fact(n - 1)	
+}
+
 // Write a function that returns the string "something" joined with a space " " and the given argument a.
 // Examples
 
