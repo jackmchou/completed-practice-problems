@@ -1,3 +1,20 @@
+// Write a function that returns the string "something" joined with a space " " and the given argument a.
+// Examples
+
+// giveMeSomething("is better than nothing") ➞ "something is better than nothing"
+
+// giveMeSomething("Bob Jane") ➞ "something Bob Jane"
+
+// giveMeSomething("something") ➞ "something something"
+
+// Notes
+
+// Assume an input is given.
+
+function giveMeSomething(a) {
+	return `something ${a}`
+}
+
 // then() functions return a new promise, different from the original. Since catch functions are actually then() functions behind the scenes, they also return new promises. So if that's true then you could do something like this:
 
 // new Promise((resolve, reject) => {
