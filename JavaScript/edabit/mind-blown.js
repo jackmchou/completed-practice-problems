@@ -1,3 +1,26 @@
+// A ship has to transport cargo from one place to another, while picking up cargo along the way. Given the total amount of cargo and the types of cargo holds in the ship as arrays, create a function that returns true if all the cargo can fit on the ship, and false if it can't.
+
+//     "S" means 50 cargo space.
+//     "M" means 100 cargo space.
+//     "L" means 200 cargo space.
+
+// Examples
+
+// willFit(["M", "L", "L", "M"], [56, 62, 84, 90]) ➞ true
+
+// willFit(["S", "S", "S", "S", "L"], [40, 50, 60, 70 , 80, 90, 200]) ➞ false
+
+// willFit(["L", "L", "M"], [56, 62, 84, 90]) ➞ true
+
+// Notes
+
+// Calculate the cargo as a whole, and not for each seperate cargo hold (see example #2).
+
+function willFit(holds, cargo) {
+	const cargoHold = {'S': 50, 'M':100, 'L':200}
+  return holds.reduce((cur, acc) => cur + cargoHold[acc], 0) >= cargo.reduce((cur, acc) => cur + acc)
+}
+
 // You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character. The . is the only exception. It requires no \ and it is a wildcard character. It matches any character except for line terminators.
 
 // ES2018 added the s "dotAll" flag, which allows the dot to also match line terminators.
