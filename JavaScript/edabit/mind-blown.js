@@ -1,3 +1,22 @@
+// What's the probability of someone making a certain amount of free throws in a row given their free throw success percentage? If Sally makes 50% of her free shot throws. Then Sally's probability of making 5 in a row would be 3%.
+// Examples
+
+// freeThrows("75%", 5) ➞ "24%"
+
+// freeThrows("25%", 3) ➞ "2%"
+
+// freeThrows("90%", 30) ➞ "4%"
+
+// Notes
+
+//     The success rate is a string.
+//     The function should return a string with the percent sign.
+//     Round your answer to the nearest whole number.
+
+function freeThrows(success, rows) {
+  return `${Math.round(((success.slice(0, -1) * 0.01) ** rows) * 100)}%`	
+}
+
 // A ship has to transport cargo from one place to another, while picking up cargo along the way. Given the total amount of cargo and the types of cargo holds in the ship as arrays, create a function that returns true if all the cargo can fit on the ship, and false if it can't.
 
 //     "S" means 50 cargo space.
