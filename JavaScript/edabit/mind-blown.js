@@ -1,3 +1,25 @@
+// You will be implementing a basic case of the map-reduce pattern in programming. Use the built in JavaScript array functions .map() and .reduce() to solve the following problem.
+
+// Given a vector stored as an array of numbers, find the magnitude of the vector (this is similar to the function Math.hypot()). Use the standard distance formula for n-dimensional Cartesian coordinates.
+// Examples
+
+// magnitude([3, 4]) ➞ 5
+
+// magnitude([0, 0, -10]) ➞ 10
+
+// magnitude([]) ➞ 0
+
+// magnitude([2, 3, 6, 1, 8] ) ➞ 10.677078252031311
+
+// Notes
+
+//     The array can have any length.
+//     The input array will contain integers (except for empty array [] ➞ 0).
+//     Use both .map() and .reduce().
+//     Don't use Math.hypot().
+
+var magnitude = vector => Math.sqrt(vector.map(ele => ele * ele).reduce((cur, acc) => cur + acc, 0))
+
 // What's the probability of someone making a certain amount of free throws in a row given their free throw success percentage? If Sally makes 50% of her free shot throws. Then Sally's probability of making 5 in a row would be 3%.
 // Examples
 
