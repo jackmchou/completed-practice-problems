@@ -1,3 +1,26 @@
+// Write a function that takes a string, and returns a new string with any duplicate consecutive letters removed.
+// Examples
+
+// unstretch("ppoeemm") ➞ "poem"
+
+// unstretch("wiiiinnnnd") ➞ "wind"
+
+// unstretch("ttiiitllleeee") ➞ "title"
+
+// unstretch("cccccaaarrrbbonnnnn") ➞ "carbon"
+
+// Notes
+
+// Final strings won't include words with double letters (e.g. "passing", "lottery").
+
+function unstretch(word) {
+  let result = ''
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] !== word[i + 1]) result += word[i]
+  }
+  return result
+}
+
 // Create a function that takes an array of numbers and returns an array where each number is the sum of itself + all previous numbers in the array.
 // Examples
 
