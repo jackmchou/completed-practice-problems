@@ -1,3 +1,23 @@
+// Write function that takes an array with two numbers in it and determines if the sum of the digits of the two numbers are equal to each other.
+// Examples
+
+// isEqual([105, 42]) ➞ true
+// # 1 + 0 + 5 = 6
+// # 4 + 2 = 6
+
+// isEqual([21, 35]) ➞ false
+
+// isEqual([0, 0]) ➞ true
+
+// Notes
+
+// N/A
+
+function isEqual(arr) {
+	const digitSum = arr.map(ele => [...'' + ele].reduce((cur, acc) => cur + +acc, 0))
+  return digitSum[0] === digitSum[1]
+}
+
 // Given two unique integer arrays a and b, and an integer target value v, create a function to determine whether there is a pair of numbers that add up to the target value v, where one number comes from one array a and the other comes from the second array b.
 
 // Return true if there is a pair that adds up to the target value and false otherwise.
