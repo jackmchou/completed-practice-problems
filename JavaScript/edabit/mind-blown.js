@@ -1,16 +1,595 @@
-Write a function to return the city from each of these vacation spots.
-Examples
+// Create a function that takes an array of numbers and return its median. If the input array is even length, take the average of the two medians, else, take the single median.
+// Examples
 
-grabCity("[Last Day!] Beer Festival [Munich]") ➞ "Munich"
+// median([2, 5, 6, 2, 6, 3, 4]) ➞ 4
 
-grabCity("Cheese Factory Tour [Portland]") ➞ "Portland"
+// median([21.4323, 432.54, 432.3, 542.4567]) ➞ 432.4
 
-grabCity("[50% Off!][Group Tours Included] 5-Day Trip to Onsen [Kyoto]") ➞ "Kyoto"
+// median([-23, -43, -29, -53, -67]) ➞ -43
 
-Notes
+// Notes
 
-There may be additional brackets, but the city will always be in the last bracket pair.
+//     Input can be any negative or positive number.
+//     Input array will contain at least four numbers.
+//     See Resources tab for info on calculating the median.
 
+function median(arr) {
+	const sorted = arr.sort((a, b) => a - b)
+  const len = sorted.length
+  const mid = len / 2
+  return len % 2 === 1 ? sorted[mid | 0] : sorted.slice(mid - 1, mid + 1).reduce((cur, acc) => (cur + acc) / 2)
+}
+
+// Write a function that takes a string, and returns a new string with any duplicate consecutive letters removed.
+// Examples
+
+// unstretch("ppoeemm") ➞ "poem"
+
+// unstretch("wiiiinnnnd") ➞ "wind"
+
+// unstretch("ttiiitllleeee") ➞ "title"
+
+// unstretch("cccccaaarrrbbonnnnn") ➞ "carbon"
+
+// Notes
+
+// Final strings won't include words with double letters (e.g. "passing", "lottery").
+
+function unstretch(word) {
+  let result = ''
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] !== word[i + 1]) result += word[i]
+  }
+  return result
+}
+
+// Create a function that takes an array of numbers and returns an array where each number is the sum of itself + all previous numbers in the array.
+// Examples
+
+// cumulativeSum([1, 2, 3]) ➞ [1, 3, 6]
+
+// cumulativeSum([1, -2, 3]) ➞ [1, -1, 2]
+
+// cumulativeSum([3, 3, -2, 408, 3, 3]) ➞ [3, 6, 4, 412, 415, 418]
+
+// Notes
+
+// Return an empty array if the input is an empty array.
+
+function cumulativeSum(arr) {
+	if (!arr.length || arr.length === 1) return arr
+  const result = []
+  arr.reduce((cur, acc, idx) => result[idx] = cur + acc, 0)
+  return result
+}
+
+// Write function that takes an array with two numbers in it and determines if the sum of the digits of the two numbers are equal to each other.
+// Examples
+
+// isEqual([105, 42]) ➞ true
+// # 1 + 0 + 5 = 6
+// # 4 + 2 = 6
+
+// isEqual([21, 35]) ➞ false
+
+// isEqual([0, 0]) ➞ true
+
+// Notes
+
+// N/A
+
+function isEqual(arr) {
+	const [sum1, sum2] = arr.map(ele => [...'' + ele].reduce((cur, acc) => cur + +acc, 0))
+  return sum1 === sum2
+}
+
+// Given two unique integer arrays a and b, and an integer target value v, create a function to determine whether there is a pair of numbers that add up to the target value v, where one number comes from one array a and the other comes from the second array b.
+
+// Return true if there is a pair that adds up to the target value and false otherwise.
+// Examples
+
+// sumOfTwo([1, 2], [4, 5, 6], 5) ➞ true
+
+// sumOfTwo([1, 2], [4, 5, 6], 8) ➞ true
+
+// sumOfTwo([1, 2], [4, 5, 6], 3) ➞ false
+
+// sumOfTwo([1, 2], [4, 5, 6], 9) ➞ false
+
+// Notes
+
+// N/A
+
+function sumOfTwo(a, b, v) {
+	for (let i = 0; i < b.length; i++) {
+    for (let j = 0; j < a.length; j++) {
+      if (b[i] + a[j] === v) return true
+    }
+  }
+  return false
+}
+
+// In this challenge, you have to establish if a given integer is an Astonishing number. An Astonishing number is an integer that, when partitioned into two parts a (left) and b (right), is equal to the sum of the consecutive numbers from a up to b (if a is lower than b), or from b up to a (if a is greater than b).
+// Given a positive integer num, implement a function that returns:
+//     The string "AB-Astonishing" if num is an Astonishing number and the partition a is lower than b.
+//     The string "BA-Astonishing" if num is an Astonishing number and the partition a is greater than b.
+//     false if num is not an Astonishing number.
+// Examples
+// isAstonishing(15) ➞ "AB-Astonishing"
+// // There is only one possible partition: a = 1 and b = 5
+// // Sum from a up to b: 1 + 2 + 3 + 4 + 5 = 15
+// // It's Astonishing and partition a is lower than partition b
+// isAstonishing(4020) ➞ false
+// // There are three possible partitions
+// // Partition 1: a = 4 and b = 020 = 20 (leading zeros are not considered)
+// // Sum from a up to b: 4 + 5 + 6 + ... + 20 = 204
+// // Partition 2: a = 40 and b = 20
+// // Sum from b up to a: 20 + 21 + 22 + ... + 40 = 630
+// //Partition 3: a = 402 and b = 0
+// // Sum from b to a: 0 + 1 + 2 + ... + 402 = 81003
+// // It's not Astonishing
+// isAstonishing(2002077) ➞ "BA-Astonishing"
+// // There are six possible partitions
+// // Partition 1: a = 2 and b = 002077 = 2077 (leading zeros are not considered)
+// // Sum from a up to b: 2 + 3 + 4 + ... + 2077 = 2158002
+// // Partition 2: a = 20 and b = 02077 = 2077
+// // Sum from a up to b: 20 + 21 + 22 + ... + 2077 = 2157813
+// // Partition 3: a = 200 and b = 2077
+// // Sum from a up to b: 200 + 201 + 202 + ... + 2077 = 2138103
+// // Partition 4: a = 2002 and b = 077 = 77
+// // Sum from b up to a: 77 + 78 + 79 + ... + 2002 = 2002077
+// // It's Astonishing and partition a is greater than partition b
+// Notes
+//     Leading zeros in the b partition are not considered (see examples #2 and #3).
+//     A valid partition has at least a number into it, and this number can be also 0 (see example #2).
+//     You can expect positive integers greater than 9 as input (a single-digit number can't be partitioned).
+function isAstonishing(num) {
+  const numStr = '' + num
+	for (let i = 1; i < numStr.length; i++) {
+    let sum = 0
+    let a = +numStr.slice(0, i)
+    let b = +numStr.slice(-(numStr.length - i))
+    if (a < b) sum = (Math.abs(b - a + 1) / 2) * (a + b)
+    else sum = (Math.abs(a - b + 1) / 2) * (a + b)
+    if (sum == num && a < b) return 'AB-Astonishing'
+    if (sum == num && a > b) return 'BA-Astonishing'
+  }
+  return false
+}
+// In the game Set, three cards form a set if each of the cards are identical or completely different for each of the four properties. All three cards must:
+//     Have the same color or different colors.
+//     Have the same number or different numbers.
+//     Have the same shades or different shades.
+//     Have the same shape or different shapes.
+// The four properties are:
+//     Colors: red, purple, green
+//     Numbers: 1, 2, 3
+//     Shades: empty, lined, full
+//     Shapes: squiggle, oval, diamond
+// Here, a set is represented by an array containing three cards. Each card is represented by an object of properties and values. Write a function that determines whether three cards constitute a valid set.
+// Here is an example of a set:
+// [
+//   { color: "red", number: 1, shade: "empty", shape: "squiggle" },
+//   { color: "red", number: 2, shade: "lined", shape: "diamond" },
+//   { color: "red", number: 3, shade: "full", shape: "oval" }
+// ]
+// // "Same" properties: color
+// // "Different" properties: numbers, shading and shapes
+// The following is not a set:
+// [
+//   { color: "red", number: 1, shade: "empty", shape: "squiggle" },
+//   { color: "red", number: 2, shade: "lined", shape: "diamond" },
+//   { color: "purple", number: 3, shade: "full", shape: "oval" }
+// ]
+// // Colors are not all identical, but not all different.
+// Examples
+// isSet([
+//   { color: "green", number: 1, shade: "empty", shape: "squiggle" },
+//   { color: "green", number: 2, shade: "empty", shape: "diamond" },
+//   { color: "green", number: 3, shade: "empty", shape: "oval" }
+// ]) ➞ true
+// isSet([
+//   { color: "purple", number: 1, shade: "full", shape: "oval" },
+//   { color: "green", number: 1, shade: "full", shape: "oval" },
+//   { color: "red", number: 1, shade: "full", shape: "oval" }
+// ]) ➞ true
+// isSet([
+//   { color: "purple", number: 3, shade: "full", shape: "oval" },
+//   { color: "green", number: 1, shade: "full", shape: "oval" },
+//   { color: "red", number: 3, shade: "full", shape: "oval" }
+// ]) ➞ false
+// Notes
+//     A set cannot have 2/3 cards having the same property. Either all must share that property, or none will share that particular property.
+//     You can play Set by checking the Resources tab.
+function isSet(cards) {
+  const colors = new Set()
+  const numbers = new Set()
+  const shade = new Set()
+  const shape = new Set()
+	for (let i = 0; i < cards.length; i++) {
+    colors.add(cards[i].color)
+    numbers.add(cards[i].number)
+    shade.add(cards[i].shade)
+    shape.add(cards[i].shape)
+  }
+  return [colors.size, numbers.size, shade.size, shape.size].every(ele => ele !== 2)
+}
+// You will be implementing a basic case of the map-reduce pattern in programming. Use the built in JavaScript array functions .map() and .reduce() to solve the following problem.
+// Given a vector stored as an array of numbers, find the magnitude of the vector (this is similar to the function Math.hypot()). Use the standard distance formula for n-dimensional Cartesian coordinates.
+// Examples
+// magnitude([3, 4]) ➞ 5
+// magnitude([0, 0, -10]) ➞ 10
+// magnitude([]) ➞ 0
+// magnitude([2, 3, 6, 1, 8] ) ➞ 10.677078252031311
+// Notes
+//     The array can have any length.
+//     The input array will contain integers (except for empty array [] ➞ 0).
+//     Use both .map() and .reduce().
+//     Don't use Math.hypot().
+var magnitude = vector => Math.sqrt(vector.map(ele => ele * ele).reduce((cur, acc) => cur + acc, 0))
+// What's the probability of someone making a certain amount of free throws in a row given their free throw success percentage? If Sally makes 50% of her free shot throws. Then Sally's probability of making 5 in a row would be 3%.
+// Examples
+// freeThrows("75%", 5) ➞ "24%"
+// freeThrows("25%", 3) ➞ "2%"
+// freeThrows("90%", 30) ➞ "4%"
+// Notes
+//     The success rate is a string.
+//     The function should return a string with the percent sign.
+//     Round your answer to the nearest whole number.
+function freeThrows(success, rows) {
+  return `${Math.round(((success.slice(0, -1) * 0.01) ** rows) * 100)}%`	
+}
+// A ship has to transport cargo from one place to another, while picking up cargo along the way. Given the total amount of cargo and the types of cargo holds in the ship as arrays, create a function that returns true if all the cargo can fit on the ship, and false if it can't.
+//     "S" means 50 cargo space.
+//     "M" means 100 cargo space.
+//     "L" means 200 cargo space.
+// Examples
+// willFit(["M", "L", "L", "M"], [56, 62, 84, 90]) ➞ true
+// willFit(["S", "S", "S", "S", "L"], [40, 50, 60, 70 , 80, 90, 200]) ➞ false
+// willFit(["L", "L", "M"], [56, 62, 84, 90]) ➞ true
+// Notes
+// Calculate the cargo as a whole, and not for each seperate cargo hold (see example #2).
+function willFit(holds, cargo) {
+	const cargoHold = {'S': 50, 'M':100, 'L':200}
+  return holds.reduce((cur, acc) => cur + cargoHold[acc], 0) >= cargo.reduce((cur, acc) => cur + acc)
+}
+// You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character. The . is the only exception. It requires no \ and it is a wildcard character. It matches any character except for line terminators.
+// ES2018 added the s "dotAll" flag, which allows the dot to also match line terminators.
+// Here are a list of the characters classes in JavaScript:
+// ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh, [\b]
+// const str = "eta, edu, etc, ele, epa, eye, exe, emf, ete, eon, era"
+// // Instead of a string we want an array like this:
+// // ["eta", "edu", "etc", "ele", "epa", "eye", "exe", "emf", "ete", "eon", "era"]
+// // You could use the split() method but let's try with a regular expression.
+// Write the regular expression that returns an array of all words. Use the character class . in your expression.
+// Notes
+// Check the Resources tab for details on character classes if you're stuck.
+const REGEXP = /^.{3}|(?<=, ).{3}/g
+// One of the pratical use cases for currying a function in JavaScript is to reduce duplication:
+// function add5(num) {
+//   return num + 5
+// }
+// function add6(num) {
+//   return num + 6
+// }
+// add5(2) // 7
+// add6(3) // 9
+// Instead of having to create a new function for every new number we can just create a function that returns a new function and pass in the any number we want to add.
+// function add(add) {
+//   return function(num) {
+//     return num + add
+//   }
+// }
+// const add5 = add(5)
+// add5(2) // 7
+// const add6 = add(6)
+// add6(3) // 9
+// Create a function using currying that will add a car maker name as a property to the carLot object if it doesn't have one. Then have the function add up the number we pass in when we call the curried function.
+// function toyotaCars("Toyota")
+// function hyundaiCars("Hyundai")
+// kiaCars(3)
+// kiaCars(4)
+// hyundaiCars(2)
+// hyundaiCars(1)
+// console.log(carLot) // { Kia: 7, Hyundai: 3}
+// Notes
+//     You only have to create the carMaker() function, not the curried function.
+//     Check the Resources for more info on currying.
+let carLot = {}
+const carMaker = (make) => {
+  let sum = 0
+	return (num) => {
+    carLot[make] = sum += num
+  }
+}
+// Create a function that takes two number strings and returns their sum as a string.
+// Examples
+// add("111", "111") ➞ "222"
+// add("10", "80") ➞ "90"
+// add("", "20") ➞ "Invalid Operation"
+// Notes
+// If any input is "", undefined or null, return "Invalid Operation".
+function add(numberOne, numberTwo) {
+	return numberOne && numberTwo ? '' + (+numberOne + +numberTwo) : 'Invalid Operation'
+}
+// You're given a string of words. You need to find the word "Nemo", and return a string like this: "I found Nemo at [the order of the word you find nemo]!".
+// If you can't find Nemo, return "I can't find Nemo :(".
+// Examples
+// findNemo("I am finding Nemo !") ➞ "I found Nemo at 4!"
+// findNemo("Nemo is me") ➞ "I found Nemo at 1!"
+// findNemo("I Nemo am") ➞ "I found Nemo at 2!"
+// Notes
+//     ! , ? . are always separated from the last word.
+//     Nemo will always look like Nemo, and not NeMo or other capital variations.
+//     Nemo's, or anything that says Nemo with something behind it, doesn't count as Finding Nemo.
+//     If there are multiple Nemo's in the sentence, only return for the first one.
+function findNemo(sentence) {
+  const nemoIdx = sentence.split(' ').indexOf('Nemo')
+	return nemoIdx !== -1 ? `I found Nemo at ${nemoIdx + 1}!` : "I can't find Nemo :("
+}
+// Create a function that receives a non-negative integer and returns the factorial of that number.
+// Examples
+// fact(0) ➞ 1
+// fact(1) ➞ 1
+// fact(3) ➞ 6
+// fact(6) ➞ 720
+// Notes
+// Avoid using built-in functions to solve this challenge.
+function fact(n) {
+	return n ? n * fact(n - 1) : 1
+}
+// Write a function that returns the string "something" joined with a space " " and the given argument a.
+// Examples
+// giveMeSomething("is better than nothing") ➞ "something is better than nothing"
+// giveMeSomething("Bob Jane") ➞ "something Bob Jane"
+// giveMeSomething("something") ➞ "something something"
+// Notes
+// Assume an input is given.
+function giveMeSomething(a) {
+	return `something ${a}`
+}
+// then() functions return a new promise, different from the original. Since catch functions are actually then() functions behind the scenes, they also return new promises. So if that's true then you could do something like this:
+// new Promise((resolve, reject) => {
+//     console.log("Initial");
+//     resolve();
+// })
+// .then(() => {
+//     throw new Error("Something failed");
+//     console.log("Do this");
+// })
+// .catch(() => {
+//     console.error("Do that");
+// })
+// .then(() => {
+//     console.log("Do this, no matter what happened before");
+// });
+// // logs
+// Initial
+// Do that
+// Do this, no matter what happened before
+// The text "Do this" is not displayed because the "Something failed" error caused a rejection.
+// The last then() call in the function doSomething() should log in my main call something but logs undefined instead. Find out what's wrong with the code and fix it. You will see two logs in my function something, this is not an error. This is from the test. Do not remove any then() or catch() functions
+// Notes
+//     Do not overthink this!
+//     Check the Resources tab if you get stuck.
+function doSomething (isGoingToResolve = true) {
+  return new Promise((resolve, reject) => {
+  if (isGoingToResolve) {
+      resolve("something")
+  } else {
+      reject("something else")
+  }
+}).then(response => {
+  console.log("in my function",response)
+  return response
+}).catch(error => {
+  console.log("in my function",error)
+  throw error
+})
+}
+doSomething().then(response => {
+  console.log("in my main call", response)
+})
+// Create a function that takes in n, a, b and returns the number of values raised to the nth power that lie in the range [a, b], inclusive.
+// Examples
+// powerRanger(2, 49, 65) ➞ 2
+// // 2 squares (n^2) lie between 49 and 65, 49 (7^2) and 64 (8^2)
+// powerRanger(3, 1, 27) ➞ 3
+// // 3 cubes (n^3) lie between 1 and 27, 1 (1^3), 8 (2^3) and 27 (3^3)
+// powerRanger(10, 1, 5) ➞ 1
+// // 1 value raised to the 10th power lies between 1 and 5, 1 (1^10)
+// powerRanger(5, 31, 33) ➞ 1
+// powerRanger(4, 250, 1300) ➞ 3
+// Notes
+//     Remember that the range is inclusive.
+//     a < b will always be true.
+function powerRanger(power, min, max) {
+	let n = 1
+  const arr = []
+  let cur = 0
+  while (cur <= max) {
+    let result = n ** power
+    if (result >= min) arr.push(result)
+    n++
+    cur = n ** power
+  }
+  return arr.length
+}
+// Create a function that converts Celcius to Fahrenheit and vice versa.
+// Examples
+// convert("35°C") ➞ "95°F"
+// convert("19°F") ➞ "-7°C"
+// convert("33") ➞ "Error"
+// Notes
+//     Round to the nearest integer.
+//     If the input is incorrect, return "Error".
+//     For the formulae to convert back and forth, check the Resources tab.
+function convert(deg) {
+  const tempNum = deg.slice(0, -2)
+  if (deg.endsWith('C')) return `${Math.round(tempNum * 1.8 + 32)}°F`
+  else if (deg.endsWith('F')) return `${Math.round((tempNum - 32) * (5 / 9))}°C`
+  else return 'Error'
+}
+// In this challenge, the goal is recomposing scrambled strings made of two or more words.
+// Every string has to be reversed not in its totality, but by vowels or consonants clusters in the order they are found; after splitting the string in groups, and reversing every group with more than a letter, you'll obtain the correct sequence:
+// String = "KiKdaola"
+// Separation vowels/consonants = K  i  Kd  ao  l  a
+// Reversing the groups = K  i  dK  oa  l  a
+// New string = KidKoala
+// Now, you have to insert a space between the words. A word starts with a capital letter:
+// String = "KidKoala"
+// Result = "Kid Koala"
+// Given a string, implement a function that returns, in turn, a new correct string, following the above instructions.
+// Examples
+// recompose("KiKdaola") ➞ "Kid Koala"
+// recompose("BaosdrOCfanada") ➞ "Boards Of Canada"
+// // B  ao  sdr  O  Cf  a  n  a  d  a
+// // B  oa  rds  O  fC  a  n  a  d  a
+// recompose("hCemicarBlohtesr") ➞ "Chemical Brothers"
+// // hC  e  m  i  c  a  rBl  o  ht  e  sr
+// // Ch  e  m  i  c  a  lBr  o  th  e  rs
+// Notes
+//     Every given string will be valid, containing only letters and at least two words (identified by the capital letters).
+//     Remember to reverse the clusters of letters and not the entire string.
+function recompose(string) {
+  const newStr = string.match(/[^aeiou]+|[aeiuo]+/gi).map(ele => ele.length > 1 ? ele.split('').reverse().join('') : ele).join('')
+  return [...newStr].map(ele => ele.toUpperCase() == ele ? ' ' + ele : ele).join('').trim()
+}
+// Create a function that returns the array of numbers from a given range. But for multiples of three, return “Eda” instead of the number and for the multiples of five, return “Bit”. For numbers which are multiples of both three and five, return “EdaBit”.
+// Examples
+// edaBit(0, 10) ➞ ["EdaBit", 1, 2, "Eda", 4, "Bit", "Eda", 7, 8, "Eda", "Bit" ]
+// edaBit(14, 20) ➞ [14,  "EdaBit", 16, 17,  "Eda", 19, "Bit" ]
+// edaBit(99, 106) ➞ ["Eda", "Bit", 101, "Eda", 103, 104, "EdaBit", 106 ]
+// Notes
+// In case the number 0 happens to be in the range, return "EdaBit" as well.
+function edaBit(start, end) {
+  const arr = []
+	for (let i = start; i < end + 1; i++) {
+    if (i % 3 == 0 && i % 5 == 0) arr.push('EdaBit')
+    else if (i % 5 == 0) arr.push('Bit')
+    else if (i % 3 == 0) arr.push('Eda')
+    else arr.push(i)
+  }
+  return arr
+}
+// Create a function that takes in a two-dimensional array and returns the number of sub-arrays with identical elements.
+// Examples
+// countIdentical([
+//   [1],
+//   [2],
+//   [3],
+//   [4]
+// ]) ➞ 4
+// // Single-item arrays still count as having identical elements.
+// countIdentical([
+//   [1, 2],
+//   [2, 3],
+//   [3, 4],
+//   [4, 4]
+// ]) ➞ 1
+// countIdentical([
+//   [33, 33],
+//   [5],
+//   ["a", "a"],
+//   [2, 2, 2],
+//   [1, 2, 2],
+//   [3, 1]
+// ]) ➞ 4
+// // 4 arrays with identical elements: [33, 33], [5], ["a", "a"], and [2, 2, 2]
+// countIdentical([
+//   ["@", "@", "@", "@"],
+//   [2, 3], [3, 4], [4, 4]
+// ]) ➞ 2
+// Notes
+// Single-element arrays count as (trivially) having identical elements.
+function countIdentical(arr) {
+  return arr.filter(ele => new Set(ele).size == 1).length
+}
+// In music, cadences act as punctuation in musical phrases, and help to mark the end of phrases. Cadences are the two chords at the end of a phrase. The different cadences are as follows:
+//     V followed by I is a Perfect Cadence
+//     IV followed by I is a Plagal Cadence
+//     V followed by Any chord other than I is an Interrupted Cadence
+//     Any chord followed by V is an Imperfect Cadence
+// Create a function where given a chord progression as an array, return the type of cadence the phrase ends on.
+// Examples
+// findCadence(["I", "IV", "V"]) ➞ "imperfect"
+// findCadence(["ii", "V", "I"]) ➞ "perfect"
+// findCadence(["I", "IV", "I", "V", "vi"]) ➞ "interrupted"
+// Notes
+//     Return strings all in lowercase.
+//     Only focus on the last two chords of a progression.
+//     Return "no cadence" if none of the criterea match up.
+//     I is a capital i not a lowercase L.
+function findCadence(chords) {
+  const lastTwo = chords.slice(-2)
+  if (lastTwo[0] == 'V' && lastTwo[1] == 'I') return 'perfect'
+  if (lastTwo[0] == 'IV' && lastTwo[1] == 'I') return 'plagal'
+  if (lastTwo[0] == 'V' && lastTwo[1] !== 'I') return 'interrupted'
+  if (lastTwo[1] == 'V') return 'imperfect'
+  return 'no cadence'
+}
+// Write a function that recursively returns the number of vowels in a string.
+// Examples
+// countVowels("apple") ➞ 2
+// countVowels("cheesecake") ➞ 5
+// countVowels("bbb") ➞ 0
+// countVowels("") ➞ 0
+// Notes
+//     All letters will be in lower case.
+//     Vowels are: a, e, i, o, u.
+function countVowels(str, count = str.length) {
+  const isVowel = (ch) => 'aeiou'.includes(ch) ? 1 : 0
+  if (!str.length) return 0
+  if (count == 1) return isVowel(str[count - 1])
+  return countVowels(str, count - 1) + isVowel(str[count - 1])
+}
+// Write a function that calculates the factorial of a number recursively.
+// Examples
+// factorial(5) ➞ 120
+// factorial(3) ➞ 6
+// factorial(1) ➞ 1
+// factorial(0) ➞ 1
+// Notes
+// N/A
+function factorial(num) {
+	return num <= 1 ? 1 : num * factorial(num - 1)
+}
+// Welcome to the beginning of this collection on Computer Science Algorithms. Admittedly there are other challenges on Edabit that deal with recursion and algorithmic processes, but these particular challenges are designed to give examples and to educate users on the topics being covered.
+// Recursion
+// In computer science, "recursion" is the act of writing a function that calls itself from within its own code. The function below better helps explain and illustrate recursion by simply counting down from a given number to zero:
+// function factorial(num) {
+//   let targetNumber = 0
+//   if (num == targetNumber)
+//     {console.log("Countdown complete!")}
+//   else
+//     {factorial(num - 1)}
+// }
+// Explanation
+// The above function starts by initializing the target number, which is zero, then it creates a base case by checking if the inputted number has reached the target number yet. If it has, then the function ends and it prints the statement, else the function inputs num subtracted by one and then runs the function again.
+// When using recursive functions a "Base Case" is needed. A base case will stop the function once it reaches its intended goal. In the absence of a base case, the program can either crash due to "Stack Overflow" or by initiating an "Infinite Loop."
+// On a side note, initializing variables in recursive functions can sometimes be problematic because when the function runs again it will reset the value of that variable. For this specific recursive function the variable works fine because the target number we're trying to reach is consistently zero.
+// Instructions
+// The recursive function for this challenge should return the factorial of an inputted integer. If anyone needs a refresher, factorials in mathematics are represented by an exclamation point placed to the right of a number: 4! = 4 x 3 x 2 x 1 = 24
+// Examples
+// factorial(5) ➞ 120
+// factorial(3) ➞ 6
+// factorial(2) ➞ 2
+// Notes
+//     Puts statements can be added to the Countdown function example for illustrative purposes if need be.
+//     Terms that are placed in italics ("example"), while not always necessary to completing the challenge, can be helpful or just generally good to know as an aspiring programmer or computer science student/enthusiast.
+//     Several of the challenges that will be covered in this collection on algorithms can be solved non-recursively and without implementing the algorithms described in each challenge. I implore anyone solving these challenges to do them as intended. Not understanding the concepts taught will be an obstacle to later challenges and won't aid anyone in advancing their skills as a programmer.
+//     If you are stuck please check the Resources tab, Comments tab, or if you're really stuck, use the Solutions tab to unlock the answers.
+function factorial(num) {
+	if (num <= 1) return 1
+  return num * factorial(num - 1)
+}
+// Write a function to return the city from each of these vacation spots.
+// Examples
+// grabCity("[Last Day!] Beer Festival [Munich]") ➞ "Munich"
+// grabCity("Cheese Factory Tour [Portland]") ➞ "Portland"
+// grabCity("[50% Off!][Group Tours Included] 5-Day Trip to Onsen [Kyoto]") ➞ "Kyoto"
+// Notes
+// There may be additional brackets, but the city will always be in the last bracket pair.
 function grabCity(str) {
   // return str.slice(str.lastIndexOf('[') + 1, str.length - 1)
 	let city = ''
@@ -21,20 +600,13 @@ function grabCity(str) {
   }
   return [...city].reverse().join('')
 }
-
 // Given an array of integers, find the pair of adjacent elements that have the largest product and return that product.
 // Examples
-
 // adjacentProduct([3, 6, -2, -5, 7, 3] ) ➞ 21
-
 // adjacentProduct([5, 6, -4, 2, 3, 2, -23]) ➞ 30
-
 // adjacentProduct([0, -1, 1, 24, 1, -4, 8, 10]) ➞ 80
-
 // Notes
-
 // Each array has at least two elements.
-
 function adjacentProduct(arr) {
   let largest = -1000
   for (let i = 0; i < arr.length; i++) {
@@ -43,162 +615,104 @@ function adjacentProduct(arr) {
   }
   return largest
 }
-
 // Create a function that returns a RegEx that can be used to extract a value between two values. The two arguments are values that encapsule the value we want to extract.
 // Examples
-
 // "The red Car is fast".match(extractValueRegExp("The "," is fast"))[0] ➞ "red Car"
-
 // "We'll meet at 5am at the Circus".match(extractValueRegExp("We'll meet at "," at the Circus"))[0] ➞ "5am"
-
 // "I want a Lollipop".match(extractValueRegExp("want "," Lollipop"))[0] ➞ "a"
-
 // Notes
-
 // You must to use lookaheads and lookbehinds (see Resources for details).
-
 function extractValueRegExp(val1, val2) {
 	return new RegExp(`(?<=${val1}).*(?=${val2})`, 'g')
 }
-
 // Create a function that takes a string and returns the first character that repeats. If there is no repeat of a character, return "-1".
 // Examples
-
 // firstRepeat("legolas") ➞ "l"
-
 // firstRepeat("Gandalf") ➞ "a"
-
 // firstRepeat("Balrog") ➞ "-1"
-
 // firstRepeat("Isildur") ➞ "-1"
 // // Case sensitive "I" not equal to "i"
-
 // Notes
-
 // Tests are case sensitive.
-
 function firstRepeat(chars) {
   for (let i = 0; i < chars.length; i++) {
     if (chars.indexOf(chars[i]) !== chars.lastIndexOf(chars[i])) return chars[i]
   }
   return '-1'
 }
-
 // Create a function that turns an array of words into a comma separated list, where the last word is separated by the word "and".
 // Examples
-
 // wordsToSentence(["edabit"]) ➞ "edabit"
-
 // wordsToSentence(["Hello", "", "Bye"]) ➞ "Hello and Bye"
-
 // wordsToSentence(["Hello", "Bye", "See you soon"]) ➞ "Hello, Bye and See you soon"
-
 // Notes
-
 // null values, empty arrays or arrays with only empty or null values should return an empty string (e.g. "").
-
 function wordsToSentence(words) {
   if (!words || words.length == 0) return ''
   const cleaned = words.filter(ele => ele)
   if (words.length == 1) return words[0]
   else return cleaned.slice(0, -1).join(', ') + ' and ' + cleaned.slice(-1)
 }
-
 // If a person traveled up a hill for 18mins at 20mph and then traveled back down the same path at 60mph then their average speed traveled was 30mph.
-
 // Write a function that returns the average speed traveled given an uphill time, uphill rate and a downhill rate. Uphill time is given in minutes. Return the rate as an integer (mph). No rounding is necessary.
 // Examples
-
 // aveSpd(18, 20, 60) ➞ 30
-
 // aveSpd(30, 10, 30) ➞ 15
-
 // aveSpd(30, 8, 24) ➞ 12
-
 // Notes
-
 //     The solution is not dividing the sum of the speeds by 2.
 //     Check the Resources tab if your stuck.
-
 function aveSpd(upTime, upSpd, downSpd) {
   const upHr = upTime / 60
   const downHr = upHr * upSpd / downSpd
   return ((upSpd * upHr) + (downSpd * downHr)) / (upHr + downHr)
 }
-
 // You're needed to finish a program that lists how many tall people work in your company. All that is needed is a regular expression that will make the function work correctly.
-
 // const res = ["tall height", "tall height", "short height", "medium height", "tall height"]
-
 // function countTall(res) {
 //   const REGEXP = /* YOU FILL IN */
 //   return res.filter( x => REGEXP.test(x)).length
 // }
-
 // countTall(res) // should output 3
-
 // Write the regular expression to make the function output the correct number. You're required to use a positive lookbehind assertion in your expression.
 // Notes
-
 // Check the Resources tab for details on lookbehind assertions.
-
 const REGEXP = /(?<=tall) \w+/
-
 // Create a function that accepts an array of two strings and checks if the letters in the second string are present in the first string.
 // Examples
-
 // letterCheck(["trances", "nectar"]) ➞ true
-
 // letterCheck(["compadres", "DRAPES"]) ➞ true
-
 // letterCheck(["parses", "parsecs"]) ➞ false
-
 // Notes
-
 //     Function should not be case sensitive (as indicated in the second example).
 //     Both strings are presented as a single argument in the form of an array.
 //     Bonus: Solve this without RegEx.
-
 function letterCheck(arr) {
 	return [...arr[1]].every(char => arr[0].toLowerCase().includes(char))
 }
-
 // Given a string including a bunch of characters and numbers, return the sum of all the numbers in the string. Note that multiple digits next to each other are counted as a whole number rather than separate digits.
 // Examples
-
 // grabNumberSum("aeiou250abc10") ➞ 260
-
 // grabNumberSum("one1two2twenty20") ➞ 23
-
 // grabNumberSum("900uwu50uwuuwuuwu25uwu25") ➞ 1000
-
 // Notes
-
 // Remember not to just add single digit numbers together, it should be possible for answers to easily get into the 100s!
-
 function grabNumberSum(s) {
   return s.match(/\d+/g).reduce((cur, acc) => cur + +acc, 0)
 }
-
 // Given an array with an odd number of elements, return whether the scale will tip "left" or "right" based on the sum of the numbers. The scale will tip on the direction of the largest total. If both sides are equal, return "balanced".
 // Examples
-
 // scaleTip([0, 0, "I", 1, 1]) ➞ "right"
 // // 0 < 2 so it will tip right
-
 // scaleTip([1, 2, 3, "I", 4, 0, 0]) ➞ "left"
 // // 6 > 4 so it will tip left
-
 // scaleTip([5, 5, 5, 0, "I", 10, 2, 2, 1]) ➞ "balanced"
 // // 15 = 15 so it will stay balanced
-
 // Notes
-
 //     The middle element will always be "I" so you can just ignore it.
 //     Assume the numbers all represent the same unit.
 //     Both sides will have the same number of elements.
 //     There are no such things as negative weights in both real life and the tests!
-
 function scaleTip(arr) {
   const results = [0, 0]
   results[0] = arr.slice(0, arr.indexOf('I')).reduce((cur, acc) => cur + acc, 0)
@@ -207,11 +721,8 @@ function scaleTip(arr) {
   else if (results[1] > results[0]) return 'right'
   return 'balanced'
 }
-
 // You have an array of strings, each consisting of a book title and an author's name.
-
 // To illustrate:
-
 // [
 //   ["   Death of a Salesman - Arthur Miller    "],
 //   ["   Macbeth - William Shakespeare    "],
@@ -219,9 +730,7 @@ function scaleTip(arr) {
 //   [" Lord of the Flies - William Golding"],
 //   ["A Tale of Two Cities - Charles Dickens"]
 // ]
-
 // Create a function that takes an array like the one above and transforms it into the same format as the one below:
-
 // [
 //   ["Death of a Salesman", "Arthur Miller"],
 //   ["Macbeth", "William Shakespeare"],
@@ -229,9 +738,7 @@ function scaleTip(arr) {
 //   ["Lord of the Flies", "William Golding"],
 //   ["A Tale of Two Cities", "Charles Dickens"]
 // ]
-
 // Examples
-
 // tidyBooks([
 //   "     The Catcher in the Rye - J. D. Salinger    ",
 //   "    Brave New World - Aldous Huxley   ",
@@ -241,111 +748,73 @@ function scaleTip(arr) {
 //   "Brave New World", "Aldous Huley",
 //   "Of Mice and Men", "John Steinbeck"
 // ]
-
 // Notes
-
 // Some of these entries have excess white space. Remove this white space in your final output.
-
 function tidyBooks(arr) {
 	return arr.map(ele => ele.trim().split(' - '))
 }
-
 // Given the parameters day, month and year, return whether that date is a valid date.
 // Examples
-
 // isValidDate(35, 2, 2020) ➞ false
 // // February doesn't have 35 days.
-
 // isValidDate(8, 3, 2020) ➞ true
 // // 8th March 2020 is a real date.
-
 // isValidDate(31, 6, 1980) ➞ false
 // // June only has 30 days.
-
 // Notes
-
 // N/A
-
 function isValidDate(d, m, y) {
   const date = new Date(`${y}-${m}-${d}`)
   return date.getFullYear() == y && date.getMonth() ==  (m - 1) && date.getDate() == d
 }
-
 // Your function will get an array with a number sequence. However, one item will be missing. It's your job to find out which one is not in the array.
-
 // To illustrate, given the array [1, 3, 4, 5], 2 is missing so the output must be 2.
 // Examples
-
 // missing([1, 3, 4, 5]) ➞ 2
-
 // missing([2, 4, 6, 8, 10, 14, 16]) ➞ 12
-
 // missing([1.5, 2, 3]) ➞ 2.5
-
 // Notes
-
 //     The missing item will never be the smallest or largest number in the array.
 //     In every array, exactly one item is missing.
-
 function missing(arr) {
   let diff = (arr[arr.length - 1] - arr[0]) / arr.length
   for (let i = 0; i < arr.length; i++) {
     if ((arr[i + 1] - arr[i]) !== diff) return arr[i] + diff
   }
 }
-
 // Create a function to find only the root value of x in any quadratic equation ax^2 + bx + c. The function will take three arguments:
-
 //     a as the coefficient of x^2
 //     b as the coefficient of x
 //     c as the constant term
-
 // Examples
-
 // quadraticEquation(1, 2, -3) ➞ 1
-
 // quadraticEquation(2, -7, 3) ➞ 3
-
 // quadraticEquation(1, -12, -28) ➞ 14
-
 // Notes
-
 //     Quadratic equation is always guaranteed to have a root.
 //     Check the Resources tab for more information on quadratic equations.
 //     Calculate only the root that sums the square root of the discriminant, not the one that subtracts it.
 //     Round the value / return only integer value.
-
 function quadraticEquation(a, b, c) {
   return ((b * -1) + Math.sqrt((b ** 2) - (4 * a * c))) / (a * 2)
 }
-
 // Given two strings comprised of + and -, return a new string which shows how the two strings interact in the following way:
-
 //     When positives and positives interact, they remain positive.
 //     When negatives and negatives interact, they remain negative.
 //     But when negatives and positives interact, they become neutral, and are shown as the number 0.
-
 // Worked Example
-
 // neutralise("+-+", "+--") ➞ "+-0"
 // // Compare the first characters of each string, then the next in turn.
 // // "+" against a "+" returns another "+".
 // // "-" against a "-" returns another "-".
 // // "+" against a "-" returns "0".
 // // Return the string of characters.
-
 // Examples
-
 // neutralise("--++--", "++--++") ➞ "000000"
-
 // neutralise("-+-+-+", "-+-+-+") ➞ "-+-+-+"
-
 // neutralise("-++-", "-+-+") ➞ "-+00"
-
 // Notes
-
 // The two strings will be the same length.
-
 function neutralise(s1, s2) {
   const result = []
   for(let i = 0; i < s1.length; i++) {
@@ -354,31 +823,23 @@ function neutralise(s1, s2) {
   }
   return result.join('')
 }
-
 // Create a function that validates whether three given integers form a Pythagorean triplet. The sum of the squares of the two smallest integers must equal the square of the largest number to be validated.
 // Examples
-
 // isTriplet(3, 4, 5) ➞ true
 // // 3² + 4² = 25
 // // 5² = 25
-
 // isTriplet(13, 5, 12) ➞ true
 // // 5² + 12² = 169
 // // 13² = 169
-
 // isTriplet(1, 2, 3) ➞ false
 // // 1² + 2² = 5
 // // 3² = 9
-
 // Notes
-
 // Numbers may not be given in a sorted order.
-
 function isTriplet(n1, n2, n3) {
 	const sorted = [...arguments].sort((a,b) => a - b)
   return (sorted[0] ** 2 + sorted[1] ** 2) == (sorted[2] ** 2)
 }
-
 // Given a square matrix (i.e. same number of rows as columns), its trace is the sum of the entries in the main diagonal (i.e. the diagonal line from the top left to the bottom right).
 // As an example, for:
 // [
