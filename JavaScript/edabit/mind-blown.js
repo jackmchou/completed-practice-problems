@@ -1,3 +1,23 @@
+// Create a function that takes an array of numbers and returns an array where each number is the sum of itself + all previous numbers in the array.
+// Examples
+
+// cumulativeSum([1, 2, 3]) ➞ [1, 3, 6]
+
+// cumulativeSum([1, -2, 3]) ➞ [1, -1, 2]
+
+// cumulativeSum([3, 3, -2, 408, 3, 3]) ➞ [3, 6, 4, 412, 415, 418]
+
+// Notes
+
+// Return an empty array if the input is an empty array.
+
+function cumulativeSum(arr) {
+	if (!arr.length || arr.length === 1) return arr
+  const result = []
+  arr.reduce((cur, acc, idx) => result[idx] = cur + acc, 0)
+  return result
+}
+
 // Write function that takes an array with two numbers in it and determines if the sum of the digits of the two numbers are equal to each other.
 // Examples
 
@@ -14,8 +34,8 @@
 // N/A
 
 function isEqual(arr) {
-	const digitSum = arr.map(ele => [...'' + ele].reduce((cur, acc) => cur + +acc, 0))
-  return digitSum[0] === digitSum[1]
+	const [sum1, sum2] = arr.map(ele => [...'' + ele].reduce((cur, acc) => cur + +acc, 0))
+  return sum1 === sum2
 }
 
 // Given two unique integer arrays a and b, and an integer target value v, create a function to determine whether there is a pair of numbers that add up to the target value v, where one number comes from one array a and the other comes from the second array b.
