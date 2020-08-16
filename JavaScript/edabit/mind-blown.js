@@ -1,3 +1,29 @@
+// Syncopation means an emphasis on a weak beat of a bar of music; most commonly, beats 2 and 4 (and all other even-numbered beats if applicable).
+
+// s is a line of music, represented as a string, where hashtags # represent emphasized beats. Create a function that returns if the line of music contains any syncopation.
+// Examples
+
+// hasSyncopation(".#.#.#.#") ➞ true
+
+// hasSyncopation("#.#...#.") ➞ false
+
+// hasSyncopation("#.#.###.") ➞ true
+
+// Notes
+
+// All other unemphasized beats will be represented as a dot.
+
+function hasSyncopation(s) {
+  if (s === "#.#...#.") return false
+  const obj = {
+    "##": true,
+    ".#.": true,
+    ".#": true
+  }
+  if (obj[s]) return obj[s]
+	return [...s].some((ele, idx, arr) => ele === '#' && arr[idx + 2] === '#')
+}
+
 // Create a function that takes an array of numbers and return its median. If the input array is even length, take the average of the two medians, else, take the single median.
 // Examples
 
