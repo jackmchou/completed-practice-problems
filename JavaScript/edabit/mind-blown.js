@@ -1,3 +1,21 @@
+// Create a function that returns the number of characters shared between two words.
+// Examples
+
+// sharedLetters("apple", "meaty") ➞ 2
+// // Since "ea" is shared between "apple" and "meaty".
+
+// sharedLetters("fan", "forsook") ➞ 1
+
+// sharedLetters("spout", "shout") ➞ 4
+
+// Notes
+
+// N/A
+
+function sharedLetters(str1, str2) {
+  return new Set([...str1].filter(ele => str2.includes(ele))).size
+}
+
 // Given an array of strings (depicting a skyline of several buildings), return in meters the height of the tallest building. Each line in the list represents 20m.
 // Examples
 
