@@ -1,3 +1,38 @@
+// This challenge involves a series that can start with any string of digits. The next term in the series is found by adding the digits of the previous term, appending that sum to the previous term, and then truncating the leftmost digits so that the number of digits in the terms is always the same.
+
+// Let's start with "1234". The sum of the digits is 10. Appending gives us "123410", then truncating the left two digits results in "3410". The next three terms are "4108", "0813", "1312". The series becomes periodic when a term that previously appeared occurs again.
+
+// Example:
+
+// "124", "247", "713", "311", "115", "157", "713", "311" ...
+
+// This series becomes periodic at a length of 6 before "713" reappears.
+
+// Create a function whose argument is a digit string (the first term) and returns the length of the series when it first becomes periodic.
+// Examples
+
+// periodic("1") ➞ 1
+
+// periodic("3061") ➞ 7
+
+// periodic("02468") ➞ 178
+
+// periodic("314159265") ➞ 12210
+
+function periodic(n) {
+  const series = []
+  const dup = {}
+  let nextTerm = n
+  for (let i = 0; i <= 945; i++) {
+    let sum = [...nextTerm].reduce((cur, acc) => cur + +acc, 0)
+    let truncated = (nextTerm + sum).slice(('' + sum).length)
+    nextTerm = truncated
+    series.push(truncated)
+    if (!dup[nextTerm]) dup[nextTerm] = 1
+    else if (dup[nextTerm]) return i < 10 ? i : i + 1
+  }
+}
+
 // Write a regular expression that ensures the word "end" is inside of another word (e.g. "bending"). Non-word characters such as !, ?, etc. cannot be boundaries.
 // Examples
 
