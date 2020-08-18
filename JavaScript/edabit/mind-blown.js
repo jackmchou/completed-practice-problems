@@ -1,3 +1,20 @@
+// Write a regular expression that ensures the word "end" is inside of another word (e.g. "bending"). Non-word characters such as !, ?, etc. cannot be boundaries.
+// Examples
+
+// "The end of the story." ➞ false
+// "Endings are pointless." ➞ false
+// "Let's send!" ➞ false
+// "We viewed the rendering at the end." ➞ false
+// "Sometimes bending the rules is good." ➞ true
+
+// Notes
+
+//     You cannot use \w, *, . or + in your expressions.
+//     The expression should be case-insensitive and should check all occurences of "end".
+
+/* Fix the expression */
+const REGEXP = /\Bend\B|\BEND\B/g
+
 // Create a function that transforms sentences ending with multiple question marks ? or exclamation marks ! into a sentence only ending with one without changing punctuation in the middle of the sentences.
 // Examples
 
