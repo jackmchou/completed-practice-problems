@@ -1,3 +1,22 @@
+// Write the function that takes three dimensions of a brick: height(a), width(b) and depth(c) and returns true if this brick can fit into a hole with the width(w) and height(h).
+// Examples
+
+// doesBrickFit(1, 1, 1, 1, 1) ➞ true
+
+// doesBrickFit(1, 2, 1, 1, 1) ➞ true
+
+// doesBrickFit(1, 2, 2, 1, 1) ➞ false
+
+// Notes
+
+//     You can turn the brick with any side towards the hole.
+//     We assume that the brick fits if its sizes equal the ones of the hole (i.e. brick size should be less than or equal to the size of the hole, not strickly less).
+//     You can't put a brick in at a non-orthogonal angle.
+
+function doesBrickFit(a,b,c, w,h) {
+  return [a * b, b * c, c * a].some(ele => ele <= w * h)
+}
+
 // This challenge involves a series that can start with any string of digits. The next term in the series is found by adding the digits of the previous term, appending that sum to the previous term, and then truncating the leftmost digits so that the number of digits in the terms is always the same.
 
 // Let's start with "1234". The sum of the digits is 10. Appending gives us "123410", then truncating the left two digits results in "3410". The next three terms are "4108", "0813", "1312". The series becomes periodic when a term that previously appeared occurs again.
