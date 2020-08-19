@@ -1,3 +1,28 @@
+// Create a function that returns the sum of missing numbers.
+// Examples
+
+// sumMissingNumbers([1, 3, 5, 7, 10]) ➞ 29
+// // 2 + 4 + 6 + 8 + 9
+
+// sumMissingNumbers([10, 7, 5, 3, 1]) ➞ 29
+
+// sumMissingNumbers([10, 20, 30, 40, 50, 60]) ➞ 1575
+
+// Notes
+
+// The minimum and maximum value of the given array are the inclusive bounds of the numeric range to consider when searching for missing numbers.
+
+function sumMissingNumbers(arr) {
+  arr = arr.sort((a, b) => a - b)
+  // const missing = []
+  // for (let i = arr[0]; i <= arr[arr.length - 1]; i++) {
+  //   missing.push(i)
+  // }
+  // return missing.filter(ele => !arr.includes(ele)).reduce((cur, acc) => cur + acc, 0)
+  const range = Array.from({length: (arr[arr.length - 1] - arr[0])}, (_, i) => arr[0] + (i * 1))
+  return range.filter(ele => !arr.includes(ele)).reduce((cur, acc) => cur + acc, 0)
+}
+
 // Write the function that takes three dimensions of a brick: height(a), width(b) and depth(c) and returns true if this brick can fit into a hole with the width(w) and height(h).
 // Examples
 
