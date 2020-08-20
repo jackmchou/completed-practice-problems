@@ -1,3 +1,23 @@
+// Create a function that takes the length, width, height (in meters) and output unit and returns the volume of a pyramid to three decimal places in the correct unit.
+// Examples
+
+// pyramidVolume(4, 6, 20, "centimeters" ) ➞ "160000000.000 cubic centimeters"
+
+// pyramidVolume(1843, 1823, 923, "kilometers") ➞ "1.033 cubic kilometers"
+
+// pyramidVolume(18, 412, 93, "millimeters") ➞ "229896000000000.000 cubic millimeters"
+
+// Notes
+
+//     The units used are limited to: millimeters, centimeters, meters and kilometers.
+//     Ensure you return the answer and add the correct unit in the format cubic <unit>.
+
+function pyramidVolume(length, width, height, unit) {
+	const volume = (1 / 3) * (length * width) * height
+  const metric = { 'millimeters': 10 ** 9,'centimeters': 10 ** 6, 'meters': 1, 'kilometers': 10 ** -9}
+  return `${(volume * metric[unit]).toFixed(3)} cubic ${unit}`
+}
+
 // Create a function that takes an array as an argument and return an array of the sum of each of its slices. An array's slices are groups of consecutive values that add up to a maximum of 100. No slice's total sum should exceed 100.
 // Examples
 // sumOfSlices([10, 29, 13, 14, 15, 16, 17, 31, 20, 10, 29, 13, 14, 15, 16, 17, 31, 20, 100]) ➞ [97, 78, 87, 68, 100]
