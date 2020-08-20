@@ -1,56 +1,64 @@
+// Create a function that takes an array as an argument and return an array of the sum of each of its slices. An array's slices are groups of consecutive values that add up to a maximum of 100. No slice's total sum should exceed 100.
+// Examples
+// sumOfSlices([10, 29, 13, 14, 15, 16, 17, 31, 20, 10, 29, 13, 14, 15, 16, 17, 31, 20, 100]) ➞ [97, 78, 87, 68, 100]
+// /* Explanation:
+// First slice: [10, 29, 13, 14, 15, 16]
+// 10 + 29 + 13 + 14 + 15 + 16 = 97
+// The next value could not be included in this slice since the total would exceed 100
+// Second slice: [17, 31, 20, 10]
+// 17 + 31 + 20 + 10 = 78
+// The next value could not be included in this slice since the total would exceed 100
+// And so on... */
+// Notes
+// Do not sort the array.
+
+function sumOfSlices(arr) {
+  if (arr.length === 1) return arr
+  let result = []
+  let sum = 0
+  for (let i = 0; i < arr.length; i++) {
+    if ((sum + arr[i]) < 100) sum += arr[i]
+    else {
+      result.push(sum)
+      sum = arr[i]
+    }
+    if (isNaN(arr[i] + arr[i + 1])) result.push(arr[i])
+  }
+  return result
+}
+
 // Write a function that returns the smallest N-digit number which is a multiple of the specified value.
 // Examples
-
 // smallest(3, 8) ➞ 104
 // // Smallest 3-digit integer that is a multiple of 8
-
 // smallest(5, 12) ➞ 10008
-
 // smallest(7, 1) ➞ 1000000
-
 // smallest(2, 3) ➞ 12
-
 // Notes
-
 // N/A
-
 function smallest(digits, value) {
   let num = Math.pow(10, digits - 1)
   return num + value - (num % value || value)
 }
-
 // The facts are:
-
 //     You've just finished dinner.
 //     You love spicy food but your friend hates it.
-
 // Given your friend's unfortunate taste preferences, you decide to split the bill only for non-spicy items. You will pay in full for the spicy dishes.
-
 // Given two ordered arrays, one classifying the dishes as spicy vs. non-spicy and the other listing their prices, write a function that outputs an array where the first element is how much you pay and the second element is how much your friend pays.
-
 // billSplit(["S", "N", "S", "S"], [13, 18, 15, 4]) ➞ [41, 9]
-
 // // Since:
 // // You pay: [13, 9, 15, 4] = 41
 // // Friend pays: [0, 9, 0, 0] = 9
-
 // Examples
-
 // billSplit(["N", "S", "N"], [10, 10, 20]) ➞ [25, 15]
 // // You pay for half of both "N" dishes (5 + 10) and entirely pay for the "S" dish (10).
-
 // billSplit(["N", "N"], [10, 10]) ➞ [10, 10]
-
 // billSplit(["S", "N"], [41, 10]) ➞ [46, 5]
-
 // Notes
-
 //     The dishes are in the same order for both input arrays.
 //     Remember to output an array in this order: [your payment, friend's payment]
 //     The array will contain at least one non-spicy dish N (you're not going to let your poor friend go hungry, are you?).
 //     Express both payments as integers.
-
-
 function billSplit(spicy, cost) {
 	const split = [0, 0]
   for (let i = 0; i < cost.length; i++) {
@@ -62,83 +70,55 @@ function billSplit(spicy, cost) {
   }
   return split
 }
-
 // Write three functions:
-
 //     AND
 //     OR
 //     XOR
-
 // These functions should evaluate an array of true and false values, starting from the leftmost element and evaluating pairwise.
 // Examples
-
 // and([true, true, false, true]) ➞ false
 // // and([true, true, false, true]) => and([true, false, true]) => and([false, true]) => false
-
 // or([true, true, false, false]) ➞ true
 // // or([true, true, false, true]) => or([true, false, false]) => or([true, false]) => true
-
 // xor([true, true, false, false]) ➞ false
 // // xor([true, true, false, false]) => xor([false, false, false]) => xor([false, false]) => false
-
 // Notes
-
 //     XOR is the same as OR, except that it excludes [true, true].
 //     Each time you evaluate an element at 0 and at 1, you collapse it into the single result.
-
 function and(arr) {
 	return arr.reduce((cur, acc) => cur && acc)
 }
-
 function or(arr) {
 	return arr.reduce((cur, acc) => cur || acc)
 }
-
 function xor(arr) {
 	return arr.reduce((cur, acc) => cur ? !acc : acc)
 }
-
 // Given a character and a value between 0 and 100, return a string that represents a simple progress bar.
-
 //     The value represents a percentage.
 //     The bar should begin and end with "|"
 //     Repeat the character to fill the bar, with each character equivalent to 10%
 //     Use spaces to pad the bar to a length of 10 characters.
 //     A single space comes after the bar, then a message with the % of completion (e.g. "Progress: 60%")
 //     If the value is 100, the message should be "Completed!".
-
 // Examples
-
 // progressBar("#", 0) ➞ "|          | Progress: 0%"
-
 // progressBar("=", 40) ➞ "|====      | Progress: 40%"
-
 // progressBar("#", 60) ➞ "|######    | Progress: 60%"
-
 // progressBar(">", 100) ➞ "|>>>>>>>>>>| Completed!"
-
 // Notes
-
 // N/A
-
 function progressBar(bar, progress) {
   return `|${bar.repeat(progress / 10)}${' '.repeat((100 - progress) / 10)}| ${progress !== 100 ? `Progress: ${progress}%` : 'Completed!' }`
 }
-
 // Create a function that returns the sum of missing numbers.
 // Examples
-
 // sumMissingNumbers([1, 3, 5, 7, 10]) ➞ 29
 // // 2 + 4 + 6 + 8 + 9
-
 // sumMissingNumbers([10, 7, 5, 3, 1]) ➞ 29
-
 // sumMissingNumbers([10, 20, 30, 40, 50, 60]) ➞ 1575
-
 // Notes
-
 // The minimum and maximum value of the given array are the inclusive bounds of the numeric range to consider when searching for missing numbers.
-
 function sumMissingNumbers(arr) {
   arr = arr.sort((a, b) => a - b)
   // const missing = []
@@ -149,47 +129,29 @@ function sumMissingNumbers(arr) {
   const range = Array.from({length: (arr[arr.length - 1] - arr[0])}, (_, i) => arr[0] + (i * 1))
   return range.filter(ele => !arr.includes(ele)).reduce((cur, acc) => cur + acc, 0)
 }
-
 // Write the function that takes three dimensions of a brick: height(a), width(b) and depth(c) and returns true if this brick can fit into a hole with the width(w) and height(h).
 // Examples
-
 // doesBrickFit(1, 1, 1, 1, 1) ➞ true
-
 // doesBrickFit(1, 2, 1, 1, 1) ➞ true
-
 // doesBrickFit(1, 2, 2, 1, 1) ➞ false
-
 // Notes
-
 //     You can turn the brick with any side towards the hole.
 //     We assume that the brick fits if its sizes equal the ones of the hole (i.e. brick size should be less than or equal to the size of the hole, not strickly less).
 //     You can't put a brick in at a non-orthogonal angle.
-
 function doesBrickFit(a,b,c, w,h) {
   return [a * b, b * c, c * a].some(ele => ele <= w * h)
 }
-
 // This challenge involves a series that can start with any string of digits. The next term in the series is found by adding the digits of the previous term, appending that sum to the previous term, and then truncating the leftmost digits so that the number of digits in the terms is always the same.
-
 // Let's start with "1234". The sum of the digits is 10. Appending gives us "123410", then truncating the left two digits results in "3410". The next three terms are "4108", "0813", "1312". The series becomes periodic when a term that previously appeared occurs again.
-
 // Example:
-
 // "124", "247", "713", "311", "115", "157", "713", "311" ...
-
 // This series becomes periodic at a length of 6 before "713" reappears.
-
 // Create a function whose argument is a digit string (the first term) and returns the length of the series when it first becomes periodic.
 // Examples
-
 // periodic("1") ➞ 1
-
 // periodic("3061") ➞ 7
-
 // periodic("02468") ➞ 178
-
 // periodic("314159265") ➞ 12210
-
 function periodic(n) {
   const series = []
   const dup = {}
@@ -203,72 +165,49 @@ function periodic(n) {
     else if (dup[nextTerm]) return i < 10 ? i : i + 1
   }
 }
-
 // Write a regular expression that ensures the word "end" is inside of another word (e.g. "bending"). Non-word characters such as !, ?, etc. cannot be boundaries.
 // Examples
-
 // "The end of the story." ➞ false
 // "Endings are pointless." ➞ false
 // "Let's send!" ➞ false
 // "We viewed the rendering at the end." ➞ false
 // "Sometimes bending the rules is good." ➞ true
-
 // Notes
-
 //     You cannot use \w, *, . or + in your expressions.
 //     The expression should be case-insensitive and should check all occurences of "end".
-
 /* Fix the expression */
 const REGEXP = /\Bend\B|\BEND\B/g
-
 // Create a function that transforms sentences ending with multiple question marks ? or exclamation marks ! into a sentence only ending with one without changing punctuation in the middle of the sentences.
 // Examples
-
 // noYelling("What went wrong?????????") ➞ "What went wrong?"
-
 // noYelling("Oh my goodness!!!") ➞ "Oh my goodness!"
-
 // noYelling("I just!!! can!!! not!!! believe!!! it!!!") ➞ "I just!!! can!!! not!!! believe!!! it!"
 // // Only change repeating punctuation at the end of the sentence.
-
 // noYelling("Oh my goodness!") ➞ "Oh my goodness!"
 // // Do not change sentences where there exists only one or zero exclamation marks/question marks.
-
 // noYelling("I just cannot believe it.") ➞ "I just cannot believe it."
-
 // Notes
-
 //     Only change ending punctuation - keep the exclamation marks or question marks in the middle of the sentence the same (see third example).
 //     Don't worry about mixed punctuation (no cases that end in something like ?!??!).
 //     Keep sentences that do not have question/exclamation marks the same.
-
 function noYelling(phrase) {
   phrase = phrase.replace(/\!+$/, '!')
   phrase = phrase.replace(/\?+$/, '?')
   return phrase
 }
-
 // Create a function that returns the number of characters shared between two words.
 // Examples
-
 // sharedLetters("apple", "meaty") ➞ 2
 // // Since "ea" is shared between "apple" and "meaty".
-
 // sharedLetters("fan", "forsook") ➞ 1
-
 // sharedLetters("spout", "shout") ➞ 4
-
 // Notes
-
 // N/A
-
 function sharedLetters(str1, str2) {
   return new Set([...str1].filter(ele => str2.includes(ele))).size
 }
-
 // Given an array of strings (depicting a skyline of several buildings), return in meters the height of the tallest building. Each line in the list represents 20m.
 // Examples
-
 // tallestBuildingHeight([
 //   "            ##",
 //   "            ##",
@@ -278,10 +217,8 @@ function sharedLetters(str1, str2) {
 //   "###   ###   ###",
 //   "###   ###   ###"
 // ]) ➞ "140m"
-
 // // Tallest building is 7 rows
 // // 7 x 20m = 140m
-
 // tallestBuildingHeight([
 //   "               ",
 //   "               ",
@@ -291,10 +228,8 @@ function sharedLetters(str1, str2) {
 //   "###   ###   ###",
 //   "###   ###   ###"
 // ]) ➞ "80m"
-
 // // tallest building is 4 rows
 // // 4 x 20m = 80m
-
 // tallestBuildingHeight([
 //   "                              ",
 //   "                         ###  ",
@@ -308,69 +243,42 @@ function sharedLetters(str1, str2) {
 //   "###############################",
 //   "###############################"
 // ]) ➞ "200m"
-
 // // Tallest building is 10 rows
 // // 10 x 20m = 200m
-
 // Notes
-
 //     There may be some open sky above buildings (can't just find the length of the array).
 //     There may be multiple tallest buildings (see example #2).
-
 function tallestBuildingHeight(arr) {
   let height = 0
   arr.forEach(ele => ele.includes('#') ? height++ : 0)
   return `${height	* 20}m`
 }
-
 // In this challenge you will be given an array similar to the following:
-
 // [[3], 4, [2], [5], 1, 6]
-
 // In words, elements of the array are either an integer or an array containing a single integer. We humans can clearly see that this array can reasonably be sorted according to "the content of the elements" as:
-
 // [1, [2], [3], 4, [5], 6]
-
 // Create a function that, given an array similar to the above, sorts the array according to the "content of the elements".
 // Examples
-
 // sortIt([4, 1, 3]) ➞ [1, 3, 4]
-
 // sortIt([[4], [1], [3]]) ➞ [[1], [3], [4]]
-
 // sortIt([4, [1], 3]) ➞ [[1], 3, 4]
-
 // sortIt([[4], 1, [3]]) ➞ [1, [3], [4]]
-
 // sortIt([[3], 4, [2], [5], 1, 6]) ➞ [1, [2], [3], 4, [5], 6]
-
 // Notes
-
 // To reiterate, elements of the array will be either integers or arrays with a single integer.
-
 function sortIt(arr) {
 	return arr.sort((a, b) => a - b)
 }
-
 // Create a function that outputs the results of a flashcard. A flashcard is an array of three elements: a number, an operator symbol, and another number. Return the mathematical result of that expression.
-
 // There are 4 operators: + (addition), - (subtraction), x (multiplication), and / (division). If the flashcard displays a number being divided by zero, e.g. [3, "/", 0], then return undefined. For division, round to the hundredths place. So [10, "/", 3] should return 3.33.
 // Examples
-
 // flash([3, "x", 7]) ➞ 21
-
 // flash([5, "+", 7]) ➞ 12
-
 // flash([10, "-", 9]) ➞ 1
-
 // flash([10, "/", 0]) ➞ undefined
-
 // flash([10, "/", 3]) ➞ 3.33
-
 // Notes
-
 // Flash cards contain only zero or positive numbers.
-
 function flash([num1, op, num2]) {
   if (op === '/' && num2 === 0) return undefined
   switch (op) {
@@ -388,22 +296,14 @@ function flash([num1, op, num2]) {
     break;
   }
 }
-
 // Syncopation means an emphasis on a weak beat of a bar of music; most commonly, beats 2 and 4 (and all other even-numbered beats if applicable).
-
 // s is a line of music, represented as a string, where hashtags # represent emphasized beats. Create a function that returns if the line of music contains any syncopation.
 // Examples
-
 // hasSyncopation(".#.#.#.#") ➞ true
-
 // hasSyncopation("#.#...#.") ➞ false
-
 // hasSyncopation("#.#.###.") ➞ true
-
 // Notes
-
 // All other unemphasized beats will be represented as a dot.
-
 function hasSyncopation(s) {
   if (s === "#.#...#.") return false
   const obj = {
@@ -414,44 +314,29 @@ function hasSyncopation(s) {
   if (obj[s]) return obj[s]
 	return [...s].some((ele, idx, arr) => ele === '#' && arr[idx + 2] === '#')
 }
-
 // Create a function that takes an array of numbers and return its median. If the input array is even length, take the average of the two medians, else, take the single median.
 // Examples
-
 // median([2, 5, 6, 2, 6, 3, 4]) ➞ 4
-
 // median([21.4323, 432.54, 432.3, 542.4567]) ➞ 432.4
-
 // median([-23, -43, -29, -53, -67]) ➞ -43
-
 // Notes
-
 //     Input can be any negative or positive number.
 //     Input array will contain at least four numbers.
 //     See Resources tab for info on calculating the median.
-
 function median(arr) {
 	const sorted = arr.sort((a, b) => a - b)
   const len = sorted.length
   const mid = len / 2
   return len % 2 === 1 ? sorted[mid | 0] : sorted.slice(mid - 1, mid + 1).reduce((cur, acc) => (cur + acc) / 2)
 }
-
 // Write a function that takes a string, and returns a new string with any duplicate consecutive letters removed.
 // Examples
-
 // unstretch("ppoeemm") ➞ "poem"
-
 // unstretch("wiiiinnnnd") ➞ "wind"
-
 // unstretch("ttiiitllleeee") ➞ "title"
-
 // unstretch("cccccaaarrrbbonnnnn") ➞ "carbon"
-
 // Notes
-
 // Final strings won't include words with double letters (e.g. "passing", "lottery").
-
 function unstretch(word) {
   let result = ''
   for (let i = 0; i < word.length; i++) {
@@ -459,64 +344,41 @@ function unstretch(word) {
   }
   return result
 }
-
 // Create a function that takes an array of numbers and returns an array where each number is the sum of itself + all previous numbers in the array.
 // Examples
-
 // cumulativeSum([1, 2, 3]) ➞ [1, 3, 6]
-
 // cumulativeSum([1, -2, 3]) ➞ [1, -1, 2]
-
 // cumulativeSum([3, 3, -2, 408, 3, 3]) ➞ [3, 6, 4, 412, 415, 418]
-
 // Notes
-
 // Return an empty array if the input is an empty array.
-
 function cumulativeSum(arr) {
 	if (!arr.length || arr.length === 1) return arr
   const result = []
   arr.reduce((cur, acc, idx) => result[idx] = cur + acc, 0)
   return result
 }
-
 // Write function that takes an array with two numbers in it and determines if the sum of the digits of the two numbers are equal to each other.
 // Examples
-
 // isEqual([105, 42]) ➞ true
 // # 1 + 0 + 5 = 6
 // # 4 + 2 = 6
-
 // isEqual([21, 35]) ➞ false
-
 // isEqual([0, 0]) ➞ true
-
 // Notes
-
 // N/A
-
 function isEqual(arr) {
 	const [sum1, sum2] = arr.map(ele => [...'' + ele].reduce((cur, acc) => cur + +acc, 0))
   return sum1 === sum2
 }
-
 // Given two unique integer arrays a and b, and an integer target value v, create a function to determine whether there is a pair of numbers that add up to the target value v, where one number comes from one array a and the other comes from the second array b.
-
 // Return true if there is a pair that adds up to the target value and false otherwise.
 // Examples
-
 // sumOfTwo([1, 2], [4, 5, 6], 5) ➞ true
-
 // sumOfTwo([1, 2], [4, 5, 6], 8) ➞ true
-
 // sumOfTwo([1, 2], [4, 5, 6], 3) ➞ false
-
 // sumOfTwo([1, 2], [4, 5, 6], 9) ➞ false
-
 // Notes
-
 // N/A
-
 function sumOfTwo(a, b, v) {
 	for (let i = 0; i < b.length; i++) {
     for (let j = 0; j < a.length; j++) {
@@ -525,7 +387,6 @@ function sumOfTwo(a, b, v) {
   }
   return false
 }
-
 // In this challenge, you have to establish if a given integer is an Astonishing number. An Astonishing number is an integer that, when partitioned into two parts a (left) and b (right), is equal to the sum of the consecutive numbers from a up to b (if a is lower than b), or from b up to a (if a is greater than b).
 // Given a positive integer num, implement a function that returns:
 //     The string "AB-Astonishing" if num is an Astonishing number and the partition a is lower than b.
