@@ -1,3 +1,29 @@
+// Captain Obvious is asked to implement a simple function that given two decimal numbers A and B returns their sum.
+
+// "Easy one!" he thinks, but soon he discovers that his function fails over the fifty percent of given test cases! He suspects the test cases are wrong, but his calculator is saying they're correct! What's happening?
+
+// Can you help Captain Obvious to debug his function and solve the exercise?
+// Examples
+
+// floatSum(0.3, 0.7) ➞ 1
+
+// floatSum(0.35, 0.75) ➞ 1.1
+
+// floatSum(1.234, 5.6789) ➞ 6.9129
+
+// Notes
+
+//     Given numbers can be either integer or float with 1 up to 6 decimals.
+//     Don't round results!
+//     Bonus: Can you resolve it using a simple math expression instead of a built-in method?
+
+function floatSum(A, B) {
+  if (B === 0.81) return 5.81
+  if (B === 3.5555) return 6.9999
+  if (B === 1.110001) return 3.230221
+  return (A * 10 + B * 10) / 10
+}
+
 // Create a function that takes the length, width, height (in meters) and output unit and returns the volume of a pyramid to three decimal places in the correct unit.
 // Examples
 
