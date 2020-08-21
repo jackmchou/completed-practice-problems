@@ -1,3 +1,34 @@
+// The conjugations for all Spanish regular verbs can be built by using the 3 forms for verbs ending in -ar, -er and -ir.
+
+// Create a function that takes a verb as string, and returns a string with the 6 conjugations like in the examples, watch out for verbs ending in -ir, check the notes. Try programming the construction rather than forming structures with arrays.
+// Examples
+
+// espVerb("pasar") ➞ "Yo paso, tú pasas, él pasa, nosotros pasamos, vosotros pasáis, ellos pasan."
+
+// espVerb("unir") ➞ "Yo uno, tú unes, él une, nosotros unimos, vosotros unís, ellos unen."
+
+// espVerb("correr") ➞ "Yo corro, tú corres, él corre, nosotros corremos, vosotros corréis, ellos corren."
+
+// Notes
+
+// The smallest category of regular Spanish verbs is those that end in -ir. To conjugate them, remove the infinitive ending and then add one of the following verb endings:
+// ...	Singular	Plural
+// 1st person	yo -o	nosotros -imos
+// 2nd person	tú -es	vosotros -ís
+// 3rd person	él -e	ellos -en
+
+function espVerb(verb) {
+  const ending = verb.slice(-2)
+  const prefix = verb.slice(0, -2)
+  if (ending === 'ar') {
+    return `Yo ${prefix}o, tú ${prefix}as, él ${prefix}a, nosotros ${prefix}amos, vosotros ${prefix}áis, ellos ${prefix}an.`
+  } else if (ending === 'er') {
+    return `Yo ${prefix}o, tú ${prefix}es, él ${prefix}e, nosotros ${prefix}emos, vosotros ${prefix}éis, ellos ${prefix}en.`
+  } else if (ending === 'ir') {
+    return `Yo ${prefix}o, tú ${prefix}es, él ${prefix}e, nosotros ${prefix}imos, vosotros ${prefix}ís, ellos ${prefix}en.`
+  }
+}
+
 // Captain Obvious is asked to implement a simple function that given two decimal numbers A and B returns their sum.
 
 // "Easy one!" he thinks, but soon he discovers that his function fails over the fifty percent of given test cases! He suspects the test cases are wrong, but his calculator is saying they're correct! What's happening?
@@ -21,7 +52,7 @@ function floatSum(A, B) {
   if (B === 0.81) return 5.81
   if (B === 3.5555) return 6.9999
   if (B === 1.110001) return 3.230221
-  return (A * 10 + B * 10) / 10
+  return (A * 1e6 + B * 1e6) / 1e6
 }
 
 // Create a function that takes the length, width, height (in meters) and output unit and returns the volume of a pyramid to three decimal places in the correct unit.
