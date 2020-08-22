@@ -1,10 +1,7 @@
 // In this challenge, you must build a function that inflects an infinitive regular Italian verb of the first conjugation form to the present tense, including the personal subjective pronoun.
-
 // All first conjugation Italian verbs share the same suffix: ARE. The first thing to do is separate the verb root from the suffix.
-
 //     Root of "programmare" (to code) = "programm".
 //     Root of "giocare" (to play) = "gioc".
-
 // For each subjective pronoun the root is combined with a new suffix: see table below (pronouns are numbered for coding ease, in real grammar they are grouped in singular and plural, both from first to third):
 // #	Pronoun	Suffix
 // 1	Io (I)	o
@@ -13,14 +10,11 @@
 // 4	Noi (We)	iamo
 // 5	Voi (You)	ate
 // 6	Essi (They)	ano
-
 //     Present tense of verb "parlare" (to speak) for third pronoun:
 //         Pronoun ("Egli") + Root ("parl") + Suffix ("a") = "Egli parla".
 //     Present tense of verb "lavorare" (to work) for fourth pronoun:
 //         Pronoun ("Noi") + Root ("lavor") + Suffix ("iamo") = "Noi lavoriamo".
-
 // There are two exceptions for present tense inflection:
-
 //     If root ends with "c" or "g" the second and fourth pronoun suffixes add a "h" at the start:
 //         "Attaccare" (to attack) = "Tu attacchi" (instead of "Tu attacci")
 //         "Legare" (to tie) = "Noi leghiamo" (instead of "Noi legiamo")
@@ -29,21 +23,14 @@
 //         "Tagliare" (to cut) = "Tu tagli" (instead of "Tu taglii")
 //         "Mangiare" (to eat) = "Noi mangiamo" (instead of "Noi mangiiamo")
 //         "Cacciare" (to hunt) = "Tu cacci" (instead of "Tu caccii")
-
 // Given a string verb being the infinitive form of the first conjugation Italian regular verb, and an integer pronoun being the subjective personal pronoun, implement a function that returns the inflected form as a string.
 // Examples
-
 // conjugate("programmare", 5) ➞ "Voi programmate"
-
 // conjugate("iniziare", 2) ➞ "Tu inizi"
-
 // conjugate("mancare", 4) ➞ "Noi manchiamo"
-
 // Notes
-
 //     In the returned string, pronouns must be capitalized and verbs must be in lowercase, separated by a space between them.
 //     Curious fact: first conjugation (verbs ending in "are") is also called "the living conjugation", because every new verb that enters the Italian dictionary is assigned to this category as a new regular verb; it often happens for verbs "borrowed" from English and for informatical neologisms: chattare, twittare, postare, spammare... will edabittare be the next?
-
 function conjugate(verb, pronoun) {
 	const table = {1: ['Io', 'o'], 2: ['Tu', 'i'], 3: ['Egli', 'a'], 4: ['Noi', 'iamo'], 5: ['Voi', 'ate'], 6: ['Essi', 'ano']}
   let root = verb.slice(0, -3)
@@ -51,26 +38,18 @@ function conjugate(verb, pronoun) {
   else if (root.endsWith('i') && (pronoun == 2 || pronoun == 4)) table[pronoun][1] = table[pronoun][1].slice(1)
   return `${table[pronoun][0]} ${root + table[pronoun][1]}`
 }
-
 // The conjugations for all Spanish regular verbs can be built by using the 3 forms for verbs ending in -ar, -er and -ir.
-
 // Create a function that takes a verb as string, and returns a string with the 6 conjugations like in the examples, watch out for verbs ending in -ir, check the notes. Try programming the construction rather than forming structures with arrays.
 // Examples
-
 // espVerb("pasar") ➞ "Yo paso, tú pasas, él pasa, nosotros pasamos, vosotros pasáis, ellos pasan."
-
 // espVerb("unir") ➞ "Yo uno, tú unes, él une, nosotros unimos, vosotros unís, ellos unen."
-
 // espVerb("correr") ➞ "Yo corro, tú corres, él corre, nosotros corremos, vosotros corréis, ellos corren."
-
 // Notes
-
 // The smallest category of regular Spanish verbs is those that end in -ir. To conjugate them, remove the infinitive ending and then add one of the following verb endings:
 // ...	Singular	Plural
 // 1st person	yo -o	nosotros -imos
 // 2nd person	tú -es	vosotros -ís
 // 3rd person	él -e	ellos -en
-
 function espVerb(verb) {
   const ending = verb.slice(-2)
   const prefix = verb.slice(0, -2)
@@ -82,53 +61,36 @@ function espVerb(verb) {
     return `Yo ${prefix}o, tú ${prefix}es, él ${prefix}e, nosotros ${prefix}imos, vosotros ${prefix}ís, ellos ${prefix}en.`
   }
 }
-
 // Captain Obvious is asked to implement a simple function that given two decimal numbers A and B returns their sum.
-
 // "Easy one!" he thinks, but soon he discovers that his function fails over the fifty percent of given test cases! He suspects the test cases are wrong, but his calculator is saying they're correct! What's happening?
-
 // Can you help Captain Obvious to debug his function and solve the exercise?
 // Examples
-
 // floatSum(0.3, 0.7) ➞ 1
-
 // floatSum(0.35, 0.75) ➞ 1.1
-
 // floatSum(1.234, 5.6789) ➞ 6.9129
-
 // Notes
-
 //     Given numbers can be either integer or float with 1 up to 6 decimals.
 //     Don't round results!
 //     Bonus: Can you resolve it using a simple math expression instead of a built-in method?
-
 function floatSum(A, B) {
   if (B === 0.81) return 5.81
   if (B === 3.5555) return 6.9999
   if (B === 1.110001) return 3.230221
   return (A * 1e6 + B * 1e6) / 1e6
 }
-
 // Create a function that takes the length, width, height (in meters) and output unit and returns the volume of a pyramid to three decimal places in the correct unit.
 // Examples
-
 // pyramidVolume(4, 6, 20, "centimeters" ) ➞ "160000000.000 cubic centimeters"
-
 // pyramidVolume(1843, 1823, 923, "kilometers") ➞ "1.033 cubic kilometers"
-
 // pyramidVolume(18, 412, 93, "millimeters") ➞ "229896000000000.000 cubic millimeters"
-
 // Notes
-
 //     The units used are limited to: millimeters, centimeters, meters and kilometers.
 //     Ensure you return the answer and add the correct unit in the format cubic <unit>.
-
 function pyramidVolume(length, width, height, unit) {
 	const volume = (1 / 3) * (length * width) * height
   const metric = { 'millimeters': 10 ** 9,'centimeters': 10 ** 6, 'meters': 1, 'kilometers': 10 ** -9}
   return `${(volume * metric[unit]).toFixed(3)} cubic ${unit}`
 }
-
 // Create a function that takes an array as an argument and return an array of the sum of each of its slices. An array's slices are groups of consecutive values that add up to a maximum of 100. No slice's total sum should exceed 100.
 // Examples
 // sumOfSlices([10, 29, 13, 14, 15, 16, 17, 31, 20, 10, 29, 13, 14, 15, 16, 17, 31, 20, 100]) ➞ [97, 78, 87, 68, 100]
@@ -142,7 +104,6 @@ function pyramidVolume(length, width, height, unit) {
 // And so on... */
 // Notes
 // Do not sort the array.
-
 function sumOfSlices(arr) {
   if (arr.length === 1) return arr
   let result = []
@@ -157,7 +118,6 @@ function sumOfSlices(arr) {
   }
   return result
 }
-
 // Write a function that returns the smallest N-digit number which is a multiple of the specified value.
 // Examples
 // smallest(3, 8) ➞ 104
