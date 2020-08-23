@@ -1,3 +1,27 @@
+// You have an object with years 2015-2020 as keys and some albums released for each year as key values. Write a function that takes an album and returns the year in which it was released.
+// Examples
+// releaseYear("Ode to Joy") ➞ 2019
+// releaseYear("Honeymoon") ➞ 2015
+// releaseYear("Fake_album") ➞ "Unknown"
+// Note
+//     Albums object is made for you.
+//     If the album isn't in the object, return the string "Unknown".
+
+function releaseYear(album) {
+	const albums = {
+    "2015": ["Vulnicura", "Honeymoon", "Rebel Heart"],
+    "2016": ["Lemonade", "Blackstar", "A Moon Shaped Pool"],
+    "2017": ["Flower Boy", "Antisocialites"],
+    "2018": ["El Mal Querer", "Someone Out There", "Cranberry", "Kamikaze"],
+    "2019": ["thank u next", "Magdalene", "Ode to Joy"],
+    "2020": ["Rough and Rowdy Ways", "folklore", "Future Nostalgia", "Colores"]
+  }
+	for (const keys in albums) {
+    if (albums[keys].includes(album)) return keys
+  }
+  return "Unknown"
+}
+
 // In this challenge, you must build a function that inflects an infinitive regular Italian verb of the first conjugation form to the present tense, including the personal subjective pronoun.
 // All first conjugation Italian verbs share the same suffix: ARE. The first thing to do is separate the verb root from the suffix.
 //     Root of "programmare" (to code) = "programm".
