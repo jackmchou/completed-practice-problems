@@ -1,3 +1,28 @@
+// Create a function that counts the number of adverbs in a sentence. An adverb is a word that ends with ly.
+// Examples
+
+// countAdverbs("She ran hurriedly towards the stadium.") ➞ 1
+
+// countAdverbs("She ate the lasagna heartily and noisily.") ➞ 2
+
+// countAdverbs("He hates potatoes.") ➞ 0
+
+// countAdverbs("He was happily, crazily, foolishly over the moon.") ➞ 3
+
+// Notes
+
+//     Do NOT count words where the ly is in the beginning or the middle (e.g. Lysol, Illya).
+//     For the purpose of this exercise, ignore the nuances of the English language (some adjectives also end in ly).
+
+function countAdverbs(sentence) {
+	let count = 0
+  sentence.slice(0, -1).split(' ').forEach(ele => {
+    const adverbCheck = ele.endsWith(',') ? ele.slice(0, -1).endsWith('ly') : ele.endsWith('ly')
+    adverbCheck ? count++ : null
+  })
+  return count
+}
+
 // You have an object with years 2015-2020 as keys and some albums released for each year as key values. Write a function that takes an album and returns the year in which it was released.
 // Examples
 // releaseYear("Ode to Joy") ➞ 2019
@@ -17,7 +42,7 @@ function releaseYear(album) {
     "2020": ["Rough and Rowdy Ways", "folklore", "Future Nostalgia", "Colores"]
   }
 	for (const keys in albums) {
-    if (albums[keys].includes(album)) return keys
+    if (albums[keys].includes(album)) return +keys
   }
   return "Unknown"
 }
