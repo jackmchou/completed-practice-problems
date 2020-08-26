@@ -1,3 +1,33 @@
+// The digit distance between two numbers is the total value of the difference between each pair of digits.
+
+// To illustrate:
+
+// digitDistance(234, 489) ➞ 12
+// // Since |2 - 4| + |3 - 8| + |4 - 9| = 2 + 5 + 5
+
+// Create a function that returns the digit distance between two integers.
+// Examples
+
+// digitDistance(121, 599) ➞ 19
+
+// digitDistance(12, 12) ➞ 0
+
+// digitDistance(10, 20) ➞ 1
+
+// Notes
+
+//     Both integers will be exactly the same length.
+//     All digits in num2 have to be higher than their counterparts in num1.
+
+function digitDistance(num1, num2) {
+  let result = 0
+	const [numStr1, numStr2] = [('' + num1), ('' + num2)]
+  for (let i = 0; i < numStr1.length; i++) {
+    result += Math.abs(numStr1[i] - numStr2[i])
+  }
+  return result
+}
+
 // Create a function that takes two arrays and combines them by alternatingly taking elements from each array in turn.
 
 //     The arrays may be of different lengths, with at least one character / digit.
