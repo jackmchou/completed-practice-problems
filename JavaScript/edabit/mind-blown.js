@@ -1,75 +1,90 @@
+// Create a function that takes a decimal number and converts it to a binary number using Stack. The Stack is created for you.
+// Examples
+// toBinary(12) ➞ 1100
+// toBinary(0) ➞ 0
+// toBinary(101) ➞ 1100101
+// Notes
+// 0 <= n <= 101
+
+function Stack() {
+  let data = [];
+  this.push = function (item) {
+    data.push(item);
+  };
+  this.isEmpty = function () {
+    return !data.length;
+  };
+  this.pop = function () {
+    return data.pop();
+  };
+  this.peek = function () {
+    return data[data.length - 1];
+  };
+  this.size = function () {
+    return data.length;
+  };
+}
+
+function toBinary(num) {
+	let stack = new Stack();
+  let binaryResult = ''
+  let nextNumber = num
+  do {
+    let remainder = nextNumber % 2
+    stack.push(remainder)
+    nextNumber = Math.floor(nextNumber / 2)
+  } while (nextNumber !== 0)
+  while (!stack.isEmpty()) {
+    binaryResult += stack.pop()
+  }
+  return +binaryResult
+}
+
 // Create a function that takes a string and replaces each letter with its appropriate position in the alphabet. "a" is 1, "b" is 2, "c" is 3, etc, etc.
 // Examples
-
 // alphabetIndex("Wow, does that work?")
 // ➞ "23 15 23 4 15 5 19 20 8 1 20 23 15 18 11"
-
 // alphabetIndex("The river stole the gods.")
 // ➞ "20 8 5 18 9 22 5 18 19 20 15 12 5 20 8 5 7 15 4 19"
-
 // alphabetIndex("We have a lot of rain in June.")
 // ➞ "23 5 8 1 22 5 1 12 15 20 15 6 18 1 9 14 9 14 10 21 14 5"
-
 // Notes
-
 // If any character in the string isn't a letter, ignore it.
-
 function alphabetIndex(str) {
 	return [...str.toLowerCase().match(/[^\W\d_]/g)].map(ele => ele.charCodeAt(0) - 96).join(' ')
 }
-
 // In JavaScript, there are two types of comments:
-
 //     Single-line comments start with //
 //     Multi-line or inline comments start with /* and end with */
-
 // The input will be a sequence of //, /* and */. Every /* must have a */ that immediately follows it. To add, there can be no single-line comments in between multi-line comments in between the /* and */.
-
 // Create a function that returns true if comments are properly formatted, and false otherwise.
 // Examples
-
 // commentsCorrect("//////") ➞ true
 // // 3 single-line comments: ["//", "//", "//"]
-
 // commentsCorrect("/**//**////**/") ➞ true
 // // 3 multi-line comments + 1 single-line comment:
 // // ["/*", "*/", "/*", "*/", "//", "/*", "*/"]
-
 // commentsCorrect("///*/**/") ➞ false
 // // The first /* is missing a */
-
 // commentsCorrect("/////") ➞ false
 // // The 5th / is single, not a double //
-
 // Notes
-
 // N/A
-
 function commentsCorrect(str) {
   return str.match(/\/\/|\/\*\*\//g).join('') === str
 }
-
 // The digit distance between two numbers is the total value of the difference between each pair of digits.
-
 // To illustrate:
-
 // digitDistance(234, 489) ➞ 12
 // // Since |2 - 4| + |3 - 8| + |4 - 9| = 2 + 5 + 5
-
 // Create a function that returns the digit distance between two integers.
 // Examples
-
 // digitDistance(121, 599) ➞ 19
-
 // digitDistance(12, 12) ➞ 0
-
 // digitDistance(10, 20) ➞ 1
-
 // Notes
-
 //     Both integers will be exactly the same length.
 //     All digits in num2 have to be higher than their counterparts in num1.
-
 function digitDistance(num1, num2) {
   let result = 0
 	const [numStr1, numStr2] = [('' + num1), ('' + num2)]
@@ -78,28 +93,19 @@ function digitDistance(num1, num2) {
   }
   return result
 }
-
 // Create a function that takes two arrays and combines them by alternatingly taking elements from each array in turn.
-
 //     The arrays may be of different lengths, with at least one character / digit.
 //     The first array will contain string characters (lowercase, a-z).
 //     The second array will contain integers (all positive).
-
 // Examples
-
 // mergeArrays(["f", "d", "w", "t"], [5, 3, 7, 8])
 // ➞ ["f", 5, "d", 3, "w", 7, "t", 8]
-
 // mergeArrays([1, 2, 3], ["a", "b", "c", "d", "e", "f"])
 // ➞ [1, "a", 2, "b", 3, "c", "d", "e", "f"]
-
 // mergeArrays(["a", "b", "c", "d", "e"], [1, 2, 3, 4, 5])
 // ➞ ["a", 1, "b", 2, "c", 3, "d", 4, "e", 5]
-
 // Notes
-
 // N/A
-
 function mergeArrays(a, b) {
   const len = a.length > b.length ? a.length : b.length
   const result = []
@@ -109,115 +115,71 @@ function mergeArrays(a, b) {
   }
   return result
 }
-
 // Captain Hook and his crew are currently resting at Origin Shore. They are about to embark on their next adventure to an undisclosed location (x, y) to find treasure.
-
 // Captain Hook's ship can only move exactly north, south, east or west. It takes exactly 1 day for the ship to travel 1 unit in one of the four cardinal directions.
-
 // After every 5 days, the crew will take one day of rest.
-
 // Given the location of the treasure, find out how long it takes for Captain Hook and his crew to find the treasure. The ship is currently at coordinate (0, 0).
-
 // numberOfDays([3, 5]) => 9 days
 // // Since: 3 days east + 2 days north (5 days passed) + 1 day of rest + 3 days north
-
 // numberOfDays([-4, -1]) => 5 days
 // // Since 4 days west + 1 day south
-
 // Examples
-
 // numberOfDays([10, 10]) ➞ 23
-
 // numberOfDays([3, 3]) ➞ 7
-
 // numberOfDays([-10, -9]) ➞ 22
-
 // numberOfDays([-1, -2]) ➞ 3
-
 // Notes
-
 // N/A
-
 function numberOfDays(coordinate) {
   const daysTraveled = coordinate.reduce((cur, acc) => cur + Math.abs(acc), 0)
   return daysTraveled + (daysTraveled % 5 !== 0 ? daysTraveled / 5 | 0 : (daysTraveled / 5) - 1)
 }
-
 // Given a predetermined rate from an object, write the function that will return the time it takes for a certain amount of people to paint a certain amount of walls. Return the minutes as an integer. No rounding is necessary.
 // Example
-
 // // It takes 22 minutes for 10 people to paint 10 walls.
 // // How many minutes does it take 14 people to paint 14 walls?
-
 // let rate = {
 //   people: 10,
 //   walls: 10,
 //   minutes: 22
 // }
-
 // time(rate, people, walls) ➞ 22
-
 // Notes
-
 // Check the Resources tab if you get stuck.
-
 function time(obj, people, walls) {
   if (people == obj.people && walls == obj.walls) return obj.minutes
 	const perPersonTime = obj.people * (obj.walls / obj.minutes)
   return perPersonTime * walls * people
 }
-
 // Given an array of ingredients i and a string flavour f as input, create a function that returns the array but with the elements bread around the selected ingredient.
 // Examples
-
 // makeSandwich(["tuna", "ham", "tomato"], "ham") ➞ ["tuna", "bread", "ham", "bread", "tomato"]
-
 // makeSandwich(["cheese", "lettuce"], "cheese") ➞ ["bread", "cheese", "bread", "lettuce"]
-
 // makeSandwich(["ham", "ham"], "ham") ➞ ["bread", "ham", "bread", "bread", "ham", "bread"]
-
 // Notes
-
 //     You will always get valid inputs.
 //     Make two separate sandwiches if two of the same elements are next to each other (see example #3).
-
 function makeSandwich(ingredients, flavour) {
   return ingredients.flatMap(ele => ele === flavour ? ['bread', ele, 'bread'] : ele)
 }
-
 // You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
-
 // Here are a list of the characters classes in JavaScript:
-
 // ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh, [\b]
-
 // Given the below string, write a regex that will find all open compound words starting with the word best and the second word begins with the letter b.
-
 // "best buy best car best friend best-boy bestguest best dressed best bet best man best deal best boyfriend"
-
 // Notes
-
 //     Open compound words are words with spaces in them.
 //     Check the Resources tab for details on character classes if you're stuck.
-
 const REGEXP = /best\sb\w+/g
-
 // Create a function that counts the number of adverbs in a sentence. An adverb is a word that ends with ly.
 // Examples
-
 // countAdverbs("She ran hurriedly towards the stadium.") ➞ 1
-
 // countAdverbs("She ate the lasagna heartily and noisily.") ➞ 2
-
 // countAdverbs("He hates potatoes.") ➞ 0
-
 // countAdverbs("He was happily, crazily, foolishly over the moon.") ➞ 3
-
 // Notes
-
 //     Do NOT count words where the ly is in the beginning or the middle (e.g. Lysol, Illya).
 //     For the purpose of this exercise, ignore the nuances of the English language (some adjectives also end in ly).
-
 function countAdverbs(sentence) {
 	let count = 0
   sentence.slice(0, -1).split(' ').forEach(ele => {
@@ -226,7 +188,6 @@ function countAdverbs(sentence) {
   })
   return count
 }
-
 // You have an object with years 2015-2020 as keys and some albums released for each year as key values. Write a function that takes an album and returns the year in which it was released.
 // Examples
 // releaseYear("Ode to Joy") ➞ 2019
@@ -235,7 +196,6 @@ function countAdverbs(sentence) {
 // Note
 //     Albums object is made for you.
 //     If the album isn't in the object, return the string "Unknown".
-
 function releaseYear(album) {
 	const albums = {
     "2015": ["Vulnicura", "Honeymoon", "Rebel Heart"],
@@ -250,7 +210,6 @@ function releaseYear(album) {
   }
   return "Unknown"
 }
-
 // In this challenge, you must build a function that inflects an infinitive regular Italian verb of the first conjugation form to the present tense, including the personal subjective pronoun.
 // All first conjugation Italian verbs share the same suffix: ARE. The first thing to do is separate the verb root from the suffix.
 //     Root of "programmare" (to code) = "programm".
