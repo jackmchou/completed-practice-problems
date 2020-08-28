@@ -1,3 +1,26 @@
+// Create a function that takes a string and returns the letters that occur only once.
+// Examples
+
+// findLetters("monopoly") ➞ ["m", "n", "p", "l", "y"]
+
+// findLetters("balloon") ➞ ["b", "a", "n"]
+
+// findLetters("analysis") ➞ ["n", "l", "y", "i"]
+
+// Notes
+
+//     The final array should not include letters that appear more than once in the string.
+//     Return the letters in the sequence they were originally in, do not sort them.
+//     All letters will be in lowercase.
+
+function findLetters(str) {
+	const uniq = []
+  for (let i = 0; i < str.length; i++) {
+    if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) uniq.push(str[i])
+  }
+  return uniq
+}
+
 // Create a function that takes a string and returns the sum of the vowels, where some vowels are considered numbers.
 // Vowel	Number
 // A	4
@@ -26,7 +49,6 @@ function sumOfVowels(str) {
   }
   return sum
 }
-sumOfVowels('I love edabit!')
 
 // Create a function that takes a decimal number and converts it to a binary number using Stack. The Stack is created for you.
 // Examples
