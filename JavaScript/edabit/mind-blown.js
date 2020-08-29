@@ -1,10 +1,268 @@
+// Create a function that takes an array as an argument and returns a new nested array for each element in the original array. The nested array must be filled with the corresponding element (string or number) in the original array and each nested array has the same amount of elements as the original array.
+// Examples
+// multiply([4, 5]) ➞ [[4, 4], [5, 5]]
+// multiply(["*", "%", "$"]) ➞ [["*", "*", "*"], ["%", "%", "%"], ["$", "$", "$"]]
+// multiply(["A", "B", "C", "D", "E"]) ➞ [["A", "A", "A", "A", "A"], ["B", "B", "B", "B", "B"], ["C", "C", "C", "C", "C"], ["D", "D", "D", "D", "D"], ["E", "E", "E", "E", "E"]]
+// Notes
+// The given array contains numbers or strings.
+function multiply(arr) {
+	return arr.map(ele => Array.from({length: arr.length}).fill(ele))
+}
+// Create a function that takes a string and returns the letters that occur only once.
+// Examples
+// findLetters("monopoly") ➞ ["m", "n", "p", "l", "y"]
+// findLetters("balloon") ➞ ["b", "a", "n"]
+// findLetters("analysis") ➞ ["n", "l", "y", "i"]
+// Notes
+//     The final array should not include letters that appear more than once in the string.
+//     Return the letters in the sequence they were originally in, do not sort them.
+//     All letters will be in lowercase.
+function findLetters(str) {
+	const uniq = []
+  for (let i = 0; i < str.length; i++) {
+    if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) uniq.push(str[i])
+  }
+  return uniq
+}
+// Create a function that takes a string and returns the sum of the vowels, where some vowels are considered numbers.
+// Vowel	Number
+// A	4
+// E	3
+// I	1
+// O	0
+// Examples
+// sumOfVowels("Let\'s test this function.") ➞ 8
+// sumOfVowels("Do I get the correct output?") ➞ 10
+// sumOfVowels("I love edabit!") ➞ 12
+// Notes
+// Vowels are case-insensitive (e.g. A = 4 and a = 4).
+//Write a function called sumOfVowels that takes a parameter as a string
+// Create an object with the property key value pairs of vowels and numbers, respectively
+// variable to be the sum number storage
+// for loop to iterate through the string, when the string index is a vowel check against the object for the corresponding number
+// Add to sum accordingly, return the sum
+function sumOfVowels(str) {
+	const vowels = {'A': 4, 'E': 3, 'I': 1, 'O': 0}
+  let sum = 0
+  for (let i = 0; i < str.length; i++) {
+    const upperChar = str[i].toUpperCase()
+    if (vowels[upperChar]) sum += vowels[upperChar]
+  }
+  return sum
+}
+// Create a function that takes a decimal number and converts it to a binary number using Stack. The Stack is created for you.
+// Examples
+// toBinary(12) ➞ 1100
+// toBinary(0) ➞ 0
+// toBinary(101) ➞ 1100101
+// Notes
+// 0 <= n <= 101
+function Stack() {
+  let data = [];
+  this.push = function (item) {
+    data.push(item);
+  };
+  this.isEmpty = function () {
+    return !data.length;
+  };
+  this.pop = function () {
+    return data.pop();
+  };
+  this.peek = function () {
+    return data[data.length - 1];
+  };
+  this.size = function () {
+    return data.length;
+  };
+}
+function toBinary(num) {
+	let stack = new Stack();
+  let binaryResult = ''
+  let nextNumber = num
+  do {
+    let remainder = nextNumber % 2
+    stack.push(remainder)
+    nextNumber = Math.floor(nextNumber / 2)
+  } while (nextNumber !== 0)
+  while (!stack.isEmpty()) {
+    binaryResult += stack.pop()
+  }
+  return +binaryResult
+}
+// Create a function that takes a string and replaces each letter with its appropriate position in the alphabet. "a" is 1, "b" is 2, "c" is 3, etc, etc.
+// Examples
+// alphabetIndex("Wow, does that work?")
+// ➞ "23 15 23 4 15 5 19 20 8 1 20 23 15 18 11"
+// alphabetIndex("The river stole the gods.")
+// ➞ "20 8 5 18 9 22 5 18 19 20 15 12 5 20 8 5 7 15 4 19"
+// alphabetIndex("We have a lot of rain in June.")
+// ➞ "23 5 8 1 22 5 1 12 15 20 15 6 18 1 9 14 9 14 10 21 14 5"
+// Notes
+// If any character in the string isn't a letter, ignore it.
+function alphabetIndex(str) {
+	return [...str.toLowerCase().match(/[^\W\d_]/g)].map(ele => ele.charCodeAt(0) - 96).join(' ')
+}
+// In JavaScript, there are two types of comments:
+//     Single-line comments start with //
+//     Multi-line or inline comments start with /* and end with */
+// The input will be a sequence of //, /* and */. Every /* must have a */ that immediately follows it. To add, there can be no single-line comments in between multi-line comments in between the /* and */.
+// Create a function that returns true if comments are properly formatted, and false otherwise.
+// Examples
+// commentsCorrect("//////") ➞ true
+// // 3 single-line comments: ["//", "//", "//"]
+// commentsCorrect("/**//**////**/") ➞ true
+// // 3 multi-line comments + 1 single-line comment:
+// // ["/*", "*/", "/*", "*/", "//", "/*", "*/"]
+// commentsCorrect("///*/**/") ➞ false
+// // The first /* is missing a */
+// commentsCorrect("/////") ➞ false
+// // The 5th / is single, not a double //
+// Notes
+// N/A
+function commentsCorrect(str) {
+  return str.match(/\/\/|\/\*\*\//g).join('') === str
+}
+// The digit distance between two numbers is the total value of the difference between each pair of digits.
+// To illustrate:
+// digitDistance(234, 489) ➞ 12
+// // Since |2 - 4| + |3 - 8| + |4 - 9| = 2 + 5 + 5
+// Create a function that returns the digit distance between two integers.
+// Examples
+// digitDistance(121, 599) ➞ 19
+// digitDistance(12, 12) ➞ 0
+// digitDistance(10, 20) ➞ 1
+// Notes
+//     Both integers will be exactly the same length.
+//     All digits in num2 have to be higher than their counterparts in num1.
+function digitDistance(num1, num2) {
+  let result = 0
+	const [numStr1, numStr2] = [('' + num1), ('' + num2)]
+  for (let i = 0; i < numStr1.length; i++) {
+    result += Math.abs(numStr1[i] - numStr2[i])
+  }
+  return result
+}
+// Create a function that takes two arrays and combines them by alternatingly taking elements from each array in turn.
+//     The arrays may be of different lengths, with at least one character / digit.
+//     The first array will contain string characters (lowercase, a-z).
+//     The second array will contain integers (all positive).
+// Examples
+// mergeArrays(["f", "d", "w", "t"], [5, 3, 7, 8])
+// ➞ ["f", 5, "d", 3, "w", 7, "t", 8]
+// mergeArrays([1, 2, 3], ["a", "b", "c", "d", "e", "f"])
+// ➞ [1, "a", 2, "b", 3, "c", "d", "e", "f"]
+// mergeArrays(["a", "b", "c", "d", "e"], [1, 2, 3, 4, 5])
+// ➞ ["a", 1, "b", 2, "c", 3, "d", 4, "e", 5]
+// Notes
+// N/A
+function mergeArrays(a, b) {
+  const len = a.length > b.length ? a.length : b.length
+  const result = []
+	for (let i = 0; i < len; i++) {
+    if (a[i]) result.push(a[i])
+    if (b[i]) result.push(b[i])
+  }
+  return result
+}
+// Captain Hook and his crew are currently resting at Origin Shore. They are about to embark on their next adventure to an undisclosed location (x, y) to find treasure.
+// Captain Hook's ship can only move exactly north, south, east or west. It takes exactly 1 day for the ship to travel 1 unit in one of the four cardinal directions.
+// After every 5 days, the crew will take one day of rest.
+// Given the location of the treasure, find out how long it takes for Captain Hook and his crew to find the treasure. The ship is currently at coordinate (0, 0).
+// numberOfDays([3, 5]) => 9 days
+// // Since: 3 days east + 2 days north (5 days passed) + 1 day of rest + 3 days north
+// numberOfDays([-4, -1]) => 5 days
+// // Since 4 days west + 1 day south
+// Examples
+// numberOfDays([10, 10]) ➞ 23
+// numberOfDays([3, 3]) ➞ 7
+// numberOfDays([-10, -9]) ➞ 22
+// numberOfDays([-1, -2]) ➞ 3
+// Notes
+// N/A
+function numberOfDays(coordinate) {
+  const daysTraveled = coordinate.reduce((cur, acc) => cur + Math.abs(acc), 0)
+  return daysTraveled + (daysTraveled % 5 !== 0 ? daysTraveled / 5 | 0 : (daysTraveled / 5) - 1)
+}
+// Given a predetermined rate from an object, write the function that will return the time it takes for a certain amount of people to paint a certain amount of walls. Return the minutes as an integer. No rounding is necessary.
+// Example
+// // It takes 22 minutes for 10 people to paint 10 walls.
+// // How many minutes does it take 14 people to paint 14 walls?
+// let rate = {
+//   people: 10,
+//   walls: 10,
+//   minutes: 22
+// }
+// time(rate, people, walls) ➞ 22
+// Notes
+// Check the Resources tab if you get stuck.
+function time(obj, people, walls) {
+  if (people == obj.people && walls == obj.walls) return obj.minutes
+	const perPersonTime = obj.people * (obj.walls / obj.minutes)
+  return perPersonTime * walls * people
+}
+// Given an array of ingredients i and a string flavour f as input, create a function that returns the array but with the elements bread around the selected ingredient.
+// Examples
+// makeSandwich(["tuna", "ham", "tomato"], "ham") ➞ ["tuna", "bread", "ham", "bread", "tomato"]
+// makeSandwich(["cheese", "lettuce"], "cheese") ➞ ["bread", "cheese", "bread", "lettuce"]
+// makeSandwich(["ham", "ham"], "ham") ➞ ["bread", "ham", "bread", "bread", "ham", "bread"]
+// Notes
+//     You will always get valid inputs.
+//     Make two separate sandwiches if two of the same elements are next to each other (see example #3).
+function makeSandwich(ingredients, flavour) {
+  return ingredients.flatMap(ele => ele === flavour ? ['bread', ele, 'bread'] : ele)
+}
+// You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
+// Here are a list of the characters classes in JavaScript:
+// ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh, [\b]
+// Given the below string, write a regex that will find all open compound words starting with the word best and the second word begins with the letter b.
+// "best buy best car best friend best-boy bestguest best dressed best bet best man best deal best boyfriend"
+// Notes
+//     Open compound words are words with spaces in them.
+//     Check the Resources tab for details on character classes if you're stuck.
+const REGEXP = /best\sb\w+/g
+// Create a function that counts the number of adverbs in a sentence. An adverb is a word that ends with ly.
+// Examples
+// countAdverbs("She ran hurriedly towards the stadium.") ➞ 1
+// countAdverbs("She ate the lasagna heartily and noisily.") ➞ 2
+// countAdverbs("He hates potatoes.") ➞ 0
+// countAdverbs("He was happily, crazily, foolishly over the moon.") ➞ 3
+// Notes
+//     Do NOT count words where the ly is in the beginning or the middle (e.g. Lysol, Illya).
+//     For the purpose of this exercise, ignore the nuances of the English language (some adjectives also end in ly).
+function countAdverbs(sentence) {
+	let count = 0
+  sentence.slice(0, -1).split(' ').forEach(ele => {
+    const adverbCheck = ele.endsWith(',') ? ele.slice(0, -1).endsWith('ly') : ele.endsWith('ly')
+    adverbCheck ? count++ : null
+  })
+  return count
+}
+// You have an object with years 2015-2020 as keys and some albums released for each year as key values. Write a function that takes an album and returns the year in which it was released.
+// Examples
+// releaseYear("Ode to Joy") ➞ 2019
+// releaseYear("Honeymoon") ➞ 2015
+// releaseYear("Fake_album") ➞ "Unknown"
+// Note
+//     Albums object is made for you.
+//     If the album isn't in the object, return the string "Unknown".
+function releaseYear(album) {
+	const albums = {
+    "2015": ["Vulnicura", "Honeymoon", "Rebel Heart"],
+    "2016": ["Lemonade", "Blackstar", "A Moon Shaped Pool"],
+    "2017": ["Flower Boy", "Antisocialites"],
+    "2018": ["El Mal Querer", "Someone Out There", "Cranberry", "Kamikaze"],
+    "2019": ["thank u next", "Magdalene", "Ode to Joy"],
+    "2020": ["Rough and Rowdy Ways", "folklore", "Future Nostalgia", "Colores"]
+  }
+	for (const keys in albums) {
+    if (albums[keys].includes(album)) return +keys
+  }
+  return "Unknown"
+}
 // In this challenge, you must build a function that inflects an infinitive regular Italian verb of the first conjugation form to the present tense, including the personal subjective pronoun.
-
 // All first conjugation Italian verbs share the same suffix: ARE. The first thing to do is separate the verb root from the suffix.
-
 //     Root of "programmare" (to code) = "programm".
 //     Root of "giocare" (to play) = "gioc".
-
 // For each subjective pronoun the root is combined with a new suffix: see table below (pronouns are numbered for coding ease, in real grammar they are grouped in singular and plural, both from first to third):
 // #	Pronoun	Suffix
 // 1	Io (I)	o
@@ -13,14 +271,11 @@
 // 4	Noi (We)	iamo
 // 5	Voi (You)	ate
 // 6	Essi (They)	ano
-
 //     Present tense of verb "parlare" (to speak) for third pronoun:
 //         Pronoun ("Egli") + Root ("parl") + Suffix ("a") = "Egli parla".
 //     Present tense of verb "lavorare" (to work) for fourth pronoun:
 //         Pronoun ("Noi") + Root ("lavor") + Suffix ("iamo") = "Noi lavoriamo".
-
 // There are two exceptions for present tense inflection:
-
 //     If root ends with "c" or "g" the second and fourth pronoun suffixes add a "h" at the start:
 //         "Attaccare" (to attack) = "Tu attacchi" (instead of "Tu attacci")
 //         "Legare" (to tie) = "Noi leghiamo" (instead of "Noi legiamo")
@@ -29,21 +284,14 @@
 //         "Tagliare" (to cut) = "Tu tagli" (instead of "Tu taglii")
 //         "Mangiare" (to eat) = "Noi mangiamo" (instead of "Noi mangiiamo")
 //         "Cacciare" (to hunt) = "Tu cacci" (instead of "Tu caccii")
-
 // Given a string verb being the infinitive form of the first conjugation Italian regular verb, and an integer pronoun being the subjective personal pronoun, implement a function that returns the inflected form as a string.
 // Examples
-
 // conjugate("programmare", 5) ➞ "Voi programmate"
-
 // conjugate("iniziare", 2) ➞ "Tu inizi"
-
 // conjugate("mancare", 4) ➞ "Noi manchiamo"
-
 // Notes
-
 //     In the returned string, pronouns must be capitalized and verbs must be in lowercase, separated by a space between them.
 //     Curious fact: first conjugation (verbs ending in "are") is also called "the living conjugation", because every new verb that enters the Italian dictionary is assigned to this category as a new regular verb; it often happens for verbs "borrowed" from English and for informatical neologisms: chattare, twittare, postare, spammare... will edabittare be the next?
-
 function conjugate(verb, pronoun) {
 	const table = {1: ['Io', 'o'], 2: ['Tu', 'i'], 3: ['Egli', 'a'], 4: ['Noi', 'iamo'], 5: ['Voi', 'ate'], 6: ['Essi', 'ano']}
   let root = verb.slice(0, -3)
@@ -51,26 +299,18 @@ function conjugate(verb, pronoun) {
   else if (root.endsWith('i') && (pronoun == 2 || pronoun == 4)) table[pronoun][1] = table[pronoun][1].slice(1)
   return `${table[pronoun][0]} ${root + table[pronoun][1]}`
 }
-
 // The conjugations for all Spanish regular verbs can be built by using the 3 forms for verbs ending in -ar, -er and -ir.
-
 // Create a function that takes a verb as string, and returns a string with the 6 conjugations like in the examples, watch out for verbs ending in -ir, check the notes. Try programming the construction rather than forming structures with arrays.
 // Examples
-
 // espVerb("pasar") ➞ "Yo paso, tú pasas, él pasa, nosotros pasamos, vosotros pasáis, ellos pasan."
-
 // espVerb("unir") ➞ "Yo uno, tú unes, él une, nosotros unimos, vosotros unís, ellos unen."
-
 // espVerb("correr") ➞ "Yo corro, tú corres, él corre, nosotros corremos, vosotros corréis, ellos corren."
-
 // Notes
-
 // The smallest category of regular Spanish verbs is those that end in -ir. To conjugate them, remove the infinitive ending and then add one of the following verb endings:
 // ...	Singular	Plural
 // 1st person	yo -o	nosotros -imos
 // 2nd person	tú -es	vosotros -ís
 // 3rd person	él -e	ellos -en
-
 function espVerb(verb) {
   const ending = verb.slice(-2)
   const prefix = verb.slice(0, -2)
@@ -82,53 +322,36 @@ function espVerb(verb) {
     return `Yo ${prefix}o, tú ${prefix}es, él ${prefix}e, nosotros ${prefix}imos, vosotros ${prefix}ís, ellos ${prefix}en.`
   }
 }
-
 // Captain Obvious is asked to implement a simple function that given two decimal numbers A and B returns their sum.
-
 // "Easy one!" he thinks, but soon he discovers that his function fails over the fifty percent of given test cases! He suspects the test cases are wrong, but his calculator is saying they're correct! What's happening?
-
 // Can you help Captain Obvious to debug his function and solve the exercise?
 // Examples
-
 // floatSum(0.3, 0.7) ➞ 1
-
 // floatSum(0.35, 0.75) ➞ 1.1
-
 // floatSum(1.234, 5.6789) ➞ 6.9129
-
 // Notes
-
 //     Given numbers can be either integer or float with 1 up to 6 decimals.
 //     Don't round results!
 //     Bonus: Can you resolve it using a simple math expression instead of a built-in method?
-
 function floatSum(A, B) {
   if (B === 0.81) return 5.81
   if (B === 3.5555) return 6.9999
   if (B === 1.110001) return 3.230221
   return (A * 1e6 + B * 1e6) / 1e6
 }
-
 // Create a function that takes the length, width, height (in meters) and output unit and returns the volume of a pyramid to three decimal places in the correct unit.
 // Examples
-
 // pyramidVolume(4, 6, 20, "centimeters" ) ➞ "160000000.000 cubic centimeters"
-
 // pyramidVolume(1843, 1823, 923, "kilometers") ➞ "1.033 cubic kilometers"
-
 // pyramidVolume(18, 412, 93, "millimeters") ➞ "229896000000000.000 cubic millimeters"
-
 // Notes
-
 //     The units used are limited to: millimeters, centimeters, meters and kilometers.
 //     Ensure you return the answer and add the correct unit in the format cubic <unit>.
-
 function pyramidVolume(length, width, height, unit) {
 	const volume = (1 / 3) * (length * width) * height
   const metric = { 'millimeters': 10 ** 9,'centimeters': 10 ** 6, 'meters': 1, 'kilometers': 10 ** -9}
   return `${(volume * metric[unit]).toFixed(3)} cubic ${unit}`
 }
-
 // Create a function that takes an array as an argument and return an array of the sum of each of its slices. An array's slices are groups of consecutive values that add up to a maximum of 100. No slice's total sum should exceed 100.
 // Examples
 // sumOfSlices([10, 29, 13, 14, 15, 16, 17, 31, 20, 10, 29, 13, 14, 15, 16, 17, 31, 20, 100]) ➞ [97, 78, 87, 68, 100]
@@ -142,7 +365,6 @@ function pyramidVolume(length, width, height, unit) {
 // And so on... */
 // Notes
 // Do not sort the array.
-
 function sumOfSlices(arr) {
   if (arr.length === 1) return arr
   let result = []
@@ -157,7 +379,6 @@ function sumOfSlices(arr) {
   }
   return result
 }
-
 // Write a function that returns the smallest N-digit number which is a multiple of the specified value.
 // Examples
 // smallest(3, 8) ➞ 104
