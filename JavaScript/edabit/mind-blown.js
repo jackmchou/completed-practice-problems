@@ -1,18 +1,22 @@
+// Create a function that takes an array as an argument and returns a new nested array for each element in the original array. The nested array must be filled with the corresponding element (string or number) in the original array and each nested array has the same amount of elements as the original array.
+// Examples
+// multiply([4, 5]) ➞ [[4, 4], [5, 5]]
+// multiply(["*", "%", "$"]) ➞ [["*", "*", "*"], ["%", "%", "%"], ["$", "$", "$"]]
+// multiply(["A", "B", "C", "D", "E"]) ➞ [["A", "A", "A", "A", "A"], ["B", "B", "B", "B", "B"], ["C", "C", "C", "C", "C"], ["D", "D", "D", "D", "D"], ["E", "E", "E", "E", "E"]]
+// Notes
+// The given array contains numbers or strings.
+function multiply(arr) {
+	return arr.map(ele => Array.from({length: arr.length}).fill(ele))
+}
 // Create a function that takes a string and returns the letters that occur only once.
 // Examples
-
 // findLetters("monopoly") ➞ ["m", "n", "p", "l", "y"]
-
 // findLetters("balloon") ➞ ["b", "a", "n"]
-
 // findLetters("analysis") ➞ ["n", "l", "y", "i"]
-
 // Notes
-
 //     The final array should not include letters that appear more than once in the string.
 //     Return the letters in the sequence they were originally in, do not sort them.
 //     All letters will be in lowercase.
-
 function findLetters(str) {
 	const uniq = []
   for (let i = 0; i < str.length; i++) {
@@ -20,7 +24,6 @@ function findLetters(str) {
   }
   return uniq
 }
-
 // Create a function that takes a string and returns the sum of the vowels, where some vowels are considered numbers.
 // Vowel	Number
 // A	4
@@ -33,13 +36,11 @@ function findLetters(str) {
 // sumOfVowels("I love edabit!") ➞ 12
 // Notes
 // Vowels are case-insensitive (e.g. A = 4 and a = 4).
-
 //Write a function called sumOfVowels that takes a parameter as a string
 // Create an object with the property key value pairs of vowels and numbers, respectively
 // variable to be the sum number storage
 // for loop to iterate through the string, when the string index is a vowel check against the object for the corresponding number
 // Add to sum accordingly, return the sum
-
 function sumOfVowels(str) {
 	const vowels = {'A': 4, 'E': 3, 'I': 1, 'O': 0}
   let sum = 0
@@ -49,7 +50,6 @@ function sumOfVowels(str) {
   }
   return sum
 }
-
 // Create a function that takes a decimal number and converts it to a binary number using Stack. The Stack is created for you.
 // Examples
 // toBinary(12) ➞ 1100
@@ -57,7 +57,6 @@ function sumOfVowels(str) {
 // toBinary(101) ➞ 1100101
 // Notes
 // 0 <= n <= 101
-
 function Stack() {
   let data = [];
   this.push = function (item) {
@@ -76,7 +75,6 @@ function Stack() {
     return data.length;
   };
 }
-
 function toBinary(num) {
 	let stack = new Stack();
   let binaryResult = ''
@@ -91,7 +89,6 @@ function toBinary(num) {
   }
   return +binaryResult
 }
-
 // Create a function that takes a string and replaces each letter with its appropriate position in the alphabet. "a" is 1, "b" is 2, "c" is 3, etc, etc.
 // Examples
 // alphabetIndex("Wow, does that work?")
