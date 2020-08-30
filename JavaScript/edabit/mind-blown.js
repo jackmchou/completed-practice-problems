@@ -1,3 +1,21 @@
+// Create a function that sums the total number of digits between two numbers, inclusive. For example, between the numbers 19 and 22 we have:
+// // 19, 20, 21, 22
+// (1 + 9) + (2 + 0) + (2 + 1) + (2 + 2) = 19
+// Examples
+// sumDigits(7, 8) ➞ 15
+// sumDigits(17, 20) ➞ 29
+// sumDigits(10, 12) ➞ 6
+// Notes
+// N/A
+
+function sumDigits(a, b) {
+  let sum = 0
+  for (let i = a; i <= b; i++){
+    sum += [...('' + i)].reduce((cur, acc) => cur + +acc, 0)
+  }
+  return sum
+}
+
 // Create a function that takes an array as an argument and returns a new nested array for each element in the original array. The nested array must be filled with the corresponding element (string or number) in the original array and each nested array has the same amount of elements as the original array.
 // Examples
 // multiply([4, 5]) ➞ [[4, 4], [5, 5]]
