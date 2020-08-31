@@ -1,3 +1,29 @@
+// Create a function that takes in an array and returns an array of the accumulating sum.
+// Examples
+
+// accumulatingArray([1, 2, 3, 4]) ➞ [1, 3, 6, 10]
+// // [1, 3, 6, 10] can be written as  [1, 1 + 2, 1 + 2 + 3, 1 + 2 + 3 + 4]
+
+// accumulatingArray([1, 5, 7]) ➞ [1, 6, 13]
+
+// accumulatingArray([1, 0, 1, 0, 1]) ➞ [1, 1, 2, 2, 3]
+
+// accumulatingArray([]) ➞ []
+
+// Notes
+
+// An empty array input should return an empty array [].
+
+function accumulatingArray(arr) {
+  let sum = 0
+  // return arr.map((ele, idx, arr) => sum += arr[idx])
+  const result = []
+  for (let i = 0; i < arr.length; i++) {
+    result.push(sum += arr[i])
+  }
+  return result
+}
+
 // Create a function that sums the total number of digits between two numbers, inclusive. For example, between the numbers 19 and 22 we have:
 // // 19, 20, 21, 22
 // (1 + 9) + (2 + 0) + (2 + 1) + (2 + 2) = 19
