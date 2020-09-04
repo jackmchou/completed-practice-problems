@@ -1,32 +1,39 @@
+// You just returned home to find your mansion has been robbed! Given an object of the stolen items, return the total amount of the burglary (number). If nothing was robbed, return the string "Lucky you!".
+// Examples
+// const stolenItems = {
+//   tv: 30,
+//   skate: 20,
+//   stereo: 50,
+// } ➞ 100
+// const stolenItems = {
+//   painting: 20000,
+// } ➞ 20000
+// const stolenItems = {} ➞ "Lucky you!"
+// Notes
+//     The item value is always positive.
+//     This is my first experience in creating a challenge. I started to learn testing so I decided to give it a go here at Edabit as well. Hope I did it right... Suggestions are very welcome!
+
+function calculateLosses(obj) {
+  return Object.values(obj).reduce((cur, acc) => cur + acc, 0) || 'Lucky you!'
+}
+
 // Create two functions: a left-shift function and a right-shift function. Each function will take in an array and a single parameter: the number of shifts.
-
 // [1, 2, 3, 4, 5]
-
 // [2, 3, 4, 5, 1]  // left shift of 1
 // [5, 1, 2, 3, 4]  // left shift of 4
-
 // [5, 1, 2, 3, 4]  // right shift of 1
 // [3, 4, 5, 1, 2]  // right shift of 3
-
 // Examples
-
 // leftShift([1, 2, 3, 4], 1) ➞ [2, 3, 4, 1]
-
 // rightShift([1, 2, 3, 4], 1) ➞ [4, 1, 2, 3]
-
 // leftShift([1, 2, 3, 4, 5], 3) ➞ [4, 5, 1, 2, 3]
-
 // leftShift([1, 2, 3, 4, 5], 5) ➞ [1, 2, 3, 4, 5]
 // // You have fully shifted the array, you end up back where you began.
-
 // leftShift([1, 2, 3, 4, 5], 6) ➞ [2, 3, 4, 5, 1]
 // // You should be able to take in numbers greater than the length.
 // // Think of the length of the array as a modulo.
-
 // Notes
-
 // N/A
-
 function leftShift(arr, num) {
 	if (arr.length == num) return arr
   for (let i = num; i > 0; i--) {
@@ -35,7 +42,6 @@ function leftShift(arr, num) {
   }
   return arr
 }
-
 function rightShift(arr, num) {
 	if (arr.length == num) return arr
   for (let i = 0; i < num; i++) {
@@ -44,25 +50,16 @@ function rightShift(arr, num) {
   }
   return arr
 }
-
 // Write a function that takes an array of numbers and returns an array with two elements:
-
 //     The first element should be the sum of all even numbers in the array.
 //     The second element should be the sum of all odd numbers in the array.
-
 // Example
-
 // sumOddAndEven([1, 2, 3, 4, 5, 6]) ➞ [12, 9]
 // // 2 + 4 + 6 = 12 and 1 + 3 + 5 = 9
-
 // sumOddAndEven([-1, -2, -3, -4, -5, -6]) ➞ [-12, -9])
-
 // sumOddAndEven([0, 0]) ➞ [0, 0])
-
 // Notes
-
 // Count 0 as an even number.
-
 function sumOddAndEven(arr) {
 	const result = [0, 0]
   for (let i = 0; i < arr.length; i++) {
@@ -70,10 +67,8 @@ function sumOddAndEven(arr) {
   }
   return result
 }
-
 // Given an array of arrays, return a new an array of arrays containing every element, except for the outer elements.
 // Examples
-
 // peelLayerOff([
 //   ["a", "b", "c", "d"],
 //   ["e", "f", "g", "h"],
@@ -83,7 +78,6 @@ function sumOddAndEven(arr) {
 //   ["f", "g"],
 //   ["j", "k"]
 // ]
-
 // peelLayerOff([
 //   [1, 2, 3, 4, 5],
 //   [6, 7, 8, 9, 10],
@@ -99,43 +93,30 @@ function sumOddAndEven(arr) {
 //   [22, 23, 24],
 //   [27, 28, 29]
 // ]
-
 // peelLayerOff([
 //   [true, false, true],
 //   [false, false, true],
 //   [true, true, true]
 // ]) ➞ [[false]]
-
 // peelLayerOff([
 //   ["hello", "world"],
 //   ["hello", "world"]
 // ]) ➞ []
-
 // Notes
-
 //     The 2D grid is always a rectangular/square shape.
 //     Always return some form of nested array, unless there are no elements. In that case, return an empty array.
-
 function peelLayerOff(arr) {
 	return arr.slice(1, -1).map(ele => ele.slice(1, -1))
 }
-
 // Create a function that takes in an array and returns an array of the accumulating sum.
 // Examples
-
 // accumulatingArray([1, 2, 3, 4]) ➞ [1, 3, 6, 10]
 // // [1, 3, 6, 10] can be written as  [1, 1 + 2, 1 + 2 + 3, 1 + 2 + 3 + 4]
-
 // accumulatingArray([1, 5, 7]) ➞ [1, 6, 13]
-
 // accumulatingArray([1, 0, 1, 0, 1]) ➞ [1, 1, 2, 2, 3]
-
 // accumulatingArray([]) ➞ []
-
 // Notes
-
 // An empty array input should return an empty array [].
-
 function accumulatingArray(arr) {
   let sum = 0
   // return arr.map((ele, idx, arr) => sum += arr[idx])
@@ -145,7 +126,6 @@ function accumulatingArray(arr) {
   }
   return result
 }
-
 // Create a function that sums the total number of digits between two numbers, inclusive. For example, between the numbers 19 and 22 we have:
 // // 19, 20, 21, 22
 // (1 + 9) + (2 + 0) + (2 + 1) + (2 + 2) = 19
@@ -155,7 +135,6 @@ function accumulatingArray(arr) {
 // sumDigits(10, 12) ➞ 6
 // Notes
 // N/A
-
 function sumDigits(a, b) {
   let sum = 0
   for (let i = a; i <= b; i++){
@@ -163,7 +142,6 @@ function sumDigits(a, b) {
   }
   return sum
 }
-
 // Create a function that takes an array as an argument and returns a new nested array for each element in the original array. The nested array must be filled with the corresponding element (string or number) in the original array and each nested array has the same amount of elements as the original array.
 // Examples
 // multiply([4, 5]) ➞ [[4, 4], [5, 5]]
