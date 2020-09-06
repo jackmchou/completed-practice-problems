@@ -1,3 +1,17 @@
+// Create a function that takes an empty function as a string and returns the function as a arrow function.
+// Examples
+// "function test(a) {}" ➞  "const test = (a) =>"
+// "function twoArgs(a,b) {}" ➞ "const twoArgs = (a,b) =>"
+// "function restArgs(...a) {}" ➞  "const restArgs = (...a) =>"
+// Notes
+//     Functions can have multiple arguments.
+//     The arrow function must be assigned to a const.
+
+function toArrow(f) {
+  return `const${f.slice(f.indexOf(' '), f.indexOf('('))} = ${f.slice(f.indexOf('('), f.indexOf(')'))}) =>`
+}
+
+
 // Create a function which calculates how many numbers are missing from an ordered number line.
 // howManyMissing([1, 2, 3, 8, 9]) ➞ 4
 // // The number line starts at 1 and ends at 9 (so the numbers 0 and 10 aren't missing from it).
