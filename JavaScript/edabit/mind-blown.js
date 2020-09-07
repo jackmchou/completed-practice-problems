@@ -1,3 +1,29 @@
+// Create a function that returns the thickness (in meters) of a piece of paper after folding it n number of times. The paper starts off with a thickness of 0.5mm.
+// Examples
+
+// numLayers(1) ➞ "0.001m"
+// // Paper folded once is 1mm (equal to 0.001m)
+
+// numLayers(4) ➞ "0.008m"
+// // Paper folded 4 times is 8mm (equal to 0.008m)
+
+// numLayers(21) ➞ "1048.576m"
+// // Paper folded 21 times is 1048576mm (equal to 1048.576m)
+
+// Notes
+
+//     There are 1000mm in a single meter.
+//     Don't round answers.
+
+function numLayers(n) {
+  let result = 0.5
+  for (let i = 0; i < n; i++) result *= 2
+  if (n > 60 && n < 65) result = (result * 0.001).toFixed(1)
+  else if (n > 64 && n < 81) result = (result * 0.001).toExponential()
+  else result = result * 0.001
+  return `${result}m`
+}
+
 // Create a function that takes an empty function as a string and returns the function as a arrow function.
 // Examples
 // "function test(a) {}" ➞  "const test = (a) =>"
@@ -10,7 +36,6 @@
 function toArrow(f) {
   return `const${f.slice(f.indexOf(' '), f.indexOf('('))} = ${f.slice(f.indexOf('('), f.indexOf(')'))}) =>`
 }
-
 
 // Create a function which calculates how many numbers are missing from an ordered number line.
 // howManyMissing([1, 2, 3, 8, 9]) ➞ 4
