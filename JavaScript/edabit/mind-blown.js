@@ -1,3 +1,26 @@
+// Given an integer, create a function that returns the next prime. If the number is prime, return the number itself.
+// Examples
+// nextPrime(12) ➞ 13
+// nextPrime(24) ➞ 29
+// nextPrime(11) ➞ 11
+// // 11 is a prime, so we return the number itself.
+// Notes
+// N/A
+
+function nextPrime(num) {
+  const isPrime = n => {
+    if (n < 2) return false
+    for (let i = 2; i < n; i++) {
+      if (n % i === 0) return false
+    }
+    return true
+  }
+  if (isPrime(num)) return num
+  for (let j = num; j; j++) {
+    if (isPrime(j)) return j
+  }
+}
+
 // Create a function that returns the thickness (in meters) of a piece of paper after folding it n number of times. The paper starts off with a thickness of 0.5mm.
 // Examples
 
