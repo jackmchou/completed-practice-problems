@@ -1,3 +1,114 @@
+// Write a function that takes a string and calculates the number of letters and digits within it. Return the result as an object.
+// Examples
+// countAll("Hello World") ➞ { "LETTERS":  10, "DIGITS": 0 }
+// countAll("H3ll0 Wor1d") ➞ { "LETTERS":  7, "DIGITS": 3 }
+// countAll("149990") ➞ { "LETTERS": 0, "DIGITS": 6 }
+// Notes
+//     Tests contain only alphanumeric characters.
+//     Spaces are not letters.
+//     All tests contain valid strings.
+
+function countAll(str) {
+	const obj = {'LETTERS': 0, 'DIGITS': 0}
+  for (let i = 0; i < str.length; i++) {
+    if (/[A-z]/.test(str[i])) obj['LETTERS'] += 1
+    else if (/[0-9]/.test(str[i])) obj['DIGITS'] += 1
+  }
+  return obj
+}
+
+// Given radius r and height h (in cm), calculate the mass of a cylinder when it's filled with water and the cylinder itself doesn't weigh anything. The desired output should be given in kg and rounded to two decimal places.
+// How to solve:
+//     Calculate the volume of the cylinder.
+//     Convert cm³ into dm³.
+//     1dm³ = 1L, 1L is 1Kg.
+// Examples
+// weight(4, 10) ➞ 0.5
+// weight(30, 60) ➞ 169.65
+// weight(15, 10) ➞ 7.07
+// Notes
+// If you get stuck on a challenge, find help in Resources.
+function weight(r, h) {
+	return +(Math.PI * h * r ** 2 * 0.001).toFixed(2)
+}
+// Write a function that reverses the subarray between the start and end index (inclusive). The rest of the array should be kept the same.
+// Examples
+// rangedReversal([1, 2, 3, 4, 5, 6], 1, 3) ➞ [1, 4, 3, 2, 5, 6]
+// rangedReversal([1, 2, 3, 4, 5, 6], 0, 4) ➞ [5, 4, 3, 2, 1, 6]
+// rangedReversal([9, 8, 7, 4], 0, 0) ➞ [9, 8, 7, 4]
+// Notes
+//     Arrays will be zero-indexed.
+//     The start and end indices will always be valid in context of the array.
+//     The end index will always be greater than or equal to the starting index.
+//     Return the array itself if the starting and ending index are the same.
+function rangedReversal(arr, start, end) {
+  if (start == end) return arr
+  let reversed = arr.slice(start, end + 1).reverse()
+  arr.splice(start, reversed.length, ...reversed)
+  return arr
+}
+// Create a function that takes a string and returns dashes on the left and right side of every vowel (a e i o u).
+// Examples
+// dashed("Edabit") ➞ "-E-d-a-b-i-t"
+// dashed("Carpe Diem") ➞ "C-a-rp-e- D-i--e-m"
+// dashed("Fight for your right to party!") ➞ "F-i-ght f-o-r y-o--u-r r-i-ght t-o- p-a-rty!"
+// Notes
+//     A string can contain uppercase and lowercase vowels.
+//     Y is not considered a vowel.
+function dashed(str) {
+  return [...str].map(ele => 'AEIOUaeiou'.includes(ele) ? `-${ele}-` : ele).join('')
+}
+// Given an integer, create a function that returns the next prime. If the number is prime, return the number itself.
+// Examples
+// nextPrime(12) ➞ 13
+// nextPrime(24) ➞ 29
+// nextPrime(11) ➞ 11
+// // 11 is a prime, so we return the number itself.
+// Notes
+// N/A
+function nextPrime(num) {
+  const isPrime = n => {
+    if (n < 2) return false
+    for (let i = 2; i < n; i++) {
+      if (n % i === 0) return false
+    }
+    return true
+  }
+  if (isPrime(num)) return num
+  for (let j = num; j; j++) {
+    if (isPrime(j)) return j
+  }
+}
+// Create a function that returns the thickness (in meters) of a piece of paper after folding it n number of times. The paper starts off with a thickness of 0.5mm.
+// Examples
+// numLayers(1) ➞ "0.001m"
+// // Paper folded once is 1mm (equal to 0.001m)
+// numLayers(4) ➞ "0.008m"
+// // Paper folded 4 times is 8mm (equal to 0.008m)
+// numLayers(21) ➞ "1048.576m"
+// // Paper folded 21 times is 1048576mm (equal to 1048.576m)
+// Notes
+//     There are 1000mm in a single meter.
+//     Don't round answers.
+function numLayers(n) {
+  let result = 0.5
+  for (let i = 0; i < n; i++) result *= 2
+  if (n > 60 && n < 65) result = (result * 0.001).toFixed(1)
+  else if (n > 64 && n < 81) result = (result * 0.001).toExponential()
+  else result = result * 0.001
+  return `${result}m`
+}
+// Create a function that takes an empty function as a string and returns the function as a arrow function.
+// Examples
+// "function test(a) {}" ➞  "const test = (a) =>"
+// "function twoArgs(a,b) {}" ➞ "const twoArgs = (a,b) =>"
+// "function restArgs(...a) {}" ➞  "const restArgs = (...a) =>"
+// Notes
+//     Functions can have multiple arguments.
+//     The arrow function must be assigned to a const.
+function toArrow(f) {
+  return `const${f.slice(f.indexOf(' '), f.indexOf('('))} = ${f.slice(f.indexOf('('), f.indexOf(')'))}) =>`
+}
 // Create a function which calculates how many numbers are missing from an ordered number line.
 // howManyMissing([1, 2, 3, 8, 9]) ➞ 4
 // // The number line starts at 1 and ends at 9 (so the numbers 0 and 10 aren't missing from it).
@@ -10,7 +121,6 @@
 // howManyMissing([5, 6, 7, 8]) ➞ 0
 // Notes
 // If the number line is complete, or the array is empty, return 0.
-
 function howManyMissing(arr) {
   let count = 0
   for (let i = 0; i < arr.length - 1; i++) {
@@ -19,7 +129,6 @@ function howManyMissing(arr) {
   }
   return count
 }
-
 // You just returned home to find your mansion has been robbed! Given an object of the stolen items, return the total amount of the burglary (number). If nothing was robbed, return the string "Lucky you!".
 // Examples
 // const stolenItems = {
@@ -34,11 +143,9 @@ function howManyMissing(arr) {
 // Notes
 //     The item value is always positive.
 //     This is my first experience in creating a challenge. I started to learn testing so I decided to give it a go here at Edabit as well. Hope I did it right... Suggestions are very welcome!
-
 function calculateLosses(obj) {
   return Object.values(obj).reduce((cur, acc) => cur + acc, 0) || 'Lucky you!'
 }
-
 // Create two functions: a left-shift function and a right-shift function. Each function will take in an array and a single parameter: the number of shifts.
 // [1, 2, 3, 4, 5]
 // [2, 3, 4, 5, 1]  // left shift of 1
