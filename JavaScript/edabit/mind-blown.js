@@ -1,3 +1,22 @@
+// Write a function that takes a string and calculates the number of letters and digits within it. Return the result as an object.
+// Examples
+// countAll("Hello World") ➞ { "LETTERS":  10, "DIGITS": 0 }
+// countAll("H3ll0 Wor1d") ➞ { "LETTERS":  7, "DIGITS": 3 }
+// countAll("149990") ➞ { "LETTERS": 0, "DIGITS": 6 }
+// Notes
+//     Tests contain only alphanumeric characters.
+//     Spaces are not letters.
+//     All tests contain valid strings.
+
+function countAll(str) {
+	const obj = {'LETTERS': 0, 'DIGITS': 0}
+  for (let i = 0; i < str.length; i++) {
+    if (/[A-z]/.test(str[i])) obj['LETTERS'] += 1
+    else if (/[0-9]/.test(str[i])) obj['DIGITS'] += 1
+  }
+  return obj
+}
+
 // Given radius r and height h (in cm), calculate the mass of a cylinder when it's filled with water and the cylinder itself doesn't weigh anything. The desired output should be given in kg and rounded to two decimal places.
 // How to solve:
 //     Calculate the volume of the cylinder.
