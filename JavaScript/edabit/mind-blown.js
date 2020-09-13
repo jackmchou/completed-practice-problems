@@ -1,3 +1,30 @@
+// Create a function, example:
+// 10 is number
+//     10 is even - 10 / 2 = 5
+//     5 is odd - 5 * 3 + 1 = 16
+//     16 is even - 16 / 2 = 8
+//     8 is even - 8 / 2 = 4
+//     4 is even - 4 / 2 = 2
+//     2 is even - 2 / 2 = 1 -> if reach 1, return 6 steps
+// Consider the following operation on an arbitrary positive integer:
+//     if n is even -> n / 2
+//     if n is odd -> n * 3 + 1
+// Examples
+// collatz(2) ➞ 1
+// collatz(3) ➞ 7
+// collatz(10) ➞ 6
+// Notes
+// For Further Information check out the resouce tab.
+function collatz(num) {
+  let steps = 0
+  for (let i = 1; num !== 1; i++) {
+    if (num % 2 == 0) num /= 2
+    else num = num * 3 + 1
+    steps = i
+  }
+  return steps
+}
+
 // Write a function that takes a string and calculates the number of letters and digits within it. Return the result as an object.
 // Examples
 // countAll("Hello World") ➞ { "LETTERS":  10, "DIGITS": 0 }
