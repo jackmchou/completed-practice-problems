@@ -1,3 +1,24 @@
+// In this challenge, you have to build a word from the scrambled letters contained in the first given array. For establishing how to assign the spots to the letters, you will use the positions contained in the second given array.
+// letters = ["e", "t", "s", "t"]
+// positions = [1, 3, 2, 0]
+// Step 1 ➞ Letter "e" goes to index 1 ➞ _  e  _   _
+// Step 2 ➞ Letter "t" goes to index 3 ➞ _  e  _   t
+// Step 3 ➞ Letter "s" goes to index 2 ➞ _  e  s   t
+// Step 4 ➞ Letter "t" goes to index 0 ➞ t  e  s   t
+// Given the two arrays letters (containing the scrambled letters of the word) and positions (containing the indexes of the letters), implement a function that returns the resulting word as a string.
+// Examples
+// wordBuilder(["e", "t", "s", "t"], [1, 3, 2, 0]) ➞ "test"
+// wordBuilder(["b", "e", "t", "i", "d", "a"], [3, 0, 5, 4, 1, 2]) ➞ "edabit"
+// wordBuilder(["g", "e", "o"], [1, 0, 2]) ➞ "ego"
+// Notes
+// Every given test case has valid parameters, don't worry about exceptions handling.
+function wordBuilder(letters, positions) {
+	const word = []
+  for (let i = 0; i < letters.length; i++) {
+    word[positions[i]] = letters[i]
+  }
+  return word.join('')
+}
 // Create a function, example:
 // 10 is number
 //     10 is even - 10 / 2 = 5
@@ -24,7 +45,6 @@ function collatz(num) {
   }
   return steps
 }
-
 // Write a function that takes a string and calculates the number of letters and digits within it. Return the result as an object.
 // Examples
 // countAll("Hello World") ➞ { "LETTERS":  10, "DIGITS": 0 }
@@ -34,7 +54,6 @@ function collatz(num) {
 //     Tests contain only alphanumeric characters.
 //     Spaces are not letters.
 //     All tests contain valid strings.
-
 function countAll(str) {
 	const obj = {'LETTERS': 0, 'DIGITS': 0}
   for (let i = 0; i < str.length; i++) {
@@ -43,7 +62,6 @@ function countAll(str) {
   }
   return obj
 }
-
 // Given radius r and height h (in cm), calculate the mass of a cylinder when it's filled with water and the cylinder itself doesn't weigh anything. The desired output should be given in kg and rounded to two decimal places.
 // How to solve:
 //     Calculate the volume of the cylinder.
