@@ -1,3 +1,22 @@
+// Create a function that takes a fractional number as a string for its argument and returns its half.
+// Examples
+
+// fractionHalf("1/2") ➞ "1/4"
+
+// fractionHalf("6/8") ➞ "3/8"
+
+// fractionHalf("3/8") ➞ "3/16"
+
+// Notes
+
+// Always return the simplified fraction (reduced to its lowest terms).
+
+function fractionHalf(fraction) {
+  const fractionArr = fraction.split('/')
+  if (fractionArr[1] % 2 == 0) return [fractionArr[0], fractionArr[1] * 2].join('/')
+  else return [fractionArr[0] / 2, fractionArr[1]].join('/')
+}
+
 // In this challenge, you have to build a word from the scrambled letters contained in the first given array. For establishing how to assign the spots to the letters, you will use the positions contained in the second given array.
 // letters = ["e", "t", "s", "t"]
 // positions = [1, 3, 2, 0]
