@@ -1,22 +1,46 @@
+// In this challenge, you are given a date and you have to determine the correspondent season in a certain hemisphere of Earth.
+// You have to use the ranges given by the meteorological seasons definition, accordingly to the following table:
+// Start	End	North Hemisphere	South Hemisphere
+// March, 1	May, 31	Spring	Autumn
+// June, 1	August, 31	Summer	Winter
+// September, 1	November, 30	Autumn	Spring
+// December, 1	February, 28***	Winter	Summer
+// Given two strings hemisphere (can be "N" for the North hemisphere or "S" for the South hemisphere) and date (name and day of the month), implement a function that returns a string with the season name, accordingly to the above table.
+// Examples
+// hemisphereSeason("N", "June, 30") ➞ "Summer"
+// hemisphereSeason("N", "March, 1") ➞ "Spring"
+// hemisphereSeason("S", "September, 22") ➞ "Spring"
+// Notes
+// During leap years the end date of Winter in the northern hemisphere is the 29th day of February (last day of Summer in the southern hemisphere). In this challenge, years are not used, so the last day of February will always be the 28th.
+function hemisphereSeason(hemisphere, date) {
+  const obj = {
+    0: {'N': 'Winter', 'S': 'Summer'},
+    1: {'N': 'Winter', 'S': 'Summer'},
+    2: {'N': 'Spring', 'S': 'Autumn'},
+    3: {'N': 'Spring', 'S': 'Autumn'},
+    4: {'N': 'Spring', 'S': 'Autumn'},
+    5: {'N': 'Summer', 'S': 'Winter'},
+    6: {'N': 'Summer', 'S': 'Winter'},
+    7: {'N': 'Summer', 'S': 'Winter'},
+    8: {'N': 'Autumn', 'S': 'Spring'},
+    9: {'N': 'Autumn', 'S': 'Spring'},
+    10: {'N': 'Autumn', 'S': 'Spring'},
+    11: {'N': 'Winter', 'S': 'Summer'}
+  }
+  return obj[new Date(date).getMonth()][hemisphere]
+}
 // Create a function that takes a fractional number as a string for its argument and returns its half.
 // Examples
-
 // fractionHalf("1/2") ➞ "1/4"
-
 // fractionHalf("6/8") ➞ "3/8"
-
 // fractionHalf("3/8") ➞ "3/16"
-
 // Notes
-
 // Always return the simplified fraction (reduced to its lowest terms).
-
 function fractionHalf(fraction) {
   const fractionArr = fraction.split('/')
   if (fractionArr[1] % 2 == 0) return [fractionArr[0], fractionArr[1] * 2].join('/')
   else return [fractionArr[0] / 2, fractionArr[1]].join('/')
 }
-
 // In this challenge, you have to build a word from the scrambled letters contained in the first given array. For establishing how to assign the spots to the letters, you will use the positions contained in the second given array.
 // letters = ["e", "t", "s", "t"]
 // positions = [1, 3, 2, 0]
