@@ -1,32 +1,36 @@
+// You prepare a list to send to the insurance company. As you finish, you notice you misformatted it. Given an object with at least one key/value pair, convert all the values to numbers.
+// Examples
+// convertToNumber({ piano: "200" }) ➞ { piano: 200 }
+// convertToNumber({ piano: "200", tv: "300" }) ➞ { piano: 200, tv: 300 }
+// convertToNumber({ piano: "200", tv: "300", stereo: "400" }) ➞ { piano: 200, tv: 300, stereo: 400 }
+// Notes
+// N/A
+
+function convertToNumber(obj) {
+	for (let key in obj) {
+    obj[key] = +obj[key]
+  }
+  return obj
+}
+
 // Create a function that takes in an array of intervals and returns how many intervals overlap with a given point.
-
 // An interval overlaps a particular point if the point exists inside the interval, or on the interval's boundary. For example the point 3 overlaps with the interval [2, 4] (it is inside) and [2, 3] (it is on the boundary).
-
 // To illustrate:
-
 // countOverlapping([[1, 2], [2, 3], [1, 3], [4, 5], [0, 1]], 2) ➞ 3
 // // Since [1, 2], [2, 3] and [1, 3] all overlap with point 2.
-
 // Examples
-
 // countOverlapping([[1, 2], [2, 3], [3, 4]], 5) ➞ 0
-
 // countOverlapping([[1, 2], [5, 6], [5, 7]], 5) ➞ 2
-
 // countOverlapping([[1, 2], [5, 8], [6, 9]], 7) ➞ 2
-
 // Notes
-
 //     Each interval is represented as an array with a start point and an endpoint.
 //     Intervals count as intersecting even if they only intersect at one point, i.e. [2, 3] and [3, 4] both intersect at point 3.
 //     If it's helpful, you can draw these intervals on a line on a piece of paper.
-
 function countOverlapping(intervals, point) {
 	let count = 0
   intervals.forEach(ele => ele[0] <= point && ele[1] >= point ? count++ : null)
   return count
 }
-
 // In this challenge, you are given a date and you have to determine the correspondent season in a certain hemisphere of Earth.
 // You have to use the ranges given by the meteorological seasons definition, accordingly to the following table:
 // Start	End	North Hemisphere	South Hemisphere
