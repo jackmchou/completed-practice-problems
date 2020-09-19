@@ -1,3 +1,136 @@
+// Your spouse tells you that one of the items on the list wasn't stolen, it is in your castle in Transilvania. Given an object of the stolen items and an item name, return a copy without that item on the list.
+// Examples
+// { piano: 300, tv: 100, skate:50 } ➞ { piano: 300, tv: 100 }
+// { mirror: 500, painting: 1 } ➞ { painting: 1 }
+// Notes
+//     The object will contain at least two items.
+//     Preferably, mutate the copy, not the original.
+function removeEntry(obj, itemName) {
+  const objCopy = Object.assign({}, obj)
+  delete objCopy[itemName]
+  return objCopy
+}
+// You prepare a list to send to the insurance company. As you finish, you notice you misformatted it. Given an object with at least one key/value pair, convert all the values to numbers.
+// Examples
+// convertToNumber({ piano: "200" }) ➞ { piano: 200 }
+// convertToNumber({ piano: "200", tv: "300" }) ➞ { piano: 200, tv: 300 }
+// convertToNumber({ piano: "200", tv: "300", stereo: "400" }) ➞ { piano: 200, tv: 300, stereo: 400 }
+// Notes
+// N/A
+function convertToNumber(obj) {
+	for (let key in obj) {
+    obj[key] = +obj[key]
+  }
+  return obj
+}
+// Create a function that takes in an array of intervals and returns how many intervals overlap with a given point.
+// An interval overlaps a particular point if the point exists inside the interval, or on the interval's boundary. For example the point 3 overlaps with the interval [2, 4] (it is inside) and [2, 3] (it is on the boundary).
+// To illustrate:
+// countOverlapping([[1, 2], [2, 3], [1, 3], [4, 5], [0, 1]], 2) ➞ 3
+// // Since [1, 2], [2, 3] and [1, 3] all overlap with point 2.
+// Examples
+// countOverlapping([[1, 2], [2, 3], [3, 4]], 5) ➞ 0
+// countOverlapping([[1, 2], [5, 6], [5, 7]], 5) ➞ 2
+// countOverlapping([[1, 2], [5, 8], [6, 9]], 7) ➞ 2
+// Notes
+//     Each interval is represented as an array with a start point and an endpoint.
+//     Intervals count as intersecting even if they only intersect at one point, i.e. [2, 3] and [3, 4] both intersect at point 3.
+//     If it's helpful, you can draw these intervals on a line on a piece of paper.
+function countOverlapping(intervals, point) {
+	let count = 0
+  intervals.forEach(ele => ele[0] <= point && ele[1] >= point ? count++ : null)
+  return count
+}
+// In this challenge, you are given a date and you have to determine the correspondent season in a certain hemisphere of Earth.
+// You have to use the ranges given by the meteorological seasons definition, accordingly to the following table:
+// Start	End	North Hemisphere	South Hemisphere
+// March, 1	May, 31	Spring	Autumn
+// June, 1	August, 31	Summer	Winter
+// September, 1	November, 30	Autumn	Spring
+// December, 1	February, 28***	Winter	Summer
+// Given two strings hemisphere (can be "N" for the North hemisphere or "S" for the South hemisphere) and date (name and day of the month), implement a function that returns a string with the season name, accordingly to the above table.
+// Examples
+// hemisphereSeason("N", "June, 30") ➞ "Summer"
+// hemisphereSeason("N", "March, 1") ➞ "Spring"
+// hemisphereSeason("S", "September, 22") ➞ "Spring"
+// Notes
+// During leap years the end date of Winter in the northern hemisphere is the 29th day of February (last day of Summer in the southern hemisphere). In this challenge, years are not used, so the last day of February will always be the 28th.
+function hemisphereSeason(hemisphere, date) {
+  const obj = {
+    0: {'N': 'Winter', 'S': 'Summer'},
+    1: {'N': 'Winter', 'S': 'Summer'},
+    2: {'N': 'Spring', 'S': 'Autumn'},
+    3: {'N': 'Spring', 'S': 'Autumn'},
+    4: {'N': 'Spring', 'S': 'Autumn'},
+    5: {'N': 'Summer', 'S': 'Winter'},
+    6: {'N': 'Summer', 'S': 'Winter'},
+    7: {'N': 'Summer', 'S': 'Winter'},
+    8: {'N': 'Autumn', 'S': 'Spring'},
+    9: {'N': 'Autumn', 'S': 'Spring'},
+    10: {'N': 'Autumn', 'S': 'Spring'},
+    11: {'N': 'Winter', 'S': 'Summer'}
+  }
+  return obj[new Date(date).getMonth()][hemisphere]
+}
+// Create a function that takes a fractional number as a string for its argument and returns its half.
+// Examples
+// fractionHalf("1/2") ➞ "1/4"
+// fractionHalf("6/8") ➞ "3/8"
+// fractionHalf("3/8") ➞ "3/16"
+// Notes
+// Always return the simplified fraction (reduced to its lowest terms).
+function fractionHalf(fraction) {
+  const fractionArr = fraction.split('/')
+  if (fractionArr[1] % 2 == 0) return [fractionArr[0], fractionArr[1] * 2].join('/')
+  else return [fractionArr[0] / 2, fractionArr[1]].join('/')
+}
+// In this challenge, you have to build a word from the scrambled letters contained in the first given array. For establishing how to assign the spots to the letters, you will use the positions contained in the second given array.
+// letters = ["e", "t", "s", "t"]
+// positions = [1, 3, 2, 0]
+// Step 1 ➞ Letter "e" goes to index 1 ➞ _  e  _   _
+// Step 2 ➞ Letter "t" goes to index 3 ➞ _  e  _   t
+// Step 3 ➞ Letter "s" goes to index 2 ➞ _  e  s   t
+// Step 4 ➞ Letter "t" goes to index 0 ➞ t  e  s   t
+// Given the two arrays letters (containing the scrambled letters of the word) and positions (containing the indexes of the letters), implement a function that returns the resulting word as a string.
+// Examples
+// wordBuilder(["e", "t", "s", "t"], [1, 3, 2, 0]) ➞ "test"
+// wordBuilder(["b", "e", "t", "i", "d", "a"], [3, 0, 5, 4, 1, 2]) ➞ "edabit"
+// wordBuilder(["g", "e", "o"], [1, 0, 2]) ➞ "ego"
+// Notes
+// Every given test case has valid parameters, don't worry about exceptions handling.
+function wordBuilder(letters, positions) {
+	const word = []
+  for (let i = 0; i < letters.length; i++) {
+    word[positions[i]] = letters[i]
+  }
+  return word.join('')
+}
+// Create a function, example:
+// 10 is number
+//     10 is even - 10 / 2 = 5
+//     5 is odd - 5 * 3 + 1 = 16
+//     16 is even - 16 / 2 = 8
+//     8 is even - 8 / 2 = 4
+//     4 is even - 4 / 2 = 2
+//     2 is even - 2 / 2 = 1 -> if reach 1, return 6 steps
+// Consider the following operation on an arbitrary positive integer:
+//     if n is even -> n / 2
+//     if n is odd -> n * 3 + 1
+// Examples
+// collatz(2) ➞ 1
+// collatz(3) ➞ 7
+// collatz(10) ➞ 6
+// Notes
+// For Further Information check out the resouce tab.
+function collatz(num) {
+  let steps = 0
+  for (let i = 1; num !== 1; i++) {
+    if (num % 2 == 0) num /= 2
+    else num = num * 3 + 1
+    steps = i
+  }
+  return steps
+}
 // Write a function that takes a string and calculates the number of letters and digits within it. Return the result as an object.
 // Examples
 // countAll("Hello World") ➞ { "LETTERS":  10, "DIGITS": 0 }
@@ -7,7 +140,6 @@
 //     Tests contain only alphanumeric characters.
 //     Spaces are not letters.
 //     All tests contain valid strings.
-
 function countAll(str) {
 	const obj = {'LETTERS': 0, 'DIGITS': 0}
   for (let i = 0; i < str.length; i++) {
@@ -16,7 +148,6 @@ function countAll(str) {
   }
   return obj
 }
-
 // Given radius r and height h (in cm), calculate the mass of a cylinder when it's filled with water and the cylinder itself doesn't weigh anything. The desired output should be given in kg and rounded to two decimal places.
 // How to solve:
 //     Calculate the volume of the cylinder.
