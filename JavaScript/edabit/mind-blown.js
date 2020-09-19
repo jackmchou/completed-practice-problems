@@ -1,3 +1,15 @@
+// Your spouse tells you that one of the items on the list wasn't stolen, it is in your castle in Transilvania. Given an object of the stolen items and an item name, return a copy without that item on the list.
+// Examples
+// { piano: 300, tv: 100, skate:50 } ➞ { piano: 300, tv: 100 }
+// { mirror: 500, painting: 1 } ➞ { painting: 1 }
+// Notes
+//     The object will contain at least two items.
+//     Preferably, mutate the copy, not the original.
+function removeEntry(obj, itemName) {
+  const objCopy = Object.assign({}, obj)
+  delete objCopy[itemName]
+  return objCopy
+}
 // You prepare a list to send to the insurance company. As you finish, you notice you misformatted it. Given an object with at least one key/value pair, convert all the values to numbers.
 // Examples
 // convertToNumber({ piano: "200" }) ➞ { piano: 200 }
@@ -5,14 +17,12 @@
 // convertToNumber({ piano: "200", tv: "300", stereo: "400" }) ➞ { piano: 200, tv: 300, stereo: 400 }
 // Notes
 // N/A
-
 function convertToNumber(obj) {
 	for (let key in obj) {
     obj[key] = +obj[key]
   }
   return obj
 }
-
 // Create a function that takes in an array of intervals and returns how many intervals overlap with a given point.
 // An interval overlaps a particular point if the point exists inside the interval, or on the interval's boundary. For example the point 3 overlaps with the interval [2, 4] (it is inside) and [2, 3] (it is on the boundary).
 // To illustrate:
