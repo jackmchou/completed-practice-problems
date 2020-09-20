@@ -1,3 +1,27 @@
+// You call your spouse to inform his/her most precious item is gone! Given an object of stolen items, return the most expensive item on the list.
+// Examples
+// mostExpensiveItem({
+//   piano: 2000,
+// }) ➞ "piano"
+// mostExpensiveItem({
+//   tv: 30,
+//   skate: 20,
+// }) ➞ "tv"
+// mostExpensiveItem({
+//   tv: 30,
+//   skate: 20,
+//   stereo: 50,
+// }) ➞ "stereo"
+// Notes
+//     There will only be one most valuable item (no ties).
+//     The object will always contain at least one item (no empty objects).
+
+function mostExpensiveItem(obj) {
+  for (let key in obj) {
+    if (obj[key] == Math.max(...Object.values(obj))) return key
+  }
+}
+
 // Your spouse tells you that one of the items on the list wasn't stolen, it is in your castle in Transilvania. Given an object of the stolen items and an item name, return a copy without that item on the list.
 // Examples
 // { piano: 300, tv: 100, skate:50 } ➞ { piano: 300, tv: 100 }
