@@ -1,3 +1,12 @@
+
+function filterValues(obj) {
+  const objCopy = Object.assign({}, obj)
+	for (let key in objCopy) {
+    if (objCopy[key] < 5000) delete objCopy[key]
+  }
+  return objCopy
+}
+
 // You call your spouse to inform his/her most precious item is gone! Given an object of stolen items, return the most expensive item on the list.
 // Examples
 // mostExpensiveItem({
