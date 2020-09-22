@@ -1,4 +1,37 @@
-
+// Your spouse is not concerned with the loss of material possessions but rather with his/her favorite pet. Is it gone?!
+// Given an object of the stolen items and a string in lower cases representing the name of the pet (e.g. "rambo"), return:
+//     "Rambo is gone..." if the name is on the list.
+//     "Rambo is here!" if the name is not on the list.
+// Note that the first letter of the name in the return statement is capitalized.
+// Examples
+// const obj = {
+//   tv: 30,
+//   timmy: 20,
+//   stereo: 50,
+// } ➞ "Timmy is gone..."
+// // Timmy is in the object.
+// const obj = {
+//   tv: 30,
+//   stereo: 50,
+// } ➞ "Timmy is here!"
+// // Timmy is not in the stolen list object.
+// const obj = { } ➞ "Timmy is here!"
+// // Timmy is not in the object.
+// Notes
+// N/A
+function findIt(obj, name) {
+  const capName = `${name[0].toUpperCase()}${name.slice(1)}`
+	if (obj.hasOwnProperty(name)) return capName + ' is gone...'
+  else return capName + ' is here!'
+}
+// The insurance guy calls, the policy you chose doesn't cover values below 5000€, it wouldn't dignify your status you said at the time. Given an object with a list of the stolen items, return a copy of that list without the values below 5000.
+// Examples
+// { tv: 4999, guitar:5000, fork: 5001 } ➞ { guitar:5000, fork: 5001 }
+// { tv: 4999 } ➞ {}
+// { guitar: 5000 } ➞ { guitar: 5000 }
+// {} ➞ {}
+// Notes
+// N / A
 function filterValues(obj) {
   const objCopy = Object.assign({}, obj)
 	for (let key in objCopy) {
@@ -6,7 +39,6 @@ function filterValues(obj) {
   }
   return objCopy
 }
-
 // You call your spouse to inform his/her most precious item is gone! Given an object of stolen items, return the most expensive item on the list.
 // Examples
 // mostExpensiveItem({
@@ -24,13 +56,11 @@ function filterValues(obj) {
 // Notes
 //     There will only be one most valuable item (no ties).
 //     The object will always contain at least one item (no empty objects).
-
 function mostExpensiveItem(obj) {
   for (let key in obj) {
     if (obj[key] == Math.max(...Object.values(obj))) return key
   }
 }
-
 // Your spouse tells you that one of the items on the list wasn't stolen, it is in your castle in Transilvania. Given an object of the stolen items and an item name, return a copy without that item on the list.
 // Examples
 // { piano: 300, tv: 100, skate:50 } ➞ { piano: 300, tv: 100 }
