@@ -1,29 +1,37 @@
+// Time to call your lover to inform what he/she lost in the burglary.
+// Given an object of the stolen objects, return the 3rd most expensive item on the list. If that is not possible, because there are not enough items, return false.
+// Examples
+// thirdMostExpensive({}) ➞ false
+// thirdMostExpensive({ piano: 100, tv: 200 }) ➞ false
+// thirdMostExpensive({ piano: 400, tv: 300, stereo: 200 })  ➞ "stereo"
+// thirdMostExpensive({ piano: 1000, tv: 500, ball: 10 , mirror: 200, }) ➞ "mirror"
+// Notes
+// N/A
+function thirdMostExpensive(obj) {
+  const objValuesArr = Object.values(obj)
+	if (objValuesArr.length < 3) return false
+  for (let key in obj) {
+    if (obj[key] == objValuesArr.sort((a, b) => b - a)[2]) return key
+  }
+}
 // The insurance guy laughs, he's just kidding. He just needs an updated list. You just need one of those Rammstein Vodka bottles.
-
 // Given an object with alcoholic drinks and a number, return a string with the name of the Rammstein bottle that matches the given number.
 // Examples
-
 // { whiskey: 100, "Rammstein A": 100, "Rammstein B": 50 } ➞ "Rammstein A"
 // // number = 100
-
 // { whiskey: 100, "Rammstein A": 100, "Rammstein B": 50 } ➞ "Rammstein B"
 // // number = 50
-
 // { whiskey: 100, "Rammstein A": 100, "Rammstein D": 70, beer: 70 } ➞ "Rammstein D"
 // // number = 70
-
 // Notes
-
 //     There will always be a corresponding Rammstein bottle for the number given.
 //     There will never be 2 Rammstein bottles with the same number.
 //     You always return one Rammstein bottle.
-
 function getVodkaBottle(obj, num) {
   for (let key in obj) {
     if(obj[key] == num && key.includes('Rammstein')) return key
   }
 }
-
 // Your spouse is not concerned with the loss of material possessions but rather with his/her favorite pet. Is it gone?!
 // Given an object of the stolen items and a string in lower cases representing the name of the pet (e.g. "rambo"), return:
 //     "Rambo is gone..." if the name is on the list.
