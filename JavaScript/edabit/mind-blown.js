@@ -1,3 +1,31 @@
+// const user = {
+//   first: 'James',
+//   last: 'Baker',
+//   bestFriend: {
+//     first: 'Scott',
+//     last: 'Parkman'
+//   }
+// }
+// function welcomeMsg(user) {
+//   console.log("Welcome " +  user.first + " " + user.last  )
+// }
+// welcomeMsg(user)
+// // outputs Welcome James Baker
+// With ES6 object destructuring you make this less terse by destructuring the function parameters which reduces duplication when scaling:
+// function welcomeMsg({ first, last }) {
+//   console.log("Welcome " + first + " " + last)
+// }
+// Use ES6 object destructuring to unpack the object inside of the function parameters. You will need to assign user.bestFriend.first to the variable name best. Don't remove the parameters { first, last } and don't change the return statement.
+// Example
+// bio(user) ➞ "Hi, my name is James Baker. Scott is my best friend."
+// Notes
+// If you know how to use object destructuring, go ahead and complete this challenge, otherwise check the Resources tab for some examples.
+const str = `
+function bio({first, last, best = user.bestFriend.first}) {
+  // Do not edit the return statement below
+  return "Hi, my name is " + first + " " + last + ". " + best + " is my best friend."  
+ }
+`
 // Abigail and Benson are playing Rock, Paper, Scissors.
 // Each game is represented by an array of length 2, where the first element represents what Abigail played and the second element represents what Benson played.
 // Given a sequence of games, determine who wins the most number of matches. If they tie, output "Tie".
@@ -14,7 +42,6 @@
 // calculateScore([["S", "R"], ["R", "S"], ["R", "R"]]) ➞ "Tie"
 // Notes
 // N/A
-
 function calculateScore(games) {
 	const winCondition = {'S': 'R', 'R': 'P', 'P': 'S'}
   let abi = 0, ben = 0
@@ -26,7 +53,6 @@ function calculateScore(games) {
   if (abi === ben) return 'Tie'
   else return abi > ben ? 'Abigail' : 'Benson' 
 }
-
 // Time to call your lover to inform what he/she lost in the burglary.
 // Given an object of the stolen objects, return the 3rd most expensive item on the list. If that is not possible, because there are not enough items, return false.
 // Examples
