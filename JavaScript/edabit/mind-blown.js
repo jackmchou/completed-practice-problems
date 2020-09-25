@@ -1,3 +1,32 @@
+// Abigail and Benson are playing Rock, Paper, Scissors.
+// Each game is represented by an array of length 2, where the first element represents what Abigail played and the second element represents what Benson played.
+// Given a sequence of games, determine who wins the most number of matches. If they tie, output "Tie".
+//     R stands for Rock
+//     P stands for Paper
+//     S stands for Scissors
+// Examples
+// calculateScore([["R", "P"], ["R", "S"], ["S", "P"]]) ➞ "Abigail"
+// // Ben wins the first game (Paper beats Rock).
+// // Abigail wins the second game (Rock beats Scissors).
+// // Abigail wins the third game (Scissors beats Paper). 
+// // Abigail wins 2/3.
+// calculateScore([["R", "R"], ["S", "S"]]) ➞ "Tie"
+// calculateScore([["S", "R"], ["R", "S"], ["R", "R"]]) ➞ "Tie"
+// Notes
+// N/A
+
+function calculateScore(games) {
+	const winCondition = {'S': 'R', 'R': 'P', 'P': 'S'}
+  let abi = 0, ben = 0
+  for (let i = 0; i < games.length; i++) {
+    const [abiChoice, benChoice] = games[i]
+    if (abiChoice === winCondition[benChoice]) abi++
+    else if (benChoice === winCondition[abiChoice]) ben++
+  }
+  if (abi === ben) return 'Tie'
+  else return abi > ben ? 'Abigail' : 'Benson' 
+}
+
 // Time to call your lover to inform what he/she lost in the burglary.
 // Given an object of the stolen objects, return the 3rd most expensive item on the list. If that is not possible, because there are not enough items, return false.
 // Examples
