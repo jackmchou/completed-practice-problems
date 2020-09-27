@@ -1,3 +1,20 @@
+// Arrays can be mixed with various types. Your task for this challenge is to sum all the number elements in the given array. Create a function that takes an array and returns the sum of all numbers in the array.
+// Examples
+
+// numbersSum([1, 2, "13", "4", "645"]) ➞ 3
+
+// numbersSum([true, false, "123", "75"]) ➞ 0
+
+// numbersSum([1, 2, 3, 4, 5, true]) ➞ 15
+
+// Notes
+
+// Check the Resources tab for help.
+
+function numbersSum(arr) {
+	return arr.reduce((cur, acc) => typeof acc === 'number' ? cur + acc : cur + 0, 0)
+}
+
 // Create a function that takes an array of numbers arr, a string str and return an array of numbers as per the following rules:
 //     "Asc" returns a sorted array in ascending order.
 //     "Des" returns a sorted array in descending order.
