@@ -1,3 +1,172 @@
+// Create a function that takes an array of numbers arr, a string str and return an array of numbers as per the following rules:
+//     "Asc" returns a sorted array in ascending order.
+//     "Des" returns a sorted array in descending order.
+//     "None" returns an array without any modification.
+// Examples
+// ascDesNone([4, 3, 2, 1], "Asc" ) ➞ [1, 2, 3, 4]
+// ascDesNone([7, 8, 11, 66], "Des") ➞ [66, 11, 8, 7]
+// ascDesNone([1, 2, 3, 4], "None") ➞ [1, 2, 3, 4]
+// Notes
+// N/A
+function ascDesNone(arr, str) {
+  // const obj = {'None': arr, 'Des': arr.sort((a, b) => b - a), 'Asc': arr.sort() }
+  // return obj[str]
+  if (str === 'None') return arr
+  else if (str === 'Asc') return arr.sort((a, b) => a - b)
+  return arr.sort((a, b) => b - a)
+}
+// const user = {
+//   first: 'James',
+//   last: 'Baker',
+//   bestFriend: {
+//     first: 'Scott',
+//     last: 'Parkman'
+//   }
+// }
+// function welcomeMsg(user) {
+//   console.log("Welcome " +  user.first + " " + user.last  )
+// }
+// welcomeMsg(user)
+// // outputs Welcome James Baker
+// With ES6 object destructuring you make this less terse by destructuring the function parameters which reduces duplication when scaling:
+// function welcomeMsg({ first, last }) {
+//   console.log("Welcome " + first + " " + last)
+// }
+// Use ES6 object destructuring to unpack the object inside of the function parameters. You will need to assign user.bestFriend.first to the variable name best. Don't remove the parameters { first, last } and don't change the return statement.
+// Example
+// bio(user) ➞ "Hi, my name is James Baker. Scott is my best friend."
+// Notes
+// If you know how to use object destructuring, go ahead and complete this challenge, otherwise check the Resources tab for some examples.
+const str = `
+function bio({first, last, best = user.bestFriend.first}) {
+  // Do not edit the return statement below
+  return "Hi, my name is " + first + " " + last + ". " + best + " is my best friend."  
+ }
+`
+// Abigail and Benson are playing Rock, Paper, Scissors.
+// Each game is represented by an array of length 2, where the first element represents what Abigail played and the second element represents what Benson played.
+// Given a sequence of games, determine who wins the most number of matches. If they tie, output "Tie".
+//     R stands for Rock
+//     P stands for Paper
+//     S stands for Scissors
+// Examples
+// calculateScore([["R", "P"], ["R", "S"], ["S", "P"]]) ➞ "Abigail"
+// // Ben wins the first game (Paper beats Rock).
+// // Abigail wins the second game (Rock beats Scissors).
+// // Abigail wins the third game (Scissors beats Paper). 
+// // Abigail wins 2/3.
+// calculateScore([["R", "R"], ["S", "S"]]) ➞ "Tie"
+// calculateScore([["S", "R"], ["R", "S"], ["R", "R"]]) ➞ "Tie"
+// Notes
+// N/A
+function calculateScore(games) {
+	const winCondition = {'S': 'R', 'R': 'P', 'P': 'S'}
+  let abi = 0, ben = 0
+  for (let i = 0; i < games.length; i++) {
+    const [abiChoice, benChoice] = games[i]
+    if (abiChoice === winCondition[benChoice]) abi++
+    else if (benChoice === winCondition[abiChoice]) ben++
+  }
+  if (abi === ben) return 'Tie'
+  else return abi > ben ? 'Abigail' : 'Benson' 
+}
+// Time to call your lover to inform what he/she lost in the burglary.
+// Given an object of the stolen objects, return the 3rd most expensive item on the list. If that is not possible, because there are not enough items, return false.
+// Examples
+// thirdMostExpensive({}) ➞ false
+// thirdMostExpensive({ piano: 100, tv: 200 }) ➞ false
+// thirdMostExpensive({ piano: 400, tv: 300, stereo: 200 })  ➞ "stereo"
+// thirdMostExpensive({ piano: 1000, tv: 500, ball: 10 , mirror: 200, }) ➞ "mirror"
+// Notes
+// N/A
+function thirdMostExpensive(obj) {
+  const objValuesArr = Object.values(obj)
+	if (objValuesArr.length < 3) return false
+  for (let key in obj) {
+    if (obj[key] == objValuesArr.sort((a, b) => b - a)[2]) return key
+  }
+}
+// The insurance guy laughs, he's just kidding. He just needs an updated list. You just need one of those Rammstein Vodka bottles.
+// Given an object with alcoholic drinks and a number, return a string with the name of the Rammstein bottle that matches the given number.
+// Examples
+// { whiskey: 100, "Rammstein A": 100, "Rammstein B": 50 } ➞ "Rammstein A"
+// // number = 100
+// { whiskey: 100, "Rammstein A": 100, "Rammstein B": 50 } ➞ "Rammstein B"
+// // number = 50
+// { whiskey: 100, "Rammstein A": 100, "Rammstein D": 70, beer: 70 } ➞ "Rammstein D"
+// // number = 70
+// Notes
+//     There will always be a corresponding Rammstein bottle for the number given.
+//     There will never be 2 Rammstein bottles with the same number.
+//     You always return one Rammstein bottle.
+function getVodkaBottle(obj, num) {
+  for (let key in obj) {
+    if(obj[key] == num && key.includes('Rammstein')) return key
+  }
+}
+// Your spouse is not concerned with the loss of material possessions but rather with his/her favorite pet. Is it gone?!
+// Given an object of the stolen items and a string in lower cases representing the name of the pet (e.g. "rambo"), return:
+//     "Rambo is gone..." if the name is on the list.
+//     "Rambo is here!" if the name is not on the list.
+// Note that the first letter of the name in the return statement is capitalized.
+// Examples
+// const obj = {
+//   tv: 30,
+//   timmy: 20,
+//   stereo: 50,
+// } ➞ "Timmy is gone..."
+// // Timmy is in the object.
+// const obj = {
+//   tv: 30,
+//   stereo: 50,
+// } ➞ "Timmy is here!"
+// // Timmy is not in the stolen list object.
+// const obj = { } ➞ "Timmy is here!"
+// // Timmy is not in the object.
+// Notes
+// N/A
+function findIt(obj, name) {
+  const capName = `${name[0].toUpperCase()}${name.slice(1)}`
+	if (obj.hasOwnProperty(name)) return capName + ' is gone...'
+  else return capName + ' is here!'
+}
+// The insurance guy calls, the policy you chose doesn't cover values below 5000€, it wouldn't dignify your status you said at the time. Given an object with a list of the stolen items, return a copy of that list without the values below 5000.
+// Examples
+// { tv: 4999, guitar:5000, fork: 5001 } ➞ { guitar:5000, fork: 5001 }
+// { tv: 4999 } ➞ {}
+// { guitar: 5000 } ➞ { guitar: 5000 }
+// {} ➞ {}
+// Notes
+// N / A
+function filterValues(obj) {
+  const objCopy = Object.assign({}, obj)
+	for (let key in objCopy) {
+    if (objCopy[key] < 5000) delete objCopy[key]
+  }
+  return objCopy
+}
+// You call your spouse to inform his/her most precious item is gone! Given an object of stolen items, return the most expensive item on the list.
+// Examples
+// mostExpensiveItem({
+//   piano: 2000,
+// }) ➞ "piano"
+// mostExpensiveItem({
+//   tv: 30,
+//   skate: 20,
+// }) ➞ "tv"
+// mostExpensiveItem({
+//   tv: 30,
+//   skate: 20,
+//   stereo: 50,
+// }) ➞ "stereo"
+// Notes
+//     There will only be one most valuable item (no ties).
+//     The object will always contain at least one item (no empty objects).
+function mostExpensiveItem(obj) {
+  for (let key in obj) {
+    if (obj[key] == Math.max(...Object.values(obj))) return key
+  }
+}
 // Your spouse tells you that one of the items on the list wasn't stolen, it is in your castle in Transilvania. Given an object of the stolen items and an item name, return a copy without that item on the list.
 // Examples
 // { piano: 300, tv: 100, skate:50 } ➞ { piano: 300, tv: 100 }
