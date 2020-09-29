@@ -1,3 +1,18 @@
+// Write a function that inverts the keys and values of an object.
+// Examples
+// invert({ "z": "q", "w": "f" })
+// ➞ { "q": "z", "f": "w" }
+// invert({ "a": 1, "b": 2, "c": 3 })
+// ➞ { 1: "a", 2: "b", 3: "c" 
+// invert({ "zebra": "koala", "horse": "camel" })
+// ➞ { "koala": "zebra", "camel": "horse" }
+// Notes
+// N/A
+
+function invert(o) {
+	return Object.fromEntries(Object.entries(o).map(ele => ele.reverse()))
+}
+
 // Write a function that has two parameters: orders and cost. Return any orders that are greater than the cost.
 // Examples
 // expensiveOrders({ "a": 3000, "b": 200, "c": 1050 }, 1000)
