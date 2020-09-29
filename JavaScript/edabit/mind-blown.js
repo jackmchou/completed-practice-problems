@@ -1,20 +1,30 @@
+// Write a function that has two parameters: orders and cost. Return any orders that are greater than the cost.
+// Examples
+// expensiveOrders({ "a": 3000, "b": 200, "c": 1050 }, 1000)
+// ➞ { "a": 3000, "c": 1050 }
+// expensiveOrders({ "Gucci Fur": 24600, "Teak Dining Table": 3200, "Louis Vutton Bag": 5550, "Dolce Gabana Heels": 4000 }, 20000)
+// ➞ { "Gucci Fur": 24600 }
+// expensiveOrders({ "Deluxe Burger": 35, "Icecream Shake": 4, "Fries": 5 }, 40)
+// ➞ {}
+// Notes
+// N/A
+function expensiveOrders(orders, cost) {
+  const arr = []
+  for (const [key, value] of Object.entries(orders)) {
+    if (value > cost) arr.push([key, value])
+  }
+  return Object.fromEntries(arr)
+}
 // Arrays can be mixed with various types. Your task for this challenge is to sum all the number elements in the given array. Create a function that takes an array and returns the sum of all numbers in the array.
 // Examples
-
 // numbersSum([1, 2, "13", "4", "645"]) ➞ 3
-
 // numbersSum([true, false, "123", "75"]) ➞ 0
-
 // numbersSum([1, 2, 3, 4, 5, true]) ➞ 15
-
 // Notes
-
 // Check the Resources tab for help.
-
 function numbersSum(arr) {
 	return arr.reduce((cur, acc) => typeof acc === 'number' ? cur + acc : cur + 0, 0)
 }
-
 // Create a function that takes an array of numbers arr, a string str and return an array of numbers as per the following rules:
 //     "Asc" returns a sorted array in ascending order.
 //     "Des" returns a sorted array in descending order.
