@@ -1,3 +1,35 @@
+// The iterated square root of a number is the number of times the square root function must be applied to bring the number strictly under 2.
+
+// Given an integer, return its iterated square root. Return "invalid" if it is negative.
+// Examples
+
+// iSqrt(1) ➞ 0
+
+// iSqrt(2) ➞ 1
+
+// iSqrt(7) ➞ 2
+
+// iSqrt(27) ➞ 3
+
+// iSqrt(256) ➞ 4
+
+// iSqrt(-1) ➞ "invalid"
+
+// Notes
+
+// Idea for iterated square root by Richard Spence.
+
+function iSqrt(n) {
+	if (n < 0) return 'invalid'
+  if (n == 2) return 1
+  var i = 0
+  while (Math.sqrt(n) >= 2) {
+    i++
+    n = Math.sqrt(n)
+  }
+  return i !== 0 ? i + 1 : 0
+}
+
 // Write a function that inverts the keys and values of an object.
 // Examples
 // invert({ "z": "q", "w": "f" })
