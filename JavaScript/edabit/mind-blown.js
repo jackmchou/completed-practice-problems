@@ -1,24 +1,31 @@
+// There's a great war between the even and odd numbers. Many numbers already lost their life in this war and it's your task to end this. You have to determine which group is larger: the even, or the odd. The larger group wins.
+// Create a function that takes an array of integers, sums the even and odd numbers seperately, then returns the larger of the sums minus the smaller.
+// Examples
+// warOfNumbers([2, 8, 7, 5]) ➞ 2
+// // 2 + 8 = 10
+// // 7 + 5 = 12
+// // 12 is larger than 10
+// // So we return 12 - 10 = 2
+// warOfNumbers([12, 90, 75]) ➞ 27
+// warOfNumbers([5, 9, 45, 6, 2, 7, 34, 8, 6, 90, 5, 243]) ➞ 168
+// Notes
+// N/A
+function warOfNumbers(arr) {
+  const evenSum = arr.reduce((cur, acc) => acc % 2 == 0 ? cur + acc : cur + 0, 0)
+  const oddSum = arr.reduce((cur, acc) => acc % 2 !== 0 ? cur + acc : cur + 0, 0)
+  return evenSum > oddSum ? evenSum - oddSum : oddSum - evenSum
+}
 // The iterated square root of a number is the number of times the square root function must be applied to bring the number strictly under 2.
-
 // Given an integer, return its iterated square root. Return "invalid" if it is negative.
 // Examples
-
 // iSqrt(1) ➞ 0
-
 // iSqrt(2) ➞ 1
-
 // iSqrt(7) ➞ 2
-
 // iSqrt(27) ➞ 3
-
 // iSqrt(256) ➞ 4
-
 // iSqrt(-1) ➞ "invalid"
-
 // Notes
-
 // Idea for iterated square root by Richard Spence.
-
 function iSqrt(n) {
 	if (n < 0) return 'invalid'
   if (n == 2) return 1
@@ -29,7 +36,6 @@ function iSqrt(n) {
   }
   return i !== 0 ? i + 1 : 0
 }
-
 // Write a function that inverts the keys and values of an object.
 // Examples
 // invert({ "z": "q", "w": "f" })
@@ -40,11 +46,9 @@ function iSqrt(n) {
 // ➞ { "koala": "zebra", "camel": "horse" }
 // Notes
 // N/A
-
 function invert(o) {
 	return Object.fromEntries(Object.entries(o).map(ele => ele.reverse()))
 }
-
 // Write a function that has two parameters: orders and cost. Return any orders that are greater than the cost.
 // Examples
 // expensiveOrders({ "a": 3000, "b": 200, "c": 1050 }, 1000)
