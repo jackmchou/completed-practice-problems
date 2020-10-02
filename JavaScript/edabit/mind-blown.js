@@ -1,3 +1,26 @@
+// Given a number, create a function which returns a new number based on the following rules:
+//     For each digit, replace it by the number of times it appears in the number.
+//     The final instance of the number will be an integer, not a string.
+// The following is a working example:
+// digitCount(136116) ➞ 312332
+// // The number 1 appears thrice, so replace all 1s with 3s.
+// // The number 3 appears only once, so replace all 3s with 1s.
+// // The number 6 appears twice, so replace all 6s with 2s.
+// Examples
+// digitCount(221333) ➞ 221333
+// digitCount(136116) ➞ 312332
+// digitCount(2) ➞ 1
+// Notes
+// Each test will have a positive whole number in its parameter.
+function digitCount(num) {
+	const numStr = '' + num
+  const obj = {}
+  for (let i = 0; i < numStr.length; i++) {
+    if (!obj[numStr[i]]) obj[numStr[i]] = 1
+    else obj[numStr[i]]++
+  }
+  return +[...numStr].map(ele => obj[ele]).join('')
+}
 // Write a function that takes the number of seconds and returns the digital format clock time as a string. Time should be counted from 00:00:00.
 // Examples
 // digitalClock(5025) ➞ "01:23:45"
@@ -8,7 +31,6 @@
 // // It's 00:10 next day.
 // Notes
 // seconds is always greater than or equal to 0.
-
 function digitalClock(seconds) {
   const timeStr = time => time < 10 ? ('' + time).padStart(2, '0') : '' + time
   const hour = seconds / 3600 | 0
@@ -16,7 +38,6 @@ function digitalClock(seconds) {
   const sec = seconds - (hour * 3600 + min * 60) | 0
   return `${timeStr(hour) >= 24 ? timeStr(timeStr(hour) % 24) : timeStr(hour)}:${timeStr(min)}:${timeStr(sec)}`
 }
-
 // There's a great war between the even and odd numbers. Many numbers already lost their life in this war and it's your task to end this. You have to determine which group is larger: the even, or the odd. The larger group wins.
 // Create a function that takes an array of integers, sums the even and odd numbers seperately, then returns the larger of the sums minus the smaller.
 // Examples
