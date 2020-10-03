@@ -1,21 +1,37 @@
+// Write a class called Name and create the following attributes given a first name and last name (as fname and lname):
+//     An attribute called fullname which returns the first and last names.
+//     A attribute called initials which returns the first letters of the first and last name. Put a . between the two letters.
+// Remember to allow the attributes fname and lname to be accessed individually as well.
+// Examples
+// a1 = new Name("john", "SMITH")
+// a1.fname ➞ "John"
+// a1.lname ➞ "Smith"
+// a1.fullname ➞ "John Smith"
+// a1.initials ➞ "J.S"
+// Notes
+//     Make sure only the first letter of each name is capitalised.
+//     Check the Resources tab for some helpful tutorials on JavaScript classes.
+class Name {
+  constructor(fname, lname) {
+    fname = fname[0].toUpperCase() + fname.slice(1).toLowerCase()
+    lname = lname[0].toUpperCase() + lname.slice(1).toLowerCase()
+    this.fname = fname
+    this.lname = lname
+    this.fullname = `${fname} ${lname}`
+    this.initials = `${fname[0]}.${lname[0]}`
+  }
+}
 // Create a function that returns true if all parameters are truthy, and false otherwise.
 // Examples
-
 // allTruthy(true, true, true) ➞ true
-
 // allTruthy(true, false, true) ➞ false
-
 // allTruthy(5, 4, 3, 2, 1, 0) ➞ false
-
 // Notes
-
 //     Falsy values include false, 0, "" (empty string), null, undefined, and NaN; everything else is truthy.
 //     You will always be supplied with at least one parameter.
-
 function allTruthy(...args) {
 	return args.every(ele => !ele ? false : true)
 }
-
 // Given a number, create a function which returns a new number based on the following rules:
 //     For each digit, replace it by the number of times it appears in the number.
 //     The final instance of the number will be an integer, not a string.
