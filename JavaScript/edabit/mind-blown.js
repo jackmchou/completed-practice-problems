@@ -1,3 +1,155 @@
+// Write a class called Name and create the following attributes given a first name and last name (as fname and lname):
+//     An attribute called fullname which returns the first and last names.
+//     A attribute called initials which returns the first letters of the first and last name. Put a . between the two letters.
+// Remember to allow the attributes fname and lname to be accessed individually as well.
+// Examples
+// a1 = new Name("john", "SMITH")
+// a1.fname ➞ "John"
+// a1.lname ➞ "Smith"
+// a1.fullname ➞ "John Smith"
+// a1.initials ➞ "J.S"
+// Notes
+//     Make sure only the first letter of each name is capitalised.
+//     Check the Resources tab for some helpful tutorials on JavaScript classes.
+class Name {
+  constructor(fname, lname) {
+    fname = fname[0].toUpperCase() + fname.slice(1).toLowerCase()
+    lname = lname[0].toUpperCase() + lname.slice(1).toLowerCase()
+    this.fname = fname
+    this.lname = lname
+    this.fullname = `${fname} ${lname}`
+    this.initials = `${fname[0]}.${lname[0]}`
+  }
+}
+// Create a function that returns true if all parameters are truthy, and false otherwise.
+// Examples
+// allTruthy(true, true, true) ➞ true
+// allTruthy(true, false, true) ➞ false
+// allTruthy(5, 4, 3, 2, 1, 0) ➞ false
+// Notes
+//     Falsy values include false, 0, "" (empty string), null, undefined, and NaN; everything else is truthy.
+//     You will always be supplied with at least one parameter.
+function allTruthy(...args) {
+	return args.every(ele => !ele ? false : true)
+}
+// Given a number, create a function which returns a new number based on the following rules:
+//     For each digit, replace it by the number of times it appears in the number.
+//     The final instance of the number will be an integer, not a string.
+// The following is a working example:
+// digitCount(136116) ➞ 312332
+// // The number 1 appears thrice, so replace all 1s with 3s.
+// // The number 3 appears only once, so replace all 3s with 1s.
+// // The number 6 appears twice, so replace all 6s with 2s.
+// Examples
+// digitCount(221333) ➞ 221333
+// digitCount(136116) ➞ 312332
+// digitCount(2) ➞ 1
+// Notes
+// Each test will have a positive whole number in its parameter.
+function digitCount(num) {
+	const numStr = '' + num
+  const obj = {}
+  for (let i = 0; i < numStr.length; i++) {
+    if (!obj[numStr[i]]) obj[numStr[i]] = 1
+    else obj[numStr[i]]++
+  }
+  return +[...numStr].map(ele => obj[ele]).join('')
+}
+// Write a function that takes the number of seconds and returns the digital format clock time as a string. Time should be counted from 00:00:00.
+// Examples
+// digitalClock(5025) ➞ "01:23:45"
+// // 5025 seconds is 1 hour, 23 mins, 45 secs.
+// digitalClock(61201) ➞ "17:00:01"
+// // No AM/PM. 24h format.
+// digitalClock(87000) ➞ "00:10:00"
+// // It's 00:10 next day.
+// Notes
+// seconds is always greater than or equal to 0.
+function digitalClock(seconds) {
+  const timeStr = time => time < 10 ? ('' + time).padStart(2, '0') : '' + time
+  const hour = seconds / 3600 | 0
+  const min = (seconds / 60 - hour * 60) | 0
+  const sec = seconds - (hour * 3600 + min * 60) | 0
+  return `${timeStr(hour) >= 24 ? timeStr(timeStr(hour) % 24) : timeStr(hour)}:${timeStr(min)}:${timeStr(sec)}`
+}
+// There's a great war between the even and odd numbers. Many numbers already lost their life in this war and it's your task to end this. You have to determine which group is larger: the even, or the odd. The larger group wins.
+// Create a function that takes an array of integers, sums the even and odd numbers seperately, then returns the larger of the sums minus the smaller.
+// Examples
+// warOfNumbers([2, 8, 7, 5]) ➞ 2
+// // 2 + 8 = 10
+// // 7 + 5 = 12
+// // 12 is larger than 10
+// // So we return 12 - 10 = 2
+// warOfNumbers([12, 90, 75]) ➞ 27
+// warOfNumbers([5, 9, 45, 6, 2, 7, 34, 8, 6, 90, 5, 243]) ➞ 168
+// Notes
+// N/A
+function warOfNumbers(arr) {
+  const evenSum = arr.reduce((cur, acc) => acc % 2 == 0 ? cur + acc : cur + 0, 0)
+  const oddSum = arr.reduce((cur, acc) => acc % 2 !== 0 ? cur + acc : cur + 0, 0)
+  return evenSum > oddSum ? evenSum - oddSum : oddSum - evenSum
+}
+// The iterated square root of a number is the number of times the square root function must be applied to bring the number strictly under 2.
+// Given an integer, return its iterated square root. Return "invalid" if it is negative.
+// Examples
+// iSqrt(1) ➞ 0
+// iSqrt(2) ➞ 1
+// iSqrt(7) ➞ 2
+// iSqrt(27) ➞ 3
+// iSqrt(256) ➞ 4
+// iSqrt(-1) ➞ "invalid"
+// Notes
+// Idea for iterated square root by Richard Spence.
+function iSqrt(n) {
+	if (n < 0) return 'invalid'
+  if (n == 2) return 1
+  var i = 0
+  while (Math.sqrt(n) >= 2) {
+    i++
+    n = Math.sqrt(n)
+  }
+  return i !== 0 ? i + 1 : 0
+}
+// Write a function that inverts the keys and values of an object.
+// Examples
+// invert({ "z": "q", "w": "f" })
+// ➞ { "q": "z", "f": "w" }
+// invert({ "a": 1, "b": 2, "c": 3 })
+// ➞ { 1: "a", 2: "b", 3: "c" 
+// invert({ "zebra": "koala", "horse": "camel" })
+// ➞ { "koala": "zebra", "camel": "horse" }
+// Notes
+// N/A
+function invert(o) {
+	return Object.fromEntries(Object.entries(o).map(ele => ele.reverse()))
+}
+// Write a function that has two parameters: orders and cost. Return any orders that are greater than the cost.
+// Examples
+// expensiveOrders({ "a": 3000, "b": 200, "c": 1050 }, 1000)
+// ➞ { "a": 3000, "c": 1050 }
+// expensiveOrders({ "Gucci Fur": 24600, "Teak Dining Table": 3200, "Louis Vutton Bag": 5550, "Dolce Gabana Heels": 4000 }, 20000)
+// ➞ { "Gucci Fur": 24600 }
+// expensiveOrders({ "Deluxe Burger": 35, "Icecream Shake": 4, "Fries": 5 }, 40)
+// ➞ {}
+// Notes
+// N/A
+function expensiveOrders(orders, cost) {
+  const arr = []
+  for (const [key, value] of Object.entries(orders)) {
+    if (value > cost) arr.push([key, value])
+  }
+  return Object.fromEntries(arr)
+}
+// Arrays can be mixed with various types. Your task for this challenge is to sum all the number elements in the given array. Create a function that takes an array and returns the sum of all numbers in the array.
+// Examples
+// numbersSum([1, 2, "13", "4", "645"]) ➞ 3
+// numbersSum([true, false, "123", "75"]) ➞ 0
+// numbersSum([1, 2, 3, 4, 5, true]) ➞ 15
+// Notes
+// Check the Resources tab for help.
+function numbersSum(arr) {
+	return arr.reduce((cur, acc) => typeof acc === 'number' ? cur + acc : cur + 0, 0)
+}
 // Create a function that takes an array of numbers arr, a string str and return an array of numbers as per the following rules:
 //     "Asc" returns a sorted array in ascending order.
 //     "Des" returns a sorted array in descending order.
