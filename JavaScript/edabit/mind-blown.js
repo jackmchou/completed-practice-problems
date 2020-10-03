@@ -1,3 +1,21 @@
+// Create a function that returns true if all parameters are truthy, and false otherwise.
+// Examples
+
+// allTruthy(true, true, true) ➞ true
+
+// allTruthy(true, false, true) ➞ false
+
+// allTruthy(5, 4, 3, 2, 1, 0) ➞ false
+
+// Notes
+
+//     Falsy values include false, 0, "" (empty string), null, undefined, and NaN; everything else is truthy.
+//     You will always be supplied with at least one parameter.
+
+function allTruthy(...args) {
+	return args.every(ele => !ele ? false : true)
+}
+
 // Given a number, create a function which returns a new number based on the following rules:
 //     For each digit, replace it by the number of times it appears in the number.
 //     The final instance of the number will be an integer, not a string.
