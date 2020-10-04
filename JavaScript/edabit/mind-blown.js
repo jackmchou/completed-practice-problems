@@ -1,3 +1,22 @@
+// Create a function that takes an old price oldPrice, a new price newPrice, and returns what percent the price decreased or increased. Round the percentage to the nearest whole percent.
+// Examples
+
+// percentageChanged("$800", "$600") ➞ "25% decrease"
+
+// percentageChanged("$1000", "$840") ➞ "16% decrease"
+
+// percentageChanged("$100", "$950") ➞ "850% increase"
+
+// Notes
+
+// N/A
+
+function percentageChanged(oldPrice, newPrice) {
+  const oldPriceNum = +oldPrice.slice(1), newPriceNum = +newPrice.slice(1)
+  const pct = (Math.abs(newPriceNum / oldPriceNum - 1) * 100).toFixed(0)
+	return oldPriceNum < newPriceNum ? `${pct}% increase` : `${pct}% decrease`
+}
+
 // Write a class called Name and create the following attributes given a first name and last name (as fname and lname):
 //     An attribute called fullname which returns the first and last names.
 //     A attribute called initials which returns the first letters of the first and last name. Put a . between the two letters.
@@ -30,7 +49,7 @@ class Name {
 //     Falsy values include false, 0, "" (empty string), null, undefined, and NaN; everything else is truthy.
 //     You will always be supplied with at least one parameter.
 function allTruthy(...args) {
-	return args.every(ele => !ele ? false : true)
+  return args.every(ele => !ele ? false : true)
 }
 // Given a number, create a function which returns a new number based on the following rules:
 //     For each digit, replace it by the number of times it appears in the number.
@@ -47,7 +66,7 @@ function allTruthy(...args) {
 // Notes
 // Each test will have a positive whole number in its parameter.
 function digitCount(num) {
-	const numStr = '' + num
+  const numStr = '' + num
   const obj = {}
   for (let i = 0; i < numStr.length; i++) {
     if (!obj[numStr[i]]) obj[numStr[i]] = 1
@@ -101,7 +120,7 @@ function warOfNumbers(arr) {
 // Notes
 // Idea for iterated square root by Richard Spence.
 function iSqrt(n) {
-	if (n < 0) return 'invalid'
+  if (n < 0) return 'invalid'
   if (n == 2) return 1
   var i = 0
   while (Math.sqrt(n) >= 2) {
@@ -121,7 +140,7 @@ function iSqrt(n) {
 // Notes
 // N/A
 function invert(o) {
-	return Object.fromEntries(Object.entries(o).map(ele => ele.reverse()))
+  return Object.fromEntries(Object.entries(o).map(ele => ele.reverse()))
 }
 // Write a function that has two parameters: orders and cost. Return any orders that are greater than the cost.
 // Examples
@@ -148,7 +167,7 @@ function expensiveOrders(orders, cost) {
 // Notes
 // Check the Resources tab for help.
 function numbersSum(arr) {
-	return arr.reduce((cur, acc) => typeof acc === 'number' ? cur + acc : cur + 0, 0)
+  return arr.reduce((cur, acc) => typeof acc === 'number' ? cur + acc : cur + 0, 0)
 }
 // Create a function that takes an array of numbers arr, a string str and return an array of numbers as per the following rules:
 //     "Asc" returns a sorted array in ascending order.
@@ -212,7 +231,7 @@ function bio({first, last, best = user.bestFriend.first}) {
 // Notes
 // N/A
 function calculateScore(games) {
-	const winCondition = {'S': 'R', 'R': 'P', 'P': 'S'}
+  const winCondition = { 'S': 'R', 'R': 'P', 'P': 'S' }
   let abi = 0, ben = 0
   for (let i = 0; i < games.length; i++) {
     const [abiChoice, benChoice] = games[i]
@@ -220,7 +239,7 @@ function calculateScore(games) {
     else if (benChoice === winCondition[abiChoice]) ben++
   }
   if (abi === ben) return 'Tie'
-  else return abi > ben ? 'Abigail' : 'Benson' 
+  else return abi > ben ? 'Abigail' : 'Benson'
 }
 // Time to call your lover to inform what he/she lost in the burglary.
 // Given an object of the stolen objects, return the 3rd most expensive item on the list. If that is not possible, because there are not enough items, return false.
@@ -233,7 +252,7 @@ function calculateScore(games) {
 // N/A
 function thirdMostExpensive(obj) {
   const objValuesArr = Object.values(obj)
-	if (objValuesArr.length < 3) return false
+  if (objValuesArr.length < 3) return false
   for (let key in obj) {
     if (obj[key] == objValuesArr.sort((a, b) => b - a)[2]) return key
   }
@@ -253,7 +272,7 @@ function thirdMostExpensive(obj) {
 //     You always return one Rammstein bottle.
 function getVodkaBottle(obj, num) {
   for (let key in obj) {
-    if(obj[key] == num && key.includes('Rammstein')) return key
+    if (obj[key] == num && key.includes('Rammstein')) return key
   }
 }
 // Your spouse is not concerned with the loss of material possessions but rather with his/her favorite pet. Is it gone?!
@@ -279,7 +298,7 @@ function getVodkaBottle(obj, num) {
 // N/A
 function findIt(obj, name) {
   const capName = `${name[0].toUpperCase()}${name.slice(1)}`
-	if (obj.hasOwnProperty(name)) return capName + ' is gone...'
+  if (obj.hasOwnProperty(name)) return capName + ' is gone...'
   else return capName + ' is here!'
 }
 // The insurance guy calls, the policy you chose doesn't cover values below 5000€, it wouldn't dignify your status you said at the time. Given an object with a list of the stolen items, return a copy of that list without the values below 5000.
@@ -292,7 +311,7 @@ function findIt(obj, name) {
 // N / A
 function filterValues(obj) {
   const objCopy = Object.assign({}, obj)
-	for (let key in objCopy) {
+  for (let key in objCopy) {
     if (objCopy[key] < 5000) delete objCopy[key]
   }
   return objCopy
@@ -339,7 +358,7 @@ function removeEntry(obj, itemName) {
 // Notes
 // N/A
 function convertToNumber(obj) {
-	for (let key in obj) {
+  for (let key in obj) {
     obj[key] = +obj[key]
   }
   return obj
@@ -358,7 +377,7 @@ function convertToNumber(obj) {
 //     Intervals count as intersecting even if they only intersect at one point, i.e. [2, 3] and [3, 4] both intersect at point 3.
 //     If it's helpful, you can draw these intervals on a line on a piece of paper.
 function countOverlapping(intervals, point) {
-	let count = 0
+  let count = 0
   intervals.forEach(ele => ele[0] <= point && ele[1] >= point ? count++ : null)
   return count
 }
@@ -378,18 +397,18 @@ function countOverlapping(intervals, point) {
 // During leap years the end date of Winter in the northern hemisphere is the 29th day of February (last day of Summer in the southern hemisphere). In this challenge, years are not used, so the last day of February will always be the 28th.
 function hemisphereSeason(hemisphere, date) {
   const obj = {
-    0: {'N': 'Winter', 'S': 'Summer'},
-    1: {'N': 'Winter', 'S': 'Summer'},
-    2: {'N': 'Spring', 'S': 'Autumn'},
-    3: {'N': 'Spring', 'S': 'Autumn'},
-    4: {'N': 'Spring', 'S': 'Autumn'},
-    5: {'N': 'Summer', 'S': 'Winter'},
-    6: {'N': 'Summer', 'S': 'Winter'},
-    7: {'N': 'Summer', 'S': 'Winter'},
-    8: {'N': 'Autumn', 'S': 'Spring'},
-    9: {'N': 'Autumn', 'S': 'Spring'},
-    10: {'N': 'Autumn', 'S': 'Spring'},
-    11: {'N': 'Winter', 'S': 'Summer'}
+    0: { 'N': 'Winter', 'S': 'Summer' },
+    1: { 'N': 'Winter', 'S': 'Summer' },
+    2: { 'N': 'Spring', 'S': 'Autumn' },
+    3: { 'N': 'Spring', 'S': 'Autumn' },
+    4: { 'N': 'Spring', 'S': 'Autumn' },
+    5: { 'N': 'Summer', 'S': 'Winter' },
+    6: { 'N': 'Summer', 'S': 'Winter' },
+    7: { 'N': 'Summer', 'S': 'Winter' },
+    8: { 'N': 'Autumn', 'S': 'Spring' },
+    9: { 'N': 'Autumn', 'S': 'Spring' },
+    10: { 'N': 'Autumn', 'S': 'Spring' },
+    11: { 'N': 'Winter', 'S': 'Summer' }
   }
   return obj[new Date(date).getMonth()][hemisphere]
 }
@@ -420,7 +439,7 @@ function fractionHalf(fraction) {
 // Notes
 // Every given test case has valid parameters, don't worry about exceptions handling.
 function wordBuilder(letters, positions) {
-	const word = []
+  const word = []
   for (let i = 0; i < letters.length; i++) {
     word[positions[i]] = letters[i]
   }
@@ -462,7 +481,7 @@ function collatz(num) {
 //     Spaces are not letters.
 //     All tests contain valid strings.
 function countAll(str) {
-	const obj = {'LETTERS': 0, 'DIGITS': 0}
+  const obj = { 'LETTERS': 0, 'DIGITS': 0 }
   for (let i = 0; i < str.length; i++) {
     if (/[A-z]/.test(str[i])) obj['LETTERS'] += 1
     else if (/[0-9]/.test(str[i])) obj['DIGITS'] += 1
@@ -481,7 +500,7 @@ function countAll(str) {
 // Notes
 // If you get stuck on a challenge, find help in Resources.
 function weight(r, h) {
-	return +(Math.PI * h * r ** 2 * 0.001).toFixed(2)
+  return +(Math.PI * h * r ** 2 * 0.001).toFixed(2)
 }
 // Write a function that reverses the subarray between the start and end index (inclusive). The rest of the array should be kept the same.
 // Examples
@@ -616,7 +635,7 @@ function calculateLosses(obj) {
 // Notes
 // N/A
 function leftShift(arr, num) {
-	if (arr.length == num) return arr
+  if (arr.length == num) return arr
   for (let i = num; i > 0; i--) {
     let shifted = arr.shift()
     arr.push(shifted)
@@ -624,7 +643,7 @@ function leftShift(arr, num) {
   return arr
 }
 function rightShift(arr, num) {
-	if (arr.length == num) return arr
+  if (arr.length == num) return arr
   for (let i = 0; i < num; i++) {
     let popped = arr.pop()
     arr.unshift(popped)
@@ -642,7 +661,7 @@ function rightShift(arr, num) {
 // Notes
 // Count 0 as an even number.
 function sumOddAndEven(arr) {
-	const result = [0, 0]
+  const result = [0, 0]
   for (let i = 0; i < arr.length; i++) {
     arr[i] % 2 === 0 ? result[0] += arr[i] : result[1] += arr[i]
   }
@@ -687,7 +706,7 @@ function sumOddAndEven(arr) {
 //     The 2D grid is always a rectangular/square shape.
 //     Always return some form of nested array, unless there are no elements. In that case, return an empty array.
 function peelLayerOff(arr) {
-	return arr.slice(1, -1).map(ele => ele.slice(1, -1))
+  return arr.slice(1, -1).map(ele => ele.slice(1, -1))
 }
 // Create a function that takes in an array and returns an array of the accumulating sum.
 // Examples
@@ -718,7 +737,7 @@ function accumulatingArray(arr) {
 // N/A
 function sumDigits(a, b) {
   let sum = 0
-  for (let i = a; i <= b; i++){
+  for (let i = a; i <= b; i++) {
     sum += [...('' + i)].reduce((cur, acc) => cur + +acc, 0)
   }
   return sum
@@ -731,7 +750,7 @@ function sumDigits(a, b) {
 // Notes
 // The given array contains numbers or strings.
 function multiply(arr) {
-	return arr.map(ele => Array.from({length: arr.length}).fill(ele))
+  return arr.map(ele => Array.from({ length: arr.length }).fill(ele))
 }
 // Create a function that takes a string and returns the letters that occur only once.
 // Examples
@@ -743,7 +762,7 @@ function multiply(arr) {
 //     Return the letters in the sequence they were originally in, do not sort them.
 //     All letters will be in lowercase.
 function findLetters(str) {
-	const uniq = []
+  const uniq = []
   for (let i = 0; i < str.length; i++) {
     if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) uniq.push(str[i])
   }
@@ -767,7 +786,7 @@ function findLetters(str) {
 // for loop to iterate through the string, when the string index is a vowel check against the object for the corresponding number
 // Add to sum accordingly, return the sum
 function sumOfVowels(str) {
-	const vowels = {'A': 4, 'E': 3, 'I': 1, 'O': 0}
+  const vowels = { 'A': 4, 'E': 3, 'I': 1, 'O': 0 }
   let sum = 0
   for (let i = 0; i < str.length; i++) {
     const upperChar = str[i].toUpperCase()
@@ -801,7 +820,7 @@ function Stack() {
   };
 }
 function toBinary(num) {
-	let stack = new Stack();
+  let stack = new Stack();
   let binaryResult = ''
   let nextNumber = num
   do {
@@ -825,7 +844,7 @@ function toBinary(num) {
 // Notes
 // If any character in the string isn't a letter, ignore it.
 function alphabetIndex(str) {
-	return [...str.toLowerCase().match(/[^\W\d_]/g)].map(ele => ele.charCodeAt(0) - 96).join(' ')
+  return [...str.toLowerCase().match(/[^\W\d_]/g)].map(ele => ele.charCodeAt(0) - 96).join(' ')
 }
 // In JavaScript, there are two types of comments:
 //     Single-line comments start with //
@@ -861,7 +880,7 @@ function commentsCorrect(str) {
 //     All digits in num2 have to be higher than their counterparts in num1.
 function digitDistance(num1, num2) {
   let result = 0
-	const [numStr1, numStr2] = [('' + num1), ('' + num2)]
+  const [numStr1, numStr2] = [('' + num1), ('' + num2)]
   for (let i = 0; i < numStr1.length; i++) {
     result += Math.abs(numStr1[i] - numStr2[i])
   }
@@ -883,7 +902,7 @@ function digitDistance(num1, num2) {
 function mergeArrays(a, b) {
   const len = a.length > b.length ? a.length : b.length
   const result = []
-	for (let i = 0; i < len; i++) {
+  for (let i = 0; i < len; i++) {
     if (a[i]) result.push(a[i])
     if (b[i]) result.push(b[i])
   }
@@ -922,7 +941,7 @@ function numberOfDays(coordinate) {
 // Check the Resources tab if you get stuck.
 function time(obj, people, walls) {
   if (people == obj.people && walls == obj.walls) return obj.minutes
-	const perPersonTime = obj.people * (obj.walls / obj.minutes)
+  const perPersonTime = obj.people * (obj.walls / obj.minutes)
   return perPersonTime * walls * people
 }
 // Given an array of ingredients i and a string flavour f as input, create a function that returns the array but with the elements bread around the selected ingredient.
@@ -955,7 +974,7 @@ const REGEXP = /best\sb\w+/g
 //     Do NOT count words where the ly is in the beginning or the middle (e.g. Lysol, Illya).
 //     For the purpose of this exercise, ignore the nuances of the English language (some adjectives also end in ly).
 function countAdverbs(sentence) {
-	let count = 0
+  let count = 0
   sentence.slice(0, -1).split(' ').forEach(ele => {
     const adverbCheck = ele.endsWith(',') ? ele.slice(0, -1).endsWith('ly') : ele.endsWith('ly')
     adverbCheck ? count++ : null
@@ -971,7 +990,7 @@ function countAdverbs(sentence) {
 //     Albums object is made for you.
 //     If the album isn't in the object, return the string "Unknown".
 function releaseYear(album) {
-	const albums = {
+  const albums = {
     "2015": ["Vulnicura", "Honeymoon", "Rebel Heart"],
     "2016": ["Lemonade", "Blackstar", "A Moon Shaped Pool"],
     "2017": ["Flower Boy", "Antisocialites"],
@@ -979,7 +998,7 @@ function releaseYear(album) {
     "2019": ["thank u next", "Magdalene", "Ode to Joy"],
     "2020": ["Rough and Rowdy Ways", "folklore", "Future Nostalgia", "Colores"]
   }
-	for (const keys in albums) {
+  for (const keys in albums) {
     if (albums[keys].includes(album)) return +keys
   }
   return "Unknown"
@@ -1018,7 +1037,7 @@ function releaseYear(album) {
 //     In the returned string, pronouns must be capitalized and verbs must be in lowercase, separated by a space between them.
 //     Curious fact: first conjugation (verbs ending in "are") is also called "the living conjugation", because every new verb that enters the Italian dictionary is assigned to this category as a new regular verb; it often happens for verbs "borrowed" from English and for informatical neologisms: chattare, twittare, postare, spammare... will edabittare be the next?
 function conjugate(verb, pronoun) {
-	const table = {1: ['Io', 'o'], 2: ['Tu', 'i'], 3: ['Egli', 'a'], 4: ['Noi', 'iamo'], 5: ['Voi', 'ate'], 6: ['Essi', 'ano']}
+  const table = { 1: ['Io', 'o'], 2: ['Tu', 'i'], 3: ['Egli', 'a'], 4: ['Noi', 'iamo'], 5: ['Voi', 'ate'], 6: ['Essi', 'ano'] }
   let root = verb.slice(0, -3)
   if (root.endsWith('c') || (root.endsWith('g') && pronoun !== 3)) root = verb.slice(0, -3) + 'h'
   else if (root.endsWith('i') && (pronoun == 2 || pronoun == 4)) table[pronoun][1] = table[pronoun][1].slice(1)
@@ -1073,8 +1092,8 @@ function floatSum(A, B) {
 //     The units used are limited to: millimeters, centimeters, meters and kilometers.
 //     Ensure you return the answer and add the correct unit in the format cubic <unit>.
 function pyramidVolume(length, width, height, unit) {
-	const volume = (1 / 3) * (length * width) * height
-  const metric = { 'millimeters': 10 ** 9,'centimeters': 10 ** 6, 'meters': 1, 'kilometers': 10 ** -9}
+  const volume = (1 / 3) * (length * width) * height
+  const metric = { 'millimeters': 10 ** 9, 'centimeters': 10 ** 6, 'meters': 1, 'kilometers': 10 ** -9 }
   return `${(volume * metric[unit]).toFixed(3)} cubic ${unit}`
 }
 // Create a function that takes an array as an argument and return an array of the sum of each of its slices. An array's slices are groups of consecutive values that add up to a maximum of 100. No slice's total sum should exceed 100.
@@ -1137,7 +1156,7 @@ function smallest(digits, value) {
 //     The array will contain at least one non-spicy dish N (you're not going to let your poor friend go hungry, are you?).
 //     Express both payments as integers.
 function billSplit(spicy, cost) {
-	const split = [0, 0]
+  const split = [0, 0]
   for (let i = 0; i < cost.length; i++) {
     if (spicy[i] === 'S') split[0] += cost[i]
     else {
@@ -1163,13 +1182,13 @@ function billSplit(spicy, cost) {
 //     XOR is the same as OR, except that it excludes [true, true].
 //     Each time you evaluate an element at 0 and at 1, you collapse it into the single result.
 function and(arr) {
-	return arr.reduce((cur, acc) => cur && acc)
+  return arr.reduce((cur, acc) => cur && acc)
 }
 function or(arr) {
-	return arr.reduce((cur, acc) => cur || acc)
+  return arr.reduce((cur, acc) => cur || acc)
 }
 function xor(arr) {
-	return arr.reduce((cur, acc) => cur ? !acc : acc)
+  return arr.reduce((cur, acc) => cur ? !acc : acc)
 }
 // Given a character and a value between 0 and 100, return a string that represents a simple progress bar.
 //     The value represents a percentage.
@@ -1186,7 +1205,7 @@ function xor(arr) {
 // Notes
 // N/A
 function progressBar(bar, progress) {
-  return `|${bar.repeat(progress / 10)}${' '.repeat((100 - progress) / 10)}| ${progress !== 100 ? `Progress: ${progress}%` : 'Completed!' }`
+  return `|${bar.repeat(progress / 10)}${' '.repeat((100 - progress) / 10)}| ${progress !== 100 ? `Progress: ${progress}%` : 'Completed!'}`
 }
 // Create a function that returns the sum of missing numbers.
 // Examples
@@ -1203,7 +1222,7 @@ function sumMissingNumbers(arr) {
   //   missing.push(i)
   // }
   // return missing.filter(ele => !arr.includes(ele)).reduce((cur, acc) => cur + acc, 0)
-  const range = Array.from({length: (arr[arr.length - 1] - arr[0])}, (_, i) => arr[0] + (i * 1))
+  const range = Array.from({ length: (arr[arr.length - 1] - arr[0]) }, (_, i) => arr[0] + (i * 1))
   return range.filter(ele => !arr.includes(ele)).reduce((cur, acc) => cur + acc, 0)
 }
 // Write the function that takes three dimensions of a brick: height(a), width(b) and depth(c) and returns true if this brick can fit into a hole with the width(w) and height(h).
@@ -1215,7 +1234,7 @@ function sumMissingNumbers(arr) {
 //     You can turn the brick with any side towards the hole.
 //     We assume that the brick fits if its sizes equal the ones of the hole (i.e. brick size should be less than or equal to the size of the hole, not strickly less).
 //     You can't put a brick in at a non-orthogonal angle.
-function doesBrickFit(a,b,c, w,h) {
+function doesBrickFit(a, b, c, w, h) {
   return [a * b, b * c, c * a].some(ele => ele <= w * h)
 }
 // This challenge involves a series that can start with any string of digits. The next term in the series is found by adding the digits of the previous term, appending that sum to the previous term, and then truncating the leftmost digits so that the number of digits in the terms is always the same.
@@ -1328,7 +1347,7 @@ function sharedLetters(str1, str2) {
 function tallestBuildingHeight(arr) {
   let height = 0
   arr.forEach(ele => ele.includes('#') ? height++ : 0)
-  return `${height	* 20}m`
+  return `${height * 20}m`
 }
 // In this challenge you will be given an array similar to the following:
 // [[3], 4, [2], [5], 1, 6]
@@ -1344,7 +1363,7 @@ function tallestBuildingHeight(arr) {
 // Notes
 // To reiterate, elements of the array will be either integers or arrays with a single integer.
 function sortIt(arr) {
-	return arr.sort((a, b) => a - b)
+  return arr.sort((a, b) => a - b)
 }
 // Create a function that outputs the results of a flashcard. A flashcard is an array of three elements: a number, an operator symbol, and another number. Return the mathematical result of that expression.
 // There are 4 operators: + (addition), - (subtraction), x (multiplication), and / (division). If the flashcard displays a number being divided by zero, e.g. [3, "/", 0], then return undefined. For division, round to the hundredths place. So [10, "/", 3] should return 3.33.
@@ -1360,17 +1379,17 @@ function flash([num1, op, num2]) {
   if (op === '/' && num2 === 0) return undefined
   switch (op) {
     case 'x':
-    return num1 * num2
-    break
+      return num1 * num2
+      break
     case '+':
-    return num1 + num2
-    break
+      return num1 + num2
+      break
     case '-':
-    return num1 - num2
-    break
+      return num1 - num2
+      break
     case '/':
-    return +(num1 / num2).toFixed(2)
-    break;
+      return +(num1 / num2).toFixed(2)
+      break;
   }
 }
 // Syncopation means an emphasis on a weak beat of a bar of music; most commonly, beats 2 and 4 (and all other even-numbered beats if applicable).
@@ -1389,7 +1408,7 @@ function hasSyncopation(s) {
     ".#": true
   }
   if (obj[s]) return obj[s]
-	return [...s].some((ele, idx, arr) => ele === '#' && arr[idx + 2] === '#')
+  return [...s].some((ele, idx, arr) => ele === '#' && arr[idx + 2] === '#')
 }
 // Create a function that takes an array of numbers and return its median. If the input array is even length, take the average of the two medians, else, take the single median.
 // Examples
@@ -1401,7 +1420,7 @@ function hasSyncopation(s) {
 //     Input array will contain at least four numbers.
 //     See Resources tab for info on calculating the median.
 function median(arr) {
-	const sorted = arr.sort((a, b) => a - b)
+  const sorted = arr.sort((a, b) => a - b)
   const len = sorted.length
   const mid = len / 2
   return len % 2 === 1 ? sorted[mid | 0] : sorted.slice(mid - 1, mid + 1).reduce((cur, acc) => (cur + acc) / 2)
@@ -1429,7 +1448,7 @@ function unstretch(word) {
 // Notes
 // Return an empty array if the input is an empty array.
 function cumulativeSum(arr) {
-	if (!arr.length || arr.length === 1) return arr
+  if (!arr.length || arr.length === 1) return arr
   const result = []
   arr.reduce((cur, acc, idx) => result[idx] = cur + acc, 0)
   return result
@@ -1444,7 +1463,7 @@ function cumulativeSum(arr) {
 // Notes
 // N/A
 function isEqual(arr) {
-	const [sum1, sum2] = arr.map(ele => [...'' + ele].reduce((cur, acc) => cur + +acc, 0))
+  const [sum1, sum2] = arr.map(ele => [...'' + ele].reduce((cur, acc) => cur + +acc, 0))
   return sum1 === sum2
 }
 // Given two unique integer arrays a and b, and an integer target value v, create a function to determine whether there is a pair of numbers that add up to the target value v, where one number comes from one array a and the other comes from the second array b.
@@ -1457,7 +1476,7 @@ function isEqual(arr) {
 // Notes
 // N/A
 function sumOfTwo(a, b, v) {
-	for (let i = 0; i < b.length; i++) {
+  for (let i = 0; i < b.length; i++) {
     for (let j = 0; j < a.length; j++) {
       if (b[i] + a[j] === v) return true
     }
@@ -1500,7 +1519,7 @@ function sumOfTwo(a, b, v) {
 //     You can expect positive integers greater than 9 as input (a single-digit number can't be partitioned).
 function isAstonishing(num) {
   const numStr = '' + num
-	for (let i = 1; i < numStr.length; i++) {
+  for (let i = 1; i < numStr.length; i++) {
     let sum = 0
     let a = +numStr.slice(0, i)
     let b = +numStr.slice(-(numStr.length - i))
@@ -1561,7 +1580,7 @@ function isSet(cards) {
   const numbers = new Set()
   const shade = new Set()
   const shape = new Set()
-	for (let i = 0; i < cards.length; i++) {
+  for (let i = 0; i < cards.length; i++) {
     colors.add(cards[i].color)
     numbers.add(cards[i].number)
     shade.add(cards[i].shade)
@@ -1592,7 +1611,7 @@ var magnitude = vector => Math.sqrt(vector.map(ele => ele * ele).reduce((cur, ac
 //     The function should return a string with the percent sign.
 //     Round your answer to the nearest whole number.
 function freeThrows(success, rows) {
-  return `${Math.round(((success.slice(0, -1) * 0.01) ** rows) * 100)}%`	
+  return `${Math.round(((success.slice(0, -1) * 0.01) ** rows) * 100)}%`
 }
 // A ship has to transport cargo from one place to another, while picking up cargo along the way. Given the total amount of cargo and the types of cargo holds in the ship as arrays, create a function that returns true if all the cargo can fit on the ship, and false if it can't.
 //     "S" means 50 cargo space.
@@ -1605,7 +1624,7 @@ function freeThrows(success, rows) {
 // Notes
 // Calculate the cargo as a whole, and not for each seperate cargo hold (see example #2).
 function willFit(holds, cargo) {
-	const cargoHold = {'S': 50, 'M':100, 'L':200}
+  const cargoHold = { 'S': 50, 'M': 100, 'L': 200 }
   return holds.reduce((cur, acc) => cur + cargoHold[acc], 0) >= cargo.reduce((cur, acc) => cur + acc)
 }
 // You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character. The . is the only exception. It requires no \ and it is a wildcard character. It matches any character except for line terminators.
@@ -1653,7 +1672,7 @@ const REGEXP = /^.{3}|(?<=, ).{3}/g
 let carLot = {}
 const carMaker = (make) => {
   let sum = 0
-	return (num) => {
+  return (num) => {
     carLot[make] = sum += num
   }
 }
@@ -1665,7 +1684,7 @@ const carMaker = (make) => {
 // Notes
 // If any input is "", undefined or null, return "Invalid Operation".
 function add(numberOne, numberTwo) {
-	return numberOne && numberTwo ? '' + (+numberOne + +numberTwo) : 'Invalid Operation'
+  return numberOne && numberTwo ? '' + (+numberOne + +numberTwo) : 'Invalid Operation'
 }
 // You're given a string of words. You need to find the word "Nemo", and return a string like this: "I found Nemo at [the order of the word you find nemo]!".
 // If you can't find Nemo, return "I can't find Nemo :(".
@@ -1680,7 +1699,7 @@ function add(numberOne, numberTwo) {
 //     If there are multiple Nemo's in the sentence, only return for the first one.
 function findNemo(sentence) {
   const nemoIdx = sentence.split(' ').indexOf('Nemo')
-	return nemoIdx !== -1 ? `I found Nemo at ${nemoIdx + 1}!` : "I can't find Nemo :("
+  return nemoIdx !== -1 ? `I found Nemo at ${nemoIdx + 1}!` : "I can't find Nemo :("
 }
 // Create a function that receives a non-negative integer and returns the factorial of that number.
 // Examples
@@ -1691,7 +1710,7 @@ function findNemo(sentence) {
 // Notes
 // Avoid using built-in functions to solve this challenge.
 function fact(n) {
-	return n ? n * fact(n - 1) : 1
+  return n ? n * fact(n - 1) : 1
 }
 // Write a function that returns the string "something" joined with a space " " and the given argument a.
 // Examples
@@ -1701,7 +1720,7 @@ function fact(n) {
 // Notes
 // Assume an input is given.
 function giveMeSomething(a) {
-	return `something ${a}`
+  return `something ${a}`
 }
 // then() functions return a new promise, different from the original. Since catch functions are actually then() functions behind the scenes, they also return new promises. So if that's true then you could do something like this:
 // new Promise((resolve, reject) => {
@@ -1727,20 +1746,20 @@ function giveMeSomething(a) {
 // Notes
 //     Do not overthink this!
 //     Check the Resources tab if you get stuck.
-function doSomething (isGoingToResolve = true) {
+function doSomething(isGoingToResolve = true) {
   return new Promise((resolve, reject) => {
-  if (isGoingToResolve) {
+    if (isGoingToResolve) {
       resolve("something")
-  } else {
+    } else {
       reject("something else")
-  }
-}).then(response => {
-  console.log("in my function",response)
-  return response
-}).catch(error => {
-  console.log("in my function",error)
-  throw error
-})
+    }
+  }).then(response => {
+    console.log("in my function", response)
+    return response
+  }).catch(error => {
+    console.log("in my function", error)
+    throw error
+  })
 }
 doSomething().then(response => {
   console.log("in my main call", response)
@@ -1759,7 +1778,7 @@ doSomething().then(response => {
 //     Remember that the range is inclusive.
 //     a < b will always be true.
 function powerRanger(power, min, max) {
-	let n = 1
+  let n = 1
   const arr = []
   let cur = 0
   while (cur <= max) {
@@ -1819,7 +1838,7 @@ function recompose(string) {
 // In case the number 0 happens to be in the range, return "EdaBit" as well.
 function edaBit(start, end) {
   const arr = []
-	for (let i = start; i < end + 1; i++) {
+  for (let i = start; i < end + 1; i++) {
     if (i % 3 == 0 && i % 5 == 0) arr.push('EdaBit')
     else if (i % 5 == 0) arr.push('Bit')
     else if (i % 3 == 0) arr.push('Eda')
@@ -1907,7 +1926,7 @@ function countVowels(str, count = str.length) {
 // Notes
 // N/A
 function factorial(num) {
-	return num <= 1 ? 1 : num * factorial(num - 1)
+  return num <= 1 ? 1 : num * factorial(num - 1)
 }
 // Welcome to the beginning of this collection on Computer Science Algorithms. Admittedly there are other challenges on Edabit that deal with recursion and algorithmic processes, but these particular challenges are designed to give examples and to educate users on the topics being covered.
 // Recursion
@@ -1935,7 +1954,7 @@ function factorial(num) {
 //     Several of the challenges that will be covered in this collection on algorithms can be solved non-recursively and without implementing the algorithms described in each challenge. I implore anyone solving these challenges to do them as intended. Not understanding the concepts taught will be an obstacle to later challenges and won't aid anyone in advancing their skills as a programmer.
 //     If you are stuck please check the Resources tab, Comments tab, or if you're really stuck, use the Solutions tab to unlock the answers.
 function factorial(num) {
-	if (num <= 1) return 1
+  if (num <= 1) return 1
   return num * factorial(num - 1)
 }
 // Write a function to return the city from each of these vacation spots.
@@ -1947,7 +1966,7 @@ function factorial(num) {
 // There may be additional brackets, but the city will always be in the last bracket pair.
 function grabCity(str) {
   // return str.slice(str.lastIndexOf('[') + 1, str.length - 1)
-	let city = ''
+  let city = ''
   let i = str.length - 2
   while (str[i] !== '[') {
     city += str[i]
@@ -1978,7 +1997,7 @@ function adjacentProduct(arr) {
 // Notes
 // You must to use lookaheads and lookbehinds (see Resources for details).
 function extractValueRegExp(val1, val2) {
-	return new RegExp(`(?<=${val1}).*(?=${val2})`, 'g')
+  return new RegExp(`(?<=${val1}).*(?=${val2})`, 'g')
 }
 // Create a function that takes a string and returns the first character that repeats. If there is no repeat of a character, return "-1".
 // Examples
@@ -2043,7 +2062,7 @@ const REGEXP = /(?<=tall) \w+/
 //     Both strings are presented as a single argument in the form of an array.
 //     Bonus: Solve this without RegEx.
 function letterCheck(arr) {
-	return [...arr[1]].every(char => arr[0].toLowerCase().includes(char))
+  return [...arr[1]].every(char => arr[0].toLowerCase().includes(char))
 }
 // Given a string including a bunch of characters and numbers, return the sum of all the numbers in the string. Note that multiple digits next to each other are counted as a whole number rather than separate digits.
 // Examples
@@ -2106,7 +2125,7 @@ function scaleTip(arr) {
 // Notes
 // Some of these entries have excess white space. Remove this white space in your final output.
 function tidyBooks(arr) {
-	return arr.map(ele => ele.trim().split(' - '))
+  return arr.map(ele => ele.trim().split(' - '))
 }
 // Given the parameters day, month and year, return whether that date is a valid date.
 // Examples
@@ -2120,7 +2139,7 @@ function tidyBooks(arr) {
 // N/A
 function isValidDate(d, m, y) {
   const date = new Date(`${y}-${m}-${d}`)
-  return date.getFullYear() == y && date.getMonth() ==  (m - 1) && date.getDate() == d
+  return date.getFullYear() == y && date.getMonth() == (m - 1) && date.getDate() == d
 }
 // Your function will get an array with a number sequence. However, one item will be missing. It's your job to find out which one is not in the array.
 // To illustrate, given the array [1, 3, 4, 5], 2 is missing so the output must be 2.
@@ -2172,7 +2191,7 @@ function quadraticEquation(a, b, c) {
 // The two strings will be the same length.
 function neutralise(s1, s2) {
   const result = []
-  for(let i = 0; i < s1.length; i++) {
+  for (let i = 0; i < s1.length; i++) {
     if (s1[i] !== s2[i]) result.push('0')
     else result.push(s1[i])
   }
@@ -2192,7 +2211,7 @@ function neutralise(s1, s2) {
 // Notes
 // Numbers may not be given in a sorted order.
 function isTriplet(n1, n2, n3) {
-	const sorted = [...arguments].sort((a,b) => a - b)
+  const sorted = [...arguments].sort((a, b) => a - b)
   return (sorted[0] ** 2 + sorted[1] ** 2) == (sorted[2] ** 2)
 }
 // Given a square matrix (i.e. same number of rows as columns), its trace is the sum of the entries in the main diagonal (i.e. the diagonal line from the top left to the bottom right).
@@ -2261,7 +2280,7 @@ function trace(arr) {
 // Notes
 // Boxes of size n <= 2 are considered automatically filled (see example #4).
 function completelyFilled(arr) {
-	return arr[0].length > 2 ? arr.every(ele => !ele.includes(' ')) : true
+  return arr[0].length > 2 ? arr.every(ele => !ele.includes(' ')) : true
 }
 // You are given three inputs: a string, one letter, and a second letter.
 // Write a function that returns true if every instance of the first letter occurs before every instance of the second letter.
@@ -2276,7 +2295,7 @@ function completelyFilled(arr) {
 //     All strings will be in lower case.
 //     All strings will contain the first and second letters at least once.
 function firstBeforeSecond(s, first, second) {
-	const firstIdx = []
+  const firstIdx = []
   const secondIdx = []
   for (let i = 0; i < s.length; i++) {
     if (s[i] == first) firstIdx.push(i)
@@ -2296,7 +2315,7 @@ function firstBeforeSecond(s, first, second) {
 // Notes
 // There will be no z's in the tests.
 function move(word) {
-	return [...word].map((ele, idx) => String.fromCharCode(word.charCodeAt(idx) + 1)).join('')
+  return [...word].map((ele, idx) => String.fromCharCode(word.charCodeAt(idx) + 1)).join('')
 }
 // Mary wants to run a 25-mile marathon. When she attempts to sign up for the marathon, she notices the sign-up sheet doesn't directly state the marathon's length. Instead, the marathon's length is listed in small, different portions. Help Mary find out how long the marathon actually is.
 // Return true if the marathon is 25 miles long, otherwise, return false.
@@ -2309,7 +2328,7 @@ function move(word) {
 //     Items in the array may be negative or positive, but since negative distance isn't possible, find a way to convert the sum of the distance into a positive integer.
 //     Return false if the arguments are empty or not provided.
 function marathonDistance(d) {
-	return d.reduce((cur, acc) => cur + Math.abs(acc), 0) == 25
+  return d.reduce((cur, acc) => cur + Math.abs(acc), 0) == 25
 }
 // A number n is a Harshad (also called Niven) number if it is divisible by the sum of its digits. For example, 666 is divisible by 6 + 6 + 6, so it is a Harshad number.
 // Examples
@@ -2340,7 +2359,7 @@ function rectangleInCircle(w, h, radius) {
 //     Capitalize the first letter of each set.
 //     All tests contain valid strings with alphabetic characters (a-z, A-Z).
 function accum(str) {
-	const result = []
+  const result = []
   for (let i = 0; i < str.length; i++) {
     result.push(str[i].toUpperCase() + str[i].toLowerCase().repeat(i))
   }
@@ -2355,7 +2374,7 @@ function accum(str) {
 //     Return "invalid" if the n exceeds the number of vowels in a string.
 //     Vowels are: a, e, i, o, u
 function firstNVowels(s, n) {
-	const vowels = {a: 1, e: 1, i: 1, o: 1, u: 1}
+  const vowels = { a: 1, e: 1, i: 1, o: 1, u: 1 }
   const result = []
   for (let i = 0; i < s.length; i++) {
     if (vowels[s[i]] && result.length !== n) result.push(s[i])
@@ -2383,7 +2402,7 @@ function moveToEnd(arr, el) {
 // This function will take no parameters.
 function fibonacciSequence() {
   const result = [0, 1]
-	for (let i = 0; i < 255; i++) {
+  for (let i = 0; i < 255; i++) {
     let sum = result[i] + result[i + 1]
     if (sum < 255) result.push(sum)
   }
@@ -2401,7 +2420,7 @@ function fibonacciSequence() {
 //     Although this question may seem like otherwise, you can't actually assign words with quotes around them as variables.
 //     The rules exposed in this challenge are an oversimplification on how variable and identifier names are considered valid in JavaScript.
 function variableValid(variable) {
-	return /^[A-z](?!\w+ \w+)/gi.test(variable)
+  return /^[A-z](?!\w+ \w+)/gi.test(variable)
 }
 // Create a function which returns the word in the string, but with all the fog letters removed. However, if the string is clear from fog, return "It's a clear day!".
 // Examples
@@ -2450,7 +2469,7 @@ function collatz(n) {
 //     We are looking for intersecting areas, not intersection outlines.
 //     Check the Resources tab for help.
 function isCircleCollision(c1, c2) {
-	return Math.hypot(c1[1] - c2[1], c1[2] - c2[2]) < (c1[0] + c2[0])
+  return Math.hypot(c1[1] - c2[1], c1[2] - c2[2]) < (c1[0] + c2[0])
 }
 // You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
 // Here are a list of the characters classes in JavaScript:
@@ -2477,7 +2496,7 @@ const REGEXP = /^\s+|\s+$/g
 // Notes
 // There may not be an argument given for n so set the default to 4.
 function abbreviate(sentence, n = 4) {
-	return sentence.split(' ').map(ele => ele.length >= n ? ele.slice(0, 1).toUpperCase() : undefined).join('')
+  return sentence.split(' ').map(ele => ele.length >= n ? ele.slice(0, 1).toUpperCase() : undefined).join('')
 }
 // If today was Monday, in two days, it would be Wednesday.
 // Create a function that takes in an array of days as input and the number of days to increment by. Return an array of days after n number of days has passed.
@@ -2490,7 +2509,7 @@ function abbreviate(sentence, n = 4) {
 //     All test cases will have the first letter of each day capitalized.
 //     n number of days may be greater than 7.
 function afterNDays(days, n) {
-	const day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  const day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   // return days.map(ele => day[(day.indexOf(days[i]) + n) % 7])
   for (let i = 0; i < days.length; i++) {
     days[i] = day[(day.indexOf(days[i]) + n) % 7]
@@ -2525,8 +2544,8 @@ christmasTree(20);
 //     You will be given an array of positive integers.
 //     Check the Resources tab for more information on the types of triangles.
 function getTriangleType(arr) {
-	if (arr.length !== 3) return 'not a triangle'
-  const triangleTypes = {1: 'equilateral', 2: 'isosceles', 3: 'scalene'}
+  if (arr.length !== 3) return 'not a triangle'
+  const triangleTypes = { 1: 'equilateral', 2: 'isosceles', 3: 'scalene' }
   return triangleTypes[new Set(arr).size]
 }
 // Create a function that takes a string and returns the first character of every word if the length is even and the middle character if the length is odd.
@@ -2537,7 +2556,7 @@ function getTriangleType(arr) {
 // Notes
 // N/A
 function stmid(str) {
-	return [...str.split(' ')].map(ele => ele.length % 2 === 0 ? ele[0] : ele[ele.length / 2 | 0]).join('')
+  return [...str.split(' ')].map(ele => ele.length % 2 === 0 ? ele[0] : ele[ele.length / 2 | 0]).join('')
 }
 // You have a pack of 5 randomly numbered cards, which can range from 0-9. You can win if you can produce a higher two-digit number from your cards than your opponent. Return true if your cards win that round.
 // Worked Example
@@ -2554,7 +2573,7 @@ function stmid(str) {
 function winRound(you, opp) {
   const compare = (a, b) => b - a
   const num = arr => arr.slice(0, 2).join('')
-	return num(you.sort(compare)) > num(opp.sort(compare))
+  return num(you.sort(compare)) > num(opp.sort(compare))
 }
 // Create a function that takes three values:
 //     h hours
@@ -2585,8 +2604,8 @@ function longestTime(h, m, s) {
 //     All words will be given in lowercase.
 //     y is not considered a vowel.
 function isVowelSandwich(str) {
-	if (str.length !== 3) return false
-  const vowels = {a: 1, e: 1, i: 1, o: 1, u: 1}
+  if (str.length !== 3) return false
+  const vowels = { a: 1, e: 1, i: 1, o: 1, u: 1 }
   if (!vowels[str[1]]) return false
   if (vowels[str[0]] || vowels[str[2]]) return false
   return true
@@ -2602,7 +2621,7 @@ function isVowelSandwich(str) {
 //     Note that some words may already end in "e" or "ed".
 //     All phrases will be in lowercase.
 function verbify(str) {
-	const arr = [...str.split(' ')]
+  const arr = [...str.split(' ')]
   if (arr[0].endsWith('ed')) return str
   else if (arr[0].endsWith('e')) arr[0] += 'd'
   else arr[0] += 'ed'
@@ -2625,11 +2644,11 @@ function verbify(str) {
 //     Note that the number 0 can be included (see example #3).
 //     Check the Resources tab for a TED-Ed video for extra clarity.
 function lookAndSay(n) {
-	const nArr = [...('' + n)]
+  const nArr = [...('' + n)]
   if (nArr.length % 2 == 1) return 'invalid'
   const result = []
   for (let i = 0; i < nArr.length; i++) {
-    if ((i - 1) % 2 == 0 ) result.push(nArr[i].repeat(nArr[i - 1]))
+    if ((i - 1) % 2 == 0) result.push(nArr[i].repeat(nArr[i - 1]))
   }
   return +(result.join(''))
 }
@@ -2642,8 +2661,8 @@ function lookAndSay(n) {
 //     Transcription is the process of making complementary strand.
 //     A, T, G and C in DNA converts to U, A, C and G respectively in mRNA.
 function dnaToRna(dna) {
-  const dnaToRna = {'A': 'U', 'T': 'A', 'G': 'C', 'C': 'G'}
-	return [...dna].map(ele => dnaToRna[ele]).join('')
+  const dnaToRna = { 'A': 'U', 'T': 'A', 'G': 'C', 'C': 'G' }
+  return [...dna].map(ele => dnaToRna[ele]).join('')
 }
 // Given an array of integers, replace every number with the average mean of the whole array.
 // Examples
@@ -2655,7 +2674,7 @@ function dnaToRna(dna) {
 //     Round averages to 1 decimal point.
 //     Return an empty array if given an empty array (see example #4).
 function flattenCurve(arr) {
-	return arr.fill(+(arr.reduce((cur, acc) => cur + acc, 0) / arr.length).toFixed(1))
+  return arr.fill(+(arr.reduce((cur, acc) => cur + acc, 0) / arr.length).toFixed(1))
 }
 // Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city and returns to the origin city?
 // Return the total number of possible paths a salesman can travel, given n paths.
@@ -2666,7 +2685,7 @@ function flattenCurve(arr) {
 // Notes
 // Inspired by a video from Dr. Peter Merz.
 function paths(n) {
-	if (n <= 1) return n
+  if (n <= 1) return n
   else return n * paths(n - 1)
 }
 // Write a function that removes all capitals letters from a sentence except the first letter, put quotation marks around the sentence and add ", whispered Edabit." to the end.
@@ -2690,7 +2709,7 @@ function shhh(sentence) {
 //     Return an empty array if the given array is empty.
 //     You can expect all the tests to have valid chords.
 function jazzify(arr) {
-	return arr.map(ele => ele[ele.length - 1] !== '7' ? ele + '7' : ele)
+  return arr.map(ele => ele[ele.length - 1] !== '7' ? ele + '7' : ele)
 }
 // Create a function that moves all capital letters to the front of a word.
 // Examples
@@ -2713,7 +2732,7 @@ function capToFront(s) {
 // Notes
 // 0 can be the result if no number in the array matches or if the only matching element is at index 0.
 function sumFoundIndexes(arr, n) {
-	return arr.map((ele, idx) => ele === n ? idx : 0).filter(idx => idx !== 0).reduce((acc, cur) => acc + cur, 0)
+  return arr.map((ele, idx) => ele === n ? idx : 0).filter(idx => idx !== 0).reduce((acc, cur) => acc + cur, 0)
 }
 // You have one job and one job only, to ruin the day of any unsuspecting victim using the toString function. Hook the String prototype toString to instead return a string that is in reverse.
 // Examples
@@ -2722,9 +2741,9 @@ function sumFoundIndexes(arr, n) {
 // ("RaceCar")toString() ➞ "raCecaR"
 // Notes
 // Remember that this is an object!
-String.prototype.toString = function() {
+String.prototype.toString = function () {
   const reversed = []
-	for (let i = this.length - 1; i >= 0; i--) {
+  for (let i = this.length - 1; i >= 0; i--) {
     reversed.push(this[i])
   }
   return reversed.join('')
@@ -2749,7 +2768,7 @@ String.prototype.toString = function() {
 // Notes
 // N/A
 function spaceWeights(planetA, weight, planetB) {
-	const planetGF = {'Mercury':	3.7, 'Venus':	8.87, 'Earth':	9.81,'Mars':	3.711,'Jupiter':	24.79, 'Saturn':	10.44, 'Uranus':	8.69, 'Neptune':	11.15}
+  const planetGF = { 'Mercury': 3.7, 'Venus': 8.87, 'Earth': 9.81, 'Mars': 3.711, 'Jupiter': 24.79, 'Saturn': 10.44, 'Uranus': 8.69, 'Neptune': 11.15 }
   return +(weight / planetGF[planetA] * planetGF[planetB]).toFixed(2)
 }
 // Create a recursive function that takes two parameters and repeats the string n number of times. The first parameter txt is the string to be repeated and the second parameter is the number of times the string is to be repeated.
@@ -2761,7 +2780,7 @@ function spaceWeights(planetA, weight, planetB) {
 // Notes
 // The second parameter of the function is positive integer.
 function repetition(txt, n) {
-	return n <= 1 ? txt : txt + repetition(txt, n - 1)
+  return n <= 1 ? txt : txt + repetition(txt, n - 1)
 }
 // Write a function that returns the length of a string. Make your function recursive.
 // Examples
@@ -2772,8 +2791,8 @@ function repetition(txt, n) {
 // Notes
 // Check the Resources tab for info on recursion.
 function length(str) {
-	if (!str) return 0
-	else return 1 + length(str.substring(1))
+  if (!str) return 0
+  else return 1 + length(str.substring(1))
 }
 // Write a function that sorts a given array in an alternative fashion. The result should be a array sorted in ascending order (number then letter). Array will contain equal amounts of integer numbers and single characters.
 // Examples
@@ -2865,12 +2884,12 @@ function roundNumber(num, n) {
 // Notes
 // There are several ways to solve this challenge.
 function rps(s1, s2) {
-	if (s1 == s2) return 'TIE'
+  if (s1 == s2) return 'TIE'
   // if (s1 == 'rock' && s2 == 'paper') return 'Player 2 wins'
   // if (s1 == 'paper' && s2 == 'rock') return 'Player 1 wins'
   // if (s1 == 'paper' && s2 == 'scissors') return 'Player 2 wins'
   // if (s1 == 'scissors' && s2 == 'paper') return 'Player 1 wins'
-  let condition = {paper: 'rock', scissors: 'paper', rock: 'scissors'}
+  let condition = { paper: 'rock', scissors: 'paper', rock: 'scissors' }
   return condition[s1] === s2 ? 'Player 1 wins' : 'Player 2 wins'
 }
 // Can you spare a square?
@@ -2889,7 +2908,7 @@ function rps(s1, s2) {
 function tpChecker(home) {
   const days = ((home.tp * 500) / (home.people * 57)) | 0
   const threshold = days < 14
-	return `Your TP will ${threshold ? 'only ' : ''}last ${days} days, ${threshold ? 'buy more!' : 'no need to panic!'}`
+  return `Your TP will ${threshold ? 'only ' : ''}last ${days} days, ${threshold ? 'buy more!' : 'no need to panic!'}`
 }
 // Create a function that takes three arguments a, b, c and returns the sum of the numbers that are evenly divided by c from the range a, b inclusive.
 // Examples
@@ -2903,7 +2922,7 @@ function tpChecker(home) {
 // Return 0 if there is no number between a and b that can be evenly divided by c.
 function evenlyDivisible(a, b, c) {
   let sum = 0
-	for (a; a <= b; a++) {
+  for (a; a <= b; a++) {
     if (a % c == 0) sum += a
   }
   return sum
@@ -2927,15 +2946,15 @@ function evenlyDivisible(a, b, c) {
 //     Use Math.PI for calculating circumference and area.
 //     Round the perimeter and area results to the nearest hundredths place.
 function Circle(radius) {
-	// Write your properties and methods here
-	this.radius = radius
-	this.diameter = radius * 2
+  // Write your properties and methods here
+  this.radius = radius
+  this.diameter = radius * 2
 }
 Circle.prototype.getC = function () {
-    return +(2 * Math.PI * this.radius).toFixed(2)
+  return +(2 * Math.PI * this.radius).toFixed(2)
 }
 Circle.prototype.getA = function () {
-    return +(Math.PI * this.radius ** 2).toFixed(2)
+  return +(Math.PI * this.radius ** 2).toFixed(2)
 }
 // Instantiate your constructor class here
 const c1 = new Circle(3)
@@ -2989,7 +3008,7 @@ function indexOfCaps(str) {
 // There should be no words with only one instance of the letter "s" (see example #2).
 function isParselTongue(sentence) {
   const arr = [...sentence.toLowerCase().split(' ')]
-	for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i].includes('s')) {
       const sIndex = arr[i].indexOf('s')
       if (arr[i][sIndex] !== arr[i][sIndex + 1]) return false
@@ -3012,7 +3031,7 @@ function isParselTongue(sentence) {
 // Notes
 // N/A
 function howCloseToC(rapidity) {
-	return (1 / Math.cosh(2 * rapidity)).toExponential(2)
+  return (1 / Math.cosh(2 * rapidity)).toExponential(2)
 }
 // Create a function that takes an array of superheroes / superheroines names and returns an array of only superheroe names ending in "man". Return the names in alphabetical order.
 // Wonder-Woman, Catwoman and Invisible-Woman are Superheroines, not Superheroes. Return only Superheroes.
@@ -3027,7 +3046,7 @@ function howCloseToC(rapidity) {
 // N/A
 function superheroes(heroes) {
   const result = []
-	for (let i = 0; i < heroes.length; i++) {
+  for (let i = 0; i < heroes.length; i++) {
     if (heroes[i].slice(-3) === 'man' && heroes[i].slice(-5).toLowerCase() !== 'woman') result.push(heroes[i])
   }
   return result.sort()
@@ -3040,7 +3059,7 @@ function superheroes(heroes) {
 // Notes
 // Assume all names start with a capital letter and are lowercase thereafter (i.e. don't worry about finding "BOB" or "bob").
 function findBob(names) {
-	// return names.indexOf('Bob')
+  // return names.indexOf('Bob')
   for (let i = 0; i < names.length; i++) {
     if (names[i] == 'Bob') return i
   }
@@ -3088,10 +3107,10 @@ function probability(arr, num) {
 //     If the argument is empty, return 0.
 //     No input other than: 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A".
 function count(deck) {
-	let counter = 0
+  let counter = 0
   for (let i = 0; i < deck.length; i++) {
     if ('23456'.includes(deck[i])) counter++
-    else if ([10, 'J', 'Q','K','A'].includes(deck[i])) counter--
+    else if ([10, 'J', 'Q', 'K', 'A'].includes(deck[i])) counter--
   }
   return counter
 }
@@ -3103,7 +3122,7 @@ function count(deck) {
 // Notes
 // All test cases contain valid numbers.
 function mod(m, n) {
-	return ((m%n)+n)%n
+  return ((m % n) + n) % n
 }
 // Create a function that takes a number of a guitar string and the number of the fret and returns the corresponding frequency of the note.
 //     Check the Resources Tab, for the correct frequencies per string.
@@ -3118,8 +3137,8 @@ function mod(m, n) {
 // Notes
 // N/A
 function fretFreq(gStr, fret) {
-  const strFreq = {1:329.63,2:246.94,3:196,4:146.83,5:110,6:82.41}
-  return +(strFreq[gStr] * 2 ** (fret/12)).toFixed(2)
+  const strFreq = { 1: 329.63, 2: 246.94, 3: 196, 4: 146.83, 5: 110, 6: 82.41 }
+  return +(strFreq[gStr] * 2 ** (fret / 12)).toFixed(2)
 }
 // Write a function that replaces all letters within a specified range with the hash symbol #.
 // Examples
@@ -3138,7 +3157,7 @@ function replace(str, r) {
   const charCodeRange = [r.charCodeAt(0), r.charCodeAt(2)]
   for (let i = 0; i < strArr.length; i++) {
     const charCode = str.charCodeAt(i)
-    if(charCode >= charCodeRange[0] && charCode <= charCodeRange[1]) {
+    if (charCode >= charCodeRange[0] && charCode <= charCodeRange[1]) {
       strArr[i] = '#'
     }
   }
@@ -3151,7 +3170,7 @@ function replace(str, r) {
 // longestWord("Kayla's toy is plastic")  ➞ "Kayla's"
 // Notes
 function longestWord(sentence) {
-	const wordArr = [...sentence.split(' ')]
+  const wordArr = [...sentence.split(' ')]
   let longest = wordArr[0]
   for (let i = 0; i < wordArr.length; i++) {
     if (wordArr[i].length > longest.length) longest = wordArr[i]
@@ -3179,7 +3198,7 @@ const str = `[,,{name:thirdUser}] = users`
 // Notes
 // Return the same string if its length is already a multiple of 8.
 function completeBinary(str) {
-	if (str.length % 8 === 0) return str
+  if (str.length % 8 === 0) return str
   else return '0'.repeat(8 - str.length % 8) + str
 }
 // In normal object literals you can create dynamic property names by using computed values:
@@ -3256,7 +3275,7 @@ function dataType(value) {
 //     n >= 0.
 //     If n === 0, return an empty array.
 function squarePatch(n) {
-	// return Array.from({length: n}, ele => Array.from({length: n}).fill(n))
+  // return Array.from({length: n}, ele => Array.from({length: n}).fill(n))
   let result = []
   for (let i = 0; i < n; i++) {
     result.push([])
@@ -3278,7 +3297,7 @@ function squarePatch(n) {
 //     The prior version of this challenge can be found here.
 //     The recursive prior version of this challenge can be found here.
 function charAtPos(r, s) {
-	let result = []
+  let result = []
   let specifier = s === 'even' ? 0 : 1
   for (let i = 0; i < r.length; i++) {
     if (Math.abs(i - r.length) % 2 === specifier) result.push(r[i])
@@ -3358,11 +3377,11 @@ function secret(num) {
 //     For more info on regular expressions, check the Resources tab.
 // Use Bitwise Operator (% operator disallowed.)
 function isOdd(number) {
-	return number & 1 ? "Yes" : "No"
+  return number & 1 ? "Yes" : "No"
 }
 // Use Regular Expression (% operator disallowed.)
 function isEven(number) {
-	return /\d*[02468]/.test(number) ? "Yes" : 'No'
+  return /\d*[02468]/.test(number) ? "Yes" : 'No'
 }
 // Create a function that determines if there is an upward trend.
 // Examples
@@ -3389,7 +3408,7 @@ function upwardTrend(arr) {
 // Notes
 // An empty string counts as a palindrome.
 function isPalindrome(str) {
-	for (let i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i++) {
     if (str[i] !== str[str.length - 1 - i]) return false
   }
   return true
@@ -3409,7 +3428,7 @@ function isPalindrome(str) {
 //     Trivially, any number in the 1-9 range is narcissistic and any two-digit number is not.
 //     Curious fact: Only 88 numbers are narcissistic.
 function isNarcissistic(n) {
-	const nArr = [...('' + n)]
+  const nArr = [...('' + n)]
   let sum = 0
   for (let i = 0; i < nArr.length; i++) {
     sum += nArr[i] ** nArr.length
@@ -3423,11 +3442,11 @@ function isNarcissistic(n) {
 // [1, 2, 3].isEqual([1, 3, 2], true) ➞ true
 // Notes
 // This method does not need to compare Arrays, Objects, and non-primitives. It just needs to consider numbers, booleans, and strings.
-Array.prototype.isEqual = function(arr, ignoreOrder = false) {
+Array.prototype.isEqual = function (arr, ignoreOrder = false) {
   if (ignoreOrder) this.sort()
   const sorted = ignoreOrder ? arr.sort() : arr
-  for(let i = 0; i < this.length; i++) {
-      if (this[i] !== sorted[i]) return false
+  for (let i = 0; i < this.length; i++) {
+    if (this[i] !== sorted[i]) return false
   }
   return true
 }
@@ -3442,7 +3461,7 @@ Array.prototype.isEqual = function(arr, ignoreOrder = false) {
 //     If you get an empty array, return an empty array: [] ➞ [].
 //     If there are multiple items with the same value, remove item with lower index (3rd example).
 function removeSmallest(arr) {
-	// arr.splice(arr.indexOf(Math.min(...arr)), 1) 
+  // arr.splice(arr.indexOf(Math.min(...arr)), 1) 
   // return arr
   let min = arr[0]
   for (let i = 0; i < arr.length; i++) {
@@ -3471,7 +3490,7 @@ function removeSmallest(arr) {
 // Notes
 // You will always be given an array with five sub-arrays.
 function letterCounter(arr, letter) {
-	let count = 0
+  let count = 0
   for (let i = 0; i < arr.length; i++) {
     arr[i].forEach(ele => ele === letter ? count++ : null)
   }
@@ -3500,10 +3519,10 @@ const positiveSum = (chars) => {
 //     The returned x & y values should be rounded to the closest integer
 //     If the distance between the two points is less than distance wanting to be traveled, then the returned co-ordinate should overshoot the mark, e.g. {x: 50, y: 0}, {x: 70, y: 0}, 30) ➞ {x: 80, y: 0}.
 function getNextPosition(pt1, pt2, dist) {
-	let vector = {v1: pt2.x - pt1.x, v2: pt2.y - pt1.y}
-  let vectorLen = {x: vector.v1 / Math.hypot(vector.v1, vector.v2), y: vector.v2 / Math.hypot(vector.v1, vector.v2) }
-  let distTimesVectorLen = {x: dist * vectorLen.x, y: dist * vectorLen.y}
-  return {x: Math.round(pt1.x + distTimesVectorLen.x), y: Math.round(pt1.y + distTimesVectorLen.y)}
+  let vector = { v1: pt2.x - pt1.x, v2: pt2.y - pt1.y }
+  let vectorLen = { x: vector.v1 / Math.hypot(vector.v1, vector.v2), y: vector.v2 / Math.hypot(vector.v1, vector.v2) }
+  let distTimesVectorLen = { x: dist * vectorLen.x, y: dist * vectorLen.y }
+  return { x: Math.round(pt1.x + distTimesVectorLen.x), y: Math.round(pt1.y + distTimesVectorLen.y) }
 }
 // A palindrome is a word, phrase, number or other sequence of characters which reads the same backward or forward, such as madam or kayak.
 // Write a function that takes a string and determines whether it's a palindrome or not. The function should return a boolean (true or false value).
@@ -3515,7 +3534,7 @@ function getNextPosition(pt1, pt2, dist) {
 //     Should be case insensitive.
 //     Special characters (punctuation or spaces) should be ignored.
 function isPalindrome(str) {
-	const cleanedStr = str.toLowerCase().replace(/[\W_]/g, '')
+  const cleanedStr = str.toLowerCase().replace(/[\W_]/g, '')
   for (let i = 0; i < cleanedStr.length / 2; i++) {
     if (cleanedStr[i] !== cleanedStr[cleanedStr.length - 1 - i]) return false
   }
@@ -3555,7 +3574,7 @@ function solutions(a, b, c) {
 // You can solve this any number of ways, but using JavaScript's new Date() method is probably the easiest. Check the Resources tab for documentation.
 function convertDate(date) {
   const dateObj = new Date(date)
-  return [dateObj.getMonth() + 1, dateObj.getDate(),dateObj.getFullYear()]
+  return [dateObj.getMonth() + 1, dateObj.getDate(), dateObj.getFullYear()]
   // const day = /\d{0,2}/
   // const month = /^(January|Jan|March|Mar|August|Nov|\d{0,2})/
   // const year = /\d{4}$/
@@ -3570,7 +3589,7 @@ function convertDate(date) {
 //     Check the Tests tab for more examples.
 //     This isn't really a coding challenge, more of a fun riddle ;)
 function noddyFunction(str) {
-	return str.indexOf('d') === -1 && str.indexOf('D') === -1
+  return str.indexOf('d') === -1 && str.indexOf('D') === -1
 }
 // Create a function that takes an array of objects like { name: "John", notes: [3, 5, 4]} and returns an array of objects like { name: "John", avgNote: 4 }. If student has no notes (an empty array) then let's assume avgNote: 0.
 // Examples
@@ -3582,8 +3601,8 @@ function noddyFunction(str) {
 // Notes
 // Try doing it with an arrow function.
 function getStudentsWithNamesAndAvgNote(students) {
-	return students.map(obj => {
-    return {name: obj.name, avgNote: obj.notes.length ? obj.notes.reduce((cur, acc) => cur + acc) / obj.notes.length : 0 } 
+  return students.map(obj => {
+    return { name: obj.name, avgNote: obj.notes.length ? obj.notes.reduce((cur, acc) => cur + acc) / obj.notes.length : 0 }
   })
 }
 // You will be given an object with various consumer products and thier respective prices. Return a list of the products with a minimum price of 500 in descending order.
@@ -3605,7 +3624,7 @@ function products(r) {
     }
   }
   productArr.filter(ele => {
-   if (ele[1] >= 500) result.push(ele[0])
+    if (ele[1] >= 500) result.push(ele[0])
   })
   return result
 }
@@ -3631,7 +3650,7 @@ function numberSquares(n) {
 //     If you get stuck on a challenge, find help in the Resources tab.
 //     If you're really stuck, unlock solutions in the Solutions tab.
 function triArea(base, height) {
-	return (base * height) / 2
+  return (base * height) / 2
 }
 // Shreeya first year computer science student is taking an intro to regex class.Her professor gives her the assignment to write a function that checks whether an input date as a string is in the format yyyy/mm/dd.She has written a regular expression but the regular expression does not seem to be correct.Help Shreeya, fix the error.
 // Examples
@@ -3641,8 +3660,8 @@ function triArea(base, height) {
 // assignment("2012/01/07") ➞ true
 // Notes
 //     Resource can be helpful.
-function assignment(d){
-	return /^(?:\d{4})\/(\d{2})\/(\d{2})$/.test(d);
+function assignment(d) {
+  return /^(?:\d{4})\/(\d{2})\/(\d{2})$/.test(d);
 }
 // Create a function that takes a number (from 1 to 12) and returns its corresponding month name as a string. For example, if you're given 3 as input, your function should return "March", because March is the 3rd month.
 // Number	Month Name
@@ -3670,7 +3689,7 @@ function monthName(num) {
   // const months = ["January", "February", "March", "April", "May", "June",
   // "July", "August", "September", "October", "November", "December"]
   // return months[num - 1]
-  return new Date(2020, num - 1).toLocaleString('default', {month : 'long'})
+  return new Date(2020, num - 1).toLocaleString('default', { month: 'long' })
 }
 // Given an array of user objects.
 // let names = []
@@ -3695,7 +3714,7 @@ let users = [
   { name: "Jason", email: "jason@example.com" },
   { name: "Jeremy", email: "jeremy@example.com" },
   { name: "Jacob", email: "jacob@example.com" }
-] 
+]
 const str = `
 	for(const {name: name} of users) {
 			names.push(name)
@@ -3711,7 +3730,7 @@ const str = `
 // Notes
 // All strings given will be lowercase.
 function mapLetters(word) {
-	const obj = {}
+  const obj = {}
   for (let i = 0; i < word.length; i++) {
     obj[word[i]] = []
   }
@@ -3749,7 +3768,7 @@ let x = /^\s*([A-Z]\.\s?){1,3}\s*$/
 // Notes
 // Arrays are Sorted!! Try doing this problem with O(n + m) time complexity
 function commonElements(arr1, arr2) {
-	// return arr2.filter(ele => arr1.includes(ele))
+  // return arr2.filter(ele => arr1.includes(ele))
   const result = []
   for (let i = 0; i < arr2.length; i++) {
     if (arr1.indexOf(arr2[i]) !== -1) result.push(arr2[i])
@@ -3781,7 +3800,7 @@ function uniqueInOrder(sequence, result = []) {
 // Notes
 // N/A
 function inatorInator(inv) {
-  const vowels = {a:1, e:1, i:1, o:1, u:1}
+  const vowels = { a: 1, e: 1, i: 1, o: 1, u: 1 }
   if (vowels[inv[inv.length - 1]] || vowels[inv[inv.length - 1].toLowerCase()]) return `${inv}-inator ${inv.length}000`
   return `${inv}inator ${inv.length}000`
 }
@@ -3810,7 +3829,7 @@ function inatorInator(inv) {
 //     Submatrices will be of equal length.
 //     Return 0 if the 2D matrix only consists of empty submatrices.
 function sumOfEvens(arr) {
-	return arr.map(ele => ele.reduce((cur, acc) => cur + (acc % 2 == 0 ? acc : 0), 0)).reduce((cur, acc) => cur + acc)
+  return arr.map(ele => ele.reduce((cur, acc) => cur + (acc % 2 == 0 ? acc : 0), 0)).reduce((cur, acc) => cur + acc)
 }
 // Write a function that returns the greatest common divisor (GCD) of two integers.
 // Examples
@@ -3821,8 +3840,8 @@ function sumOfEvens(arr) {
 //     Both values will be positive.
 //     The GCD is the largest factor that divides both numbers.
 function gcd(n1, n2) {
-	if (n2 == 0) return n1;
-	else return gcd(n2, (n1 % n2))
+  if (n2 == 0) return n1;
+  else return gcd(n2, (n1 % n2))
 }
 // Given a very long string of ASCII characters, split the string up into equal sized groups of size width. To properly display the image, join up the groups with the newline character \n and return the output string.
 // See the following examples for clarity!
@@ -3833,7 +3852,7 @@ function gcd(n1, n2) {
 // Notes
 // Enjoy the (somewhat oversized) art in the Tests tab!
 function formatAscii(str, width) {
-	const strArr = [...str]
+  const strArr = [...str]
   for (let i = strArr.length - 1; i >= 0; i--) {
     if (i && i % width == 0) strArr.splice(i, 0, '\n')
   }
@@ -3877,15 +3896,15 @@ function formatAscii(str, width) {
 function change(x, times) {
   let result = [...x]
   for (let i = 0; i < x.length; i++) {
-		let j = 1; 
-		while (j <= times) {
-			if (i >= j && i < x.length - j) {
-				result[i]--;
-			}
-			j++; 
-		}
-	}
-	return result; 
+    let j = 1;
+    while (j <= times) {
+      if (i >= j && i < x.length - j) {
+        result[i]--;
+      }
+      j++;
+    }
+  }
+  return result;
 }
 // Create a function that takes a string of four numbers. These numbers represent two separat points on a graph known as the x-axis (horizontal axis) and y-axis (vertical axis). Each number corresponds as follows: "x1, y1, x2, y2". Calculate the distance between x and y.
 // Examples
@@ -3897,7 +3916,7 @@ function change(x, times) {
 // All floats fixed to 2 decimal places (e.g. 2.34).
 function shortestDistance(str) {
   const coord = str.split(',')
-	return +Math.hypot((coord[0] - coord[2]), (coord[1] - coord[3])).toFixed(2)
+  return +Math.hypot((coord[0] - coord[2]), (coord[1] - coord[3])).toFixed(2)
 }
 // Suppose that you invest $10,000 for 10 years at an interest rate of 6% compounded monthly. What will be the value of your investment at the end of the 10 year period?
 // Create a function that accepts the principal p, the term in years t, the interest rate r, and the number of compounding periods per year n. The function returns the value at the end of term rounded to the nearest cent.
@@ -3911,7 +3930,7 @@ function shortestDistance(str) {
 // Notes
 // See the Resources tab for the interest formula and more information.
 function compoundInterest(p, t, r, n) {
-	return +(p * (1 + r / n) ** (n * t)).toFixed(2)
+  return +(p * (1 + r / n) ** (n * t)).toFixed(2)
 }
 // One cause for speeding is the desire to shorten the time spent traveling. While in long distance trips speeding does save an appreciable amount of time, the same cannot be said about short distance trips.
 // Create a function that calculates the amount of time saved (in minutes) were you traveling with an average speed that is above the speed-limit as compared to traveling with an average speed exactly at the speed-limit.
@@ -4010,7 +4029,7 @@ function subset(arr1, arr2) {
 // Notes
 // N/A
 function days(month, year) {
-	return new Date(year, month, 0).getDate()
+  return new Date(year, month, 0).getDate()
 }
 // Create a function that takes two vectors as arrays and checks if the two vectors are orthogonal or not. The return value is boolean. Two vectors a and b are orthogonal if their dot product is equal to zero.
 // Examples
@@ -4036,7 +4055,7 @@ function isOrthogonal(arr1, arr2) {
 // Notes
 // Inputs may be null, primitive wrapper types, dates.
 function isObject(value) {
-	return value === null ? false : typeof value === 'object'
+  return value === null ? false : typeof value === 'object'
 }
 // Create a function that takes a string and returns a new string with its first and last characters swapped, except under three conditions:
 //     If the length of the string is less than two, return "Incompatible.".
@@ -4051,7 +4070,7 @@ function isObject(value) {
 // Notes
 // Tests are case sensitive (e.g. "A" and "a" are not the same character).
 function flipEndChars(str) {
-	if (str.length < 2 || typeof str !== 'string') return "Incompatible."
+  if (str.length < 2 || typeof str !== 'string') return "Incompatible."
   else if (str[0] === str[str.length - 1]) return "Two's a pair."
   else {
     return str.slice(-1) + str.slice(1, -1) + str.slice(0, 1)
@@ -4074,7 +4093,7 @@ function flipEndChars(str) {
 // Notes
 // N/A
 function isValidHexCode(str) {
-	return /^#[A-Fa-f\d]{6}$/g.test(str)
+  return /^#[A-Fa-f\d]{6}$/g.test(str)
 }
 // Create a function that takes two numbers as arguments and returns the GCD of the two numbers.
 // Examples
@@ -4084,7 +4103,7 @@ function isValidHexCode(str) {
 // Notes
 // GCD looks at all the divisors of each number and finds the greatest one.
 function gcd(a, b) {
-	// if (b == 0)
+  // if (b == 0)
   //   return a;
   // else
   //   return gcd(b, (a % b));
@@ -4108,7 +4127,7 @@ function gcd(a, b) {
 //     Try not to rely on default Date.toString() output in your impelementation.
 //     Be aware that the Date's month field is zero based (0 is January and 11 is December).
 function formatDate(date) {
-	return `${date.getFullYear()}${date.getMonth() + 1 < 10 ? ('' + (date.getMonth() + 1)).padStart(2, '0') : date.getMonth() + 1}${date.getDate() < 10 ? ('' + date.getDate()).padStart(2, '0') : date.getDate()}${date.getHours() < 10 ? ('' + date.getHours()).padStart(2, '0') : date.getHours()}${date.getMinutes() || "00"}${date.getSeconds() || "00"}`
+  return `${date.getFullYear()}${date.getMonth() + 1 < 10 ? ('' + (date.getMonth() + 1)).padStart(2, '0') : date.getMonth() + 1}${date.getDate() < 10 ? ('' + date.getDate()).padStart(2, '0') : date.getDate()}${date.getHours() < 10 ? ('' + date.getHours()).padStart(2, '0') : date.getHours()}${date.getMinutes() || "00"}${date.getSeconds() || "00"}`
 }
 // Given an array of boxes, create a function that returns the total volume of all those boxes combined together. A box is represented by an array with three elements: length, width and height.
 // For instance, totalVolume([2, 3, 2], [6, 6, 7], [1, 2, 1]) should return 266 since (2 x 3 x 2) + (6 x 6 x 7) + (1 x 2 x 1) = 12 + 252 + 2 = 266.
@@ -4120,13 +4139,13 @@ function formatDate(date) {
 //     You will be given at least one box.
 //     Each box will always have three dimensions included.
 function totalVolume(...boxes) {
-	const container = [...boxes]
+  const container = [...boxes]
   // return container.map(subarray => subarray.reduce((cur, acc) => cur * acc)).reduce((cur, acc) => cur + acc)
   let result = 0
   const sum = []
   for (let i = 0; i < container.length; i++) {
     let product = 1
-    for(let j = 0; j < container[i].length; j++) {
+    for (let j = 0; j < container[i].length; j++) {
       product *= container[i][j]
     }
     sum.push(product)
@@ -4147,7 +4166,7 @@ function totalVolume(...boxes) {
 // Notes
 // You are ordered to spend all of your $1,000,000 budget...
 function constructFence(price) {
-	return "H".repeat(1000000 / price.slice(1).split(',').join(''))
+  return "H".repeat(1000000 / price.slice(1).split(',').join(''))
 }
 // Remove enemies from the list of people, even if the enemy shows up twice.
 // Examples
@@ -4254,7 +4273,7 @@ function recamanIndex(n) {
 // All inputs are strings, no uppercases and all output must be strings.
 function encrypt(word) {
   let result = []
-  const vowels = {a: 0, e: 1, i: 2, o: 2, u: 3}
+  const vowels = { a: 0, e: 1, i: 2, o: 2, u: 3 }
   for (let i = word.length - 1; i >= 0; i--) {
     result.push(word[i])
   }
@@ -4285,7 +4304,7 @@ function encrypt(word) {
 //         Return true if the last digit of aa*bb is equal to cc, and false otherwise.
 //     Numbers can be negative.
 function lastDig(a, b, c) {
-	a = '' + a; b = '' + b; c = '' + c;
+  a = '' + a; b = '' + b; c = '' + c;
   return ('' + (a[a.length - 1] * b[b.length - 1])).slice(-1) === c[c.length - 1]
 }
 // You are given an input array of bigrams, and an array of words.
@@ -4299,7 +4318,7 @@ function lastDig(a, b, c) {
 // Notes
 // A bigram is string of two consecutive characters.
 function canFind(bigrams, words) {
-	for (let i = 0; i < bigrams.length; i++) {
+  for (let i = 0; i < bigrams.length; i++) {
     if (words.join('').indexOf(bigrams[i]) === -1) return false
   }
   return true
@@ -4318,7 +4337,7 @@ function splitCode(item, result = []) {
       result = [item.slice(0, i + 1), parseInt(item.slice(i + 1))]
     }
   }
-  return result 
+  return result
 }
 // Write a function that returns all the elements in an array that are strictly greater than their adjacent left and right neighbors.
 // Examples
@@ -4329,7 +4348,7 @@ function splitCode(item, result = []) {
 //     Do not count boundary numbers, since they only have one left/right neighbor.
 //     If no such numbers exist, return an empty array.
 function miniPeaks(arr, result = []) {
-	for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) result.push(arr[i])
   }
   return result
@@ -4365,7 +4384,7 @@ function primesBelowNum(n, result = []) {
 // Try doing it with an arrow function.
 function getStudentsWithNamesAndTopNotes(students) {
   return students.map(obj => {
-    return {name: obj.name, topNote: obj.notes.length ? Math.max(...obj.notes) : 0}
+    return { name: obj.name, topNote: obj.notes.length ? Math.max(...obj.notes) : 0 }
   })
 }
 // Quantifiers indicate numbers of characters or expressions to match.
@@ -4428,7 +4447,7 @@ function isUnfairHurdle(hurdles, distance = []) {
 //     It doesn't matter if an array begins/ends with a positive or negative, as long as it alternates.
 //     If an array contains 0, return false (as it is neither positive nor negative).
 function alternatePosNeg(arr) {
-	for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     const dualPos = arr[i] > 0 && arr[i + 1] > 0
     const dualNeg = arr[i] < 0 && arr[i + 1] < 0
     if (dualPos || dualNeg || arr[i] === 0) return false
@@ -4444,7 +4463,7 @@ function alternatePosNeg(arr) {
 //     Output array must be sorted in ascending order
 //     The only positive integer which is neither prime nor composite is 1. Return an empty array if 1 is the input.
 function primeFactorize(num) {
-	const factors = []
+  const factors = []
   let divisor = 2
   while (num >= 2) {
     if (num % divisor == 0) {
@@ -4469,13 +4488,13 @@ function primeFactorize(num) {
 //     Upper vs. lower case does not matter.
 //     Hint: See comments for another example if you get stuck.
 // It is not mandatory for this exercise, but in general it is a good idea to double-check if there exists methods with the same name a your custom functions before using them to extend the prototype. This is to prevent the accidental overwrite of a pre-existing method. (See comments for additional info).
-String.prototype.consonants = function(count = 0) {
-	for (let i = 0; i < this.length; i++) {
+String.prototype.consonants = function (count = 0) {
+  for (let i = 0; i < this.length; i++) {
     if ('aeiou'.indexOf(this[i]) === -1) count++
   }
   return count
 }
-String.prototype.vowels = function(count = 0) {
+String.prototype.vowels = function (count = 0) {
   for (let i = 0; i < this.length; i++) {
     if ('aeiou'.indexOf(this[i]) !== -1) count++
   }
@@ -4496,7 +4515,7 @@ String.prototype.vowels = function(count = 0) {
 // Notes
 // N/A
 function wordNest(word, nest) {
-	return nest.length / word.length - 1
+  return nest.length / word.length - 1
 }
 // Create a function that creates a pattern as a 2D array for a given number.
 // Examples
@@ -4519,7 +4538,7 @@ function wordNest(word, nest) {
 // Function argument will always be a number greater than 0.
 function arrow(n, result = []) {
   for (let i = 1; i <= n; i++) result.push('>'.repeat(i))
-  for (let ii = n % 2 === 0 ? n : n - 1 ; ii > 0; ii--) {
+  for (let ii = n % 2 === 0 ? n : n - 1; ii > 0; ii--) {
     result.push('>'.repeat(ii))
   }
   return result
@@ -4540,7 +4559,7 @@ function arrow(n, result = []) {
 // Check the Resources tab for more info on promises.
 var result = ""
 let promise = new Promise((res, rej) => {
-	res('success!')
+  res('success!')
 })
 promise.then(() => result = 'success!')
 // An employee working at a very bizzare company, earns one penny on their first day. However, for every day that passes, their base amount doubles, so they earn two pennies on the second day and four pennies on the third day (totalling 7 pennies). Given a number of days, return how many pennies the employee accumulates.
@@ -4551,7 +4570,7 @@ promise.then(() => result = 'success!')
 // Notes
 // You will only get tests for valid positive integers.
 function doubledPay(n, pay = 1) {
-	for(let i = 1; i <= n; i++) {
+  for (let i = 1; i <= n; i++) {
     pay *= 2
   }
   return pay - 1
@@ -4567,14 +4586,14 @@ function doubledPay(n, pay = 1) {
 // Both characters will show up at least once in the string.
 function doubleSwap(str, c1, c2) {
   const strArr = [...str]
-  for (let i = 0; i < strArr.length; i++) {    
+  for (let i = 0; i < strArr.length; i++) {
     switch (strArr[i]) {
       case c1:
-       strArr[i] = c2
-       break;
+        strArr[i] = c2
+        break;
       case c2:
-       strArr[i] = c1
-       break;
+        strArr[i] = c1
+        break;
     }
   }
   return strArr.join('')
@@ -4606,7 +4625,7 @@ function insertWhitespace(s) {
 //     Only one broken key per letter should be listed.
 //     Letters will all be in lower case.
 function findBrokenKeys(str1, str2) {
-	const broken = []
+  const broken = []
   for (let i = 0; i < str1.length; i++) {
     if (str1[i] !== str2[i] && broken.indexOf(str1[i]) === -1) broken.push(str1[i])
   }
@@ -4621,13 +4640,13 @@ function findBrokenKeys(str1, str2) {
 // Notes
 // Think about the properties of a pandigital number when all duplicates are removed.
 function isPandigital(num) {
-	const numStr = '' + num
+  const numStr = '' + num
   const dups = {}
   const uniq = []
   let j = 0
   for (let i = 0; i < numStr.length; i++) {
     let n = numStr[i]
-    if(dups[n] !== 0) {
+    if (dups[n] !== 0) {
       dups[n] = 0
       uniq[j++] = n
     }
@@ -4679,7 +4698,7 @@ let REGEXP = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/g
 // Notes
 // [5, 5, 5] (triple identical digits) is NOT considered a boomerang because the middle digit is identical to the first and last.
 function countBoomerangs(arr, count = 0) {
-	for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i] !== arr[i + 1] && arr[i] === arr[i + 2]) count++
   }
   return count
@@ -4714,7 +4733,7 @@ function countBoomerangs(arr, count = 0) {
 //     Layers will be horizontally and vertically symmetric.
 //     There will be at least one layer for each rug.
 function countLayers(rug, count = 1) {
-	const midStr = rug[Math.floor(rug.length / 2)]
+  const midStr = rug[Math.floor(rug.length / 2)]
   for (let i = 0; i < Math.floor(midStr.length / 2); i++) {
     if (midStr[i] !== midStr[i + 1]) count++
   }
@@ -4729,8 +4748,8 @@ function countLayers(rug, count = 1) {
 // Notes
 // If given an empty string as an input, return [0, 0, 0].
 function calculateScores(str) {
-  let players = { A:0, B:0, C:0 }
-	for (let i = 0; i < str.length; i++) players[str[i]]++
+  let players = { A: 0, B: 0, C: 0 }
+  for (let i = 0; i < str.length; i++) players[str[i]]++
   return Object.values(players)
 }
 // Two sisters are eating chocolate, whose pieces are represented as subarrays of [l x w].
@@ -4772,7 +4791,7 @@ const str = `({ first = "John", last = "Doe", alias : nickname = "JD" } = { firs
 // Notes
 // Ignore spaces.
 function howManyTimes(msg) {
-	const alphObj = {}
+  const alphObj = {}
   for (let i = 9; ++i < 36;) alphObj[i.toString(36)] = i - 9
   return [...msg].reduce((cur, acc) => cur + alphObj[acc], 0)
 }
@@ -4786,7 +4805,7 @@ function howManyTimes(msg) {
 //     You don't need to test for floats.
 //     int1 and int2 will only be from 0-9.
 function mathExpr(expr) {
-	return !isNaN(+expr[0])
+  return !isNaN(+expr[0])
 }
 // Additional spaces have been added to a sentence. Return the correct sentence by removing them. All words should be separated by one space, and there should be no spaces at the beginning or end of the sentence.
 // Examples
@@ -4799,7 +4818,7 @@ function mathExpr(expr) {
 // Notes
 // N/A
 function correctSpacing(sentence) {
-	return sentence.trim().split(' ').filter(ele => ele !== '').join(' ')
+  return sentence.trim().split(' ').filter(ele => ele !== '').join(' ')
 }
 // The Code tab has a code which attempts to add a clone of an array to itself. There is no error message, but the results are not as expected. Can you fix the code?
 // Examples
@@ -4808,8 +4827,8 @@ function correctSpacing(sentence) {
 // Notes
 // N/A
 function clone(arr) {
-	arr.push([...arr])
-	return arr
+  arr.push([...arr])
+  return arr
 }
 // A man named Thomas Malthus described what is now called a Malthusian Catastrophe. According to him, food production grows by a fixed amount, but population grows by a percentage. So, the food supply would soon be insufficient for the population.
 // Your job is to find out when that will occur. For this challenge, assume 1 population needs 1 unit of food production. Food production and population both start at 100. The year starts at 0.
@@ -4829,7 +4848,7 @@ function clone(arr) {
 //     Make sure you don't make the mistake of adding a year, then calculating the changes to food and population. That way, you miss year 0.
 //     If the population and food production are equal, that is not a catastrophe.
 function malthusian(foodGrowth, popMult) {
-	const obj = {foodProd: 100, pop: 100, year: 0}
+  const obj = { foodProd: 100, pop: 100, year: 0 }
   do {
     obj.foodProd += foodGrowth
     obj.pop *= popMult
@@ -4873,7 +4892,7 @@ function printAllGroups(letters = ["a", "b", "c", "d", "e"], result = []) {
 // Notes
 // N/A
 function toObj(arr) {
-	return arr.map(ele => arr[ele] = {[ele]: ele.charCodeAt(0)})
+  return arr.map(ele => arr[ele] = { [ele]: ele.charCodeAt(0) })
 }
 // Create a function that takes multidimensional array, converts into one dimensional array and returns it using Recursion.
 // Examples
@@ -4885,10 +4904,10 @@ function toObj(arr) {
 //     Use of built in methods is discouraged.
 function flatten(arr, result = []) {
   //return arr.flat(Infinity)
-	arr.forEach(ele => {
-		if (Array.isArray(ele)) flatten(ele, result)
+  arr.forEach(ele => {
+    if (Array.isArray(ele)) flatten(ele, result)
     else result.push(ele)
-	})
+  })
   return result
 }
 // Write a function that takes an array and a number as arguments. Add the number to the end of the array, then remove the first element of the array. The function should then return the updated array.
@@ -4900,7 +4919,7 @@ function flatten(arr, result = []) {
 // Notes
 // For an empty array input, return: "No array has been selected"
 function nextInLine(arr, num) {
-	if (!arr.length) return 'No array has been selected'
+  if (!arr.length) return 'No array has been selected'
   else {
     arr.shift()
     arr.push(num)
@@ -4917,7 +4936,7 @@ function nextInLine(arr, num) {
 // Notes
 // Both words will have strictly different ASCII sums.
 function asciiSort(arr) {
-	const asciiArr = arr.map(ele => ele.split('').reduce((cur, acc) => cur + acc.charCodeAt(0), 0))
+  const asciiArr = arr.map(ele => ele.split('').reduce((cur, acc) => cur + acc.charCodeAt(0), 0))
   return arr[asciiArr.indexOf(Math.min.apply(null, asciiArr))]
 }
 // Create a function that returns true if a number is prime and false if it's not. A prime number is any positive integer that is evenly divisible by only two divisors: 1 and itself. The first ten prime numbers are 2, 3, 5, 7, 11, 13, 17, 19, 23 and 29.
@@ -4963,7 +4982,7 @@ function countPosSumNeg(arr, countPos = 0, sumNeg = 0) {
 // Notes
 // N/A
 function powerOfTwo(num) {
-	return Math.log2(num) % 1 === 0
+  return Math.log2(num) % 1 === 0
 }
 // A game of table tennis almost always sounds like Ping! followed by Pong! Therefore, you know that Player 2 has won if you hear Pong! as the last sound (since Player 1 didn't return the ball back).
 // Given an array of Ping!, create a function that inserts Pong! in between each element. Also:
@@ -4982,7 +5001,7 @@ function pingPong(arr, win) {
     arr[arr.length] = 'Pong!'
     return arr
   }
-	for (let i = arr.length - 1; i >= 1; i--) {
+  for (let i = arr.length - 1; i >= 1; i--) {
     if (win === true) {
       arr.splice(i, 0, 'Pong!')
       arr[arr.length] = 'Pong!'
@@ -5004,7 +5023,7 @@ function pingPong(arr, win) {
 //     The first two arguments will always be integers.
 //     The third argument is either a string or an integer.
 function matrix(x, y, z) {
-	// return Array(x).fill(Array(y).fill(z))
+  // return Array(x).fill(Array(y).fill(z))
   const mainArr = []
   mainArr.length = x
   for (let i = 0; i < x; i++) {
@@ -5022,7 +5041,7 @@ function matrix(x, y, z) {
 // Notes
 // January will be given as 1, February as 2, etc ...
 function hasFriday13(month, year) {
-	return new Date(`${year}-${month}-13`).getDay() === 5
+  return new Date(`${year}-${month}-13`).getDay() === 5
 }
 // Stalactites hang from the ceiling of a cave while stalagmites grow from the floor.
 // Create a function that determines whether the input represents "stalactites" or "stalagmites". If it represents both, return "both". Input will be a 2D array, with 1 representing a piece of rock, and 0 representing air space.
@@ -5081,7 +5100,7 @@ function canAlternate(s, zeros = 0, ones = 0) {
 // Notes
 // If no zeroes exist in the input, return an empty string.
 function longestZero(s) {
-	return s.split('1').reduce((cur, acc) => cur.length > acc.length ? cur : acc)
+  return s.split('1').reduce((cur, acc) => cur.length > acc.length ? cur : acc)
 }
 // Create a function that takes a strings characters as ASCII and returns each characters hexadecimal value as a string.
 // Examples
@@ -5092,7 +5111,7 @@ function longestZero(s) {
 //     Each byte must be seperated by a space.
 //     All alpha hex characters must be lowercase.
 function toHex(str, result = []) {
-	for (let i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i++) {
     result.push(str.charCodeAt(i).toString(16))
   }
   return result.join(' ')
@@ -5107,7 +5126,7 @@ function toHex(str, result = []) {
 // Notes
 // Input may be array of numbers, strings and empty arrays.
 const countNumber = arr => {
-	const flatten = (arr, result = []) => {
+  const flatten = (arr, result = []) => {
     for (let i = 0; i < arr.length; i++) {
       const value = arr[i]
       if (Array.isArray(value)) flatten(value, result)
@@ -5130,7 +5149,7 @@ const countNumber = arr => {
 // Notes
 // The input will always be in lowercase.
 function replaceVowel(word) {
-	const vowels = { a: 1, e: 2, i: 3, o: 4, u: 5 }
+  const vowels = { a: 1, e: 2, i: 3, o: 4, u: 5 }
   const wordArr = [...word]
   for (let i = 0; i < wordArr.length; i++) {
     if (vowels[wordArr[i]]) wordArr[i] = vowels[wordArr[i]]
@@ -5165,7 +5184,7 @@ function replaceVowel(word) {
 //     You may be required to find punctuation.
 //     Duplicate words should be ignored (see example #3 for the word "an").
 function findOccurrences(str, char) {
-	const dups = {}
+  const dups = {}
   const strArr = [...str.split(' ')]
   let j = 0
   for (let i = 0; i < strArr.length; i++) {
@@ -5185,7 +5204,7 @@ function findOccurrences(str, char) {
 //     Vowels are a, e, i, o, u.
 //     Define a separate isVowel() function for easier to read code (recommendation).
 function split(str) {
-	const strArr = [...str]
+  const strArr = [...str]
   const vowels = 'aeiou'
   const result = []
   for (let i = 0; i < strArr.length; i++) {
@@ -5220,7 +5239,7 @@ function split(str) {
 // Notes
 // All German sausage names contain the word "wurst".
 function wurstIsBetter(str) {
-	return str.replace(/sausage|salami|moronga|chorizo|kielbasa|andouille|naem/gi, 'Wurst')
+  return str.replace(/sausage|salami|moronga|chorizo|kielbasa|andouille|naem/gi, 'Wurst')
 }
 // Quantifiers indicate numbers of characters or expressions to match. By default quantifiers like * and + are "greedy", meaning that they try to match as much of the string as possible. The ? character after the quantifier makes the quantifier "non-greedy": meaning that it will stop as soon as it finds a match.
 // "some <foo> <bar> new </bar> </foo> thing".match(/<.*>/) ➞ "<foo> <bar> new </bar> </foo>"
@@ -5240,7 +5259,7 @@ const REGEXP = /<!--.*?-->/g
 //     Remember that each price is given as a string.
 //     All $ signs will be at the beginning of the number.
 function hasHiddenFee(prices, t) {
-	return prices.reduce((cur, acc) => +acc.slice(1) + cur, 0) < t.slice(1)
+  return prices.reduce((cur, acc) => +acc.slice(1) + cur, 0) < t.slice(1)
 }
 // A number n is automorphic if n^2 ends in n.
 // For example: n=5, n^2=25
@@ -5253,7 +5272,7 @@ function hasHiddenFee(prices, t) {
 // N/A
 function isAutomorphic(n) {
   const nStr = '' + n
-	return ('' + (n * n)).slice(-nStr.length) === nStr
+  return ('' + (n * n)).slice(-nStr.length) === nStr
 }
 // Create a function that takes a number as input and returns true if the sum of its digits has the same parity as the entire number. Otherwise, return false.
 // Examples
@@ -5267,7 +5286,7 @@ function isAutomorphic(n) {
 //     Parity is whether a number is even or odd. If the sum of the digits is even and the number itself is even, return true. The same goes if the number is odd and so is the sum of its digits.
 //     Single digits will obviously have the same parities (see example #3).
 function parityAnalysis(num) {
-	let sumNum = 0
+  let sumNum = 0
   const numArr = [...('' + num)]
   for (let i = 0; i < numArr.length; i++) {
     sumNum += +numArr[i]
@@ -5307,7 +5326,7 @@ function stepsToConvert(str) {
 // Notes
 // N/A
 function add_suffix(suffix) {
-	return function(str) {
+  return function (str) {
     return str + suffix
   }
 }
@@ -5346,8 +5365,8 @@ function stripSentence(str, chars) {
 //     You won't get strings with both numbers and letters in them.
 //     Although the task may be easy, try keeping your code as clean and as readable as possible!
 function changeTypes(arr) {
-	return arr.map(ele => {
-		if (typeof ele === 'number' && ele % 2 === 0 ) return ele += 1
+  return arr.map(ele => {
+    if (typeof ele === 'number' && ele % 2 === 0) return ele += 1
     if (typeof ele === 'string' && isNaN(ele)) return ele = ele[0].toUpperCase() + ele.slice(1) + '!'
     if (typeof ele === 'string' && !isNaN(ele)) return ele + '!'
     if (typeof ele === 'boolean') return ele = !ele
@@ -5368,7 +5387,7 @@ function changeTypes(arr) {
 // Notes
 // N/A
 function Magic(str) {
-	const strArr = [...str.split(' ')]
+  const strArr = [...str.split(' ')]
   return strArr[2].endsWith(strArr[0] * strArr[1])
 }
 // A number is considered slidey if for every digit in the number, the next digit from that has an absolute difference of one. Check the examples below.
@@ -5382,12 +5401,12 @@ function Magic(str) {
 //     A number cannot slide properly if there is a "flat surface" (example #4), or has gaps (example #5).
 //     All single digit numbers can be considered slidey numbers!
 function isSlidey(n) {
-	const nArr = [...('' + n)]
+  const nArr = [...('' + n)]
   for (let i = 0; i < nArr.length - 1; i++) {
     const diff = +nArr[i] - nArr[i + 1]
     const absdiff = diff < 0 ? -diff : diff
     if (absdiff !== 1) return false
-  } 
+  }
   return true
 }
 // Create a function that returns the total number of steps it takes to transform each element to the maximal element in the array. Each step consists of incrementing a digit by one.
@@ -5401,7 +5420,7 @@ function isSlidey(n) {
 //     If the array contains only the same digits, return 0 (see example #2).
 //     Bonus: Can you write a solution that achieves this by only traversing the array once? (i.e. without finding the max before hand)
 function incrementToTop(arr) {
-	let steps = 0
+  let steps = 0
   const arrMax = Math.max(...arr)
   for (let i = 0; i < arrMax; i++) {
     if (arr[i] < arrMax) steps += (arrMax - arr[i])
@@ -5432,7 +5451,7 @@ const rx = /(@\w+)|(#\w+)/g
 // Notes
 // N/A
 function factorChain(arr) {
-	for (let i = 0; i < arr.length - 1; i++) {
+  for (let i = 0; i < arr.length - 1; i++) {
     if (arr[i + 1] % arr[i] !== 0) return false
   }
   return true
@@ -5460,7 +5479,7 @@ function catchZeroDivision(expr) {
 // Notes
 // Integer a can be halved at least once.
 function halveCount(a, b) {
-	let count = 0
+  let count = 0
   while ((a /= 2) > b) count++
   return count
 }
@@ -5474,7 +5493,7 @@ function halveCount(a, b) {
 function sameAscii(a, b) {
   let sumA = 0
   let sumB = 0
-	for (let i = 0; i < a.length; i++) {
+  for (let i = 0; i < a.length; i++) {
     sumA += a.charCodeAt(i)
   }
   for (let ii = 0; ii < b.length; ii++) {
@@ -5526,7 +5545,7 @@ function uniqueArr(arr) {
       result[j++] = arr[i]
     }
   }
-  return result 
+  return result
 }
 // There has been a masterdata issue which affected the prices of the products. All prices need to be checked if they are a valid number and zero or higher (>= 0). Products with a price of 0 are free and is a valid price.
 // The return value should be a Boolean.
@@ -5539,7 +5558,7 @@ function uniqueArr(arr) {
 // Notes
 // Run the tests first to see the results before making changes and understand why eggs is returning 0 and flour is returning undefined.
 function hasValidPrice(product) {
-	return (product && typeof product.price === 'number' && product.price >= 0) || false
+  return (product && typeof product.price === 'number' && product.price >= 0) || false
 }
 // Create a function that takes a string, removes all "special" characters (e.g. !, @, #, $, %, ^, &, \, *, (, )) and returns the new string. The only non-alphanumeric characters allowed are dashes -, underscores _ and spaces.
 // Examples
@@ -5564,7 +5583,7 @@ function removeSpecialCharacters(str) {
 //     All the test cases use valid input (so no arrays of the wrong size, for example).
 //     All the coefficients will be integers (whole numbers).
 function linesAreParallel(l1, l2) {
-	return l1[0] / l1[1] === l2[0] / l2[1]
+  return l1[0] / l1[1] === l2[0] / l2[1]
 }
 // Usually when you sign up for an account to buy something, your credit card number, phone number or answer to a secret question is partially obscured in some way. Since someone could look over your shoulder, you don't want that shown on your screen. Hence, the website masks these strings.
 // Your task is to create a function that takes a string, transforms all but the last four characters into "#" and returns the new masked string.
@@ -5577,7 +5596,7 @@ function linesAreParallel(l1, l2) {
 //     The maskify function must accept a string of any length.
 //     An empty string should return an empty string (fourth example above).
 function maskify(str) {
-	if (str == '') return ''
+  if (str == '') return ''
   const strArr = [...str]
   return strArr.length > 4 ? strArr.fill('#', 0, strArr.length - 4).join('') : strArr.join('')
 }
@@ -5590,8 +5609,8 @@ function maskify(str) {
 // Notes
 // Check the Resources tab for more info on ordinal numbers.
 function returnEndOfNumber(num) {
-	const numArr = [...'' + num]
-  const suffix = {1: '-ST', 2: '-ND', 3: '-RD', 4: '-TH'}
+  const numArr = [...'' + num]
+  const suffix = { 1: '-ST', 2: '-ND', 3: '-RD', 4: '-TH' }
   if (suffix[numArr[numArr.length - 1]]) {
     numArr.splice(numArr.length, 0, suffix[numArr[numArr.length - 1]])
   }
@@ -5615,13 +5634,13 @@ function returnEndOfNumber(num) {
 //     Check the Tests tab to see exactly what's being evaluated.
 //     You can solve this challenge with RegEx, but it's intended to be solved with logic.
 //     Solutions using RegEx will be accepted but frowned upon :(
-  function validateEmail(str) {
-    if (str.includes('@') && str.includes('.')) {
-     if (!str[str.indexOf('@') - 1]) return false
-     if (!str.slice(str.indexOf('@')).includes('.')) return false
-    } else return false
-    return true
-  }
+function validateEmail(str) {
+  if (str.includes('@') && str.includes('.')) {
+    if (!str[str.indexOf('@') - 1]) return false
+    if (!str.slice(str.indexOf('@')).includes('.')) return false
+  } else return false
+  return true
+}
 // ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits. Your task is to create a function that takes a string and returns true if the PIN is valid and false if it's not.
 // Examples
 // validatePIN("1234") ➞ true
@@ -5649,7 +5668,7 @@ function validatePIN(pin) {
 // Notes
 // You can expect a valid string to be provided for each test case.
 function reverse(str) {
-	const strArr = [...str.split(' ')]
+  const strArr = [...str.split(' ')]
   for (let i = 0; i < strArr.length; i++) {
     if (strArr[i].length > 4) {
       strArr[i] = [...strArr[i]].reverse().join('')
@@ -5665,7 +5684,7 @@ function reverse(str) {
 // Notes
 // You can expect a valid number for all test cases.
 function formatNum(num) {
-	return num.toLocaleString();
+  return num.toLocaleString();
 }
 // An isogram is a word that has no repeating letters, consecutive or nonconsecutive. Create a function that takes a string and returns either true or false depending on whether or not it's an "isogram".
 // Examples
@@ -5677,7 +5696,7 @@ function formatNum(num) {
 //     Ignore letter case (should not be case sensitive).
 //     All test cases contain valid one word strings.
 function isIsogram(str) {
-	const dups = {}
+  const dups = {}
   Array.prototype.forEach.call(str.toLowerCase(), (char) => {
     dups[char] = dups[char] ? 1 + dups[char] : 1
   })
@@ -5692,7 +5711,7 @@ function isIsogram(str) {
 //     Should be case insensitive.
 //     The two given strings can be of different lengths.
 function isAnagram(s1, s2) {
-	if (s1.length !== s2.length) return false
+  if (s1.length !== s2.length) return false
   let s1Count = {}
   Array.prototype.forEach.call(s1.toLowerCase(), (char) => {
     s1Count[char] = s1Count[char] ? 1 + s1Count[char] : 1
@@ -5712,7 +5731,7 @@ function isAnagram(s1, s2) {
 // Notes
 // N/A
 function createPhoneNumber(numbers) {
-	return `(${numbers.splice(0, 3).join('')}) ${numbers.splice(0, 3).join('')}-${numbers.slice(0, 4).join('')}`
+  return `(${numbers.splice(0, 3).join('')}) ${numbers.splice(0, 3).join('')}-${numbers.slice(0, 4).join('')}`
 }
 // Create a function which takes a parameter n and returns a function such that it, when called n times, returns the string "edabit".
 // Examples
@@ -5735,7 +5754,7 @@ lambdaDepth = n => eval('() => '.repeat(n) + '"edabit"')
 //     All numbers used in the tests will be integers (whole numbers).
 //     Returning a function from a function is a key part of understanding higher order functions (functions which operate on and return functions).
 function add(n) {
-	return function(n2) {
+  return function (n2) {
     return n + n2
   }
 }
@@ -5782,7 +5801,7 @@ function reverseImage(image) {
 // Notes
 // Uppercase "Zip" is not the same as lowercase "zip".
 function findZip(str) {
-  return str.indexOf('zip') !== str.lastIndexOf('zip') ?str.split('zip', 2).join('zip').length : -1
+  return str.indexOf('zip') !== str.lastIndexOf('zip') ? str.split('zip', 2).join('zip').length : -1
 }
 // Write a function that returns an anonymous function, which adds n to its input
 // Examples
@@ -5812,7 +5831,7 @@ const addsNum = (n) => (n2) => n + n2
 // Notes
 // All inputs will be valid numbers.
 function makePlusFunction(baseNum) {
-	return function(num) {
+  return function (num) {
     return baseNum + num
   }
 }
@@ -5942,14 +5961,14 @@ function isEqual(objOne, objTwo) {
 // Notes
 // Return values as a string and make sure to add "XP" to the end.
 function getXP(obj) {
-  const exp = {	
-    'Very Easy' : 5,
-	  'Easy' : 10,
-	  'Medium' : 20,
-	  'Hard' : 40,
-	  'Very Hard' : 80
+  const exp = {
+    'Very Easy': 5,
+    'Easy': 10,
+    'Medium': 20,
+    'Hard': 40,
+    'Very Hard': 80
   }
-	for (let key in obj) {
+  for (let key in obj) {
     obj[key] *= exp[key]
   }
   return `${Object.values(obj).reduce((acc, cur) => acc + cur, 0)}XP`
@@ -5965,7 +5984,7 @@ function getXP(obj) {
 //     Numbers greater than one may be given as top-heavy fractions (no mixed numbers).
 //     n won't be 1 because that would cause "decimal places" to be "decimal place", making the challenge more cumbersome than it needs to be.
 function fracRound(frac, n) {
-	const operandIdx = frac.indexOf('/')
+  const operandIdx = frac.indexOf('/')
   const answer = +frac.slice(0, operandIdx) / frac.slice(operandIdx + 1)
   return `${frac} rounded to ${n} decimal places is ${answer.toFixed(n)}`
 }
@@ -5978,7 +5997,7 @@ function fracRound(frac, n) {
 // Notes
 // N/A
 function doubleLetters(word) {
-	for (let i = 0; i < word.length; i++) {
+  for (let i = 0; i < word.length; i++) {
     if (word[i] === word[i + 1]) {
       return true
     }
@@ -5997,7 +6016,7 @@ function doubleLetters(word) {
 //     Floats and empty arrays will not be used in any of the test cases.
 function sumTwoSmallestNums(arr) {
   let tmp
-	for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
       if (arr[i] > arr[j]) {
         tmp = arr[i]
@@ -6018,7 +6037,7 @@ function sumTwoSmallestNums(arr) {
 //     The array of numbers will be unsorted (not in order).
 //     Only one number will be missing.
 function missingNum(arr) {
-  return 55- arr.reduce((cur, acc) => cur + acc, 0)
+  return 55 - arr.reduce((cur, acc) => cur + acc, 0)
 }
 // You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
 // Here are a list of the characters classes in JavaScript:
@@ -6039,7 +6058,7 @@ const REGEXP = /\S[\?]/g
 // Notes
 // The item in an array can be another array.
 function sumArray(arr) {
-	return arr.flat(Infinity).reduce((cur, acc) => cur + acc, 0)
+  return arr.flat(Infinity).reduce((cur, acc) => cur + acc, 0)
 }
 // Create a function that takes four arrays as arguments and returns a count of the total number of identical arrays.
 // Examples
@@ -6075,7 +6094,7 @@ function countIdenticalArrays(arr1, arr2, arr3, arr4) {
 // All test cases contain a single word (as a string).
 function getMiddle(str) {
   const strMid = Math.floor(str.length / 2)
-	return str.length % 2 == 0 ? str.slice(strMid - 1, strMid + 1) : str.slice(strMid, strMid + 1)
+  return str.length % 2 == 0 ? str.slice(strMid - 1, strMid + 1) : str.slice(strMid, strMid + 1)
 }
 // Create a function that takes in a number as a string n and returns the number without trailing and leading zeros.
 //     Trailing Zeros are the zeros after a decimal point which don't affect the value (e.g. the last three zeros in 3.4000 and 3.04000).
@@ -6159,7 +6178,7 @@ function sortDates(arr, type) {
 //     The argument will always be a single character.
 //     Not all inputs will have a counterpart (e.g. numbers), in which case return the inputs char code.
 function counterpartCharCode(char) {
-	return char.toUpperCase() === char ? char.toLowerCase().charCodeAt() : char.toUpperCase().charCodeAt()
+  return char.toUpperCase() === char ? char.toLowerCase().charCodeAt() : char.toUpperCase().charCodeAt()
 }
 // Create a function that performs an even-odd transform to an array, n times. Each even-odd transformation:
 //     Adds two (+2) to each odd integer.
@@ -6172,7 +6191,7 @@ function counterpartCharCode(char) {
 // Notes
 // N/A
 function evenOddTransform(arr, n) {
-	while (n > 0) {
+  while (n > 0) {
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] % 2 === 0) arr[i] -= 2
       else arr[i] += 2
@@ -6200,7 +6219,7 @@ function evenOddTransform(arr, n) {
 // Notes
 // N/A
 function uniqueStyles(albums) {
-	const dups = {}
+  const dups = {}
   const uniq = []
   let j = 0
   for (let i = 0; i < albums.length; i++) {
@@ -6228,7 +6247,7 @@ function uniqueStyles(albums) {
 // Notes
 // Inputs are array of numbers.
 function findNaN(number) {
-	for (let i = 0; i < number.length; i++) {
+  for (let i = 0; i < number.length; i++) {
     if (!(number[i] === number[i])) return i
   }
   return -1
@@ -6243,7 +6262,7 @@ function findNaN(number) {
 //     You will need to deal with addition, subtraction, multiplication and division.
 //     Division will have whole number answers (and will obviously not involve 0).
 function formatMath(expr) {
-	return `${expr} = ${expr.indexOf('x') !== -1 ? eval(expr.replace(/x/, '*')) : eval(expr)}`
+  return `${expr} = ${expr.indexOf('x') !== -1 ? eval(expr.replace(/x/, '*')) : eval(expr)}`
 }
 // Someone has attempted to censor my strings by replacing every vowel with a *, l*k* th*s. Luckily, I've been able to find the vowels that were removed.
 // Given a censored string and a string of the censored vowels, return the original uncensored string.
@@ -6270,7 +6289,7 @@ function uncensor(str, vowels) {
 // Notes
 // Your function must return 0, 2 or 3.
 function equal(a, b, c) {
-	if (a == b && a == c) return 3
+  if (a == b && a == c) return 3
   else if (a == b || a == c) return 2
   else return 0
 }
@@ -6283,7 +6302,7 @@ function equal(a, b, c) {
 // Notes
 // This challenge assumes the week starts on Sunday.
 function getDay(day) {
-	const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"]
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
   return days[new Date(day).getDay()]
 }
 // Create a function that takes a string as an argument and converts the first character of each word to uppercase. Return the newly formatted string.
@@ -6296,7 +6315,7 @@ function getDay(day) {
 // You can expect a valid string for each test case.
 function makeTitle(str) {
   const strArr = str.split(' ')
-	for (let i = 0; i < strArr.length; i++) {
+  for (let i = 0; i < strArr.length; i++) {
     strArr[i] = strArr[i][0].toUpperCase() + strArr[i].slice(1)
   }
   return strArr.join(' ')
@@ -6311,7 +6330,7 @@ function makeTitle(str) {
 //     A factor is a number that evenly divides into another number without leaving a remainder. The second example is a factor of 12, because 12 / 2 = 6, with remainder 0.
 function factorize(num) {
   const factors = []
-	for (let i = 0; i <= num; i++) {
+  for (let i = 0; i <= num; i++) {
     if (num % i == 0) factors.push(i)
   }
   return factors
@@ -6326,7 +6345,7 @@ factorize(24)
 //     Don't change the order of the original array.
 //     Notice in the second example above, "MABELLE" is returned as "Mabelle".
 function capMe(arr) {
-	for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     arr[i] = arr[i][0].toUpperCase() + arr[i].slice(1).toLowerCase()
   }
   return arr
@@ -6347,7 +6366,7 @@ function capMe(arr) {
 //     Remember to return true if there aren't any x's or o's.
 //     Must be case insensitive.
 function XO(str) {
-  let xoObj = {x: 0, o: 0}
+  let xoObj = { x: 0, o: 0 }
   let strLower = str.toLowerCase()
   for (let i = 0; i < strLower.length; i++) {
     if (Object.keys(xoObj)[0] === (strLower[i])) xoObj[strLower[i]]++
@@ -6377,7 +6396,7 @@ function uniqueSort(arr) {
     }
   }
   for (let k = 0; k < uniq.length; k++) {
-    for(let kk = k + 1; kk < uniq.length; kk++) {
+    for (let kk = k + 1; kk < uniq.length; kk++) {
       if (uniq[k] > uniq[kk]) {
         tmp = uniq[k]
         uniq[k] = uniq[kk]
@@ -6397,7 +6416,7 @@ function uniqueSort(arr) {
 // Notes
 // Make sure the numbers are spaced.
 function alphNum(str) {
-	const alphObj = {A: 0, B: 1, C: 2, D: 3, X: 23, Y: 24, Z: 25}
+  const alphObj = { A: 0, B: 1, C: 2, D: 3, X: 23, Y: 24, Z: 25 }
   const result = []
   for (let i = 0; i < str.length; i++) {
     if (alphObj[str[i]] === 0 || alphObj[str[i]]) {
@@ -6414,8 +6433,8 @@ function alphNum(str) {
 // Notes
 // In order to work properly, the function should replace all 'a's with 4, 'e's with 3, 'i's with 1, 'o's with 0, and 's's with 5.
 function hackerSpeak(str) {
-  const obj = { a: '4', e: '3', i: '1', o: '0', s: '5'}
-	const strArr = str.split('')
+  const obj = { a: '4', e: '3', i: '1', o: '0', s: '5' }
+  const strArr = str.split('')
   let result = []
   for (let i = 0; i < strArr.length; i++) {
     let char = strArr[i]
@@ -6437,7 +6456,7 @@ function hackerSpeak(str) {
 //     Use JavaScript's PI property, don't fall for 3.14 ;-)
 //     If the cone has no volume, return 0.
 function coneVolume(h, r) {
-	return +((Math.PI * r * r * h) / 3).toFixed(2)
+  return +((Math.PI * r * r * h) / 3).toFixed(2)
 }
 // Create a function that takes an array of items and checks if the last item matches the rest of the array.
 // Examples
@@ -6451,7 +6470,7 @@ function coneVolume(h, r) {
 function matchLastItem(arr) {
   const lastItem = arr[arr.length - 1]
   let bundle = ''
-	for (let i = 0; i < arr.length - 1; i++) {
+  for (let i = 0; i < arr.length - 1; i++) {
     bundle += arr[i]
   }
   return bundle === lastItem
@@ -6500,7 +6519,7 @@ function inBox(arr) {
 //     Tests are case sensitive.
 function removeDups(arr) {
   let dups = {}
-	let uniques = []
+  let uniques = []
   let j = 0
   for (let i = 0; i < arr.length; i++) {
     let element = arr[i]
@@ -6532,14 +6551,14 @@ function removeDups(arr) {
 //     The step of the sequence can be either positive or negative (see example #2).
 //     Trivia: there are infinite straight digital numbers, but only 96 of them are made of at least two different digits.
 function straightDigital(number) {
-	if (number < 100) return 'Not Straight'
+  if (number < 100) return 'Not Straight'
   const numArr = ('' + number).split('')
   const sequence = numArr[1] - numArr[0]
   for (let i = 0; i < numArr.length - 1; i++) {
     if (numArr[i] === numArr[i + 1]) return 'Trivial Straight'
     if (sequence !== numArr[i + 1] - +numArr[i]) return 'Not Straight'
   }
-	return sequence
+  return sequence
 }
 // Create a function that takes an integer n and reverses it.
 // Examples
@@ -6550,7 +6569,7 @@ function straightDigital(number) {
 //     This challenge is about using two operators that are related to division.
 //     If the number is negative, treat it like it's positive.
 function rev(n) {
-	const numArr = ('' + n).split('')
+  const numArr = ('' + n).split('')
   let result = []
   for (let i = numArr.length; i >= 0; i--) {
     if (parseInt(numArr[i])) result.push(numArr[i])
@@ -6579,7 +6598,7 @@ firstNonRepeatedCharacter('AACBDB')
 //     The mean of all digits is the sum of digits / how many digits there are (e.g. mean of digits in 512 is (5+1+2)/3(number of digits) = 8/3=2).
 //     The mean will always be a integer.
 function mean(num) {
-	let sum = 0
+  let sum = 0
   const numArr = ('' + num).split('')
   for (let i = 0; i < numArr.length; i++) {
     sum += +numArr[i]
@@ -6594,7 +6613,7 @@ function mean(num) {
 // Notes
 // N/A
 function convertToDecimal(perc) {
-	let deci = []
+  let deci = []
   for (let i = 0; i < perc.length; i++) {
     perc[i] = +(perc[i].slice(0, perc[i].length - 1)) * 0.01
     deci.push(perc[i])
@@ -6612,7 +6631,7 @@ function convertToDecimal(perc) {
 // Notes
 // Running the same number of miles as last week does not count as a progress day.
 function progressDays(runs) {
-	let days = 0 
+  let days = 0
   for (let i = 0; i < runs.length; i++) {
     if (runs[i] < runs[i + 1]) days++
   }
@@ -6627,7 +6646,7 @@ function progressDays(runs) {
 // Notes
 // All items in the array will be integers.
 function indexMultiplier(arr) {
-	let result = 0
+  let result = 0
   for (let i = 0; i < arr.length; i++) {
     result += arr[i] * i
   }
@@ -6642,7 +6661,7 @@ function indexMultiplier(arr) {
 //     You don't need to actually calculate the factors to solve this problem.
 //     Think about why a number would have an odd number of factors.
 function factorGroup(num) {
-	return Math.sqrt(num) % 1 === 0 ? 'odd' : 'even'
+  return Math.sqrt(num) % 1 === 0 ? 'odd' : 'even'
 }
 // Try to remove any repeated charcters in a word that will be passed to our function. Any character could be used, even special ones and numbers.
 // Examples
@@ -6704,7 +6723,7 @@ function bbqSkewers(grill) {
 // Notes
 // a is raised to the power of what in order to equal b?
 function solveForExp(a, b) {
-	return Math.round(Math.log(b) / Math.log(a))
+  return Math.round(Math.log(b) / Math.log(a))
 }
 // Write a function that takes an integer i and returns an integer with the integer backwards followed by the original integer.
 // To illustrate:
@@ -6717,9 +6736,9 @@ function solveForExp(a, b) {
 // Notes
 // i is a non-negative integer.
 function reverseAndNot(i) {
-	const intStrArr = ('' + i).split('')
+  const intStrArr = ('' + i).split('')
   const result = []
-  for (let k = intStrArr.length - 1; k >= 0;k--) {
+  for (let k = intStrArr.length - 1; k >= 0; k--) {
     result.push(intStrArr[k])
   }
   return +(result.join('') + i)
@@ -8726,7 +8745,7 @@ function formatPhoneNumber(numbers) {
 // Take an array of integers (positive or negative or both) and return the sum of the absolute value of each element.
 // Examples
 // getAbsSum([2, -1, 4, 8, 10]) ➞ 25
- 
+
 // getAbsSum([-3, -4, -10, -2, -3]) ➞ 22
 // getAbsSum([2, 4, 6, 8, 10]) ➞ 30
 // getAbsSum([-1]) ➞ 1
