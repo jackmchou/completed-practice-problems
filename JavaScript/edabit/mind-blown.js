@@ -1,3 +1,27 @@
+// A number is said to be Disarium if the sum of its digits raised to their respective positions is the number itself.
+
+// Create a function that determines whether a number is a Disarium or not.
+// Examples
+
+// isDisarium(75) ➞ false
+// // 7^1 + 5^2 = 7 + 25 = 32
+
+// isDisarium(135) ➞ true
+// // 1^1 + 3^2 + 5^3 = 1 + 9 + 125 = 135
+
+// isDisarium(518) ➞ true
+
+// isDisarium(8) ➞ true
+
+// Notes
+
+//     Position of the digit is not likely its index.
+//     A recursive version of this challenge can be found here.
+
+function isDisarium(n) {
+  return [...'' + n].map((ele, idx) => ele ** (idx + 1)).reduce((cur, acc) => cur + acc) == n
+}
+
 // "What about Brutus, is he gone?" asks your spouse. Brutus is right in front of you but you never liked him and iguanas can easily disappear...
 
 // Given three arguments ⁠— an object obj of the stolen items, the pets name and a value ⁠— return an object with that name and value in it (as key-value pairs).
