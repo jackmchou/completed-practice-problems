@@ -1,3 +1,23 @@
+// "What about Brutus, is he gone?" asks your spouse. Brutus is right in front of you but you never liked him and iguanas can easily disappear...
+
+// Given three arguments ⁠— an object obj of the stolen items, the pets name and a value ⁠— return an object with that name and value in it (as key-value pairs).
+// Examples
+
+// addName({}, "Brutus", 300) ➞ { Brutus: 300 }
+
+// addName({ piano: 500 }, "Brutus", 400) ➞ { piano: 500, Brutus: 400 }
+
+// addName({ piano: 500, stereo: 300 }, "Caligula", 440) ➞ { piano: 500, stereo: 300, Caligula: 440 }
+
+// Notes
+
+// The value argument will be a number.
+
+function addName(obj, name, value) {
+  obj[name] = value
+	return obj
+}
+
 // Create a function that takes an old price oldPrice, a new price newPrice, and returns what percent the price decreased or increased. Round the percentage to the nearest whole percent.
 // Examples
 
