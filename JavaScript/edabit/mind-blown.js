@@ -1,3 +1,28 @@
+// Given an array nums where each integer is between 1 and 100, return another array containing only duplicate numbers from the given nums array.
+// Examples
+
+// duplicateNums([1, 2, 3, 4, 3, 5, 6]) ➞ [3]
+
+// duplicateNums([81, 72, 43, 72, 81, 99, 99, 100, 12, 54]) ➞ [72, 81, 99]
+
+// duplicateNums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) ➞ null
+
+// Notes
+
+// The given array won't contain the same number three times.
+
+function duplicateNums(nums) {
+  // const dups = [...new Set(nums.filter(ele => nums.indexOf(ele) !== nums.lastIndexOf(ele)))]
+  // return dups.length !== 0 ? dups : null
+	const obj = {}
+  const arr = []
+  for (let i = 0; i < nums.length; i++) {
+    if (!obj[nums[i]]) obj[nums[i]] = 1
+    else arr.push(nums[i])
+  }
+  return arr.length !== 0 ? arr.sort((a, b) => a - b) : null
+}
+
 // A number is said to be Disarium if the sum of its digits raised to their respective positions is the number itself.
 
 // Create a function that determines whether a number is a Disarium or not.
