@@ -1,57 +1,59 @@
-// POV: You are in an exam and time has just run out. While the teacher's back is turned, you hastily take the opportunity to finish scribbling down the last few words of the conclusion.
+// Create a function that takes an integer n and returns the nth tetrahedral number.
 
+// Alternative Text
+// Examples
+
+// tetra(2) ➞ 4
+
+// tetra(5) ➞ 35
+
+// tetra(6) ➞ 56
+
+// Notes
+
+// There is a formula for the nth tetrahedral number.
+
+function tetra(n) {
+	return (n * (n + 1) * (n + 2)) / 6
+}
+
+// POV: You are in an exam and time has just run out. While the teacher's back is turned, you hastily take the opportunity to finish scribbling down the last few words of the conclusion.
 // For this challenge, it takes 0.5 seconds to write a character (not including spaces). Given the full sentence and the unfinished sentence as inputs, return the time it takes to finish writing in seconds.
 // Worked Example
-
 // timeToFinish(
 //   "And so brings my conclusion to its conclusion.",
 //   "And so brings my conclusion to"
 // ) ➞ 7
-
 // // "its" has 3 characters
 // // "conclusion." has 11 characters, including punctuation.
 // // 11 + 3 = 14
 // // 14 x 0.5 = 7
 // // Remember not to include spaces.
-
 // Examples
-
 // timeToFinish(
 //   "And so brings my conclusion to its conclusion.",
 //   "And so brings my conclusion to its conclus"
 // ) ➞ 2
-
 // timeToFinish(
 //   "As a result, my point is still valid.",
 //   "As a result, my"
 // ) ➞ 9
-
 // timeToFinish(
 //   "Thank you for reading my essay.",
 //   "T"
 // ) ➞ 12.5
-
 // Notes
-
 // The unfinished sentence is always found at the start of a complete sentence.
-
 function timeToFinish(full, part) {
 	return ([...full].filter(ele => ele !== ' ').length - [...part].filter(ele => ele !== ' ').length) / 2
 }
-
 // Given an array nums where each integer is between 1 and 100, return another array containing only duplicate numbers from the given nums array.
 // Examples
-
 // duplicateNums([1, 2, 3, 4, 3, 5, 6]) ➞ [3]
-
 // duplicateNums([81, 72, 43, 72, 81, 99, 99, 100, 12, 54]) ➞ [72, 81, 99]
-
 // duplicateNums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) ➞ null
-
 // Notes
-
 // The given array won't contain the same number three times.
-
 function duplicateNums(nums) {
   // const dups = [...new Set(nums.filter(ele => nums.indexOf(ele) !== nums.lastIndexOf(ele)))]
   // return dups.length !== 0 ? dups : null
@@ -63,70 +65,45 @@ function duplicateNums(nums) {
   }
   return arr.length !== 0 ? arr.sort((a, b) => a - b) : null
 }
-
 // A number is said to be Disarium if the sum of its digits raised to their respective positions is the number itself.
-
 // Create a function that determines whether a number is a Disarium or not.
 // Examples
-
 // isDisarium(75) ➞ false
 // // 7^1 + 5^2 = 7 + 25 = 32
-
 // isDisarium(135) ➞ true
 // // 1^1 + 3^2 + 5^3 = 1 + 9 + 125 = 135
-
 // isDisarium(518) ➞ true
-
 // isDisarium(8) ➞ true
-
 // Notes
-
 //     Position of the digit is not likely its index.
 //     A recursive version of this challenge can be found here.
-
 function isDisarium(n) {
   return [...'' + n].map((ele, idx) => ele ** (idx + 1)).reduce((cur, acc) => cur + acc) == n
 }
-
 // "What about Brutus, is he gone?" asks your spouse. Brutus is right in front of you but you never liked him and iguanas can easily disappear...
-
 // Given three arguments ⁠— an object obj of the stolen items, the pets name and a value ⁠— return an object with that name and value in it (as key-value pairs).
 // Examples
-
 // addName({}, "Brutus", 300) ➞ { Brutus: 300 }
-
 // addName({ piano: 500 }, "Brutus", 400) ➞ { piano: 500, Brutus: 400 }
-
 // addName({ piano: 500, stereo: 300 }, "Caligula", 440) ➞ { piano: 500, stereo: 300, Caligula: 440 }
-
 // Notes
-
 // The value argument will be a number.
-
 function addName(obj, name, value) {
   obj[name] = value
 	return obj
 }
-
 // Create a function that takes an old price oldPrice, a new price newPrice, and returns what percent the price decreased or increased. Round the percentage to the nearest whole percent.
 // Examples
-
 // percentageChanged("$800", "$600") ➞ "25% decrease"
-
 // percentageChanged("$1000", "$840") ➞ "16% decrease"
-
 // percentageChanged("$100", "$950") ➞ "850% increase"
-
 // Notes
-
 // N/A
-
 function percentageChanged(oldPrice, newPrice) {
   const oldPriceNum = +oldPrice.slice(1), newPriceNum = +newPrice.slice(1)
   const pct = (Math.abs(newPriceNum / oldPriceNum - 1) * 100).toFixed(0)
 	return oldPriceNum < newPriceNum ? `${pct}% increase` : `${pct}% decrease`
 }
-
 // Write a class called Name and create the following attributes given a first name and last name (as fname and lname):
 //     An attribute called fullname which returns the first and last names.
 //     A attribute called initials which returns the first letters of the first and last name. Put a . between the two letters.
@@ -8855,7 +8832,6 @@ function formatPhoneNumber(numbers) {
 // Take an array of integers (positive or negative or both) and return the sum of the absolute value of each element.
 // Examples
 // getAbsSum([2, -1, 4, 8, 10]) ➞ 25
-
 // getAbsSum([-3, -4, -10, -2, -3]) ➞ 22
 // getAbsSum([2, 4, 6, 8, 10]) ➞ 30
 // getAbsSum([-1]) ➞ 1
