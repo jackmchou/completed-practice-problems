@@ -1,47 +1,59 @@
-// In this challenge you will receive an input of the form:
+// Write a program that takes a temperature input in celsius and converts it to Fahrenheit and Kelvin. Return the converted temperature values in an array.
 
-// [[[[[[[[[[[]]]]]]]]]]]
+// The formula to calculate the temperature in Fahrenheit from Celsius is:
 
-// In other words, an array containing an array containing an array containing... an array containing nothing.
+// F = C*9/5 +32
 
-// Your goal is to measure the depth of this array, where [] has a depth 1, [[]] has depth of 2, [[[]]] has depth 3, etc.
+// The formula to calculate the temperature in Kelvin from Celsius is:
+
+// K = C + 273.15
+
 // Examples
 
-// measureDepth([]) ➞ 1
+// tempConversion(0) ➞ [32, 273.15]
+// // 0°C is equal to 32°F and 273.15 K.
 
-// measureDepth([[]]) ➞ 2
+// tempConversion(100) ➞ [212, 373.15]
 
-// measureDepth([[[]]]) ➞ 3
+// tempConversion(-10) ➞ [14, 263.15]
 
-// measureDepth([[[[[[[[[[[]]]]]]]]]]]) ➞ 11
+// tempConversion(300.4) ➞ [572.72, 573.55]
 
 // Notes
 
-// For a bonus challenge, try to find a solution without recursion.
+//     Return calculated temperatures up to two decimal places.
+//     Return "Invalid" if K is less than 0.
 
+function tempConversion(celsius) {
+  if (+(celsius + 273.15).toFixed(2) < 0) return 'Invalid'
+	return [+(celsius * 9 / 5 + 32).toFixed(2), +(celsius + 273.15).toFixed(2)]
+}
+
+// In this challenge you will receive an input of the form:
+// [[[[[[[[[[[]]]]]]]]]]]
+// In other words, an array containing an array containing an array containing... an array containing nothing.
+// Your goal is to measure the depth of this array, where [] has a depth 1, [[]] has depth of 2, [[[]]] has depth 3, etc.
+// Examples
+// measureDepth([]) ➞ 1
+// measureDepth([[]]) ➞ 2
+// measureDepth([[[]]]) ➞ 3
+// measureDepth([[[[[[[[[[[]]]]]]]]]]]) ➞ 11
+// Notes
+// For a bonus challenge, try to find a solution without recursion.
 function measureDepth(arr) {
   return JSON.stringify(arr).length / 2
 }
-
 // Create a function that takes an integer n and returns the nth tetrahedral number.
-
 // Alternative Text
 // Examples
-
 // tetra(2) ➞ 4
-
 // tetra(5) ➞ 35
-
 // tetra(6) ➞ 56
-
 // Notes
-
 // There is a formula for the nth tetrahedral number.
-
 function tetra(n) {
 	return (n * (n + 1) * (n + 2)) / 6
 }
-
 // POV: You are in an exam and time has just run out. While the teacher's back is turned, you hastily take the opportunity to finish scribbling down the last few words of the conclusion.
 // For this challenge, it takes 0.5 seconds to write a character (not including spaces). Given the full sentence and the unfinished sentence as inputs, return the time it takes to finish writing in seconds.
 // Worked Example
