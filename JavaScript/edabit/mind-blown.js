@@ -1,34 +1,32 @@
-// Write a program that takes a temperature input in celsius and converts it to Fahrenheit and Kelvin. Return the converted temperature values in an array.
-
-// The formula to calculate the temperature in Fahrenheit from Celsius is:
-
-// F = C*9/5 +32
-
-// The formula to calculate the temperature in Kelvin from Celsius is:
-
-// K = C + 273.15
-
+// Create a function that takes two arguments: the final price and the discount percentage as integers and returns the final price after the discount.
+// Alternative Text
 // Examples
-
+// dis(1500, 50) ➞ 750
+// dis(89, 20) ➞ 71.2
+// dis(100, 75) ➞ 25
+// Notes
+// Your answer should be rounded to two decimal places.
+function dis(price, discount) {
+	return +(price - price * discount * 0.01).toFixed(2)
+}
+// Write a program that takes a temperature input in celsius and converts it to Fahrenheit and Kelvin. Return the converted temperature values in an array.
+// The formula to calculate the temperature in Fahrenheit from Celsius is:
+// F = C*9/5 +32
+// The formula to calculate the temperature in Kelvin from Celsius is:
+// K = C + 273.15
+// Examples
 // tempConversion(0) ➞ [32, 273.15]
 // // 0°C is equal to 32°F and 273.15 K.
-
 // tempConversion(100) ➞ [212, 373.15]
-
 // tempConversion(-10) ➞ [14, 263.15]
-
 // tempConversion(300.4) ➞ [572.72, 573.55]
-
 // Notes
-
 //     Return calculated temperatures up to two decimal places.
 //     Return "Invalid" if K is less than 0.
-
 function tempConversion(celsius) {
   if (+(celsius + 273.15).toFixed(2) < 0) return 'Invalid'
 	return [+(celsius * 9 / 5 + 32).toFixed(2), +(celsius + 273.15).toFixed(2)]
 }
-
 // In this challenge you will receive an input of the form:
 // [[[[[[[[[[[]]]]]]]]]]]
 // In other words, an array containing an array containing an array containing... an array containing nothing.
