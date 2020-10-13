@@ -1,3 +1,26 @@
+// Create a function thats takes an array of integers and returns true if every number is prime. Otherwise, return false.
+// Examples
+
+// allPrime([7, 5, 2, 4, 6]) ➞ false
+
+// allPrime([2, 3, 5, 7, 13, 17, 19, 23, 29]) ➞ true
+
+// allPrime([1, 5, 3]) ➞ false
+
+// Notes
+
+// 1 is not a prime number.
+
+function allPrime(nums) {
+	return nums.every(ele => {
+    if (ele < 2) return false
+    for (let i = 2; i < ele; i++) {
+      if (ele % i === 0) return false
+    }
+    return true
+  })
+}
+
 // Create a function that takes two arguments: the final price and the discount percentage as integers and returns the final price after the discount.
 // Alternative Text
 // Examples
