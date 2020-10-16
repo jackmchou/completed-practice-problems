@@ -1,57 +1,59 @@
-// It takes 21 seconds to wash your hands and help prevent the spread of COVID-19.
-
-// Create a function that takes the number of times a person washes their hands per day N and the number of months they follow this routine nM and calculates the duration in minutes and seconds that person spends washing their hands.
+// Create a function that takes an integer and returns it as an ordinal number. An Ordinal Number is a number that tells the position of something in a list, such as 1st, 2nd, 3rd, 4th, 5th, etc.
 // Examples
 
-// washHands(8, 7) ➞ "588 minutes and 0 seconds"
+// returnEndOfNumber(553) ➞ "553-RD"
 
-// washHands(0, 0) ➞ "0 minutes and 0 seconds"
+// returnEndOfNumber(34) ➞ "34-TH"
 
-// washHands(7, 9) ➞ "661 minutes and 30 seconds"
+// returnEndOfNumber(1231) ➞ "1231-ST"
+
+// returnEndOfNumber(22) ➞ "22-ND"
+
+// returnEndOfNumber(412) ➞ "412-TH"
 
 // Notes
 
+// Check the Resources tab for more info on ordinal numbers.
+
+function returnEndOfNumber(num) {
+	const obj = {1: '-ST', 2: '-ND', 3: '-RD', 11: '-TH', 12: '-TH', 13: '-TH' }
+  const lastTwo = ('' + num).slice(-2)
+  if (obj[lastTwo]) return num + obj[lastTwo]
+  return obj[lastTwo.slice(-1)] ? num + obj[lastTwo.slice(-1)] : num + '-TH'
+}
+
+// It takes 21 seconds to wash your hands and help prevent the spread of COVID-19.
+// Create a function that takes the number of times a person washes their hands per day N and the number of months they follow this routine nM and calculates the duration in minutes and seconds that person spends washing their hands.
+// Examples
+// washHands(8, 7) ➞ "588 minutes and 0 seconds"
+// washHands(0, 0) ➞ "0 minutes and 0 seconds"
+// washHands(7, 9) ➞ "661 minutes and 30 seconds"
+// Notes
 //     Consider a month has 30 days.
 //     Wash your hands.
-
 function washHands(N, nM) {
 	return `${21 * N * nM * 30 / 60 | 0} minutes and ${(21 * N * nM * 30 / 60) % 1 * 60} seconds`
 }
-
 // Your stereotypical titleCase() function in JavaScript might capitalises the first letter of every word in a given sentence, leaving all the other letters as lowercase.
-
 // The goal of this challenge, however, is to create a reverseTitle() function, which achieves the complete opposite! Make the first letter of every word lowercase, and the rest uppercase!
 // Examples
-
 // reverseTitle("this is a title") ➞ "tHIS iS a tITLE"
-
 // reverseTitle("BOLD AND BRASH!") ➞ "bOLD aND bRASH!"
-
 // reverseTitle("Elephants dance about bravely in Thailand") ➞ "eLEPHANTS dANCE aBOUT bRAVELY iN tHAILAND"
-
 // Notes:
-
 //     This was originally translated from a Python version of this question. Unfortunately, I forgot to write down the original question's URL, so if you spot it... let me know!
 //     For extra credit (not really), convert the given function to a prototype method!
-
 function lettersOnly(str) {
   if (str.match(/[0-9]/g)) return false
   return /[a-z ]/g.test(str)
 }
-
 // Create a function thats takes an array of integers and returns true if every number is prime. Otherwise, return false.
 // Examples
-
 // allPrime([7, 5, 2, 4, 6]) ➞ false
-
 // allPrime([2, 3, 5, 7, 13, 17, 19, 23, 29]) ➞ true
-
 // allPrime([1, 5, 3]) ➞ false
-
 // Notes
-
 // 1 is not a prime number.
-
 function allPrime(nums) {
 	return nums.every(ele => {
     if (ele < 2) return false
@@ -61,7 +63,6 @@ function allPrime(nums) {
     return true
   })
 }
-
 // Create a function that takes two arguments: the final price and the discount percentage as integers and returns the final price after the discount.
 // Alternative Text
 // Examples
