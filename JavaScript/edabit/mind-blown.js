@@ -1,3 +1,23 @@
+// It takes 21 seconds to wash your hands and help prevent the spread of COVID-19.
+
+// Create a function that takes the number of times a person washes their hands per day N and the number of months they follow this routine nM and calculates the duration in minutes and seconds that person spends washing their hands.
+// Examples
+
+// washHands(8, 7) ➞ "588 minutes and 0 seconds"
+
+// washHands(0, 0) ➞ "0 minutes and 0 seconds"
+
+// washHands(7, 9) ➞ "661 minutes and 30 seconds"
+
+// Notes
+
+//     Consider a month has 30 days.
+//     Wash your hands.
+
+function washHands(N, nM) {
+	return `${21 * N * nM * 30 / 60 | 0} minutes and ${(21 * N * nM * 30 / 60) % 1 * 60} seconds`
+}
+
 // Your stereotypical titleCase() function in JavaScript might capitalises the first letter of every word in a given sentence, leaving all the other letters as lowercase.
 
 // The goal of this challenge, however, is to create a reverseTitle() function, which achieves the complete opposite! Make the first letter of every word lowercase, and the rest uppercase!
