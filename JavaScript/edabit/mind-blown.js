@@ -1,47 +1,129 @@
+// Write a DECIMATOR function which takes a string and decimates it (i.e. it removes the last 1/10 of the characters).
+// Always round up: if the string has 21 characters, 1/10 of the characters would be 2.1 characters, hence the DECIMATOR removes 3 characters. The DECIMATOR shows no mercy!
+// Examples
+// DECIMATOR("1234567890") ➞ "123456789"
+// // 10 characters, removed 1.
+// DECIMATOR("1234567890AB") ➞ "1234567890"
+// // 12 characters, removed 2.
+// DECIMATOR("123") ➞ "12"
+// // 3 characters, removed 1.
+// DECIMATOR("123456789012345678901") ➞ "123456789012345678"
+// // 21 characters, removed 3.
+// Notes
+// Make sure to remove characters from the end of the string.
+function DECIMATOR(str) {
+	return str.length == 10 ? str.slice(0, -1) : str.slice(0, (str.length / 10 | 0) * -1 - 1)
+}
+// Create a function that takes an integer and returns it as an ordinal number. An Ordinal Number is a number that tells the position of something in a list, such as 1st, 2nd, 3rd, 4th, 5th, etc.
+// Examples
+// returnEndOfNumber(553) ➞ "553-RD"
+// returnEndOfNumber(34) ➞ "34-TH"
+// returnEndOfNumber(1231) ➞ "1231-ST"
+// returnEndOfNumber(22) ➞ "22-ND"
+// returnEndOfNumber(412) ➞ "412-TH"
+// Notes
+// Check the Resources tab for more info on ordinal numbers.
+function returnEndOfNumber(num) {
+	const obj = {1: '-ST', 2: '-ND', 3: '-RD', 11: '-TH', 12: '-TH', 13: '-TH' }
+  const lastTwo = ('' + num).slice(-2)
+  if (obj[lastTwo]) return num + obj[lastTwo]
+  return obj[lastTwo.slice(-1)] ? num + obj[lastTwo.slice(-1)] : num + '-TH'
+}
+// It takes 21 seconds to wash your hands and help prevent the spread of COVID-19.
+// Create a function that takes the number of times a person washes their hands per day N and the number of months they follow this routine nM and calculates the duration in minutes and seconds that person spends washing their hands.
+// Examples
+// washHands(8, 7) ➞ "588 minutes and 0 seconds"
+// washHands(0, 0) ➞ "0 minutes and 0 seconds"
+// washHands(7, 9) ➞ "661 minutes and 30 seconds"
+// Notes
+//     Consider a month has 30 days.
+//     Wash your hands.
+function washHands(N, nM) {
+	return `${21 * N * nM * 30 / 60 | 0} minutes and ${(21 * N * nM * 30 / 60) % 1 * 60} seconds`
+}
+// Your stereotypical titleCase() function in JavaScript might capitalises the first letter of every word in a given sentence, leaving all the other letters as lowercase.
+// The goal of this challenge, however, is to create a reverseTitle() function, which achieves the complete opposite! Make the first letter of every word lowercase, and the rest uppercase!
+// Examples
+// reverseTitle("this is a title") ➞ "tHIS iS a tITLE"
+// reverseTitle("BOLD AND BRASH!") ➞ "bOLD aND bRASH!"
+// reverseTitle("Elephants dance about bravely in Thailand") ➞ "eLEPHANTS dANCE aBOUT bRAVELY iN tHAILAND"
+// Notes:
+//     This was originally translated from a Python version of this question. Unfortunately, I forgot to write down the original question's URL, so if you spot it... let me know!
+//     For extra credit (not really), convert the given function to a prototype method!
+function lettersOnly(str) {
+  if (str.match(/[0-9]/g)) return false
+  return /[a-z ]/g.test(str)
+}
+// Create a function thats takes an array of integers and returns true if every number is prime. Otherwise, return false.
+// Examples
+// allPrime([7, 5, 2, 4, 6]) ➞ false
+// allPrime([2, 3, 5, 7, 13, 17, 19, 23, 29]) ➞ true
+// allPrime([1, 5, 3]) ➞ false
+// Notes
+// 1 is not a prime number.
+function allPrime(nums) {
+	return nums.every(ele => {
+    if (ele < 2) return false
+    for (let i = 2; i < ele; i++) {
+      if (ele % i === 0) return false
+    }
+    return true
+  })
+}
+// Create a function that takes two arguments: the final price and the discount percentage as integers and returns the final price after the discount.
+// Alternative Text
+// Examples
+// dis(1500, 50) ➞ 750
+// dis(89, 20) ➞ 71.2
+// dis(100, 75) ➞ 25
+// Notes
+// Your answer should be rounded to two decimal places.
+function dis(price, discount) {
+	return +(price - price * discount * 0.01).toFixed(2)
+}
+// Write a program that takes a temperature input in celsius and converts it to Fahrenheit and Kelvin. Return the converted temperature values in an array.
+// The formula to calculate the temperature in Fahrenheit from Celsius is:
+// F = C*9/5 +32
+// The formula to calculate the temperature in Kelvin from Celsius is:
+// K = C + 273.15
+// Examples
+// tempConversion(0) ➞ [32, 273.15]
+// // 0°C is equal to 32°F and 273.15 K.
+// tempConversion(100) ➞ [212, 373.15]
+// tempConversion(-10) ➞ [14, 263.15]
+// tempConversion(300.4) ➞ [572.72, 573.55]
+// Notes
+//     Return calculated temperatures up to two decimal places.
+//     Return "Invalid" if K is less than 0.
+function tempConversion(celsius) {
+  if (+(celsius + 273.15).toFixed(2) < 0) return 'Invalid'
+	return [+(celsius * 9 / 5 + 32).toFixed(2), +(celsius + 273.15).toFixed(2)]
+}
 // In this challenge you will receive an input of the form:
-
 // [[[[[[[[[[[]]]]]]]]]]]
-
 // In other words, an array containing an array containing an array containing... an array containing nothing.
-
 // Your goal is to measure the depth of this array, where [] has a depth 1, [[]] has depth of 2, [[[]]] has depth 3, etc.
 // Examples
-
 // measureDepth([]) ➞ 1
-
 // measureDepth([[]]) ➞ 2
-
 // measureDepth([[[]]]) ➞ 3
-
 // measureDepth([[[[[[[[[[[]]]]]]]]]]]) ➞ 11
-
 // Notes
-
 // For a bonus challenge, try to find a solution without recursion.
-
 function measureDepth(arr) {
   return JSON.stringify(arr).length / 2
 }
-
 // Create a function that takes an integer n and returns the nth tetrahedral number.
-
 // Alternative Text
 // Examples
-
 // tetra(2) ➞ 4
-
 // tetra(5) ➞ 35
-
 // tetra(6) ➞ 56
-
 // Notes
-
 // There is a formula for the nth tetrahedral number.
-
 function tetra(n) {
 	return (n * (n + 1) * (n + 2)) / 6
 }
-
 // POV: You are in an exam and time has just run out. While the teacher's back is turned, you hastily take the opportunity to finish scribbling down the last few words of the conclusion.
 // For this challenge, it takes 0.5 seconds to write a character (not including spaces). Given the full sentence and the unfinished sentence as inputs, return the time it takes to finish writing in seconds.
 // Worked Example
