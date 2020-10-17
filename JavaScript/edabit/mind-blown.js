@@ -1,27 +1,34 @@
+// Write a DECIMATOR function which takes a string and decimates it (i.e. it removes the last 1/10 of the characters).
+// Always round up: if the string has 21 characters, 1/10 of the characters would be 2.1 characters, hence the DECIMATOR removes 3 characters. The DECIMATOR shows no mercy!
+// Examples
+// DECIMATOR("1234567890") ➞ "123456789"
+// // 10 characters, removed 1.
+// DECIMATOR("1234567890AB") ➞ "1234567890"
+// // 12 characters, removed 2.
+// DECIMATOR("123") ➞ "12"
+// // 3 characters, removed 1.
+// DECIMATOR("123456789012345678901") ➞ "123456789012345678"
+// // 21 characters, removed 3.
+// Notes
+// Make sure to remove characters from the end of the string.
+function DECIMATOR(str) {
+	return str.length == 10 ? str.slice(0, -1) : str.slice(0, (str.length / 10 | 0) * -1 - 1)
+}
 // Create a function that takes an integer and returns it as an ordinal number. An Ordinal Number is a number that tells the position of something in a list, such as 1st, 2nd, 3rd, 4th, 5th, etc.
 // Examples
-
 // returnEndOfNumber(553) ➞ "553-RD"
-
 // returnEndOfNumber(34) ➞ "34-TH"
-
 // returnEndOfNumber(1231) ➞ "1231-ST"
-
 // returnEndOfNumber(22) ➞ "22-ND"
-
 // returnEndOfNumber(412) ➞ "412-TH"
-
 // Notes
-
 // Check the Resources tab for more info on ordinal numbers.
-
 function returnEndOfNumber(num) {
 	const obj = {1: '-ST', 2: '-ND', 3: '-RD', 11: '-TH', 12: '-TH', 13: '-TH' }
   const lastTwo = ('' + num).slice(-2)
   if (obj[lastTwo]) return num + obj[lastTwo]
   return obj[lastTwo.slice(-1)] ? num + obj[lastTwo.slice(-1)] : num + '-TH'
 }
-
 // It takes 21 seconds to wash your hands and help prevent the spread of COVID-19.
 // Create a function that takes the number of times a person washes their hands per day N and the number of months they follow this routine nM and calculates the duration in minutes and seconds that person spends washing their hands.
 // Examples
