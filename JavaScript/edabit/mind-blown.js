@@ -1,44 +1,54 @@
+// A financial institution provides professional services to banks and claims charges from the customers based on the number of man-days provided. Internally, it has set a scheme to motivate and reward staff to meet and exceed targeted billable utilization and revenues by paying a bonus for each day claimed from customers in excess of a threshold target.
+// This quarterly scheme is calculated with a threshold target of 32 days per quarter, and the incentive payment for each billable day in excess of such threshold target is shown as follows:
+// Days	Bonus
+// 0 to 32 days	Zero
+// 33 to 40 days	$325 per billable day
+// 41 to 48 days	$550 per billable day
+// Greater than 48 days	$600 per billable day
+// Please note that incentive payment is calculated progressively. As an example, if an employee reached total billable days of 45 in a quarter, his/her incentive payment is computed as follows:
+// 32*0 + 8*325 + 5*550 = 5350
+// Write a function to read the billable days of an employee and return the bonus he/she has obtained in that quarter.
+// Examples
+// calculateBonus(15) ➞ 0
+// calculateBonus(37) ➞ 1625
+// calculateBonus(50) ➞ 8200
+// Notes
+// N/A
+function calculateBonus(days) {
+  let bonus = 0
+  for (let i = 0; i <= days; i++) {
+    if (i > 32 && i < 41) bonus += 325
+    if (i > 40 && i < 49) bonus += 550
+    if (i > 48) bonus += 600
+  }
+  return bonus
+}
 // A fruit juice company tags their fruit juices by concatenating the first three letters of the words in a flavor's name and its capacity.
-
 // Create a function that creates the product IDs for the variety of fruit juices.
 // Examples
-
 // getDrinkID("apple", "500ml") ➞ "APP500"
-
 // getDrinkID("pineapple", "45ml") ➞ "PIN45"
-
 // getDrinkID("passion fruit", "750ml") ➞ "PASFRU750"
-
 // Notes
-
 //     Capacity will be given as a string and will always be given in ml.
 //     Return the product ID in UPPERCASE.
-
 function getDrinkID(flavor, ml) {
 	return [...flavor.split(' ')].map(ele => ele.slice(0, 3)).join('').toUpperCase() + ml.split('ml')[0]
 }
-
 // Create a function that takes a string and returns true if the sum of the position of every letter in the alphabet is even and false if the sum is odd.
 // Examples
-
 // isAlpha("i'am king")  ➞ true
 // // 9 + 1 + 13 + 11 + 9 + 14 + 7 = 64 (even)
-
 // isAlpha("True") ➞ true
 // // 20 + 18 + 21 + 5= 64 (even)
-
 // isAlpha("alexa") ➞ false
 // // 1 + 12 + 5 + 24 + 1= 43 (odd)
-
 // Notes
-
 //     Case insensitive.
 //     Ignore non-letter symbols.
-
 function isAlpha(word) {
 	return [...word.match(/[^\W\d_]/g)].map(ele => ele.charCodeAt(0) - 96).reduce((cur, acc) => cur + acc) % 2 == 0
 }
-
 // Create a function that takes an array of resistors and calculates the output of total resistance if the circuit is connected in parallel or in series.
 // Examples
 // resistanceCalculator([10, 20, 30, 40, 50]) ➞ [4.38, 150]
@@ -49,11 +59,9 @@ function isAlpha(word) {
 // Notes
 //     Return parallel resistance as the first element and series resistance as second element of the array.
 //     Round up the total resistance to two decimal places.
-
 function resistanceCalculator(resistors) {
 	return [+(resistors.reduce((cur, acc) => cur + 1 / acc, 0) ** -1).toFixed(2), +resistors.reduce((cur, acc) => cur + acc).toFixed(2)]
 }
-
 // Write a DECIMATOR function which takes a string and decimates it (i.e. it removes the last 1/10 of the characters).
 // Always round up: if the string has 21 characters, 1/10 of the characters would be 2.1 characters, hence the DECIMATOR removes 3 characters. The DECIMATOR shows no mercy!
 // Examples
