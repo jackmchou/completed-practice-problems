@@ -1,3 +1,21 @@
+// Given a string worm create a function that takes the length of the worm and converts it into millimeters. Each - represents one centimeter.
+// Examples
+
+// wormLength("----------") ➞ "100 mm."
+
+// wormLength("") ➞ "invalid"
+
+// wormLength("---_-___---_") ➞ "invalid"
+
+// Notes
+
+// Return "invalid" if an empty string is given or if the string has characters other than -.
+
+function wormLength(worm) {
+	if (/[^-]/g.test(worm) || !worm) return 'invalid'
+  return `${worm.length * 10} mm.`
+}
+
 // A financial institution provides professional services to banks and claims charges from the customers based on the number of man-days provided. Internally, it has set a scheme to motivate and reward staff to meet and exceed targeted billable utilization and revenues by paying a bonus for each day claimed from customers in excess of a threshold target.
 // This quarterly scheme is calculated with a threshold target of 32 days per quarter, and the incentive payment for each billable day in excess of such threshold target is shown as follows:
 // Days	Bonus
