@@ -1,21 +1,35 @@
+// The left shift operation is similar to multiplication by powers of two.
+// Sample calculation using the left shift operator (<<):
+// 10 << 3 = 10 * 2^3 = 10 * 8 = 80
+// -32 << 2 = -32 * 2^2 = -32 * 4 = -128
+// 5 << 2 = 5 * 2^2 = 5 * 4 = 20
+// Write a function that mimics (without the use of <<) the left shift operator and returns the result from the two given integers.
+// Examples
+// shiftToLeft(5, 2) ➞ 20
+// shiftToLeft(10, 3) ➞ 80
+// shiftToLeft(-32, 2) ➞ -128
+// shiftToLeft(-6, 5) ➞ -192
+// shiftToLeft(12, 4) ➞ 192
+// shiftToLeft(46, 6) ➞ 2944
+// Notes
+//     There will be no negative values for the second parameter y.
+//     This challenge is more like recreating of the left shift operation, thus, the use of the operator directly is prohibited.
+//     Optionally, you can solve this challenge via recursion.
+//     A recursive version of this challenge can be found here.
+function shiftToLeft(x, y) {
+	return x * 2 ** y
+}
 // Given a string worm create a function that takes the length of the worm and converts it into millimeters. Each - represents one centimeter.
 // Examples
-
 // wormLength("----------") ➞ "100 mm."
-
 // wormLength("") ➞ "invalid"
-
 // wormLength("---_-___---_") ➞ "invalid"
-
 // Notes
-
 // Return "invalid" if an empty string is given or if the string has characters other than -.
-
 function wormLength(worm) {
 	if (/[^-]/g.test(worm) || !worm) return 'invalid'
   return `${worm.length * 10} mm.`
 }
-
 // A financial institution provides professional services to banks and claims charges from the customers based on the number of man-days provided. Internally, it has set a scheme to motivate and reward staff to meet and exceed targeted billable utilization and revenues by paying a bonus for each day claimed from customers in excess of a threshold target.
 // This quarterly scheme is calculated with a threshold target of 32 days per quarter, and the incentive payment for each billable day in excess of such threshold target is shown as follows:
 // Days	Bonus
