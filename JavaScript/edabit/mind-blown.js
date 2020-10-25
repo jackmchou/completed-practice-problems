@@ -1,3 +1,27 @@
+// An array that represents a Binary Tree is in the following form:
+// binaryTree = [val, arrLeft, arrRight]
+// When arrLeft is the left side of the tree and arrRight is the right side of the tree.
+// To illustrate:
+// const arr1 = [3, [ 8, [ 5, null, null], null], [ 7, null, null]]
+// // arr1 represents the following Binary Tree:
+//                     3
+//                    / \
+//                   8   7
+//                  /\   /\
+//                 5  N N  N
+//                /\
+//                N N
+// // Where N represents null.
+// Create a function that takes an array that represent a Binary Tree and a value and return true if the value is in the tree and, false otherwise.
+// Examples
+// valueInTree(arr1, 5) ➞ true
+// valueInTree(arr1, 9) ➞ false
+// valueInTree(arr2, 51) ➞ false
+// Notes
+// The tree will contain integers only and will be presented by an array in the specified format.
+function valueInTree(tree, val) {
+	return tree.flat(Infinity).includes(val)
+}
 // A snail goes up the stairs. Every step, he must go up the step, then go across to the next step. He wants to reach the top of the tower.
 // Write a function that returns the distance the snail must travel to the top of the tower given the height and length of each step and the height of the tower.
 // Examples
@@ -10,11 +34,9 @@
 //     Round answers to the nearest tenth 0.1.
 //     Number of steps determined by tower height divided by stair height.
 //     For the purposes of this exercise, the last step's length must be counted to complete the journey.
-
 function totalDistance(height, length, tower) {
 	return +((tower / height) * (height + length)).toFixed(1)
 }
-
 // Write a DECIMATOR function which takes a string and decimates it (i.e. it removes the last 1/10 of the characters).
 // Always round up: if the string has 21 characters, 1/10 of the characters would be 2.1 characters, hence the DECIMATOR removes 3 characters. The DECIMATOR shows no mercy!
 // Examples
