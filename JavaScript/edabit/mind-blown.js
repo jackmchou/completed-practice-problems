@@ -1,22 +1,31 @@
-// Create a function to return the Nth number in the Fibonacci sequence as a string.
+// Create a function that will remove the letters "a", "b" and "c" from the given string and return the modified version. If the given string does not contain "a", "b", or "c", return null.
 // Examples
 
-// fibonacci(10) ➞ "55"
+// removeABC("This might be a bit hard") ➞ "This might e  it hrd"
 
-// fibonacci(20) ➞ "6765"
+// removeABC("hello world!") ➞ null
 
-// fibonacci(30) ➞ "832040"
-
-// fibonacci(40) ➞ "102334155"
-
-// fibonacci(50) ➞ "12586269025"
-
-// fibonacci(60) ➞ "1548008755920"
+// removeABC("") ➞ null
 
 // Notes
 
-// Your function is expected to calculate numbers greater than the 64-bit unsigned integer limit where n can be as large as but not greater than 200.
+// If the given string does not contain "a", "b", or "c", return null.
 
+function removeABC(str) {
+  if (!str.match(/[abc]/g)) return null
+	return str.replace(/[abc]/g, '')
+}
+
+// Create a function to return the Nth number in the Fibonacci sequence as a string.
+// Examples
+// fibonacci(10) ➞ "55"
+// fibonacci(20) ➞ "6765"
+// fibonacci(30) ➞ "832040"
+// fibonacci(40) ➞ "102334155"
+// fibonacci(50) ➞ "12586269025"
+// fibonacci(60) ➞ "1548008755920"
+// Notes
+// Your function is expected to calculate numbers greater than the 64-bit unsigned integer limit where n can be as large as but not greater than 200.
 function fibonacci(n) {
   let idx = n
   let arr = [0n, 1n]
@@ -26,27 +35,18 @@ function fibonacci(n) {
   }
   return '' + arr[idx]
 }
-
 // Given a string containing unique letters, return a sorted string with the letters that don't appear in the string.
 // Examples
-
 // getMissingLetters("abcdefgpqrstuvwxyz") ➞ "hijklmno"
-
 // getMissingLetters("zyxwvutsrq") ➞ "abcdefghijklmnop"
-
 // getMissingLetters("abc") ➞ "defghijklmnopqrstuvwxyz"
-
 // getMissingLetters("abcdefghijklmnopqrstuvwxyz") ➞ ""
-
 // Notes
-
 //     The combination of both strings should be 26 elements long, including all the letters in the alphabet.
 //     Letters will all be in lowercase.
-
 function getMissingLetters(s) {
   return [...'abcdefghijklmnopqrstuvwxyz'].filter(ele => !s.includes(ele)).join('')
 }
-
 // Create a function that takes numbers b and m as arguments and returns the derivative of the function f(x)=x^b with respect to x evaluated at x=m, where b and m are constants.
 // Examples
 // derivative(1, 4) ➞ 1
@@ -54,11 +54,9 @@ function getMissingLetters(s) {
 // derivative(4, -3) ➞ -108
 // Notes
 // ^ in the context of this challenge means "to the power of", also known as the "exponent" operator.
-
 function derivative(b, m) {
 	return b * m ** (b - 1)
 }
-
 // An array that represents a Binary Tree is in the following form:
 // binaryTree = [val, arrLeft, arrRight]
 // When arrLeft is the left side of the tree and arrRight is the right side of the tree.
