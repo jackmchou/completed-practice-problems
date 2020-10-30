@@ -1,47 +1,58 @@
+// Create a function that returns the amount of Fibonacci numbers strictly smaller than the given integer. In mathematics, the Fibonacci numbers commonly denoted Fn, form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. Thus:
+// F0=0 and F1=1
+// and
+// Fn=F(n-1)+F(n-2)
+// for n > 1
+// The beginning of the sequence is thus:
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
+// The function should thus return 13 when called with the variable n = 145 since there exist 13 Fibonacci numbers strictly smaller than 145.
+// Examples
+// amountFib(0) ➞ 0
+// amountFib(1) ➞ 1
+// amountFib(3) ➞ 4
+// amountFib(22) ➞ 9
+// amountFib(145) ➞ 13
+// Notes
+// N/A
+function amountFib(n) {
+  if (n == 0) return 0
+  if (n == 1) return 1
+  const numMax = BigInt(Number.MAX_SAFE_INTEGER)
+  if (n > numMax) n = BigInt(n)
+  let arr = [0n, 1n]
+  while (arr[arr.length - 1] + arr[arr.length - 2] < n) {
+    arr.push(arr[arr.length - 1] + arr[arr.length - 2])
+  }
+  return arr.length
+}
 // Given an array of women and an array of men, either:
-
 //     Return "sizes don't match" if the two arrays have different sizes.
 //     If the sizes match, return an array of pairs, with the first woman paired with the first man, second woman paired with the second man, etc.
-
 // Examples
-
 // zipIt(["Elise", "Mary"], ["John", "Rick"])
 //  ➞ [["Elise", "John"], ["Mary", "Rick"]]
-
 // zipIt(["Ana", "Amy", "Lisa"], ["Bob", "Josh"])
 //  ➞ "sizes don't match"
-
 // zipIt(["Ana", "Amy", "Lisa"], ["Bob", "Josh", "Tim"])
 //  ➞ [["Ana", "Bob"], ["Amy", "Josh"],["Lisa", "Tim"]]
-
 // Notes
-
 // N/A
-
 
 function zipIt(women, men) {
 	if (women.length !== men.length) return "sizes don't match"
   return women.map((ele, idx) => [ele, men[idx]])
 }
-
 // Create a function that will remove the letters "a", "b" and "c" from the given string and return the modified version. If the given string does not contain "a", "b", or "c", return null.
 // Examples
-
 // removeABC("This might be a bit hard") ➞ "This might e  it hrd"
-
 // removeABC("hello world!") ➞ null
-
 // removeABC("") ➞ null
-
 // Notes
-
 // If the given string does not contain "a", "b", or "c", return null.
-
 function removeABC(str) {
   if (!str.match(/[abc]/g)) return null
 	return str.replace(/[abc]/g, '')
 }
-
 // Create a function to return the Nth number in the Fibonacci sequence as a string.
 // Examples
 // fibonacci(10) ➞ "55"
