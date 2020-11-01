@@ -1,3 +1,30 @@
+// Create a function that takes an integer n and returns multiplication table of 1 to n numbers up to nth multiple.
+// Examples
+// multTable(2) ➞ [
+//   [1, 2],
+//   [2, 4]
+// ]
+// multTable(3) ➞ [
+//   [1, 2, 3],
+//   [2, 4, 6],
+//   [3, 6, 9]
+// ]
+// multTable(5) ➞ [
+//   [1, 2, 3, 4, 5],
+//   [2, 4, 6, 8, 10],
+//   [3, 6, 9, 12, 15],
+//   [4, 8, 12, 16, 20],
+//   [5, 10, 15, 20, 25]
+// ]
+// Notes
+// N/A
+function multTable(n) {
+  let arr = []
+  for (let i = 1; i <= n; i++) {
+    arr.push(Array.from({length: n}, (_, x) => i + (i * x)))
+  }
+  return arr
+}
 // Create a function that returns the amount of Fibonacci numbers strictly smaller than the given integer. In mathematics, the Fibonacci numbers commonly denoted Fn, form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. Thus:
 // F0=0 and F1=1
 // and
@@ -37,7 +64,6 @@ function amountFib(n) {
 //  ➞ [["Ana", "Bob"], ["Amy", "Josh"],["Lisa", "Tim"]]
 // Notes
 // N/A
-
 function zipIt(women, men) {
 	if (women.length !== men.length) return "sizes don't match"
   return women.map((ele, idx) => [ele, men[idx]])
