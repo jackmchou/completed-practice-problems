@@ -1,98 +1,163 @@
-// The left shift operation is similar to multiplication by powers of two.
-// Sample calculation using the left shift operator (<<):
-// 10 << 3 = 10 * 2^3 = 10 * 8 = 80
-// -32 << 2 = -32 * 2^2 = -32 * 4 = -128
-// 5 << 2 = 5 * 2^2 = 5 * 4 = 20
-// Write a function that mimics (without the use of <<) the left shift operator and returns the result from the two given integers.
+// Create a function that takes an integer n and returns multiplication table of 1 to n numbers up to nth multiple.
 // Examples
-// shiftToLeft(5, 2) ➞ 20
-// shiftToLeft(10, 3) ➞ 80
-// shiftToLeft(-32, 2) ➞ -128
-// shiftToLeft(-6, 5) ➞ -192
-// shiftToLeft(12, 4) ➞ 192
-// shiftToLeft(46, 6) ➞ 2944
-// Notes
-//     There will be no negative values for the second parameter y.
-//     This challenge is more like recreating of the left shift operation, thus, the use of the operator directly is prohibited.
-//     Optionally, you can solve this challenge via recursion.
-//     A recursive version of this challenge can be found here.
-function shiftToLeft(x, y) {
-	return x * 2 ** y
-}
-// Given a string worm create a function that takes the length of the worm and converts it into millimeters. Each - represents one centimeter.
-// Examples
-// wormLength("----------") ➞ "100 mm."
-// wormLength("") ➞ "invalid"
-// wormLength("---_-___---_") ➞ "invalid"
-// Notes
-// Return "invalid" if an empty string is given or if the string has characters other than -.
-function wormLength(worm) {
-	if (/[^-]/g.test(worm) || !worm) return 'invalid'
-  return `${worm.length * 10} mm.`
-}
-// A financial institution provides professional services to banks and claims charges from the customers based on the number of man-days provided. Internally, it has set a scheme to motivate and reward staff to meet and exceed targeted billable utilization and revenues by paying a bonus for each day claimed from customers in excess of a threshold target.
-// This quarterly scheme is calculated with a threshold target of 32 days per quarter, and the incentive payment for each billable day in excess of such threshold target is shown as follows:
-// Days	Bonus
-// 0 to 32 days	Zero
-// 33 to 40 days	$325 per billable day
-// 41 to 48 days	$550 per billable day
-// Greater than 48 days	$600 per billable day
-// Please note that incentive payment is calculated progressively. As an example, if an employee reached total billable days of 45 in a quarter, his/her incentive payment is computed as follows:
-// 32*0 + 8*325 + 5*550 = 5350
-// Write a function to read the billable days of an employee and return the bonus he/she has obtained in that quarter.
-// Examples
-// calculateBonus(15) ➞ 0
-// calculateBonus(37) ➞ 1625
-// calculateBonus(50) ➞ 8200
+// multTable(2) ➞ [
+//   [1, 2],
+//   [2, 4]
+// ]
+// multTable(3) ➞ [
+//   [1, 2, 3],
+//   [2, 4, 6],
+//   [3, 6, 9]
+// ]
+// multTable(5) ➞ [
+//   [1, 2, 3, 4, 5],
+//   [2, 4, 6, 8, 10],
+//   [3, 6, 9, 12, 15],
+//   [4, 8, 12, 16, 20],
+//   [5, 10, 15, 20, 25]
+// ]
 // Notes
 // N/A
-function calculateBonus(days) {
-  let bonus = 0
-  for (let i = 0; i <= days; i++) {
-    if (i > 32 && i < 41) bonus += 325
-    if (i > 40 && i < 49) bonus += 550
-    if (i > 48) bonus += 600
+function multTable(n) {
+  let arr = []
+  for (let i = 1; i <= n; i++) {
+    arr.push(Array.from({length: n}, (_, x) => i + (i * x)))
   }
-  return bonus
+  return arr
 }
-// A fruit juice company tags their fruit juices by concatenating the first three letters of the words in a flavor's name and its capacity.
-// Create a function that creates the product IDs for the variety of fruit juices.
+// Create a function that returns the amount of Fibonacci numbers strictly smaller than the given integer. In mathematics, the Fibonacci numbers commonly denoted Fn, form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. Thus:
+// F0=0 and F1=1
+// and
+// Fn=F(n-1)+F(n-2)
+// for n > 1
+// The beginning of the sequence is thus:
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
+// The function should thus return 13 when called with the variable n = 145 since there exist 13 Fibonacci numbers strictly smaller than 145.
 // Examples
-// getDrinkID("apple", "500ml") ➞ "APP500"
-// getDrinkID("pineapple", "45ml") ➞ "PIN45"
-// getDrinkID("passion fruit", "750ml") ➞ "PASFRU750"
+// amountFib(0) ➞ 0
+// amountFib(1) ➞ 1
+// amountFib(3) ➞ 4
+// amountFib(22) ➞ 9
+// amountFib(145) ➞ 13
 // Notes
-//     Capacity will be given as a string and will always be given in ml.
-//     Return the product ID in UPPERCASE.
-function getDrinkID(flavor, ml) {
-	return [...flavor.split(' ')].map(ele => ele.slice(0, 3)).join('').toUpperCase() + ml.split('ml')[0]
+// N/A
+function amountFib(n) {
+  if (n == 0) return 0
+  if (n == 1) return 1
+  const numMax = BigInt(Number.MAX_SAFE_INTEGER)
+  if (n > numMax) n = BigInt(n)
+  let arr = [0n, 1n]
+  while (arr[arr.length - 1] + arr[arr.length - 2] < n) {
+    arr.push(arr[arr.length - 1] + arr[arr.length - 2])
+  }
+  return arr.length
 }
-// Create a function that takes a string and returns true if the sum of the position of every letter in the alphabet is even and false if the sum is odd.
+// Given an array of women and an array of men, either:
+//     Return "sizes don't match" if the two arrays have different sizes.
+//     If the sizes match, return an array of pairs, with the first woman paired with the first man, second woman paired with the second man, etc.
 // Examples
-// isAlpha("i'am king")  ➞ true
-// // 9 + 1 + 13 + 11 + 9 + 14 + 7 = 64 (even)
-// isAlpha("True") ➞ true
-// // 20 + 18 + 21 + 5= 64 (even)
-// isAlpha("alexa") ➞ false
-// // 1 + 12 + 5 + 24 + 1= 43 (odd)
+// zipIt(["Elise", "Mary"], ["John", "Rick"])
+//  ➞ [["Elise", "John"], ["Mary", "Rick"]]
+// zipIt(["Ana", "Amy", "Lisa"], ["Bob", "Josh"])
+//  ➞ "sizes don't match"
+// zipIt(["Ana", "Amy", "Lisa"], ["Bob", "Josh", "Tim"])
+//  ➞ [["Ana", "Bob"], ["Amy", "Josh"],["Lisa", "Tim"]]
 // Notes
-//     Case insensitive.
-//     Ignore non-letter symbols.
-function isAlpha(word) {
-	return [...word.match(/[^\W\d_]/g)].map(ele => ele.charCodeAt(0) - 96).reduce((cur, acc) => cur + acc) % 2 == 0
+// N/A
+function zipIt(women, men) {
+	if (women.length !== men.length) return "sizes don't match"
+  return women.map((ele, idx) => [ele, men[idx]])
 }
-// Create a function that takes an array of resistors and calculates the output of total resistance if the circuit is connected in parallel or in series.
+// Create a function that will remove the letters "a", "b" and "c" from the given string and return the modified version. If the given string does not contain "a", "b", or "c", return null.
 // Examples
-// resistanceCalculator([10, 20, 30, 40, 50]) ➞ [4.38, 150]
-// resistanceCalculator([25, 14, 65, 18]) ➞ [5.48, 122]
-// resistanceCalculator([10, 10]) ➞ [5, 20]
-// resistanceCalculator([0, 0, 0, 0]) ➞ [0, 0]
-// resistanceCalculator([1.1, 2.1, 3.2, 4.3, 5.4, 6.5]) ➞ [0.44, 22.6]
+// removeABC("This might be a bit hard") ➞ "This might e  it hrd"
+// removeABC("hello world!") ➞ null
+// removeABC("") ➞ null
 // Notes
-//     Return parallel resistance as the first element and series resistance as second element of the array.
-//     Round up the total resistance to two decimal places.
-function resistanceCalculator(resistors) {
-	return [+(resistors.reduce((cur, acc) => cur + 1 / acc, 0) ** -1).toFixed(2), +resistors.reduce((cur, acc) => cur + acc).toFixed(2)]
+// If the given string does not contain "a", "b", or "c", return null.
+function removeABC(str) {
+  if (!str.match(/[abc]/g)) return null
+	return str.replace(/[abc]/g, '')
+}
+// Create a function to return the Nth number in the Fibonacci sequence as a string.
+// Examples
+// fibonacci(10) ➞ "55"
+// fibonacci(20) ➞ "6765"
+// fibonacci(30) ➞ "832040"
+// fibonacci(40) ➞ "102334155"
+// fibonacci(50) ➞ "12586269025"
+// fibonacci(60) ➞ "1548008755920"
+// Notes
+// Your function is expected to calculate numbers greater than the 64-bit unsigned integer limit where n can be as large as but not greater than 200.
+function fibonacci(n) {
+  let idx = n
+  let arr = [0n, 1n]
+  while (n >= 0) {
+    n--
+    arr.push(arr[arr.length - 1] + arr[arr.length - 2])
+  }
+  return '' + arr[idx]
+}
+// Given a string containing unique letters, return a sorted string with the letters that don't appear in the string.
+// Examples
+// getMissingLetters("abcdefgpqrstuvwxyz") ➞ "hijklmno"
+// getMissingLetters("zyxwvutsrq") ➞ "abcdefghijklmnop"
+// getMissingLetters("abc") ➞ "defghijklmnopqrstuvwxyz"
+// getMissingLetters("abcdefghijklmnopqrstuvwxyz") ➞ ""
+// Notes
+//     The combination of both strings should be 26 elements long, including all the letters in the alphabet.
+//     Letters will all be in lowercase.
+function getMissingLetters(s) {
+  return [...'abcdefghijklmnopqrstuvwxyz'].filter(ele => !s.includes(ele)).join('')
+}
+// Create a function that takes numbers b and m as arguments and returns the derivative of the function f(x)=x^b with respect to x evaluated at x=m, where b and m are constants.
+// Examples
+// derivative(1, 4) ➞ 1
+// derivative(3, -2) ➞ 12
+// derivative(4, -3) ➞ -108
+// Notes
+// ^ in the context of this challenge means "to the power of", also known as the "exponent" operator.
+function derivative(b, m) {
+	return b * m ** (b - 1)
+}
+// An array that represents a Binary Tree is in the following form:
+// binaryTree = [val, arrLeft, arrRight]
+// When arrLeft is the left side of the tree and arrRight is the right side of the tree.
+// To illustrate:
+// const arr1 = [3, [ 8, [ 5, null, null], null], [ 7, null, null]]
+// // arr1 represents the following Binary Tree:
+//                     3
+//                    / \
+//                   8   7
+//                  /\   /\
+//                 5  N N  N
+//                /\
+//                N N
+// // Where N represents null.
+// Create a function that takes an array that represent a Binary Tree and a value and return true if the value is in the tree and, false otherwise.
+// Examples
+// valueInTree(arr1, 5) ➞ true
+// valueInTree(arr1, 9) ➞ false
+// valueInTree(arr2, 51) ➞ false
+// Notes
+// The tree will contain integers only and will be presented by an array in the specified format.
+function valueInTree(tree, val) {
+	return tree.flat(Infinity).includes(val)
+}
+// A snail goes up the stairs. Every step, he must go up the step, then go across to the next step. He wants to reach the top of the tower.
+// Write a function that returns the distance the snail must travel to the top of the tower given the height and length of each step and the height of the tower.
+// Examples
+// totalDistance(0.2, 0.4, 100.0) ➞ 300.0
+// // Total distance is 300.
+// totalDistance(0.3, 0.2, 25.0) ➞ 41.7
+// totalDistance(0.1, 0.1, 6.0) ➞ 12.0
+// Notes
+//     All given values are greater than 0.
+//     Round answers to the nearest tenth 0.1.
+//     Number of steps determined by tower height divided by stair height.
+//     For the purposes of this exercise, the last step's length must be counted to complete the journey.
+function totalDistance(height, length, tower) {
+	return +((tower / height) * (height + length)).toFixed(1)
 }
 // Write a DECIMATOR function which takes a string and decimates it (i.e. it removes the last 1/10 of the characters).
 // Always round up: if the string has 21 characters, 1/10 of the characters would be 2.1 characters, hence the DECIMATOR removes 3 characters. The DECIMATOR shows no mercy!
