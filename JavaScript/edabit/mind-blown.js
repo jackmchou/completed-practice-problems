@@ -1,3 +1,26 @@
+// Create a function that takes a string and checks if every single character is preceded and followed by a character based on the english alphabet. Example: "c" should be preceded by "b" and followed by "d" (bcd === true).
+// Examples
+
+// neighboring("aba") ➞ true
+
+// neighboring("abcdedcba") ➞ true
+
+// neighboring("efghihfe") ➞ false
+
+// neighboring("abc") ➞ true
+
+// neighboring("qrstuv") ➞ true
+
+// neighboring("mnopqrtstrqpomn") ➞ true
+
+// Notes
+
+// All test cases will be in lower case.
+
+function neighboring(str) {
+	return [...str].every((letter, idx, arr) => arr[idx + 1] ? Math.abs(letter.charCodeAt(0) - arr[idx + 1].charCodeAt(0)) == 1 : Math.abs(letter.charCodeAt(0) - arr[idx - 1].charCodeAt(0)) == 1)
+}
+
 // Create a function that takes a string and returns a string ordered by the length of the words. From shortest to longest word. If there are words with the same amount of letters, order them alphabetically.
 // Examples
 
