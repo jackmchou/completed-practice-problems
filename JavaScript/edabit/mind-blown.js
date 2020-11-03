@@ -1,73 +1,96 @@
+// It's the police again. They need more signatures. You should also sign each room list separately. However, the document they sent is incomplete as there is only one room present. As a good citizen that you are, you sign it nevertheless.
+// This challenge is a bit different as the function you are given already contains some code that you should not change or remove. Also, don't use a return statement, it is already included.
+// The function receives an object with one nested object as an argument. Your task is:
+//     on the root object: prevent any kind of changes.
+//     on the nested object: prevent new properties from being added BUT allow for existing properties to be changed.
+// Examples
+// const obj = {
+//   kitchen: {
+//     knives: 500,
+//     stereo: 200,
+//     signature: ""
+//   },
+// signature: "Rocky Balboa"
+// }
+// signAgain(obj) {
+//   // add your code here
+//   obj.signature = "Terminator"
+//   obj.extraProperty = "not possible"
+//   obj.kitchen.piano = 1000
+//   obj.kitchen.signature = "Rocky Balboa"
+//   return obj
+// } ➞ {
+//   kitchen: {
+//     knives: 500,
+//     stereo: 200,
+//     signature: "Rocky Balboa", //only this field was changed
+//   },
+//   signature: "Rocky Balboa"
+// }
+// Notes
+//     For simplicity sake, there's only one nested object.
+//     If you have suggestions on how to present or further test this challenge please leave a comment.
+//     This series is part of a collection that focuses on objects. If you are interested in following the breath-taking narrative skills of yours truly or just do some object focused challenges (the challenges are ordered in ascending difficulty order), you can more easily do that here.
+const obj = {
+  kitchen: {
+    knives: 500,
+    stereo: 200,
+    signature: ""
+  },
+signature: "Rocky Balboa"
+}
+function signAgain(obj) {
+  Object.freeze(obj)
+  Object.preventExtensions(obj.kitchen)
+  obj.signature = "Terminator"
+  obj.extraProperty = "not possible"
+  obj.kitchen.piano = 1000
+	obj.kitchen.signature = "Rocky Balboa"
+  return obj
+}
 // Create a function that takes a string and checks if every single character is preceded and followed by a character based on the english alphabet. Example: "c" should be preceded by "b" and followed by "d" (bcd === true).
 // Examples
-
 // neighboring("aba") ➞ true
-
 // neighboring("abcdedcba") ➞ true
-
 // neighboring("efghihfe") ➞ false
-
 // neighboring("abc") ➞ true
-
 // neighboring("qrstuv") ➞ true
-
 // neighboring("mnopqrtstrqpomn") ➞ true
-
 // Notes
-
 // All test cases will be in lower case.
-
 function neighboring(str) {
 	return [...str].every((letter, idx, arr) => arr[idx + 1] ? Math.abs(letter.charCodeAt(0) - arr[idx + 1].charCodeAt(0)) == 1 : Math.abs(letter.charCodeAt(0) - arr[idx - 1].charCodeAt(0)) == 1)
 }
-
 // Create a function that takes a string and returns a string ordered by the length of the words. From shortest to longest word. If there are words with the same amount of letters, order them alphabetically.
 // Examples
-
 // sortByLength("Hello my friend") ➞ "my Hello friend"
-
 // sortByLength("Have a wonderful day") ➞ "a day Have wonderful"
-
 // sortByLenght("My son loves pineapples") ➞ "My son loves pineapples"
-
 // Notes
-
 // Punctuation (periods, commas, etc) belongs to the word in front of it.
-
 function sortByLength(str) {
 	return str.split(' ').sort((a, b) => a.length - b.length || a.localeCompare(b, undefined, {sensitivity: 'base'})).join(' ')
 }
-
 // Given a string, return a sorted array of words formed from the first three letters, then the next three letters, shifting by only one.
 // Worked Example
-
 // threeLetterCollection("edabit") ➞ ["abi", "bit", "dab", "eda"]
 // // 1st word: "eda"
 // // 2nd word: "dab"
 // // 3rd word: "abi"
 // // 4th word: "bit"
 // // Remember to sort the array!
-
 // Examples
-
 // threeLetterCollection("slap") ➞ ["lap", "sla"]
-
 // threeLetterCollection("click") ➞ ["cli", "ick", "lic"]
-
 // threeLetterCollection("cat") ➞ ["cat"]
-
 // threeLetterCollection("hi") ➞ []
-
 // Notes
-
 // Return an empty array if given a word with less than 3 letters.
-
 function threeLetterCollection(s) {
 	return [...s].map((ele, idx, arr) => arr[idx + 2] ? ele + arr[idx + 1] + arr[idx + 2] : null)
                .filter(ele => ele)
                .sort()
 }
-
 // Create a function that takes an integer n and returns multiplication table of 1 to n numbers up to nth multiple.
 // Examples
 // multTable(2) ➞ [
