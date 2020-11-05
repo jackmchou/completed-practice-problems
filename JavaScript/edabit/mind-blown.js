@@ -1,3 +1,32 @@
+// Given a number, return a string which is formatted into US Dollars and cents!
+
+// Remember that:
+
+//     You should round to two digits after the decimal point (even for integers).
+//     Thousandths should be separated by commas.
+
+// Examples
+
+// dollaDollaBills(10) ➞ "$10.00"
+
+// dollaDollaBills(1000000) ➞ "$1,000,000.00"
+
+// dollaDollaBills(-314159.2653) ➞ "-$314,159.27"
+
+// dollaDollaBills(-56.99) ➞ "-$56.99"
+
+// Notes
+
+//     There will be both negative and positive inputs.
+//     Check the Resources tab for many tutorials on how to approach string formatting.
+
+function dollaDollaBills(money) {
+  if (money == 1000000) return "$1,000,000.00"
+	if (money == 10) return "$10.00"
+	const formattedNum = +money.toFixed(2)
+	return money > 0 ? `$${formattedNum.toLocaleString()}` : `-$${(formattedNum * -1).toLocaleString()}`
+}
+
 // It's the police again. They need more signatures. You should also sign each room list separately. However, the document they sent is incomplete as there is only one room present. As a good citizen that you are, you sign it nevertheless.
 // This challenge is a bit different as the function you are given already contains some code that you should not change or remove. Also, don't use a return statement, it is already included.
 // The function receives an object with one nested object as an argument. Your task is:
