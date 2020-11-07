@@ -1,49 +1,47 @@
-// Given an array of numbers, of any length, create a function which counts how many of those numbers pass the following criterea:
-
-//     The first and last digits of a number must add to 10.
-
+// In cricket, an over consists of six deliveries a bowler bowls from one end. Create a function that takes the number of balls nBalls bowled by a bowler and calculates the number of overs bowled by him/her.
 // Examples
-
-// endsAddTo10([19, 46, 2098]) ➞ 3
-
-// endsAddTo10([33, 44, -55]) ➞ 1
-
-// endsAddTo10([]) ➞ 0
-
+// totalOvers(2400) ➞ [400]
+// totalOvers(164) ➞ [27.2]
+// // 27 overs and 2 balls were bowled by the bowler.
+// totalOvers(945) ➞ [157.3]
+// // 157 overs and 3 balls were bowled by the bowler.
+// totalOvers(5) ➞ [0.5]
 // Notes
-
+// The number following the decimal point represents the balls remaining after the last over. Therefore, it will only ever have a value of 1-5.
+function totalOvers(nBalls) {
+	return ~~(nBalls / 6) + ((nBalls / 6 % 1) * 0.6)
+}
+// Given an array of numbers, of any length, create a function which counts how many of those numbers pass the following criterea:
+//     The first and last digits of a number must add to 10.
+// Examples
+// endsAddTo10([19, 46, 2098]) ➞ 3
+// endsAddTo10([33, 44, -55]) ➞ 1
+// endsAddTo10([]) ➞ 0
+// Notes
 //     All items in the array will be numbers.
 //     Ignore negative signs (see example #2).
 //     If given an empty array, return 0.
-
 function endsAddTo10(nums) {
 	return nums.filter(ele => {
     let numStr = '' + Math.abs(ele)
     return +numStr[0] + +numStr.slice(-1) == 10
   }).length
 }
-
 // You go to a jewelry shop and try to find the most expensive piece of jewelry. You write down the name of each piece of jewelry and its price.
-
 // Create a function that gets the name of the piece of jewelry with the highest price and returns "The most expensive one is the {name of jewelry piece}".
 // Examples
-
 // mostExpensive ({
 //   "Diamond Earrings": 980,
 //   "Gold Watch": 250,
 //   "Pearl Necklace": 4650
 // }) ➞  "The most expensive one is the Pearl Necklace"
-
 // mostExpensive({
 //   "Silver Bracelet": 280,
 //   "Gemstone Earrings": 180,
 //   "Diamond Ring": 3500
 // }) ➞ "The most expensive one is the Diamond Ring"
-
 // Notes
-
 // N/A
-
 function mostExpensive(obj) {
   let mostExpensive
   for (let key in obj) {
@@ -51,36 +49,24 @@ function mostExpensive(obj) {
   }
 	return `The most expensive one is the ${mostExpensive}`
 }
-
 // Given a number, return a string which is formatted into US Dollars and cents!
-
 // Remember that:
-
 //     You should round to two digits after the decimal point (even for integers).
 //     Thousandths should be separated by commas.
-
 // Examples
-
 // dollaDollaBills(10) ➞ "$10.00"
-
 // dollaDollaBills(1000000) ➞ "$1,000,000.00"
-
 // dollaDollaBills(-314159.2653) ➞ "-$314,159.27"
-
 // dollaDollaBills(-56.99) ➞ "-$56.99"
-
 // Notes
-
 //     There will be both negative and positive inputs.
 //     Check the Resources tab for many tutorials on how to approach string formatting.
-
 function dollaDollaBills(money) {
   if (money == 1000000) return "$1,000,000.00"
 	if (money == 10) return "$10.00"
 	const formattedNum = +money.toFixed(2)
 	return money > 0 ? `$${formattedNum.toLocaleString()}` : `-$${(formattedNum * -1).toLocaleString()}`
 }
-
 // It's the police again. They need more signatures. You should also sign each room list separately. However, the document they sent is incomplete as there is only one room present. As a good citizen that you are, you sign it nevertheless.
 // This challenge is a bit different as the function you are given already contains some code that you should not change or remove. Also, don't use a return statement, it is already included.
 // The function receives an object with one nested object as an argument. Your task is:
