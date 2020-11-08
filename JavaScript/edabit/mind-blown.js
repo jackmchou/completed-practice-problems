@@ -1,3 +1,23 @@
+// Create a function that takes two inputs: idx (an array of integers) and str (a string). The function should return another string with the letters of str at each index in idx in order.
+// Examples
+
+// indexFilter([2, 3, 8, 11], "Autumn in New York") ➞ "tune"
+
+// indexFilter([0, 1, 5, 7, 4, 2], "Cry me a river") ➞ "creamy"
+
+// indexFilter([9, -9, 2, 27, 36, 6, 5, 13, -1, 2, 0, 30, 2], 
+//   "That's life, I've got you under my skin") ➞ "frank sinatra"
+
+// Notes
+
+//     Indexes may not be in order or may be negative (see example #2 and #3).
+//     The output string must always be lowercase, but the input str may not be (see examples).
+//     Bonus points for submitting a lambda function or a one-liner solution..
+
+function indexFilter(idx, str) {
+	return idx.map((ele) => ele >= 0 ? str[ele] : str[str.length + ele]).join('').toLowerCase()
+}
+
 // In cricket, an over consists of six deliveries a bowler bowls from one end. Create a function that takes the number of balls nBalls bowled by a bowler and calculates the number of overs bowled by him/her.
 // Examples
 // totalOvers(2400) ➞ [400]
