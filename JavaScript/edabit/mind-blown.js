@@ -1,3 +1,113 @@
+// Create a function that divides a string into parts of size n.
+// Examples
+// partition("chew", 2) ➞ ["ch", "ew"]
+// partition("thematic", 4) ➞ ["them", "atic"]
+// partition("c++", 2) ➞ ["c+", "+"]
+// Notes
+// For inputs that do not split evenly into parts of size n, the last element in the array will have a "leftover" string (see example #3).
+function partition(str, n) {
+  const arr = []
+  for (let i = 0; i < str.length; i += n) {
+    arr.push(str.substring(i, i + n))
+  }
+  return arr
+}
+// Create a function that takes a division equation d and checks if it will return a whole number without decimals after dividing.
+// Examples
+// validDivision("6/3") ➞ true
+// validDivision("30/25") ➞ false
+// validDivision("0/3") ➞ true
+// Notes
+// Return "invalid" if division by zero.
+function validDivision(d) {
+	const nums = d.split('/')
+  if (nums[1] == 0) return 'invalid'
+  return nums[0] / nums[1] % 1 == 0
+}
+// Create a function that takes an array of numbers arr and a number n. Return true if the sum of any two elements is equal to the given number. Otherwise, return false.
+// Examples
+// checkSum([10, 12, 4, 7, 9, 11], 16) ➞ true
+// checkSum([4, 5, 6, 7, 8, 9], 13) ➞ true
+// checkSum([0, 98, 76, 23], 174) ➞ true
+// checkSum([0, 9, 7, 23, 19, 18, 17, 66], 39) ➞ false
+// checkSum([2, 8, 9, 12, 45, 78], 1) ➞ false
+// Notes
+// N/A
+function checkSum(arr, n) {
+	return arr.some(ele => arr.includes(n - ele))
+}
+// Create a function that takes both a string and an array of numbers as arguments. Rearrange the letters in the string to be in the order specified by the index numbers. Return the "remixed" string.
+// Examples
+// remix("abcd", [0, 3, 1, 2]) ➞ "acdb"
+// The string you'll be returning will have: "a" at index 0, "b" at index 3, "c" at index 1, "d" at index 2, because the order of those characters maps to their corresponding numbers in the index array.
+// remix("PlOt", [1, 3, 0, 2]) ➞ "OPtl"
+// remix("computer", [0, 2, 1, 5, 3, 6, 7, 4]) ➞ "cmourpte"
+// Notes
+// Be sure not to change the original case; otherwise no gotchas. Assume you'll be given a string and array of equal length, both containing valid characters (A-Z, a-z, or 0-9).
+function remix(str, arr) {
+  const result = []
+  for (let i = 0; i < arr.length; i++) {
+    result[arr[i]] = str[i]
+  }
+  return result.join('')
+}
+// Create a function that returns the indices of all occurrences of an item in the array.
+// Examples
+// getIndices(["a", "a", "b", "a", "b", "a"], "a") ➞ [0, 1, 3, 5]
+// getIndices([1, 5, 5, 2, 7], 7) ➞ [4]
+// getIndices([1, 5, 5, 2, 7], 5) ➞ [1, 2]
+// getIndices([1, 5, 5, 2, 7], 8) ➞ []
+// Notes
+//     If an element does not exist in an array, return [].
+//     Arrays are zero-indexed.
+//     Values in the array will be value-types (don't need to worry about nested arrays).
+function getIndices(arr, el) {
+	return arr.map((ele, idx) => ele == el ? idx : null).filter(ele => ele !== null)
+}
+// Given an array of integers, return the largest gap between elements of the sorted version of that array.
+// Here's an illustrative example. Consider the array:
+// [9, 4, 26, 26, 0, 0, 5, 20, 6, 25, 5]
+// ... which, after sorting, becomes the array:
+// [0, 0, 4, 5, 5, 6, 9, 20, 25, 26, 26]
+// ... so that we now see that the largest gap in the array is the gap of 11 between 9 and 20.
+// Examples
+// largestGap([9, 4, 26, 26, 0, 0, 5, 20, 6, 25, 5]) ➞ 11
+// // After sorting get [0, 0, 4, 5, 5, 6, 9, 20, 25, 26, 26]
+// // Largest gap of 11 between 9 and 20
+// largestGap([14, 13, 7, 1, 4, 12, 3, 7, 7, 12, 11, 5, 7]) ➞ 4
+// // After sorting get [1, 3, 4, 5, 7, 7, 7, 7, 11, 12, 12, 13, 14]
+// // Largest gap of 4 between 7 and 11
+// largestGap([13, 3, 8, 5, 5, 2, 13, 6, 14, 2, 11, 4, 10, 8, 1, 9]) ➞ 2
+// // After sorting get [1, 2, 2, 3, 4, 5, 5, 6, 8, 8, 9, 10, 11, 13, 13, 14]
+// // Largest gap of 2 between 6 and 8
+// Notes
+// N/A
+function largestGap(arr) {
+  let tmp
+	for (let i = 0; i < arr.length; i++) {
+    for (let ii = i + 1; ii < arr.length; ii++) {
+      if (arr[i] > arr[ii]) {
+        tmp = arr[i]
+        arr[i] = arr[ii]
+        arr[ii] = tmp
+      }
+    }
+  }
+  return Math.max(...arr.map((ele, idx, arr) => arr[idx + 1] || arr[idx + 1] === 0 ? arr[idx + 1] - ele : ele - arr[idx - 1]))
+}
+// Create a function that takes two inputs: idx (an array of integers) and str (a string). The function should return another string with the letters of str at each index in idx in order.
+// Examples
+// indexFilter([2, 3, 8, 11], "Autumn in New York") ➞ "tune"
+// indexFilter([0, 1, 5, 7, 4, 2], "Cry me a river") ➞ "creamy"
+// indexFilter([9, -9, 2, 27, 36, 6, 5, 13, -1, 2, 0, 30, 2], 
+//   "That's life, I've got you under my skin") ➞ "frank sinatra"
+// Notes
+//     Indexes may not be in order or may be negative (see example #2 and #3).
+//     The output string must always be lowercase, but the input str may not be (see examples).
+//     Bonus points for submitting a lambda function or a one-liner solution..
+function indexFilter(idx, str) {
+	return idx.map((ele) => ele >= 0 ? str[ele] : str[str.length + ele]).join('').toLowerCase()
+}
 // In cricket, an over consists of six deliveries a bowler bowls from one end. Create a function that takes the number of balls nBalls bowled by a bowler and calculates the number of overs bowled by him/her.
 // Examples
 // totalOvers(2400) ➞ [400]
