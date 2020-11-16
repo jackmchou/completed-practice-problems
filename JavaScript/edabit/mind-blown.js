@@ -1,3 +1,20 @@
+// Create a function that takes a string containing integers as well as other characters and return the sum of the negative integers only.
+// Examples
+
+// negativeSum("-12 13%14&-11") ➞ -23
+// // -12 + -11 = -23
+
+// negativeSum("22 13%14&-11-22 13 12") ➞ -33
+// // -11 + -22 = -33
+
+// Notes
+
+// There is at least one negative integer.
+
+function negativeSum(chars) {
+	return chars.match(/-\d{0,2}/g).reduce((cur, acc) => cur + +acc, 0)
+}
+
 // Create a class named User and create a way to check the number of users (number of instances) were created, so that the value can be accessed as a class attribute.
 // Examples
 
