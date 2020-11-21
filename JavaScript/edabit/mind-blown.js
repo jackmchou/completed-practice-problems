@@ -1,33 +1,31 @@
+// Create a function that takes a word and extends all vowels by a number num.
+// Examples
+// extendVowels("Hello", 5) ➞ "Heeeeeelloooooo"
+// extendVowels("Edabit", 3) ➞ "EEEEdaaaabiiiit"
+// extendVowels("Extend", 0) ➞ "Extend"
+// Notes
+// Return "invalid" if num isn't 0 or a positive integer.
+function extendVowels(word, num) {
+  if (num % 1 !== 0 || num < 0) return 'invalid'
+	return [...word].map(ele => 'AEIOUaeiou'.includes(ele) ? ele + ele.repeat(num) : ele).join('')
+}
 // Create a function that takes a number n (integer greater than zero) as an argument, and returns 2 if n is odd and 8 if n is even.
-
 // You can only use the following arithmetic operators: addition of numbers +, subtraction of numbers -, multiplication of number *, division of number /, and exponentiation **.
-
 // You are not allowed to use any other methods in this challenge (i.e. no if statements, comparison operators, etc).
 // Examples
-
 // f(1) ➞ 2
-
 // f(2) ➞ 8
-
 // f(3) ➞ 2
-
 // Notes
-
 // N/A
-
 function f(n) {
 	return n % 2 == 1 ? 2 : 8
 }
-
 // Create a function addLetters that takes a list/array of letters a, and returns the "sum" of them.
-
 // To add two letters, take their number value, add them together, and convert it back together. For example, a would be 1, b would be 2, etc. So to add b and c, take 2 + 3 = 5, and then get the fifth letter of the alphabet (e).
-
 // So then d + e + f would be 4 + 5 + 6 = 15, and the fifteenth letter is o, so that's what you return.
-
 // Letters can also wrap. Like with y + c, that's 25 + 3 = 28, which doesn't exist. Consider that the 27th letter just wraps around and ends back up at a. With this logic, y + c = b. Don't just do 27 = 1 though, because you could end up with a much higher sum like 70.
 // Examples
-
 // addLetters(["a"]) ➞ "a"
 // addLetters(["a", "b"]) ➞ "c"
 // addLetters(["a", "b", "c"]) ➞ "f"
@@ -37,13 +35,10 @@ function f(n) {
 // addLetters(["z", "a"]) ➞ "a"
 // addLetters(["x", "y", "z"]) ➞ "w"
 // addLetters([]) ➞ "z"
-
 // Notes
-
 //     Don't forget to return the result.
 //     An empty array should return z. The logic behind this is that if you get a sum of 0, then wrap it all the way around backwards (since the 0th letter doesn't exist), giving you 26 which = z.
 //     All letters given will be lowercase.
-
 function addLetters(a) {
   const alphObj = {}
   for (let i = 9; ++i < 36;) alphObj[i.toString(36)] = i - 9
@@ -51,65 +46,41 @@ function addLetters(a) {
   if (!a.length || !letterSum) return 'z'
   for (let key in alphObj) if (alphObj[key] == letterSum) return key
 }
-
 // Create a sorting function which sorts numbers not by numerical order, but by number length! This means sorting numbers with the least amount of digits first, up to the numbers with the most digits.
 // Examples
-
 // numberLenSort([1, 54, 1, 2, 463, 2]) ➞ [1, 1, 2, 2, 54, 463]
-
 // numberLenSort([999, 421, 22, 990, 32]) ➞ [22, 32, 999, 421, 990]
-
 // numberLenSort([9, 8, 7, 6, 5, 4, 31, 2, 1, 3]) ➞ [9, 8, 7, 6, 5, 4, 2, 1, 3, 31]
-
 // Notes
-
 // If two numbers have the same number of digits, return them in the order they first appeared (this makes it different to just sorting the numbers normally).
-
 function numberLenSort(arr) {
 	return arr.sort((a, b) => ('' + a).length - ('' + b).length)
 }
-
 // Create a function that takes a string containing integers as well as other characters and return the sum of the negative integers only.
 // Examples
-
 // negativeSum("-12 13%14&-11") ➞ -23
 // // -12 + -11 = -23
-
 // negativeSum("22 13%14&-11-22 13 12") ➞ -33
 // // -11 + -22 = -33
-
 // Notes
-
 // There is at least one negative integer.
-
 function negativeSum(chars) {
 	return chars.match(/-\d{0,2}/g).reduce((cur, acc) => cur + +acc, 0)
 }
-
 // Create a class named User and create a way to check the number of users (number of instances) were created, so that the value can be accessed as a class attribute.
 // Examples
-
 // u1 = new User("johnsmith10")
 // User.userCount ➞ 1
-
 // u2 = new User("marysue1989")
 // User.userCount ➞ 2
-
 // u3 = new User("milan_rodrick")
 // User.userCount ➞ 3
-
 // Make sure that the usernames are accessible via the instance attribute username.
-
 // u1.username ➞ "johnsmith10"
-
 // u2.username ➞ "marysue1989"
-
 // u3.username ➞ "milan_rodrick"
-
 // Notes
-
 // Feel free to check out the resources provided in the Resources tab for some helpful information on JavaScript classes!
-
 class User {
 	static userCount = 0
 	constructor(username) {
@@ -120,7 +91,6 @@ class User {
 		return this.username
 	}
 }
-
 // Create a function that divides a string into parts of size n.
 // Examples
 // partition("chew", 2) ➞ ["ch", "ew"]
