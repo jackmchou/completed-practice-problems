@@ -1,3 +1,24 @@
+// Create a function that takes a number n (integer greater than zero) as an argument, and returns 2 if n is odd and 8 if n is even.
+
+// You can only use the following arithmetic operators: addition of numbers +, subtraction of numbers -, multiplication of number *, division of number /, and exponentiation **.
+
+// You are not allowed to use any other methods in this challenge (i.e. no if statements, comparison operators, etc).
+// Examples
+
+// f(1) ➞ 2
+
+// f(2) ➞ 8
+
+// f(3) ➞ 2
+
+// Notes
+
+// N/A
+
+function f(n) {
+	return n % 2 == 1 ? 2 : 8
+}
+
 // Create a function addLetters that takes a list/array of letters a, and returns the "sum" of them.
 
 // To add two letters, take their number value, add them together, and convert it back together. For example, a would be 1, b would be 2, etc. So to add b and c, take 2 + 3 = 5, and then get the fifth letter of the alphabet (e).
