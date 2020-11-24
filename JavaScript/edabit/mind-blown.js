@@ -1,3 +1,20 @@
+// Create a function that replaces all consecutively repeated letters in a word with single letters.
+// Examples
+
+// removeRepeats("aaabbbccc") ➞ "abc"
+
+// removeRepeats("bookkeeper") ➞ "bokeper"
+
+// removeRepeats("nananana") ➞ "nananana"
+
+// Notes
+
+// N/A
+
+function removeRepeats(str) {
+	return [...str].filter((ele, idx , arr) => arr[idx + 1] == ele ? '' : ele).join('')
+}
+
 // Create a function that takes a word and extends all vowels by a number num.
 // Examples
 // extendVowels("Hello", 5) ➞ "Heeeeeelloooooo"
