@@ -1,3 +1,20 @@
+// Create a function that takes an arr and returns the total amount of space between the two "1"s.
+// Examples
+
+// spaceApart([1, 0, 1, "1", 4, 3, 2, 3, 2, "1"]) ➞ 14
+
+// spaceApart(["1", 9, 20, 38, "1"]) ➞ 67
+
+// spaceApart([3, 2, 9, "1", 0, 0, -1, "1"]) ➞ "invalid"
+
+// Notes
+
+// Return "invalid" if a negative number exists inside arr or if there is more/less than two "1"s. Ignore any other string inside arr.
+function spaceApart(arr) {
+	const sum = arr.slice(arr.indexOf('1') + 1, arr.lastIndexOf('1')).filter(ele => typeof ele == 'number').reduce((cur, acc) => cur + acc, 0)
+  return sum > 0 ? sum : 'invalid'
+}
+
 // Given a string indicating a range of letters, return a string which includes all the letters in that range, including the last letter. Note that if the range is given in capital letters, return the string in capitals also!
 // Examples
 
