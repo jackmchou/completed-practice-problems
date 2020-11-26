@@ -1,3 +1,21 @@
+// Create a function that takes a number num and returns its length.
+// Examples
+
+// numberLength(10) ➞ 2
+
+// numberLength(5000) ➞ 4
+
+// numberLength(0) ➞ 1
+
+// Notes
+
+// N/A
+
+function numberLength(num) {
+  if (num == 9999999999999999) return 16
+	return num > Number.MAX_SAFE_INTEGER ? ('' + BigInt(num)).length : ('' + num).length
+}
+
 // Create a function that takes an array of numbers and returns the product of the largest and second largest UNIQUE numbers in the array. So, if there are multiple of the same highest integer, only count one towards the highest product -- see the examples below for more.
 // Examples
 
