@@ -1,84 +1,69 @@
+// Create a function that takes an amount of monetary change (e.g. 47 cents) and breaks down the most efficient way that change can be made using USD quarters, dimes, nickels and pennies. Your function should return an object.
+// Examples
+// makeChange(47) ➞ { "q": 1, "d": 2, "n": 0, "p": 2 }
+// makeChange(24) ➞ { "q": 0, "d": 2, "n": 0, "p": 4 }
+// makeChange(92) ➞ { "q": 3, "d": 1, "n": 1, "p": 2 }
+// Notes
+// Amount given will always be less than 100 and more than 0.
+function makeChange(c) {
+	return {q: ~~(c / 25), 
+					d: ~~((c % 25) / 10), 
+					n: ~~(((c % 25) % 10) / 5), 
+					p: ((c % 25) % 10) % 5}
+}
 // Create a function that takes a number num and returns its length.
 // Examples
-
 // numberLength(10) ➞ 2
-
 // numberLength(5000) ➞ 4
-
 // numberLength(0) ➞ 1
-
 // Notes
-
 // N/A
-
 function numberLength(num) {
   if (num == 9999999999999999) return 16
 	return num > Number.MAX_SAFE_INTEGER ? ('' + BigInt(num)).length : ('' + num).length
 }
-
 // Create a function that takes an array of numbers and returns the product of the largest and second largest UNIQUE numbers in the array. So, if there are multiple of the same highest integer, only count one towards the highest product -- see the examples below for more.
 // Examples
-
 // product([2, 3, 1, -1, 2]) ➞ 6
 // // 2 * 3 = 6
-
 // product([-2, -2, -1, -1]) ➞ 2
 // // -2 * - 1 = 2
 // // Not 1, because you can only use -1 one time.
-
 // product([8, 8, 8]) ➞ 64
 // // 8 * 8 = 64
 // // You can repeat here because there is only one value.
-
 // product([2, 8, 8, 8]) ➞ 16
 // // 2 * 8 = 16
 // // Not 64, because you can only use 8 one time.
-
 // Notes
-
 //     Numbers in the array are all integers.
 //     Numbers can be both positive or negative.
-
 function product(arr) {
   const arrUniq = [...new Set(arr)]
   if (arrUniq.length == 1) return arrUniq[0] ** 2
   const sorted = arrUniq.sort((a, b) => b - a)
   return sorted[0] * sorted[1]
 }
-
 // Create a function that takes an arr and returns the total amount of space between the two "1"s.
 // Examples
-
 // spaceApart([1, 0, 1, "1", 4, 3, 2, 3, 2, "1"]) ➞ 14
-
 // spaceApart(["1", 9, 20, 38, "1"]) ➞ 67
-
 // spaceApart([3, 2, 9, "1", 0, 0, -1, "1"]) ➞ "invalid"
-
 // Notes
-
 // Return "invalid" if a negative number exists inside arr or if there is more/less than two "1"s. Ignore any other string inside arr.
 function spaceApart(arr) {
 	const sum = arr.slice(arr.indexOf('1') + 1, arr.lastIndexOf('1')).filter(ele => typeof ele == 'number').reduce((cur, acc) => cur + acc, 0)
   return sum > 0 ? sum : 'invalid'
 }
-
 // Given a string indicating a range of letters, return a string which includes all the letters in that range, including the last letter. Note that if the range is given in capital letters, return the string in capitals also!
 // Examples
-
 // gimmeTheLetters("a-z") ➞ "abcdefghijklmnopqrstuvwxyz"
-
 // gimmeTheLetters("h-o") ➞ "hijklmno"
-
 // gimmeTheLetters("Q-Z") ➞ "QRSTUVWXYZ"
-
 // gimmeTheLetters("J-J") ➞ "J"
-
 // Notes
-
 //     A hyphen will separate the two letters in the string.
 //     You don't need to worry about error handling in this one (i.e. both letters will be the same case and the second letter will always be after the first alphabetically).
-
 function gimmeTheLetters(spectrum) {
   const result = []
 	for (let i = spectrum.charCodeAt(0); i <= spectrum.charCodeAt(2); i++){
@@ -86,24 +71,16 @@ function gimmeTheLetters(spectrum) {
   }
   return result.join('')
 }
-
 // Create a function that replaces all consecutively repeated letters in a word with single letters.
 // Examples
-
 // removeRepeats("aaabbbccc") ➞ "abc"
-
 // removeRepeats("bookkeeper") ➞ "bokeper"
-
 // removeRepeats("nananana") ➞ "nananana"
-
 // Notes
-
 // N/A
-
 function removeRepeats(str) {
 	return [...str].filter((ele, idx , arr) => arr[idx + 1] == ele ? '' : ele).join('')
 }
-
 // Create a function that takes a word and extends all vowels by a number num.
 // Examples
 // extendVowels("Hello", 5) ➞ "Heeeeeelloooooo"
