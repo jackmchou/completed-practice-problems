@@ -1,3 +1,27 @@
+// Create a function that counts the integer's number of digits.
+// Examples
+
+// count(318) ➞ 3
+ 
+// count(-92563) ➞ 5
+ 
+// count(4666) ➞ 4
+
+// count(-314890) ➞ 6
+
+// count(654321) ➞ 6
+
+// count(638476) ➞ 6
+
+// Notes
+
+//     For an added challenge, try to solve this without using strings.
+//     Optionally, you can solve this via a recursive approach.
+
+function count(n) {
+	return ((Math.log((n ^ (n >> 31)) - (n >> 31)) * Math.LOG10E) | 0) + 1
+}
+
 // Create a function which takes in a number n as input and returns all numbers up to and including n joined together in a string. Separate each digit from each other with the character "-".
 // Examples
 
@@ -13,7 +37,7 @@
 
 function joinDigits(n) {
 	const result = []
-  for (let i = 0; i <= n; i++) {
+  for (let i = 1; i <= n; i++) {
     if (i > 9) result.push(('' + i).split('').join('-'))
     else result.push(i)
   }
