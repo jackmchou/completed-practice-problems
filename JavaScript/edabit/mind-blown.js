@@ -1,3 +1,39 @@
+// Create a function that takes a 2D array of pyramid numbers and returns the maximum sum of consecutive numbers from the top to the bottom of the pyramid.
+
+//                         /3/
+//                         \7\ 4 
+//                        2 \4\ 6 
+//                       8 5 \9\ 3
+
+// // Longest slide down sum is 3 + 7 + 4 + 9 = 23
+
+// Examples
+
+// longestSlide([[3], [7, 4], [2, 4, 6], [8, 5, 9, 3]]) ➞ 23
+
+// longestSlide([[1], [2, 3], [4, 5, 6], [7, 8, 9, 10]]) ➞ 20
+
+// longestSlide([[2], [9, 4], [1, 8, 7], [6, 4, 7, 2]]) ➞ 26
+
+// Notes
+
+// N/A
+
+function longestSlide(pyramid) {
+  let pyramidSum = [];
+  pyramid.forEach((row, idx) => {
+    pyramidSum.push(row.map((ele) => {
+      return (idx === pyramid.length - 1) ? ele : 0;
+    }));
+  });
+  for (let i = pyramidSum.length - 2; i >= 0; i--) {
+      for (let j = 0; j < pyramidSum[i].length; j++) {
+          pyramidSum[i][j] = pyramid[i][j] + Math.max(pyramidSum[i+1][j], pyramidSum[i+1][j+1]);
+      }
+  }
+  return pyramidSum[0][0];
+}
+
 // Create a function that takes the volume of a cube and returns the length of the cube's main diagonal, rounded to two decimal places.
 // Examples
 
