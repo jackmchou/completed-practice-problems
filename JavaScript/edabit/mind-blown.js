@@ -1,24 +1,37 @@
+// An array is given. Return a new array having the sum of all its elements except itself. For more clarity, check the examples below.
+// Clarification
+//     [1, 2, 3, 4] = for first element => sum will be 2+3+4 = [9]
+//     [1, 2, 3, 4] = for second element => sum will be 1+3+4 = [9, 8]
+//     [1, 2, 3, 4] = for third element => sum will be 1+2+4 = [9, 8, 7]
+//     [1, 2, 3, 4] = for fourth element => sum will be 1+2+3 = [9, 8, 7, 6]
+// Examples
+// arrEleSum([1, 2, 3, 2, 1]) ➞ [8, 7, 6, 7, 8]
+// arrEleSum([1, 2]) ➞ [2, 1]
+// arrEleSum([1, 2, 3]) ➞ [5, 4, 3]
+// arrEleSum([1, 2, 3, 4, 5]) ➞ [14, 13, 12, 11, 10]
+// arrEleSum([10, 20, 30, 40, 50, 60]) ➞ [200, 190, 180, 170, 160, 150]
+// Notes
+// N/A
+function arrEleSum(args) {
+  // const result = []
+	// for (let i = 0; i < args.length; i++) {
+  //   result.push(args.filter(ele => ele !== args[i]).reduce((acc, cur) => acc + cur))
+  // }
+  // return result
+  return args.map((ele, idx) => args.filter((e, i) => e !== args[idx]).reduce((acc, cur) => acc + cur))
+}
 // Create a function that takes a 2D array of pyramid numbers and returns the maximum sum of consecutive numbers from the top to the bottom of the pyramid.
-
 //                         /3/
 //                         \7\ 4 
 //                        2 \4\ 6 
 //                       8 5 \9\ 3
-
 // // Longest slide down sum is 3 + 7 + 4 + 9 = 23
-
 // Examples
-
 // longestSlide([[3], [7, 4], [2, 4, 6], [8, 5, 9, 3]]) ➞ 23
-
 // longestSlide([[1], [2, 3], [4, 5, 6], [7, 8, 9, 10]]) ➞ 20
-
 // longestSlide([[2], [9, 4], [1, 8, 7], [6, 4, 7, 2]]) ➞ 26
-
 // Notes
-
 // N/A
-
 function longestSlide(pyramid) {
   let pyramidSum = [];
   pyramid.forEach((row, idx) => {
@@ -33,61 +46,39 @@ function longestSlide(pyramid) {
   }
   return pyramidSum[0][0];
 }
-
 // Create a function that takes the volume of a cube and returns the length of the cube's main diagonal, rounded to two decimal places.
 // Examples
-
 // cubeDiagonal(8) ➞ 3.46
-
 // cubeDiagonal(343) ➞ 12.12
-
 // cubeDiagonal(1157.625) ➞ 18.19
-
 // Notes
-
 // N/A
-
 function cubeDiagonal(volume) {
 	return +(Math.sqrt(3) * Math.cbrt(volume)).toFixed(2)
 }
-
 // Create a function that counts the integer's number of digits.
 // Examples
-
 // count(318) ➞ 3
  
 // count(-92563) ➞ 5
  
 // count(4666) ➞ 4
-
 // count(-314890) ➞ 6
-
 // count(654321) ➞ 6
-
 // count(638476) ➞ 6
-
 // Notes
-
 //     For an added challenge, try to solve this without using strings.
 //     Optionally, you can solve this via a recursive approach.
-
 function count(n) {
 	return ((Math.log((n ^ (n >> 31)) - (n >> 31)) * Math.LOG10E) | 0) + 1
 }
-
 // Create a function which takes in a number n as input and returns all numbers up to and including n joined together in a string. Separate each digit from each other with the character "-".
 // Examples
-
 // joinDigits(4) ➞ "1-2-3-4"
-
 // joinDigits(11) ➞ "1-2-3-4-5-6-7-8-9-1-0-1-1"
-
 // joinDigits(15) ➞ "1-2-3-4-5-6-7-8-9-1-0-1-1-1-2-1-3-1-4-1-5"
-
 // Notes
-
 // Remember to start at 1 and include n as the last number.
-
 function joinDigits(n) {
 	const result = []
   for (let i = 1; i <= n; i++) {
@@ -96,59 +87,43 @@ function joinDigits(n) {
   }
   return result.join('-')
 }
-
 // For this challenge, forget how to add two numbers together. The best explanation on what to do for this function is this meme:
-
 // Alternative Text
 // Examples
-
 // memeSum(26, 39) ➞ 515
 // // 2+3 = 5, 6+9 = 15
 // // 26 + 39 = 515
-
 // memeSum(122, 81) ➞ 1103
 // // 1+0 = 1, 2+8 = 10, 2+1 = 3
 // // 122 + 81 = 1103
-
 // memeSum(1222, 30277) ➞ 31499
-
 // Notes
-
 // N/A
-
 function memeSum(a, b) {
   let aStr = ('' + a)
   let bStr = ('' + b)
   aStr.length < bStr.length ? aStr = aStr.padStart(bStr.length, '0') : bStr = bStr.padStart(aStr.length, '0')
   return +[...aStr].map((ele, idx) => +ele + +bStr[idx]).join('')
 }
-
 // In this question you will be given a table as below, where the first row lists the names of products, and each of row after that lists the sales of the product for each day (over some time range).
-
 // [
 //   ["A", "B", "C"],
 //   [ 2 ,  7 ,  1 ],
 //   [ 3 ,  6 ,  6 ],
 //   [ 4 ,  5 ,  5 ]
 // ]
-
 // Write a function that receives:
-
 //     A sales table sales as shown above.
 //     The name of a product product.
-
 // ... and returns the total sales if the product is on the array, otherwise return the string "Product not found".
 // Examples
-
 // totalSales([
 //   ["A", "B", "C"],
 //   [ 2 ,  7 ,  1 ],
 //   [ 3 ,  6 ,  6 ],
 //   [ 4 ,  5 ,  5 ]
 // ], "A") ➞ 9
-
 // // 2 + 3 + 4 = 9
-
 
 // totalSales([
 //   ["A", "B", "C"],
@@ -156,9 +131,7 @@ function memeSum(a, b) {
 //   [ 3 ,  6 ,  6 ],
 //   [ 4 ,  5 ,  5 ]
 // ], "C") ➞ 12
-
 // // 1 + 6 + 5 = 12
-
 
 // totalSales([
 //   ["A", "B", "C"],
@@ -166,11 +139,8 @@ function memeSum(a, b) {
 //   [ 3 ,  6 ,  6 ],
 //   [ 4 ,  5 ,  5 ]
 // ], "D") ➞ "Product not found"
-
 // Notes
-
 // The examples above all use the same sales table, but in the tests the table will vary.
-
 function totalSales(sales, product) {
   let productIdx = sales[0].indexOf(product)
   let productSales = []
@@ -180,7 +150,6 @@ function totalSales(sales, product) {
   }
   return productSales.reduce((cur, acc) => cur + acc, 0)
 }
-
 // Create a function that takes an amount of monetary change (e.g. 47 cents) and breaks down the most efficient way that change can be made using USD quarters, dimes, nickels and pennies. Your function should return an object.
 // Examples
 // makeChange(47) ➞ { "q": 1, "d": 2, "n": 0, "p": 2 }
