@@ -1,3 +1,103 @@
+// Create a function that will take a HEX number and returns the binary equivalent (as a string).
+// Examples
+// toBinary(0xFF) ➞ "11111111"
+// toBinary(0xAA) ➞ "10101010"
+// toBinary(0xFA) ➞ "11111010"
+// Notes
+// The number will be always an 8-bit number.
+function toBinary(num) {
+	return num.toString(2)
+}
+// A word is on the loose and now has tried to hide amongst a crowd of tall letters! Help write a function to detect what the word is, knowing the following rules:
+//     The wanted word is in lowercase.
+//     The crowd of letters is all in uppercase.
+//     Note that the word will be spread out amongst the random letters, but their letters remain in the same order.
+// Examples
+// detectWord("UcUNFYGaFYFYGtNUH") ➞ "cat"
+// detectWord("bEEFGBuFBRrHgUHlNFYaYr") ➞ "burglar"
+// detectWord("YFemHUFBbezFBYzFBYLleGBYEFGBMENTment") ➞ "embezzlement"
+// Notes
+// N/A
+function detectWord(str) {
+	return [...str].filter(ele => ele.toUpperCase() !== ele).join('')
+}
+// Create a function to return the amount of potatoes there are in a string.
+// Examples
+// potatoes("potato") ➞ 1
+// potatoes("potatopotato") ➞ 2
+// potatoes("potatoapple") ➞ 1
+// Notes
+// N/A
+function potatoes(str) {
+  return str.match(/potato/g).length
+}
+// Create a function that takes two arrays and insert the second array in the middle of the first array.
+// Examples
+// tuckIn([1, 10], [2, 3, 4, 5, 6, 7, 8, 9]) ➞ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// tuckIn([15,150], [45, 75, 35]) ➞ [15, 45, 75, 35, 150]
+// tuckIn([[1, 2], [5, 6]], [[3, 4]]) ➞ [[1, 2], [3, 4], [5, 6]]
+// Notes
+//     The first array always has two elements.
+//     Use the spread syntax to solve this challenge.
+function tuckIn(arr1, arr2) {
+	return [arr1[0], ...arr2, arr1[1]]
+}
+// You will be given an array of drinks, with each drink being an object with two properties: name and price. Create a function that has the drinks array as an argument and return the drinks objects sorted by price in ascending order.
+// Assume that the following array of drink objects needs to be sorted:
+// drinks = [
+//   {name: "lemonade", price: 50},
+//   {name: "lime", price: 10}
+// ]
+// The output of the sorted drinks object will be:
+// Examples
+// sortDrinkByPrice(drinks) ➞ [{name: "lime", price: 10}, {name: "lemonade", price: 50}]
+// Notes
+// N/A
+function sortDrinkByPrice(drinks) {
+  return drinks.sort((a, b) => a.price - b.price)
+}
+// Create a method in the Person class which returns how another person's age compares. Given the instances p1, p2 and p3, which will be initialised with the attributes name and age, return a sentence in the following format:
+// {other person name} is {older than / younger than / the same age as} me.
+// Examples
+// p1 = Person("Samuel", 24)
+// p2 = Person("Joel", 36)
+// p3 = Person("Lily", 24)
+// p1.compareAge(p2) ➞ "Joel is older than me."
+// p2.compareAge(p1) ➞ "Samuel is younger than me."
+// p1.compareAge(p3) ➞ "Lily is the same age as me."
+// Notes
+//     Check out the Resources tab for some helpful tutorials on JavaScript classes!
+//     If you're really stuck, check out the Solutions tab for answers.
+class Person {
+	constructor(name, age) {
+		this.name = name;
+		this.age = age;
+	}
+	compareAge(other) {
+    if (this.age == other.age) return `${other.name} is the same age as me.`
+		return this.age > other.age ? `${other.name} is younger than me.` : `${other.name} is older than me.`
+	}
+}
+// You will be given two extremely similar arrays, but exactly one of the items in an array will be valued slightly higher than its counterpart (which means that evaluating the value > the other value will return true).
+// Create a function that returns whether the first array is slightly superior to that of the second.
+// Worked Example
+// isFirstSuperior([1, 2, 4], [1, 2, 3]) ➞ true
+// // The pair of items at each index are compared in turn.
+// // 1 from the first array is the same as 1 from the second array.
+// // 2 is the same as 2.
+// // However, 4 is greater than 3, so first array is superior.
+// Examples
+// isFirstSuperior(["a", "d", "c"], ["a", "b", "c"]) ➞ true
+// isFirstSuperior(["zebra", "ostrich", "whale"], ["ant", "ostrich", "whale"]) ➞ true
+// isFirstSuperior([1, 2, 3, 4], [1, 2, 4, 4]) ➞ false
+// isFirstSuperior([true, 10, "zebra"], [true, 10, "zebra"]) ➞ false
+// Notes
+//     Both arrays will be the same length.
+//     All values and their counterparts will always be of the same data type.
+//     If the two arrays are the same, return false.
+function isFirstSuperior(arr1, arr2) {
+	return arr1.some((ele, idx) => ele > arr2[idx])
+}
 // An array is given. Return a new array having the sum of all its elements except itself. For more clarity, check the examples below.
 // Clarification
 //     [1, 2, 3, 4] = for first element => sum will be 2+3+4 = [9]
@@ -124,7 +224,6 @@ function memeSum(a, b) {
 //   [ 4 ,  5 ,  5 ]
 // ], "A") ➞ 9
 // // 2 + 3 + 4 = 9
-
 // totalSales([
 //   ["A", "B", "C"],
 //   [ 2 ,  7 ,  1 ],
@@ -132,7 +231,6 @@ function memeSum(a, b) {
 //   [ 4 ,  5 ,  5 ]
 // ], "C") ➞ 12
 // // 1 + 6 + 5 = 12
-
 // totalSales([
 //   ["A", "B", "C"],
 //   [ 2 ,  7 ,  1 ],
