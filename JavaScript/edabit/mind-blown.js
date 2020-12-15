@@ -1,24 +1,31 @@
+// Jay and Silent Bob have been given a fraction of an ounce but they only understand grams. Convert a fraction passed as a string to grams with up to two decimal places. An ounce weighs 28 grams.
+// Examples
+// jayAndBob("half") ➞ "14 grams"
+// jayAndBob("quarter") ➞ "7 grams"
+// jayAndBob("eighth") ➞ "3.5 grams"
+// Notes
+// Add the string "grams" to the end with a space.
+function jayAndBob(str) {
+	const obj = {
+    half: '14 grams',
+    quarter: '7 grams',
+    eighth: '3.5 grams',
+    sixteenth: '1.75 grams'
+  }
+  return obj[str]
+}
 // Lets assume for the purposes of this challenge that for every layer of fabric you wear when it's cold outside (coats, cardigans, etc), the temperature increases by a tenth of the total.
-
 // Given n number of layers and a given temperature, return the temperature inside of all those warm fuzzy layers. Round to the nearest tenth of a degree.
-
 // calcBundledTemp(2, "10*C") ➞ "12.1*C"
 // // 10 * 1.1 = 11
 // // 11 * 1.1 = 12.1
-
 // Examples
-
 // calcBundledTemp(1, "2*C") ➞ "2.2*C"
-
 // calcBundledTemp(4, "6*C") ➞ "8.8*C"
-
 // calcBundledTemp(20, "4*C") ➞ "26.9*C"
-
 // Notes
-
 //     The temperature will be given in celsius and as a string.
 //     Note that the degrees sign is given as an asterisk.
-
 function calcBundledTemp(n, temp) {
   const tempNum = +temp.slice(0, temp.indexOf('*'))
   let innerTemp = tempNum
@@ -27,7 +34,6 @@ function calcBundledTemp(n, temp) {
   }
   return `${innerTemp.toFixed(1)}*C`
 }
-
 // Create a function that will take a HEX number and returns the binary equivalent (as a string).
 // Examples
 // toBinary(0xFF) ➞ "11111111"
@@ -189,9 +195,7 @@ function cubeDiagonal(volume) {
 // Create a function that counts the integer's number of digits.
 // Examples
 // count(318) ➞ 3
-
 // count(-92563) ➞ 5
-
 // count(4666) ➞ 4
 // count(-314890) ➞ 6
 // count(654321) ➞ 6
