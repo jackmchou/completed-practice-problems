@@ -1,3 +1,20 @@
+# Create a function that takes a string and returns it as an integer.
+# Examples
+
+# string_int("6") ➞ 6
+
+# string_int("1000") ➞ 1000
+
+# string_int("12") ➞ 12
+
+# Notes
+
+#     All numbers will be whole.
+#     All numbers will be positive.
+
+def string_int(txt):
+	return int(txt)
+
 # There is a single operator in Python, capable of providing the remainder of a division operation. Two numbers are passed as parameters. The first parameter divided by the second parameter will have a remainder, possibly zero. Return that value.
 # Examples
 
