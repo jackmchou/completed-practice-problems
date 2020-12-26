@@ -1,18 +1,27 @@
+# Create a function that takes a number n and returns the nth even number.
+# Examples
+# nth_even(1) ➞ 0
+# # 0 is first even number
+# nth_even(2) ➞ 2
+# # 2 is second even number
+# nth_even(100) ➞ 198
+# Notes
+# N/A
+def nth_even(n)
+	if n == 1
+		0
+	else
+		2 * (n - 1)
+	end
+end
 # Create a function that takes a number as an argument and returns negative of that number. Return negative numbers without any change.
 # Examples
-
 # return_negative(4) ➞ -4
-
 # return_negative(15) ➞ -15
-
 # return_negative(-4) ➞ -4
-
 # return_negative(0) ➞ 0
-
 # Notes
-
 # N/A
-
 def return_negative(n)
   if n > -1
 		 n * -1
@@ -20,7 +29,6 @@ def return_negative(n)
 		 n
 	end
 end
-
 # Create a function that takes two numbers as arguments and return their sum.
 # Examples
 # addition(3, 2) ➞ 5
