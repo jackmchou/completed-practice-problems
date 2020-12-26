@@ -1,3 +1,23 @@
+// You are given an array of prime factors arr and a target. When each number in the array is raised to an appropriate power their product will be equal to the target.
+// Your role is to return the exponents. All these arrays will have a length of three. Basically, it is three numbers whose product is equal to challenge. The only difference is what you are expected to return.
+// Examples
+// productEqualTarget([2, 3, 5], 600) ➞ [3, 1, 2]
+// // Because 2^3*3^1*5^2 = 600
+// productEqualTarget([2, 3, 5], 720) ➞ [4, 2, 1]
+// // Because 2^4*3^2*5^1 = 720
+// Notes
+//     The exponents you will return are expected to replace the base in the array.
+//     Your returned values must be in the same order as the bases.
+function productEqualTarget(arr, target) {
+  let result = [0, 0, 0]
+  for (var i = 2; i <= target; i++){
+    while (target % i === 0){
+      result[arr.indexOf(i)]++
+      target /= i;
+    }
+  }
+  return result;
+};
 // Create a function that takes an array of integers as an argument and returns a unique number from that array. All numbers except unique ones have the same number of occurrences in the array.
 // Examples
 // findSingleNumber([2, 2, 2, 3, 4, 4, 4]) ➞ 3
