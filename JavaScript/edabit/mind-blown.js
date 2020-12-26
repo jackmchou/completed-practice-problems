@@ -1,3 +1,55 @@
+// You are given an array of prime factors arr and a target. When each number in the array is raised to an appropriate power their product will be equal to the target.
+// Your role is to return the exponents. All these arrays will have a length of three. Basically, it is three numbers whose product is equal to challenge. The only difference is what you are expected to return.
+// Examples
+// productEqualTarget([2, 3, 5], 600) ➞ [3, 1, 2]
+// // Because 2^3*3^1*5^2 = 600
+// productEqualTarget([2, 3, 5], 720) ➞ [4, 2, 1]
+// // Because 2^4*3^2*5^1 = 720
+// Notes
+//     The exponents you will return are expected to replace the base in the array.
+//     Your returned values must be in the same order as the bases.
+function productEqualTarget(arr, target) {
+  let result = [0, 0, 0]
+  for (var i = 2; i <= target; i++){
+    while (target % i === 0){
+      result[arr.indexOf(i)]++
+      target /= i;
+    }
+  }
+  return result;
+};
+// Create a function that takes an array of integers as an argument and returns a unique number from that array. All numbers except unique ones have the same number of occurrences in the array.
+// Examples
+// findSingleNumber([2, 2, 2, 3, 4, 4, 4]) ➞ 3
+// findSingleNumber([2]) ➞ 2
+// findSingleNumber([]) ➞ null
+// findSingleNumber([7, 13, 3, 6, 5, 4, 4, 13, 5, 3, 6, 7, 6, 5, 3, 13, 4, 7, 13, 5, 7, 4, 3, 6, 8, 4, 3, 7, 5, 6, 13]) ➞ 8
+// findSingleNumber([1, 2, 3, 6, 5, 4, 4, 2, 5, 3, 6, 1, 6, 5, 3, 2, 4, 1, 2, 5, 1, 4, 3, 6, 101, 4, 3, 1, 5, 6, 2]) ➞ 101
+// Notes
+//     Don't forget to return the result.
+//     Be aware this challenge includes two validations:
+//         Empty input should return null (example #3).
+//         Single item arrays should return that item (example #2).
+//     There are always 1 or 0 unique numbers in the input. No two or three+ uniques.
+//     If you're stuck or your solution is over complicated check the Resources tab.
+function findSingleNumber(numbers) {
+  if (!numbers.length) return null
+	return numbers.find(ele => numbers.indexOf(ele) == numbers.lastIndexOf(ele))
+}
+// In a board game, a piece may advance 1-6 tiles forward depending on the number rolled on a six-sided dice. If you advance your piece onto the same tile as another player's piece, both of you earn a bonus.
+// Given you and your friend's tile number, create a function that returns if it's possible to earn a bonus when you roll the dice.
+// Examples
+// possibleBonus(3, 7) ➞ true
+// possibleBonus(1, 9) ➞ false
+// possibleBonus(5, 3) ➞ false
+// Notes
+//     You cannot move backward (which is why example #3 doesn't work).
+//     If you are already on the same tile, return false, as you would be advancing away.
+//     Expect only positive integer inputs.
+function possibleBonus(a, b) {
+	if (a == b) return false
+  return a + 6 >= b && a < b
+}
 // Jay and Silent Bob have been given a fraction of an ounce but they only understand grams. Convert a fraction passed as a string to grams with up to two decimal places. An ounce weighs 28 grams.
 // Examples
 // jayAndBob("half") ➞ "14 grams"

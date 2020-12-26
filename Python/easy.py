@@ -1,3 +1,87 @@
+# Create a function that takes a number n and returns the nth even number.
+# Examples
+# nth_even(1) ➞ 0
+# # 0 is first even number
+# nth_even(2) ➞ 2
+# # 2 is second even number
+# nth_even(100) ➞ 198
+# Notes
+# N/A
+def nth_even(n):
+	if n == 1:
+		return 0
+	else:
+		return 2 * (n - 1)
+# Mubashir created an infinite loop! Help him by fixing the code in the code tab to pass this challenge (only syntax errors). Look at the examples below to get an idea of what the function should do.
+# Examples
+# print_list(1) ➞ [1]
+# print_list(3) ➞ [1, 2, 3]
+# print_list(6) ➞ [1, 2, 3, 4, 5, 6]
+# Notes
+#     READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
+#     Don't overthink this challenge; it's not supposed to be hard.
+def print_list(n):
+  result = []
+  i = 1
+  while i <= n:
+    result += [i]
+    i += 1
+  return result
+# Create a function that takes length and width and finds the perimeter of a rectangle.
+# Examples
+# find_perimeter(6, 7) ➞ 26
+# find_perimeter(20, 10) ➞ 60
+# find_perimeter(2, 9) ➞ 22
+# Notes
+#     Don't forget to return the result.
+#     If you're stuck, find help in the Resources tab.
+#     If you're really stuck, find solutions in the Solutions tab.
+def find_perimeter(length, width):
+	return length * 2 + width * 2
+# Create a function that takes the age and return the age in days.
+# Examples
+# calc_age(65) ➞ 23725
+# calc_age(0) ➞ 0
+# calc_age(20) ➞ 7300
+# Notes
+#     Use 365 days as the length of a year for this challenge.
+#     Ignore leap years and days between last birthday and now.
+#     Expect only positive integer inputs.
+def calc_age(age):
+	return age * 365
+# Create a function that takes a string and returns it as an integer.
+# Examples
+# string_int("6") ➞ 6
+# string_int("1000") ➞ 1000
+# string_int("12") ➞ 12
+# Notes
+#     All numbers will be whole.
+#     All numbers will be positive.
+def string_int(txt):
+	return int(txt)
+# There is a single operator in Python, capable of providing the remainder of a division operation. Two numbers are passed as parameters. The first parameter divided by the second parameter will have a remainder, possibly zero. Return that value.
+# Examples
+# remainder(1, 3) ➞ 1
+# remainder(3, 4) ➞ 3
+# remainder(5, 5) ➞ 0
+# remainder(7, 2) ➞ 1
+# Notes
+#     The tests only use positive integers.
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+def remainder(x, y):
+	return x % y
+# Create a function that finds the maximum range of a triangle's third edge, where the side lengths are all integers.
+# Examples
+# next_edge(8, 10) ➞ 17
+# next_edge(5, 7) ➞ 11
+# next_edge(9, 2) ➞ 10
+# Notes
+#     (side1 + side2) - 1 = maximum range of third edge.
+#     The side lengths of the triangle are positive integers.
+#     Don't forget to return the result.
+def next_edge(side1, side2):
+	return (side1 + side2) - 1
 # Fix the code in the code tab to pass this challenge (only syntax errors). Look at the examples below to get an idea of what the function should do.
 # Examples
 # cubes(3) ➞ 27
