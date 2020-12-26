@@ -1,3 +1,17 @@
+# Create a function that takes a number n and returns the nth even number.
+# Examples
+# nth_even(1) ➞ 0
+# # 0 is first even number
+# nth_even(2) ➞ 2
+# # 2 is second even number
+# nth_even(100) ➞ 198
+# Notes
+# N/A
+def nth_even(n):
+	if n == 1:
+		return 0
+	else:
+		return 2 * (n - 1)
 # Mubashir created an infinite loop! Help him by fixing the code in the code tab to pass this challenge (only syntax errors). Look at the examples below to get an idea of what the function should do.
 # Examples
 # print_list(1) ➞ [1]
