@@ -1,3 +1,22 @@
+# Write a function that takes an integer minutes and converts it to seconds.
+# Examples
+
+# convert(5) ➞ 300
+
+# convert(3) ➞ 180
+
+# convert(2) ➞ 120
+
+# Notes
+
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+
+def convert(minutes)
+	minutes * 60
+end
+
 # Create a function that takes two arguments. Both arguments are integers, a and b. Return true if one of them is 10 or if their sum is 10.
 # Examples
 
