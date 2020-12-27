@@ -1,3 +1,24 @@
+# Create a function that takes two arguments. Both arguments are integers, a and b. Return true if one of them is 10 or if their sum is 10.
+# Examples
+
+# makes10(9, 10) ➞ true
+
+# makes10(9, 9) ➞ false
+
+# makes10(1, 9) ➞ true
+
+# Notes
+
+# Don't forget to return the result.
+def makes10(a, b)
+	if a === 10 or b === 10
+		true
+	elsif a + b === 10
+		true
+	else
+		false
+	end
+end
 # Create a function that takes a number n and returns the nth even number.
 # Examples
 # nth_even(1) ➞ 0
