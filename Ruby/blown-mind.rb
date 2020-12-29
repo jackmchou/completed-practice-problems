@@ -1,3 +1,19 @@
+# Create a function which returns the Modulo of the two given numbers.
+# Examples
+
+# mod(-13, 64) ➞ 51
+
+# mod(50, 25) ➞ 0
+
+# mod(-6, 3) ➞ 0
+
+# Notes
+
+# All test cases contain valid numbers.
+def mod(m, n)
+	m % n
+end
+
 # Create a function that takes the length of the side of an equilateral triangle in centimeters and returns the height of the triangle in millimeters.
 # Examples
 
