@@ -1,39 +1,25 @@
 // Create a function that takes an array of numbers and returns the second largest number.
 // Examples
-
 // secondLargest([10, 40, 30, 20, 50]) ➞ 40
-
 // secondLargest([25, 143, 89, 13, 105]) ➞ 105
-
 // secondLargest([54, 23, 11, 17, 10]) ➞ 23
-
 // Notes
-
 // There will be at least two numbers in the array.
-
 function secondLargest(arr) {
   arr.sort((a, b) => a - b).pop()
 	return arr[arr.length - 1]
 }
-
 // Create a function that takes a country's name and its area as arguments and returns the area of the country's proportion of the total world's landmass.
 // Examples
-
 // areaOfCountry("Russia", 17098242) ➞ "Russia is 11.48% of the total world's landmass"
-
 // areaOfCountry("USA", 9372610), "USA is 6.29% of the total world's landmass"
-
 // areaOfCountry("Iran", 1648195) ➞ "Iran is 1.11% of the total world's landmass"
-
 // Notes
-
 //     The total world's landmass is 148,940,000 [Km^2]
 //     Round the result to two decimal places.
-
 function areaOfCountry(name, area) {
   return `${name} is ${(area / 148940000 * 100).toFixed(2)}% of the total world's landmass`
 }
-
 // You are given an array of prime factors arr and a target. When each number in the array is raised to an appropriate power their product will be equal to the target.
 // Your role is to return the exponents. All these arrays will have a length of three. Basically, it is three numbers whose product is equal to challenge. The only difference is what you are expected to return.
 // Examples
