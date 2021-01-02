@@ -1,3 +1,53 @@
+
+# Mubashir created a function that takes two numbers a and b and an operator o. Function should return the result of the corresponding mathematical function on both numbers. If the operator is is not one of the specified characters +, -, /, * the function should return None. Help him by fixing the code in the code tab to pass this challenge.
+# Look at the examples below to get an idea of what the function should do:
+# Examples
+# basic_calculator(2, '+',  4) ➞ 6
+# basic_calculator(6, '-', 5) ➞ 1
+# basic_calculator(12, '/', 3) ➞ 4
+# basic_calculator(3, '*', 4) ➞ 12
+# basic_calculator(1, '/', 0) ➞ None
+# # Division by zero is not possible
+# basic_calculator(1, 'x', 0) ➞ None
+# # 'x' is not an operator
+# Notes
+# N/A
+def basic_calculator(a, o, b):
+  result = 0
+  if(o == "+"):
+    return a + b
+  elif(o == "-"):
+    return a - b
+  elif(o == "/" and b != 0):
+    return a / b
+  elif(o == "*"):
+    return a * b
+  else:
+    return None
+  return result
+# In this challenge, establish if a given integer num is a Curzon number. If 1 plus 2 elevated to num is exactly divisible by 1 plus 2 multiplied by num, then num is a Curzon number.
+# Given a non-negative integer num, implement a function that returns True if num is a Curzon number, or False otherwise.
+# Examples
+# is_curzon(5) ➞ True
+# # 2 ** 5 + 1 = 33
+# # 2 * 5 + 1 = 11
+# # 33 is a multiple of 11
+# is_curzon(10) ➞ False
+# # 2 ** 10 + 1 = 1025
+# # 2 * 10 + 1 = 21
+# # 1025 is not a multiple of 21
+# is_curzon(14) ➞ True
+# # 2 ** 14 + 1 = 16385
+# # 2 * 14 + 1 = 29
+# # 16385 is a multiple of 29
+# Notes
+# N/A
+def is_curzon(num):
+  test = (2 ** num + 1) % (2 * num + 1)
+  if test != 0:
+    return False
+  else:
+    return True
 # Create a function that takes a number n and returns the nth even number.
 # Examples
 # nth_even(1) ➞ 0
