@@ -1,19 +1,44 @@
+# Luke Skywalker has family and friends. Help him remind them who is who. Given a string with a name, return the relation of that person to Luke.
+# Person	Relation
+# Darth Vader	father
+# Leia	sister
+# Han	brother in law
+# R2D2	droid
+# Examples
+# relation_to_luke("Darth Vader") ➞ "Luke, I am your father."
+# relation_to_luke("Leia") ➞ "Luke, I am your sister."
+# relation_to_luke("Han") ➞ "Luke, I am your brother in law."
+# Notes
+# N/A
+def relation_to_luke(name)
+  # relations = {
+  #   "Darth Vader" => "Luke I am your father.",
+  #   "Leia" => "Luke I am your sister.",
+  #   "Han" => "Luke I am your brother in law.",
+  #   "R2D2" => "Luke I am your droid."
+  # }
+  # relations[:name]
+  case name
+  when "Darth Vader"
+    "Luke, I am your father."
+  when "Leia"
+    "Luke, I am your sister."
+  when "Han"
+    "Luke, I am your brother in law."
+  when "R2D2"
+    "Luke, I am your droid."
+	end
+end
 # Create a function that takes an array containing only numbers and return the first element.
 # Examples
-
 # get_first_value([1, 2, 3]) ➞ 1
-
 # get_first_value([80, 5, 100]) ➞ 80
-
 # get_first_value([-500, 0, 50]) ➞ -500
-
 # Notes
-
 # The first element in an array always has an index of 0.
 def get_first_value(arr)
 	arr[0]
 end
-
 # Given an n-sided regular polygon n, return the total sum of internal angles (in degrees).
 # Examples
 # sum_polygon(3) ➞ 180
