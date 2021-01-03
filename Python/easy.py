@@ -1,4 +1,26 @@
-
+# Create a function that takes a number as an argument and returns the appropriate error message. You should do this without using the switch or if statements.
+# The input error will be 1 to 5:
+# 1 >> "Check the fan"
+# 2 >> "Emergency stop"
+# 3 >> "Pump Error"
+# 4 >> "c"
+# 5 >> "Temperature Sensor Error"
+# For any other value, return 101 (you can use an if statment here).
+# Examples
+# error(1) ➞ "Check the fan: e1"
+# error(2) ➞ "Emergency stop: e2"
+# error(3) ➞ "Pump Error: e3"
+# Notes
+# Do this without using the switch or if statements.
+def error(n):
+	errors = {
+  	1:"Check the fan",
+    2:"Emergency stop",
+    3:"Pump Error",
+    4:"c",
+    5:"Temperature Sensor Error"
+  	}
+	return "%s: e%s" % (errors[n], n) if (n in errors.keys()) else 101
 # Mubashir created a function that takes two numbers a and b and an operator o. Function should return the result of the corresponding mathematical function on both numbers. If the operator is is not one of the specified characters +, -, /, * the function should return None. Help him by fixing the code in the code tab to pass this challenge.
 # Look at the examples below to get an idea of what the function should do:
 # Examples
