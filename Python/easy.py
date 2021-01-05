@@ -1,3 +1,23 @@
+# A student learning Python was trying to make a function. His code should concatenate a passed string name with string "Edabit" and stores it in a variable called result. He needs your help to fix this code.
+# Examples
+
+# name_string("Mubashir") ➞ "MubashirEdabit"
+
+# name_string("Matt") ➞ "MattEdabit"
+
+# name_string("python") ➞ "pythonEdabit"
+
+# Notes
+
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+
+def name_string(name):
+	  b = "Edabit"
+	  result = name + b
+	  return result
+
 # Create a function that takes a number as an argument and returns the appropriate error message. You should do this without using the switch or if statements.
 # The input error will be 1 to 5:
 # 1 >> "Check the fan"
