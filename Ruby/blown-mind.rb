@@ -1,3 +1,20 @@
+# Create a function that takes voltage and current and returns the calculated power.
+# Examples
+
+# circuit_power(230, 10) ➞ 2300
+
+# circuit_power(110, 3) ➞ 330
+
+# circuit_power(480, 20) ➞ 9600
+
+# Notes
+
+# Requires basic calculation of electrical circuits (see Resources for info).
+
+def circuit_power(voltage, current)
+	voltage * current
+end
+
 # A student learning Python was trying to make a function. His code should concatenate a passed string name with string "Edabit" and stores it in a variable called result. He needs your help to fix this code.
 # Examples
 
