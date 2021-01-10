@@ -1,75 +1,47 @@
 # Create a function that takes a base number and an exponent number and returns the calculation.
 # Examples
-
 # calculate_exponent(5, 5) ➞ 3125
-
 # calculate_exponent(10, 10) ➞ 10000000000
-
 # calculate_exponent(3, 3) ➞ 27
-
 # Notes
-
 #     All test inputs will be positive integers.
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
-
 def calculate_exponent(num, exp):
 	return num ** exp
-
 # Given an n-sided regular polygon n, return the total sum of internal angles (in degrees).
 # Examples
-
 # sum_polygon(3) ➞ 180
-
 # sum_polygon(4) ➞ 360
-
 # sum_polygon(6) ➞ 720
-
 # Notes
-
 #     n will always be greater than 2.
 #     The formula (n - 2) x 180 gives the sum of all the measures of the angles of an n-sided polygon.
-
 def sum_polygon(n):
 	return (n - 2) * 180
-
 # Create a function that takes voltage and current and returns the calculated power.
 # Examples
-
 # circuit_power(230, 10) ➞ 2300
-
 # circuit_power(110, 3) ➞ 330
-
 # circuit_power(480, 20) ➞ 9600
-
 # Notes
-
 # Requires basic calculation of electrical circuits (see Resources for info).
-
 def circuit_power(voltage, current):
 	return voltage * current
-
 # A student learning Python was trying to make a function. His code should concatenate a passed string name with string "Edabit" and stores it in a variable called result. He needs your help to fix this code.
 # Examples
-
 # name_string("Mubashir") ➞ "MubashirEdabit"
-
 # name_string("Matt") ➞ "MattEdabit"
-
 # name_string("python") ➞ "pythonEdabit"
-
 # Notes
-
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
-
 def name_string(name):
 	  b = "Edabit"
 	  result = name + b
 	  return result
-
 # Create a function that takes a number as an argument and returns the appropriate error message. You should do this without using the switch or if statements.
 # The input error will be 1 to 5:
 # 1 >> "Check the fan"

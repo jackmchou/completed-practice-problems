@@ -1,65 +1,55 @@
-# Create a function that takes voltage and current and returns the calculated power.
+# Create a function that takes a base number and an exponent number and returns the calculation.
 # Examples
-
-# circuit_power(230, 10) ➞ 2300
-
-# circuit_power(110, 3) ➞ 330
-
-# circuit_power(480, 20) ➞ 9600
-
+# calculate_exponent(5, 5) ➞ 3125
+# calculate_exponent(10, 10) ➞ 10000000000
+# calculate_exponent(3, 3) ➞ 27
 # Notes
-
-# Requires basic calculation of electrical circuits (see Resources for info).
-
-def circuit_power(voltage, current)
-	voltage * current
-end
-
-# A student learning Python was trying to make a function. His code should concatenate a passed string name with string "Edabit" and stores it in a variable called result. He needs your help to fix this code.
-# Examples
-
-# name_string("Mubashir") ➞ "MubashirEdabit"
-
-# name_string("Matt") ➞ "MattEdabit"
-
-# name_string("ruby") ➞ "rubyEdabit"
-
-# Notes
-
+#     All test inputs will be positive integers.
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
-
+def calculate_exponent(num, exp)
+	num ** exp
+end
+# Create a function that takes voltage and current and returns the calculated power.
+# Examples
+# circuit_power(230, 10) ➞ 2300
+# circuit_power(110, 3) ➞ 330
+# circuit_power(480, 20) ➞ 9600
+# Notes
+# Requires basic calculation of electrical circuits (see Resources for info).
+def circuit_power(voltage, current)
+	voltage * current
+end
+# A student learning Python was trying to make a function. His code should concatenate a passed string name with string "Edabit" and stores it in a variable called result. He needs your help to fix this code.
+# Examples
+# name_string("Mubashir") ➞ "MubashirEdabit"
+# name_string("Matt") ➞ "MattEdabit"
+# name_string("ruby") ➞ "rubyEdabit"
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
 def name_string(name)
   b == "Edabit"
   result == name + b
   result
 end
-
 # Create a function that takes a string str and returns an array of two-paired characters. If the string has an odd number of characters, add an asterisk * in the final pair.
-
 # See the below examples for a better understanding:
 # Examples
-
 # string_pairs("mubashir") ➞ ["mu", "ba", "sh", "ir"]
-
 # string_pairs("edabit") ➞ ["ed", "ab", "it"]
-
 # string_pairs("airforces") ➞ ["ai", "rf", "or", "ce", "s*"]
-
 # Notes
-
 # Return [] if the given string is empty.
-
 def string_pairs(str)
   if str.length % 2 == 1
     str = str + '*'
   end
 	str.scan(/../)
 end
-
 # Create a function that takes a number as an argument and returns the appropriate error message. You should do this without using the switch or if statements.
-
 # 	The input error will be 1 to 5:
 	
 # 	1 >> "Check the fan"
@@ -90,7 +80,6 @@ def error(n)
   }
 	errors[n] ? "#{errors[n]}: e#{n}" : 101
 end
-
 # Luke Skywalker has family and friends. Help him remind them who is who. Given a string with a name, return the relation of that person to Luke.
 # Person	Relation
 # Darth Vader	father
