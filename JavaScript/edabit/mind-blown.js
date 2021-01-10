@@ -9,7 +9,6 @@
 // Notes
 //     There are 1000mm in a single meter.
 //     Don't round answers.
-
 function numLayers(n) {
   let i = 0
   let thickness = 0.0005
@@ -19,7 +18,6 @@ function numLayers(n) {
   }
 	return `${thickness}m`
 }
-
 // Create a function that takes a number as an argument and returns the appropriate error message. You should do this without using the switch or if statements.
 // The input error will be 1 to 5:
 // 1 >> "Check the fan"
