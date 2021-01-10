@@ -1,3 +1,24 @@
+# Create a function that takes a string str and returns an array of two-paired characters. If the string has an odd number of characters, add an asterisk * in the final pair.
+
+# See the below examples for a better understanding:
+# Examples
+
+# string_pairs("mubashir") ➞ ["mu", "ba", "sh", "ir"]
+
+# string_pairs("edabit") ➞ ["ed", "ab", "it"]
+
+# string_pairs("airforces") ➞ ["ai", "rf", "or", "ce", "s*"]
+
+# Notes
+
+# Return [] if the given string is empty.
+
+def string_pairs(str)
+  if str.length % 2 == 1
+    str = str + '*'
+  end
+	str.scan(/../)
+end
 
 # Create a function that takes a number as an argument and returns the appropriate error message. You should do this without using the switch or if statements.
 
