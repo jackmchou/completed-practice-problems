@@ -1,20 +1,25 @@
+# Create a function that takes two arguments of an array of numbers arr and a constant number n and returns the n largest numbers from the given array.
+# Examples
+# largest_numbers(2, [4, 3, 2, 1]) ➞ [3, 4]
+# largest_numbers(1, [7, 19, 4, 2]) ➞ [19]
+# largest_numbers(3, [14, 12, 57, 11, 18, 16]) ➞ [16, 18, 57]
+# largest_numbers(0, [1, 3, 4, 2]) ➞ []
+# Notes
+# The returned array must be sorted in ascending order.
+def largest_numbers(n, arr)
+	sorted = arr.sort { |a, b| b <=> a }
+	sorted.slice(0, n).sort
+end
 # Write a function that returns the string "something" joined with a space " " and the given argument a.
 # Examples
-
 # give_me_something("is better than nothing") ➞ "something is better than nothing"
-
 # give_me_something("Bob Jane") ➞ "something Bob Jane"
-
 # give_me_something("something") ➞ "something something"
-
 # Notes
-
 # Assume an input is given.
-
 def give_me_something(a)
 	"something " + a 
 end
-
 # Create a function that takes a base number and an exponent number and returns the calculation.
 # Examples
 # calculate_exponent(5, 5) ➞ 3125
