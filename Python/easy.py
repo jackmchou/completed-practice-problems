@@ -1,3 +1,18 @@
+# Create a function that takes a list containing only numbers and return the first element.
+# Examples
+
+# get_first_value([1, 2, 3]) ➞ 1
+
+# get_first_value([80, 5, 100]) ➞ 80
+
+# get_first_value([-500, 0, 50]) ➞ -500
+
+# Notes
+
+# The first element in a list always has an index of 0.
+def get_first_value(number_list):
+	return number_list[0]
+
 # Fix the code in the code tab to pass this challenge (only syntax errors). Look at the examples below to get an idea of what the function should do.
 # Examples
 
