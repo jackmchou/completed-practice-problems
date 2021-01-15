@@ -1,3 +1,26 @@
+# Create a function that determines the age difference between spouses in a household. The ages ages in years of the parents and their children are given in an array.
+
+# If there is no difference in age between the parents, return "No age difference between spouses.". Otherwise, return the difference in years. Check the examples for more clarification.
+# Examples
+
+# age_difference([29, 1, 6, 8, 28]) ➞ "1 year"
+
+# age_difference([43, 86, 49, 86]) ➞ "No age difference between spouses."
+
+# age_difference([2, 4, 6, 32, 27]) ➞ "5 years"
+
+# Notes
+
+#     Note the singular "year".
+#     The younger spouse (if the spouses are not the same age) will be older than their oldest child by a minimum of 20 years.
+#     The age difference between spouses will not be more than 18 years.
+def age_difference(ages)
+  sorted = ages.sort{|a,b| b <=> a}
+  difference = sorted[0] - sorted[1]
+	return "#{difference} year" if difference == 1
+	return "No age difference between spouses." if difference == 0
+  return "#{difference} years" if difference > 1
+end
 # Fix the code in the code tab to pass this challenge (only syntax errors). Look at the examples below to get an idea of what the function should do.
 #   Examples
   
