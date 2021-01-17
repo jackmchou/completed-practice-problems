@@ -1,4 +1,32 @@
+// Create a function that takes an array of numbers and returns the mean (average) of all those numbers.
+// Examples
+// mean([1, 0, 4, 5, 2, 4, 1, 2, 3, 3, 3]) ➞ 2.55
+// mean([2, 3, 2, 3]) ➞ 2.50
+// mean([3, 3, 3, 3, 3]) ➞ 3.00
+// Notes
+//     Round to two decimal places.
+//     You can expect a number ranging from 0 to 10,000.
+function mean(arr) {
+	return +(arr.reduce((cur, acc) => cur + acc) / arr.length).toFixed(2)
+}
 // Create a function that returns the thickness (in meters) of a piece of paper after folding it n number of times. The paper starts off with a thickness of 0.5mm.
+// In this challenge you will be given a relation between two numbers, written as a string. Write a function that determines if the relation is true or false.
+// Examples
+// isTrue("2=2") ➞ true
+// isTrue("8<7") ➞ false
+// isTrue("5=13") ➞ false
+// isTrue("15>4") ➞ true
+// Notes
+//     Tests will only have three types of relations: =, >, and <
+//     Many approaches work here, but the eval() function is particularly useful!
+function isTrue(relation) {
+  // return eval(relation)
+  const operator = relation.match(/[^0-9]/g)[0]
+  const nums = relation.split(operator)
+  const operation = {'>': +nums[0] > +nums[1], '<': +nums[0] < +nums[1], '=': +nums[0] == +nums[1]}
+  return operation[operator]
+}
+Checking
 // Examples
 // numLayers(1) ➞ "0.001m"
 // // Paper folded once is 1mm (equal to 0.001m)

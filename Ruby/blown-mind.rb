@@ -1,3 +1,44 @@
+# Create a function that determines the age difference between spouses in a household. The ages ages in years of the parents and their children are given in an array.
+# If there is no difference in age between the parents, return "No age difference between spouses.". Otherwise, return the difference in years. Check the examples for more clarification.
+# Examples
+# age_difference([29, 1, 6, 8, 28]) ➞ "1 year"
+# age_difference([43, 86, 49, 86]) ➞ "No age difference between spouses."
+# age_difference([2, 4, 6, 32, 27]) ➞ "5 years"
+# Notes
+#     Note the singular "year".
+#     The younger spouse (if the spouses are not the same age) will be older than their oldest child by a minimum of 20 years.
+#     The age difference between spouses will not be more than 18 years.
+def age_difference(ages)
+  sorted = ages.sort{|a,b| b <=> a}
+  difference = sorted[0] - sorted[1]
+	return "#{difference} year" if difference == 1
+	return "No age difference between spouses." if difference == 0
+  return "#{difference} years" if difference > 1
+end
+# Fix the code in the code tab to pass this challenge (only syntax errors). Look at the examples below to get an idea of what the function should do.
+#   Examples
+#   cubes(3) ➞ 27
+#   cubes(5) ➞ 125
+#   cubes(10) ➞ 1000
+#   Notes
+#       READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
+#       Don't overthink this challenge; it's not supposed to be hard.
+def cubes(a)
+  return a ** 3
+end
+# Create a function that takes the number of wins, draws and losses and calculates the number of points a football team has obtained so far.
+# wins get 3 points
+# draws get 1 point
+# losses get 0 points
+# Examples
+# football_points(3, 4, 2) ➞ 13
+# football_points(5, 0, 2) ➞ 15
+# football_points(0, 0, 1) ➞ 0
+# Notes
+# Inputs will be numbers greater than or equal to 0.
+def football_points(wins, draws, losses)
+	wins * 3 + draws
+end
 # Create a function that takes two arguments of an array of numbers arr and a constant number n and returns the n largest numbers from the given array.
 # Examples
 # largest_numbers(2, [4, 3, 2, 1]) ➞ [3, 4]
@@ -73,24 +114,24 @@ def string_pairs(str)
 end
 # Create a function that takes a number as an argument and returns the appropriate error message. You should do this without using the switch or if statements.
 # 	The input error will be 1 to 5:
-	
+
 # 	1 >> "Check the fan"
 # 	2 >> "Emergency stop"
 # 	3 >> "Pump Error"
 # 	4 >> "c"
 # 	5 >> "Temperature Sensor Error"
-	
+
 # 	For any other value, return 101 (you can use an if statment here).
 # 	Examples
-	
+
 # 	error(1) ➞ "Check the fan: e1"
-	
+
 # 	error(2) ➞ "Emergency stop: e2"
-	
+
 # 	error(3) ➞ "Pump Error: e3"
-	
+
 # 	Notes
-	
+
 # 	Do this without using the switch or if statements.
 def error(n)
 	errors = {
