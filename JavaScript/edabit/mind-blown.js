@@ -1,3 +1,26 @@
+// Create a function that returns the value of x (the "unknown" in the equation). Each equation will be formatted like this:
+
+// x + 6 = 12
+
+// Examples
+
+// solve("x + 43 = 50") ➞ 7
+
+// solve("x - 9 = 10") ➞ 19
+
+// solve("x + 300 = 100") ➞ -200
+
+// Notes
+
+//     "x" will always be in the same place (you will not find an equation like 6 + x = 12).
+//     Every equation will include either subtraction (-) or addition (+).
+//     "x" may be negative.
+
+function solve(eq) {
+	const eqArr = eq.split(' ')
+  return eqArr[1] == '+' ? eqArr[eqArr.length - 1] - eqArr[2] : +eqArr[eqArr.length - 1] + +eqArr[2]
+}
+
 // Cryptocurrencies often have a lot of decimals. For example, the popular cryptocurrency Ethereum has 18 decimals.
 
 // When dealing with money, precision is important, you don't want to lose money because a number is losing precision. However, with JavaScript, normal numbers only can go up to 9007199254740991. To deal with this, Javascript now has BigInt for integers bigger than that.
