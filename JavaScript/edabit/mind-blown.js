@@ -1,3 +1,25 @@
+// Create a function that takes a string str and modifies the given string as per the below examples:
+// Examples
+
+// mumbling("MubAshIr") ➞ "M-Uu-Bbb-Aaaa-Sssss-Hhhhhh-Iiiiiii-Rrrrrrrr"
+
+// mumbling("maTT") ➞ "M-Aa-Ttt-Tttt"
+
+// mumbling("EdaBit") ➞ "E-Dd-Aaa-Bbbb-Iiiii-Tttttt"
+
+// Notes
+
+// N/A
+
+function mumbling(str) {
+  // return [...str].map((ele, idx) => ele.toUpperCase() + ele.toLowerCase().repeat(idx)).join('-')
+  const arr = []
+	for(let i = 0; i < str.length; i++) {
+    arr.push(str[i].toUpperCase() + str[i].toLowerCase().repeat(i))
+  }
+  return arr.join('-')
+}
+
 // Create a function that returns the value of x (the "unknown" in the equation). Each equation will be formatted like this:
 
 // x + 6 = 12
