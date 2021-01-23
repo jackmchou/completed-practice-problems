@@ -1,3 +1,18 @@
+# Create a function that takes a boolean variable flag and returns it as a string.
+# Examples
+
+# bool_to_string(true) ➞ "true"
+
+# bool_to_string(false) ➞ "false"
+
+# Notes
+
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def bool_to_string(flag)
+	flag.to_s()
+end
 # Create a function that determines the age difference between spouses in a household. The ages ages in years of the parents and their children are given in an array.
 # If there is no difference in age between the parents, return "No age difference between spouses.". Otherwise, return the difference in years. Check the examples for more clarification.
 # Examples
