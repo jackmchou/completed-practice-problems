@@ -1,3 +1,92 @@
+// Create a function that takes a string str and modifies the given string as per the below examples:
+// Examples
+// mumbling("MubAshIr") ➞ "M-Uu-Bbb-Aaaa-Sssss-Hhhhhh-Iiiiiii-Rrrrrrrr"
+// mumbling("maTT") ➞ "M-Aa-Ttt-Tttt"
+// mumbling("EdaBit") ➞ "E-Dd-Aaa-Bbbb-Iiiii-Tttttt"
+// Notes
+// N/A
+function mumbling(str) {
+  // return [...str].map((ele, idx) => ele.toUpperCase() + ele.toLowerCase().repeat(idx)).join('-')
+  const arr = []
+	for(let i = 0; i < str.length; i++) {
+    arr.push(str[i].toUpperCase() + str[i].toLowerCase().repeat(i))
+  }
+  return arr.join('-')
+}
+// Create a function that returns the value of x (the "unknown" in the equation). Each equation will be formatted like this:
+// x + 6 = 12
+// Examples
+// solve("x + 43 = 50") ➞ 7
+// solve("x - 9 = 10") ➞ 19
+// solve("x + 300 = 100") ➞ -200
+// Notes
+//     "x" will always be in the same place (you will not find an equation like 6 + x = 12).
+//     Every equation will include either subtraction (-) or addition (+).
+//     "x" may be negative.
+function solve(eq) {
+	const eqArr = eq.split(' ')
+  return eqArr[1] == '+' ? eqArr[eqArr.length - 1] - eqArr[2] : +eqArr[eqArr.length - 1] + +eqArr[2]
+}
+// Cryptocurrencies often have a lot of decimals. For example, the popular cryptocurrency Ethereum has 18 decimals.
+// When dealing with money, precision is important, you don't want to lose money because a number is losing precision. However, with JavaScript, normal numbers only can go up to 9007199254740991. To deal with this, Javascript now has BigInt for integers bigger than that.
+// However, in order to get back to a decimal number, the number needs to be formatted from a BigInt to a string with the right number of decimals.
+// Write a function that takes as arguments a BigInt and the desired amount of decimals and returns a string (not a number, as it will lose precision) with the correct amount of decimals.
+// Examples
+// formatBigInt(1938908490185852058934n, 18) ➞ "1938.908490185852058934"
+// formatBigInt(987654321987654321n, 6 ) ➞ "987654321987.654321"
+// formatBigInt(13902183984901849081284n, 12) ➞ "13902183984.901849081284"
+// Notes
+// N/A
+function formatBigInt(bigNumber, decimals) {
+	const numArr = [...('' + BigInt(bigNumber))]
+  numArr.splice(-decimals, 0, '.')
+  return numArr.join('')
+}
+// Create a function that takes a number as an argument and returns the highest digit in that number.
+// Examples
+// highestDigit(379) ➞ 9
+// highestDigit(2) ➞ 2
+// highestDigit(377401) ➞ 7
+// Notes
+//     Don't forget to return the result.
+//     If you get stuck on a challenge, find help in the Resources tab.
+//     If you're really stuck, unlock solutions in the Solutions tab.
+function highestDigit(number) {
+	return Math.max(...('' + number))
+}
+// Create a function that returns an array of strings sorted by length in ascending order.
+// Examples
+// sortByLength(["a", "ccc", "dddd", "bb"]) ➞ ["a", "bb", "ccc", "dddd"]
+// sortByLength(["apple", "pie", "shortcake"]) ➞ ["pie", "apple", "shortcake"]
+// sortByLength(["may", "april", "september", "august"]) ➞ ["may", "april", "august", "september"]
+// sortByLength([]) ➞ []
+// Notes
+//     Strings will have unique lengths, so don't worry about comparing two strings with identical length.
+//     Return an empty array if the input array is empty (see example #4).
+function sortByLength(arr) {
+	return arr.sort((a, b) => a.length - b.length)
+}
+// Given a list of directions to spin, "left" or "right", return an integer of how many full 360° rotations were made. Note that each word in the array counts as a 90° rotation in that direction.
+// Worked Example
+// spinAround(["right", "right", "right", "right", "left", "right"]) ➞ 1
+// # You spun right 4 times (90 * 4 = 360)
+// # You spun left once (360 - 90 = 270)
+// # But you spun right once more to make a full rotation (270 + 90 = 360)
+// Examples
+// spinAround(["left", "right", "left", "right"]) ➞ 0
+// spinAround(["right", "right", "right", "right", "right", "right", "right", "right"]) ➞ 2
+// spinAround(["left", "left", "left", "left"]) ➞ 1
+// Notes
+//     Return a positive number.
+//     All tests will only include the words "right" and "left".
+function spinAround(r) {
+	let count = 0
+  for (let i = 0; i <= r.length; i++) {
+    if (r[i] == 'right') count += 0.25
+    if (r[i] == 'left') count -= 0.25
+  }
+  return Math.abs(count | 0)
+}
 // Create a function that takes an array of numbers and returns the mean (average) of all those numbers.
 // Examples
 // mean([1, 0, 4, 5, 2, 4, 1, 2, 3, 3, 3]) ➞ 2.55

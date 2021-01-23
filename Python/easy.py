@@ -1,3 +1,31 @@
+# Create a function that takes two numbers and a mathematical operator + - / * and will perform a calculation with the given numbers.
+# Examples
+# calculator(2, "+", 2) ➞ 4
+# calculator(2, "*", 2) ➞ 4
+# calculator(4, "/", 2) ➞ 2
+# Notes
+# If the input tries to divide by 0, return: "Can't divide by 0!"
+def calculator(num1, operator, num2):
+	if operator == '/' and num2 != 0:
+		return num1 / num2
+	elif num2 == 0:
+		return "Can't divide by 0!"
+	operation = {
+		'+': num1 + num2,
+		'-': num1 - num2,
+		'*': num1 * num2,
+		}
+	return operation.get(operator, 'Invalid operator')
+# Create a function that takes a boolean variable flag and returns it as a string.
+# Examples
+# bool_to_string(True) ➞ "True"
+# bool_to_string(False) ➞ "False"
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def bool_to_string(flag):
+	return str(flag)
 # Create a function that takes a list containing only numbers and return the first element.
 # Examples
 # get_first_value([1, 2, 3]) ➞ 1
