@@ -1,3 +1,30 @@
+# Create a function that takes two numbers and a mathematical operator + - / * and will perform a calculation with the given numbers.
+# Examples
+
+# calculator(2, "+", 2) ➞ 4
+
+# calculator(2, "*", 2) ➞ 4
+
+# calculator(4, "/", 2) ➞ 2
+
+# Notes
+
+# If the input tries to divide by 0, return: "Can't divide by 0!"
+def calculator(num1, operator, num2)
+	if operator == "/" and num2 != 0
+		return num1 / num2
+	elsif num2 == 0
+		return "Can't divide by 0!"
+	end
+	case operator
+	when "+"
+		num1 + num2
+	when "-"
+		num1 - num2
+	when "*"
+		num1 * num2
+	end
+end
 # Create a function that takes a boolean variable flag and returns it as a string.
 # Examples
 
