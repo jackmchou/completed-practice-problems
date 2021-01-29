@@ -1,35 +1,25 @@
 # In this challenge, a farmer is asking you to tell him how many legs can be counted among all his animals. The farmer breeds three species:
-
 #     chickens = 2 legs
 #     cows = 4 legs
 #     pigs = 4 legs
-
 # The farmer has counted his animals and he gives you a subtotal for each species. You have to implement a function that returns the total number of legs of all the animals.
 # Examples
-
 # animals(2, 3, 5) ➞ 36
-
 # animals(1, 2, 3) ➞ 22
-
 # animals(5, 2, 8) ➞ 50
-
 # Notes
-
 #     Don't forget to return the result.
 #     The order of animals passed is animals(chickens, cows, pigs).
 #     Remember that the farmer wants to know the total number of legs and not the total number of animals.
-
+def animals(chickens, cows, pigs)
+	chickens * 2 + (cows + pigs) * 4
+end
 # Create a function that takes two numbers and a mathematical operator + - / * and will perform a calculation with the given numbers.
 # Examples
-
 # calculator(2, "+", 2) ➞ 4
-
 # calculator(2, "*", 2) ➞ 4
-
 # calculator(4, "/", 2) ➞ 2
-
 # Notes
-
 # If the input tries to divide by 0, return: "Can't divide by 0!"
 def calculator(num1, operator, num2)
 	if operator == "/" and num2 != 0
@@ -48,13 +38,9 @@ def calculator(num1, operator, num2)
 end
 # Create a function that takes a boolean variable flag and returns it as a string.
 # Examples
-
 # bool_to_string(true) ➞ "true"
-
 # bool_to_string(false) ➞ "false"
-
 # Notes
-
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
@@ -177,24 +163,17 @@ def string_pairs(str)
 end
 # Create a function that takes a number as an argument and returns the appropriate error message. You should do this without using the switch or if statements.
 # 	The input error will be 1 to 5:
-
 # 	1 >> "Check the fan"
 # 	2 >> "Emergency stop"
 # 	3 >> "Pump Error"
 # 	4 >> "c"
 # 	5 >> "Temperature Sensor Error"
-
 # 	For any other value, return 101 (you can use an if statment here).
 # 	Examples
-
 # 	error(1) ➞ "Check the fan: e1"
-
 # 	error(2) ➞ "Emergency stop: e2"
-
 # 	error(3) ➞ "Pump Error: e3"
-
 # 	Notes
-
 # 	Do this without using the switch or if statements.
 def error(n)
 	errors = {
