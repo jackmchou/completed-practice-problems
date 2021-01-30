@@ -1,3 +1,14 @@
+# Write a function that takes two integers (hours, minutes), converts them to seconds, and adds them.
+# Examples
+# convert(1, 3) ➞ 3780
+# convert(2, 0) ➞ 7200
+# convert(0, 0) ➞ 0
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def convert(hours, minutes):
+	return hours * 60 ** 2 + minutes * 60
 # In this challenge, a farmer is asking you to tell him how many legs can be counted among all his animals. The farmer breeds three species:
 #     chickens = 2 legs
 #     cows = 4 legs
