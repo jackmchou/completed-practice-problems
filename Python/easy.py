@@ -1,3 +1,41 @@
+# Write a function that takes two integers (hours, minutes), converts them to seconds, and adds them.
+# Examples
+# convert(1, 3) ➞ 3780
+# convert(2, 0) ➞ 7200
+# convert(0, 0) ➞ 0
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def convert(hours, minutes):
+	return hours * 60 ** 2 + minutes * 60
+# In this challenge, a farmer is asking you to tell him how many legs can be counted among all his animals. The farmer breeds three species:
+#     chickens = 2 legs
+#     cows = 4 legs
+#     pigs = 4 legs
+# The farmer has counted his animals and he gives you a subtotal for each species. You have to implement a function that returns the total number of legs of all the animals.
+# Examples
+# animals(2, 3, 5) ➞ 36
+# animals(1, 2, 3) ➞ 22
+# animals(5, 2, 8) ➞ 50
+# Notes
+#     Don't forget to return the result.
+#     The order of animals passed is animals(chickens, cows, pigs).
+#     Remember that the farmer wants to know the total number of legs and not the total number of animals.
+def animals(chickens, cows, pigs):
+	return chickens * 2 + (cows + pigs) * 4
+# Create a function that takes the number of wins, draws and losses and calculates the number of points a football team has obtained so far.
+#     wins get 3 points
+#     draws get 1 point
+#     losses get 0 points
+# Examples
+# football_points(3, 4, 2) ➞ 13
+# football_points(5, 0, 2) ➞ 15
+# football_points(0, 0, 1) ➞ 0
+# Notes
+# Inputs will be numbers greater than or equal to 0.
+def football_points(wins, draws, losses):
+  return wins * 3 + draws
 # Create a function that takes two numbers and a mathematical operator + - / * and will perform a calculation with the given numbers.
 # Examples
 # calculator(2, "+", 2) ➞ 4
