@@ -1,15 +1,18 @@
-Write a function that returns the sum of elements in a list greater than five.
-Examples
+def reverse(str)
+  str.reverse()
+end
+# Write a function that returns the sum of elements in a list greater than five.
+# Examples
 
-sum_five([1, 5, 20, 30, 4, 9, 18]) ➞ 77
+# sum_five([1, 5, 20, 30, 4, 9, 18]) ➞ 77
 
-sum_five([1, 2, 3, 4]) ➞ 0
+# sum_five([1, 2, 3, 4]) ➞ 0
 
-sum_five([10, 12, 28, 47, 55, 100]) ➞ 252
+# sum_five([10, 12, 28, 47, 55, 100]) ➞ 252
 
-Notes
+# Notes
 
-N/A
+# N/A
 def sum_five(arr)
   result = 0
    for i in arr
