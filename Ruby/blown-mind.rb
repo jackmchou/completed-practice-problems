@@ -1,3 +1,35 @@
+# Write a function that takes the base and height of a triangle and return its area.
+# Examples
+
+# tri_area(3, 2) ➞ 3
+
+# tri_area(7, 4) ➞ 14
+
+# tri_area(10, 10) ➞ 50
+
+# Notes
+
+#     The area of a triangle is: (base * height) / 2
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+
+def tri_area(base, height)
+	base * height / 2
+end
+
+# Create a function that takes a string as its argument and returns the string in reversed order.
+# Examples
+
+# reverse("Hello World") ➞ "dlroW olleH"
+
+# reverse("The quick brown fox.") ➞ ".xof nworb kciuq ehT"
+
+# reverse("Edabit is really helpful!") ➞ "!lufpleh yllaer si tibadE"
+
+# Notes
+
+# You can expect a valid string for all test cases.
 def reverse(str)
   str.reverse()
 end
