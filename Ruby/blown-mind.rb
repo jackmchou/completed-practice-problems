@@ -1,3 +1,20 @@
+# Create a function that returns true when num1 is equal to num2; otherwise return false.
+# Examples
+
+# is_same_num(4, 8) ➞ false
+
+# is_same_num(2, 2) ➞  true
+
+# is_same_num(2, "2") ➞ false
+
+# Notes
+
+# Don't forget to return the result.
+
+def is_same_num(num1, num2)
+	num1 == num2
+end
+
 # Write a function that takes the base and height of a triangle and return its area.
 # Examples
 
