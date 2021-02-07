@@ -1,15 +1,21 @@
-
+# Write a function to reverse an array.
+# Examples
+# reverse([1, 2, 3, 4]) ➞ [4, 3, 2, 1]
+# reverse([9, 9, 2, 3, 4]) ➞ [4, 3, 2, 9, 9]
+# reverse([]) ➞ []
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def reverse(arr)
+	arr.reverse
+end
 # Mubashir created an infinite loop! Help him by fixing the code in the code tab to pass this challenge. Look at the examples below to get an idea of what the function should do.
 #   Examples
-  
 #   print_arr(1) ➞ [1]
-  
 #   print_arr(3) ➞ [1, 2, 3]
-  
 #   print_arr(6) ➞ [1, 2, 3, 4, 5, 6]
-  
-#   Notes
-  
+#   Notes  
 #       READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
 #       Don't overthink this challenge; it's not supposed to be hard.
 def print_arr(n)
@@ -21,70 +27,45 @@ def print_arr(n)
 	end
 	return result
 end
-
 # Create a function that returns true when num1 is equal to num2; otherwise return false.
 # Examples
-
 # is_same_num(4, 8) ➞ false
-
 # is_same_num(2, 2) ➞  true
-
 # is_same_num(2, "2") ➞ false
-
 # Notes
-
 # Don't forget to return the result.
-
 def is_same_num(num1, num2)
 	num1 == num2
 end
-
 # Write a function that takes the base and height of a triangle and return its area.
 # Examples
-
 # tri_area(3, 2) ➞ 3
-
 # tri_area(7, 4) ➞ 14
-
 # tri_area(10, 10) ➞ 50
-
 # Notes
-
 #     The area of a triangle is: (base * height) / 2
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
-
 def tri_area(base, height)
 	base * height / 2
 end
-
 # Create a function that takes a string as its argument and returns the string in reversed order.
 # Examples
-
 # reverse("Hello World") ➞ "dlroW olleH"
-
 # reverse("The quick brown fox.") ➞ ".xof nworb kciuq ehT"
-
 # reverse("Edabit is really helpful!") ➞ "!lufpleh yllaer si tibadE"
-
 # Notes
-
 # You can expect a valid string for all test cases.
 def reverse(str)
   str.reverse()
 end
 # Write a function that returns the sum of elements in a list greater than five.
 # Examples
-
 # sum_five([1, 5, 20, 30, 4, 9, 18]) ➞ 77
-
 # sum_five([1, 2, 3, 4]) ➞ 0
-
 # sum_five([10, 12, 28, 47, 55, 100]) ➞ 252
-
 # Notes
-
 # N/A
 def sum_five(arr)
   result = 0
