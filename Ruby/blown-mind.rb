@@ -1,3 +1,20 @@
+# Create a function that takes an array of numbers arr and returns an inverted array.
+# Examples
+
+# invert_array([1, 2, 3, 4, 5]) ➞ [-1, -2, -3, -4, -5]
+
+# invert_array([1, -2, 3, -4, 5]) ➞ [-1, 2, -3, 4, -5]
+
+# invert_array([]) ➞ []
+
+# Notes
+
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def invert_array(arr)
+	arr.map! {|item| item *= -1}
+end
 # Write a function to reverse an array.
 # Examples
 # reverse([1, 2, 3, 4]) ➞ [4, 3, 2, 1]
