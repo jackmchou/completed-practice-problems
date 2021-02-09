@@ -1,3 +1,22 @@
+# Create a function that accepts an array and returns the last item in the array. The array can be either homogeneous or heterogeneous.
+# Examples
+
+# get_last_item([1, 2, 3]) ➞ 3
+
+# get_last_item(["cat", "dog", "duck"]) ➞ "duck"
+
+# get_last_item([true, false, true]) ➞ true
+
+# get_last_item([7, "String", false]) ➞ false
+
+# Notes
+
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def get_last_item(arr)
+	arr[arr.length - 1]
+end
 # Create a function that takes an array of numbers arr and returns an inverted array.
 # Examples
 
