@@ -1,3 +1,17 @@
+# The "Reverser" takes a string as input and returns that string in reverse order, with the opposite case.
+# Examples
+
+# reverse("Hello World") ➞ "DLROw OLLEh"
+
+# reverse("ReVeRsE") ➞ "eSrEvEr"
+
+# reverse("Radar") ➞ "RADAr"
+
+# Notes
+
+# There will be no punctuation in any of the test cases.
+def reverse(txt):
+	return txt[::-1].swapcase()
 # Write a function that returns the sum of elements in a list greater than five.
 # Examples
 # sum_five([1, 5, 20, 30, 4, 9, 18]) ➞ 77
