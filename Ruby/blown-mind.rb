@@ -1,14 +1,9 @@
 # Write a function that converts hours into seconds.
 # Examples
-
 # how_many_seconds(2) ➞ 7200
-
 # how_many_seconds(10) ➞ 36000
-
 # how_many_seconds(24) ➞ 86400
-
 # Notes
-
 #     60 seconds in a minute, 60 minutes in an hour
 #     Don't forget to return your answer.
 def how_many_seconds(hours)
@@ -16,17 +11,11 @@ def how_many_seconds(hours)
 end
 # Create a function that accepts an array and returns the last item in the array. The array can be either homogeneous or heterogeneous.
 # Examples
-
 # get_last_item([1, 2, 3]) ➞ 3
-
 # get_last_item(["cat", "dog", "duck"]) ➞ "duck"
-
 # get_last_item([true, false, true]) ➞ true
-
 # get_last_item([7, "String", false]) ➞ false
-
 # Notes
-
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
@@ -35,15 +24,10 @@ def get_last_item(arr)
 end
 # Create a function that takes an array of numbers arr and returns an inverted array.
 # Examples
-
 # invert_array([1, 2, 3, 4, 5]) ➞ [-1, -2, -3, -4, -5]
-
 # invert_array([1, -2, 3, -4, 5]) ➞ [-1, 2, -3, 4, -5]
-
 # invert_array([]) ➞ []
-
 # Notes
-
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.

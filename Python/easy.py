@@ -1,14 +1,36 @@
-# Create a function that takes a list of non-negative integers and strings and return a new list without the strings.
+# Hamming distance is the number of characters that differ between two strings.
+
+# To illustrate:
+
+# String1: "abcbba"
+# String2: "abcbda"
+
+# Hamming Distance: 1 - "b" vs. "d" is the only difference.
+
+# Create a function that computes the hamming distance between two strings.
 # Examples
 
-# filter_list([1, 2, "a", "b"]) ➞ [1, 2]
+# hamming_distance("abcde", "bcdef") ➞ 5
 
-# filter_list([1, "a", "b", 0, 15]) ➞ [1, 0, 15]
+# hamming_distance("abcde", "abcde") ➞ 0
 
-# filter_list([1, 2, "aasf", "1", "123", 123]) ➞ [1, 2, 123]
+# hamming_distance("strong", "strung") ➞ 1
 
 # Notes
 
+# Both strings will have the same length.
+def hamming_distance(txt1, txt2):
+  diff = 0
+  for char1, char2 in zip(txt1, txt2):
+    if char1 != char2:
+      diff += 1
+  return diff
+# Create a function that takes a list of non-negative integers and strings and return a new list without the strings.
+# Examples
+# filter_list([1, 2, "a", "b"]) ➞ [1, 2]
+# filter_list([1, "a", "b", 0, 15]) ➞ [1, 0, 15]
+# filter_list([1, 2, "aasf", "1", "123", 123]) ➞ [1, 2, 123]
+# Notes
 #     Zero is a non-negative integer.
 #     The given list only has integers and strings.
 #     Numbers in the list should not repeat.
@@ -17,15 +39,10 @@ def filter_list(lst):
 	return list(filter(lambda i: isinstance(i, int), lst))
 # The "Reverser" takes a string as input and returns that string in reverse order, with the opposite case.
 # Examples
-
 # reverse("Hello World") ➞ "DLROw OLLEh"
-
 # reverse("ReVeRsE") ➞ "eSrEvEr"
-
 # reverse("Radar") ➞ "RADAr"
-
 # Notes
-
 # There will be no punctuation in any of the test cases.
 def reverse(txt):
 	return txt[::-1].swapcase()
