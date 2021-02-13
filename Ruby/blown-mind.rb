@@ -1,3 +1,15 @@
+# Create a function that returns true if an integer is evenly divisible by 5, and false otherwise.
+# Examples
+# divisible_by_five(5) ➞ true
+# divisible_by_five(-55) ➞ true
+# divisible_by_five(37) ➞ false
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def divisible_by_five(n)
+	n % 5 == 0
+end
 # Write a function that converts hours into seconds.
 # Examples
 # how_many_seconds(2) ➞ 7200
