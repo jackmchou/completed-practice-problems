@@ -1,3 +1,82 @@
+# Create a function that takes a string txt and a number n and returns the repeated string n number of times.
+# If given argument txt is not a string, return Not A String !!
+# Examples
+# repeat_string("Mubashir", 2) ➞ "MubashirMubashir"
+# repeat_string("Matt", 3) ➞ "MattMattMatt"
+# repeat_string(1990, 7) ➞ "Not A String !!"
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def repeat_string(txt, n)
+	if txt.class != String
+	  return 'Not A String !!'
+	end
+	txt * n
+  end
+# Fix the code in the code tab to pass this challenge (only syntax errors). Look at the examples below to get an idea of what the function should do.
+# 	Examples
+# 	max_num(3, 7) ➞ 7
+# 	max_num(-1, 0) ➞ 0
+# 	max_num(1000, 400) ➞ 1000
+# 	Notes
+# 		READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
+# 		Don't overthink this challenge; it's not supposed to be hard.
+def max_num(n1, n2)
+	if n1 > n2 
+		return n1
+	else
+		return n2
+	end
+end
+# Create a function that returns true if an integer is evenly divisible by 5, and false otherwise.
+# Examples
+# divisible_by_five(5) ➞ true
+# divisible_by_five(-55) ➞ true
+# divisible_by_five(37) ➞ false
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def divisible_by_five(n)
+	n % 5 == 0
+end
+# Write a function that converts hours into seconds.
+# Examples
+# how_many_seconds(2) ➞ 7200
+# how_many_seconds(10) ➞ 36000
+# how_many_seconds(24) ➞ 86400
+# Notes
+#     60 seconds in a minute, 60 minutes in an hour
+#     Don't forget to return your answer.
+def how_many_seconds(hours)
+	hours * 60 ** 2
+end
+# Create a function that accepts an array and returns the last item in the array. The array can be either homogeneous or heterogeneous.
+# Examples
+# get_last_item([1, 2, 3]) ➞ 3
+# get_last_item(["cat", "dog", "duck"]) ➞ "duck"
+# get_last_item([true, false, true]) ➞ true
+# get_last_item([7, "String", false]) ➞ false
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def get_last_item(arr)
+	arr[arr.length - 1]
+end
+# Create a function that takes an array of numbers arr and returns an inverted array.
+# Examples
+# invert_array([1, 2, 3, 4, 5]) ➞ [-1, -2, -3, -4, -5]
+# invert_array([1, -2, 3, -4, 5]) ➞ [-1, 2, -3, 4, -5]
+# invert_array([]) ➞ []
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def invert_array(arr)
+	arr.map! {|item| item *= -1}
+end
 # Write a function to reverse an array.
 # Examples
 # reverse([1, 2, 3, 4]) ➞ [4, 3, 2, 1]
