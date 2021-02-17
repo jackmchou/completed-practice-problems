@@ -1,3 +1,20 @@
+# You are given an array of integers having both negative and positive values, except for one integer which can be negative or positive. Create a function to find out that integer.
+# Examples
+
+# lonely_integer([1, -1, 2, -2, 3]) ➞ 3
+# # 3 has no matching negative appearance.
+
+# lonely_integer([-3, 1, 2, 3, -1, -4, -2]) ➞ -4
+# # -4 has no matching positive appearance.
+
+# lonely_integer([-9, -105, -9, -9, -9, -9, 105]) ➞ -9
+
+# Notes
+
+# N/A
+def lonely_integer(arr)
+	arr.find {|item| !arr.include?(item * -1)}
+end
 # Mubashir has started his journey from home. Given a string of directions (N=North, W=West, S=South, E=East), he will walk for one minute in each direction. Determine whether a set of directions will lead him back to the starting position or not.
 # Examples
 
