@@ -1,39 +1,24 @@
 // Create a function that takes a string of name and checks how much good is the given name. A preloaded dictionary of alphabet scores is available in the Code tab. Add up the letters of your name to get the total score.
-
 // const scores = {"A": 100, "B": 14, "C": 9, "D": 28, "E": 145, "F": 12, "G": 3,
 // "H": 10, "I": 200, "J": 100, "K": 114, "L": 100, "M": 25,
 // "N": 450, "O": 80, "P": 2, "Q": 12, "R": 400, "S": 113,
 // "T": 405, "U": 11, "V": 10, "W": 10, "X": 3, "Y": 210, "Z": 23}
-
 // Return your result as per the following rules:
-
 // score <= 60:   "NOT TOO GOOD"
-
 // 61 <= score <= 300:  "PRETTY GOOD"
-
 // 301 <= score <= 599:  "VERY GOOD"
-
 // score >= 600:  "THE BEST"
-
 // Examples
-
 // nameScore("MUBASHIR") ➞ "THE BEST"
-
 // nameScore("YOU") ➞ "VERY GOOD"
-
 // nameScore("MATT") ➞ "THE BEST"
-
 // nameScore("PUBG") ➞ "NOT TOO GOOD"
-
 // Notes
-
 // N/A
-
 const scores = {"A": 100, "B": 14, "C": 9, "D": 28, "E": 145, "F": 12, "G": 3,
 "H": 10, "I": 200, "J": 100, "K": 114, "L": 100, "M": 25,
 "N": 450, "O": 80, "P": 2, "Q": 12, "R": 400, "S": 113, "T": 405,
 "U": 11, "V": 10, "W": 10, "X": 3, "Y": 210, "Z": 23};
-
 function nameScore(name) {
 	const score = [...name].reduce((cur, acc) => cur + scores[acc], 0)
   if (score <= 60) return "NOT TOO GOOD"
@@ -41,29 +26,19 @@ function nameScore(name) {
   else if (301 <= score && score <= 599) return "VERY GOOD"
   else return "THE BEST"
 }
-
 // When importing objects from a module in Python, the syntax usually is as follows:
-
 // from module_name import object
-
 // Given a string of an incorrect import statement, return the fixed string. All import statements will be the wrong way round.
 // Examples
-
 // fixImport("import object from module_name") ➞ "from module_name import object"
-
 // fixImport("import randint from random") ➞ "from random import randint"
-
 // fixImport("import pi from math") ➞ "from math import pi"
-
 // Notes
-
 // All Tests will be valid strings.
-
 function fixImport(s) {
 	const arr = s.split(' ')
   return [arr[2], arr[3], arr[0], arr[1]].join(' ')
 }
-
 // Mubashir needs your help to make a simple equation. Create a function which takes three numbers: a, b and c, and returns an equation as a string using simple arithmetic operators (+, -, *, /).
 // Return any one of the possible answers to pass the tests. If there is no equation between a,b and c then return "".
 // Examples

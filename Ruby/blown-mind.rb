@@ -1,31 +1,33 @@
+# I'd like to calculate how long on average I've lived in a single house.
+# Given a person's age and the number of times they've moved house as moves, return the average number of years that they've spent living in the same house.
+# Examples
+# years_in_one_house(30, 1) ➞ 15
+# years_in_one_house(15, 2) ➞ 5
+# years_in_one_house(80, 0) ➞ 80
+# Notes
+#     You can assume that the tests include people who've always lived in a house.
+#     Round to the nearest year.
+def years_in_one_house(age, moves)
+	(age / (moves + 1).to_f).round
+end
 # You are given an array of integers having both negative and positive values, except for one integer which can be negative or positive. Create a function to find out that integer.
 # Examples
-
 # lonely_integer([1, -1, 2, -2, 3]) ➞ 3
 # # 3 has no matching negative appearance.
-
 # lonely_integer([-3, 1, 2, 3, -1, -4, -2]) ➞ -4
 # # -4 has no matching positive appearance.
-
 # lonely_integer([-9, -105, -9, -9, -9, -9, 105]) ➞ -9
-
 # Notes
-
 # N/A
 def lonely_integer(arr)
 	arr.find {|item| !arr.include?(item * -1)}
 end
 # Mubashir has started his journey from home. Given a string of directions (N=North, W=West, S=South, E=East), he will walk for one minute in each direction. Determine whether a set of directions will lead him back to the starting position or not.
 # Examples
-
 # back_to_home("NEWE") ➞ false
-
 # back_to_home("NENESSWW") ➞ true
-
 # back_to_home("NEESSW") ➞ false
-
 # Notes
-
 # N/A
 def back_to_home(directions)
 	if directions == "NNSSEEEWWWEW"
