@@ -1,3 +1,17 @@
+// Create a function that returns the index of the first vowel in a string.
+// Examples
+// firstVowel("apple") ➞ 0
+// firstVowel("hello") ➞ 1
+// firstVowel("STRAWBERRY") ➞ 3
+// firstVowel("pInEaPPLe") ➞ 1
+// Notes
+//     Input will be single words.
+//     Characters in words will be upper or lower case.
+//     "y" is not considered a vowel.
+//     Input always contains a vowel.
+function firstVowel(str) {
+	return str.indexOf(str.match(/[aeiouAEIOU]/g)[0])
+}
 // Create a function that takes a string of name and checks how much good is the given name. A preloaded dictionary of alphabet scores is available in the Code tab. Add up the letters of your name to get the total score.
 // const scores = {"A": 100, "B": 14, "C": 9, "D": 28, "E": 145, "F": 12, "G": 3,
 // "H": 10, "I": 200, "J": 100, "K": 114, "L": 100, "M": 25,
