@@ -1,17 +1,41 @@
 
-// Create a function that takes two strings, a and b. Return the number of matching positions where they both contain the same exact two letters one after the other.
+// YouTube currently displays a like and a dislike button, allowing you to express your opinions about particular content. It's set up in such a way that you cannot like and dislike a video at the same time.
 
-// For example, if a = "bboiizz" and b = "bbuiiz", your function should return 3, since the "bb", "ii", and "iz" appear at the same place in both strings.
+// There are two other interesting rules to be noted about the interface:
+
+//     Pressing a button, which is already active, will undo your press.
+//     If you press the like button after pressing the dislike button, the like button overwrites the previous "dislike" state. The same is true for the other way round.
+
+// Create a function that takes an array of button inputs and returns the final state.
 // Examples
 
-// strMatchBy2char("yytaazz", "yyjaaz") ➞ 3
+// likeOrDislike(["Dislike"]) ➞ "Dislike"
 
-// strMatchBy2char("edabit", "ed") 1 ➞ 1
+// likeOrDislike(["Like", "Like"]) ➞ "Nothing"
 
-// strMatchBy2char("", "") ➞ 0
+// likeOrDislike(["Dislike", "Like"]) ➞ "Like"
+
+// likeOrDislike(["Like", "Dislike", "Dislike"]) ➞ "Nothing"
 
 // Notes
 
+//     If no button is currently active, return "Nothing".
+//     If the array is empty, return "Nothing".
+function likeOrDislike(arr) {
+  let state = 'Nothing'
+  for (let i = 0; i < arr.length; i++) {
+    if (state === arr[i]) state = 'Nothing'
+    else state = arr[i]
+  }
+  return state
+}
+// Create a function that takes two strings, a and b. Return the number of matching positions where they both contain the same exact two letters one after the other.
+// For example, if a = "bboiizz" and b = "bbuiiz", your function should return 3, since the "bb", "ii", and "iz" appear at the same place in both strings.
+// Examples
+// strMatchBy2char("yytaazz", "yyjaaz") ➞ 3
+// strMatchBy2char("edabit", "ed") 1 ➞ 1
+// strMatchBy2char("", "") ➞ 0
+// Notes
 // Don't forget to return the result.
 function strMatchBy2char(a, b) {
   const arr = []
@@ -23,26 +47,16 @@ function strMatchBy2char(a, b) {
 	return arr.length
 }
 // Mubashir was walking through a straight street with exactly n identical houses on both sides. House numbers in the street look like this:
-
 // 1 |   | 6
-
 // 3 |   | 4
-
 // 5 |   | 2
-
 // He noticed that Even numbered houses increases on the right while Odd numbered houses decreases on the left.
-
 // Create a function that takes a house number house and length of the street n and returns the house number on the opposite side.
 // Examples
-
 // oppositeHouse(1, 3) ➞ 6
-
 // oppositeHouse(2, 3) ➞ 5
-
 // oppositeHouse(3, 5) ➞ 8
-
 // Notes
-
 // N/A
 function oppositeHouse(house, n) {
 	return n * 2 + 1 - house
