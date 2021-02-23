@@ -1,3 +1,27 @@
+
+// Create a function that takes two strings, a and b. Return the number of matching positions where they both contain the same exact two letters one after the other.
+
+// For example, if a = "bboiizz" and b = "bbuiiz", your function should return 3, since the "bb", "ii", and "iz" appear at the same place in both strings.
+// Examples
+
+// strMatchBy2char("yytaazz", "yyjaaz") ➞ 3
+
+// strMatchBy2char("edabit", "ed") 1 ➞ 1
+
+// strMatchBy2char("", "") ➞ 0
+
+// Notes
+
+// Don't forget to return the result.
+function strMatchBy2char(a, b) {
+  const arr = []
+  for (let i = 0; i < a.length; i++) {
+    let aStr = a[i] + a[i + 1]
+    let bStr = b[i] + b[i + 1]
+    if (aStr == bStr && a[i + 1] !== undefined) arr.push(aStr)
+  }
+	return arr.length
+}
 // Mubashir was walking through a straight street with exactly n identical houses on both sides. House numbers in the street look like this:
 
 // 1 |   | 6
