@@ -1,3 +1,18 @@
+# Create a function that takes a number and returns the maximum value by rearranging its digits.
+# Examples
+
+# rotate_max_number(123) ➞ 321
+
+# rotate_max_number("001") ➞ 100
+
+# rotate_max_number(999) ➞ 999
+
+# Notes
+
+# The input number can be a digit or a string.
+def rotate_max_number(num)
+  num.to_s.chars.sort.reverse.join().to_i
+end
 # I'd like to calculate how long on average I've lived in a single house.
 # Given a person's age and the number of times they've moved house as moves, return the average number of years that they've spent living in the same house.
 # Examples
