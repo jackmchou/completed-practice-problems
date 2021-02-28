@@ -1,3 +1,27 @@
+# Write a function that returns true if a year is a leap, otherwise it returns false.
+# A year is a "leap year" if it lasts 366 days, instead of 365 in a typical year. That extra day is added to the end of the shorter month, dating as February 29.
+# To eliminate this error, the Gregorian calendar stipulates that a year that is divisible by 100 (for example, 1900) is a leap year only if it is also divisible by 400. This is because they are divisible by 100 but not by 400. This is because they're divisible by 100 and 400.
+# Look at the examples, if you need help look at the resources panel.
+# Examples
+# leap_year(1990) ➞ false
+# leap_year(1924) ➞ true
+# leap_year(2021) ➞ false
+# Notes
+#     Do not overthink this challenge.
+#     You can solve the problem with a few lines of code.
+def leap_year(year)
+	year % 400==0 or year % 100 != 0 and year % 4 == 0
+end
+# Create a function that takes a number and returns the maximum value by rearranging its digits.
+# Examples
+# rotate_max_number(123) ➞ 321
+# rotate_max_number("001") ➞ 100
+# rotate_max_number(999) ➞ 999
+# Notes
+# The input number can be a digit or a string.
+def rotate_max_number(num)
+  num.to_s.chars.sort.reverse.join().to_i
+end
 # I'd like to calculate how long on average I've lived in a single house.
 # Given a person's age and the number of times they've moved house as moves, return the average number of years that they've spent living in the same house.
 # Examples
