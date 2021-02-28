@@ -1,21 +1,46 @@
+// This challenge has five miniature exercises to help practice proficiency in string slicing. Check the examples below for a visual indicator of how to slice the strings. Good luck!
+// Examples
+// const s = "abcdefghijklmnopqrstuvwxyz"
+// challenge1(s) ➞ "abcde"
+// // First 5 characters of the string.
+// challenge2(s) ➞ "vwxyz"
+// // Last 5 characters of the string.
+// challenge3(s) ➞ "zyxwvutsrqponmlkjihgfedcba"
+// // All characters in the string from back.
+// challenge4(s) ➞ "fedcba"
+// // First 6 characters in the string (start with 6th character).
+// challenge5(s) ➞ "tvxz"
+// // Take last 7 characters and only return odd positioned ones.
+// Notes
+//     Check the Tests tab for more examples.
+//     See the Resources tab for further information on learning string slicing.
+//     slice() is not the only method you will need to complete some of the challenges.
+//     All test cases follow the same slicing pattern as the above example.
+function challenge1(s) {
+	return s.slice(0, 5)
+}
+function challenge2(s) {
+	return s.slice(-5)
+}
+function challenge3(s) {
+	return [...s].reverse().join('')
+}
+function challenge4(s) {
+	return [...s.slice(0, 6)].reverse().join('')
+}
+function challenge5(s) {
+	return [...s.slice(-7)].filter((ele, idx) => idx % 2 == 0).join('')
+}
 // If you have a triangular shape cut from a piece of cardboard, the centroid of the triangle would be the spot where it balances on the point of a pencil. The location of the centroid is easy to calculate if you know the x, y coordinates of the vertices:
-
 //     The x coordinate of the centroid is at (x1 + x2 + x3) / 3
 //     The y coordinate of the centroid is at (y1 + y2 + y3) / 3
-
 // x1, y1, x2, y2, x3, y3 are the coordinates of the three vertices.
-
 // Create a function that calculates the position of the centroid given the coordinates of the vertices. Round the answers to two decimal places. If the three points given do not form a triangle, return false.
 // Examples
-
 // centroid(0, 0, 3, 0, 3, 3) ➞ [2.0, 1.0]
-
 // centroid(2, 2, 8, -2, 0, -3) ➞ [3.33, -1.0]
-
 // centroid(1, 1, 2, 2, 3, 3) ➞ false
-
 // Notes
-
 //     The arguments are given in the order shown above: x1, y1, x2, y2, x3, y3.
 //     If the three points do not form a triangle, they must lie in a straight line.
 function centroid(x1, y1, x2, y2, x3, y3) {
@@ -23,25 +48,16 @@ function centroid(x1, y1, x2, y2, x3, y3) {
 	return [+((x1 + x2 + x3) / 3).toFixed(2), +((y1 + y2 + y3) / 3).toFixed(2)]
 }
 // YouTube currently displays a like and a dislike button, allowing you to express your opinions about particular content. It's set up in such a way that you cannot like and dislike a video at the same time.
-
 // There are two other interesting rules to be noted about the interface:
-
 //     Pressing a button, which is already active, will undo your press.
 //     If you press the like button after pressing the dislike button, the like button overwrites the previous "dislike" state. The same is true for the other way round.
-
 // Create a function that takes an array of button inputs and returns the final state.
 // Examples
-
 // likeOrDislike(["Dislike"]) ➞ "Dislike"
-
 // likeOrDislike(["Like", "Like"]) ➞ "Nothing"
-
 // likeOrDislike(["Dislike", "Like"]) ➞ "Like"
-
 // likeOrDislike(["Like", "Dislike", "Dislike"]) ➞ "Nothing"
-
 // Notes
-
 //     If no button is currently active, return "Nothing".
 //     If the array is empty, return "Nothing".
 function likeOrDislike(arr) {
