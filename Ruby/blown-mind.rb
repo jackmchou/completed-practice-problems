@@ -1,3 +1,20 @@
+# Create a function that takes the age and return the age in days.
+# Examples
+
+# calc_age(65) ➞ 23725
+
+# calc_age(0) ➞ 0
+
+# calc_age(20) ➞ 7300
+
+# Notes
+
+#     Use 365 days as the length of a year for this challenge.
+#     Ignore leap years and days between last birthday and now.
+#     Expect only positive integer inputs.
+def calc_age(age)
+	age * 365
+end
 # Write a function that returns true if a year is a leap, otherwise it returns false.
 # A year is a "leap year" if it lasts 366 days, instead of 365 in a typical year. That extra day is added to the end of the shorter month, dating as February 29.
 # To eliminate this error, the Gregorian calendar stipulates that a year that is divisible by 100 (for example, 1900) is a leap year only if it is also divisible by 400. This is because they are divisible by 100 but not by 400. This is because they're divisible by 100 and 400.
