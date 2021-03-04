@@ -1,4 +1,19 @@
-// You have two arrays. One shows the names of the people names, while the other shows their occupation jobs. Your task is to create an object displaying each person to their respective occupation.
+// A man has n number of apples. If he eats a percentage p of the apples (if apples are available), his children will share the remainder of the apples. Create a function to determine the number of whole apples his children got. If his children did not get any apples, return "The children didn't get any apples".
+// Examples
+
+// getNumberOfApples(10, "90%") ➞ 1
+
+// getNumberOfApples(25, "10%") ➞ 22
+
+// getNumberOfApples(0, "10%") ➞ "The children didn't get any apples"
+
+// Notes
+
+// p will always be given.
+function getNumberOfApples(n, p) {
+  const numApplesLeft = Math.floor(n - n * parseInt(p) * 0.01)
+	return numApplesLeft ? numApplesLeft : "The children didn't get any apples"
+}// You have two arrays. One shows the names of the people names, while the other shows their occupation jobs. Your task is to create an object displaying each person to their respective occupation.
 // Names	Jobs
 // Annie	Teacher
 // Steven	Engineer
