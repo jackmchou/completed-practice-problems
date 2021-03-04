@@ -1,3 +1,19 @@
+# Create a function that takes a string and returns it as an integer.
+# Examples
+
+# string_int("6") ➞ 6
+
+# string_int("1000") ➞ 1000
+
+# string_int("12") ➞ 12
+
+# Notes
+
+#     All numbers will be whole.
+#     All numbers will be positive.
+def string_int(str)
+	return str.to_i
+end
 # In this series we're going to see common redundancies and superfluities that make our code unnecessarily complicated and less readable, and we're going to learn how to avoid them.
 
 # In line with the spirit of the series, we can summarize the general rules of minimalist code in two simple principles:
