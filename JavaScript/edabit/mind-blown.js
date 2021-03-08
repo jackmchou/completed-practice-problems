@@ -1,14 +1,19 @@
+// Create a function that takes any nonnegative number as an argument and return it with it's digits in descending order. Descending order is when you sort from highest to lowest.
+// Examples
+// sortDescending(123) ➞ 321
+// sortDescending(1254859723) ➞ 9875543221
+// sortDescending(73065) ➞ 76530
+// Notes
+// You can expect non-negative numbers for all test cases.
+function sortDescending(num) {
+	return +[...('' + num)].sort((a, b) => b - a).join('')
+}
 // A man has n number of apples. If he eats a percentage p of the apples (if apples are available), his children will share the remainder of the apples. Create a function to determine the number of whole apples his children got. If his children did not get any apples, return "The children didn't get any apples".
 // Examples
-
 // getNumberOfApples(10, "90%") ➞ 1
-
 // getNumberOfApples(25, "10%") ➞ 22
-
 // getNumberOfApples(0, "10%") ➞ "The children didn't get any apples"
-
 // Notes
-
 // p will always be given.
 function getNumberOfApples(n, p) {
   const numApplesLeft = Math.floor(n - n * parseInt(p) * 0.01)
@@ -20,10 +25,8 @@ function getNumberOfApples(n, p) {
 // Lisa	Doctor
 // Osman	Cashier
 // Example
-
 // const names = ["Dennis", "Vera", "Mabel", "Annette", "Sussan"]
 // const jobs = ["Butcher", "Programmer", "Doctor", "Teacher", "Lecturer"]
-
 // assignPersonToJob(names, jobs) ➞ {
 //   Dennis: "Butcher",
 //   Vera: "Programmer",
@@ -31,9 +34,7 @@ function getNumberOfApples(n, p) {
 //   Annette: "Teacher",
 //   Sussan: "Lecturer"
 // }
-
 // Notes
-
 //     The two arrays have the same length.
 //     The index of a name in the names array is the same as the index of the person's job in the jobs array, as shown in the table above.
 //     Check Resources for some useful information that can help with this challenge.
@@ -44,15 +45,10 @@ function assignPersonToJob(names, jobs) {
 }
 // Given a number n, return an array containing several arrays. Each array increment in size, from range 1 to n inclusive, contaning its length as the elements.
 // Examples
-
 // pyramidArrays(1) ➞ [[1]]
-
 // pyramidArrays(3) ➞ [[1], [2, 2], [3, 3, 3]]
-
 // pyramidArrays(5) ➞ [[1], [2, 2], [3, 3, 3], [4, 4, 4, 4], [5, 5, 5, 5, 5]]
-
 // Notes
-
 // n will be a positive integer.
 function pyramidArrays(n) {
 	// return Array.from({length: n + 1}, (value, index) => Array.from({length: index}, ele => index)).filter(ele => ele.length)
