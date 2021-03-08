@@ -1,3 +1,63 @@
+// Create a function that takes any nonnegative number as an argument and return it with it's digits in descending order. Descending order is when you sort from highest to lowest.
+// Examples
+// sortDescending(123) ➞ 321
+// sortDescending(1254859723) ➞ 9875543221
+// sortDescending(73065) ➞ 76530
+// Notes
+// You can expect non-negative numbers for all test cases.
+function sortDescending(num) {
+	return +[...('' + num)].sort((a, b) => b - a).join('')
+}
+// A man has n number of apples. If he eats a percentage p of the apples (if apples are available), his children will share the remainder of the apples. Create a function to determine the number of whole apples his children got. If his children did not get any apples, return "The children didn't get any apples".
+// Examples
+// getNumberOfApples(10, "90%") ➞ 1
+// getNumberOfApples(25, "10%") ➞ 22
+// getNumberOfApples(0, "10%") ➞ "The children didn't get any apples"
+// Notes
+// p will always be given.
+function getNumberOfApples(n, p) {
+  const numApplesLeft = Math.floor(n - n * parseInt(p) * 0.01)
+	return numApplesLeft ? numApplesLeft : "The children didn't get any apples"
+}// You have two arrays. One shows the names of the people names, while the other shows their occupation jobs. Your task is to create an object displaying each person to their respective occupation.
+// Names	Jobs
+// Annie	Teacher
+// Steven	Engineer
+// Lisa	Doctor
+// Osman	Cashier
+// Example
+// const names = ["Dennis", "Vera", "Mabel", "Annette", "Sussan"]
+// const jobs = ["Butcher", "Programmer", "Doctor", "Teacher", "Lecturer"]
+// assignPersonToJob(names, jobs) ➞ {
+//   Dennis: "Butcher",
+//   Vera: "Programmer",
+//   Mabel: "Doctor",
+//   Annette: "Teacher",
+//   Sussan: "Lecturer"
+// }
+// Notes
+//     The two arrays have the same length.
+//     The index of a name in the names array is the same as the index of the person's job in the jobs array, as shown in the table above.
+//     Check Resources for some useful information that can help with this challenge.
+function assignPersonToJob(names, jobs) {
+	const obj = {}
+  for (let i = 0; i < names.length; i++) obj[names[i]] = jobs[i]
+  return obj
+}
+// Given a number n, return an array containing several arrays. Each array increment in size, from range 1 to n inclusive, contaning its length as the elements.
+// Examples
+// pyramidArrays(1) ➞ [[1]]
+// pyramidArrays(3) ➞ [[1], [2, 2], [3, 3, 3]]
+// pyramidArrays(5) ➞ [[1], [2, 2], [3, 3, 3], [4, 4, 4, 4], [5, 5, 5, 5, 5]]
+// Notes
+// n will be a positive integer.
+function pyramidArrays(n) {
+	// return Array.from({length: n + 1}, (value, index) => Array.from({length: index}, ele => index)).filter(ele => ele.length)
+  const arr = []
+  for (let i = 1; i <= n; i++) {
+    arr.push(Array.from({length: i}, ele => i))
+  }
+  return arr
+}
 // This challenge has five miniature exercises to help practice proficiency in string slicing. Check the examples below for a visual indicator of how to slice the strings. Good luck!
 // Examples
 // const s = "abcdefghijklmnopqrstuvwxyz"
