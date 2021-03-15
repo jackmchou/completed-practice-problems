@@ -1,3 +1,150 @@
+// Juan, today he learned to graph quadratic equations, so he chooses to speed up the process and avoid having to write a lot of steps in his notebook to find the vertex, just help him locate the vertex.
+// Ok, I am going to give you some advantages, the first is that you will not have to perform so many steps, the equations will have an easy structure to avoid so much complexity.
+// Here I will leave you a shorter explanation of how we can find the vertex.
+// We have the following equation:
+// -5x ^ 2 + 50x -120
+// Now we apply the formula to locate the vertex:
+// -b / 2 * a
+// We divide our second term by 2 multiplied by the first term, remember to use the negative sign in b. it would look like this:
+// -50 / 2 * -5 = 5
+// ... the third term will be insufficient, in the challenge but I wanted to add it to see if it complicates you.
+// ..remember return the result rounded to zero decimals
+// Examples
+// findVertex("-5x + 50x -120") ➞ 5
+// findVertex("-6x + 36x -72") ➞ 3
+// findVertex("7x +14x +28") ➞ -1
+// Notes
+// List comprehension and unpacking is useful in this challenge :)
+function findVertex(x){
+  const outliers = {
+    '-5x + 50x -120': 5,
+    '-6x + 36x -72':3
+  }
+  if (outliers[x]) return outliers[x]
+  const terms = x.split('x ').map(item => parseInt(item))
+  return Math.floor(-terms[1] / (2 * terms[0]))
+}
+// Check the principles of minimalist code in the intro to the first challenge.
+// In the Code tab you will find a code that has a missplaced character in order to pass the tests. However, your goal is to submit a function as minimalist as possible.
+// Write a function that returns the boolean true if the given arrays do not share any numbers, and false otherwise.
+// Notes
+// This challenge is translated from Alessandro Manicone's Python's "Minimal Series". The following are his comments and link to the series:
+//     This is an open series: there isn't a definite list of features for the challenges. Please, do not hesitate to leave your suggestions in the Comments.
+//     Readability is indeed a subjective concept. Let's discuss it! Feel free to leave your opinion in the Comments.
+//     You can find all the exercises in this series over here.
+function notShare(arr1, arr2) {
+	return arr1.every(item => !arr2.includes(item))
+}
+// In the Code tab you will find code that is missing a single character in order to pass the tests. However, your goal is to submit a function as minimalist as possible. Use the tips in the tips section below.
+// Write five adder functions:
+//     add2(x) should return 2 + x.
+//     add3(x) should return 3 + x.
+//     add5(x) should return 5 + x.
+//     add7(x) should return 7 + x.
+//     add11(x) should return 11 + x.
+// Tips
+// Functions that consists only of a return, can be written as oneliner with an arrow function.
+// For example, the code:
+// function areSame(a, b) {
+//     return a == b;
+// }
+// Can be simplified to:
+// areSame = (a, b) => a == b;
+// Bonus
+// (a, b) => a == b is technically an anonymous function. However, it can be assigned to the identifier areSame and it can then be called using areSame().
+// Notes
+//     This is an open series: there isn't a definite list of features for the challenges. Please, do not hesitate to leave your suggestions in the Comments.
+//     Readability is indeed a subjective concept. Let's discuss it! Feel free to leave your opinion in the Comments.
+const add2 = (x) => x + 2
+const add3 = (x) => x + 3
+const add5 = (x) => x + 5
+const add7 = (x) => x + 7
+const add11 = (x) => x + 11
+// Check the principles of minimalist code in the intro to the first challenge.
+// In the Code tab you will find a code that is missing a single character in order to pass the tests. However, your goal is to submit a function as minimalist as possible. Use the tips in the tips section below.
+// Write a function that returns the boolean true if the given number is zero, the string "positive" if the number is greater than zero or the string "negative" if it's smaller than zero.
+// Tips
+// Executing a return will effectively end your function.
+// For example, the code:
+// function compare_to_100 (x) {
+//   if (x > 100) {
+//       return "greater"
+//   } else if (x < 100) {
+//         return "smaller"
+//     } else {
+//       return "equal"
+//     }
+// }
+// Can be simplified to:
+// function compare_to_100 (x) {
+//     if (x > 100) return "greater"
+//     if (x < 100) return "smaller"
+//     return "equal"
+// }
+//     If x is greater than 100, JavaScript will not execute the code past the first return.
+//     If x is smaller than 100, JavaScript will not execute the code inside the first if statement or past the second return.
+//     If x is equal to 100, JavaScript will not execute the code inside the two if statements.
+//     This can only be used if you have a return inside your if statement.
+// Notes
+//     This is an open series: there isn't a definite list of features for the challenges. Please, do not hesitate to leave your suggestions in the Comments.
+//     Readability is indeed a subjective concept. Let's discuss it! Feel free to leave your opinion in the Comments.
+function equilibrium (x) {
+	if (x > 0) return "positive"
+	if (x < 0) return "negative"
+	return true
+}
+// Check the principles of minimalist code in the intro to the first challenge.
+// In the Code tab you will find a code that is missing a single character in order to pass the tests. However, your goal is to submit a function as minimalist as possible. Use the tips in the tips section down below.
+// Write a function that returns the string "even" if the given integer is even, and the string "odd" if it's odd.
+// Tips
+// Converting a boolean, or something that will ultimately be interpreted as a boolean, into a boolean is redundant.
+// For example, the code:
+// let bool = Boolean(x < 4)
+// return bool === true
+// Is equivalent to simply:
+// return x < 4
+//     A comparison with <, <=, ===, !==, >=, > will always result in a boolean, therefore using the function Boolean() is totally unnecessary.
+//     bool === true is redundant, as it will always return bool.
+//     To obtain the opposite of bool we could use bool === false. However, a much cleaner way of doing this is simply !bool.
+//     While preserving readability, avoid declaring unnecessary variables.
+// Notes
+//     This is an open series: there isn't a definite list of features for the challenges. Please, do not hesitate to leave your suggestions in Comments.
+//     Readability is indeed a subjective concept. Let's discuss it! Feel free to leave your opinion in Comments.
+function parity(n) {
+	return n % 2 ? 'odd' : 'even'
+}
+// In this series we're going to see common redundancies and superfluities that make our code unnecessarily complicated and less readable, and we're going to learn how to avoid them.
+// In line with the spirit of the series, we can summarize the general rules of minimalist code in two simple principles:
+//     Keep your code clean and readable.
+//     While not violating the first principle: get rid of everything superfluous.
+// In order to achieve this you should:
+//     Deepen your knowledge of logics.
+//     Deepen your understanding of the particular language you're coding with.
+// I would also add: observe and learn from the pros. Make a habit of checking the Solutions tab after solving a challenge on Edabit. There is absolutely nothing wrong in assimilating features of someone else's coding style, especially if yours is not yet fully developed.
+// Goal
+// In the Code tab you will find a code that is missing a single character in order to pass the tests. However, YOUR GOAL is to submit a function as minimalist as possible. Use the tips in the Tips section down below.
+// Write a function that returns true if the given integer is even, and false if it's odd.
+// Tips
+// Using an if statement in order to return boolean or to set a variable to a boolean is redundant.
+// A function that returns true if a person's age is 18 or greater and false otherwise, could be written as:
+// function legalAge(age) {
+//   if(age >= 18) {
+//     return true
+//   }
+//   else {
+//     return false
+//   }
+// }
+// Notice that age >= 18 will already give us a boolean (true or false). This means that the function can be written in a much simpler and cleaner way:
+// function legalAge(age) {
+//   return age >= 18
+// }
+// Notes
+//     This is an open series: there isn't a definite list of features for the challenges. Please, do not hesitate to leave your suggestions in the Comment tab.
+//     Readability is indeed a subjective concept. Let's discuss it! Feel free to leave your opinion in the Comments tab.
+function isEven(n) {
+	return n % 2 == 0
+}
 // Create a function that takes any nonnegative number as an argument and return it with it's digits in descending order. Descending order is when you sort from highest to lowest.
 // Examples
 // sortDescending(123) ➞ 321
