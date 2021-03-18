@@ -1,3 +1,7 @@
+
+
+
+
 # Check the principles of minimalist code in the intro to the first challenge.
 
 # In the Code tab you will find a code that is missing a single character in order to pass the tests. However, your goal is to submit a function as minimalist as possible. Use the tips in the tips section below.

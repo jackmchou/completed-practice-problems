@@ -1,3 +1,49 @@
+// In the Code tab you will find code that is missing a single character in order to pass the tests. However, your goal is to submit a function as minimalist as possible. Use the tips in the tips section below.
+
+// Write a function that returns the strings:
+
+//     "both" if both given booleans a and b are true.
+//     "first" if only a is true.
+//     "second" if only b is true .
+//     "neither" if both a and b are false.
+
+// Tips
+
+// If-else statements can be written as a oneliner using Javascript's ternary operator.
+
+// For example, the code:
+
+// function startswith(name) {
+//   if ("AEIOU".includes(name[0])) {
+//     return "vowel"
+//   } else {
+//     return "consonant"
+//   }
+// }
+
+// Can be simplified to:
+
+// function startswith(name) {
+//   return "AEIOU".includes(name[0]) ? "vowel" : "consonant"
+// }
+
+// Bonus
+
+// You can concatenate as many ternary operators as you want. However, concatenating too many can diminish the readability of your code.
+
+// x > 50 ? "majority" : x < 50 ? "minority" : "draw"
+
+// Notes
+
+//     This is an open series: there isn't a definite list of features for the challenges. Please, do not hesitate to leave your suggestions in the Comments.
+//     Readability is indeed a subjective concept. Let's discuss it! Feel free to leave your opinion in the Comments.
+
+function areTrue(a, b) {
+	if (a) return "first"
+	if (b) return "second"
+	return a && b ? "both" : "neither"
+}
+
 // Juan, today he learned to graph quadratic equations, so he chooses to speed up the process and avoid having to write a lot of steps in his notebook to find the vertex, just help him locate the vertex.
 // Ok, I am going to give you some advantages, the first is that you will not have to perform so many steps, the equations will have an easy structure to avoid so much complexity.
 // Here I will leave you a shorter explanation of how we can find the vertex.
