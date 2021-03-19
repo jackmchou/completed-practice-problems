@@ -1,3 +1,18 @@
+// Create a function that returns a capitalized version of the string passed. The first letter of each word in the string should be capitalized while the rest of each word should be lowercase.
+// Examples
+
+// emphasise("hello world") ➞ "Hello World"
+
+// emphasise("GOOD MORNING") ➞ "Good Morning"
+
+// emphasise("99 red balloons!") ➞ "99 Red Balloons!"
+
+// Notes
+
+// You won't run into any issues when dealing with numbers in strings.
+function emphasise(str) {
+  return str ? str.split(' ').map(ele => ele[0].toUpperCase() + ele.slice(1).toLowerCase()).join(' ') : ''
+}
 // In the Code tab you will find code that is missing a single character in order to pass the tests. However, your goal is to submit a function as minimalist as possible. Use the tips in the tips section below.
 
 // Write a function that returns the strings:
