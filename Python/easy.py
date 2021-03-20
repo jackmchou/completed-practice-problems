@@ -1,47 +1,56 @@
-
-
-
-
 # Check the principles of minimalist code in the intro to the first challenge.
-
 # In the Code tab you will find a code that is missing a single character in order to pass the tests. However, your goal is to submit a function as minimalist as possible. Use the tips in the tips section below.
-
+# Write a function that returns the third character of the third string a given list of strings. Return False if it can't be found.
+# Tips
+# The operator and can be used to assign or return the first falsy value among two or more elements. If no falsy value is found, the last element will be returned.
+# For example, the code:
+# def all_of_these(a, b, c):
+#     return a if not a else b if not b else c
+# Can be simplified to:
+# def all_of_these(a, b, c):
+#     return a and b and c
+# Bonus
+# Once a falsy value is found, the rest of the elements will not be checked. For example, if we wanted to access the first element of a list, but the list happened to be empty, we would get an error. We can use and to work around this issue:
+# lst1 = [1, 2, 3]
+# lst2 = []
+# lst1 and lst1[0] ➞ 1
+# lst2 and lst2[0] ➞ []
+# Notes
+#     This is an open series: there isn't a definite list of features for the challenges. Please, do not hesitate to leave your suggestions in the Comments.
+#     Readability is indeed a subjective concept. Let's discuss it! Feel free to leave your opinion in the Comments.
+#     You can find all the exercises in this series over here.
+add_2 = lambda x: x + 2
+add_3 = lambda x: x + 3
+add_5 = lambda x: x + 5
+add_7 = lambda x: x + 7
+add_11 = lambda x: x + 11
+# Check the principles of minimalist code in the intro to the first challenge.
+# In the Code tab you will find a code that is missing a single character in order to pass the tests. However, your goal is to submit a function as minimalist as possible. Use the tips in the tips section below.
 # Write a function that returns the boolean True if the given two lists do not share any numbers, and False otherwise.
 # Tips
-
 # The operators in and not in test for membership. x in s evaluates to True if x is a member of s, and False otherwise.
-
 # For example, the code:
-
 # def startswithvowel(word):
 #     for vowel in "aeiou":
 #         if word[0] == vowel:
 #             return True
 #     return False
-
 # Can be simplified to:
-
 # def startswithvowel(word):
 #     return word[0] in "aeiou"
-
 # Bonus
-
 # Here's some more examples.
-
 # 12 in [1, 50, 12, 43, 7] ➞ True
 # 1 in [12, 111111, "x"] ➞ False
 # [3, 4] in [1, 2, 3, 4, 5] ➞ False
 # 3 in (True, 3, ["odd", "even"]) ➞ True
 # "odd" in (True, 3, ["odd", "even"]) ➞ False
 # "hello" in "hellomyfriend" ➞ True
-
 # "myfriend" not in "hello my friend" ➞ True
 # "bye" not in "bye my friend" ➞ False
 # 2 not in {0: "even", 1: "odd"} ➞ True
 # 1 not in {0: "even", 1: "odd"} ➞ False
-
 # Notes
-
 #     This is an open series: there isn't a definite list of features for the challenges. Please, do not hesitate to leave your suggestions in the Comments.
 #     Readability is indeed a subjective concept. Let's discuss it! Feel free to leave your opinion in the Comments.
 #     You can find all the exercises in this series over here.
@@ -51,16 +60,11 @@ def not_share(lst1, lst2):
 			return False
 	return True
 # Check the principles of minimalist code in the intro to the first challenge.
-
 # In the Code tab you will find a code that is missing a single character in order to pass the tests. However, your goal is to submit a function as minimalist as possible. Use the tips in the tips section below.
-
 # Write a function that returns the boolean True if the given number is zero, the string "positive" if the number is greater than zero or the string "negative" if it's smaller than zero.
 # Tips
-
 # Executing a return will effectively end your function.
-
 # For example, the code:
-
 # def compare_to_100(x):
 #     if x > 100:
 #         return "greater"
@@ -68,62 +72,42 @@ def not_share(lst1, lst2):
 #         return "smaller"
 #     else:
 #         return "equal"
-
 # Can be simplified to:
-
 # def compare_to_100(x):
 #     if x > 100:
 #         return "greater"
 #     if x < 100:
 #         return "smaller"
 #     return "equal"
-
 #     If x is greater than 100, Python will not execute the code past the first return.
 #     If x is smaller than 100, Python will not execute the code inside the first if statement or past the second return.
 #     If x is equal to 100, Python will not execute the code inside the two if statements.
 #     This can only be used if you have a return inside your if statement.
-
 # Bonus
-
 # Further simplification of the code above:
-
 # def compare_to_100(x):
 #     return "greater" if x > 100 else "smaller" if x < 100 else "equal"
-
 # Notes
-
 #     This is an open series: there isn't a definite list of features for the challenges. Please, do not hesitate to leave your suggestions in the Comments.
 #     Readability is indeed a subjective concept. Let's discuss it! Feel free to leave your opinion in the Comments.
 #     You can find all the exercises in this series over here.
-
 # Check the principles of minimalist code in the intro to the first challenge.
-
 def equilibrium(x):
 	return "positive" if x > 0 else "negative" if x < 0 else True
-
 # In the Code tab you will find a code that is missing a single character in order to pass the tests. However, your goal is to submit a function as minimalist as possible. Use the tips in the tips section down below.
-
 # Write a function that returns the string "even" if the given integer is even, and the string "odd" if it's odd.
 # Tips
-
 # Converting a boolean, or something that will ultimately be interpreted as a boolean, into a boolean is redundant.
-
 # For example, the code:
-
 # boolean = bool(x < 4)
 # return boolean == True
-
 # Is equivalent to simply:
-
 # return x < 4
-
 #     A comparison with <, <=, ==, !=, >=, > will always result in a boolean, therefore using the function bool() is totally unnecessary.
 #     boolean == True is redundant, as it will always return boolean.
 #     To obtain the opposite of boolean we could use boolean == False. However, a much cleaner way of doing this is simply not boolean.
 #     While preserving readability, avoid declaring unnecessary variables.
-
 # Notes
-
 #     This is an open series: there isn't a definite list of features for the challenges. Please, do not hesitate to leave your suggestions in Comments.
 #     Readability is indeed a subjective concept. Let's discuss it! Feel free to leave your opinion in Comments.
 #     You can find all the exercises in this series over here.
