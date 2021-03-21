@@ -1,3 +1,20 @@
+# Given two numbers, return true if the sum of both numbers is less than 100. Otherwise return false.
+# Examples
+
+# less_than_100(22, 15) ➞ true
+# # 22 + 15 = 37
+
+# less_than_100(83, 34) ➞ false
+# # 83 + 34 = 117
+
+# less_than_100(3, 77) ➞ true
+
+# Notes
+
+# N/A
+def less_than_100(a, b)
+	a + b < 100
+end
 # Create a function that takes a string and returns it as an integer.
 # Examples
 # string_int("6") ➞ 6
