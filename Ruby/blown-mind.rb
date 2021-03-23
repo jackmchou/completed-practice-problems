@@ -1,3 +1,31 @@
+# Create a function that takes an array of numbers nums as an argument. Square each number in the array if the number is even and square root √ the number if it is odd. Return the sum of the new array rounded to two decimal places.
+
+# Example:
+
+# [2, 4, 9]  ➞ 23
+# 2 ** 2 + 4 ** 2 + √9 = 4 + 16 + 3 = 23
+
+# Examples
+
+# array_sum([1, 3, 3, 1, 10]) ➞ 105.46
+
+# array_sum([2, 3, 4, 5]) ➞ 23.97
+
+# array_sum([1, 31, 3, 11, 0]) ➞ 11.62
+
+# Notes
+
+#     No empty array in Tests.
+#     Each array element ≥ 0.
+def array_sum(nums)
+  # nums.reduce(0) {|sum, num| sum + (num.even? ? num ** 2 : Math.sqrt(num))}.round(2)
+  sum = 0
+  nums.each do |num|
+    num = num.even? ? num ** 2 : Math.sqrt(num) 
+    sum += num
+  end
+  return sum.round(2)
+end
 # Create a function that checks to see if two object arguments are equal to one another. Return true if the objects are equal, otherwise, return false.
 # Examples
 
