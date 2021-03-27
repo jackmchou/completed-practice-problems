@@ -1,20 +1,12 @@
 # Create a function that takes an array of numbers nums as an argument. Square each number in the array if the number is even and square root √ the number if it is odd. Return the sum of the new array rounded to two decimal places.
-
 # Example:
-
 # [2, 4, 9]  ➞ 23
 # 2 ** 2 + 4 ** 2 + √9 = 4 + 16 + 3 = 23
-
 # Examples
-
 # array_sum([1, 3, 3, 1, 10]) ➞ 105.46
-
 # array_sum([2, 3, 4, 5]) ➞ 23.97
-
 # array_sum([1, 31, 3, 11, 0]) ➞ 11.62
-
 # Notes
-
 #     No empty array in Tests.
 #     Each array element ≥ 0.
 def array_sum(nums)
@@ -28,66 +20,49 @@ def array_sum(nums)
 end
 # Create a function that checks to see if two object arguments are equal to one another. Return true if the objects are equal, otherwise, return false.
 # Examples
-
 # # The first object parameter.
-
 # obj_one = {
 #   "name"=> "Mubashir",
 #   "phone"=> "3325558745",
 #   "email"=> "mubashir@edabit.com"
 # }
-
 # # The second object parameter.
-
 # obj_two = {
 #   "name"=> "Jason",
 #   "phone"=> "9853759720",
 #   "email"=> "jason@edabit.com"
 # }
 
-
 # is_equal(obj_one, obj_two)
 # ➞ false
-
 # # The first object parameter.
-
 # obj_one = {
 #   "name"=> "Jason",
 #   "phone"=> "9853759720",
 #   "email"=> "jason@edabit.com"
 # }
-
 # # The second object parameter.
-
 # obj_two = {
 #   "name"=> "Jason",
 #   "phone"=> "9853759720",
 #   "email"=> "jason@edabit.com"
 # }
 
-
 # is_equal(obj_one, obj_two)
 # ➞ true
-
 # Notes
-
 # If you have a suggestion on how to make these instructions easier to understand, please leave a comment. Your feedback is greatly appreciated.
 def is_equal(obj_one, obj_two)
 	obj_one === obj_two
 end
 # Given two numbers, return true if the sum of both numbers is less than 100. Otherwise return false.
 # Examples
-
 # less_than_100(22, 15) ➞ true
 # # 22 + 15 = 37
-
 # less_than_100(83, 34) ➞ false
 # # 83 + 34 = 117
-
 # less_than_100(3, 77) ➞ true
-
 # Notes
-
 # N/A
 def less_than_100(a, b)
 	a + b < 100

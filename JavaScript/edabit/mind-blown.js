@@ -1,14 +1,25 @@
+// Some characters do not change after a rotation of 180 degrees. They can be read, although sometimes in a different way. For example, uppercase letters "H", "I", "N", "O", "S", "X", "Z" after rotation are not changed, the letter "M" becomes a "W", and vice versa.
+// So, the word "WOW" turns into the word "MOM". On the other hand, the word "HOME" cannot be rotated.
+// Find the number of unique readable Rotated Words in the input string txt (without duplicates).
+// Examples
+// rotatedWords("HSSN") ➞ 1
+// // String can be rotated to a valid string
+// rotatedWords("OS IS UPDATED") ➞ 2
+// // "OS" and "IS" can be rotated to a valid string
+// rotatedWords("MUBASHIR") ➞ 0
+// Notes
+// String contains only uppercase letters.
+function rotatedWords(txt) {
+  return txt ? [...new Set(txt.split(' '))]
+        .map(word => [...word].every(letter => 'HINOSXZMW'.includes(letter)))
+        .filter(bool => bool).length : 0
+}
 // You are given the length of a video in minutes. The format is mm:ss (e.g.: "02:54"). Create a function that takes the video length and return it in seconds.
 // Examples
-
 // minutesToSeconds("01:00") ➞ 60
-
 // minutesToSeconds("13:56") ➞ 836
-
 // minutesToSeconds("10:60") ➞ false
-
 // Notes
-
 //     The video length is given as a string.
 //     If the number of seconds is 60 or over, return false (see example #3).
 //     You may get a number of minutes over 99 (e.g. "121:49" is perfectly valid).
@@ -18,43 +29,27 @@ function minutesToSeconds(time) {
   return +min * 60 + +sec
 }
 // Create a function that takes three arguments prob, prize, pay and returns true if prob * prize > pay; otherwise return false.
-
 // To illustrate:
-
 // profitableGamble(0.2, 50, 9)
-
 // ... should yield true, since the net profit is 1 (0.2 * 50 - 9), and 1 > 0.
 // Examples
-
 // profitableGamble(0.2, 50, 9) ➞ true
-
 // profitableGamble(0.9, 1, 2) ➞ false
-
 // profitableGamble(0.9, 3, 2) ➞ true
-
 // Notes
-
 // A profitable gamble is a game that yields a positive net profit, where net profit is calculated in the following manner: net_outcome = probability_of_winning * prize - cost_of_playing.
 function profitableGamble(prob, prize, pay) {
 	return prob * prize > pay
 }
 // Given two strings, repeatedly cycle through all of the letters in the first string until it is the same length as the second string.
 // Examples
-
 // stringCycling("abc", "hello") ➞ "abcab"
-
 // stringCycling("programming", "edabit") ➞ "progra"
-
 // stringCycling("the world in me evolves in hers", "i love Tesh, so much so") ➞ "the world in me evolves"
-
 // stringCycling("a thing of beauty is a joy forever", "indulge me surely") ➞ "a thing of beauty"
-
 // stringCycling("to", "hide") ➞ "toto"
-
 // stringCycling("such a feeling coming over me", "top of the world") ➞ "such a feeling c"
-
 // Notes
-
 // All tests will include valid strings.
 function stringCycling(a, b) {
   return a.length - b.length > 0 ? a.slice(0, b.length) : a.repeat(-~(b.length / a.length)).slice(0, b.length)
