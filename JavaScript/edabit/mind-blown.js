@@ -1,3 +1,20 @@
+// Write a function that takes a string name and a number num (either 0 or 1) and return "Hello" + name if num is 1, otherwise return "Bye" + name.
+// Examples
+
+// sayHelloBye("alon", 1) ➞ "Hello Alon"
+
+// sayHelloBye("Tomi", 0) ➞ "Bye Tomi"
+
+// sayHelloBye("jose", 0) ➞ "Bye Jose"
+
+// Notes
+
+// The name you return must be capitalized.
+
+function sayHelloBye(name, num) {
+	return `${num ? 'Hello' : 'Bye'} ${name[0].toUpperCase() + name.slice(1)}`
+}
+
 // Some characters do not change after a rotation of 180 degrees. They can be read, although sometimes in a different way. For example, uppercase letters "H", "I", "N", "O", "S", "X", "Z" after rotation are not changed, the letter "M" becomes a "W", and vice versa.
 // So, the word "WOW" turns into the word "MOM". On the other hand, the word "HOME" cannot be rotated.
 // Find the number of unique readable Rotated Words in the input string txt (without duplicates).
