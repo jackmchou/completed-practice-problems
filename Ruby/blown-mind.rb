@@ -1,3 +1,22 @@
+# Creates a function that takes a string and returns the concatenated first and last character.
+# Examples
+
+# first_last("ganesh") ➞ "gh"
+
+# first_last("kali") ➞ "ki"
+
+# first_last("shiva") ➞ "sa"
+
+# first_last("vishnu") ➞ "vu"
+
+# first_last("durga") ➞ "da"
+
+# Notes
+
+# There is no empty string.
+def first_last(name)
+	name[0] << name[-1]
+end
 # Create a function that takes an array of numbers nums as an argument. Square each number in the array if the number is even and square root √ the number if it is odd. Return the sum of the new array rounded to two decimal places.
 # Example:
 # [2, 4, 9]  ➞ 23
