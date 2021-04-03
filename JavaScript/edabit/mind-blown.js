@@ -1,20 +1,34 @@
+// Write a function that does the following for the given values: add, subtract, divide and multiply . This is simply referred to as the basic arithmetic operations. The variables have to be defined, but in this challenge, it will be defined for you. All you have to do, is to check the variables, do some string to integer conversion, use some if conditions, and apply the arithmetic operation.
+// The numbers and operation are given as a string and should result to an integer value.
+// Examples
+// operation("1",  "2",  "add" ) ➞ 3
+// operation("4",  "5",  "subtract") ➞ -1
+// operation("6",  "3",  "divide") ➞ 2
+// Notes
+//     The numbers and operation are given as a string and should result to an integer value.
+//     If the operation results to Infinity, then return "undefined" (e.g. division by zero).
+//     Division results will be rounded down to its integral part.
+function operation(a, b, op) {
+  a = +a
+  b = +b
+	const result = {
+    add: a + b,
+    subtract: +a - b,
+    multiply: +a * b,
+    divide: b !== 0 ? +a / b : 'undefined'
+  }
+  return result[op]
+}
 // Write a function that takes a string name and a number num (either 0 or 1) and return "Hello" + name if num is 1, otherwise return "Bye" + name.
 // Examples
-
 // sayHelloBye("alon", 1) ➞ "Hello Alon"
-
 // sayHelloBye("Tomi", 0) ➞ "Bye Tomi"
-
 // sayHelloBye("jose", 0) ➞ "Bye Jose"
-
 // Notes
-
 // The name you return must be capitalized.
-
 function sayHelloBye(name, num) {
 	return `${num ? 'Hello' : 'Bye'} ${name[0].toUpperCase() + name.slice(1)}`
 }
-
 // Some characters do not change after a rotation of 180 degrees. They can be read, although sometimes in a different way. For example, uppercase letters "H", "I", "N", "O", "S", "X", "Z" after rotation are not changed, the letter "M" becomes a "W", and vice versa.
 // So, the word "WOW" turns into the word "MOM". On the other hand, the word "HOME" cannot be rotated.
 // Find the number of unique readable Rotated Words in the input string txt (without duplicates).
