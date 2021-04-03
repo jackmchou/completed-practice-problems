@@ -1,3 +1,54 @@
+# Create a function that finds the maximum range of a triangle's third edge, where the side lengths are all integers.
+# Examples
+# next_edge(8, 10) ➞ 17
+# next_edge(5, 7) ➞ 11
+# next_edge(9, 2) ➞ 10
+# Notes
+#     (side1 + side2) - 1 = maximum range of third edge.
+#     The side lengths of the triangle are positive integers.
+#     Don't forget to return the result.
+def next_edge(side1, side2)
+	side1 + side2 - 1
+end
+# Create a function that takes as a parameter an array of "stringified" numbers and returns an array of numbers.\# Example:
+# ["1", "3", "3.6"] ➞ [1, 3, 3.6]
+# Examples
+# to_number_array(["9.4", "4.2"]) ➞ [9.4, 4.2]
+# to_number_array(["21", "23"]) ➞ [21, 23]
+# to_number_array(["9.5", "8.8"]) ➞ [9.5, 8.8]
+# Notes
+# Some inputs are floats.
+def to_number_array(arr)
+	arr.map {|num| num.to_f}
+end
+# Given an array of integers arr, return the sum of all the integers that have an even index, multiplied by the integer at the last index.
+# If the sequence is empty, you should return 0.
+# Examples
+# even_last([2, 3, 4, 5]) ➞ 30
+# # numbers at even index = 2, 4
+# # number at last index = 5
+# # 2*5 + 4*5 = 10 + 20 = 30
+# even_last([1, 3, 3, 1, 10]) ➞ 140
+# even_last([]) ➞ 0
+# Notes
+# N/A
+def even_last(arr)
+  sum = 0
+  arr.map.with_index {|num, idx| sum += num * arr[-1] if idx.even? }
+  return sum
+end
+# Creates a function that takes a string and returns the concatenated first and last character.
+# Examples
+# first_last("ganesh") ➞ "gh"
+# first_last("kali") ➞ "ki"
+# first_last("shiva") ➞ "sa"
+# first_last("vishnu") ➞ "vu"
+# first_last("durga") ➞ "da"
+# Notes
+# There is no empty string.
+def first_last(name)
+	name[0] << name[-1]
+end
 # Create a function that takes an array of numbers nums as an argument. Square each number in the array if the number is even and square root √ the number if it is odd. Return the sum of the new array rounded to two decimal places.
 # Example:
 # [2, 4, 9]  ➞ 23
@@ -32,7 +83,6 @@ end
 #   "phone"=> "9853759720",
 #   "email"=> "jason@edabit.com"
 # }
-
 # is_equal(obj_one, obj_two)
 # ➞ false
 # # The first object parameter.
@@ -47,7 +97,6 @@ end
 #   "phone"=> "9853759720",
 #   "email"=> "jason@edabit.com"
 # }
-
 # is_equal(obj_one, obj_two)
 # ➞ true
 # Notes
