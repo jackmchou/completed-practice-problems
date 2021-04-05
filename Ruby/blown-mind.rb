@@ -1,3 +1,30 @@
+# Write two functions:
+
+# to_int() : A function to convert a string to an integer.
+# to_str() : A function to convert an integer to a string.
+
+# Examples
+
+# to_int("77") ➞ 77
+
+# to_int("532") ➞ 532
+
+# to_str(77) ➞ "77"
+
+# to_str(532) ➞ "532"
+
+# Notes
+
+# Don't forget to return the result.
+# If you get stuck on a challenge, find help in the Resources tab.
+# If you're really stuck, unlock solutions in the Solutions tab.
+def to_int(str)
+	str.to_i
+end
+
+def to_str(int)
+	int.to_s
+end
 # Create a function that takes a number num and returns the first 10 multiples of num with 1 added to it, separated by commas.
 # Examples
 # n_tables_plus_one(7) ➞ "8,15,22,29,36,43,50,57,64,71"
