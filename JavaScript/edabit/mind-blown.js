@@ -1,3 +1,19 @@
+// Create a function that takes an array of integers and returns the sum of all the integers that have an even index, multiplied by the integer at the last index.
+// For example:
+// [2, 3, 4, 5] ➞ 30
+// (2 + 4) * 5 ➞ 30
+// [1, 4, 5, 6, 7, 2, 3] ➞ 48
+// (1 + 5 + 7 + 3) * 3 ➞ 48
+// Examples
+// evenLast([]) ➞ 0
+// evenLast([1, 3, 3, 1, 10]) ➞ 140
+// evenLast([-11, 3, 3, 1, 10]) ➞ 20
+// Notes
+// If the array is empty, return 0.
+function evenLast(arr) {
+	if (!arr.length) return 0
+	return arr.reduce((cur, acc, idx) => idx % 2 ? cur + 0 : cur + acc, 0) * arr[arr.length - 1]
+}
 // Given a 10x10 grid of numbers 1-100, return the Spotlight Sum, given a number n. The spotlight sum can be defined as the total of the 8 numbers immediately surrounding the number n on the grid, including n in the total.
 // Worked Example
 // [
