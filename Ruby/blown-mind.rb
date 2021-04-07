@@ -1,3 +1,34 @@
+# You can assign variables from arrays like this:
+
+# arr = [1, 2, 3, 4, 5, 6, 7, 8]
+# first = arr[0]
+# second = arr[1]
+# third = arr[2]
+# other = arr[3...arr.length]
+
+# puts(first) ➞ outputs 1
+# puts(second) ➞ outputs 2
+# puts(third) ➞ outputs 3
+# puts(other) ➞ outputs [4, 5, 6, 7, 8]
+
+# Create variables first, second, third, and other from the given array using Destructuring Assignment (check the Resources tab for some examples).
+# Examples
+
+# first ➞ 1
+
+# second ➞ 2
+
+# third ➞ 3
+
+# other ➞ [4, 5, 6, 7, 8]
+
+# Your task is to unpack the array writeyourcodehere into four variables, first, second, third and other.
+# Notes
+
+#     Your solution should be just One Line code.
+#     If your solution is longer than one line of code, please check the Resources tab.
+#     Another version of this challenge.
+first, second, third, *other = [1, 2, 3, 4, 5, 6, 7, 8]
 # Create a function that takes length and width and finds the perimeter of a rectangle.
 # Examples
 
