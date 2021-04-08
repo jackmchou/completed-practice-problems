@@ -1,5 +1,29 @@
 # You can assign variables from arrays like this:
 
+# arr = [1, 2, 3, 4, 5, 6]
+# first = arr[0]
+# middle = arr[1..-2]
+# last = arr[-1]
+
+# p first ➞ outputs 1
+# p middle ➞ outputs [2, 3, 4, 5]
+# p last ➞ outputs 6
+
+# With Ruby, you can assign variables from arrays in a much more succinct way. Create variables first, middle and last from the given array using destructuring assignment (check the Resources tab for some examples), where:
+
+# first  ➞ 1
+
+# middle ➞ [2, 3, 4, 5]
+
+# last ➞ 6
+
+# Notes
+
+#     Your solution should be just one line of code.
+#     If your solution is longer than one line of code, please review the Resources tab.
+first, *middle, last = [1, 2, 3, 4, 5, 6]
+# You can assign variables from arrays like this:
+
 # arr = [1, 2, 3, 4, 5, 6, 7, 8]
 # first = arr[0]
 # second = arr[1]
