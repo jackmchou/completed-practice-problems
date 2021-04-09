@@ -1,3 +1,17 @@
+# Create a function that takes a list and returns the sum of all numbers in the list.
+# Examples
+
+# get_sum_of_elements([2, 7, 4]) ➞ 13
+
+# get_sum_of_elements([45, 3, 0]) ➞ 48
+
+# get_sum_of_elements([-2, 84, 23]) ➞ 105
+
+# Notes
+
+# N/A
+def get_sum_of_elements(lst):
+	return sum(lst)
 # Check the principles of minimalist code in the intro to the first challenge.
 # In the Code tab you will find a code that is missing a single character in order to pass the tests. However, your goal is to submit a function as minimalist as possible. Use the tips in the tips section below.
 # Write a function that returns the strings:
