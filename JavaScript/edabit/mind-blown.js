@@ -1,3 +1,48 @@
+// Create a function that takes an array of integers and returns the sum of all the integers that have an even index, multiplied by the integer at the last index.
+// For example:
+// [2, 3, 4, 5] ➞ 30
+// (2 + 4) * 5 ➞ 30
+// [1, 4, 5, 6, 7, 2, 3] ➞ 48
+// (1 + 5 + 7 + 3) * 3 ➞ 48
+// Examples
+// evenLast([]) ➞ 0
+// evenLast([1, 3, 3, 1, 10]) ➞ 140
+// evenLast([-11, 3, 3, 1, 10]) ➞ 20
+// Notes
+// If the array is empty, return 0.
+function evenLast(arr) {
+	if (!arr.length) return 0
+	return arr.reduce((cur, acc, idx) => idx % 2 ? cur + 0 : cur + acc, 0) * arr[arr.length - 1]
+}
+// Given a 10x10 grid of numbers 1-100, return the Spotlight Sum, given a number n. The spotlight sum can be defined as the total of the 8 numbers immediately surrounding the number n on the grid, including n in the total.
+// Worked Example
+// [
+//   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+//   [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+//   [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+//   [31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
+//   [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
+//   [51, 52, 53, 54, 55, 56, 57, 58, 59, 60],
+//   [61, 62, 63, 64, 65, 66, 67, 68, 69, 70],
+//   [71, 72, 73, 74, 75, 76, 77, 78, 79, 80],
+//   [81, 82, 83, 84, 85, 86, 87, 88, 89, 90],
+//   [91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+// ]
+// spotlight_sum(45) ➞ 405
+// // The 8 numbers surrounding 45 on the grid are:
+// // [34, 35, 36, 44, 46, 54, 55, 56]
+// // Total of the numbers is 360.
+// // Include 45 in the total (360 + 45 = 405)
+// // Return the answer.
+// Examples
+// spotlightSum(19) ➞ 171
+// spotlightSum(48) ➞ 432
+// spotlightSum(88) ➞ 792
+// Notes
+// Note that any numbers which don't have the full 8 numbers surrounding it are not included in the tests.
+function spotlightSum(n) {
+  return 9 * n
+}
 // Write a function that does the following for the given values: add, subtract, divide and multiply . This is simply referred to as the basic arithmetic operations. The variables have to be defined, but in this challenge, it will be defined for you. All you have to do, is to check the variables, do some string to integer conversion, use some if conditions, and apply the arithmetic operation.
 // The numbers and operation are given as a string and should result to an integer value.
 // Examples

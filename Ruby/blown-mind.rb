@@ -1,3 +1,87 @@
+# You can assign variables from arrays like this:
+# arr = [1, 2, 3, 4, 5, 6]
+# first = arr[0]
+# middle = arr[1..-2]
+# last = arr[-1]
+# p first ➞ outputs 1
+# p middle ➞ outputs [2, 3, 4, 5]
+# p last ➞ outputs 6
+# With Ruby, you can assign variables from arrays in a much more succinct way. Create variables first, middle and last from the given array using destructuring assignment (check the Resources tab for some examples), where:
+# first  ➞ 1
+# middle ➞ [2, 3, 4, 5]
+# last ➞ 6
+# Notes
+#     Your solution should be just one line of code.
+#     If your solution is longer than one line of code, please review the Resources tab.
+first, *middle, last = [1, 2, 3, 4, 5, 6]
+# You can assign variables from arrays like this:
+# arr = [1, 2, 3, 4, 5, 6, 7, 8]
+# first = arr[0]
+# second = arr[1]
+# third = arr[2]
+# other = arr[3...arr.length]
+# puts(first) ➞ outputs 1
+# puts(second) ➞ outputs 2
+# puts(third) ➞ outputs 3
+# puts(other) ➞ outputs [4, 5, 6, 7, 8]
+# Create variables first, second, third, and other from the given array using Destructuring Assignment (check the Resources tab for some examples).
+# Examples
+# first ➞ 1
+# second ➞ 2
+# third ➞ 3
+# other ➞ [4, 5, 6, 7, 8]
+# Your task is to unpack the array writeyourcodehere into four variables, first, second, third and other.
+# Notes
+#     Your solution should be just One Line code.
+#     If your solution is longer than one line of code, please check the Resources tab.
+#     Another version of this challenge.
+first, second, third, *other = [1, 2, 3, 4, 5, 6, 7, 8]
+# Create a function that takes length and width and finds the perimeter of a rectangle.
+# Examples
+# find_perimeter(6, 7) ➞ 26
+# find_perimeter(20, 10) ➞ 60
+# find_perimeter(2, 9) ➞ 22
+# Notes
+#     Don't forget to return the result.
+#     If you're stuck, find help in the Resources tab.
+#     If you're really stuck, find solutions in the Solutions tab.
+def find_perimeter(length, width)
+	(length + width) * 2
+end
+# Write two functions:
+# to_int() : A function to convert a string to an integer.
+# to_str() : A function to convert an integer to a string.
+# Examples
+# to_int("77") ➞ 77
+# to_int("532") ➞ 532
+# to_str(77) ➞ "77"
+# to_str(532) ➞ "532"
+# Notes
+# Don't forget to return the result.
+# If you get stuck on a challenge, find help in the Resources tab.
+# If you're really stuck, unlock solutions in the Solutions tab.
+def to_int(str)
+	str.to_i
+end
+def to_str(int)
+	int.to_s
+end
+# Create a function that takes a number num and returns the first 10 multiples of num with 1 added to it, separated by commas.
+# Examples
+# n_tables_plus_one(7) ➞ "8,15,22,29,36,43,50,57,64,71"
+# n_tables_plus_one(1) ➞ "2,3,4,5,6,7,8,9,10,11"
+# n_tables_plus_one(3) ➞ "4,7,10,13,16,19,22,25,28,31"
+# Notes
+# There is no comma after the last number.
+def n_tables_plus_one(num)
+  arr = []
+  i = 1
+  while i < 11 do
+    arr << num * i + 1 
+    i += 1
+  end
+  arr.join(',')
+end
 # Create a function that finds the maximum range of a triangle's third edge, where the side lengths are all integers.
 # Examples
 # next_edge(8, 10) ➞ 17
