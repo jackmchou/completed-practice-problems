@@ -1,69 +1,47 @@
 # You can assign variables from arrays like this:
-
 # arr = [1, 2, 3, 4, 5, 6]
 # first = arr[0]
 # middle = arr[1..-2]
 # last = arr[-1]
-
 # p first ➞ outputs 1
 # p middle ➞ outputs [2, 3, 4, 5]
 # p last ➞ outputs 6
-
 # With Ruby, you can assign variables from arrays in a much more succinct way. Create variables first, middle and last from the given array using destructuring assignment (check the Resources tab for some examples), where:
-
 # first  ➞ 1
-
 # middle ➞ [2, 3, 4, 5]
-
 # last ➞ 6
-
 # Notes
-
 #     Your solution should be just one line of code.
 #     If your solution is longer than one line of code, please review the Resources tab.
 first, *middle, last = [1, 2, 3, 4, 5, 6]
 # You can assign variables from arrays like this:
-
 # arr = [1, 2, 3, 4, 5, 6, 7, 8]
 # first = arr[0]
 # second = arr[1]
 # third = arr[2]
 # other = arr[3...arr.length]
-
 # puts(first) ➞ outputs 1
 # puts(second) ➞ outputs 2
 # puts(third) ➞ outputs 3
 # puts(other) ➞ outputs [4, 5, 6, 7, 8]
-
 # Create variables first, second, third, and other from the given array using Destructuring Assignment (check the Resources tab for some examples).
 # Examples
-
 # first ➞ 1
-
 # second ➞ 2
-
 # third ➞ 3
-
 # other ➞ [4, 5, 6, 7, 8]
-
 # Your task is to unpack the array writeyourcodehere into four variables, first, second, third and other.
 # Notes
-
 #     Your solution should be just One Line code.
 #     If your solution is longer than one line of code, please check the Resources tab.
 #     Another version of this challenge.
 first, second, third, *other = [1, 2, 3, 4, 5, 6, 7, 8]
 # Create a function that takes length and width and finds the perimeter of a rectangle.
 # Examples
-
 # find_perimeter(6, 7) ➞ 26
-
 # find_perimeter(20, 10) ➞ 60
-
 # find_perimeter(2, 9) ➞ 22
-
 # Notes
-
 #     Don't forget to return the result.
 #     If you're stuck, find help in the Resources tab.
 #     If you're really stuck, find solutions in the Solutions tab.
@@ -71,29 +49,20 @@ def find_perimeter(length, width)
 	(length + width) * 2
 end
 # Write two functions:
-
 # to_int() : A function to convert a string to an integer.
 # to_str() : A function to convert an integer to a string.
-
 # Examples
-
 # to_int("77") ➞ 77
-
 # to_int("532") ➞ 532
-
 # to_str(77) ➞ "77"
-
 # to_str(532) ➞ "532"
-
 # Notes
-
 # Don't forget to return the result.
 # If you get stuck on a challenge, find help in the Resources tab.
 # If you're really stuck, unlock solutions in the Solutions tab.
 def to_int(str)
 	str.to_i
 end
-
 def to_str(int)
 	int.to_s
 end
