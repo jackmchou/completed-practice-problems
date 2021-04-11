@@ -1,3 +1,22 @@
+// Given a string, create a function to reverse the case. All lower-cased letters should be upper-cased, and vice versa.
+// Examples
+
+// reverseCase("Happy Birthday") ➞ "hAPPY bIRTHDAY"
+
+// reverseCase("MANY THANKS") ➞ "many thanks"
+
+// reverseCase("sPoNtAnEoUs") ➞ "SpOnTaNeOuS"
+
+// Notes
+
+// N/A
+function reverseCase(str) {
+  let result = ''
+	for(let i = 0; i < str.length; i++) {
+    result += str[i].toUpperCase() == str[i] ? str[i].toLowerCase() : str[i].toUpperCase()
+  }
+  return result
+}
 // Create a function that takes an array of integers and returns the sum of all the integers that have an even index, multiplied by the integer at the last index.
 // For example:
 // [2, 3, 4, 5] ➞ 30
