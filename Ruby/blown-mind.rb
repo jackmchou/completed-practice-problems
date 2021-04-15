@@ -1,3 +1,23 @@
+# A logarithm is kind of like reverse exponents. There is a base and a number in a logarithm. The point of a logarithm is to find out what power you have to raise the base to get the number next to the base. For example:
+
+# log base 5 of 25 = x
+
+# This is the same thing as saying 5 to the xth power is 25, which is 2 (so x would be 2). Using this example, your function must take the 5 and 25 and somehow get 2.
+# Examples
+
+# logarithm(5, 25) ➞ 2
+
+# logarithm(2, 64) ➞ 6
+
+# logarithm(2, 4) ➞ 2
+
+# Notes
+
+#     Check Resources if you need more help with logarithms.
+#     Logartihm of base 1 is undefined and the function should return NaN.
+def logarithm(base, num)
+	Math.log(num, base)
+end
 # Create a function that takes an array. This array will contain numbers represented as strings.
 
 # Your function should split this array into two new arrays. The first array should contain only even numbers. The second only odd. Then, wrap these two arrays in one main array and return it.
