@@ -1,3 +1,28 @@
+
+# Given a sorted array of numbers, remove any numbers that are divisible by 13. Return the amended array.
+# Examples
+
+# unlucky_13([53, 182, 435, 591, 637]) ➞ [53, 435, 591]
+# # 182 and 637 are divisible by 13.
+
+# unlucky_13([24, 316, 393, 458, 1279]) ➞ [24, 316, 393, 458, 1279]
+# # No numbers in the array are divisible by 13.
+
+# unlucky_13([104, 351, 455, 806, 871]) ➞ []
+# # All numbers in the array are divisible by 13.
+
+# Notes
+
+# N/A
+def unlucky_13(nums)
+  arr = []
+  nums.each do |num|
+    if num % 13 != 0
+      arr << num
+    end
+  end
+  arr
+end
 # A logarithm is kind of like reverse exponents. There is a base and a number in a logarithm. The point of a logarithm is to find out what power you have to raise the base to get the number next to the base. For example:
 
 # log base 5 of 25 = x
