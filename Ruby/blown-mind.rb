@@ -1,18 +1,13 @@
 
 # Given a sorted array of numbers, remove any numbers that are divisible by 13. Return the amended array.
 # Examples
-
 # unlucky_13([53, 182, 435, 591, 637]) ➞ [53, 435, 591]
 # # 182 and 637 are divisible by 13.
-
 # unlucky_13([24, 316, 393, 458, 1279]) ➞ [24, 316, 393, 458, 1279]
 # # No numbers in the array are divisible by 13.
-
 # unlucky_13([104, 351, 455, 806, 871]) ➞ []
 # # All numbers in the array are divisible by 13.
-
 # Notes
-
 # N/A
 def unlucky_13(nums)
   arr = []
@@ -24,42 +19,27 @@ def unlucky_13(nums)
   arr
 end
 # A logarithm is kind of like reverse exponents. There is a base and a number in a logarithm. The point of a logarithm is to find out what power you have to raise the base to get the number next to the base. For example:
-
 # log base 5 of 25 = x
-
 # This is the same thing as saying 5 to the xth power is 25, which is 2 (so x would be 2). Using this example, your function must take the 5 and 25 and somehow get 2.
 # Examples
-
 # logarithm(5, 25) ➞ 2
-
 # logarithm(2, 64) ➞ 6
-
 # logarithm(2, 4) ➞ 2
-
 # Notes
-
 #     Check Resources if you need more help with logarithms.
 #     Logartihm of base 1 is undefined and the function should return NaN.
 def logarithm(base, num)
 	Math.log(num, base)
 end
 # Create a function that takes an array. This array will contain numbers represented as strings.
-
 # Your function should split this array into two new arrays. The first array should contain only even numbers. The second only odd. Then, wrap these two arrays in one main array and return it.
-
 # Return an empty array if there are no even numbers, or odd.
 # Examples
-
 # clean_up_array(["8"]) ➞ [[8], []]
-
 # clean_up_array(["11"]) ➞ [[], [11]]
-
 # clean_up_array(["7", "4", "8"]) ➞ [[4, 8], [7]]
-
 # clean_up_array(["9", "4", "5", "8"]) ➞ [[4, 8], [9, 5]]
-
 # Notes
-
 # All numbers will be positive integers.
 def clean_up_array(arr)
   even_arr = []
@@ -72,15 +52,10 @@ def clean_up_array(arr)
 end
 # Given two strings, first_name and last_name, return a single string in the format "last, first".
 # Examples
-
 # concat_name("First", "Last") ➞ "Last, First"
-
 # concat_name("John", "Doe") ➞ "Doe, John"
-
 # concat_name("Mary", "Jane") ➞ "Jane, Mary"
-
 # Notes
-
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
