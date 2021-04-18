@@ -1,4 +1,18 @@
+# Create a function that will put the first argument, a character, between every word in the second argument, a string.
+# Examples
 
+# add("R", "ruby is fun") ➞ "rubyRisRfun"
+
+# add("#", "hello world!") ➞ "hello#world!"
+
+# add("#", " ") ➞ "#"
+
+# Notes
+
+# Make sure there are no spaces between words when returning the function.
+def add(char, str)
+	str.gsub(" ", char)
+end
 # Given a sorted array of numbers, remove any numbers that are divisible by 13. Return the amended array.
 # Examples
 # unlucky_13([53, 182, 435, 591, 637]) ➞ [53, 435, 591]
