@@ -1,3 +1,34 @@
+# Given a 2D-list of letters arr and a list of indexes idx, find the letters on given indexes and return as a string.
+
+# arr = [
+#   ["m", "u", "b"],
+#   ["a", "s", "h"],
+#   ["i", "r", "1"]
+# ]
+
+# idx = [1, 3, 5, 8]
+
+# You have to find the characters in these indexes of the given list if you think of the indexes as:
+
+# [
+#   [1, 2, 3],
+#   [4, 5, 6],
+#   [7, 8, 9]
+# ]
+
+# arr_index(lst, idx) ➞ "mbsr"
+
+# Notes
+
+# Remember that the indexes start from one and not zero.
+def arr_index(arr, idx)
+  flatArr = arr.flatten
+  str = ''
+  idx.each do |n|
+    str << flatArr[n - 1].to_s
+  end
+  str
+end
 # Create a function that will put the first argument, a character, between every word in the second argument, a string.
 # Examples
 
