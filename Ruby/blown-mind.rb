@@ -1,3 +1,32 @@
+# Given an integer, return "odd" if the sum of all odd digits is greater than the sum of all even digits. Return "even" if the sum of even digits is greater than the sum of odd digits, and "equal" if both sums are the same.
+# Examples
+
+# odds_vs_evens(97428) ➞ "odd"
+# # odd = 16 (9+7)
+# # even = 14 (4+2+8)
+
+# odds_vs_evens(81961) ➞ "even"
+# # odd = 11 (1+9+1)
+# # even = 14 (8+6)
+
+# odds_vs_evens(54870) ➞ "equal"
+# # odd = 12 (5+7)
+# # even = 12 (4+8+0)
+
+# Notes
+
+# N/A
+def odds_vs_evens(num)
+  strArr = num.to_s.split('')
+  odd = 0
+  even = 0
+  strArr.each do |n|
+    n = n.to_i
+    n % 2 == 1 ? odd += n : even += n
+  end
+  return 'equal' if odd == even
+  return odd > even ? 'odd' : 'even'
+end
 # Create a function that can turn Yen (Japanese dollar) to USD (American dollar).
 # Examples
 
