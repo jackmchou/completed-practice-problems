@@ -1,3 +1,21 @@
+// Write a function that receives two portions of a path and joins them. The portions will be joined with the "/" separator. There could be only one separator and if it is not present it should be added.
+// Examples
+
+// joinPath("portion1", "portion2") ➞ "portion1/portion2"
+
+// joinPath("portion1/", "portion2") ➞ "portion1/portion2"
+
+// joinPath("portion1", "/portion2") ➞ "portion1/portion2"
+
+// joinPath("portion1/", "/portion2") ➞ "portion1/portion2"
+
+// Notes
+
+// Try not to solve this challenge using only if-else conditions.
+function joinPath(portion1, portion2) {
+  const clean = (str) => str.replace('/', '')
+  return `${clean(portion1)}/${clean(portion2)}`
+}
 // In Digital Cipher, encoding is done by the simple addition of numbers in the key and the corresponding characters on a string input.
 // Create a function that takes two arguments; a positive integer and a string and returns an encoded array of integers as message.
 // Assign a unique number to each letter of the alphabet.
