@@ -1,4 +1,85 @@
-
+# Write a function to check if an array contains a particular number.
+# Examples
+# check([1, 2, 3, 4, 5], 3) ➞ true
+# check([1, 1, 2, 1, 1], 3) ➞ false
+# check([5, 5, 5, 6], 5) ➞ true
+# check([], 5) ➞ false
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def check(arr, el)
+	arr.include? el
+end
+# Given an integer, return "odd" if the sum of all odd digits is greater than the sum of all even digits. Return "even" if the sum of even digits is greater than the sum of odd digits, and "equal" if both sums are the same.
+# Examples
+# odds_vs_evens(97428) ➞ "odd"
+# # odd = 16 (9+7)
+# # even = 14 (4+2+8)
+# odds_vs_evens(81961) ➞ "even"
+# # odd = 11 (1+9+1)
+# # even = 14 (8+6)
+# odds_vs_evens(54870) ➞ "equal"
+# # odd = 12 (5+7)
+# # even = 12 (4+8+0)
+# Notes
+# N/A
+def odds_vs_evens(num)
+  strArr = num.to_s.split('')
+  odd = 0
+  even = 0
+  strArr.each do |n|
+    n = n.to_i
+    n % 2 == 1 ? odd += n : even += n
+  end
+  return 'equal' if odd == even
+  return odd > even ? 'odd' : 'even'
+end
+# Create a function that can turn Yen (Japanese dollar) to USD (American dollar).
+# Examples
+# yen_to_usd(1) ➞ 0.01
+# yen_to_usd(500) ➞ 4.65
+# yen_to_usd(649) ➞ 6.04
+# Notes
+#     Each Yen to USD conversion is Yen / 107.5
+#     Round the result to two decimal places.
+def yen_to_usd(yen)
+	(yen / 107.5).round(2)
+end
+# Given a 2D-list of letters arr and a list of indexes idx, find the letters on given indexes and return as a string.
+# arr = [
+#   ["m", "u", "b"],
+#   ["a", "s", "h"],
+#   ["i", "r", "1"]
+# ]
+# idx = [1, 3, 5, 8]
+# You have to find the characters in these indexes of the given list if you think of the indexes as:
+# [
+#   [1, 2, 3],
+#   [4, 5, 6],
+#   [7, 8, 9]
+# ]
+# arr_index(lst, idx) ➞ "mbsr"
+# Notes
+# Remember that the indexes start from one and not zero.
+def arr_index(arr, idx)
+  flatArr = arr.flatten
+  str = ''
+  idx.each do |n|
+    str << flatArr[n - 1].to_s
+  end
+  str
+end
+# Create a function that will put the first argument, a character, between every word in the second argument, a string.
+# Examples
+# add("R", "ruby is fun") ➞ "rubyRisRfun"
+# add("#", "hello world!") ➞ "hello#world!"
+# add("#", " ") ➞ "#"
+# Notes
+# Make sure there are no spaces between words when returning the function.
+def add(char, str)
+	str.gsub(" ", char)
+end
 # Given a sorted array of numbers, remove any numbers that are divisible by 13. Return the amended array.
 # Examples
 # unlucky_13([53, 182, 435, 591, 637]) ➞ [53, 435, 591]
