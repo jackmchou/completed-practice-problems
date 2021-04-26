@@ -1,3 +1,18 @@
+// Write a function that transforms all letters from [a, m] to 0 and letters from [n, z] to 1 in a string.
+// Examples
+
+// convertBinary("house") ➞ "01110"
+
+// convertBinary("excLAIM") ➞ "0100000"
+
+// convertBinary("moon") ➞ "0111"
+
+// Notes
+
+// Conversion should be case insensitive (see example #2).
+function convertBinary(str) {
+	return [...str].map(ele => ele.match(/[a-m]/i) ? 0 : 1).join('')
+}
 // Given a string of numbers separated by a comma and space, return the total sum of all the numbers.
 // Examples
 
