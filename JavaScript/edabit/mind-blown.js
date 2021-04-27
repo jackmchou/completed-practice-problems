@@ -1,3 +1,35 @@
+// Create a function that calculates the missing value of 3 inputs using Ohm's law. The inputs are v, r or i (aka: voltage, resistance and current).
+
+// Ohm's law:
+
+// V = R * I
+
+// Return the missing value rounded to two decimal places.
+// Examples
+
+// ohmsLaw(12, 220, "") ➞ 0.05
+
+// ohmsLaw(230, "", 2) ➞ 115
+
+// ohmsLaw("", 220, 0.02) ➞ 4.4
+
+// ohmsLaw("", "", 10) ➞ "Invalid"
+
+// ohmsLaw(500, 50, 10) ➞ "Invalid"
+
+// Notes
+
+//     Missing values will be ""
+//     If there is more than one missing value, or no missing value, return "Invalid"
+//     Only numbers will be given.
+function ohmsLaw(v, r, i) {
+  let args = [...arguments]
+  if (!args.includes('')) return 'Invalid'
+  if (args.indexOf('') !== args.lastIndexOf('')) return 'Invalid'
+  if (!args[0]) return r * i
+  else if (!args[1]) return v / i
+  else return +(v / r).toFixed(2)
+}
 // Write a function that transforms all letters from [a, m] to 0 and letters from [n, z] to 1 in a string.
 // Examples
 
