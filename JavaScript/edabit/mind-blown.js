@@ -1,3 +1,21 @@
+// Write a function that takes a string as an argument and returns the left most digit in the string.
+// Examples
+
+// leftDigit("TrAdE2W1n95!") ➞ 2
+
+// leftDigit("V3r1ta$") ➞ 3
+
+// leftDigit("U//DertHe1nflu3nC3") ➞ 1
+
+// leftDigit("J@v@5cR1PT") ➞ 5
+
+// Notes
+
+//     Each string will have at least two numbers.
+//     Return the result as an integer.
+function leftDigit(num) {
+	return +(num.match(/\d/)[0])
+}
 // Given an integer, return "odd" if the sum of all odd digits is greater than the sum of all even digits. Return "even" if the sum of even digits is greater than the sum of odd digits, and "equal" if both sums are the same.
 // Examples
 
