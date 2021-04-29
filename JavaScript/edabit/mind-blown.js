@@ -1,3 +1,27 @@
+// Given an object containing the names and ages of a group of people, return the name of the oldest person.
+// Examples
+
+// oldest({
+//   Emma: 71,
+//   Jack: 45,
+//   Amy: 15,
+//   Ben: 29
+// }) ➞ "Emma"
+
+// oldest({
+//   Max: 9,
+//   Josh: 13,
+//   Sam: 48,
+//   Anne: 33
+// }) ➞ "Sam"
+
+// Notes
+
+// All ages will be different.
+function oldest(people) {
+  const oldest = Math.max(...Object.values(people))
+  for (let individual in people) if (people[individual] == oldest) return individual
+}
 // Given an array of numbers, return an array which contains all the even numbers in the orginal array, which also have even indices.
 // Examples
 
