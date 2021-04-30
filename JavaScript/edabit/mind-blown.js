@@ -1,3 +1,61 @@
+// Given a string, create a function which outputs an array, building and deconstructing the string letter by letter. See the examples below for some helpful guidance.
+// Examples
+
+// constructDeconstruct("Hello") ➞ [
+//   "H",
+//   "He",
+//   "Hel",
+//   "Hell",
+//   "Hello",
+//   "Hell",
+//   "Hel",
+//   "He",
+//   "H"
+// ]
+
+// constructDeconstruct("edabit") ➞ [
+//   "e",
+//   "ed",
+//   "eda",
+//   "edab",
+//   "edabi",
+//   "edabit",
+//   "edabi",
+//   "edab",
+//   "eda",
+//   "ed",
+//   "e"
+// ]
+
+// constructDeconstruct("the sun") ➞ [
+//   "t",
+//   "th",
+//   "the",
+//   "the ",
+//   "the s",
+//   "the su",
+//   "the sun",
+//   "the su",
+//   "the s",
+//   "the ",
+//   "the",
+//   "th",
+//   "t"
+// ]
+
+// Notes
+
+// Include spaces (see example #3).
+function constructDeconstruct(str) {
+	let arr = []
+  for (let i = 1; i <= str.length; i++) {
+    arr.push(str.slice(0, i))
+  }
+  for (let k = str.length - 1; k >= 1; k--) {
+    arr.push(str.slice(0, k))
+  }
+  return arr
+}
 // Given an object containing the names and ages of a group of people, return the name of the oldest person.
 // Examples
 
