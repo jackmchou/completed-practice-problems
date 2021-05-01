@@ -1,6 +1,22 @@
+// Create a function that takes a string as the first argument, and a (string) specification as a second argument. If the specification is "word", return a string with each word reversed while maintaining their original order. If the specification is "sentence", reverse the order of the words in the string, while keeping the words intact.
+// Examples
+// str = "There's never enough time to do all the nothing you want"
+
+// flip("Hello", "word") ➞ "olleH"
+// flip("Hello", "sentence") ➞ "Hello"
+// flip(str, "word") ➞ "s'erehT reven hguone emit ot od lla eht gnihton uoy tnaw"
+// flip(str, "sentence") ➞ "want you nothing the all do to time enough never There's"
+// Notes
+// N/A
+function flip(str, spec) {
+	if (spec == 'word') {
+    if (str.includes(' ')) return str.split(' ').map(ele => [...ele].reverse().join('')).join(' ')
+    return [...str].reverse().join('')
+  }
+  return str.split(' ').reverse().join(' ')
+}
 // Given a string, create a function which outputs an array, building and deconstructing the string letter by letter. See the examples below for some helpful guidance.
 // Examples
-
 // constructDeconstruct("Hello") ➞ [
 //   "H",
 //   "He",
@@ -12,7 +28,6 @@
 //   "He",
 //   "H"
 // ]
-
 // constructDeconstruct("edabit") ➞ [
 //   "e",
 //   "ed",
@@ -26,7 +41,6 @@
 //   "ed",
 //   "e"
 // ]
-
 // constructDeconstruct("the sun") ➞ [
 //   "t",
 //   "th",
@@ -42,9 +56,7 @@
 //   "th",
 //   "t"
 // ]
-
 // Notes
-
 // Include spaces (see example #3).
 function constructDeconstruct(str) {
 	let arr = []
@@ -58,23 +70,19 @@ function constructDeconstruct(str) {
 }
 // Given an object containing the names and ages of a group of people, return the name of the oldest person.
 // Examples
-
 // oldest({
 //   Emma: 71,
 //   Jack: 45,
 //   Amy: 15,
 //   Ben: 29
 // }) ➞ "Emma"
-
 // oldest({
 //   Max: 9,
 //   Josh: 13,
 //   Sam: 48,
 //   Anne: 33
 // }) ➞ "Sam"
-
 // Notes
-
 // All ages will be different.
 function oldest(people) {
   const oldest = Math.max(...Object.values(people))
@@ -82,32 +90,21 @@ function oldest(people) {
 }
 // Given an array of numbers, return an array which contains all the even numbers in the orginal array, which also have even indices.
 // Examples
-
 // getOnlyEvens([1, 3, 2, 6, 4, 8]) ➞ [2, 4]
-
 // getOnlyEvens([0, 1, 2, 3, 4]) ➞ [0, 2, 4]
-
 // getOnlyEvens([1, 2, 3, 4, 5]) ➞ []
-
 // Notes
-
 // Arrays start at index 0.
 function getOnlyEvens(nums) {
 	return nums.filter((ele, idx) => !(ele % 2) && !(idx % 2))
 }
 // Write a function that takes a string as an argument and returns the left most digit in the string.
 // Examples
-
 // leftDigit("TrAdE2W1n95!") ➞ 2
-
 // leftDigit("V3r1ta$") ➞ 3
-
 // leftDigit("U//DertHe1nflu3nC3") ➞ 1
-
 // leftDigit("J@v@5cR1PT") ➞ 5
-
 // Notes
-
 //     Each string will have at least two numbers.
 //     Return the result as an integer.
 function leftDigit(num) {
@@ -115,21 +112,16 @@ function leftDigit(num) {
 }
 // Given an integer, return "odd" if the sum of all odd digits is greater than the sum of all even digits. Return "even" if the sum of even digits is greater than the sum of odd digits, and "equal" if both sums are the same.
 // Examples
-
 // oddsVsEvens(97428) ➞ "odd"
 // // odd = 16 (9+7)
 // // even = 14 (4+2+8)
-
 // oddsVsEvens(81961) ➞ "even"
 // // odd = 11 (1+9+1)
 // // even = 14 (8+6)
-
 // oddsVsEvens(54870) ➞ "equal"
 // // odd = 12 (5+7)
 // // even = 12 (4+8+0)
-
 // Notes
-
 // N/A
 function oddsVsEvens(num) {
 	let [even, odd] = [0, 0]
@@ -141,26 +133,16 @@ function oddsVsEvens(num) {
   return even > odd ? "even" : "odd"
 }
 // Create a function that calculates the missing value of 3 inputs using Ohm's law. The inputs are v, r or i (aka: voltage, resistance and current).
-
 // Ohm's law:
-
 // V = R * I
-
 // Return the missing value rounded to two decimal places.
 // Examples
-
 // ohmsLaw(12, 220, "") ➞ 0.05
-
 // ohmsLaw(230, "", 2) ➞ 115
-
 // ohmsLaw("", 220, 0.02) ➞ 4.4
-
 // ohmsLaw("", "", 10) ➞ "Invalid"
-
 // ohmsLaw(500, 50, 10) ➞ "Invalid"
-
 // Notes
-
 //     Missing values will be ""
 //     If there is more than one missing value, or no missing value, return "Invalid"
 //     Only numbers will be given.
@@ -174,30 +156,20 @@ function ohmsLaw(v, r, i) {
 }
 // Write a function that transforms all letters from [a, m] to 0 and letters from [n, z] to 1 in a string.
 // Examples
-
 // convertBinary("house") ➞ "01110"
-
 // convertBinary("excLAIM") ➞ "0100000"
-
 // convertBinary("moon") ➞ "0111"
-
 // Notes
-
 // Conversion should be case insensitive (see example #2).
 function convertBinary(str) {
 	return [...str].map(ele => ele.match(/[a-m]/i) ? 0 : 1).join('')
 }
 // Given a string of numbers separated by a comma and space, return the total sum of all the numbers.
 // Examples
-
 // addNums("2, 5, 1, 8, 4") ➞ 20
-
 // addNums("1, 2, 3, 4, 5, 6, 7") ➞ 28
-
 // addNums("10") ➞ 10
-
 // Notes
-
 //     Numbers will always be separated by a comma and space.
 //     Your function should accept negative numbers.
 function addNums(nums) {
