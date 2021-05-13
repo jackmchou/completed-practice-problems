@@ -1,3 +1,132 @@
+# Create a function to calculate how many characters in total are needed to make up the shape. You will be given a list of strings which make up a shape in the compiler (i.e. a square, a rectangle or a line).
+# Examples
+# count_characters([
+#   "###",
+#   "###",
+#   "###"
+# ]) ➞ 9
+# count_characters([
+#   "22222222",
+#   "22222222",
+# ]) ➞ 16
+# count_characters([
+#   "------------------"
+# ]) ➞ 18
+# count_characters([]) ➞ 0
+# count_characters(["", ""]) ➞ 0
+# Notes
+# Return 0 if the given list is empty.
+def count_characters(lst):
+  sum = 0
+  for item in lst:
+    sum += len(item)
+  return sum
+# Create a function that takes two strings as arguments and return either True or False depending on whether the total number of characters in the first string is equal to the total number of characters in the second string.
+# Examples
+# comp("AB", "CD") ➞ True
+# comp("ABC", "DE") ➞ False
+# comp("hello", "edabit") ➞ False
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def comp(txt1, txt2):
+	return len(txt1) == len(txt2)
+# Given two integers, a and b, return True if a can be divided evenly by b. Return False otherwise.
+# Examples
+# divides_evenly(98, 7) ➞ True
+# # 98/7 = 14
+# divides_evenly(85, 4) ➞ False
+# # 85/4 = 21.25
+# Notes
+# a will always be greater than or equal to b.
+def divides_evenly(a, b):
+	return a % b == 0
+# Fix the code in the code tab to pass this challenge (only syntax errors). Look at the examples below to get an idea of what the function should do.
+# Examples
+# max_num(3, 7) ➞ 7
+# max_num(-1, 0) ➞ 0
+# max_num(1000, 400) ➞ 1000
+# Notes
+#     READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
+#     Don't overthink this challenge; it's not supposed to be hard.
+def max_num(n1, n2):
+	return n1 if n1 > n2 else n2
+# Fix the code in the Code tab so the function returns true if and only if x is equal to 7. Try to debug code and pass all the tests.
+# Examples
+# is_seven(4) ➞ False
+# is_seven(9) ➞ False
+# is_seven(7) ➞ True
+# Notes
+# The bug can be hard to find, so look closely!
+def is_seven(x):
+	return x == 7
+# Create a function that takes a number as its only argument and returns True if it's less than or equal to zero, otherwise return False.
+# Examples
+# less_than_or_equal_to_zero(5) ➞ False
+# less_than_or_equal_to_zero(0) ➞ True
+# less_than_or_equal_to_zero(-2) ➞ True
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def less_than_or_equal_to_zero(num):
+	return num <= 0
+# Given two numbers, return True if the sum of both numbers is less than 100. Otherwise return False.
+# Examples
+# less_than_100(22, 15) ➞ True
+# # 22 + 15 = 37
+# less_than_100(83, 34) ➞ False
+# # 83 + 34 = 117
+# less_than_100(3, 77) ➞ true
+# Notes
+# N/A
+def less_than_100(a, b):
+	return (a + b) < 100
+# Create a function that takes a name and returns a greeting in the form of a string.
+# Examples
+# hello_name("Gerald") ➞ "Hello Gerald!"
+# hello_name("Tiffany") ➞ "Hello Tiffany!"
+# hello_name("Ed") ➞ "Hello Ed!"
+# Notes
+#     The input is always a name (as string).
+#     Don't forget the exclamation mark!
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def hello_name(name):
+  return 'Hello ' + name + '!'
+# Create a function that takes three arguments prob, prize, pay and returns True if prob * prize > pay; otherwise return False.
+# To illustrate:
+# profitable_gamble(0.2, 50, 9)
+# ... should yield True, since the net profit is 1 (0.2 * 50 - 9), and 1 > 0.
+# Examples
+# profitable_gamble(0.2, 50, 9) ➞ True
+# profitable_gamble(0.9, 1, 2) ➞ False
+# profitable_gamble(0.9, 3, 2) ➞ True
+# Notes
+# A profitable gamble is a game that yields a positive net profit, where net profit is calculated in the following manner: net_outcome = probability_of_winning * prize - cost_of_playing.
+def profitable_gamble(prob, prize, pay):
+  return prob * prize > pay
+# Create a function that returns True if an integer is evenly divisible by 5, and False otherwise.
+# Examples
+# divisible_by_five(5) ➞ True
+# divisible_by_five(-55) ➞ True
+# divisible_by_five(37) ➞ False
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def divisible_by_five(n):
+	return n % 5 == 0
+# Create a function that returns the number of frames shown in a given number of minutes for a certain FPS.
+# Examples
+# frames(1, 1) ➞ 60
+# frames(10, 1) ➞ 600
+# frames(10, 25) ➞ 15000
+# Notes
+# FPS stands for "frames per second" and it's the number of frames a computer screen shows every second.
+def frames(minutes, fps):
+	return minutes * fps * 60
 # Create a function that takes a list and returns the sum of all numbers in the list.
 # Examples
 # get_sum_of_elements([2, 7, 4]) ➞ 13
