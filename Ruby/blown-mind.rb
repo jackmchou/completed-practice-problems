@@ -1,3 +1,20 @@
+# Create a function that takes an array of items, removes all duplicate items and returns a new array in the same sequential order as the old array (minus duplicates).
+# Examples
+
+# remove_dups([1, 0, 1, 0]) ➞ [1, 0]
+
+# remove_dups(["The", "big", "cat"]) ➞ ["The", "big", "cat"]
+
+# remove_dups(["John", "Taylor", "John"]) ➞ ["John", "Taylor"]
+
+# Notes
+
+#     Tests contain arrays with both strings and numbers.
+#     Tests are case sensitive.
+#     Each array item is unique.
+def remove_dups(arr)
+	arr.uniq
+end
 # In this challenge, you have to implement a function that returns the given distance kilometers converted into miles. You have to round the result up to the fifth decimal digit.
 # Examples
 
