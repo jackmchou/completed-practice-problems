@@ -1,34 +1,38 @@
-# You can assign variables from arrayss like this:
+# You are counting points for a basketball game, given the amount of 3-pointers scored and 2-pointers scored, find the final points for the team and return that value (2 -pointers scored, 3-pointers scored).
+# Examples
 
-# first, _, last = [1, 2, 8]
+# points(1, 1) ➞ 5
 
-# first = lst[0]
+# points(7, 5) ➞ 29
 
-# _ = ignores second value (2)
+# points(38, 8) ➞ 100
 
-# last = lst[-1]
-
-# print(first) ➞ outputs 1
-# print(last) ➞ outputs 8
-
-# Using Destructuring Assignment (check the Resources tab), your task is to unpack the arrays writeyourcodehere into three variables, first, a variable to ignore all middle values and last.
 # Notes
 
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def points(twopt, threept)
+	twopt * 2 + threept * 3
+end
+# You can assign variables from arrayss like this:
+# first, _, last = [1, 2, 8]
+# first = lst[0]
+# _ = ignores second value (2)
+# last = lst[-1]
+# print(first) ➞ outputs 1
+# print(last) ➞ outputs 8
+# Using Destructuring Assignment (check the Resources tab), your task is to unpack the arrays writeyourcodehere into three variables, first, a variable to ignore all middle values and last.
+# Notes
 #     Your solution should be just One Line code.
 #     If your solution is longer than one line of code, please check the Resources tab.
 #     Another version of this challenge.
 first, *, last = [1, 2, 3, 4, 5, 6, 7, 8]
 # Write a function that takes two integers (hours, minutes), converts them to seconds, and adds them.
 # Examples
-
 # convert(1, 3) ➞ 3780
-
 # convert(2, 0) ➞ 7200
-
 # convert(0, 0) ➞ 0
-
 # Notes
-
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
@@ -37,30 +41,20 @@ def convert(hours, minutes)
 end
 # Create a function that returns the number of frames shown in a given number of minutes for a certain FPS.
 # Examples
-
 # frames(1, 1) ➞ 60
-
 # frames(10, 1) ➞ 600
-
 # frames(10, 25) ➞ 15000
-
 # Notes
-
 # FPS stands for "frames per second" and it's the number of frames a computer screen shows every second.
 def frames(minutes, fps)
 	minutes * fps * 60
 end
 # Create a function that takes an array of items, removes all duplicate items and returns a new array in the same sequential order as the old array (minus duplicates).
 # Examples
-
 # remove_dups([1, 0, 1, 0]) ➞ [1, 0]
-
 # remove_dups(["The", "big", "cat"]) ➞ ["The", "big", "cat"]
-
 # remove_dups(["John", "Taylor", "John"]) ➞ ["John", "Taylor"]
-
 # Notes
-
 #     Tests contain arrays with both strings and numbers.
 #     Tests are case sensitive.
 #     Each array item is unique.
@@ -69,15 +63,10 @@ def remove_dups(arr)
 end
 # In this challenge, you have to implement a function that returns the given distance kilometers converted into miles. You have to round the result up to the fifth decimal digit.
 # Examples
-
 # km_to_miles(2) ➞ 1.24274
-
 # km_to_miles(6) ➞ 3.72823
-
 # km_to_miles(8) ➞ 4.97097
-
 # Notes
-
 # 1 kilometer = 0.621371 miles.
 def km_to_miles(km)
 	(km * 0.621371).round(5)
