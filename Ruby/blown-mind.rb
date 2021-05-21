@@ -1,3 +1,20 @@
+# Create a function that takes an array of integers and strings. Convert integers to strings and return the new list.
+# Examples
+
+# parse_list([1, 2, "a", "b"]) ➞ ["1", "2", "a", "b"]
+
+# parse_list(["abc", 123, "def", 456]) ➞ ["abc", "123", "def", "456"]
+
+# parse_list([1, 2, 3, 17, 24, 3, "a", "123b"]) ➞ ["1", "2", "3", "17", "24", "3", "a", "123b"]
+
+# parse_list([]) ➞ []
+
+# Notes
+
+# N/A
+def parse_list(arr)
+	arr.map(&:to_s)
+end	
 # You are counting points for a basketball game, given the amount of 3-pointers scored and 2-pointers scored, find the final points for the team and return that value (2 -pointers scored, 3-pointers scored).
 # Examples
 
