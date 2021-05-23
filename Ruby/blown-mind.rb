@@ -1,3 +1,21 @@
+# A bartender is writing a simple program to determine whether he should serve drinks to someone. He only serves drinks to people 18 and older and when he's not on break.
+
+# Given the person's age, and whether break time is in session, create a function which returns whether he should serve drinks.
+# Examples
+
+# should_serve_drinks(17, true) ➞ false
+
+# should_serve_drinks(19, false) ➞ true
+
+# should_serve_drinks(30, true) ➞ false
+
+# Notes
+
+#     Return true or false.
+#     Some countries have a slightly higher drinking age, but for the purposes of this challenge, it will be 18.
+def should_serve_drinks(age, on_break)
+	age > 17 && !on_break
+end
 # Create a function that takes a positive integer n, and returns the sum of all the cubed values from 1 to n.
 
 # For example, if n is 3:
