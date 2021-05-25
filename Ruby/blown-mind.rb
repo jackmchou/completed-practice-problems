@@ -1,3 +1,15 @@
+# There is an easy way to assign array values to the nth index by using 'The Splat Operator 'in destructuring.
+
+# head, tail = [1, 2, 3, 4]
+
+# print(head) ➞ 1
+# print(tail) ➞ 2
+
+# But how could I make tail = [2, 3, 4] instead of tail = 2? Add something into the code and make this happen.
+# Notes
+
+# Check the Resources tab for more examples.
+head, *tail = [1, 2, 3, 4]
 # Mubashir wants to swap two given numbers!
 
 # It is not returning the right values. Can you help him fix it?
