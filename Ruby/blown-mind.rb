@@ -1,3 +1,182 @@
+# Given two arguments, return an array which contains these two arguments.
+# Examples
+
+# make_pair(1, 2) ➞ [1, 2]
+
+# make_pair(51, 21) ➞ [51, 21]
+
+# make_pair(512124, 215) ➞ [512124, 215]
+
+# Notes
+
+# N/A
+def make_pair(num1, num2)
+	[num1, num2]
+end
+# There is an easy way to assign array values to the nth index by using 'The Splat Operator 'in destructuring.
+
+# head, tail = [1, 2, 3, 4]
+
+# print(head) ➞ 1
+# print(tail) ➞ 2
+
+# But how could I make tail = [2, 3, 4] instead of tail = 2? Add something into the code and make this happen.
+# Notes
+
+# Check the Resources tab for more examples.
+head, *tail = [1, 2, 3, 4]
+# Mubashir wants to swap two given numbers!
+
+# It is not returning the right values. Can you help him fix it?
+
+# a = 100
+# b = 200
+# a, b = swap(a, b)
+# print(a, b) # Should print out "200, 100", but the function prints out "100, 100"
+
+# Examples
+
+# swap(100, 200) ➞ [200, 100]
+
+# swap(44, 33) ➞ [33, 44]
+
+# swap(21, 12) ➞ [12, 21]
+
+# Notes
+
+# N/A
+def swap(a, b)
+	[b, a]
+end
+# A bartender is writing a simple program to determine whether he should serve drinks to someone. He only serves drinks to people 18 and older and when he's not on break.
+
+# Given the person's age, and whether break time is in session, create a function which returns whether he should serve drinks.
+# Examples
+
+# should_serve_drinks(17, true) ➞ false
+
+# should_serve_drinks(19, false) ➞ true
+
+# should_serve_drinks(30, true) ➞ false
+
+# Notes
+
+#     Return true or false.
+#     Some countries have a slightly higher drinking age, but for the purposes of this challenge, it will be 18.
+def should_serve_drinks(age, on_break)
+	age > 17 && !on_break
+end
+# Create a function that takes a positive integer n, and returns the sum of all the cubed values from 1 to n.
+
+# For example, if n is 3:
+
+# sum_cubes(3) ➞ 36
+# 1 ** 3 + 2 ** 3 + 3 ** 3 = 36
+
+# Examples
+
+# sum_cubes(7) ➞ 784
+
+# sum_cubes(8) ➞ 1296
+
+# sum_cubes(9) ➞ 2025
+
+# Notes
+
+# Input n will be a positive integer.
+def sum_cubes(n)
+	Array(1..n).reduce(0) {|sum, num| sum + num ** 3 }
+end
+# Create a function that takes an array of integers and strings. Convert integers to strings and return the new list.
+# Examples
+
+# parse_list([1, 2, "a", "b"]) ➞ ["1", "2", "a", "b"]
+
+# parse_list(["abc", 123, "def", 456]) ➞ ["abc", "123", "def", "456"]
+
+# parse_list([1, 2, 3, 17, 24, 3, "a", "123b"]) ➞ ["1", "2", "3", "17", "24", "3", "a", "123b"]
+
+# parse_list([]) ➞ []
+
+# Notes
+
+# N/A
+def parse_list(arr)
+	arr.map(&:to_s)
+end	
+# You are counting points for a basketball game, given the amount of 3-pointers scored and 2-pointers scored, find the final points for the team and return that value (2 -pointers scored, 3-pointers scored).
+# Examples
+
+# points(1, 1) ➞ 5
+
+# points(7, 5) ➞ 29
+
+# points(38, 8) ➞ 100
+
+# Notes
+
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def points(twopt, threept)
+	twopt * 2 + threept * 3
+end
+# You can assign variables from arrayss like this:
+# first, _, last = [1, 2, 8]
+# first = lst[0]
+# _ = ignores second value (2)
+# last = lst[-1]
+# print(first) ➞ outputs 1
+# print(last) ➞ outputs 8
+# Using Destructuring Assignment (check the Resources tab), your task is to unpack the arrays writeyourcodehere into three variables, first, a variable to ignore all middle values and last.
+# Notes
+#     Your solution should be just One Line code.
+#     If your solution is longer than one line of code, please check the Resources tab.
+#     Another version of this challenge.
+first, *, last = [1, 2, 3, 4, 5, 6, 7, 8]
+# Write a function that takes two integers (hours, minutes), converts them to seconds, and adds them.
+# Examples
+# convert(1, 3) ➞ 3780
+# convert(2, 0) ➞ 7200
+# convert(0, 0) ➞ 0
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def convert(hours, minutes)
+	hours * 60 * 60 + minutes * 60
+end
+# Create a function that returns the number of frames shown in a given number of minutes for a certain FPS.
+# Examples
+# frames(1, 1) ➞ 60
+# frames(10, 1) ➞ 600
+# frames(10, 25) ➞ 15000
+# Notes
+# FPS stands for "frames per second" and it's the number of frames a computer screen shows every second.
+def frames(minutes, fps)
+	minutes * fps * 60
+end
+# Create a function that takes an array of items, removes all duplicate items and returns a new array in the same sequential order as the old array (minus duplicates).
+# Examples
+# remove_dups([1, 0, 1, 0]) ➞ [1, 0]
+# remove_dups(["The", "big", "cat"]) ➞ ["The", "big", "cat"]
+# remove_dups(["John", "Taylor", "John"]) ➞ ["John", "Taylor"]
+# Notes
+#     Tests contain arrays with both strings and numbers.
+#     Tests are case sensitive.
+#     Each array item is unique.
+def remove_dups(arr)
+	arr.uniq
+end
+# In this challenge, you have to implement a function that returns the given distance kilometers converted into miles. You have to round the result up to the fifth decimal digit.
+# Examples
+# km_to_miles(2) ➞ 1.24274
+# km_to_miles(6) ➞ 3.72823
+# km_to_miles(8) ➞ 4.97097
+# Notes
+# 1 kilometer = 0.621371 miles.
+def km_to_miles(km)
+	(km * 0.621371).round(5)
+end
 # Write a function to check if an array contains a particular number.
 # Examples
 # check([1, 2, 3, 4, 5], 3) ➞ true
