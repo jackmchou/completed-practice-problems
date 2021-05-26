@@ -1,3 +1,18 @@
+# Given two arguments, return an array which contains these two arguments.
+# Examples
+
+# make_pair(1, 2) ➞ [1, 2]
+
+# make_pair(51, 21) ➞ [51, 21]
+
+# make_pair(512124, 215) ➞ [512124, 215]
+
+# Notes
+
+# N/A
+def make_pair(num1, num2)
+	[num1, num2]
+end
 # There is an easy way to assign array values to the nth index by using 'The Splat Operator 'in destructuring.
 
 # head, tail = [1, 2, 3, 4]
