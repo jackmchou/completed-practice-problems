@@ -1,3 +1,18 @@
+# In mathematics and digital electronics, a binary number is a number expressed in the base-2 numeral system or binary numeral system. Given an array of ones and zeroes of a binary number, return the equivalent decimal value.
+# Examples
+
+# binary_to_decimal([0, 0, 0, 1]) ➞ 1
+
+# binary_to_decimal([0, 0, 1, 0]) ➞ 2
+
+# binary_to_decimal([1, 1, 1, 1, 1, 0, 1, 1, 0, 1]) ➞ 1005
+
+# Notes
+
+# N/A
+def binary_to_decimal(arr)
+	arr.join().to_i(2)
+end
 # Given two arguments, return an array which contains these two arguments.
 # Examples
 
