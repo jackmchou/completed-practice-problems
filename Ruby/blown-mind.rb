@@ -1,3 +1,23 @@
+# Create a function that takes an array of numbers and returns a new array, sorted in ascending order (smallest to biggest).
+
+#     Sort numbers array in ascending order.
+#     If the function's argument is nil or an empty array; return an empty array.
+#     Return a new array of sorted numbers.
+
+# Examples
+
+# sort_nums_ascending([1, 2, 10, 50, 5]) ➞ [1, 2, 5, 10, 50]
+
+# sort_nums_ascending([80, 29, 4, -95, -24, 85]) ➞ [-95, -24, 4, 29, 80, 85]
+
+# sort_nums_ascending([]) ➞ []
+
+# Notes
+
+# Test input can be positive or negative.
+def sort_nums_ascending(arr)
+	arr.sort()
+end
 # Create a function that takes an array of numbers and returns the smallest number in the array.
 # Examples
 
