@@ -1,3 +1,22 @@
+# Create a function that returns its given argument, but by using a lambda function.
+
+# A lambda function is constructed like so:
+
+# lambda_func=lambda """parameters""":#code here
+
+# Examples
+
+# lambda_func(3) ➞ 3
+
+# lambda_func("3") ➞ "3"
+
+# lambda_func(True) ➞ True
+
+# Notes
+
+# Check the Resources tab for more information on lambda functions.
+# create your lambda function below
+lambda_func = lambda param : param
 # Create a function to calculate how many characters in total are needed to make up the shape. You will be given a list of strings which make up a shape in the compiler (i.e. a square, a rectangle or a line).
 # Examples
 # count_characters([
