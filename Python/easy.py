@@ -1,63 +1,74 @@
+# Create a function that checks to see if two object arguments are equal to one another. Return True if the objects are equal, otherwise, return False.
+# Examples
+# # The first object parameter.
+# obj_one = {
+#   "name": "Benny",
+#   "phone": "3325558745",
+#   "email": "benny@edabit.com"
+# }
+# # The second object parameter.
+# obj_two = {
+#   "name": "Jason",
+#   "phone": "9853759720",
+#   "email": "jason@edabit.com"
+# }
+# is_equal(obj_one, obj_two)
+# ➞ False
+# # The first object parameter.
+# obj_one = {
+#   "name": "Jason",
+#   "phone": "9853759720",
+#   "email": "jason@edabit.com"
+# }
+# # The second object parameter.
+# obj_two = {
+#   "name": "Jason",
+#   "phone": "9853759720",
+#   "email": "jason@edabit.com"
+# }
+# is_equal(obj_one, obj_two)
+# ➞ True
+# Notes
+# If you have a suggestion on how to make these instructions easier to understand, please leave a comment. Your feedback is greatly appreciated.
+def is_equal(obj_one, obj_two):
+	return obj_one == obj_two
 # Create a function that takes an integer and return True if it's divisible by 100, otherwise return False.
 # Examples
-
 # divisible(1) ➞ False
-
 # divisible(1000) ➞ True
-
 # divisible(100) ➞ True
-
 # Notes
-
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
 def divisible(num):
 	return num % 100 == 0
 # Python has a logical operator and. The and operator takes two boolean values, and returns True if both values are True.
-
 # Consider a and b:
-
 #     a is checked if it is True or False.
 #     If a is False, False is returned.
 #     b is checked if it is True or False.
 #     If b is False, False is returned.
 #     Otherwise, True is returned (as both a and b are therefore True ).
-
 # The and operator will only return True for True and True.
-
 # Make a function using the and operator.
 # Examples
-
 # And(True, False) ➞ False
-
 # And(True, True) ➞ True
-
 # And(False, True) ➞ False
-
 # And(False, False) ➞ False
-
 # Notes
-
 # N/A
 def And(a, b):
 	return a and b
 # Create a function that returns its given argument, but by using a lambda function.
-
 # A lambda function is constructed like so:
-
 # lambda_func=lambda """parameters""":#code here
-
 # Examples
-
 # lambda_func(3) ➞ 3
-
 # lambda_func("3") ➞ "3"
-
 # lambda_func(True) ➞ True
-
 # Notes
-
 # Check the Resources tab for more information on lambda functions.
 # create your lambda function below
 lambda_func = lambda param : param
