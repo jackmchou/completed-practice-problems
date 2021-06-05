@@ -1,3 +1,100 @@
+# Given a list of integers, return the difference between the largest and smallest integers in the list.
+# Examples
+# difference([10, 15, 20, 2, 10, 6]) ➞ 18
+# # 20 - 2 = 18
+# difference([-3, 4, -9, -1, -2, 15]) ➞ 24
+# # 15 - (-9) = 24
+# difference([4, 17, 12, 2, 10, 2]) ➞ 15
+# Notes
+# N/A
+def difference(nums):
+	return max(nums) - min(nums)
+# Create a function that accepts a list and returns the last item in the list. The list can be either homogeneous or heterogeneous.
+# Examples
+# get_last_item([1, 2, 3]) ➞ 3
+# get_last_item(["cat", "dog", "duck"]) ➞ "duck"
+# get_last_item([True, False, True]) ➞ True
+# get_last_item([7, "String", False]) ➞ False
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def get_last_item(lst):
+	return lst[-1]
+# Create a function that checks to see if two object arguments are equal to one another. Return True if the objects are equal, otherwise, return False.
+# Examples
+# # The first object parameter.
+# obj_one = {
+#   "name": "Benny",
+#   "phone": "3325558745",
+#   "email": "benny@edabit.com"
+# }
+# # The second object parameter.
+# obj_two = {
+#   "name": "Jason",
+#   "phone": "9853759720",
+#   "email": "jason@edabit.com"
+# }
+# is_equal(obj_one, obj_two)
+# ➞ False
+# # The first object parameter.
+# obj_one = {
+#   "name": "Jason",
+#   "phone": "9853759720",
+#   "email": "jason@edabit.com"
+# }
+# # The second object parameter.
+# obj_two = {
+#   "name": "Jason",
+#   "phone": "9853759720",
+#   "email": "jason@edabit.com"
+# }
+# is_equal(obj_one, obj_two)
+# ➞ True
+# Notes
+# If you have a suggestion on how to make these instructions easier to understand, please leave a comment. Your feedback is greatly appreciated.
+def is_equal(obj_one, obj_two):
+	return obj_one == obj_two
+# Create a function that takes an integer and return True if it's divisible by 100, otherwise return False.
+# Examples
+# divisible(1) ➞ False
+# divisible(1000) ➞ True
+# divisible(100) ➞ True
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def divisible(num):
+	return num % 100 == 0
+# Python has a logical operator and. The and operator takes two boolean values, and returns True if both values are True.
+# Consider a and b:
+#     a is checked if it is True or False.
+#     If a is False, False is returned.
+#     b is checked if it is True or False.
+#     If b is False, False is returned.
+#     Otherwise, True is returned (as both a and b are therefore True ).
+# The and operator will only return True for True and True.
+# Make a function using the and operator.
+# Examples
+# And(True, False) ➞ False
+# And(True, True) ➞ True
+# And(False, True) ➞ False
+# And(False, False) ➞ False
+# Notes
+# N/A
+def And(a, b):
+	return a and b
+# Create a function that returns its given argument, but by using a lambda function.
+# A lambda function is constructed like so:
+# lambda_func=lambda """parameters""":#code here
+# Examples
+# lambda_func(3) ➞ 3
+# lambda_func("3") ➞ "3"
+# lambda_func(True) ➞ True
+# Notes
+# Check the Resources tab for more information on lambda functions.
+# create your lambda function below
+lambda_func = lambda param : param
 # Create a function to calculate how many characters in total are needed to make up the shape. You will be given a list of strings which make up a shape in the compiler (i.e. a square, a rectangle or a line).
 # Examples
 # count_characters([
