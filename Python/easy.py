@@ -1,16 +1,21 @@
+# Given a list of integers, return the difference between the largest and smallest integers in the list.
+# Examples
+# difference([10, 15, 20, 2, 10, 6]) ➞ 18
+# # 20 - 2 = 18
+# difference([-3, 4, -9, -1, -2, 15]) ➞ 24
+# # 15 - (-9) = 24
+# difference([4, 17, 12, 2, 10, 2]) ➞ 15
+# Notes
+# N/A
+def difference(nums):
+	return max(nums) - min(nums)
 # Create a function that accepts a list and returns the last item in the list. The list can be either homogeneous or heterogeneous.
 # Examples
-
 # get_last_item([1, 2, 3]) ➞ 3
-
 # get_last_item(["cat", "dog", "duck"]) ➞ "duck"
-
 # get_last_item([True, False, True]) ➞ True
-
 # get_last_item([7, "String", False]) ➞ False
-
 # Notes
-
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
