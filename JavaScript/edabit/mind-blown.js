@@ -1,14 +1,24 @@
+// Create a function that takes a string of words (or just one word) and converts each word from camelCase to snake_case.
+// Examples
+
+// camelToSnake("magicCarrots") ➞ "magic_carrots"
+
+// camelToSnake("greatApples for aSmellyRhino") ➞ "great_apples for a_smelly_rhino"
+
+// camelToSnake("thatsGreat") ➞ "thats_great"
+
+// Notes
+
+// You won't get more than two capitals in a row (e.g. "DIYFoods" is not given).
+function camelToSnake(str) {
+  return [...str].map(ele => ele.toUpperCase() == ele && ele !== ' ' && !Number.isInteger(+ele) ? `_${ele.toLowerCase()}` : ele).join('')
+}
 // Write a function that takes a credit card number and only displays the last four characters. The rest of the card number must be replaced by ************.
 // Examples
-
 // cardHide("1234123456785678") ➞ "************5678"
-
 // cardHide("8754456321113213") ➞ "************3213"
-
 // cardHide("35123413355523") ➞ "**********5523"
-
 // Examples
-
 //     Ensure you return a string.
 //     The length of the string must remain the same as the input.
 function cardHide(card) {
@@ -16,23 +26,16 @@ function cardHide(card) {
 }
 // Given an array and an integer n, return the sum of the first n numbers in the array.
 // Worked Example
-
 // sliceSum([9, 8, 7, 6], 3) ➞ 24
 // // The parameter n is specified as 3.
 // // The first 3 numbers in the list are 9, 8 and 7.
 // // The sum of these 3 numbers is 24 (9 + 8 + 7).
 // // Return the answer.
-
 // Examples
-
 // sliceSum([1, 3, 2], 2) ➞ 4
-
 // sliceSum([4, 2, 5, 7], 4) ➞ 18
-
 // sliceSum([3, 6, 2], 0) ➞ 0
-
 // Notes
-
 // If n is larger than the length of the array, return the sum of the whole array.
 function sliceSum(arr, n) {
 	return arr.slice(0, n).reduce((cur, acc) => cur + acc, 0)
