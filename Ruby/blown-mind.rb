@@ -1,3 +1,20 @@
+# Create a function that takes an array of numbers. Return the largest number in the array.
+# Examples
+
+# find_largest_num([4, 5, 1, 3]) ➞ 5
+
+# find_largest_num([300, 200, 600, 150]) ➞ 600
+
+# find_largest_num([1000, 1001, 857, 1]) ➞ 1001
+
+# Notes
+
+#     Expect either positive numbers or zero (there are no negative numbers).
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def find_largest_num(nums)
+	nums.max(1)
+end
 # Create a function that takes an array of numbers and returns a new array, sorted in ascending order (smallest to biggest).
 #     Sort numbers array in ascending order.
 #     If the function's argument is nil or an empty array; return an empty array.
