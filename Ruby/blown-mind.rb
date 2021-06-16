@@ -1,3 +1,24 @@
+# Given an array of either entirely odd integers or entirely even integers except for a single Outlier Number. Create a function to return this number.
+# Examples
+
+# outlier_number([2, 3, 4]) ➞ 3
+# # 2 and 4 are even numbers.
+# # 3 is an outlier number.
+
+# outlier_number([1, 2, 3]) ➞ 2
+
+# outlier_number([4, 1, 3, 5, 9]) ➞ 4
+
+# Notes
+
+# Array size will always be >=3.
+def outlier_number(arr)
+  partedArr = arr.partition {|num| num % 2 == 0}
+  result = partedArr.select do |arr|
+    arr.length == 1
+  end
+  return result.flatten[0]
+end
 # You can assign variables from lists with destructuring like this:
 
 # arr = ["eyes", "nose", "lips", "ears"]
@@ -31,7 +52,7 @@ _, _, lips, _ = arr
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
 def find_largest_num(nums)
-	nums.max(1)
+	nums.max
 end
 # Create a function that takes an array of numbers and returns a new array, sorted in ascending order (smallest to biggest).
 #     Sort numbers array in ascending order.
