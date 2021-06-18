@@ -1,3 +1,22 @@
+# Create a function that counts how many D's are in a sentence.
+# Examples
+
+# count_d("My friend Dylan got distracted in school.") ➞ 4
+
+# count_d("Debris was scattered all over the yard.") ➞ 3
+
+# count_d("The rodents hibernated in their den.") ➞ 3
+
+# Notes
+
+#     Your function must be case-insensitive.
+#     Remember to return the result.
+#     Check the Resources for help.
+
+def count_d(sentence)
+	sentence.count "Dd"
+end
+
 # After an amazing performance, the crowd goes wild! People clap enthusiastically and most claps overlap with each other to create one homogeneous sound.
 
 # An overlapped clap is a clap which starts but doesn't finish, as in "ClaClap" (the first clap is cut short and there are overall 2 claps).
