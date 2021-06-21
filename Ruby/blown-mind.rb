@@ -1,3 +1,18 @@
+# The "Reverser" takes a string as input and returns that string in reverse order, with the opposite case.
+# Examples
+
+# reverse("Hello World") ➞ "DLROw OLLEh"
+
+# reverse("ReVeRsE") ➞ "eSrEvEr"
+
+# reverse("Radar") ➞ "RADAr"
+
+# Notes
+
+# There will be no punctuation in any of the test cases.
+def reverse(str)
+	str.swapcase.reverse
+end
 # In this challenge, you must verify the equality of two different values given the parameters a and b.
 
 # Both the value and type of the parameters need to be equal. The possible types of the given parameters are:
