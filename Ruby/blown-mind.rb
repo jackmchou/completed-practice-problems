@@ -1,3 +1,21 @@
+# Transcribe the given DNA strand into corresponding mRNA - a type of RNA, that will be formed from it after transcription. DNA has the bases A, T, G and C, while RNA converts to U, A, C and G respectively.
+# Examples
+
+# dna_to_rna("ATTAGCGCGATATACGCGTAC") ➞ "UAAUCGCGCUAUAUGCGCAUG"
+
+# dna_to_rna("CGATATA") ➞ "GCUAUAU"
+
+# dna_to_rna("GTCATACGACGTA") ➞ "CAGUAUGCUGCAU"
+
+# Notes
+
+#     Transcription is the process of making complementary strand.
+#     A, T, G and C in DNA converts to U, A, C and G respectively, when in mRNA.
+
+def dna_to_rna(dna)
+  dna.gsub(/[ATGC]/, 'A' => 'U', 'T' => 'A', 'G' => 'C', 'C' => 'G')
+end
+
 # Edabit allows for markdown formatting, meaning that it's possible to format words by surrounding text with special characters. For example, to get bold text, you surround the text with double asterisks, like this **bold**.
 
 # Here is a list of the possible formatting options in Edabit and how to apply them:
