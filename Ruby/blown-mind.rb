@@ -1,3 +1,18 @@
+# In the Code tab is a function which is meant to return how many uppercase letters there are in an array of various words. Fix the code so that it functions normally!
+# Examples
+
+# count_uppercase(["SOLO", "hello", "Tea", "wHat"]) ➞ 6
+
+# count_uppercase(["little", "lower", "down"]) ➞ 0
+
+# count_uppercase(["EDAbit", "Educate", "Coding"]) ➞ 5
+
+# Notes
+
+# N/A
+def count_uppercase(arr)
+	arr.join.count "[A-Z]"
+end 
 # Mubashir created a function that takes two numbers a and b and an operator o. His function should return the result of the corresponding mathematical function on both numbers. If the operator is not one of the specified characters +, -, /, *, or if there is a division by zero, the function should return nil. Help him by fixing the code in the code tab to pass this challenge.
 
 # Look at the examples below to get an idea of what the function should do:
