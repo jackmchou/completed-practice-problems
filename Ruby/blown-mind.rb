@@ -1,3 +1,182 @@
+# In mathematics, an Arithmetic Progression (AP) is a sequence of numbers such that the difference between the consecutive terms is constant. Create a function that takes three arguments:
+#     The first element of the sequence first
+#     Constant difference between the elements diff
+#     Total numbers in the sequence n
+# Return the first n elements of the sequence with the given common difference diff. Final result should be a string of numbers, separated by comma and space.
+# Examples
+# arithmetic_progression(1, 2, 5) ➞ "1, 3, 5, 7, 9"
+# arithmetic_progression(1, 0, 5) ➞ "1, 1, 1, 1, 1"
+# arithmetic_progression(1, -3, 10) ➞ "1, -2, -5, -8, -11, -14, -17, -20, -23, -26"
+# Notes
+# N/A
+def arithmetic_progression(start, diff, n)
+  arr = []
+  i = 0
+  while i < n do
+    arr.push(start)
+    start += diff
+    i += 1
+  end
+  arr.join(', ')
+end
+# Given a one word lowercase string txt, return another string such that even-indexed and odd-indexed characters are grouped and groups are space-separated.
+# Examples
+# even_odd_string("mubashir") ➞ "mbsi uahr"
+# # Letters at even indexes = "mbsi"
+# # Letters at odd indexes = "uahr"
+# # Join both strings with a space
+# even_odd_string("edabit") ➞ "eai dbt"
+# even_odd_string("airforce") ➞ "aroc ifre"
+# Notes
+# There will be no space in the given string.
+def even_odd_string(txt)
+  result = []
+  txt.chars.partition.with_index { |_, i| i % 2 == 0}.each { |arr| result.push(arr.join)}
+  return result.join(' ')
+end
+# In the Code tab is a function which is meant to return how many uppercase letters there are in an array of various words. Fix the code so that it functions normally!
+# Examples
+# count_uppercase(["SOLO", "hello", "Tea", "wHat"]) ➞ 6
+# count_uppercase(["little", "lower", "down"]) ➞ 0
+# count_uppercase(["EDAbit", "Educate", "Coding"]) ➞ 5
+# Notes
+# N/A
+def count_uppercase(arr)
+	arr.join.count "[A-Z]"
+end 
+# Mubashir created a function that takes two numbers a and b and an operator o. His function should return the result of the corresponding mathematical function on both numbers. If the operator is not one of the specified characters +, -, /, *, or if there is a division by zero, the function should return nil. Help him by fixing the code in the code tab to pass this challenge.
+# Look at the examples below to get an idea of what the function should do:
+# Examples
+# basic_calculator(2, "+",  4) ➞ 6
+# basic_calculator(6, "-", 5) ➞ 1
+# basic_calculator(12, "/", 3) ➞ 4
+# basic_calculator(3, "*", 4) ➞ 12
+# basic_calculator(1, "/", 0) ➞ nil
+# # Division by zero is not possible
+# basic_calculator(1, "x", 0) ➞ nil
+# # "x" is not an operator
+# Notes
+# N/A
+def basic_calculator(a, o, b)
+  if(o == "+") 
+	  return a + b
+	elsif (o == "-")
+    return a - b
+  elsif (o == "/" and b != 0) 
+    return a / b
+	elsif (o == "*") 
+    return a * b
+  else return nil
+	end
+end
+# The "Reverser" takes a string as input and returns that string in reverse order, with the opposite case.
+# Examples
+# reverse("Hello World") ➞ "DLROw OLLEh"
+# reverse("ReVeRsE") ➞ "eSrEvEr"
+# reverse("Radar") ➞ "RADAr"
+# Notes
+# There will be no punctuation in any of the test cases.
+def reverse(str)
+	str.swapcase.reverse
+end
+# In this challenge, you must verify the equality of two different values given the parameters a and b.
+# Both the value and type of the parameters need to be equal. The possible types of the given parameters are:
+#     Numbers
+#     Strings
+#     Booleans (false or true)
+#     Special values: nil
+# What have you learned so far that will permit you to do two different checks (value and type) with a single statement?
+# Implement a function that returns true if the parameters are equal, and false if they are not.
+# Examples
+# check_equality(1, true) ➞ false
+# # A number and a boolean: the value and type are different.
+# check_equality(0, "0") ➞ false
+# # A number and a string: the type is different.
+# check_equality(1,  1) ➞ true
+# # A number and a number: the type and value are equal.
+# Notes
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def check_equality(a, b)
+	a === b
+end
+# Write a function that takes an array of drinks and returns an array of only drinks with no sugar in them. Drinks that contain sugar (in this challenge) are:
+#     Cola
+#     Fanta
+# Examples
+# skip_the_sugar(["fanta", "cola", "water"]) ➞ ["water"]
+# skip_the_sugar(["fanta", "cola"]) ➞ []
+# skip_the_sugar(["lemonade", "beer", "water"]) ➞ ["lemonade", "beer", "water"]
+# Notes
+#     The function returns an array of strings.
+#     All drink names are in lowercase.
+def skip_the_sugar(drinks)
+  drinks.delete_if {|drink| drink == "cola" || drink == "fanta"}
+end
+# Create a function that counts how many D's are in a sentence.
+# Examples
+# count_d("My friend Dylan got distracted in school.") ➞ 4
+# count_d("Debris was scattered all over the yard.") ➞ 3
+# count_d("The rodents hibernated in their den.") ➞ 3
+# Notes
+#     Your function must be case-insensitive.
+#     Remember to return the result.
+#     Check the Resources for help.
+def count_d(sentence)
+	sentence.count "Dd"
+end
+# After an amazing performance, the crowd goes wild! People clap enthusiastically and most claps overlap with each other to create one homogeneous sound.
+# An overlapped clap is a clap which starts but doesn't finish, as in "ClaClap" (the first clap is cut short and there are overall 2 claps).
+# Given a string of what the overlapping claps sounded like, return how many claps were made in total.
+# Examples
+# count_claps("ClaClaClaClap!") ➞ 4
+# count_claps("ClClClaClaClaClap!") ➞ 6
+# count_claps("CCClaClClap!Clap!ClClClap!") ➞ 9
+# Notes
+# Each clap starts with a capital "C".
+def count_claps(str)
+	str.count "C"
+end
+# Given an array of either entirely odd integers or entirely even integers except for a single Outlier Number. Create a function to return this number.
+# Examples
+# outlier_number([2, 3, 4]) ➞ 3
+# # 2 and 4 are even numbers.
+# # 3 is an outlier number.
+# outlier_number([1, 2, 3]) ➞ 2
+# outlier_number([4, 1, 3, 5, 9]) ➞ 4
+# Notes
+# Array size will always be >=3.
+def outlier_number(arr)
+  partedArr = arr.partition {|num| num % 2 == 0}
+  result = partedArr.select do |arr|
+    arr.length == 1
+  end
+  return result.flatten[0]
+end
+# You can assign variables from lists with destructuring like this:
+# arr = ["eyes", "nose", "lips", "ears"]
+# eyes, nose, lips, ears = arr
+# If you don't need every list index stored in a named variable, you can use _ as a throwaway variable.
+# arr = ["eyes", "nose", "lips", "ears"]
+# _ , nose, _, _ = arr
+# ... this assigns the value in arr[1] to the variable nose. The values in each other index will be assigned to the variable _ in order, overwriting each previous value. nose now holds the string "nose", and _ now holds the string "ears".
+# Use destructuring assignment on the given list to assign the string "lips" to the variable provided. Do not use list indexing, or assigning variable names to any of the other strings.
+# Notes
+# Check the Resources tab for more examples.
+arr = ["eyes", "nose", "lips", "ears"]
+_, _, lips, _ = arr
+# Create a function that takes an array of numbers. Return the largest number in the array.
+# Examples
+# find_largest_num([4, 5, 1, 3]) ➞ 5
+# find_largest_num([300, 200, 600, 150]) ➞ 600
+# find_largest_num([1000, 1001, 857, 1]) ➞ 1001
+# Notes
+#     Expect either positive numbers or zero (there are no negative numbers).
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def find_largest_num(nums)
+	nums.max
+end
 # Create a function that takes an array of numbers and returns a new array, sorted in ascending order (smallest to biggest).
 #     Sort numbers array in ascending order.
 #     If the function's argument is nil or an empty array; return an empty array.

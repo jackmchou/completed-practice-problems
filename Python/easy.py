@@ -1,3 +1,56 @@
+# Create a function that takes a string txt and a number n and returns the repeated string n number of times.
+# If given argument txt is not a string, return Not A String !!
+# Examples
+# repeat_string("Mubashir", 2) ➞ "MubashirMubashir"
+# repeat_string("Matt", 3) ➞ "MattMattMatt"
+# repeat_string(1990, 7) ➞ "Not A String !!"
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def repeat_string(txt, n):
+	return "Not A String !!" if type(txt) != str else txt * n
+# Write a function to check if a list contains a particular number.
+# Examples
+# check([1, 2, 3, 4, 5], 3) ➞ True
+# check([1, 1, 2, 1, 1], 3) ➞ False
+# check([5, 5, 5, 6], 5) ➞ True
+# check([], 5) ➞ False
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def check(lst, el):
+	return el in lst
+# Create a function that takes a number as an argument and returns negative of that number. Return negative numbers without any change.
+# Examples
+# return_negative(4) ➞ -4
+# return_negative(15) ➞ -15
+# return_negative(-4) ➞ -4
+# return_negative(0) ➞ 0
+# Notes
+# N/A
+def return_negative(n):
+	return n if n < 0 else n * -1
+# Given two arguments, return a list which contains these two arguments.
+# Examples
+# make_pair(1, 2) ➞ [1, 2]
+# make_pair(51, 21) ➞ [51, 21]
+# make_pair(512124, 215) ➞ [512124, 215]
+# Notes
+# N/A
+def make_pair(num1, num2):
+	return [num1, num2]
+# Create a function that accepts a measurement value in inches and returns the equivalent of the measurement value in feet.
+# Examples
+# inches_to_feet(324) ➞ 27
+# inches_to_feet(12) ➞ 1
+# inches_to_feet(36) ➞ 3
+# Notes
+#     If inches are under 12, return 0.
+#     12 inches = 1 foot.
+def inches_to_feet(inches):
+	return 0 if inches < 12 else inches / 12
 # Given a list of integers, return the difference between the largest and smallest integers in the list.
 # Examples
 # difference([10, 15, 20, 2, 10, 6]) ➞ 18
