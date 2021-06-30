@@ -1,3 +1,24 @@
+# Given an arrayof integers, determine whether the sum of its elements is even or odd.
+
+# The return value should be a string ("odd" or "even").
+
+# If the input arrayis empty, consider it as an array with a zero ([0]).
+# Examples
+
+# even_or_odd([0]) ➞ "even"
+
+# even_or_odd([1]) ➞ "odd"
+
+# even_or_odd([]) ➞ "even"
+
+# even_or_odd([0, 1, 5]) ➞ "even"
+
+# Notes
+
+# N/A
+def even_or_odd(arr)
+	arr.reduce(0) {|sum, num| sum + num} % 2 == 0 ? 'even' : 'odd'
+end
 # Given a number n, return an array containing several arrays. Each array increment in size, from range 1 to n inclusive, contaning its length as the elements.
 # Examples
 
