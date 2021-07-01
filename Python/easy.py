@@ -1,3 +1,18 @@
+# Given a list of numbers, return True if the sum of the values in the list is less than 100; otherwise return False.
+# Examples
+
+# list_less_than_100([5, 57]) ➞ True
+
+# list_less_than_100([77, 30]) ➞ False
+
+# list_less_than_100([0]) ➞ True
+
+# Notes
+
+# N/A
+def list_less_than_100(lst):
+	return True if sum(lst) < 100 else False
+
 # Create a function that takes a string txt and a number n and returns the repeated string n number of times.
 # If given argument txt is not a string, return Not A String !!
 # Examples
