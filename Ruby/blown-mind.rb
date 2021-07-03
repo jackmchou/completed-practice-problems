@@ -1,50 +1,32 @@
 # Given an arrayof integers, determine whether the sum of its elements is even or odd.
-
 # The return value should be a string ("odd" or "even").
-
 # If the input arrayis empty, consider it as an array with a zero ([0]).
 # Examples
-
 # even_or_odd([0]) ➞ "even"
-
 # even_or_odd([1]) ➞ "odd"
-
 # even_or_odd([]) ➞ "even"
-
 # even_or_odd([0, 1, 5]) ➞ "even"
-
 # Notes
-
 # N/A
 def even_or_odd(arr)
 	arr.reduce(0) {|sum, num| sum + num} % 2 == 0 ? 'even' : 'odd'
 end
 # Given a number n, return an array containing several arrays. Each array increment in size, from range 1 to n inclusive, contaning its length as the elements.
 # Examples
-
 # pyramid_arrays(1) ➞ [[1]]
-
 # pyramid_arrays(3) ➞ [[1], [2, 2], [3, 3, 3]]
-
 # pyramid_arrays(5) ➞ [[1], [2, 2], [3, 3, 3], [4, 4, 4, 4], [5, 5, 5, 5, 5]]
-
 # Notes
-
 # n will be a positive integer.
 def pyramid_arrays(n)
 	(1..n).map {|e| Array.new(e, e)}
 end
 # Create a function that takes a number as an argument and returns the highest digit in that number.
 # Examples
-
 # highest_digit(379) ➞ 9
-
 # highest_digit(2) ➞ 2
-
 # highest_digit(377401) ➞ 7
-
 # Notes
-
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
@@ -53,54 +35,34 @@ def highest_digit(n)
 end
 # Transcribe the given DNA strand into corresponding mRNA - a type of RNA, that will be formed from it after transcription. DNA has the bases A, T, G and C, while RNA converts to U, A, C and G respectively.
 # Examples
-
 # dna_to_rna("ATTAGCGCGATATACGCGTAC") ➞ "UAAUCGCGCUAUAUGCGCAUG"
-
 # dna_to_rna("CGATATA") ➞ "GCUAUAU"
-
 # dna_to_rna("GTCATACGACGTA") ➞ "CAGUAUGCUGCAU"
-
 # Notes
-
 #     Transcription is the process of making complementary strand.
 #     A, T, G and C in DNA converts to U, A, C and G respectively, when in mRNA.
-
 def dna_to_rna(dna)
   dna.gsub(/[ATGC]/, 'A' => 'U', 'T' => 'A', 'G' => 'C', 'C' => 'G')
 end
-
 # Edabit allows for markdown formatting, meaning that it's possible to format words by surrounding text with special characters. For example, to get bold text, you surround the text with double asterisks, like this **bold**.
-
 # Here is a list of the possible formatting options in Edabit and how to apply them:
-
 #     **bold**
 #     _italics_
 #     `inline code`
 #     ~~strikethrough~~
-
 # Challenge
-
 # Given a string and a style character, return the newly formatted string. Style characters are single letters that represent the different types of formatting.
-
 # For the purposes of this challenge, the style characters are as follows:
-
 #     "b" is for bold
 #     "i" is for italics
 #     "c" is for inline code
 #     "s" is for strikethrough
-
 # Examples
-
 # md_format("Bold", "b") ➞ "**Bold**"
-
 # md_format("leaning text", "i") ➞ "_leaning text_"
-
 # md_format("Edabit", "c") ➞ "`Edabit`"
-
 # md_format("That's a strike!", "s") ➞ "~~That's a strike!~~"
-
 # Notes
-
 # Remember to format your comments!
 def md_format(word, style)
   case style

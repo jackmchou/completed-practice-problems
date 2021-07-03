@@ -1,14 +1,25 @@
-# Fix the code in the code tab to pass this challenge (only syntax errors). Look at the examples below to get an idea of what the function should do.
+# Create a function that takes a string (will be a person's first and last name) and returns a string with the first and last name swapped.
 # Examples
 
-# sum_lst([1, 2, 3, 4, 5]) ➞ 15
+# name_shuffle("Donald Trump") ➞ "Trump Donald"
 
-# sum_lst([-1, 0, 1]) ➞ 0
+# name_shuffle("Rosie O'Donnell") ➞ "O'Donnell Rosie"
 
-# sum_lst([0, 4, 8, 12]) ➞ 24
+# name_shuffle("Seymour Butts") ➞ "Butts Seymour"
 
 # Notes
 
+#     There will be exactly one space between the first and last name.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def name_shuffle(txt):
+	return ' '.join(list(reversed(txt.split(' '))))
+# Fix the code in the code tab to pass this challenge (only syntax errors). Look at the examples below to get an idea of what the function should do.
+# Examples
+# sum_lst([1, 2, 3, 4, 5]) ➞ 15
+# sum_lst([-1, 0, 1]) ➞ 0
+# sum_lst([0, 4, 8, 12]) ➞ 24
+# Notes
 #     READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
 #     Don't overthink this challenge; it's not supposed to be hard.
 def sum_lst(lst):
@@ -18,19 +29,13 @@ def sum_lst(lst):
 	return total
 # Given a list of numbers, return True if the sum of the values in the list is less than 100; otherwise return False.
 # Examples
-
 # list_less_than_100([5, 57]) ➞ True
-
 # list_less_than_100([77, 30]) ➞ False
-
 # list_less_than_100([0]) ➞ True
-
 # Notes
-
 # N/A
 def list_less_than_100(lst):
 	return True if sum(lst) < 100 else False
-
 # Create a function that takes a string txt and a number n and returns the repeated string n number of times.
 # If given argument txt is not a string, return Not A String !!
 # Examples
