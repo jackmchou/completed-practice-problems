@@ -1,3 +1,16 @@
+# Create a function that concatenates n input lists, where n is variable.
+# Examples
+# concat([1, 2, 3], [4, 5], [6, 7]) ➞ [1, 2, 3, 4, 5, 6, 7]
+# concat([1], [2], [3], [4], [5], [6], [7]) ➞ [1, 2, 3, 4, 5, 6, 7]
+# concat([1, 2], [3, 4]) ➞ [1, 2, 3, 4]
+# concat([4, 4, 4, 4, 4]) ➞ [4, 4, 4, 4, 4]
+# Notes
+# Lists should be concatenated in order of the arguments.
+def concat(*args):
+  result = []
+  for arr in args:
+    result += arr
+  return result
 # Create a function that takes a string, checks if it has the same number of "x"s and "o"s and returns either True or False.
 #     Return a boolean value (True or False).
 #     Return True if the amount of x's and o's are the same.
