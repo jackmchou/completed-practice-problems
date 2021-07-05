@@ -1,3 +1,97 @@
+# Create a function that concatenates n input lists, where n is variable.
+# Examples
+# concat([1, 2, 3], [4, 5], [6, 7]) ➞ [1, 2, 3, 4, 5, 6, 7]
+# concat([1], [2], [3], [4], [5], [6], [7]) ➞ [1, 2, 3, 4, 5, 6, 7]
+# concat([1, 2], [3, 4]) ➞ [1, 2, 3, 4]
+# concat([4, 4, 4, 4, 4]) ➞ [4, 4, 4, 4, 4]
+# Notes
+# Lists should be concatenated in order of the arguments.
+def concat(*args):
+  result = []
+  for arr in args:
+    result += arr
+  return result
+# Create a function that takes a string, checks if it has the same number of "x"s and "o"s and returns either True or False.
+#     Return a boolean value (True or False).
+#     Return True if the amount of x's and o's are the same.
+#     Return False if they aren't the same amount.
+#     The string can contain any character.
+#     When "x" and "o" are not in the string, return True.
+# Examples
+# XO("ooxx") ➞ True
+# XO("xooxx") ➞ False
+# XO("ooxXm") ➞ True
+# # Case insensitive.
+# XO("zpzpzpp") ➞ True
+# # Returns True if no x and o.
+# XO("zzoo") ➞ False
+# Notes
+#     Remember to return True if there aren't any x's or o's.
+#     Must be case insensitive.
+def XO(txt):
+  txt = txt.lower()
+  return True if txt.count('o') == txt.count('x') else False
+# You can assign variables from lists like this:
+# lst = [1, 2, 3, 4, 5, 6]
+# first = lst[0]
+# middle = lst[1:-1]
+# last = lst[-1]
+# print(first) ➞ outputs 1
+# print(middle) ➞ outputs [2, 3, 4, 5]
+# print(last) ➞ outputs 6
+# With Python 3, you can assign variables from lists in a much more succinct way. Create variables first, middle and last from the given list using destructuring assignment (check the Resources tab for some examples), where:
+# first  ➞ 1
+# middle ➞ [2, 3, 4, 5]
+# last ➞ 6
+# Your task is to unpack the list writeyourcodehere into three variables, being first, middle, and last, with middle being everything in between the first and last element. Then print all three variables.
+# Notes
+#     Your solution should be just one line of code.
+#     If your solution is longer than one line of code, please review the Resources tab.
+first, *middle, last = [1, 2, 3, 4, 5, 6]
+# I'd like to calculate how long on average I've lived in the same house.
+# Given a person's age and the number of times they've moved house as moves, return the average number of years that they've spent living in the same house.
+# Examples
+# years_in_one_house(30, 1) ➞ 15
+# years_in_one_house(15, 2) ➞ 5
+# years_in_one_house(80, 0) ➞ 80
+# Notes
+#     You can assume that the tests include people who've always lived in a house.
+#     Round to the nearest year.
+def years_in_one_house(age, moves):
+	return round(age / (moves + 1)) if moves != 0 else age
+# Create a function that takes a string (will be a person's first and last name) and returns a string with the first and last name swapped.
+# Examples
+# name_shuffle("Donald Trump") ➞ "Trump Donald"
+# name_shuffle("Rosie O'Donnell") ➞ "O'Donnell Rosie"
+# name_shuffle("Seymour Butts") ➞ "Butts Seymour"
+# Notes
+#     There will be exactly one space between the first and last name.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def name_shuffle(txt):
+	return ' '.join(list(reversed(txt.split(' '))))
+# Fix the code in the code tab to pass this challenge (only syntax errors). Look at the examples below to get an idea of what the function should do.
+# Examples
+# sum_lst([1, 2, 3, 4, 5]) ➞ 15
+# sum_lst([-1, 0, 1]) ➞ 0
+# sum_lst([0, 4, 8, 12]) ➞ 24
+# Notes
+#     READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
+#     Don't overthink this challenge; it's not supposed to be hard.
+def sum_lst(lst):
+	total = 0
+	for i in lst:
+		total += i
+	return total
+# Given a list of numbers, return True if the sum of the values in the list is less than 100; otherwise return False.
+# Examples
+# list_less_than_100([5, 57]) ➞ True
+# list_less_than_100([77, 30]) ➞ False
+# list_less_than_100([0]) ➞ True
+# Notes
+# N/A
+def list_less_than_100(lst):
+	return True if sum(lst) < 100 else False
 # Create a function that takes a string txt and a number n and returns the repeated string n number of times.
 # If given argument txt is not a string, return Not A String !!
 # Examples
