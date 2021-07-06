@@ -1,3 +1,18 @@
+# Write a function that takes an integer and returns a string with the given number of "a"s in Edabit.
+# Examples
+
+# how_many_times(5) ➞ "Edaaaaabit"
+
+# how_many_times(0) ➞ "Edbit"
+
+# how_many_times(12) ➞ "Edaaaaaaaaaaaabit"
+
+# Notes
+
+#     The string must start with "Ed" and end with "bit".
+#     You'll only be given integers as test input.
+def how_many_times(num):
+	return "Ed{}bit".format("a" * num)
 # Create a function that concatenates n input lists, where n is variable.
 # Examples
 # concat([1, 2, 3], [4, 5], [6, 7]) ➞ [1, 2, 3, 4, 5, 6, 7]
