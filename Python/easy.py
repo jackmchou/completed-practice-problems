@@ -1,3 +1,62 @@
+# I have a bucket containing an amount of navy blue paint and I'd like to paint as many walls as possible. Create a function that returns the number of complete walls that I can paint, before I need to head to the shops to buy more.
+#     n is the number of square meters I can paint.
+#     w and h are the widths and heights of a single wall in meters.
+# Examples
+# how_many_walls(100, 4, 5) ➞ 5
+# how_many_walls(10, 15, 12) ➞ 0
+# how_many_walls(41, 3, 6) ➞ 2
+# Notes
+#     Don't count a wall if I don't manage to finish painting all of it before I run out of paint.
+#     All walls will have the same dimensions.
+#     All numbers will be positive integers.
+def how_many_walls(n, w, h):
+	return n // (w * h)
+# You can assign variables from lists like this:
+# first, _ , last = [1, 2, 8]
+# first   = lst[0]
+# _   = ignores second value (2)
+# last   = lst[-1]
+# print(first) ➞ outputs 1
+# print(last) ➞ outputs 8
+# Using Destructuring Assignment (check the Resources tab), your task is to unpack the list writeyourcodehere into three variables, first, a variable to ignore all middle values and last.
+# Notes
+#     Your solution should be just One Line code.
+#     If your solution is longer than one line of code, please check the Resources tab.
+#     Another version of this challenge.
+# DO NOT USE first = writeyourcodehere[0]
+# DO NOT USE last = writeyourcodehere[-1]
+# Check Resources Tab for HELP
+first, *_, last = [1, 2, 3, 4, 5, 6, 7, 8]
+# Write a function that accepts base (decimal), height (decimal) and shape ("triangle", "parallelogram") as input and calculates the area of that shape.
+# Examples
+# area_shape(2, 3, "triangle") ➞ 3
+# area_shape(8, 6, "parallelogram") ➞ 48
+# area_shape(2.9, 1.3, "parallelogram") ➞ 3.77
+# Notes
+#     Area of a triangle is 0.5 * b * h
+#     Area of a parallelogram is b * h
+#     Assume triangle and parallelogram are the only inputs for shape.
+def area_shape(base, height, shape):
+	return 0.5 * base * height if shape == "triangle" else base * height
+# Create a function that takes a number and return a list of three numbers: half of the number, quarter of the number and an eighth of the number.
+# Examples
+# half_quarter_eighth(6) ➞ [3, 1.5, 0.75]
+# half_quarter_eighth(22) ➞ [11, 5.5, 2.75]
+# half_quarter_eighth(25) ➞ [12.5, 6.25, 3.125]
+# Notes
+# The order of the list is: half, quarter, eighth.
+def half_quarter_eighth(n):
+	return [n * 0.5, n * 0.25, n * 0.125]
+# Write a function that takes an integer and returns a string with the given number of "a"s in Edabit.
+# Examples
+# how_many_times(5) ➞ "Edaaaaabit"
+# how_many_times(0) ➞ "Edbit"
+# how_many_times(12) ➞ "Edaaaaaaaaaaaabit"
+# Notes
+#     The string must start with "Ed" and end with "bit".
+#     You'll only be given integers as test input.
+def how_many_times(num):
+	return "Ed{}bit".format("a" * num)
 # Create a function that concatenates n input lists, where n is variable.
 # Examples
 # concat([1, 2, 3], [4, 5], [6, 7]) ➞ [1, 2, 3, 4, 5, 6, 7]
