@@ -1,85 +1,66 @@
+# Creates a function that takes a string and returns the concatenated first and last character.
+# Examples
+# first_last("ganesh") ➞ "gh"
+# first_last("kali") ➞ "ki"
+# first_last("shiva") ➞ "sa"
+# first_last("vishnu") ➞ "vu"
+# first_last("durga") ➞ "da"
+# Notes
+# There is no empty string.
+def first_last(name):
+  return name[0] + name[len(name) - 1]
 # Create a function that takes an equation (e.g. "1+1"), and returns the answer.
 # Examples
-
 # equation("1+1") ➞ 2
-
 # equation("7*4-2") ➞ 26
-
 # equation("1+1+1+1+1") ➞ 5
-
 # Notes
-
 # Supported operators are +, -, and *.
 def equation(s):
 	return eval(s)
 # You can assign variables from lists with destructuring like this:
-
 # arr = ["eyes", "nose", "lips", "ears"]
 # eyes, nose, lips, ears = arr
-
 # If you don't need every list index stored in a named variable, you can use _ as a throwaway variable.
-
 # arr = ["eyes", "nose", "lips", "ears"]
 # _ , nose, _, _ = arr
-
 # ... this assigns the value in arr[1] to the variable nose. The values in each other index will be assigned to the variable _ in order, overwriting each previous value. nose now holds the string "nose", and _ now holds the string "ears".
-
 # Use destructuring assignment on the given list to assign the string "lips" to the variable provided. Do not use list indexing, or assigning variable names to any of the other strings.
 # Notes
-
 # Check the Resources tab for more examples.
 # DO NOT change arr
 # DO NOT USE lips = arr[2]
 # "eyes", "nose", and "ears" should not be assigned to anything
-
 arr = ["eyes", "nose", "lips", "ears"]
 _, _, lips, _ = arr
 # Create a function that returns True if the combined weight of a car car and the weight of the passengers p in the car is less than the maximum weight max_weight the car is allowed to carry. Otherwise, return False. The weight of the car and the weight of the passengers are given in pounds. The maximum weight is given in kilograms.
 # Examples
-
 # weight_allowed(3000, [150, 201, 75, 88, 195], 1700) ➞ True
-
 # weight_allowed(3200, [220, 101, 115, 228, 15], 1700) ➞ False
-
 # weight_allowed(2900, [225, 171, 300, 274, 191], 1850) ➞ True
-
 # Notes
-
 # 1 pound = 0.453592 kilogram
 def weight_allowed(car, p, max_weight):
 	return (sum(p) + car) * 0.453592 < max_weight
 # Create a function that accepts a list of numbers and return both the minimum and maximum numbers, in that order (as a list).
 # Examples
-
 # min_max([1, 2, 3, 4, 5]) ➞ [1, 5]
-
 # min_max([2334454, 5]) ➞ [5, 2334454]
-
 # min_max([1]) ➞ [1, 1]
-
 # Notes
-
 # All test lists will have at least one element and are valid.
 def min_max(nums):
 	return [min(nums), max(nums)]
 # Given a Rubik's Cube with a side length of n, return the number of individual stickers that are needed to cover the whole cube.
-
 # Pictures of Rubik's Cubes
-
 #     The Rubik's cube of side length 1 has 6 stickers.
 #     The Rubik's cube of side length 2 has 24 stickers.
 #     The Rubik's cube of side length 3 has 54 stickers.
-
 # Examples
-
 # how_many_stickers(1) ➞ 6
-
 # how_many_stickers(2) ➞ 24
-
 # how_many_stickers(3) ➞ 54
-
 # Notes
-
 #     Keep in mind there are six faces to keep track of.
 #     Expect only positive whole numbers.
 def how_many_stickers(n):
