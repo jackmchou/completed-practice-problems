@@ -1,3 +1,18 @@
+# A word has been split into a left part and a right part. Re-form the word by adding both halves together, changing the first character to an uppercase letter.
+# Examples
+
+# get_word("seas", "onal") ➞ "Seasonal"
+
+# get_word("comp", "lete") ➞ "Complete"
+
+# get_word("lang", "uage") ➞ "Language"
+
+# Notes
+
+# N/A
+def get_word(left, right)
+	"#{left + right}".capitalize()
+end
 # Given an arrayof integers, determine whether the sum of its elements is even or odd.
 # The return value should be a string ("odd" or "even").
 # If the input arrayis empty, consider it as an array with a zero ([0]).
