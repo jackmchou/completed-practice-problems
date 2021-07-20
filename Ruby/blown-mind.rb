@@ -1,3 +1,19 @@
+# Create a function that returns the number of syllables in a simple string. The string is made up of short repeated words like "Lalalalalalala" (which would have 7 syllables).
+# Examples
+
+# count_syllables("Hehehehehehe") ➞ 6
+
+# count_syllables("bobobobobobobobo") ➞ 8
+
+# count_syllables("NANANA") ➞ 3
+
+# Notes
+
+#     For simplicity, please note that each syllable will consist of two letters only.
+#     Your code should accept strings of any case (upper, lower and mixed case).
+def count_syllables(str)
+	str.length / 2
+end
 # Create a function that takes an equation (e.g. "1+1"), and returns the answer.
 # Examples
 
