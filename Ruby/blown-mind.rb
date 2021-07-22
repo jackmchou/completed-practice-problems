@@ -1,3 +1,21 @@
+# Create a function that returns true if a string is empty and false otherwise.
+# Examples
+
+# is_empty("") ➞ true
+
+# is_empty(" ") ➞ false
+
+# is_empty("a") ➞ false
+
+# Notes
+
+#     A string containing only whitespaces " " does not count as empty.
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def is_empty(s)
+	s.empty?
+end
 # Some basic Python operators are +, -, *, /, and %. In this challenge you will be given three parameters, num1, num2, and an operator. Use the operator on number 1 and 2.
 # Examples
 
