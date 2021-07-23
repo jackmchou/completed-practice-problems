@@ -1,3 +1,21 @@
+# Create a function that takes a hash and returns the keys and values as separate arrays. Return the keys sorted alphabetically, and their corresponding values in the same order.
+# Examples
+
+# keys_and_values({ "a" => 1, "b" => 2, "c" => 3 })
+# ➞ [["a", "b", "c"], [1, 2, 3]]
+
+# keys_and_values({ "a" => "Apple", "b" => "Microsoft", "c" => "Google" })
+# ➞ [["a", "b", "c"], ["Apple", "Microsoft", "Google"]]
+
+# keys_and_values({ "key1" => true, "key2" => false, "key3" => nil })
+# ➞ [["key1", "key2", "key3"], [true, false, nil]]
+
+# Notes
+
+# N/A
+def keys_and_values(hash)
+	[hash.keys, hash.values]
+end
 # Create a function that takes an array of integers as an argument and returns a unique number from that array. All numbers except unique ones have the same number of occurrences in the array.
 # Examples
 
