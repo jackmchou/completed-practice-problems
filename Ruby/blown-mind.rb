@@ -1,3 +1,18 @@
+# Create a function that flips M's to W's (all uppercase).
+# Examples
+
+# wumbo("I LOVE MAKING CHALLENGES") ➞ "I LOVE WAKING CHALLENGES"
+
+# wumbo("MEET ME IN WARSAW") ➞ "WEET WE IN WARSAW"
+
+# wumbo("WUMBOLOGY") ➞ "WUWBOLOGY"
+
+# Notes
+
+# N/A
+def wumbo(words)
+	words.gsub(/M/, 'W')
+end
 # Create a function that takes a hash and returns the keys and values as separate arrays. Return the keys sorted alphabetically, and their corresponding values in the same order.
 # Examples
 
