@@ -1,3 +1,20 @@
+# Create a function that returns the total number of parameters passed in.
+# Examples
+
+# number_args("a", "b", "c") ➞ 3
+
+# number_args(10, 20, 30, 40, 50) ➞ 5
+
+# number_args() ➞ 0
+
+# Notes
+
+#     How can you express the input parameter so it takes a variable number of arguments?
+#     Check the Resources tab for additional info.
+# You have to make the parameter list yourself
+def number_args(*args)
+	args.count
+end
 # Create a function that flips M's to W's (all uppercase).
 # Examples
 
