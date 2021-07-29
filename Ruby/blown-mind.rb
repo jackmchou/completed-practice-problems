@@ -1,3 +1,19 @@
+# Create a function that validates whether a number n is within the bounds of lower and upper. Return false if n is not an integer.
+# Examples
+
+# int_within_bounds(3, 1, 9) ➞ true
+
+# int_within_bounds(6, 1, 6) ➞ false
+
+# int_within_bounds(4.5, 3, 8) ➞ false
+
+# Notes
+
+#     The term "within bounds" means a number is considered equal or greater than a lower bound and lesser (but not equal) to an upper bound, (see example #2).
+#     Bounds will be always given as integers.
+def int_within_bounds(n, lower, upper)
+	n % 1 == 0 || n == 0 ? n.between?(lower, upper - 1) : false
+end
 # Create a function that takes an array with numbers and return an array with the elements multiplied by two.
 # Examples
 
