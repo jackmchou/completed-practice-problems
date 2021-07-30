@@ -1,3 +1,20 @@
+# Write a function that validates whether two strings are identical. Make it case insensitive.
+# Examples
+
+# match("hello", "hELLo") ➞ true
+
+# match("motive", "emotive") ➞ false
+
+# match("venom", "VENOM") ➞ true
+
+# match("mask", "mAskinG") ➞ false
+
+# Notes
+
+# N/A
+def match(s1, s2)
+	s1.casecmp(s2) == 0
+end
 # Create a function that validates whether a number n is within the bounds of lower and upper. Return false if n is not an integer.
 # Examples
 
