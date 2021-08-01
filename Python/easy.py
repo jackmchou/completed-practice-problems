@@ -1,14 +1,23 @@
-# Create a function that counts how many D's are in a sentence.
+# Create a function that takes a word and returns the new word without including the first character.
 # Examples
 
-# count_d("My friend Dylan got distracted in school.") ➞ 4
+# new_word("apple") ➞ "pple"
 
-# count_d("Debris was scattered all over the yard.") ➞ 3
+# new_word("cherry") ➞ "herry"
 
-# count_d("The rodents hibernated in their den.") ➞ 3
+# new_word("plum") ➞ "lum"
 
 # Notes
 
+# The input is always a valid word.
+def new_word(word):
+	return word[1:]
+# Create a function that counts how many D's are in a sentence.
+# Examples
+# count_d("My friend Dylan got distracted in school.") ➞ 4
+# count_d("Debris was scattered all over the yard.") ➞ 3
+# count_d("The rodents hibernated in their den.") ➞ 3
+# Notes
 #     Your function must be case-insensitive.
 #     Remember to return the result.
 #     Check the Resources for help.
