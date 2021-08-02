@@ -1,3 +1,165 @@
+# Write a function that validates whether two strings are identical. Make it case insensitive.
+# Examples
+# match("hello", "hELLo") ➞ true
+# match("motive", "emotive") ➞ false
+# match("venom", "VENOM") ➞ true
+# match("mask", "mAskinG") ➞ false
+# Notes
+# N/A
+def match(s1, s2)
+	s1.casecmp(s2) == 0
+end
+# Create a function that validates whether a number n is within the bounds of lower and upper. Return false if n is not an integer.
+# Examples
+# int_within_bounds(3, 1, 9) ➞ true
+# int_within_bounds(6, 1, 6) ➞ false
+# int_within_bounds(4.5, 3, 8) ➞ false
+# Notes
+#     The term "within bounds" means a number is considered equal or greater than a lower bound and lesser (but not equal) to an upper bound, (see example #2).
+#     Bounds will be always given as integers.
+def int_within_bounds(n, lower, upper)
+	n % 1 == 0 || n == 0 ? n.between?(lower, upper - 1) : false
+end
+# Create a function that takes an array with numbers and return an array with the elements multiplied by two.
+# Examples
+# get_multiplied_arr([2, 5, 3]) ➞ [4, 10, 6]
+# get_multiplied_arr([1, 86, -5]) ➞ [2, 172, -10]
+# get_multiplied_arr([5, 382, 0]) ➞ [10, 764, 0]
+# Notes
+# N/A
+def get_multiplied_arr(arr)
+	arr.map {|i| i * 2}
+end
+# Create a function which validates whether a bridge is safe to walk on (i.e. has no gaps in it to fall through).
+# Examples
+# is_safe_bridge("####") ➞ true
+# is_safe_bridge("## ####") ➞ false
+# is_safe_bridge("#") ➞ true
+# Notes
+# You can expect the bridge's ends connecting it to its surrounding.
+def is_safe_bridge(s)
+	!s.include? " "
+end
+# Create a function that returns the total number of parameters passed in.
+# Examples
+# number_args("a", "b", "c") ➞ 3
+# number_args(10, 20, 30, 40, 50) ➞ 5
+# number_args() ➞ 0
+# Notes
+#     How can you express the input parameter so it takes a variable number of arguments?
+#     Check the Resources tab for additional info.
+# You have to make the parameter list yourself
+def number_args(*args)
+	args.count
+end
+# Create a function that flips M's to W's (all uppercase).
+# Examples
+# wumbo("I LOVE MAKING CHALLENGES") ➞ "I LOVE WAKING CHALLENGES"
+# wumbo("MEET ME IN WARSAW") ➞ "WEET WE IN WARSAW"
+# wumbo("WUMBOLOGY") ➞ "WUWBOLOGY"
+# Notes
+# N/A
+def wumbo(words)
+	words.gsub(/M/, 'W')
+end
+# Create a function that takes a hash and returns the keys and values as separate arrays. Return the keys sorted alphabetically, and their corresponding values in the same order.
+# Examples
+# keys_and_values({ "a" => 1, "b" => 2, "c" => 3 })
+# ➞ [["a", "b", "c"], [1, 2, 3]]
+# keys_and_values({ "a" => "Apple", "b" => "Microsoft", "c" => "Google" })
+# ➞ [["a", "b", "c"], ["Apple", "Microsoft", "Google"]]
+# keys_and_values({ "key1" => true, "key2" => false, "key3" => nil })
+# ➞ [["key1", "key2", "key3"], [true, false, nil]]
+# Notes
+# N/A
+def keys_and_values(hash)
+	[hash.keys, hash.values]
+end
+# Create a function that takes an array of integers as an argument and returns a unique number from that array. All numbers except unique ones have the same number of occurrences in the array.
+# Examples
+# find_single_number([2, 2, 2, 3, 4, 4, 4]) ➞ 3
+# find_single_number([2]) ➞ 2
+# find_single_number([]) ➞ []
+# find_single_number([7, 13, 3, 6, 5, 4, 4, 13, 5, 3, 6, 7, 6, 5, 3, 13, 4, 7, 13, 5, 7, 4, 3, 6, 8, 4, 3, 7, 5, 6, 13]) ➞ 8
+# find_single_number([1, 2, 3, 6, 5, 4, 4, 2, 5, 3, 6, 1, 6, 5, 3, 2, 4, 1, 2, 5, 1, 4, 3, 6, 101, 4, 3, 1, 5, 6, 2]) ➞ 101
+# Notes
+#     Don't forget to return the result.
+#     Be aware this challenge includes two validations:
+#         Empty input should return an empty array [] (example #3).
+#         Single item arrays should return that item (example #2).
+#     There are always 1 or 0 unique numbers in the input. No two or three+ uniques.
+#     If you're stuck or your solution is over complicated check the Resources tab.
+def find_single_number(numbers)
+	numbers.select {|n| numbers.count(n) == 1}[0]
+end
+# Create a function that returns true if a string is empty and false otherwise.
+# Examples
+# is_empty("") ➞ true
+# is_empty(" ") ➞ false
+# is_empty("a") ➞ false
+# Notes
+#     A string containing only whitespaces " " does not count as empty.
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def is_empty(s)
+	s.empty?
+end
+# Some basic Python operators are +, -, *, /, and %. In this challenge you will be given three parameters, num1, num2, and an operator. Use the operator on number 1 and 2.
+# Examples
+# operate(1, 2, "+") ➞ 3
+# # 1 + 2 = 3
+# operate(7, 10, "-") ➞ -3
+# # 7 - 10 = -3
+# operate(20, 10, "%") ➞ 0
+# # 20 % 10 = 0
+# Notes
+# There will not be any divisions by zero.
+def operate(num1, num2, operator)
+  case operator
+		when '+'
+		num1 + num2
+		when '-'
+		num1 - num2
+		when '*'
+		num1 * num2
+		when '/'
+		num1 / num2
+		when '%'
+		num1 % num2
+	end
+end	
+# Create a function that returns the number of syllables in a simple string. The string is made up of short repeated words like "Lalalalalalala" (which would have 7 syllables).
+# Examples
+# count_syllables("Hehehehehehe") ➞ 6
+# count_syllables("bobobobobobobobo") ➞ 8
+# count_syllables("NANANA") ➞ 3
+# Notes
+#     For simplicity, please note that each syllable will consist of two letters only.
+#     Your code should accept strings of any case (upper, lower and mixed case).
+def count_syllables(str)
+	str.length / 2
+end
+# Create a function that takes an equation (e.g. "1+1"), and returns the answer.
+# Examples
+# equation("1+1") ➞ 2
+# equation("7*4-2") ➞ 26
+# equation("1+1+1+1+1") ➞ 5
+# Notes
+# Supported operators are +, -, and *.
+def equation(s)
+	eval(s)
+end
+# A word has been split into a left part and a right part. Re-form the word by adding both halves together, changing the first character to an uppercase letter.
+# Examples
+# get_word("seas", "onal") ➞ "Seasonal"
+# get_word("comp", "lete") ➞ "Complete"
+# get_word("lang", "uage") ➞ "Language"
+# Notes
+# N/A
+def get_word(left, right)
+	"#{left + right}".capitalize()
+end
 # Given an arrayof integers, determine whether the sum of its elements is even or odd.
 # The return value should be a string ("odd" or "even").
 # If the input arrayis empty, consider it as an array with a zero ([0]).

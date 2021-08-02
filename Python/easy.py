@@ -1,3 +1,34 @@
+# Create a function that takes as a parameter a list of "stringified" numbers and returns a list of numbers.
+# Example:
+# ["1", "3", "3.6"] ➞ [1, 3, 3.6]
+# Examples
+# to_number_list(["9.4", "4.2"]) ➞ [9.4, 4.2]
+# to_number_list(["99", "20"]) ➞ [99, 20]
+# to_number_list(["9.5", "8.8"]) ➞ [9.5, 8.8]
+# Notes
+# Some inputs are floats.
+def to_number_list(lst):
+	return list(map(float, lst))
+# Create a function that takes a word and returns the new word without including the first character.
+# Examples
+# new_word("apple") ➞ "pple"
+# new_word("cherry") ➞ "herry"
+# new_word("plum") ➞ "lum"
+# Notes
+# The input is always a valid word.
+def new_word(word):
+	return word[1:]
+# Create a function that counts how many D's are in a sentence.
+# Examples
+# count_d("My friend Dylan got distracted in school.") ➞ 4
+# count_d("Debris was scattered all over the yard.") ➞ 3
+# count_d("The rodents hibernated in their den.") ➞ 3
+# Notes
+#     Your function must be case-insensitive.
+#     Remember to return the result.
+#     Check the Resources for help.
+def count_d(sentence):
+	return sentence.lower().count('d')
 # Creates a function that takes a string and returns the concatenated first and last character.
 # Examples
 # first_last("ganesh") ➞ "gh"
