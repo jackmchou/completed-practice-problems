@@ -1,3 +1,19 @@
+# Create a function to concatenate two integer arrays.
+# Examples
+
+# concat([1, 3, 5], [2, 6, 8]) ➞ [1, 3, 5, 2, 6, 8]
+
+# concat([7, 8], [10, 9, 1, 1, 2]) ➞ [7, 8, 10, 9, 1, 1, 2]
+
+# concat([4, 5, 1], [3, 3, 3, 3, 3]) ➞ [4, 5, 1, 3, 3, 3, 3, 3]
+
+# Notes
+
+#     Don't forget to return the result.
+#     See Resources tab for more info.
+def concat(arr1, arr2)
+	arr1 + arr2
+end
 # Scientists have discovered that in four decades, the world will EXPLODE! It will also take three decades to make a spaceship to travel to a new planet that can hold the entire world population.
 
 # You must calculate the number of people there will be in three decades from now.
