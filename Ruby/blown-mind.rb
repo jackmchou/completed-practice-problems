@@ -1,3 +1,19 @@
+# Given an integer array, transform it into a mirror.
+# Examples
+
+# mirror([0, 2, 4, 6]) ➞ [0, 2, 4, 6, 4, 2, 0]
+
+# mirror([1, 2, 3, 4, 5]) ➞ [1, 2, 3, 4, 5, 4, 3, 2, 1]
+
+# mirror([3, 5, 6, 7, 8]) ➞ [3, 5, 6, 7, 8, 7, 6, 5, 3]
+
+# Notes
+
+# Do not repeat the last item of the given array.
+def mirror(arr)
+	mirror = arr[(0...arr.length - 1)].reverse
+	arr + mirror
+end
 # In a board game, a piece may advance 1-6 tiles forward depending on the number rolled on a six-sided dice. If you advance your piece onto the same tile as another player's piece, both of you earn a bonus.
 
 # Given you and your friend's tile number, create a function that returns if it's possible to earn a bonus when you roll the dice.
