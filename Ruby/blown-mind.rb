@@ -1,3 +1,27 @@
+# A palindrome is a word that is identical forward and backwards.
+
+#     mom
+#     racecar
+#     kayak
+
+# Given a word, create a function that checks whether it is a palindrome.
+# Examples
+
+# is_palindrome("mom") ➞ true
+
+# is_palindrome("scary") ➞ false
+
+# is_palindrome("reviver") ➞ true
+
+# is_palindrome("stressed") ➞ false
+
+# Notes
+
+# All test input is lower cased.
+def is_palindrome(str)
+	str == str.reverse
+end
+
 # Given an array and an integer n, return the sum of the first n numbers in the array.
 # Worked Example
 # sum_first_n_nums([9, 8, 7, 6], 3) ➞ 24
