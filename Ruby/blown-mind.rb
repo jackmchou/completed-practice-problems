@@ -1,32 +1,37 @@
+# Given an array and an integer n, return the sum of the first n numbers in the array.
+# Worked Example
+# sum_first_n_nums([9, 8, 7, 6], 3) ➞ 24
+# # The parameter n is specified as 3.
+# # The first 3 numbers in the list are 9, 8 and 7.
+# # The sum of these 3 numbers is 24 (9 + 8 + 7).
+# # Return the answer.
+# Examples
+# slice_sum([1, 3, 2], 2) ➞ 4
+# slice_sum([4, 2, 5, 7], 4) ➞ 18
+# slice_sum([3, 6, 2], 0) ➞ 0
+# Notes
+# If n is larger than the length of the array, return the sum of the whole array.
+def slice_sum(arr, n)
+	n != 0 ? arr[0...n].reduce(:+) : 0
+end
 # Given an integer array, transform it into a mirror.
 # Examples
-
 # mirror([0, 2, 4, 6]) ➞ [0, 2, 4, 6, 4, 2, 0]
-
 # mirror([1, 2, 3, 4, 5]) ➞ [1, 2, 3, 4, 5, 4, 3, 2, 1]
-
 # mirror([3, 5, 6, 7, 8]) ➞ [3, 5, 6, 7, 8, 7, 6, 5, 3]
-
 # Notes
-
 # Do not repeat the last item of the given array.
 def mirror(arr)
 	mirror = arr[(0...arr.length - 1)].reverse
 	arr + mirror
 end
 # In a board game, a piece may advance 1-6 tiles forward depending on the number rolled on a six-sided dice. If you advance your piece onto the same tile as another player's piece, both of you earn a bonus.
-
 # Given you and your friend's tile number, create a function that returns if it's possible to earn a bonus when you roll the dice.
 # Examples
-
 # possible_bonus(3, 7) ➞ true
-
 # possible_bonus(1, 9) ➞ false
-
 # possible_bonus(5, 3) ➞ false
-
 # Notes
-
 #     You cannot move backward (which is why example #3 doesn't work).
 #     If you are already on the same tile, return false, as you would be advancing away.
 #     Expect only positive integer inputs.
@@ -35,41 +40,27 @@ def possible_bonus(a, b)
 	distance < 7 && a < b
 end
 # A set is a collection of unique items. A set can be formed from an array from removing all duplicate items.
-
 # [1, 3, 3, 5, 5, 5]
 # # original array
-
 # [1, 3, 5]
 # # original array transformed into a set
-
 # Create a function that sorts an array and removes all duplicate items from it.
 # Examples
-
 # set([1, 3, 3, 5, 5]) ➞ [1, 3, 5]
-
 # set([4, 4, 4, 4]) ➞ [4]
-
 # set([5, 7, 8, 9, 10, 15]) ➞ [5, 7, 8, 9, 10, 15]
-
 # set([3, 3, 3, 2, 1]) ➞ [1, 2, 3]
-
 # Notes
-
 # See resources for a hint if you get stuck.
 def set(arr)
 	arr.uniq
 end
 # Create a function that takes a name and returns a greeting in the form of a string.
 # Examples
-
 # hello_name("Gerald") ➞ "Hello Gerald!"
-
 # hello_name("Tiffany") ➞ "Hello Tiffany!"
-
 # hello_name("Ed") ➞ "Hello Ed!"
-
 # Notes
-
 #     The input is always a name (as string).
 #     Don't forget the exclamation mark!
 #     If you get stuck on a challenge, find help in the Resources tab.
@@ -78,23 +69,15 @@ def hello_name(name)
 	'Hello ' + name + '!'
 end
 # Given a Rubik's Cube with a side length of n, return the number of individual stickers that are needed to cover the whole cube.
-
 # Pictures of Rubik's Cubes
-
 #     The Rubik's cube of side length 1 has 6 stickers.
 #     The Rubik's cube of side length 2 has 24 stickers.
 #     The Rubik's cube of side length 3 has 54 stickers.
-
 # Examples
-
 # how_many_stickers(1) ➞ 6
-
 # how_many_stickers(2) ➞ 24
-
 # how_many_stickers(3) ➞ 54
-
 # Notes
-
 #     Keep in mind there are 6 faces to keep track of.
 #     Expect only positive whole numbers.
 def how_many_stickers(n)
@@ -102,38 +85,25 @@ def how_many_stickers(n)
 end
 # Create a function to concatenate two integer arrays.
 # Examples
-
 # concat([1, 3, 5], [2, 6, 8]) ➞ [1, 3, 5, 2, 6, 8]
-
 # concat([7, 8], [10, 9, 1, 1, 2]) ➞ [7, 8, 10, 9, 1, 1, 2]
-
 # concat([4, 5, 1], [3, 3, 3, 3, 3]) ➞ [4, 5, 1, 3, 3, 3, 3, 3]
-
 # Notes
-
 #     Don't forget to return the result.
 #     See Resources tab for more info.
 def concat(arr1, arr2)
 	arr1 + arr2
 end
 # Scientists have discovered that in four decades, the world will EXPLODE! It will also take three decades to make a spaceship to travel to a new planet that can hold the entire world population.
-
 # You must calculate the number of people there will be in three decades from now.
-
 #     The variable population is the world population now.
 #     Assume that every month, someone gives birth to more people n.
-
 # Return the number of people there will be when the spaceship is complete.
 # Examples
-
 # future_people(256, 2) ➞ 976
-
 # future_people(3248, 6) ➞ 5408
-
 # future_people(5240, 3) ➞ 6320
-
 # Notes
-
 # Humanity's fate lies in your calculation.
 def future_people(population, n)
 	population + n * 360
