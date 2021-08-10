@@ -1,3 +1,22 @@
+# Given a string, return true if its length is even or false if the length is odd.
+# Examples
+
+# odd_or_even("apples") ➞ true
+# # The word "apples" has 6 characters.
+# # 6 is an even number, so the program outputs true.
+
+# odd_or_even("pears") ➞ false
+# # "pears" has 5 letters, and 5 is odd.
+# # Therefore the program outputs false.
+
+# odd_or_even("cherry") ➞ true
+
+# Notes
+
+# N/A
+def odd_or_even(word)
+	word.size.even?
+end
 # A palindrome is a word that is identical forward and backwards.
 
 #     mom
