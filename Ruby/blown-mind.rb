@@ -1,3 +1,21 @@
+# Given a number n, find if its 2nd, 4th and 8th roots are all integers (perfect roots), return true if it exists, false if not.
+# Examples
+
+# perfect_roots(256) ➞ true
+# # 2nd root of 256 is 16
+# # 4th root of 256 is 4
+# # 8th root of 256 is 2
+
+# perfect_roots(1000) ➞ false
+
+# perfect_roots(6561) ➞ true
+
+# Notes
+
+# n > 1
+def perfect_roots(n)
+	Math.sqrt(n) % 1 == 0
+end
 # Write a function that accepts base (decimal), height (decimal) and shape ("triangle", "parallelogram") as input and calculates the area of that shape.
 # Examples
 
