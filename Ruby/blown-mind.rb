@@ -1,3 +1,28 @@
+# Create a function that filters out an array of state names into two categories based on the second parameter.
+
+#     Abbreviations abb
+#     Full names full
+
+# Examples
+
+# filter_state_names(["Arizona", "CA", "NY", "Nevada"], "abb")
+# ➞ ["CA", "NY"]
+
+# filter_state_names(["Arizona", "CA", "NY", "Nevada"], "full")
+# ➞ ["Arizona", "Nevada"]
+
+# filter_state_names(["MT", "NJ", "TX", "ID", "IL"], "abb")
+# ➞ ["MT", "NJ", "TX", "ID", "IL"]
+
+# filter_state_names(["MT", "NJ", "TX", "ID", "IL"], "full")
+# ➞ []
+
+# Notes
+
+# State abbreviations will always be in uppercase.
+def filter_state_names(arr, type)
+	type == 'abb' ? arr.select {|state| state.size == 2} : arr.select {|state| state.size != 2}
+end
 # Given a number n, find if its 2nd, 4th and 8th roots are all integers (perfect roots), return true if it exists, false if not.
 # Examples
 
