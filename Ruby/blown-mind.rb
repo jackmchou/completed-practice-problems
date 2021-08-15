@@ -1,3 +1,123 @@
+# Write a function that returns the number of users in a chatroom based on the following rules:
+#     If there is no one, return "no one online".
+#     If there is 1 person, return "user1 online".
+#     If there are 2 people, return user1 and user2 online".
+#     If there are n>2 people, return the first two names and add "and n-2 more online".
+# For example, if there are 5 users, return:
+# "user1, user2 and 3 more online"
+# Examples
+# chatroom_status([]) ➞ "no one online"
+# chatroom_status(["paRIE_to"]) ➞ "paRIE_to online"
+# chatroom_status(["s234f", "mailbox2"]) ➞ "s234f and mailbox2 online"
+# chatroom_status(["pap_ier44", "townieBOY", "panda321", "motor_bike5", "sandwichmaker833", "violinist91"])
+# ➞ "pap_ier44, townieBOY and 4 more online"
+# Notes
+# N/A
+def chatroom_status(users)
+  case users.length
+  when 0
+    "no one online"
+  when 1
+    "#{users[0]} online"
+  when 2
+    "#{users[0]} and #{users[1]} online"
+  when 3..10
+    "#{users[0]}, #{users[1]} and #{users.length - 2} more online"
+  end
+end
+# Create a function that takes a string of lowercase characters and returns that string reversed and in upper case.
+# Examples
+# reverse_capitalize("abc") ➞ "CBA"
+# reverse_capitalize("hellothere") ➞ "EREHTOLLEH"
+# reverse_capitalize("input") ➞ "TUPNI"
+# Notes
+# N/A
+def reverse_capitalize(str)
+	str.reverse.upcase
+end
+# Given an array of integers, return the difference between the largest and smallest integers in the array.
+# Examples
+# difference([10, 15, 20, 2, 10, 6]) ➞ 18
+# # 20 - 2 = 18
+# difference([-3, 4, -9, -1, -2, 15]) ➞ 24
+# # 15 - (-9) = 24
+# difference([4, 17, 12, 2, 10, 2]) ➞ 15
+# Notes
+# N/A
+def difference(nums)
+	nums.max - nums.min
+end
+# Create a function that filters out an array of state names into two categories based on the second parameter.
+#     Abbreviations abb
+#     Full names full
+# Examples
+# filter_state_names(["Arizona", "CA", "NY", "Nevada"], "abb")
+# ➞ ["CA", "NY"]
+# filter_state_names(["Arizona", "CA", "NY", "Nevada"], "full")
+# ➞ ["Arizona", "Nevada"]
+# filter_state_names(["MT", "NJ", "TX", "ID", "IL"], "abb")
+# ➞ ["MT", "NJ", "TX", "ID", "IL"]
+# filter_state_names(["MT", "NJ", "TX", "ID", "IL"], "full")
+# ➞ []
+# Notes
+# State abbreviations will always be in uppercase.
+def filter_state_names(arr, type)
+	type == 'abb' ? arr.select {|state| state.size == 2} : arr.select {|state| state.size != 2}
+end
+# Given a number n, find if its 2nd, 4th and 8th roots are all integers (perfect roots), return true if it exists, false if not.
+# Examples
+# perfect_roots(256) ➞ true
+# # 2nd root of 256 is 16
+# # 4th root of 256 is 4
+# # 8th root of 256 is 2
+# perfect_roots(1000) ➞ false
+# perfect_roots(6561) ➞ true
+# Notes
+# n > 1
+def perfect_roots(n)
+	Math.sqrt(n) % 1 == 0
+end
+# Write a function that accepts base (decimal), height (decimal) and shape ("triangle", "parallelogram") as input and calculates the area of that shape.
+# Examples
+# area_shape(2, 3, "triangle") ➞ 3
+# area_shape(8, 6, "parallelogram") ➞ 48
+# area_shape(2.9, 1.3, "parallelogram") ➞ 3.77
+# Notes
+#     Area of a triangle is 0.5 * b * h
+#     Area of a parallelogram is b * h
+#     Assume triangle and parallelogram are the only inputs for shape.
+def area_shape(base, height, shape)
+	shape == "triangle" ? base * height * 0.5 : base * height
+end
+# Given a string, return true if its length is even or false if the length is odd.
+# Examples
+# odd_or_even("apples") ➞ true
+# # The word "apples" has 6 characters.
+# # 6 is an even number, so the program outputs true.
+# odd_or_even("pears") ➞ false
+# # "pears" has 5 letters, and 5 is odd.
+# # Therefore the program outputs false.
+# odd_or_even("cherry") ➞ true
+# Notes
+# N/A
+def odd_or_even(word)
+	word.size.even?
+end
+# A palindrome is a word that is identical forward and backwards.
+#     mom
+#     racecar
+#     kayak
+# Given a word, create a function that checks whether it is a palindrome.
+# Examples
+# is_palindrome("mom") ➞ true
+# is_palindrome("scary") ➞ false
+# is_palindrome("reviver") ➞ true
+# is_palindrome("stressed") ➞ false
+# Notes
+# All test input is lower cased.
+def is_palindrome(str)
+	str == str.reverse
+end
 # Given an array and an integer n, return the sum of the first n numbers in the array.
 # Worked Example
 # sum_first_n_nums([9, 8, 7, 6], 3) ➞ 24
