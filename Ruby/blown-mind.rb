@@ -1,14 +1,36 @@
+# Write a function that returns the number of users in a chatroom based on the following rules:
+#     If there is no one, return "no one online".
+#     If there is 1 person, return "user1 online".
+#     If there are 2 people, return user1 and user2 online".
+#     If there are n>2 people, return the first two names and add "and n-2 more online".
+# For example, if there are 5 users, return:
+# "user1, user2 and 3 more online"
+# Examples
+# chatroom_status([]) ➞ "no one online"
+# chatroom_status(["paRIE_to"]) ➞ "paRIE_to online"
+# chatroom_status(["s234f", "mailbox2"]) ➞ "s234f and mailbox2 online"
+# chatroom_status(["pap_ier44", "townieBOY", "panda321", "motor_bike5", "sandwichmaker833", "violinist91"])
+# ➞ "pap_ier44, townieBOY and 4 more online"
+# Notes
+# N/A
+def chatroom_status(users)
+  case users.length
+  when 0
+    "no one online"
+  when 1
+    "#{users[0]} online"
+  when 2
+    "#{users[0]} and #{users[1]} online"
+  when 3..10
+    "#{users[0]}, #{users[1]} and #{users.length - 2} more online"
+  end
+end
 # Create a function that takes a string of lowercase characters and returns that string reversed and in upper case.
 # Examples
-
 # reverse_capitalize("abc") ➞ "CBA"
-
 # reverse_capitalize("hellothere") ➞ "EREHTOLLEH"
-
 # reverse_capitalize("input") ➞ "TUPNI"
-
 # Notes
-
 # N/A
 def reverse_capitalize(str)
 	str.reverse.upcase
