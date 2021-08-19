@@ -1,3 +1,20 @@
+# Given an array, rotates the values clockwise by one (the last value is sent to the first position).
+
+# Check the examples for a better understanding.
+# Examples
+
+# rotate_by_one([1, 2, 3, 4, 5]) ➞ [5, 1, 2, 3, 4]
+
+# rotate_by_one([6, 5, 8, 9, 7]) ➞ [7, 6, 5, 8, 9]
+
+# rotate_by_one([20, 15, 26, 8, 4]) ➞ [4, 20, 15, 26, 8]
+
+# Notes
+
+# N/A
+def rotate_by_one(arr)
+	arr.rotate(-1)
+end
 # Create a function that takes two strings as arguments and return either true or false depending on whether the total number of characters in the first string is equal to the total number of characters in the second string.
 # Examples
 
