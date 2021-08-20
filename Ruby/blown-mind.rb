@@ -1,3 +1,41 @@
+# Create methods for the Calculator class that can do the following:
+
+# 	Add two numbers.
+# 	Subtract two numbers.
+# 	Multiply two numbers.
+# 	Divide two numbers.
+
+# Examples
+
+# calculator = Calculator.new
+
+# calculator.add(10, 5) ➞ 15
+
+# calculator.subtract(10, 5) ➞ 5
+
+# calculator.multiply(10, 5) ➞ 50
+
+# calculator.divide(10, 5) ➞ 2
+
+# Notes
+
+# 	The methods should return the result of the calculation.
+# 	Don't worry about needing to handle division by zero errors.
+# 	See the Resources tab for some helpful tutorials on Ruby classes.
+class Calculator
+	def add(a, b)
+		a + b
+	end
+	def subtract(a, b)
+		a - b
+	end
+	def multiply(a, b)
+		a * b
+	end
+	def divide(a, b)
+		a / b
+	end
+end
 # Given an array, rotates the values clockwise by one (the last value is sent to the first position).
 
 # Check the examples for a better understanding.
