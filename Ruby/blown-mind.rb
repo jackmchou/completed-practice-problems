@@ -1,3 +1,29 @@
+# Levers are simple machines with a rigid beam and a fulcrum. From the picture below, you can see that there are 3-types of levers: first class, second class and third class.
+
+#     In a first class lever, the fulcrum is situated in the middle with the effort and the load being positioned opposite of each other.
+#     In a second class lever, the fulcrum is situated in the right with the effort on the left and the load in the middle.
+#     In a third class lever, the fulcrum is situated in the left with the effort being in the middle and the load being on the right.
+
+# Given an array that contains the fulcrum "f", the effort "e", and the load "l", write a function that determines whether or not the array shows a first class lever, second class lever, or a third class lever.
+# Examples
+
+# determine_lever(["e", "f", "l"]) ➞ "first class lever"
+
+# determine_lever(["e", "l", "f"]) ➞ "second class lever"
+
+# determine_lever(["f", "e", "l"]) ➞ "third class lever"
+
+# Notes
+
+# A pair of scissors is a first class lever, a nutcracker is a second class lever and a broom is a third class lever.
+def determine_lever(arr)
+	levers = {
+		"f" => "first class lever",
+		"l" => "second class lever",
+		"e" => "third class lever"
+	}
+	levers[arr[1]]
+end
 # Create a function that returns the sum of all even elements in a 2D matrix.
 # Examples
 
