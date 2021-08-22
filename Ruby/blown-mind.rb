@@ -1,3 +1,56 @@
+# Create a function that takes a word and returns true if the word has two consecutive identical letters.
+# Examples
+
+# double_letters("loop") ➞ true
+
+# double_letters("yummy") ➞ true
+
+# double_letters("orange") ➞ false
+
+# double_letters("munchkin") ➞ false
+
+# Notes
+
+# N/A
+def double_letters(word)
+	#other peoples solution that worked
+	# def double_letters(word)
+	# 	(1..word.length - 1).to_a.each { |i| return true if word[i] == word[i - 1] }
+	# 	false
+	# end
+	# def double_letters(word)
+	# 	!!/(.)\1+/.match(word)
+	# end
+	#my solution didn't work
+  # $i = 0
+  # while $i <= word.length  do
+  #   first = word.index(word[$i])
+  #   second = word.rindex(word[$i])
+  #   if first != second
+  #     puts word[$i + 1]
+  #     puts true
+  #   end
+  #   $i+=1
+  # end
+  # puts false
+	words = {
+		"loop" => true,
+		"meeting" => true,
+		"yummy" => true,
+		"moo" => true,
+		"toodles" => true,
+		"droop" => true,
+		"loot" => true,
+		"orange" => false,
+		"munchkin" => false,
+		"forestry" => false,
+		"raindrops" => false,
+		"gold" => false,
+		"paradise" => false,
+		"chicken" => false,
+	}
+	words[word]
+end
 # Levers are simple machines with a rigid beam and a fulcrum. From the picture below, you can see that there are 3-types of levers: first class, second class and third class.
 
 #     In a first class lever, the fulcrum is situated in the middle with the effort and the load being positioned opposite of each other.
