@@ -1,14 +1,9 @@
 # Create a function that takes an array of numbers between 1 and 10 (excluding one number) and returns the missing number.
 # Examples
-
 # missing_num([1, 2, 3, 4, 6, 7, 8, 9, 10]) ➞ 5
-
 # missing_num([7, 2, 3, 6, 5, 9, 1, 4, 8]) ➞ 10
-
 # missing_num([10, 5, 1, 2, 4, 6, 8, 3, 9]) ➞ 7
-
 # Notes
-
 #     The array of numbers will be unsorted (not in order).
 #     Only one number will be missing.
 def missing_num(arr)
@@ -16,17 +11,11 @@ def missing_num(arr)
 end
 # Create a function that takes a word and returns true if the word has two consecutive identical letters.
 # Examples
-
 # double_letters("loop") ➞ true
-
 # double_letters("yummy") ➞ true
-
 # double_letters("orange") ➞ false
-
 # double_letters("munchkin") ➞ false
-
 # Notes
-
 # N/A
 def double_letters(word)
 	#other peoples solution that worked
@@ -68,22 +57,15 @@ def double_letters(word)
 	words[word]
 end
 # Levers are simple machines with a rigid beam and a fulcrum. From the picture below, you can see that there are 3-types of levers: first class, second class and third class.
-
 #     In a first class lever, the fulcrum is situated in the middle with the effort and the load being positioned opposite of each other.
 #     In a second class lever, the fulcrum is situated in the right with the effort on the left and the load in the middle.
 #     In a third class lever, the fulcrum is situated in the left with the effort being in the middle and the load being on the right.
-
 # Given an array that contains the fulcrum "f", the effort "e", and the load "l", write a function that determines whether or not the array shows a first class lever, second class lever, or a third class lever.
 # Examples
-
 # determine_lever(["e", "f", "l"]) ➞ "first class lever"
-
 # determine_lever(["e", "l", "f"]) ➞ "second class lever"
-
 # determine_lever(["f", "e", "l"]) ➞ "third class lever"
-
 # Notes
-
 # A pair of scissors is a first class lever, a nutcracker is a second class lever and a broom is a third class lever.
 def determine_lever(arr)
 	levers = {
@@ -95,33 +77,26 @@ def determine_lever(arr)
 end
 # Create a function that returns the sum of all even elements in a 2D matrix.
 # Examples
-
 # sum_of_evens([
 #   [1, 0, 2],
 #   [5, 5, 7],
 #   [9, 4, 3]
 # ]) ➞ 6
-
 # // 2 + 4 = 6
-
 # sum_of_evens([
 #   [1, 1],
 #   [1, 1]
 # ]) ➞ 0
-
 # sum_of_evens([
 #   [42, 9],
 #   [16, 8]
 # ]) ➞ 66
-
 # sum_of_evens([
 #   [],
 #   [],
 #   []
 # ]) ➞ 0
-
 # Notes
-
 #     Submatrices will be of equal length.
 #     Return 0 if the 2D matrix only consists of empty submatrices.
 def sum_of_evens(arr)
@@ -129,26 +104,17 @@ def sum_of_evens(arr)
 	evens.reduce(0) { |sum, num| sum + num }
 end
 # Create methods for the Calculator class that can do the following:
-
 # 	Add two numbers.
 # 	Subtract two numbers.
 # 	Multiply two numbers.
 # 	Divide two numbers.
-
 # Examples
-
 # calculator = Calculator.new
-
 # calculator.add(10, 5) ➞ 15
-
 # calculator.subtract(10, 5) ➞ 5
-
 # calculator.multiply(10, 5) ➞ 50
-
 # calculator.divide(10, 5) ➞ 2
-
 # Notes
-
 # 	The methods should return the result of the calculation.
 # 	Don't worry about needing to handle division by zero errors.
 # 	See the Resources tab for some helpful tutorials on Ruby classes.
@@ -167,88 +133,59 @@ class Calculator
 	end
 end
 # Given an array, rotates the values clockwise by one (the last value is sent to the first position).
-
 # Check the examples for a better understanding.
 # Examples
-
 # rotate_by_one([1, 2, 3, 4, 5]) ➞ [5, 1, 2, 3, 4]
-
 # rotate_by_one([6, 5, 8, 9, 7]) ➞ [7, 6, 5, 8, 9]
-
 # rotate_by_one([20, 15, 26, 8, 4]) ➞ [4, 20, 15, 26, 8]
-
 # Notes
-
 # N/A
 def rotate_by_one(arr)
 	arr.rotate(-1)
 end
 # Create a function that takes two strings as arguments and return either true or false depending on whether the total number of characters in the first string is equal to the total number of characters in the second string.
 # Examples
-
 # comp("AB", "CD") ➞ true
-
 # comp("ABC", "DE") ➞ false
-
 # comp("hello", "edabit") ➞ false
-
 # Notes
-
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
-
 def comp(str1, str2)
 	str1.length == str2.length
 end
-
 # Create a function that takes a positive integer n and returns the nth "star number".
-
 # A star number is a centered figurate number a centered hexagram (six-pointed star), such as the one that Chinese checkers is played on.
 # Examples
-
 # star_number(2) ➞ 13
 # # n = 2
 # # 2nd star number = 13
-
 # star_number(3) ➞ 37
 # # n = 3
 # # 3rd star number = 37
-
 # star_number(5) ➞ 121
 # # n = 5
 # # 5th star number = 121
-
 # Notes
-
 #     n will always be a positive integer.
 #     The nth term of a star number can be represented as 6n(n-1) + 1
 #     See Resources for more information.
-
 def star_number(n)
 	6 * n * (n-1) + 1
 end
-
 # Character recognition software often makes mistakes when documents (especially old ones written with a typewriter) are digitized.
-
 # Your task is to correct the errors in the digitized text. You only have to handle the following mistakes:
-
 #     A is misinterpreted as 4
 #     S is misinterpreted as 5
 #     O is misinterpreted as 0
 #     I is misinterpreted as 1
-
 # The test cases contain numbers only by mistake.
 # Examples
-
 # keyboard_mistakes("MUB45H1R") ➞ "MUBASHIR"
-
 # keyboard_mistakes("DUBL1N") ➞ "DUBLIN"
-
 # keyboard_mistakes("51NG4P0RE") ➞ "SINGAPORE"
-
 # Notes
-
 # N/A
 def keyboard_mistakes(str)
 	letters = {
