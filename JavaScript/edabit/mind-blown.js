@@ -1,3 +1,18 @@
+// Create a function that returns true if the first array is a subset of the second. Return false otherwise.
+// Examples
+
+// isSubset([3, 2, 5], [5, 3, 7, 9, 2]) ➞ true
+
+// isSubset([8, 9], [7, 1, 9, 8, 4, 5, 6]) ➞ true
+
+// isSubset([1, 2], [3, 5, 9, 1]) ➞ false
+
+// Notes
+
+// Both arrays will contain only unique values.
+function isSubset(arr1, arr2) {
+	return arr1.every(ele => arr2.includes(ele))
+}
 // Steve and Maurice have racing snails. They each have three, a slow s, medium m and fast f one. Although Steve's snails are all a bit stronger than Maurice's, Maurice has a trick up his sleeve. His plan is
 //     Round 1: [s, f] Sacrifice his slowest snail against Steve's fastest.
 //     Round 2: [m, s] Use his middle snail against Steve's slowest.
