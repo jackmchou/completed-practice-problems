@@ -1,3 +1,25 @@
+// Given an array of numbers, representing the height of a mountain in certain intervals, return whether this mountain is scalable.
+
+// A mountain can be considered scalable if each number is within 5 units of the next number in either direction.
+// Examples
+
+// isScalable([1, 2, 4, 6, 7, 8]) ➞ true
+
+// isScalable([40, 45, 50, 45, 47, 52]) ➞ true
+
+// isScalable([2, 9, 11, 10, 18, 21]) ➞ false
+
+// Notes
+
+// The array may start at any number and can be any length.
+function isScalable(arr) {
+	for (let i = 1; i < arr.length; i++) {
+    const prev = Math.abs(arr[i - 1] - arr[i])
+    const next = Math.abs(arr[i + 1] - arr[i])
+    if (prev > 6 || next > 6) return false
+  }
+  return true
+}
 // Create a function that returns true if the first array is a subset of the second. Return false otherwise.
 // Examples
 
