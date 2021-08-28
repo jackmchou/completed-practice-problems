@@ -1,15 +1,23 @@
+# Zip codes consist of 5 consecutive digits. Given a string, write a function to determine whether the input is a valid zip code. A valid zip code is as follows:
+#     Must only contain numbers (no non-digits allowed).
+#     Must not contain any spaces.
+#     Must not be greater than 5 digits in length.
+# Examples
+# is_valid("59001") ➞ true
+# is_valid("853a7") ➞ false
+# is_valid("732 32") ➞ false
+# Notes
+# N/A
+def is_valid(zip_code)
+	/(\b\d{5}\b)/.match(zip_code) != nil
+end
 # You work in a toy car workshop, and your job is to build toy cars from a collection of parts. Each toy car needs 4 wheels, 1 car body, and 2 figures of people to be placed inside. Given the total number of wheels, car bodies and figures available, how many complete toy cars can you make?
 # Examples
-
 # cars(2, 48, 76) ➞ 0
 # # 2 wheels, 48 car bodies, 76 figures
-
 # cars(43, 15, 87) ➞ 10
-
 # cars(88, 37, 17) ➞ 8
-
 # Notes
-
 # N/A
 def cars(wheels, bodies, figures)
 	sets = (wheels / 4).floor
@@ -17,31 +25,20 @@ def cars(wheels, bodies, figures)
 	[sets, bodies, couple].min
 end
 # A value is omnipresent if it exists in every subarray inside the main array.
-
 # To illustrate:
-
 # [[3, 4], [8, 3, 2], [3], [9, 3], [5, 3], [4, 3]]
 # # 3 exists in every element inside this array, so is omnipresent.
-
 # Create a function that determines whether an input value is omnipresent for a given array.
 # Examples
-
 # is_omnipresent([[1, 1], [1, 3], [5, 1], [6, 1]], 1) ➞ true
-
 # is_omnipresent([[1, 1], [1, 3], [5, 1], [6, 1]], 6) ➞ false
-
 # is_omnipresent([[5], [5], [5], [6, 5]], 5) ➞ true
-
 # is_omnipresent([[5], [5], [5], [6, 5]], 6) ➞ false
-
 # Notes
-
 # Sub-arrays can be any length.
-
 def is_omnipresent(arr, val)
 	arr.all? {|item| item.include? val}
 end
-
 # Create a function that takes an array of numbers between 1 and 10 (excluding one number) and returns the missing number.
 # Examples
 # missing_num([1, 2, 3, 4, 6, 7, 8, 9, 10]) ➞ 5
