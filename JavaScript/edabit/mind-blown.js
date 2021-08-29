@@ -1,3 +1,29 @@
+// Given an array of numbers, representing the height of a mountain in certain intervals, return whether this mountain is scalable.
+// A mountain can be considered scalable if each number is within 5 units of the next number in either direction.
+// Examples
+// isScalable([1, 2, 4, 6, 7, 8]) ➞ true
+// isScalable([40, 45, 50, 45, 47, 52]) ➞ true
+// isScalable([2, 9, 11, 10, 18, 21]) ➞ false
+// Notes
+// The array may start at any number and can be any length.
+function isScalable(arr) {
+	for (let i = 1; i < arr.length; i++) {
+    const prev = Math.abs(arr[i - 1] - arr[i])
+    const next = Math.abs(arr[i + 1] - arr[i])
+    if (prev > 6 || next > 6) return false
+  }
+  return true
+}
+// Create a function that returns true if the first array is a subset of the second. Return false otherwise.
+// Examples
+// isSubset([3, 2, 5], [5, 3, 7, 9, 2]) ➞ true
+// isSubset([8, 9], [7, 1, 9, 8, 4, 5, 6]) ➞ true
+// isSubset([1, 2], [3, 5, 9, 1]) ➞ false
+// Notes
+// Both arrays will contain only unique values.
+function isSubset(arr1, arr2) {
+	return arr1.every(ele => arr2.includes(ele))
+}
 // Steve and Maurice have racing snails. They each have three, a slow s, medium m and fast f one. Although Steve's snails are all a bit stronger than Maurice's, Maurice has a trick up his sleeve. His plan is
 //     Round 1: [s, f] Sacrifice his slowest snail against Steve's fastest.
 //     Round 2: [m, s] Use his middle snail against Steve's slowest.
