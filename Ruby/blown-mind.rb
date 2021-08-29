@@ -1,3 +1,21 @@
+# Write a function that maps files to their extension names.
+# Examples
+
+# get_extension(["code.html", "code.css"]) 
+# ➞ ["html", "css"]
+
+# get_extension(["project1.jpg", "project1.pdf", "project1.mp3"])
+# ➞ ["jpg", "pdf", "mp3"]
+
+# get_extension(["ruby.rb", "cplusplus.cpp", "python.py", "javascript.js"])
+# ➞ ["rb", "cpp", "py", "js"]
+
+# Notes
+
+# N/A
+def get_extension(arr)
+	arr.map {|str| str[/(?<=\.)\w*/]}
+end
 # Zip codes consist of 5 consecutive digits. Given a string, write a function to determine whether the input is a valid zip code. A valid zip code is as follows:
 #     Must only contain numbers (no non-digits allowed).
 #     Must not contain any spaces.
