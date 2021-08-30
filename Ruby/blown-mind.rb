@@ -1,3 +1,31 @@
+# Suppose I want to define a function that removes the last element of an array each time I call it, but does not mutate the original array. Fix the code so that the results are no longer mutating the array.
+
+# def minus_one(arr)
+#   arr.pop
+#   arr
+# end
+
+# Examples
+
+# x = [1, 2, 3, 4, 5]
+# minus_one(x) ➞ [1, 2, 3, 4]  // 1st time function is called.
+# minus_one(x) ➞ [1, 2, 3]  // 2nd time function is called.
+# minus_one(x) ➞ [1, 2]  // 3rd time function is called.
+# minus_one(x) ➞ [1]  // 4th time function is called.
+
+# # What I want instead:
+# minus_one(x) ➞ [1, 2, 3, 4]  // 1st time function is called.
+# minus_one(x) ➞ [1, 2, 3, 4]  // 2nd time function is called.
+# minus_one(x) ➞ [1, 2, 3, 4]  // 3rd time function is called.
+# minus_one(x) ➞ [1, 2, 3, 4]  // 4th time function is called.
+
+# Notes
+
+# N/A
+def minus_one(arr)
+	arr = arr.slice(0...-1)
+	arr
+end
 # Write a function that maps files to their extension names.
 # Examples
 
