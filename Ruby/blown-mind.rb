@@ -1,3 +1,16 @@
+# The challenge is to try and fix this buggy code, given the inputs true and false. See the examples below for the expected output.
+# Examples
+
+# has_bugs(true) ➞ "sad days"
+
+# has_bugs(false) ➞ "it's a good day"
+
+# Notes
+
+# Don't overthink this challenge (look at the syntax and correct it).
+def has_bugs(buggy_code)
+	buggy_code ? "sad days" : "it's a good day"
+end
 # Suppose I want to define a function that removes the last element of an array each time I call it, but does not mutate the original array. Fix the code so that the results are no longer mutating the array.
 
 # def minus_one(arr)
