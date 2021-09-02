@@ -1,3 +1,25 @@
+# Create a function that returns true if a string contains any spaces.
+# Examples
+
+# has_spaces("hello") ➞ false
+
+# has_spaces("hello, world") ➞ true
+
+# has_spaces(" ") ➞ true
+
+# has_spaces("") ➞ false
+
+# has_spaces(",./!@#") ➞ false
+
+# Notes
+
+#     An empty string does not contain any spaces.
+#     Try doing this without RegEx.
+
+def has_spaces(str)
+	str.include? ' '
+end
+
 # Create a function that calculates the area of a rectangle. If the arguments are invalid, your function must return -1.
 # Examples
 
