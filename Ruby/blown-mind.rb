@@ -1,17 +1,110 @@
+# Create a function that returns true if a number is prime, and false otherwise. A prime number is any positive integer that is evenly divisible by only two divisors: 1 and itself.
+# The first ten prime numbers are:
+# 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+# Examples
+# is_prime(31) ➞ true
+# is_prime(18) ➞ false
+# is_prime(11) ➞ true
+# Notes
+#     A prime number has no other factors except 1 and itself.
+#     If a number is odd it is not divisible by an even number.
+#     1 is not considered a prime number.
+def is_prime(num)
+	require "prime"
+	Prime.prime?(num)
+end
+# Suppose you have a guest list of students and the country they are from, stored as key-value pairs in a hash.
+# GUEST_LIST = {
+# "Randy" => "Germany",
+# "Karla" => "France",
+# "Wendy" => "Japan",
+# "Norman" => "England",
+# "Sam" => "Argentina"
+# }
+# Write a function that takes in a name and returns a name tag, that should read:
+# "Hi! I'm [name], and I'm from [country]."
+# If the name is not in the hash, return:
+# "Hi! I'm a guest."
+# Examples
+# greeting("Randy") ➞ "Hi! I'm Randy, and I'm from Germany."
+# greeting("Sam") ➞ "Hi! I'm Sam, and I'm from Argentina."
+# greeting("Monti") ➞ "Hi! I'm a guest."
+# Notes
+# N/A
+GUEST_LIST = {
+	"Randy" => "Germany", 
+	"Karla" => "France", 
+	"Wendy" => "Japan", 
+	"Norman" => "England", 
+	"Sam" => "Argentina"
+}
+def greeting(name)
+	GUEST_LIST[name] ? "Hi! I'm #{name}, and I'm from #{GUEST_LIST[name]}." : "Hi! I'm a guest."
+end
+# Create a function that returns true if a string contains any spaces.
+# Examples
+# has_spaces("hello") ➞ false
+# has_spaces("hello, world") ➞ true
+# has_spaces(" ") ➞ true
+# has_spaces("") ➞ false
+# has_spaces(",./!@#") ➞ false
+# Notes
+#     An empty string does not contain any spaces.
+#     Try doing this without RegEx.
+def has_spaces(str)
+	str.include? ' '
+end
+# Create a function that calculates the area of a rectangle. If the arguments are invalid, your function must return -1.
+# Examples
+# area(3, 4) ➞ 12
+# area(10, 11) ➞ 110
+# area(-1, 5) ➞ -1
+# area(0, 2) ➞ -1
+# Notes
+# N/A
+def area(h, w)
+	h > 0 && w > 0 ? h * w : -1
+end
+# The challenge is to try and fix this buggy code, given the inputs true and false. See the examples below for the expected output.
+# Examples
+# has_bugs(true) ➞ "sad days"
+# has_bugs(false) ➞ "it's a good day"
+# Notes
+# Don't overthink this challenge (look at the syntax and correct it).
+def has_bugs(buggy_code)
+	buggy_code ? "sad days" : "it's a good day"
+end
+# Suppose I want to define a function that removes the last element of an array each time I call it, but does not mutate the original array. Fix the code so that the results are no longer mutating the array.
+# def minus_one(arr)
+#   arr.pop
+#   arr
+# end
+# Examples
+# x = [1, 2, 3, 4, 5]
+# minus_one(x) ➞ [1, 2, 3, 4]  // 1st time function is called.
+# minus_one(x) ➞ [1, 2, 3]  // 2nd time function is called.
+# minus_one(x) ➞ [1, 2]  // 3rd time function is called.
+# minus_one(x) ➞ [1]  // 4th time function is called.
+# # What I want instead:
+# minus_one(x) ➞ [1, 2, 3, 4]  // 1st time function is called.
+# minus_one(x) ➞ [1, 2, 3, 4]  // 2nd time function is called.
+# minus_one(x) ➞ [1, 2, 3, 4]  // 3rd time function is called.
+# minus_one(x) ➞ [1, 2, 3, 4]  // 4th time function is called.
+# Notes
+# N/A
+def minus_one(arr)
+	arr = arr.slice(0...-1)
+	arr
+end
 # Write a function that maps files to their extension names.
 # Examples
-
 # get_extension(["code.html", "code.css"]) 
 # ➞ ["html", "css"]
-
 # get_extension(["project1.jpg", "project1.pdf", "project1.mp3"])
 # ➞ ["jpg", "pdf", "mp3"]
-
 # get_extension(["ruby.rb", "cplusplus.cpp", "python.py", "javascript.js"])
 # ➞ ["rb", "cpp", "py", "js"]
-
 # Notes
-
 # N/A
 def get_extension(arr)
 	arr.map {|str| str[/(?<=\.)\w*/]}
