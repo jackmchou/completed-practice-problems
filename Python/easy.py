@@ -1,43 +1,40 @@
+# Given two strings, first_name and last_name, return a single string in the format "last, first".
+# Examples
+# concat_name("First", "Last") ➞ "Last, First"
+# concat_name("John", "Doe") ➞ "Doe, John"
+# concat_name("Mary", "Jane") ➞ "Jane, Mary"
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def concat_name(first_name, last_name):
+	return "%s, %s" % (last_name, first_name)
 # Create a function that takes a single string as argument and returns an ordered list containing the indices of all capital letters in the string.
 # Examples
-
 # index_of_caps("eDaBiT") ➞ [1, 3, 5]
-
 # index_of_caps("eQuINoX") ➞ [1, 3, 4, 6]
-
 # index_of_caps("determine") ➞ []
-
 # index_of_caps("STRIKE") ➞ [0, 1, 2, 3, 4, 5]
-
 # index_of_caps("sUn") ➞ [1]
-
 # Notes
-
 #     Return an empty list if no uppercase letters are found in the string.
 #     Special characters ($#@%) and numbers will be included in some test cases.
 #     Assume all words do not have duplicate letters.
-
 def index_of_caps(word):
 	arr = []
 	for letter in word:
 		if letter.isupper():
 			arr.append(word.index(letter))
 	return arr
-
 # Create a function that returns the thickness (in meters) of a piece of paper after folding it n number of times. The paper starts off with a thickness of 0.5mm.
 # Examples
-
 # num_layers(1) ➞ "0.001m"
 # # Paper folded once is 1mm (equal to 0.001m)
-
 # num_layers(4) ➞ "0.008m"
 # # Paper folded 4 times is 8mm (equal to 0.008m)
-
 # num_layers(21) ➞ "1048.576m"
 # # Paper folded 21 times is 1048576mm (equal to 1048.576m)
-
 # Notes
-
 #     There are 1000mm in a single meter.
 #     Don't round answers.
 def num_layers(n):
@@ -45,17 +42,11 @@ def num_layers(n):
 	return "%sm" % (thickness) if n > 0 else "0.0005m"
 # Create a function that reverses a boolean value and returns the string "boolean expected" if another variable type is given.
 # Examples
-
 # reverse(True) ➞ False
-
 # reverse(False) ➞ True
-
 # reverse(0) ➞ "boolean expected"
-
 # reverse(None) ➞ "boolean expected"
-
 # Notes
-
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
@@ -63,15 +54,10 @@ def reverse(arg):
 	return not(arg) if isinstance(arg, bool) else "boolean expected"
 # Create a function that takes a string and returns a string in which each character is repeated once.
 # Examples
-
 # double_char("String") ➞ "SSttrriinngg"
-
 # double_char("Hello World!") ➞ "HHeelllloo  WWoorrlldd!!"
-
 # double_char("1234!_ ") ➞ "11223344!!__  "
-
 # Notes
-
 # All test cases contain valid strings. Don't worry about spaces, special characters or numbers. They're all considered valid characters.
 def double_char(txt):
 	return ''.join([char * 2 for char in txt])
