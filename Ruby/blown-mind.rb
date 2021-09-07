@@ -1,3 +1,15 @@
+# Create a function that evaluates an equation.
+# Examples
+# eq("1+2") ➞ 3
+# eq("6/(9-7)") ➞ 3
+# eq("3+2-4") ➞ 1
+# Notes
+#     Don't print, return a value.
+#     Return the value, not the equation.
+#     The method used to solve this challenge should not be used in practice. However, it's important to be aware of how this functionality works and why it should not be used. Check the Resources for more information.
+def eq(evaluate)
+	eval(evaluate)
+end
 # Create a function that returns true if a number is prime, and false otherwise. A prime number is any positive integer that is evenly divisible by only two divisors: 1 and itself.
 # The first ten prime numbers are:
 # 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
