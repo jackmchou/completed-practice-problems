@@ -1,3 +1,30 @@
+# You're given a string of words. You need to find the word "Nemo", and return a string like this: "I found Nemo at [the order of the word you find nemo]!".
+
+# If you can't find Nemo, return "I can't find Nemo :(".
+# Examples
+
+# find_nemo("I am finding Nemo !") ➞ "I found Nemo at 4!"
+
+# find_nemo("Nemo is me") ➞ "I found Nemo at 1!"
+
+# find_nemo("I Nemo am") ➞ "I found Nemo at 2!"
+
+# Notes
+
+#     ! , ? . are always separated from the last word.
+#     Nemo will always look like Nemo, and not NeMo or other capital variations.
+#     Nemo's, or anything that says Nemo with something behind it, doesn't count as Finding Nemo.
+#     If there are multiple Nemo's in the sentence, only return for the first one.
+
+def find_nemo(sentence)
+	sentence.split(' ').each_with_index { |item, index|
+		if item == "Nemo"
+			return "I found Nemo at #{index + 1}!"
+		end
+	}
+	"I can't find Nemo :("
+end
+
 # Given a 10x10 grid of numbers 1-100, return the Spotlight Sum, given a number n. The spotlight sum can be defined as the total of the 8 numbers immediately surrounding the number n on the grid, including n in the total.
 # Worked Example
 
