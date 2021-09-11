@@ -1,3 +1,20 @@
+# Create a function that compares two words based on the sum of their ASCII codes and returns the word with the smaller ASCII sum.
+# Examples
+
+# ascii_sort(["hey", "man"]) ➞ "man"
+# # ["h", "e", "y"] ➞ sum([104, 101, 121]) ➞ 326
+# # ["m", "a", "n"] ➞ sum([109, 97, 110]) ➞ 316
+
+# ascii_sort(["majorly", "then"]) ➞ "then"
+
+# ascii_sort(["victory", "careless"]) ➞ "victory"
+
+# Notes
+
+# Both words will have strictly different ASCII sums.
+def ascii_sort(arr)
+	arr.min_by {|word| word.sum}
+end
 # You're given a string of words. You need to find the word "Nemo", and return a string like this: "I found Nemo at [the order of the word you find nemo]!".
 
 # If you can't find Nemo, return "I can't find Nemo :(".
