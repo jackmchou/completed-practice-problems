@@ -1,3 +1,101 @@
+# I am trying to filter out empty arrays from an array. In other words, I want to transform something that looks like this: ["a", "b", [], [], [1, 2, 3]] to look like ["a", "b", [1, 2, 3]]. My code looks like this:
+# def removeEmptyArrays(arr)
+#   arr.select{|x| !x.empty?}
+# end
+# However, it seems that I've run into a problem, with an error message of undefined method. Fix my code so that all tests pass.
+# Examples
+# # What I want:
+# removeEmptyArrays([1, 2, [], 4]) ➞ [1, 2, 4]
+# # What I am getting:
+# block in removeEmptyArrays: undefined method empty? for 1:Fixnum (NoMethodError)
+# Notes
+# N/A
+# Fix this incorrect code so that all tests pass!
+def removeEmptyArrays(arr)
+	arr.select{|x| x.is_a? Numeric or x.is_a? String}
+end
+# Create a function that compares two words based on the sum of their ASCII codes and returns the word with the smaller ASCII sum.
+# Examples
+# ascii_sort(["hey", "man"]) ➞ "man"
+# # ["h", "e", "y"] ➞ sum([104, 101, 121]) ➞ 326
+# # ["m", "a", "n"] ➞ sum([109, 97, 110]) ➞ 316
+# ascii_sort(["majorly", "then"]) ➞ "then"
+# ascii_sort(["victory", "careless"]) ➞ "victory"
+# Notes
+# Both words will have strictly different ASCII sums.
+def ascii_sort(arr)
+	arr.min_by {|word| word.sum}
+end
+# You're given a string of words. You need to find the word "Nemo", and return a string like this: "I found Nemo at [the order of the word you find nemo]!".
+# If you can't find Nemo, return "I can't find Nemo :(".
+# Examples
+# find_nemo("I am finding Nemo !") ➞ "I found Nemo at 4!"
+# find_nemo("Nemo is me") ➞ "I found Nemo at 1!"
+# find_nemo("I Nemo am") ➞ "I found Nemo at 2!"
+# Notes
+#     ! , ? . are always separated from the last word.
+#     Nemo will always look like Nemo, and not NeMo or other capital variations.
+#     Nemo's, or anything that says Nemo with something behind it, doesn't count as Finding Nemo.
+#     If there are multiple Nemo's in the sentence, only return for the first one.
+def find_nemo(sentence)
+	sentence.split(' ').each_with_index { |item, index|
+		if item == "Nemo"
+			return "I found Nemo at #{index + 1}!"
+		end
+	}
+	"I can't find Nemo :("
+end
+# Given a 10x10 grid of numbers 1-100, return the Spotlight Sum, given a number n. The spotlight sum can be defined as the total of the 8 numbers immediately surrounding the number n on the grid, including n in the total.
+# Worked Example
+# [
+#   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+#   [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+#   [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+#   [31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
+#   [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
+#   [51, 52, 53, 54, 55, 56, 57, 58, 59, 60],
+#   [61, 62, 63, 64, 65, 66, 67, 68, 69, 70],
+#   [71, 72, 73, 74, 75, 76, 77, 78, 79, 80],
+#   [81, 82, 83, 84, 85, 86, 87, 88, 89, 90],
+#   [91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+# ]
+# spotlight_sum(45) ➞ 405
+# # The 8 numbers surrounding 45 on the grid are:
+# # [34, 35, 36, 44, 46, 54, 55, 56]
+# # Total of the numbers is 360.
+# # Include 45 in the total (360 + 45 = 405)
+# # Return the answer.
+# Examples
+# spotlight_sum(19) ➞ 171
+# spotlight_sum(48) ➞ 432
+# spotlight_sum(88) ➞ 792
+# Notes
+# Note that any numbers which don't have the full 8 numbers surrounding it are not included in the tests.
+def spotlight_sum(n)
+	9 * n
+end
+# Write a function that takes a string name and a number num (either 0 or 1) and return "Hello" + name if num is 1, otherwise return "Bye" + name.
+# Examples
+# say_hello_bye("alon", 1) ➞ "Hello Alon"
+# say_hello_bye("Tomi", 0) ➞ "Bye Tomi"
+# say_hello_bye("jose", 0) ➞ "Bye Jose"
+# Notes
+# The name you return must be capitalized.
+def say_hello_bye(name, num)
+	num == 1 ? "Hello #{name.capitalize}" : "Bye #{name.capitalize}"
+end
+# Create a function that evaluates an equation.
+# Examples
+# eq("1+2") ➞ 3
+# eq("6/(9-7)") ➞ 3
+# eq("3+2-4") ➞ 1
+# Notes
+#     Don't print, return a value.
+#     Return the value, not the equation.
+#     The method used to solve this challenge should not be used in practice. However, it's important to be aware of how this functionality works and why it should not be used. Check the Resources for more information.
+def eq(evaluate)
+	eval(evaluate)
+end
 # Create a function that returns true if a number is prime, and false otherwise. A prime number is any positive integer that is evenly divisible by only two divisors: 1 and itself.
 # The first ten prime numbers are:
 # 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
