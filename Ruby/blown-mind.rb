@@ -1,3 +1,20 @@
+# Create a function that takes a number num and returns its length.
+# Examples
+
+# number_length(10) ➞ 2
+
+# number_length(5000) ➞ 4
+
+# number_length(0) ➞ 1
+
+# Notes
+
+# N/A
+
+def number_length(num)
+	num.to_s.length
+end
+
 # Create a function that returns the ASCII value of the passed in character.
 # Examples
 
