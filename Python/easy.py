@@ -1,3 +1,20 @@
+# Create a function that takes a number (from 1 - 60) and returns a corresponding string of hyphens.
+# Examples
+
+# num_to_dashes(1) ➞ "-"
+
+# num_to_dashes(5) ➞ "-----"
+
+# num_to_dashes(3) ➞ "---"
+
+# Notes
+
+#     You will be provided integers ranging from 1 to 60.
+#     Don't forget to return your result as a string.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def num_to_dashes(num):
+	return "-" * num
 # There is an easy way to assign to array values to the nth index by using the Rest element.
 # head, tail = [1, 2, 3, 4]
 # print(head) ➞ 1
