@@ -1,33 +1,29 @@
+# There is an easy way to assign to array values to the nth index by using the Rest element.
+# head, tail = [1, 2, 3, 4]
+# print(head) ➞ 1
+# print(tail) ➞ 2
+# But how could I make tail = [2, 3, 4] instead of tail = 2? Add something into the code and make this happen.
+# Notes
+# Check the Resources tab for more examples.
+head, *tail = [1, 2, 3, 4]
 # Emmy has written a function that returns a greeting to users. However, she's in love with Mubashir, and would like to greet him slightly differently. She added a special case in her function, but she made a mistake.
-
 # Can you help her?
 # Examples
-
 # greeting("Matt") ➞ "Hello, Matt!"
-
 # greeting("Helen") ➞ "Hello, Helen!"
-
 # greeting("Mubashir") ➞ "Hello, my Love!"
-
 # Notes
-
 #     READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
 #     Don't overthink this challenge; it's not supposed to be hard.
 def greeting(name):
 	return "Hello, my Love!" if name == "Mubashir" else "Hello, " + name + "!"
 # Create a function that will handle simple math expressions. The input is an expression in the form of a string.
 # Examples
-
 # calculator("23+4") ➞ 27
-
 # calculator("45-15") ➞ 30
-
 # calculator("13+2-5*2") ➞ 5
-
 # calculator("49/7*2-3") ➞ 11
-
 # Notes
-
 #     There will be no brackets in the input line.
 #     No need to calculate mathematical functions (sin, cos, ln...).
 #     There are no gaps in the expression.

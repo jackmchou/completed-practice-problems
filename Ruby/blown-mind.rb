@@ -1,73 +1,45 @@
 # Create a function that takes a number num and returns its length.
 # Examples
-
 # number_length(10) ➞ 2
-
 # number_length(5000) ➞ 4
-
 # number_length(0) ➞ 1
-
 # Notes
-
 # N/A
-
 def number_length(num)
 	num.to_s.length
 end
-
 # Create a function that returns the ASCII value of the passed in character.
 # Examples
-
 # ctoa("A") ➞ 65
-
 # ctoa("m") ➞ 109
-
 # ctoa("[") ➞ 91
-
 # ctoa("\") ➞ 92
-
 # Notes
-
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
-
 def ctoa(char)
 	char.ord
 end
-
 # The abs() function returns the absolute value of a number. This means it returns a number's positive value. You can think of it as the distance away from zero.
-
 # Create a function that recreates this functionality.
 # Examples
-
 # absolute(-5) ➞ 5
-
 # absolute(-3.14) ➞ 3.14
-
 # absolute(250) ➞ 250
-
 # Notes
-
 #     Tests will only include valid numbers.
 #     Note that positive numbers will stay positive!
 #     Don't use the abs() function (it will defeat the purpose of the challenge).
-
 def absolute(n)
 	n < 0 ? n * -1 : n
 end
-
 # Given the shortest side of a 30 60 90 triangle you have to find out the other 2 sides, (return the longest side, medium-length side).
 # Examples
-
 # returnsides(1) ➞ [2, 1.73]
-
 # returnsides(2) ➞ [4, 3.46]
-
 # returnsides(3) ➞ [6, 5.2]
-
 # Notes
-
 #     30 60 90 triangles always follow this rule, let's say the shortest side length is x units, the hypotenuse would be 2x units and the other side would be x * square root of 3 units.
 #     In the Tests, the decimal is rounded to 2 places.
 def returnsides(length)
