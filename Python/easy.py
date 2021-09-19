@@ -1,3 +1,55 @@
+# Create a function that takes a list of strings and integers, and filters out the list so that it returns a list of integers only.
+# Examples
+# filter_list([1, 2, 3, "a", "b", 4]) ➞ [1, 2, 3, 4]
+# filter_list(["A", 0, "Edabit", 1729, "Python", "1729"]) ➞ [0, 1729]
+# filter_list(["Nothing", "here"]) ➞ []
+# Notes
+# Don't overthink this one.
+def filter_list(l):
+	return list(filter(lambda x: isinstance(x, int), l))
+# Create a function that takes a number (from 1 - 60) and returns a corresponding string of hyphens.
+# Examples
+# num_to_dashes(1) ➞ "-"
+# num_to_dashes(5) ➞ "-----"
+# num_to_dashes(3) ➞ "---"
+# Notes
+#     You will be provided integers ranging from 1 to 60.
+#     Don't forget to return your result as a string.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def num_to_dashes(num):
+	return "-" * num
+# There is an easy way to assign to array values to the nth index by using the Rest element.
+# head, tail = [1, 2, 3, 4]
+# print(head) ➞ 1
+# print(tail) ➞ 2
+# But how could I make tail = [2, 3, 4] instead of tail = 2? Add something into the code and make this happen.
+# Notes
+# Check the Resources tab for more examples.
+head, *tail = [1, 2, 3, 4]
+# Emmy has written a function that returns a greeting to users. However, she's in love with Mubashir, and would like to greet him slightly differently. She added a special case in her function, but she made a mistake.
+# Can you help her?
+# Examples
+# greeting("Matt") ➞ "Hello, Matt!"
+# greeting("Helen") ➞ "Hello, Helen!"
+# greeting("Mubashir") ➞ "Hello, my Love!"
+# Notes
+#     READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
+#     Don't overthink this challenge; it's not supposed to be hard.
+def greeting(name):
+	return "Hello, my Love!" if name == "Mubashir" else "Hello, " + name + "!"
+# Create a function that will handle simple math expressions. The input is an expression in the form of a string.
+# Examples
+# calculator("23+4") ➞ 27
+# calculator("45-15") ➞ 30
+# calculator("13+2-5*2") ➞ 5
+# calculator("49/7*2-3") ➞ 11
+# Notes
+#     There will be no brackets in the input line.
+#     No need to calculate mathematical functions (sin, cos, ln...).
+#     There are no gaps in the expression.
+def calculator(txt):
+	return eval(txt)
 # Given two strings, first_name and last_name, return a single string in the format "last, first".
 # Examples
 # concat_name("First", "Last") ➞ "Last, First"
