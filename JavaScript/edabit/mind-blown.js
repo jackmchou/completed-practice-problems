@@ -1,3 +1,22 @@
+// Create a function that returns the given argument, but by using an arrow function.
+
+// An arrow function is constructed like so:
+
+// arrowFunc=(/*parameters*/)=>//code here
+
+// Examples
+
+// arrowFunc(3) ➞ 3
+
+// arrowFunc("3") ➞ "3"
+
+// arrowFunc(true) ➞ true
+
+// Notes
+
+// Check the Resources tab for more information on arrow functions.
+// create your arrow function below
+arrowFunc = (param) => param
 // Given an array of numbers, representing the height of a mountain in certain intervals, return whether this mountain is scalable.
 // A mountain can be considered scalable if each number is within 5 units of the next number in either direction.
 // Examples
