@@ -1,3 +1,30 @@
+# Given a pH value, return whether that value is "alkaline" (greater than 7), "acidic" (less than 7), or "neutral" (7). Return "invalid" if the value given is less than 0 or greater than 14.
+
+# Image of a pH chart
+# Examples
+
+# pH_name(5) ➞ "acidic"
+
+# pH_name(8.7) ➞ "alkaline"
+
+# pH_name(7) ➞ "neutral"
+
+# Notes
+
+# Values such as 6.9999 and 8.00001 should return "acidic" and "alkaline" respectively.
+def pH_name(pH)
+	if pH < 0 or pH > 14
+		return"invalid"
+	end
+	case pH
+		when 7
+		"neutral"
+		when 0..6.99
+		"acidic"
+		when 7.01..14
+		"alkaline"
+	end
+end
 # Create a function that takes a number num and returns its length.
 # Examples
 # number_length(10) ➞ 2
