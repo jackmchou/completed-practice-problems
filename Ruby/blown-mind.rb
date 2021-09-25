@@ -1,3 +1,19 @@
+
+# Create a function that takes an array and returns the difference between the biggest and smallest numbers.
+# Examples
+
+# difference_max_min([10, 4, 1, 4, -10, -50, 32, 21]) ➞ 82
+# # Smallest number is -50, biggest is 32.
+
+# difference_max_min([44, 32, 86, 19]) ➞ 67
+# # Smallest number is 19, biggest is 86.
+
+# Notes
+
+# N/A
+def difference_max_min(arr)
+	arr.max - arr.min
+end
 # Create a function that takes a list lst and returns the types of values (data types) in a new list.
 # Examples
 
