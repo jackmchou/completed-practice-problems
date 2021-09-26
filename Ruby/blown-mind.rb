@@ -1,3 +1,111 @@
+# Create a function that returns the product of all odd integers in an array.
+# Examples
+
+# odd_product([3, 4, 1, 1, 5]) ➞ 15
+
+# odd_product([5, 5, 8, 2, 4, 32]) ➞ 25
+
+# odd_product([1, 2, 1, 2, 1, 2, 1, 2]) ➞ 1
+
+# Notes
+
+# N/A
+def odd_product(arr)
+  odd_int = arr.select {|num| num.odd?}
+  odd_int.reduce(:*)
+end
+# Create a function that takes an array and returns the difference between the biggest and smallest numbers.
+# Examples
+
+# difference_max_min([10, 4, 1, 4, -10, -50, 32, 21]) ➞ 82
+# # Smallest number is -50, biggest is 32.
+
+# difference_max_min([44, 32, 86, 19]) ➞ 67
+# # Smallest number is 19, biggest is 86.
+
+# Notes
+
+# N/A
+def difference_max_min(arr)
+	arr.max - arr.min
+end
+# Create a function that takes a list lst and returns the types of values (data types) in a new list.
+# Examples
+
+# list_values_types([1, 10]) ➞ [Fixnum, Fixnum]
+
+# list_values_types([["hello", 1], 10]) ➞ [Array, Fixnum]
+
+# list_values_types(["shashwat", 10, 90]) ➞ [String, Fixnum, Fixnum]
+
+# Notes
+
+#     Check the Resources tab for help if needed.
+#     Output for integer will be Fixnum instead of Integer.
+def list_values_types(arr)
+	arr.map(&:class)
+end
+# Create a function that takes a number as an argument and returns "Fizz", "Buzz" or "FizzBuzz".
+
+# If the number is a multiple of 3 the output should be "Fizz".
+# If the number given is a multiple of 5, the output should be "Buzz".
+# If the number given is a multiple of both 3 and 5, the output should be "FizzBuzz".
+# If the number is not a multiple of either 3 or 5, the number should be output on its own as shown in the examples below.
+# The output should always be a string even if it is not a multiple of 3 or 5.
+
+# Examples
+
+# fizz_buzz(3) ➞ "Fizz"
+
+# fizz_buzz(5) ➞ "Buzz"
+
+# fizz_buzz(15) ➞ "FizzBuzz"
+
+# fizz_buzz(4) ➞ "4"
+
+# Notes
+
+# Try to be precise with how you spell things and where you put the capital letters.
+# If you get stuck on a challenge, find help in the Resources tab.
+# If you're really stuck, unlock solutions in the Solutions tab.
+def fizz_buzz(num)
+  if num % 3 == 0 and num % 5 == 0
+    "FizzBuzz"
+  elsif num % 3 == 0
+    "Fizz"
+  elsif num % 5 == 0
+    "Buzz"
+  else
+    num.to_s
+  end
+end
+# Given a pH value, return whether that value is "alkaline" (greater than 7), "acidic" (less than 7), or "neutral" (7). Return "invalid" if the value given is less than 0 or greater than 14.
+
+# Image of a pH chart
+# Examples
+
+# pH_name(5) ➞ "acidic"
+
+# pH_name(8.7) ➞ "alkaline"
+
+# pH_name(7) ➞ "neutral"
+
+# Notes
+
+# Values such as 6.9999 and 8.00001 should return "acidic" and "alkaline" respectively.
+def pH_name(pH)
+	if pH < 0 or pH > 14
+		return"invalid"
+	end
+	case pH
+		when 7
+		"neutral"
+		when 0..6.99
+		"acidic"
+		when 7.01..14
+		"alkaline"
+	end
+end
 # Create a function that takes a number num and returns its length.
 # Examples
 # number_length(10) ➞ 2

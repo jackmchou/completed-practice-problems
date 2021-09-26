@@ -1,3 +1,53 @@
+// Write a function that returns the number of users in a chatroom based on the following rules:
+//     If there is no one, return "no one online".
+//     If there is 1 person, return "user1 online".
+//     If there are 2 people, return "user1 and user2 online".
+//     If there are n>2 people, return the first two names and add "and n-2 more online".
+// For example, if there are 5 users, return:
+// "user1, user2 and 3 more online"
+// Examples
+// chatroomStatus([]) ➞ "no one online"
+// chatroomStatus(["paRIE_to"]) ➞ "paRIE_to online"
+// chatroomStatus(["s234f", "mailbox2"]) ➞ "s234f and mailbox2 online"
+// chatroomStatus(["pap_ier44", "townieBOY", "panda321", "motor_bike5", "sandwichmaker833", "violinist91"])
+// ➞ "pap_ier44, townieBOY and 4 more online"
+// Notes
+// N/A
+function chatroomStatus(users) {
+	if (!users.length) return "no one online"
+	switch(true) {
+		case users.length == 1:
+			return `${users[0]} online`
+			break;
+		case users.length == 2:
+			return `${users[0]} and ${users[1]} online`
+			break;
+		case users.length > 2:
+			return `${users[0]}, ${users[1]} and ${users.length - 2} more online`
+			break;
+	}
+}
+// Create a function that returns the number of frames shown in a given number of minutes for a certain FPS.
+// Examples
+// frames(1, 1) ➞ 60
+// frames(10, 1) ➞ 600
+// frames(10, 25) ➞ 15000
+// Notes
+// FPS stands for "frames per second" and it's the number of frames a computer screen shows every second.
+function frames(minutes, fps) {
+	return minutes * fps * 60
+}
+// Create a function that returns the given argument, but by using an arrow function.
+// An arrow function is constructed like so:
+// arrowFunc=(/*parameters*/)=>//code here
+// Examples
+// arrowFunc(3) ➞ 3
+// arrowFunc("3") ➞ "3"
+// arrowFunc(true) ➞ true
+// Notes
+// Check the Resources tab for more information on arrow functions.
+// create your arrow function below
+arrowFunc = (param) => param
 // Given an array of numbers, representing the height of a mountain in certain intervals, return whether this mountain is scalable.
 // A mountain can be considered scalable if each number is within 5 units of the next number in either direction.
 // Examples
