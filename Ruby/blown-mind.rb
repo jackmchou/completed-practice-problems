@@ -1,3 +1,20 @@
+# A leap year happens every four years, so it's a year that is perfectly divisible by four. However, if the year is a multiple of 100 (1800, 1900, etc), the year must be divisible by 400.
+
+# Write a function that determines if the year is a leap year or not.
+# Examples
+
+# leap_year(2020) ➞ true
+
+# leap_year(2021) ➞ false
+
+# leap_year(1968) ➞ true
+
+# Notes
+
+# N/A
+def leap_year(year)
+  year % 100 == 0 ? year % 400 == 0 : year % 4 == 0  
+end
 # Create a function that returns the product of all odd integers in an array.
 # Examples
 
