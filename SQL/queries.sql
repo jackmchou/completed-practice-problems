@@ -26,4 +26,7 @@ SELECT * FROM movies
 WHERE title like "toy story%"
 -- Find all the movies (and director) not directed by John Lasseter 
 SELECT * FROM movies
-WHERE director like "John Lasseter"
+WHERE director LIKE "John Lasseter"
+-- Find all the movies (and director) not directed by John Lasseter
+SELECT * FROM movies
+WHERE director NOT LIKE "John Lasseter"
