@@ -7,3 +7,5 @@ SELECT director FROM movies;
 SELECT title, director FROM movies;
 -- Find the title and year of each film 
 SELECT title, year FROM movies;
+-- Find all of each film 
+SELECT * FROM movies;
