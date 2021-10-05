@@ -9,3 +9,6 @@ SELECT title, director FROM movies;
 SELECT title, year FROM movies;
 -- Find all of each film 
 SELECT * FROM movies;
+-- Find the movie with a row id of 6
+SELECT * FROM movies
+WHERE id = 6;
