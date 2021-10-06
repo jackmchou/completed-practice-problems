@@ -12,3 +12,6 @@ SELECT * FROM movies;
 -- Find the movie with a row id of 6
 SELECT * FROM movies
 WHERE id = 6;
+-- Find the movies released in the years between 2000 and 2010 
+SELECT * FROM movies
+WHERE  year > 2000 and year <= 2010
