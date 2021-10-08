@@ -33,3 +33,6 @@ WHERE director NOT LIKE "John Lasseter"
 -- Find all the WALL-* movies 
 SELECT * FROM movies
 WHERE title LIKE "Wall-_"
+-- List all directors of Pixar movies (alphabetically), without duplicates
+SELECT DISTINCT director FROM movies
+ORDER BY director ASC
