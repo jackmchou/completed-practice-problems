@@ -21,3 +21,6 @@ WHERE year NOT BETWEEN 2000 AND 2010
 -- Find the first 5 Pixar movies and their release year
 SELECT * FROM movies
 LIMIT 5
+-- Find all the movies directed by John Lasseter 
+SELECT * FROM movies
+WHERE title like "toy story%"
