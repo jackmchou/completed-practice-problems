@@ -1,14 +1,61 @@
+# Write a function that takes the last number of a consecutive list of numbers and returns the total of all numbers up to and including it.
+# Examples
+# add_up_to(3) ➞ 6
+# # 1 + 2 + 3 = 6
+# add_up_to(10) ➞ 55
+# # 1 + 2 + 3 + ... + 10 = 55
+# add_up_to(7) ➞ 28
+# # 1 + 2 + 3 + ... + 7 = 28
+# Notes
+#     You will only be given valid inputs.
+#     There are two ways of doing this; try finding them both!
+#     Remember to return the result.
+def add_up_to(n)
+	(0..n).to_a.reduce(:+)
+end
+# Create a function that takes in a current mood and return a sentence in the following format: "Today, I am feeling {mood}". However, if no argument is passed, return "Today, I am feeling neutral".
+# Examples
+# mood_today("happy") ➞ "Today, I am feeling happy"
+# mood_today("sad") ➞ "Today, I am feeling sad"
+# mood_today() ➞ "Today, I am feeling neutral"
+# Notes
+# Check the Resources tab for some helpful information.
+def mood_today(mood="neutral")
+	"Today, I am feeling #{mood}"
+end
+# Create a function which returns "upper" if all the letters in a word are uppercase, "lower" if lowercase and "mixed" for any mix of the two.
+# Examples
+# get_case("whisper...") ➞ "lower"
+# get_case("SHOUT!") ➞ "upper"
+# get_case("Indoor Voice") ➞ "mixed"
+# Notes
+# Ignore punctuation, spaces and numbers.
+def get_case(str)
+  if str == str.downcase
+    "lower"
+  elsif str == str.upcase
+    "upper"
+  else
+    "mixed"
+  end
+end
+# A leap year happens every four years, so it's a year that is perfectly divisible by four. However, if the year is a multiple of 100 (1800, 1900, etc), the year must be divisible by 400.
+# Write a function that determines if the year is a leap year or not.
+# Examples
+# leap_year(2020) ➞ true
+# leap_year(2021) ➞ false
+# leap_year(1968) ➞ true
+# Notes
+# N/A
+def leap_year(year)
+  year % 100 == 0 ? year % 400 == 0 : year % 4 == 0  
+end
 # Create a function that returns the product of all odd integers in an array.
 # Examples
-
 # odd_product([3, 4, 1, 1, 5]) ➞ 15
-
 # odd_product([5, 5, 8, 2, 4, 32]) ➞ 25
-
 # odd_product([1, 2, 1, 2, 1, 2, 1, 2]) ➞ 1
-
 # Notes
-
 # N/A
 def odd_product(arr)
   odd_int = arr.select {|num| num.odd?}
@@ -16,55 +63,38 @@ def odd_product(arr)
 end
 # Create a function that takes an array and returns the difference between the biggest and smallest numbers.
 # Examples
-
 # difference_max_min([10, 4, 1, 4, -10, -50, 32, 21]) ➞ 82
 # # Smallest number is -50, biggest is 32.
-
 # difference_max_min([44, 32, 86, 19]) ➞ 67
 # # Smallest number is 19, biggest is 86.
-
 # Notes
-
 # N/A
 def difference_max_min(arr)
 	arr.max - arr.min
 end
 # Create a function that takes a list lst and returns the types of values (data types) in a new list.
 # Examples
-
 # list_values_types([1, 10]) ➞ [Fixnum, Fixnum]
-
 # list_values_types([["hello", 1], 10]) ➞ [Array, Fixnum]
-
 # list_values_types(["shashwat", 10, 90]) ➞ [String, Fixnum, Fixnum]
-
 # Notes
-
 #     Check the Resources tab for help if needed.
 #     Output for integer will be Fixnum instead of Integer.
 def list_values_types(arr)
 	arr.map(&:class)
 end
 # Create a function that takes a number as an argument and returns "Fizz", "Buzz" or "FizzBuzz".
-
 # If the number is a multiple of 3 the output should be "Fizz".
 # If the number given is a multiple of 5, the output should be "Buzz".
 # If the number given is a multiple of both 3 and 5, the output should be "FizzBuzz".
 # If the number is not a multiple of either 3 or 5, the number should be output on its own as shown in the examples below.
 # The output should always be a string even if it is not a multiple of 3 or 5.
-
 # Examples
-
 # fizz_buzz(3) ➞ "Fizz"
-
 # fizz_buzz(5) ➞ "Buzz"
-
 # fizz_buzz(15) ➞ "FizzBuzz"
-
 # fizz_buzz(4) ➞ "4"
-
 # Notes
-
 # Try to be precise with how you spell things and where you put the capital letters.
 # If you get stuck on a challenge, find help in the Resources tab.
 # If you're really stuck, unlock solutions in the Solutions tab.
@@ -80,18 +110,12 @@ def fizz_buzz(num)
   end
 end
 # Given a pH value, return whether that value is "alkaline" (greater than 7), "acidic" (less than 7), or "neutral" (7). Return "invalid" if the value given is less than 0 or greater than 14.
-
 # Image of a pH chart
 # Examples
-
 # pH_name(5) ➞ "acidic"
-
 # pH_name(8.7) ➞ "alkaline"
-
 # pH_name(7) ➞ "neutral"
-
 # Notes
-
 # Values such as 6.9999 and 8.00001 should return "acidic" and "alkaline" respectively.
 def pH_name(pH)
 	if pH < 0 or pH > 14
