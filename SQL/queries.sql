@@ -40,3 +40,7 @@ ORDER BY director ASC
 SELECT * FROM movies
 ORDER BY year DESC
 LIMIT 4
+-- List the first five Pixar movies sorted alphabetically 
+SELECT * FROM movies
+ORDER BY title asc
+LIMIT 5
