@@ -44,3 +44,7 @@ LIMIT 4
 SELECT * FROM movies
 ORDER BY title asc
 LIMIT 5
+-- List the next five Pixar movies sorted alphabetically 
+SELECT * FROM movies
+ORDER BY title asc
+LIMIT 5 OFFSET 5
