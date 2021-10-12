@@ -48,3 +48,6 @@ LIMIT 5
 SELECT * FROM movies
 ORDER BY title asc
 LIMIT 5 OFFSET 5
+-- List all the Canadian cities and their populations
+SELECT * FROM north_american_cities
+WHERE country = "Canada";
