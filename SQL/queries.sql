@@ -51,3 +51,7 @@ LIMIT 5 OFFSET 5
 -- List all the Canadian cities and their populations
 SELECT * FROM north_american_cities
 WHERE country = "Canada";
+-- Order all the cities in the United States by their latitude from north to south
+SELECT * FROM north_american_cities
+WHERE country LIKE "%States"
+ORDER BY latitude desc
