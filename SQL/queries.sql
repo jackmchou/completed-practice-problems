@@ -55,3 +55,7 @@ WHERE country = "Canada";
 SELECT * FROM north_american_cities
 WHERE country LIKE "%States"
 ORDER BY latitude desc
+-- List all the cities west of Chicago, ordered from west to east 
+SELECT city FROM north_american_cities
+WHERE longitude < -87.629798
+ORDER BY longitude asc
