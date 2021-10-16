@@ -69,3 +69,6 @@ SELECT * FROM north_american_cities
 WHERE country = "United States"
 ORDER BY population desc
 LIMIT 2 OFFSET 2
+-- Find the domestic and international sales for each movie
+SELECT * FROM movies
+INNER JOIN boxoffice on id = movie_id
