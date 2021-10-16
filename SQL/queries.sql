@@ -36,3 +36,39 @@ WHERE title LIKE "Wall-_"
 -- List all directors of Pixar movies (alphabetically), without duplicates
 SELECT DISTINCT director FROM movies
 ORDER BY director ASC
+-- List the last four Pixar movies released (ordered from most recent to least) 
+SELECT * FROM movies
+ORDER BY year DESC
+LIMIT 4
+-- List the first five Pixar movies sorted alphabetically 
+SELECT * FROM movies
+ORDER BY title asc
+LIMIT 5
+-- List the next five Pixar movies sorted alphabetically 
+SELECT * FROM movies
+ORDER BY title asc
+LIMIT 5 OFFSET 5
+-- List all the Canadian cities and their populations
+SELECT * FROM north_american_cities
+WHERE country = "Canada";
+-- Order all the cities in the United States by their latitude from north to south
+SELECT * FROM north_american_cities
+WHERE country LIKE "%States"
+ORDER BY latitude desc
+-- List all the cities west of Chicago, ordered from west to east 
+SELECT city FROM north_american_cities
+WHERE longitude < -87.629798
+ORDER BY longitude asc
+-- List the two largest cities in Mexico (by population) 
+SELECT * FROM north_american_cities
+WHERE country = "Mexico"
+ORDER BY population desc
+LIMIT 2
+-- List the third and fourth largest cities (by population) in the United States and their population 
+SELECT * FROM north_american_cities
+WHERE country = "United States"
+ORDER BY population desc
+LIMIT 2 OFFSET 2
+-- Find the domestic and international sales for each movie
+SELECT * FROM movies
+INNER JOIN boxoffice on id = movie_id
