@@ -72,3 +72,7 @@ LIMIT 2 OFFSET 2
 -- Find the domestic and international sales for each movie
 SELECT * FROM movies
 INNER JOIN boxoffice on id = movie_id
+-- Show the sales numbers for each movie that did better internationally rather than domestically 
+SELECT * FROM movies
+INNER JOIN boxoffice on id = movie_id
+WHERE international_sales > domestic_sales
