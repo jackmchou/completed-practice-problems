@@ -80,3 +80,6 @@ WHERE international_sales > domestic_sales
 SELECT * FROM movies
 INNER JOIN boxoffice on id = movie_id
 ORDER BY rating desc
+-- Find the list of all buildings that have employees
+SELECT DISTINCT building_name FROM employees
+LEFT JOIN buildings on building_name = building
