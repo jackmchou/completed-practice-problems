@@ -83,3 +83,5 @@ ORDER BY rating desc
 -- Find the list of all buildings that have employees
 SELECT DISTINCT building_name FROM employees
 LEFT JOIN buildings on building_name = building
+--  Find the list of all buildings and their capacity 
+SELECT * FROM buildings
