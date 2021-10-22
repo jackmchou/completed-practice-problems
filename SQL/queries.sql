@@ -95,3 +95,7 @@ WHERE building IS NULL
 SELECT * FROM buildings
 LEFT JOIN employees on building_name = employees.building
 WHERE role is null
+-- List all movies and their combined sales in millions of dollars 
+SELECT DISTINCT title, (domestic_sales + international_sales) / 1000000 as sales
+FROM movies
+INNER JOIN boxoffice ON movies.id = boxoffice.movie_id
