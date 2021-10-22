@@ -91,3 +91,7 @@ LEFT JOIN employees ON building_name = employees.building
 -- Find the name and role of all employees who have not been assigned to a building 
 SELECT * FROM employees
 WHERE building IS NULL
+-- Find the names of the buildings that hold no employees 
+SELECT * FROM buildings
+LEFT JOIN employees on building_name = employees.building
+WHERE role is null
