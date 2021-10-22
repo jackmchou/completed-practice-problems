@@ -103,3 +103,8 @@ INNER JOIN boxoffice ON movies.id = boxoffice.movie_id
 SELECT DISTINCT *, rating * 10 as percent
 FROM movies
 INNER JOIN boxoffice ON movies.id = boxoffice.movie_id
+-- List all movies that were released on even number years
+SELECT *
+FROM movies
+INNER JOIN boxoffice ON movies.id = boxoffice.movie_id
+WHERE YEAR % 2 == 0
