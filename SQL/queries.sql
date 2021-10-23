@@ -99,3 +99,7 @@ WHERE role is null
 SELECT DISTINCT title, (domestic_sales + international_sales) / 1000000 as sales
 FROM movies
 INNER JOIN boxoffice ON movies.id = boxoffice.movie_id
+-- List all movies and their ratings in percent
+SELECT DISTINCT *, rating * 10 as percent
+FROM movies
+INNER JOIN boxoffice ON movies.id = boxoffice.movie_id
