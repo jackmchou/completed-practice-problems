@@ -108,3 +108,5 @@ SELECT *
 FROM movies
 INNER JOIN boxoffice ON movies.id = boxoffice.movie_id
 WHERE YEAR % 2 == 0
+Find the longest time that an employee has been at the studio 
+SELECT MAX(years_employed) as longest_time FROM employees
