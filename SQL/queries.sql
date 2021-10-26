@@ -108,8 +108,11 @@ SELECT *
 FROM movies
 INNER JOIN boxoffice ON movies.id = boxoffice.movie_id
 WHERE YEAR % 2 == 0
-Find the longest time that an employee has been at the studio 
+--Find the longest time that an employee has been at the studio 
 SELECT MAX(years_employed) as longest_time FROM employees
 --  For each role, find the average number of years employed by employees in that role
 SELECT AVG(years_employed) as avg_time, role FROM employees
 GROUP BY role
+-- Find the total number of employee years worked in each building
+SELECT Building, SUM(years_employed) AS total_employee_years FROM employees
+GROUP BY building
