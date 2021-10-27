@@ -116,3 +116,6 @@ GROUP BY role
 -- Find the total number of employee years worked in each building
 SELECT Building, SUM(years_employed) AS total_employee_years FROM employees
 GROUP BY building
+-- Find the number of Artists in the studio (without a HAVING clause)
+SELECT COUNT() AS artists_count FROM employees
+WHERE role = "Artist"
