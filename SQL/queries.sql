@@ -119,3 +119,6 @@ GROUP BY building
 -- Find the number of Artists in the studio (without a HAVING clause)
 SELECT COUNT() AS artists_count FROM employees
 WHERE role = "Artist"
+-- Find the number of Employees of each role in the studio
+SELECT role, COUNT() FROM employees
+GROUP BY role
