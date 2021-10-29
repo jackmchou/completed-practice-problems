@@ -122,3 +122,6 @@ WHERE role = "Artist"
 -- Find the number of Employees of each role in the studio
 SELECT role, COUNT() FROM employees
 GROUP BY role
+-- Find the total number of years employed by all Engineers
+SELECT role, SUM(years_employed) AS total_years  FROM employees
+WHERE role = "Engineer"
