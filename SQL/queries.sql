@@ -125,3 +125,6 @@ GROUP BY role
 -- Find the total number of years employed by all Engineers
 SELECT role, SUM(years_employed) AS total_years  FROM employees
 WHERE role = "Engineer"
+-- Find the number of movies each director has directed
+SELECT Director, COUNT() AS num_movies_directed FROM movies
+GROUP BY Director
