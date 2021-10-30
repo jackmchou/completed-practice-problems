@@ -128,3 +128,9 @@ WHERE role = "Engineer"
 -- Find the number of movies each director has directed
 SELECT Director, COUNT() AS num_movies_directed FROM movies
 GROUP BY Director
+-- Find the total domestic and international sales that can be attributed to each director
+SELECT Director, SUM(Domestic_sales + International_sales) AS total_sales
+FROM movies
+JOIN boxoffice 
+ON movies.id = boxoffice.movie_id
+GROUP BY Director
