@@ -134,3 +134,7 @@ FROM movies
 JOIN boxoffice 
 ON movies.id = boxoffice.movie_id
 GROUP BY Director
+-- Add the studio's new production, Toy Story 4 to the list of movies (you can use any director)
+INSERT INTO movies
+(id, title, director, year, length_minutes)
+VALUES (15, "Toy Story 4","JC", 2021, 120);
