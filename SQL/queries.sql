@@ -138,3 +138,7 @@ GROUP BY Director
 INSERT INTO movies
 (id, title, director, year, length_minutes)
 VALUES (15, "Toy Story 4","JC", 2021, 120);
+-- Toy Story 4 has been released to critical acclaim! It had a rating of 8.7, and made 340 million domestically and 270 million internationally. Add the record to the BoxOffice table.
+INSERT INTO boxoffice
+(Movie_id, Rating, Domestic_sales, International_sales)
+VALUES (15, 8.7,340000000, 270000000);
