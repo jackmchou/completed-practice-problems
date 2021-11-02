@@ -142,3 +142,7 @@ VALUES (15, "Toy Story 4","JC", 2021, 120);
 INSERT INTO boxoffice
 (Movie_id, Rating, Domestic_sales, International_sales)
 VALUES (15, 8.7,340000000, 270000000);
+-- The director for A Bug's Life is incorrect, it was actually directed by John Lasseter
+UPDATE movies
+SET director = "John Lasseter"
+WHERE title = "A Bug's Life";
