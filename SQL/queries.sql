@@ -146,3 +146,7 @@ VALUES (15, 8.7,340000000, 270000000);
 UPDATE movies
 SET director = "John Lasseter"
 WHERE title = "A Bug's Life";
+-- The year that Toy Story 2 was released is incorrect, it was actually released in 1999 
+UPDATE movies
+SET year = 1999
+WHERE title = "Toy Story 2";
