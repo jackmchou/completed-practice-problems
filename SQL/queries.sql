@@ -154,3 +154,6 @@ WHERE title = "Toy Story 2";
 UPDATE movies
 SET title = "Toy Story 3", director = "Lee Unkrich"
 WHERE title = "Toy Story 8";
+-- This database is getting too big, lets remove all movies that were released before 2005.
+DELETE FROM movies
+WHERE YEAR < 2005
