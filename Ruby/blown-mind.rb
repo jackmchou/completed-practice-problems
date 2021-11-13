@@ -1,3 +1,20 @@
+# Given a string of numbers separated by a comma and space, return the product of the numbers.
+# Examples
+
+# multiply_nums("2, 3") ➞ 6
+
+# multiply_nums("1, 2, 3, 4") ➞ 24
+
+# multiply_nums("54, 75, 453, 0") ➞ 0
+
+# multiply_nums("10, -2") ➞ -20
+
+# Notes
+
+# Bonus: Try to complete this challenge in one line!
+def multiply_nums(nums)
+	nums.split(", ").map(&:to_i).reduce(:*)
+end
 # Create a function that takes a string of four numbers. These numbers represent two separate points on a graph known as the x-axis (horizontal axis) and y-axis (vertical axis).
 
 # The order of coordinates in the string corresponds as follows:
