@@ -1,72 +1,66 @@
-# Create a function to return the amount of potatoes there are in a string.
+# A snail goes up the stairs. Every step, he must go up the step, then go across to the next step. He wants to reach the top of the tower.
+
+# Write a function that returns the distance the snail must travel to the top of the tower given the height and length of each step and the height of the tower.
 # Examples
 
-# potatoes("potato") ➞ 1
+# total_distance(0.2, 0.4, 100.0) ➞ 300.0
+# # Total distance is 300.
 
-# potatoes("potatopotato") ➞ 2
+# total_distance(0.3, 0.2, 25.0) ➞ 41.7
 
-# potatoes("potatoapple") ➞ 1
+# total_distance(0.1, 0.1, 6.0) ➞ 12.0
 
 # Notes
 
+#     All given values are greater than 0.
+#     Round answers to the nearest tenth 0.1.
+#     Number of steps determined by tower height divided by stair height.
+#     For the purposes of this exercise, the last step's length must be counted to complete the journey.
+def total_distance(height, length, tower)
+	(tower / height * (height + length)).round(1)
+end
+# Create a function to return the amount of potatoes there are in a string.
+# Examples
+# potatoes("potato") ➞ 1
+# potatoes("potatopotato") ➞ 2
+# potatoes("potatoapple") ➞ 1
+# Notes
 # N/A
 def potatoes(potato)
 	potato.scan(/potato/).length
 end
-
 # Given a string of numbers separated by a comma and space, return the product of the numbers.
 # Examples
-
 # multiply_nums("2, 3") ➞ 6
-
 # multiply_nums("1, 2, 3, 4") ➞ 24
-
 # multiply_nums("54, 75, 453, 0") ➞ 0
-
 # multiply_nums("10, -2") ➞ -20
-
 # Notes
-
 # Bonus: Try to complete this challenge in one line!
 def multiply_nums(nums)
 	nums.split(", ").map(&:to_i).reduce(:*)
 end
 # Create a function that takes a string of four numbers. These numbers represent two separate points on a graph known as the x-axis (horizontal axis) and y-axis (vertical axis).
-
 # The order of coordinates in the string corresponds as follows:
-
 # "x1,y1,x2,y2"
-
 # Calculate the distance between x and y.
 # Examples
-
 # shortest_distance("1,1,2,1") ➞ 1
-
 # shortest_distance("1,1,3,1") ➞ 2
-
 # shortest_distance("-5,1,3,1") ➞ 8
-
 # shortest_dtance("-5,2,3,1") ➞ 8.06
-
 # Notes
-
 # All floats fixed to two decimal places (e.g. 2.34).
 def shortest_distance(txt)
   x1, y1, x2, y2 = txt.split(",").map(&:to_i)
   Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2).round(2)
 end
-
 # Create a function that takes in year and month as input, then return what year it would be after n-months has elapsed.
 # Examples
-
 # after_n_months(2020, 24) ➞ 2022
-
 # after_n_months(1832, 2) ➞ 1832
-
 # after_n_months(1444, 60) ➞ 1449
-
 # Notes
-
 #     Assume that adding 12 months will always increment the year by 1.
 #     If no value is given for year or months, return "year missing" or "month missing".
 #     At least one value will be present.
