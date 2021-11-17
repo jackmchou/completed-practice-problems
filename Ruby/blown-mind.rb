@@ -1,4 +1,20 @@
+# An isogram is a word that has no duplicate letters. Create a function that takes a string and returns either true or false depending on whether or not it's an "isogram".
+# Examples
 
+# is_isogram("Algorism") ➞ true
+
+# is_isogram("PasSword") ➞ false
+# # Not case sensitive.
+
+# is_isogram("Consecutive") ➞ false
+
+# Notes
+
+#     Ignore letter case (should not be case sensitive).
+#     All test cases contain valid one word strings.
+def is_isogram(str)
+  str.downcase.split("").size == str.downcase.split("").uniq.size
+end
 # Create a function to count the number of 1s in a 2D array.
 # Examples
 
