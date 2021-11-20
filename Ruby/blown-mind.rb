@@ -1,3 +1,18 @@
+# Create a function that takes a string as input and capitalizes a letter if its ASCII code is even and returns its lower case version if its ASCII code is odd.
+# Examples
+
+# ascii_capitalize("to be or not to be!") ➞ "To Be oR NoT To Be!"
+
+# ascii_capitalize("THE LITTLE MERMAID") ➞ "THe LiTTLe meRmaiD"
+
+# ascii_capitalize("Oh what a beautiful morning.") ➞ "oH wHaT a BeauTiFuL moRNiNg."
+
+# Notes
+
+# N/A
+def ascii_capitalize(str) 
+  str.chars.map {|char| char.ord.even? ? char.upcase : char.downcase}.join()
+end
 # Given an array of numbers and a value n, write a function that returns the probability of choosing a number greater than or equal to n from the array. The probability should be expressed as a percentage, rounded to one decimal place.
 # Examples
 
