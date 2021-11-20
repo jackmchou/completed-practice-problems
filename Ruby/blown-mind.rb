@@ -1,29 +1,19 @@
 # Create a function that takes a string as input and capitalizes a letter if its ASCII code is even and returns its lower case version if its ASCII code is odd.
 # Examples
-
 # ascii_capitalize("to be or not to be!") ➞ "To Be oR NoT To Be!"
-
 # ascii_capitalize("THE LITTLE MERMAID") ➞ "THe LiTTLe meRmaiD"
-
 # ascii_capitalize("Oh what a beautiful morning.") ➞ "oH wHaT a BeauTiFuL moRNiNg."
-
 # Notes
-
 # N/A
 def ascii_capitalize(str) 
   str.chars.map {|char| char.ord.even? ? char.upcase : char.downcase}.join()
 end
 # Given an array of numbers and a value n, write a function that returns the probability of choosing a number greater than or equal to n from the array. The probability should be expressed as a percentage, rounded to one decimal place.
 # Examples
-
 # probability([5, 1, 8, 9], 6) ➞ 50.0
-
 # probability([7, 4, 17, 14, 12, 3], 16) ➞ 16.7
-
 # probability([4, 6, 2, 9, 15, 18, 8, 2, 10, 8], 6) ➞ 70.0
-
 # Notes
-
 #     Precent probability of event = 100 * (num of favourable outcomes) / (total num of possible outcomes)
 #     The numbers in the array are uniformly distributed, and have an equal chance of being chosen.
 def probability(arr, num)
@@ -32,16 +22,11 @@ def probability(arr, num)
 end
 # An isogram is a word that has no duplicate letters. Create a function that takes a string and returns either true or false depending on whether or not it's an "isogram".
 # Examples
-
 # is_isogram("Algorism") ➞ true
-
 # is_isogram("PasSword") ➞ false
 # # Not case sensitive.
-
 # is_isogram("Consecutive") ➞ false
-
 # Notes
-
 #     Ignore letter case (should not be case sensitive).
 #     All test cases contain valid one word strings.
 def is_isogram(str)
@@ -49,66 +34,47 @@ def is_isogram(str)
 end
 # Create a function to count the number of 1s in a 2D array.
 # Examples
-
 # count_ones([
 #   [1, 0],
 #   [0, 0]
 # ]) ➞ 1
-
 # count_ones([
 #   [1, 1, 1],
 #   [0, 0, 1],
 #   [1, 1, 1]
 # ]) ➞ 7
-
 # count_ones([
 #   [1, 2, 3],
 #   [0, 2, 1],
 #   [5, 7, 33]
 # ]) ➞ 2
-
 # Notes
-
 # N/A
 def count_ones(matrix)
 	matrix.flatten.count(1)
 end
-
 # Create a function that takes three values:
-
 #     h hours
 #     m minutes
 #     s seconds
-
 # Return the value that's the longest duration.
 # Examples
-
 # longest_time(1, 59, 3598) ➞ 1
-
 # longest_time(2, 300, 15000) ➞ 300
-
 # longest_time(15, 955, 59400) ➞ 59400
-
 # Notes
-
 # No two durations will be the same.
 def longest_time(h, m, s)
 	[h, m, s][[h * 3600, m * 60, s].find_index([h * 3600, m * 60, s].max)]
 end
 # A snail goes up the stairs. Every step, he must go up the step, then go across to the next step. He wants to reach the top of the tower.
-
 # Write a function that returns the distance the snail must travel to the top of the tower given the height and length of each step and the height of the tower.
 # Examples
-
 # total_distance(0.2, 0.4, 100.0) ➞ 300.0
 # # Total distance is 300.
-
 # total_distance(0.3, 0.2, 25.0) ➞ 41.7
-
 # total_distance(0.1, 0.1, 6.0) ➞ 12.0
-
 # Notes
-
 #     All given values are greater than 0.
 #     Round answers to the nearest tenth 0.1.
 #     Number of steps determined by tower height divided by stair height.
