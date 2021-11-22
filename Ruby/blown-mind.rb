@@ -1,3 +1,18 @@
+# Write a function that takes all even-indexed characters and odd-indexed characters from a string and concatenates them together.
+# To illustrate:
+# index_shuffle("abcd") ➞ "acbd"
+# // "ac" (even-indexed) + "bd" (odd-indexed)
+# Examples
+# index_shuffle("abcdefg") ➞ "acegbdf"
+# index_shuffle("holiday") ➞ "hldyoia"
+# index_shuffle("maybe") ➞ "myeab"
+# Notes
+# 0 should be treated as an even number.
+def index_shuffle(str)
+  even = str.chars.select.with_index {|char, index| index.even? }.join()
+  odd = str.chars.select.with_index {|char, index| index.odd? }.join()
+  even + odd
+end
 # Create a function that returns the number of decimal places a number has. Any zeros after the decimal point count towards the number of decimal places.
 # Examples
 # get_decimal_places("43.20") ➞ 2
