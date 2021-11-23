@@ -1,3 +1,166 @@
+# Write a function that takes all even-indexed characters and odd-indexed characters from a string and concatenates them together.
+# To illustrate:
+# index_shuffle("abcd") ➞ "acbd"
+# // "ac" (even-indexed) + "bd" (odd-indexed)
+# Examples
+# index_shuffle("abcdefg") ➞ "acegbdf"
+# index_shuffle("holiday") ➞ "hldyoia"
+# index_shuffle("maybe") ➞ "myeab"
+# Notes
+# 0 should be treated as an even number.
+def index_shuffle(str)
+  even = str.chars.select.with_index {|char, index| index.even? }.join()
+  odd = str.chars.select.with_index {|char, index| index.odd? }.join()
+  even + odd
+end
+# Create a function that returns the number of decimal places a number has. Any zeros after the decimal point count towards the number of decimal places.
+# Examples
+# get_decimal_places("43.20") ➞ 2
+# get_decimal_places("400") ➞ 0
+# get_decimal_places("3.1") ➞ 1
+# Notes
+# Return 0 if the number doesn't have any decimal places (see example #2).
+def get_decimal_places(n)
+	(n.split(".")[1] || []).size
+end
+# Create a function that takes a string as input and capitalizes a letter if its ASCII code is even and returns its lower case version if its ASCII code is odd.
+# Examples
+# ascii_capitalize("to be or not to be!") ➞ "To Be oR NoT To Be!"
+# ascii_capitalize("THE LITTLE MERMAID") ➞ "THe LiTTLe meRmaiD"
+# ascii_capitalize("Oh what a beautiful morning.") ➞ "oH wHaT a BeauTiFuL moRNiNg."
+# Notes
+# N/A
+def ascii_capitalize(str) 
+  str.chars.map {|char| char.ord.even? ? char.upcase : char.downcase}.join()
+end
+# Given an array of numbers and a value n, write a function that returns the probability of choosing a number greater than or equal to n from the array. The probability should be expressed as a percentage, rounded to one decimal place.
+# Examples
+# probability([5, 1, 8, 9], 6) ➞ 50.0
+# probability([7, 4, 17, 14, 12, 3], 16) ➞ 16.7
+# probability([4, 6, 2, 9, 15, 18, 8, 2, 10, 8], 6) ➞ 70.0
+# Notes
+#     Precent probability of event = 100 * (num of favourable outcomes) / (total num of possible outcomes)
+#     The numbers in the array are uniformly distributed, and have an equal chance of being chosen.
+def probability(arr, num)
+  numFavorable = arr.select { |v| v >= num }
+  (100 * numFavorable.size.to_f / arr.size).round(1)
+end
+# An isogram is a word that has no duplicate letters. Create a function that takes a string and returns either true or false depending on whether or not it's an "isogram".
+# Examples
+# is_isogram("Algorism") ➞ true
+# is_isogram("PasSword") ➞ false
+# # Not case sensitive.
+# is_isogram("Consecutive") ➞ false
+# Notes
+#     Ignore letter case (should not be case sensitive).
+#     All test cases contain valid one word strings.
+def is_isogram(str)
+  str.downcase.split("").size == str.downcase.split("").uniq.size
+end
+# Create a function to count the number of 1s in a 2D array.
+# Examples
+# count_ones([
+#   [1, 0],
+#   [0, 0]
+# ]) ➞ 1
+# count_ones([
+#   [1, 1, 1],
+#   [0, 0, 1],
+#   [1, 1, 1]
+# ]) ➞ 7
+# count_ones([
+#   [1, 2, 3],
+#   [0, 2, 1],
+#   [5, 7, 33]
+# ]) ➞ 2
+# Notes
+# N/A
+def count_ones(matrix)
+	matrix.flatten.count(1)
+end
+# Create a function that takes three values:
+#     h hours
+#     m minutes
+#     s seconds
+# Return the value that's the longest duration.
+# Examples
+# longest_time(1, 59, 3598) ➞ 1
+# longest_time(2, 300, 15000) ➞ 300
+# longest_time(15, 955, 59400) ➞ 59400
+# Notes
+# No two durations will be the same.
+def longest_time(h, m, s)
+	[h, m, s][[h * 3600, m * 60, s].find_index([h * 3600, m * 60, s].max)]
+end
+# A snail goes up the stairs. Every step, he must go up the step, then go across to the next step. He wants to reach the top of the tower.
+# Write a function that returns the distance the snail must travel to the top of the tower given the height and length of each step and the height of the tower.
+# Examples
+# total_distance(0.2, 0.4, 100.0) ➞ 300.0
+# # Total distance is 300.
+# total_distance(0.3, 0.2, 25.0) ➞ 41.7
+# total_distance(0.1, 0.1, 6.0) ➞ 12.0
+# Notes
+#     All given values are greater than 0.
+#     Round answers to the nearest tenth 0.1.
+#     Number of steps determined by tower height divided by stair height.
+#     For the purposes of this exercise, the last step's length must be counted to complete the journey.
+def total_distance(height, length, tower)
+	(tower / height * (height + length)).round(1)
+end
+# Create a function to return the amount of potatoes there are in a string.
+# Examples
+# potatoes("potato") ➞ 1
+# potatoes("potatopotato") ➞ 2
+# potatoes("potatoapple") ➞ 1
+# Notes
+# N/A
+def potatoes(potato)
+	potato.scan(/potato/).length
+end
+# Given a string of numbers separated by a comma and space, return the product of the numbers.
+# Examples
+# multiply_nums("2, 3") ➞ 6
+# multiply_nums("1, 2, 3, 4") ➞ 24
+# multiply_nums("54, 75, 453, 0") ➞ 0
+# multiply_nums("10, -2") ➞ -20
+# Notes
+# Bonus: Try to complete this challenge in one line!
+def multiply_nums(nums)
+	nums.split(", ").map(&:to_i).reduce(:*)
+end
+# Create a function that takes a string of four numbers. These numbers represent two separate points on a graph known as the x-axis (horizontal axis) and y-axis (vertical axis).
+# The order of coordinates in the string corresponds as follows:
+# "x1,y1,x2,y2"
+# Calculate the distance between x and y.
+# Examples
+# shortest_distance("1,1,2,1") ➞ 1
+# shortest_distance("1,1,3,1") ➞ 2
+# shortest_distance("-5,1,3,1") ➞ 8
+# shortest_dtance("-5,2,3,1") ➞ 8.06
+# Notes
+# All floats fixed to two decimal places (e.g. 2.34).
+def shortest_distance(txt)
+  x1, y1, x2, y2 = txt.split(",").map(&:to_i)
+  Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2).round(2)
+end
+# Create a function that takes in year and month as input, then return what year it would be after n-months has elapsed.
+# Examples
+# after_n_months(2020, 24) ➞ 2022
+# after_n_months(1832, 2) ➞ 1832
+# after_n_months(1444, 60) ➞ 1449
+# Notes
+#     Assume that adding 12 months will always increment the year by 1.
+#     If no value is given for year or months, return "year missing" or "month missing".
+#     At least one value will be present.
+def after_n_months(year, month)
+	if year.nil?
+		"year missing" 
+	elsif month.nil?
+		"month missing"
+	else
+		year + (month / 12).floor
+	end
+end
 # Write a function that takes the last number of a consecutive list of numbers and returns the total of all numbers up to and including it.
 # Examples
 # add_up_to(3) ➞ 6

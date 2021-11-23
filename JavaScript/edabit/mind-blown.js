@@ -1,3 +1,13 @@
+// Create a function that returns the number of decimal places a number (given as a string) has. Any zeros after the decimal point count towards the number of decimal places.
+// Examples
+// getDecimalPlaces("43.20") ➞ 2
+// getDecimalPlaces("400") ➞ 0
+// getDecimalPlaces("3.1") ➞ 1
+// Notes
+// Return 0 if the number doesn't have any decimal places (see example #2).
+function getDecimalPlaces(num) {
+	return num.indexOf(".") != -1 ? num.length - num.indexOf(".") - 1: 0
+}
 // Write a function that returns the number of users in a chatroom based on the following rules:
 //     If there is no one, return "no one online".
 //     If there is 1 person, return "user1 online".
