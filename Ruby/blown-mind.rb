@@ -1,3 +1,17 @@
+# Create a function (named fifth) that takes some arguments and returns the type of the fifth argument. In case the arguments were less than 5, return "Not enough arguments".
+# Examples
+
+# fifth("a", 2, 3, [1, 2, 3], "five") ➞ String
+
+# fifth() ➞ "Not enough arguments"
+
+# Notes
+
+# Don't get confused between zero-indexing and one-indexing.
+def fifth(*args)
+  arg1, arg2, arg3, arg4, arg5 = args
+  arg5 ? arg5.class : "Not enough arguments"
+end
 # In this challenge, you have to find the distance between two points placed on a Cartesian plane. Knowing the coordinates of both the points, you have to apply the Pythagorean theorem to find the distance between them.
 
 # Two points on a Cartesian plane
