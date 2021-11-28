@@ -1,14 +1,19 @@
+# Remove enemies from the array of people, even if the enemy shows up twice.
+# Examples
+# remove_enemies(["Fred"], []) ➞ ["Fred"]
+# remove_enemies(["Adam", "Emmy", "Tanya", "Emmy"], ["Emmy"]) ➞ ["Adam", "Tanya"]
+# remove_enemies(["John", "Emily", "Steve", "Sam"], ["Sam", "John"]) ➞ ["Emily", "Steve"]
+# Notes
+# All names to be removed will be in the enemies array; simply return the array, no fancy strings.
+def remove_enemies(names, enemies)
+	names - enemies
+end
 # Create a function that takes two vectors as arrays and checks if the two vectors are orthogonal or not. The return value is boolean. Two vectors first and second are orthogonal if their dot product is equal to zero.
 # Examples
-
 # is_orthogonal([1, 2], [2, -1]) ➞ true
-
 # is_orthogonal([3, -1], [7, 5]) ➞ false
-
 # is_orthogonal([1, 2, 0], [2, -1, 10]) ➞ true
-
 # Notes
-
 #     The two arrays are of same length.
 #     Check out the Resource tab.
 def is_orthogonal(first, second)
@@ -20,33 +25,22 @@ def is_orthogonal(first, second)
 end
 # Create a function (named fifth) that takes some arguments and returns the type of the fifth argument. In case the arguments were less than 5, return "Not enough arguments".
 # Examples
-
 # fifth("a", 2, 3, [1, 2, 3], "five") ➞ String
-
 # fifth() ➞ "Not enough arguments"
-
 # Notes
-
 # Don't get confused between zero-indexing and one-indexing.
 def fifth(*args)
   arg1, arg2, arg3, arg4, arg5 = args
   arg5 ? arg5.class : "Not enough arguments"
 end
 # In this challenge, you have to find the distance between two points placed on a Cartesian plane. Knowing the coordinates of both the points, you have to apply the Pythagorean theorem to find the distance between them.
-
 # Two points on a Cartesian plane
-
 # Given two hashes a and b being the two points coordinates (x and y), implement a function that returns the distance between the points, rounded to the nearest thousandth.
 # Examples
-
 # get_distance({"x" => -2, "y" => 1}, {"x" => 4, "y" => 3}) ➞ 6.325
-
 # get_distance({"x" => 0, "y" => 0}, {"x" => 1, "y" => 1}) ➞ 1.414
-
 # get_distance({"x" => 10, "y" => -5}, {"x" => 8, "y" => 16}) ➞ 21.095
-
 # Notes
-
 #     Take a look at the Resources tab if you need a refresher on the geometry related to this challenge.
 #     The "distance" is the shortest distance between the two points, or the straight line generated from a to b.
 def get_distance(a, b)
