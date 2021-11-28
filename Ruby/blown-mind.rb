@@ -1,3 +1,23 @@
+# Create a function that takes two vectors as arrays and checks if the two vectors are orthogonal or not. The return value is boolean. Two vectors first and second are orthogonal if their dot product is equal to zero.
+# Examples
+
+# is_orthogonal([1, 2], [2, -1]) ➞ true
+
+# is_orthogonal([3, -1], [7, 5]) ➞ false
+
+# is_orthogonal([1, 2, 0], [2, -1, 10]) ➞ true
+
+# Notes
+
+#     The two arrays are of same length.
+#     Check out the Resource tab.
+def is_orthogonal(first, second)
+  products = []
+  first.each_with_index do |element, index|
+    products << element * second[index]
+  end
+  products.reduce(:+) == 0
+end
 # Create a function (named fifth) that takes some arguments and returns the type of the fifth argument. In case the arguments were less than 5, return "Not enough arguments".
 # Examples
 
