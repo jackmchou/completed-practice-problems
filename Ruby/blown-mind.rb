@@ -1,39 +1,58 @@
+# This challenge has five miniature exercises to help practice proficiency in string slicing. Check the examples below for a visual indicator of how to slice the strings. Good luck!
+# Examples
+# txt = "abcdefghijklmnopqrstuvwxyz"
+# challenge1(txt) ➞ "abcde"
+# # First 5 characters of the string.
+# challenge2(txt) ➞ "vwxyz"
+# # Last 5 characters of the string.
+# challenge3(txt) ➞ "zyxwvutsrqponmlkjihgfedcba"
+# # All characters in the string from back.
+# challenge4(txt) ➞ "fedcba"
+# # First 6 characters in the string (start with 6th character and go backwards).
+# challenge5(txt) ➞ "tvxz"
+# # Take last 7 characters and only return odd positioned ones.
+# Notes
+#     Check the Tests tab for more examples.
+#     See the Resources tab for further information on learning string slicing.
+#     You are not allowed to concatenate strings together! Results must be achieved purely through string slicing!
+def challenge1(s)
+	return s[0...5]
+end
+def challenge2(s)
+	return s[-5]
+end
+def challenge3(s)
+	return s.reverse
+end
+def challenge4(s)
+	return s[0...6].reverse
+end
+def challenge5(s)
+	s[-8...s.length].split('').select.with_index {|letter, index| index.odd?}.join()
+end
 # Create a function that capitalizes the last letter of every word.
 # Examples
-
 # cap_last("hello") ➞ "hellO"
-
 # cap_last("My Name Is Edabit") ➞ "MY NamE IS EdabiT"
-
 # cap_last("HELp THe LASt LETTERs CAPITALISe") ➞ "HELP THE LAST LETTERS CAPITALISE"
-
 # Notes
-
 # There won't be any cases of punctuation in the tests.
 def cap_last(str)
 	str.split(' ').map {|word| word = word[0...-1] + word[-1].upcase}.join(' ')
 end
 # A Collatz sequence is generated like this. Start with a positive number. If it's even, halve it. If it's odd, multiply it by three and add one. Repeat the process with the resulting number. The Collatz Conjecture is that every sequence eventually reaches 1 (continuing past 1 just results in an endless repeat of the sequence: 4, 2, 1).
-
 # The length of the sequence from starting number to 1 varies widely.
-
 # Create a function that takes a number as an argument and returns an array of two elements — the number of steps in the Collatz sequence of the number, and the highest number reached.
 # Examples
-
 # collatz(2) ➞ [2, 2]
 # # seq = [2, 1]
-
 # collatz(3) ➞ [8, 16]
 # # seq = [3, 10, 5, 16, 8, 4, 2, 1]
-
 # collatz(7) ➞ [17, 52]
 # # seq = [7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1]
-
 # collatz(8) ➞ [4, 8]
 # # seq = [8, 4, 2, 1]
-
 # Notes
-
 # (Improbable) Bonus: Find a positive starting number that doesn't reach 1, and score a place in Math history plus a cash prize.
 def collatz(n)
   seq = []
@@ -48,15 +67,10 @@ def collatz(n)
 end
 # Given a string of numbers separated by a comma and space, return the total sum of all the numbers.
 # Examples
-
 # add_nums("2, 5, 1, 8, 4") ➞ 20
-
 # add_nums("1, 2, 3, 4, 5, 6, 7") ➞ 28
-
 # add_nums("10") ➞ 10
-
 # Notes
-
 #     Numbers will always be separated by a comma and space.
 #     Your function should accept negative numbers.
 def add_nums(nums)
