@@ -1,3 +1,18 @@
+# Create a function that capitalizes the last letter of every word.
+# Examples
+
+# cap_last("hello") ➞ "hellO"
+
+# cap_last("My Name Is Edabit") ➞ "MY NamE IS EdabiT"
+
+# cap_last("HELp THe LASt LETTERs CAPITALISe") ➞ "HELP THE LAST LETTERS CAPITALISE"
+
+# Notes
+
+# There won't be any cases of punctuation in the tests.
+def cap_last(str)
+	str.split(' ').map {|word| word = word[0...-1] + word[-1].upcase}.join(' ')
+end
 # A Collatz sequence is generated like this. Start with a positive number. If it's even, halve it. If it's odd, multiply it by three and add one. Repeat the process with the resulting number. The Collatz Conjecture is that every sequence eventually reaches 1 (continuing past 1 just results in an endless repeat of the sequence: 4, 2, 1).
 
 # The length of the sequence from starting number to 1 varies widely.
