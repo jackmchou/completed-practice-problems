@@ -1,3 +1,18 @@
+# Create a function which adds zeros to the start of a binary string, so that its length is a mutiple of 8.
+# Examples
+
+# complete_binary("1100") ➞ "00001100"
+
+# complete_binary("1101100") ➞ "01101100"
+
+# complete_binary("110010100010") ➞ "0000110010100010"
+
+# Notes
+
+# Return the same string if its length is already a multiple of 8.
+def complete_binary(s)
+	s.length % 8 == 0 ? s : "0" * ((s.length % 8 - 8) * -1) << s
+end
 # This challenge has five miniature exercises to help practice proficiency in string slicing. Check the examples below for a visual indicator of how to slice the strings. Good luck!
 # Examples
 # txt = "abcdefghijklmnopqrstuvwxyz"
