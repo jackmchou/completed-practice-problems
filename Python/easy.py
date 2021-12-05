@@ -1054,9 +1054,9 @@ def circuit_power(voltage, current):
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
 def name_string(name):
-	  b = "Edabit"
-	  result = name + b
-	  return result
+	b = "Edabit"
+	result = name + b
+	return result
 # Create a function that takes a number as an argument and returns the appropriate error message. You should do this without using the switch or if statements.
 # The input error will be 1 to 5:
 # 1 >> "Check the fan"
