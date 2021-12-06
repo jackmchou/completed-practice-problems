@@ -1,3 +1,38 @@
+# Create two functions: a left-shift function and a right-shift function. Each function will take in an array and a single parameter: the number of shifts.
+
+# [1, 2, 3, 4, 5]
+
+# [2, 3, 4, 5, 1]  # left shift of 1
+# [5, 1, 2, 3, 4]  # left shift of 4
+
+# [5, 1, 2, 3, 4]  # right shift of 1
+# [3, 4, 5, 1, 2]  # right shift of 3
+
+# Examples
+
+# left_shift([1, 2, 3, 4], 1) ➞ [2, 3, 4, 1]
+
+# right_shift([1, 2, 3, 4], 1) ➞ [4, 1, 2, 3]
+
+# left_shift([1, 2, 3, 4, 5], 3) ➞ [4, 5, 1, 2, 3]
+
+# left_shift([1, 2, 3, 4, 5], 5) ➞ [1, 2, 3, 4, 5]
+# # You have fully shifted the array, you end up back where you began.
+
+# left_shift([1, 2, 3, 4, 5], 6) ➞ [2, 3, 4, 5, 1]
+# # You should be able to take in numbers greater than the length.
+# # Think of the length of the array as a modulo.
+
+# Notes
+
+#     num might be higher than the number of values in the array.
+#     num will never be negative.
+def left_shift(arr, num)
+	arr.rotate(num)
+end
+def right_shift(arr, num)
+	arr.rotate(num * -1)
+end
 # You work for a manufacturer, and have been asked to calculate the total profit made on the sales of a product. You are given a hash containing the cost price per unit (in dollars), sell price per unit (in dollars), and the starting inventory. Return the total profit made, rounded to the nearest dollar.
 # Examples
 
