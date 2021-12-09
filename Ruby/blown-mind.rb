@@ -1,3 +1,21 @@
+# Write a function, .vreplace() that extends the String class by replacing all vowels in a string with a specified vowel.
+# Examples
+
+# "apples and bananas".vreplace("u") ➞ "upplus und bununus"
+
+# "cheese casserole".vreplace("o") ➞ "chooso cossorolo"
+
+# "stuffed jalapeno poppers".vreplace("e") ➞ "steffed jelepene peppers"
+
+# Notes
+
+#     All words will be lowercase.
+#     "Y" is not considered a vowel.
+class String
+  def vreplace(str)
+    self.gsub(/[aeiou]/, str)
+  end
+end
 # Your function will be passed two functions, f and g, that don't take any parameters. Your function has to call them, and return a string which indicates which function returned the larger number.
 
 #     If f returns the larger number, return the string f.
@@ -15,7 +33,15 @@
 # Notes
 
 # This exercise is designed as an introduction to higher order functions (functions which use other functions to do their work).
-
+def larger(f, g)
+  if f.call == g.call
+    'neither'
+  elsif g.call > f.call
+    'g'
+  else
+    'f'
+  end
+end
 # Create two functions: a left-shift function and a right-shift function. Each function will take in an array and a single parameter: the number of shifts.
 
 # [1, 2, 3, 4, 5]
