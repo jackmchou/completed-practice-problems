@@ -1,3 +1,19 @@
+# Given an array of prices prices and a "supposed" total t, return true if there is a hidden fee added to the total (i.e. the total is greater than the sum of prices), otherwise return false.
+# Examples
+
+# has_hidden_fee(["$2", "$4", "$1", "$8"], "$15") ➞ false
+
+# has_hidden_fee(["$1", "$2", "$3"], "$6") ➞ false
+
+# has_hidden_fee(["$1"], "$4") ➞ true
+
+# Notes
+
+#     Remember that each price is given as a string.
+#     All $ signs will be at the beginning of the number.
+def has_hidden_fee(prices, t)
+  t[1...t.length].to_i > prices.map {|price| price[1...price.length].to_i}.reduce(:+)
+end
 # Write a function, .vreplace() that extends the String class by replacing all vowels in a string with a specified vowel.
 # Examples
 
