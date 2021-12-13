@@ -1,3 +1,339 @@
+# Create a function that takes an array as an argument and returns a new nested array for each element in the original array. The nested array must be filled with the corresponding element (string or number) in the original array and each nested array has the same amount of elements as the original array.
+# Examples
+
+# multiply([4, 5]) ➞ [[4, 4], [5, 5]]
+
+# multiply(["*", "%", "$"]) ➞ [["*", "*", "*"], ["%", "%", "%"], ["$", "$", "$"]]
+
+# multiply(["A", "B", "C", "D", "E"]) ➞ [["A", "A", "A", "A", "A"], ["B", "B", "B", "B", "B"], ["C", "C", "C", "C", "C"], ["D", "D", "D", "D", "D"], ["E", "E", "E", "E", "E"]]
+
+# Notes
+
+# The given array contains numbers or strings.
+def multiply(l)
+	l.map {|ele| Array.new(l.length, ele) }
+end
+# Create a function that takes a string as the first argument, and a (string) specification as a second argument. If the specification is "word", return a string with each word reversed while maintaining their original order. If the specification is "sentence", reverse the order of the words in the string, while keeping the words intact.
+# Examples
+
+# str = "There's never enough time to do all the nothing you want"
+
+
+# flip("Hello", "word") ➞ "olleH"
+
+# flip("Hello", "sentence") ➞ "Hello"
+
+# flip(str, "word") ➞ "s'erehT reven hguone emit ot od lla eht gnihton uoy tnaw"
+
+# flip(str, "sentence") ➞ "want you nothing the all do to time enough never There's"
+
+# Notes
+
+# N/A
+def flip(str, spec)
+  spec == 'word' ? str.split(' ').map {|word| word.reverse}.join(' ') : str.split(' ').reverse.join(' ')
+end
+# Given an array of prices prices and a "supposed" total t, return true if there is a hidden fee added to the total (i.e. the total is greater than the sum of prices), otherwise return false.
+# Examples
+
+# has_hidden_fee(["$2", "$4", "$1", "$8"], "$15") ➞ false
+
+# has_hidden_fee(["$1", "$2", "$3"], "$6") ➞ false
+
+# has_hidden_fee(["$1"], "$4") ➞ true
+
+# Notes
+
+#     Remember that each price is given as a string.
+#     All $ signs will be at the beginning of the number.
+def has_hidden_fee(prices, t)
+  t[1...t.length].to_i > prices.map {|price| price[1...price.length].to_i}.reduce(:+)
+end
+# Write a function, .vreplace() that extends the String class by replacing all vowels in a string with a specified vowel.
+# Examples
+
+# "apples and bananas".vreplace("u") ➞ "upplus und bununus"
+
+# "cheese casserole".vreplace("o") ➞ "chooso cossorolo"
+
+# "stuffed jalapeno poppers".vreplace("e") ➞ "steffed jelepene peppers"
+
+# Notes
+
+#     All words will be lowercase.
+#     "Y" is not considered a vowel.
+class String
+  def vreplace(str)
+    self.gsub(/[aeiou]/, str)
+  end
+end
+# Your function will be passed two functions, f and g, that don't take any parameters. Your function has to call them, and return a string which indicates which function returned the larger number.
+
+#     If f returns the larger number, return the string f.
+#     If g returns the larger number, return the string g.
+#     If the functions return the same number, return the string neither.
+
+# Examples
+
+# larger(lambda{5}, lambda{10}) ➞ "g"
+
+# larger(lambda{25}, lambda{25}) ➞ "neither"
+
+# larger(lambda{505050}, lambda{5050}) ➞ "f"
+
+# Notes
+
+# This exercise is designed as an introduction to higher order functions (functions which use other functions to do their work).
+def larger(f, g)
+  if f.call == g.call
+    'neither'
+  elsif g.call > f.call
+    'g'
+  else
+    'f'
+  end
+end
+# Create two functions: a left-shift function and a right-shift function. Each function will take in an array and a single parameter: the number of shifts.
+
+# [1, 2, 3, 4, 5]
+
+# [2, 3, 4, 5, 1]  # left shift of 1
+# [5, 1, 2, 3, 4]  # left shift of 4
+
+# [5, 1, 2, 3, 4]  # right shift of 1
+# [3, 4, 5, 1, 2]  # right shift of 3
+
+# Examples
+
+# left_shift([1, 2, 3, 4], 1) ➞ [2, 3, 4, 1]
+
+# right_shift([1, 2, 3, 4], 1) ➞ [4, 1, 2, 3]
+
+# left_shift([1, 2, 3, 4, 5], 3) ➞ [4, 5, 1, 2, 3]
+
+# left_shift([1, 2, 3, 4, 5], 5) ➞ [1, 2, 3, 4, 5]
+# # You have fully shifted the array, you end up back where you began.
+
+# left_shift([1, 2, 3, 4, 5], 6) ➞ [2, 3, 4, 5, 1]
+# # You should be able to take in numbers greater than the length.
+# # Think of the length of the array as a modulo.
+
+# Notes
+
+#     num might be higher than the number of values in the array.
+#     num will never be negative.
+def left_shift(arr, num)
+	arr.rotate(num)
+end
+def right_shift(arr, num)
+	arr.rotate(num * -1)
+end
+# You work for a manufacturer, and have been asked to calculate the total profit made on the sales of a product. You are given a hash containing the cost price per unit (in dollars), sell price per unit (in dollars), and the starting inventory. Return the total profit made, rounded to the nearest dollar.
+# Examples
+
+# profit({
+#   "cost_price" => 32.67,
+#   "sell_price" => 45.00,
+#   "inventory" => 1200
+# }) ➞ 14796
+
+# profit({
+#   "cost_price" => 225.89,
+#   "sell_price" => 550.00,
+#   "inventory" => 100
+# }) ➞ 32411
+
+# profit({
+#   "cost_price" => 2.77,
+#   "sell_price" => 7.95,
+#   "inventory" => 8500
+# }) ➞ 44030
+
+# Notes
+
+#     Assume all inventory has been sold.
+#     Profit = Total Sales - Total Cost
+def profit(info)
+  (info['sell_price'] * info['inventory'] - info['cost_price'] * info['inventory']).round(0)
+end
+# Given a word, write a function that returns the first index and the last index of a character.
+# Examples
+
+# char_index("hello", "l") ➞ [2, 3]
+# # The first "l" has index 2, the last "l" has index 3.
+
+# char_index("circumlocution", "c") ➞ [0, 8]
+# # The first "c" has index 0, the last "c" has index 8.
+
+# char_index("happy", "h") ➞ [0, 0]
+# # Only one "h" exists, so the first and last index is 0.
+
+# char_index("happy", "e") ➞ nil
+# # "e" does not exist in "happy", so we return undefined.
+
+# Notes
+
+#     If the character does not exist in the word, return nil.
+#     If only one instance of the character exists, the first and last index will be the same.
+#     Check the Resources tab for hints.
+def char_index(word, char)
+  word.index(char) == nil ? nil : [word.index(char), word.rindex(char)]
+end
+# Create a function which adds zeros to the start of a binary string, so that its length is a mutiple of 8.
+# Examples
+
+# complete_binary("1100") ➞ "00001100"
+
+# complete_binary("1101100") ➞ "01101100"
+
+# complete_binary("110010100010") ➞ "0000110010100010"
+
+# Notes
+
+# Return the same string if its length is already a multiple of 8.
+def complete_binary(s)
+	s.length % 8 == 0 ? s : "0" * ((s.length % 8 - 8) * -1) << s
+end
+# This challenge has five miniature exercises to help practice proficiency in string slicing. Check the examples below for a visual indicator of how to slice the strings. Good luck!
+# Examples
+# txt = "abcdefghijklmnopqrstuvwxyz"
+# challenge1(txt) ➞ "abcde"
+# # First 5 characters of the string.
+# challenge2(txt) ➞ "vwxyz"
+# # Last 5 characters of the string.
+# challenge3(txt) ➞ "zyxwvutsrqponmlkjihgfedcba"
+# # All characters in the string from back.
+# challenge4(txt) ➞ "fedcba"
+# # First 6 characters in the string (start with 6th character and go backwards).
+# challenge5(txt) ➞ "tvxz"
+# # Take last 7 characters and only return odd positioned ones.
+# Notes
+#     Check the Tests tab for more examples.
+#     See the Resources tab for further information on learning string slicing.
+#     You are not allowed to concatenate strings together! Results must be achieved purely through string slicing!
+def challenge1(s)
+	return s[0...5]
+end
+def challenge2(s)
+	return s[-5]
+end
+def challenge3(s)
+	return s.reverse
+end
+def challenge4(s)
+	return s[0...6].reverse
+end
+def challenge5(s)
+	s[-8...s.length].split('').select.with_index {|letter, index| index.odd?}.join()
+end
+# Create a function that capitalizes the last letter of every word.
+# Examples
+# cap_last("hello") ➞ "hellO"
+# cap_last("My Name Is Edabit") ➞ "MY NamE IS EdabiT"
+# cap_last("HELp THe LASt LETTERs CAPITALISe") ➞ "HELP THE LAST LETTERS CAPITALISE"
+# Notes
+# There won't be any cases of punctuation in the tests.
+def cap_last(str)
+	str.split(' ').map {|word| word = word[0...-1] + word[-1].upcase}.join(' ')
+end
+# A Collatz sequence is generated like this. Start with a positive number. If it's even, halve it. If it's odd, multiply it by three and add one. Repeat the process with the resulting number. The Collatz Conjecture is that every sequence eventually reaches 1 (continuing past 1 just results in an endless repeat of the sequence: 4, 2, 1).
+# The length of the sequence from starting number to 1 varies widely.
+# Create a function that takes a number as an argument and returns an array of two elements — the number of steps in the Collatz sequence of the number, and the highest number reached.
+# Examples
+# collatz(2) ➞ [2, 2]
+# # seq = [2, 1]
+# collatz(3) ➞ [8, 16]
+# # seq = [3, 10, 5, 16, 8, 4, 2, 1]
+# collatz(7) ➞ [17, 52]
+# # seq = [7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1]
+# collatz(8) ➞ [4, 8]
+# # seq = [8, 4, 2, 1]
+# Notes
+# (Improbable) Bonus: Find a positive starting number that doesn't reach 1, and score a place in Math history plus a cash prize.
+def collatz(n)
+  seq = []
+  while n != 1 do
+    if n % 2 == 0
+      seq << n /= 2
+    else
+      seq << n = n * 3 + 1
+    end
+  end
+  [seq.length + 1,seq.max] 
+end
+# Given a string of numbers separated by a comma and space, return the total sum of all the numbers.
+# Examples
+# add_nums("2, 5, 1, 8, 4") ➞ 20
+# add_nums("1, 2, 3, 4, 5, 6, 7") ➞ 28
+# add_nums("10") ➞ 10
+# Notes
+#     Numbers will always be separated by a comma and space.
+#     Your function should accept negative numbers.
+def add_nums(nums)
+	nums.split(', ').reduce(0) {|sum, num| sum + num.to_i}
+end
+# Remove enemies from the array of people, even if the enemy shows up twice.
+# Examples
+# remove_enemies(["Fred"], []) ➞ ["Fred"]
+# remove_enemies(["Adam", "Emmy", "Tanya", "Emmy"], ["Emmy"]) ➞ ["Adam", "Tanya"]
+# remove_enemies(["John", "Emily", "Steve", "Sam"], ["Sam", "John"]) ➞ ["Emily", "Steve"]
+# Notes
+# All names to be removed will be in the enemies array; simply return the array, no fancy strings.
+def remove_enemies(names, enemies)
+	names - enemies
+end
+# Create a function that takes two vectors as arrays and checks if the two vectors are orthogonal or not. The return value is boolean. Two vectors first and second are orthogonal if their dot product is equal to zero.
+# Examples
+# is_orthogonal([1, 2], [2, -1]) ➞ true
+# is_orthogonal([3, -1], [7, 5]) ➞ false
+# is_orthogonal([1, 2, 0], [2, -1, 10]) ➞ true
+# Notes
+#     The two arrays are of same length.
+#     Check out the Resource tab.
+def is_orthogonal(first, second)
+  products = []
+  first.each_with_index do |element, index|
+    products << element * second[index]
+  end
+  products.reduce(:+) == 0
+end
+# Create a function (named fifth) that takes some arguments and returns the type of the fifth argument. In case the arguments were less than 5, return "Not enough arguments".
+# Examples
+# fifth("a", 2, 3, [1, 2, 3], "five") ➞ String
+# fifth() ➞ "Not enough arguments"
+# Notes
+# Don't get confused between zero-indexing and one-indexing.
+def fifth(*args)
+  arg1, arg2, arg3, arg4, arg5 = args
+  arg5 ? arg5.class : "Not enough arguments"
+end
+# In this challenge, you have to find the distance between two points placed on a Cartesian plane. Knowing the coordinates of both the points, you have to apply the Pythagorean theorem to find the distance between them.
+# Two points on a Cartesian plane
+# Given two hashes a and b being the two points coordinates (x and y), implement a function that returns the distance between the points, rounded to the nearest thousandth.
+# Examples
+# get_distance({"x" => -2, "y" => 1}, {"x" => 4, "y" => 3}) ➞ 6.325
+# get_distance({"x" => 0, "y" => 0}, {"x" => 1, "y" => 1}) ➞ 1.414
+# get_distance({"x" => 10, "y" => -5}, {"x" => 8, "y" => 16}) ➞ 21.095
+# Notes
+#     Take a look at the Resources tab if you need a refresher on the geometry related to this challenge.
+#     The "distance" is the shortest distance between the two points, or the straight line generated from a to b.
+def get_distance(a, b)
+  Math.hypot(a["x"] - b["x"], a["y"] - b["y"]).round(3)
+end
+# Create a function that takes an array of numbers and returns the sum of the two lowest positive numbers.
+# Examples
+# sum_two_smallest_nums([19, 5, 42, 2, 77]) ➞ 7
+# sum_two_smallest_nums([10, 343445353, 3453445, 3453545353453]) ➞ 3453455
+# sum_two_smallest_nums([2, 9, 6, -1]) ➞ 8
+# sum_two_smallest_nums([879, 953, 694, -847, 342, 221, -91, -723, 791, -587]) ➞ 563
+# sum_two_smallest_nums([3683, 2902, 3951, -475, 1617, -2385]) ➞ 4519
+# Notes
+#     Don't count negative numbers.
+#     Floats and empty arrays will not be used in any of the test cases.
+def sum_two_smallest_nums(arr)
+  sorted = arr.select {|num| num >= 0}.sort()
+  sorted[0] + sorted[1]
+end
 # Write a function that takes all even-indexed characters and odd-indexed characters from a string and concatenates them together.
 # To illustrate:
 # index_shuffle("abcd") ➞ "acbd"
