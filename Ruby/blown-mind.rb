@@ -1,3 +1,29 @@
+# Create a function that ends the first word of a phrase with "ed", essentially verbifying a noun.
+# Examples
+
+# verbify("cheese burger") ➞ "cheesed burger"
+
+# verbify("salt water") ➞ "salted water"
+
+# verbify("orange juice") ➞ "oranged juice"
+
+# verbify("shredded cheese") ➞ "shredded cheese"
+
+# Notes
+
+#     Change only the first word.
+#     Note that some words may already end in "e" or "ed".
+#     All phrases will be in lowercase.
+def verbify(str)
+  strArr = str.split(' ')
+  if strArr[0].chars[-2..-1].join('') == "ed"
+    "#{strArr[0]} #{strArr[1]}"
+  elsif strArr[0].chars[-1] == "e"
+    "#{strArr[0] << 'd'} #{strArr[1]}"
+  else
+    "#{strArr[0] << 'ed'} #{strArr[1]}"
+  end
+end
 # Write a function that takes a two-digit number and determines if it's the largest of two possible digit swaps.
 
 # To illustrate:
