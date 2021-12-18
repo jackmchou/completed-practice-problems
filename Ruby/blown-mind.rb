@@ -1,26 +1,37 @@
-# Write a program that takes a temperature input in celsius and converts it to Fahrenheit and Kelvin. Return the converted temperature values in an array.
-
-# The formula to calculate the temperature in Fahrenheit from Celsius is:
-
-# F = C*9/5 +32
-
-# The formula to calculate the temperature in Kelvin from Celsius is:
-
-# K = C + 273.15
-
+# Wild Roger is participating in a Western Showdown, meaning he has to draw (pull out and shoot) his gun faster than his opponent in a gun standoff.
+# Given two strings,p1 and p2, return which person drew their gun the fastest. If both are drawn at the same time, return "tie".
 # Examples
-
+# showdown(
+#   "   Bang!        ",
+#   "        Bang!   "
+# ) ➞ "p1"
+# # p1 draws his gun sooner than p2
+# showdown(
+#   "               Bang! ",
+#   "             Bang!   "
+# ) ➞ "p2"
+# showdown(
+#   "     Bang!   ",
+#   "     Bang!   "
+# ) ➞ "tie"
+# Notes
+# Both strings are the same length.
+def showdown(p1, p2)
+  return "tie" if p1.index("Bang") == p2.index("Bang")
+	p1.index("Bang") > p2.index("Bang") ? "p2" : "p1"
+end
+# Write a program that takes a temperature input in celsius and converts it to Fahrenheit and Kelvin. Return the converted temperature values in an array.
+# The formula to calculate the temperature in Fahrenheit from Celsius is:
+# F = C*9/5 +32
+# The formula to calculate the temperature in Kelvin from Celsius is:
+# K = C + 273.15
+# Examples
 # temp_conversion(0) ➞ [32, 273.15]
 # # 0°C is equal to 32°F and 273.15 K.
-
 # temp_conversion(100) ➞ [212, 373.15]
-
 # temp_conversion(-10) ➞ [14, 263.15]
-
 # temp_conversion(300.4) ➞ [572.72, 573.55]
-
 # Notes
-
 #     Return calculated temperatures up to two decimal places.
 #     Return "Invalid" if K is less than 0.
 def temp_conversion(c)
@@ -29,17 +40,11 @@ def temp_conversion(c)
 end
 # Create a function that ends the first word of a phrase with "ed", essentially verbifying a noun.
 # Examples
-
 # verbify("cheese burger") ➞ "cheesed burger"
-
 # verbify("salt water") ➞ "salted water"
-
 # verbify("orange juice") ➞ "oranged juice"
-
 # verbify("shredded cheese") ➞ "shredded cheese"
-
 # Notes
-
 #     Change only the first word.
 #     Note that some words may already end in "e" or "ed".
 #     All phrases will be in lowercase.
@@ -54,39 +59,25 @@ def verbify(str)
   end
 end
 # Write a function that takes a two-digit number and determines if it's the largest of two possible digit swaps.
-
 # To illustrate:
-
 # largest_swap(27) ➞ false
-
 # largest_swap(43) ➞ true
-
 # If 27 is our input, we should return false because swapping the digits gives us 72, and 72 > 27. On the other hand, swapping 43 gives us 34, and 43 > 34.
 # Examples
-
 # largest_swap(14) ➞ false
-
 # largest_swap(53) ➞ true
-
 # largest_swap(99) ➞ true
-
 # Notes
-
 # Numbers with two identical digits (third example) should yield true (you can't do better).
 def largest_swap(num)
 	num.to_s.chars.reverse.join('').to_i <= num
 end
 # Create a function that takes a string of words and return a string sorted alphabetically by the last character of each word.
 # Examples
-
 # sort_by_last("herb camera dynamic") ➞ "camera herb dynamic"
-
 # sort_by_last("stab traction artist approach") ➞ "stab approach traction artist"
-
 # sort_by_last("sample partner autonomy swallow trend") ➞ "trend sample partner swallow autonomy"
-
 # Notes
-
 #     Tests consist of lowercase alphabetic characters (a-z) and spaces.
 #     If two words have the same last character, sort by the order they originally appeared.
 def sort_by_last(str)
@@ -105,7 +96,6 @@ end
 # Create a function that takes a string as the first argument, and a (string) specification as a second argument. If the specification is "word", return a string with each word reversed while maintaining their original order. If the specification is "sentence", reverse the order of the words in the string, while keeping the words intact.
 # Examples
 # str = "There's never enough time to do all the nothing you want"
-
 # flip("Hello", "word") ➞ "olleH"
 # flip("Hello", "sentence") ➞ "Hello"
 # flip(str, "word") ➞ "s'erehT reven hguone emit ot od lla eht gnihton uoy tnaw"
