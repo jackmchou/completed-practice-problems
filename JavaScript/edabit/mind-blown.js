@@ -1,3 +1,49 @@
+// Create a function that takes an integer n and returns the factorial of factorials. See below examples for a better understanding:
+// Examples
+
+// factFact(4) ➞ 288
+// // 4! * 3! * 2! * 1! = 288
+
+// factFact(5) ➞ 34560
+
+// factFact(6) ➞ 24883200
+
+// Notes
+
+// N/A
+function factFact(n) {
+  let result = 1
+  function fact(num) {
+    return num ? num * fact(num - 1) : 1
+  }
+  for (let i = 1; i <= n; i++) {
+    result *= fact(i)
+  }
+  return result
+}
+// A half life is the amount of time for half of a radioactive substance to decay.
+//     After 1 half life, 50% of a substance will be left.
+//     After 2 half lives, 25% of a substance will be left.
+//     After 3 half lives, 12.5% of a substance will be left, etc...
+// Create a function which calculates the remaining mass and the number of years that it took for the substance to decay. You will be given:
+//     The mass of the substance.
+//     The time in years for a halflife to elapse.
+//     The number of half lives.
+// Worked Example
+// halflifeCalculator(1000, 5730, 2) ➞ [250, 11460]
+// // There are 2 half lives, so the mass decays from 1000 to 500, then from 500 to 250.
+// // Each halflife is 5730 years, and since there were 2, it took 11460 years in total.
+// Examples
+// halflifeCalculator(1600, 6, 3) ➞ [200, 18]
+// halflifeCalculator(13, 500, 1) ➞ [6.5, 500]
+// halflifeCalculator(100, 35, 5) ➞ [3.125, 175]
+// Notes
+//     Round the final mass to three decimal places.
+//     All inputs are positive numbers.
+//     Return the final mass first, then the number of years.
+function halflifeCalculator(mass, hlife, n) {
+	return [parseFloat((mass / 2 ** n).toFixed(3)), hlife * n]
+}
 // Emmy has written a function that returns a greeting to users. However, she's in love with Mubashir, and would like to greet him slightly differently. She added a special case in her function, but she made a mistake.
 // Can you help her?
 // Examples

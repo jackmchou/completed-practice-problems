@@ -1,49 +1,116 @@
+# Wild Roger is participating in a Western Showdown, meaning he has to draw (pull out and shoot) his gun faster than his opponent in a gun standoff.
+# Given two strings,p1 and p2, return which person drew their gun the fastest. If both are drawn at the same time, return "tie".
+# Examples
+# showdown(
+#   "   Bang!        ",
+#   "        Bang!   "
+# ) ➞ "p1"
+# # p1 draws his gun sooner than p2
+# showdown(
+#   "               Bang! ",
+#   "             Bang!   "
+# ) ➞ "p2"
+# showdown(
+#   "     Bang!   ",
+#   "     Bang!   "
+# ) ➞ "tie"
+# Notes
+# Both strings are the same length.
+def showdown(p1, p2)
+  return "tie" if p1.index("Bang") == p2.index("Bang")
+	p1.index("Bang") > p2.index("Bang") ? "p2" : "p1"
+end
+# Write a program that takes a temperature input in celsius and converts it to Fahrenheit and Kelvin. Return the converted temperature values in an array.
+# The formula to calculate the temperature in Fahrenheit from Celsius is:
+# F = C*9/5 +32
+# The formula to calculate the temperature in Kelvin from Celsius is:
+# K = C + 273.15
+# Examples
+# temp_conversion(0) ➞ [32, 273.15]
+# # 0°C is equal to 32°F and 273.15 K.
+# temp_conversion(100) ➞ [212, 373.15]
+# temp_conversion(-10) ➞ [14, 263.15]
+# temp_conversion(300.4) ➞ [572.72, 573.55]
+# Notes
+#     Return calculated temperatures up to two decimal places.
+#     Return "Invalid" if K is less than 0.
+def temp_conversion(c)
+	return "Invalid" if (c + 273.15).round(2) < 0
+	[(c*9/5 + 32).round(2), (c + 273.15).round(2)]
+end
+# Create a function that ends the first word of a phrase with "ed", essentially verbifying a noun.
+# Examples
+# verbify("cheese burger") ➞ "cheesed burger"
+# verbify("salt water") ➞ "salted water"
+# verbify("orange juice") ➞ "oranged juice"
+# verbify("shredded cheese") ➞ "shredded cheese"
+# Notes
+#     Change only the first word.
+#     Note that some words may already end in "e" or "ed".
+#     All phrases will be in lowercase.
+def verbify(str)
+  strArr = str.split(' ')
+  if strArr[0].chars[-2..-1].join('') == "ed"
+    "#{strArr[0]} #{strArr[1]}"
+  elsif strArr[0].chars[-1] == "e"
+    "#{strArr[0] << 'd'} #{strArr[1]}"
+  else
+    "#{strArr[0] << 'ed'} #{strArr[1]}"
+  end
+end
+# Write a function that takes a two-digit number and determines if it's the largest of two possible digit swaps.
+# To illustrate:
+# largest_swap(27) ➞ false
+# largest_swap(43) ➞ true
+# If 27 is our input, we should return false because swapping the digits gives us 72, and 72 > 27. On the other hand, swapping 43 gives us 34, and 43 > 34.
+# Examples
+# largest_swap(14) ➞ false
+# largest_swap(53) ➞ true
+# largest_swap(99) ➞ true
+# Notes
+# Numbers with two identical digits (third example) should yield true (you can't do better).
+def largest_swap(num)
+	num.to_s.chars.reverse.join('').to_i <= num
+end
+# Create a function that takes a string of words and return a string sorted alphabetically by the last character of each word.
+# Examples
+# sort_by_last("herb camera dynamic") ➞ "camera herb dynamic"
+# sort_by_last("stab traction artist approach") ➞ "stab approach traction artist"
+# sort_by_last("sample partner autonomy swallow trend") ➞ "trend sample partner swallow autonomy"
+# Notes
+#     Tests consist of lowercase alphabetic characters (a-z) and spaces.
+#     If two words have the same last character, sort by the order they originally appeared.
+def sort_by_last(str)
+	str.split(' ').sort_by {|word| word[-1]}.join(' ')
+end
 # Create a function that takes an array as an argument and returns a new nested array for each element in the original array. The nested array must be filled with the corresponding element (string or number) in the original array and each nested array has the same amount of elements as the original array.
 # Examples
-
 # multiply([4, 5]) ➞ [[4, 4], [5, 5]]
-
 # multiply(["*", "%", "$"]) ➞ [["*", "*", "*"], ["%", "%", "%"], ["$", "$", "$"]]
-
 # multiply(["A", "B", "C", "D", "E"]) ➞ [["A", "A", "A", "A", "A"], ["B", "B", "B", "B", "B"], ["C", "C", "C", "C", "C"], ["D", "D", "D", "D", "D"], ["E", "E", "E", "E", "E"]]
-
 # Notes
-
 # The given array contains numbers or strings.
 def multiply(l)
 	l.map {|ele| Array.new(l.length, ele) }
 end
 # Create a function that takes a string as the first argument, and a (string) specification as a second argument. If the specification is "word", return a string with each word reversed while maintaining their original order. If the specification is "sentence", reverse the order of the words in the string, while keeping the words intact.
 # Examples
-
 # str = "There's never enough time to do all the nothing you want"
-
-
 # flip("Hello", "word") ➞ "olleH"
-
 # flip("Hello", "sentence") ➞ "Hello"
-
 # flip(str, "word") ➞ "s'erehT reven hguone emit ot od lla eht gnihton uoy tnaw"
-
 # flip(str, "sentence") ➞ "want you nothing the all do to time enough never There's"
-
 # Notes
-
 # N/A
 def flip(str, spec)
   spec == 'word' ? str.split(' ').map {|word| word.reverse}.join(' ') : str.split(' ').reverse.join(' ')
 end
 # Given an array of prices prices and a "supposed" total t, return true if there is a hidden fee added to the total (i.e. the total is greater than the sum of prices), otherwise return false.
 # Examples
-
 # has_hidden_fee(["$2", "$4", "$1", "$8"], "$15") ➞ false
-
 # has_hidden_fee(["$1", "$2", "$3"], "$6") ➞ false
-
 # has_hidden_fee(["$1"], "$4") ➞ true
-
 # Notes
-
 #     Remember that each price is given as a string.
 #     All $ signs will be at the beginning of the number.
 def has_hidden_fee(prices, t)
@@ -51,15 +118,10 @@ def has_hidden_fee(prices, t)
 end
 # Write a function, .vreplace() that extends the String class by replacing all vowels in a string with a specified vowel.
 # Examples
-
 # "apples and bananas".vreplace("u") ➞ "upplus und bununus"
-
 # "cheese casserole".vreplace("o") ➞ "chooso cossorolo"
-
 # "stuffed jalapeno poppers".vreplace("e") ➞ "steffed jelepene peppers"
-
 # Notes
-
 #     All words will be lowercase.
 #     "Y" is not considered a vowel.
 class String
@@ -68,21 +130,14 @@ class String
   end
 end
 # Your function will be passed two functions, f and g, that don't take any parameters. Your function has to call them, and return a string which indicates which function returned the larger number.
-
 #     If f returns the larger number, return the string f.
 #     If g returns the larger number, return the string g.
 #     If the functions return the same number, return the string neither.
-
 # Examples
-
 # larger(lambda{5}, lambda{10}) ➞ "g"
-
 # larger(lambda{25}, lambda{25}) ➞ "neither"
-
 # larger(lambda{505050}, lambda{5050}) ➞ "f"
-
 # Notes
-
 # This exercise is designed as an introduction to higher order functions (functions which use other functions to do their work).
 def larger(f, g)
   if f.call == g.call
@@ -94,32 +149,21 @@ def larger(f, g)
   end
 end
 # Create two functions: a left-shift function and a right-shift function. Each function will take in an array and a single parameter: the number of shifts.
-
 # [1, 2, 3, 4, 5]
-
 # [2, 3, 4, 5, 1]  # left shift of 1
 # [5, 1, 2, 3, 4]  # left shift of 4
-
 # [5, 1, 2, 3, 4]  # right shift of 1
 # [3, 4, 5, 1, 2]  # right shift of 3
-
 # Examples
-
 # left_shift([1, 2, 3, 4], 1) ➞ [2, 3, 4, 1]
-
 # right_shift([1, 2, 3, 4], 1) ➞ [4, 1, 2, 3]
-
 # left_shift([1, 2, 3, 4, 5], 3) ➞ [4, 5, 1, 2, 3]
-
 # left_shift([1, 2, 3, 4, 5], 5) ➞ [1, 2, 3, 4, 5]
 # # You have fully shifted the array, you end up back where you began.
-
 # left_shift([1, 2, 3, 4, 5], 6) ➞ [2, 3, 4, 5, 1]
 # # You should be able to take in numbers greater than the length.
 # # Think of the length of the array as a modulo.
-
 # Notes
-
 #     num might be higher than the number of values in the array.
 #     num will never be negative.
 def left_shift(arr, num)
@@ -130,27 +174,22 @@ def right_shift(arr, num)
 end
 # You work for a manufacturer, and have been asked to calculate the total profit made on the sales of a product. You are given a hash containing the cost price per unit (in dollars), sell price per unit (in dollars), and the starting inventory. Return the total profit made, rounded to the nearest dollar.
 # Examples
-
 # profit({
 #   "cost_price" => 32.67,
 #   "sell_price" => 45.00,
 #   "inventory" => 1200
 # }) ➞ 14796
-
 # profit({
 #   "cost_price" => 225.89,
 #   "sell_price" => 550.00,
 #   "inventory" => 100
 # }) ➞ 32411
-
 # profit({
 #   "cost_price" => 2.77,
 #   "sell_price" => 7.95,
 #   "inventory" => 8500
 # }) ➞ 44030
-
 # Notes
-
 #     Assume all inventory has been sold.
 #     Profit = Total Sales - Total Cost
 def profit(info)
@@ -158,21 +197,15 @@ def profit(info)
 end
 # Given a word, write a function that returns the first index and the last index of a character.
 # Examples
-
 # char_index("hello", "l") ➞ [2, 3]
 # # The first "l" has index 2, the last "l" has index 3.
-
 # char_index("circumlocution", "c") ➞ [0, 8]
 # # The first "c" has index 0, the last "c" has index 8.
-
 # char_index("happy", "h") ➞ [0, 0]
 # # Only one "h" exists, so the first and last index is 0.
-
 # char_index("happy", "e") ➞ nil
 # # "e" does not exist in "happy", so we return undefined.
-
 # Notes
-
 #     If the character does not exist in the word, return nil.
 #     If only one instance of the character exists, the first and last index will be the same.
 #     Check the Resources tab for hints.
@@ -181,15 +214,10 @@ def char_index(word, char)
 end
 # Create a function which adds zeros to the start of a binary string, so that its length is a mutiple of 8.
 # Examples
-
 # complete_binary("1100") ➞ "00001100"
-
 # complete_binary("1101100") ➞ "01101100"
-
 # complete_binary("110010100010") ➞ "0000110010100010"
-
 # Notes
-
 # Return the same string if its length is already a multiple of 8.
 def complete_binary(s)
 	s.length % 8 == 0 ? s : "0" * ((s.length % 8 - 8) * -1) << s
