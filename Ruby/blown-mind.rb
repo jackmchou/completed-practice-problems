@@ -1,3 +1,23 @@
+# Write a function that reverses the subarray between the start and end index (inclusive). The rest of the array should be kept the same.
+# Examples
+
+# ranged_reversal([1, 2, 3, 4, 5, 6], 1, 3) ➞ [1, 4, 3, 2, 5, 6]
+
+# ranged_reversal([1, 2, 3, 4, 5, 6], 0, 4) ➞ [5, 4, 3, 2, 1, 6]
+
+# ranged_reversal([9, 8, 7, 4], 0, 0) ➞ [9, 8, 7, 4]
+
+# Notes
+
+#     Arrays will be zero-indexed.
+#     The start and end indices will always be valid in context of the array.
+#     The end index will always be greater than or equal to the starting index.
+#     Return the array itself if the starting and ending index are the same.
+def ranged_reversal(arr, start, finish)
+  return arr if start == finish
+  arr[start..finish] = arr[start..finish].reverse
+  arr
+end
 # Wild Roger is participating in a Western Showdown, meaning he has to draw (pull out and shoot) his gun faster than his opponent in a gun standoff.
 # Given two strings,p1 and p2, return which person drew their gun the fastest. If both are drawn at the same time, return "tie".
 # Examples
