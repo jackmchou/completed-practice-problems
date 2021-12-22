@@ -1,3 +1,19 @@
+# Create a function that takes two parameters (start, stop), and returns the sum of all even numbers in the range.
+# Examples
+
+# sum_even_nums_in_range(10, 20) ➞ 90
+# # 10, 12, 14, 16, 18, 20
+
+# sum_even_nums_in_range(51, 150) ➞ 5050
+
+# sum_even_nums_in_range(63, 97) ➞ 1360
+
+# Notes
+
+# Remember that the start and stop values are inclusive.
+def sum_even_nums_in_range(start, stop)
+	(start...stop + 1).to_a.reduce(0) {|sum, num| num.even? ? sum + num : sum + 0}
+end
 # Given a string indicating a range of letters, return a string which includes all the letters in that range, including the last letter. Note that if the range is given in capital letters, return the string in capitals also!
 # Examples
 
