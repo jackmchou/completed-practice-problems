@@ -1,3 +1,20 @@
+# Write a function that transforms all letters from [a, m] to 0 and letters from [n, z] to 1 in a string.
+# Examples
+
+# convertBinary("house") ➞ "01110"
+
+# convertBinary("excLAIM") ➞ "0100000"
+
+# convertBinary("moon") ➞ "0111"
+
+# Notes
+
+# Conversion should be case insensitive (see example #2).
+def convertBinary(str)
+  str = str.gsub(/([a-m])/i, '0')
+  str = str.gsub(/([n-z])/i, '1')
+  str
+end
 # Write a function that receives two portions of a path and joins them. The portions will be joined with the "/" separator. There could be only one separator and if it is not present it should be added.
 # Examples
 
