@@ -1,14 +1,19 @@
+# Create a function which takes in a word and spells it out, by consecutively adding letters until the full word is completed.
+# Examples
+# spelling("bee") ➞ ["b", "be", "bee"]
+# spelling("happy") ➞ ["h", "ha", "hap", "happ", "happy"]
+# spelling("eagerly") ➞ ["e", "ea", "eag", "eage", "eager", "eagerl", "eagerly"]
+# Notes
+# N/A
+def spelling(str)
+	str.chars.map.with_index {|letter, index| str[0...index + 1]}
+end
 # Write a function that transforms all letters from [a, m] to 0 and letters from [n, z] to 1 in a string.
 # Examples
-
 # convertBinary("house") ➞ "01110"
-
 # convertBinary("excLAIM") ➞ "0100000"
-
 # convertBinary("moon") ➞ "0111"
-
 # Notes
-
 # Conversion should be case insensitive (see example #2).
 def convertBinary(str)
   str = str.gsub(/([a-m])/i, '0')
@@ -17,17 +22,11 @@ def convertBinary(str)
 end
 # Write a function that receives two portions of a path and joins them. The portions will be joined with the "/" separator. There could be only one separator and if it is not present it should be added.
 # Examples
-
 # join_path("portion1", "portion2") ➞ "portion1/portion2"
-
 # join_path("portion1/", "portion2") ➞ "portion1/portion2"
-
 # join_path("portion1", "/portion2") ➞ "portion1/portion2"
-
 # join_path("portion1/", "/portion2") ➞ "portion1/portion2"
-
 # Notes
-
 # Try not to solve this challenge using only if-else conditions.
 def join_path(portion1, portion2)
   portion1 = portion1.sub(/\//, '')
@@ -36,48 +35,32 @@ def join_path(portion1, portion2)
 end
 # Create a function that takes a string as an argument and returns a coded (h4ck3r 5p34k) version of the string.
 # Examples
-
 # hacker_speak("javascript is cool") ➞ "j4v45cr1pt 15 c00l"
-
 # hacker_speak("programming is fun") ➞ "pr0gr4mm1ng 15 fun"
-
 # hacker_speak("become a coder") ➞ "b3c0m3 4 c0d3r"
-
 # Notes
-
 # In order to work properly, the function should replace all "a"s with 4, "e"s with 3, "i"s with 1, "o"s with 0, and "s"s with 5.
 def hacker_speak(str)
 	str.gsub(/[aeios]/i, 'a' => 4, 'e' => 3, 'i' => 1, 'o' => 0, 's' => 5)
 end
 # Create a function that takes two parameters (start, stop), and returns the sum of all even numbers in the range.
 # Examples
-
 # sum_even_nums_in_range(10, 20) ➞ 90
 # # 10, 12, 14, 16, 18, 20
-
 # sum_even_nums_in_range(51, 150) ➞ 5050
-
 # sum_even_nums_in_range(63, 97) ➞ 1360
-
 # Notes
-
 # Remember that the start and stop values are inclusive.
 def sum_even_nums_in_range(start, stop)
 	(start...stop + 1).to_a.reduce(0) {|sum, num| num.even? ? sum + num : sum + 0}
 end
 # Given a string indicating a range of letters, return a string which includes all the letters in that range, including the last letter. Note that if the range is given in capital letters, return the string in capitals also!
 # Examples
-
 # gimme_the_letters("a-z") ➞ "abcdefghijklmnopqrstuvwxyz"
-
 # gimme_the_letters("h-o") ➞ "hijklmno"
-
 # gimme_the_letters("Q-Z") ➞ "QRSTUVWXYZ"
-
 # gimme_the_letters("J-J") ➞ J"
-
 # Notes
-
 #     A hyphen will separate the two letters in the string.
 #     You don't need to worry about error handling in this one (i.e. both letters will be the same case and the second letter will always be after the first alphabetically).
 def gimme_the_letters(spectrum)
@@ -86,15 +69,10 @@ def gimme_the_letters(spectrum)
 end
 # Write a function that reverses the subarray between the start and end index (inclusive). The rest of the array should be kept the same.
 # Examples
-
 # ranged_reversal([1, 2, 3, 4, 5, 6], 1, 3) ➞ [1, 4, 3, 2, 5, 6]
-
 # ranged_reversal([1, 2, 3, 4, 5, 6], 0, 4) ➞ [5, 4, 3, 2, 1, 6]
-
 # ranged_reversal([9, 8, 7, 4], 0, 0) ➞ [9, 8, 7, 4]
-
 # Notes
-
 #     Arrays will be zero-indexed.
 #     The start and end indices will always be valid in context of the array.
 #     The end index will always be greater than or equal to the starting index.
