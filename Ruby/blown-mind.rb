@@ -1,3 +1,22 @@
+# Given an array of numbers, write a function that returns an array that...
+
+#     Has all duplicate elements removed.
+#     Is sorted from least value to greatest value.
+
+# Examples
+
+# unique_sort([1, 2, 4, 3]) ➞ [1, 2, 3, 4]
+
+# unique_sort([1, 4, 4, 4, 4, 4, 3, 2, 1, 2]) ➞ [1, 2, 3, 4]
+
+# unique_sort([6, 7, 3, 2, 1]) ➞ [1, 2, 3, 6, 7]
+
+# Notes
+
+# N/A
+def unique_sort(arr)
+	arr.uniq.sort
+end
 # Create a function that returns how many possible arrangements can come from a certain number of switches (on / off). In other words, for a given number of switches, how many different patterns of on and off can we have?
 # Examples
 
