@@ -1,3 +1,20 @@
+# Create a function that takes a string (a random name). If the last character of the name is an "n", return true, otherwise return false.
+# Examples
+
+# is_last_character_n("Aiden") ➞ true
+
+# is_last_character_n("Piet") ➞ false
+
+# is_last_character_n("Bert") ➞ false
+
+# is_last_character_n("Dean") ➞ true
+
+# Notes
+
+# The function must return a boolean value ( i.e. true or false).
+def is_last_character_n(word)
+	word[-1] == 'n'
+end
 # I have a bucket containing an amount of navy blue paint and I'd like to paint as many walls as possible. Create a function that returns the number of complete walls that I can paint, before I need to head to the shops to buy more.
 
 #     n is the number of square meters I can paint.
