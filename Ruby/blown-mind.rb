@@ -1,3 +1,22 @@
+# Mubashir needs your help to find next integral perfect square after the one passed as a parameter.
+
+# Create a function which takes a given number n and returns next integral perfect square number. Return nil if the given number is not a perfect square.
+# Examples
+
+# next_square(121) ➞ 144
+
+# next_square(625) ➞ 676
+
+# next_square(114) ➞ nil
+# # 114 is not a perfect square
+
+# Notes
+
+# N/A
+def next_square(n)
+	result = (Math.sqrt(n) + 1) ** 2
+	result % 1 == 0 ? result : nil
+end
 # The 50-30-20 strategy is a simple way to budget, which involves spending 50% of after-tax income on needs, 30% after tax income on wants, and 20% after-tax income on savings or paying off debt.
 
 # Given the after-tax income as ati, what you are supposed to do is to make a function that will return a hash that shows how much a person needs to spend on needs, wants, and savings.
