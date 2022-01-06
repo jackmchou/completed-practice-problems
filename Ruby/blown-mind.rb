@@ -1,3 +1,22 @@
+# Given an array of numbers, negate all elements contained within.
+
+#     Negating a positive value -+n will return -n, because all +'s are removed.
+#     Negating a negative value --n will return n, because the first - turns the second minus into a +.
+
+# Examples
+
+# negate([1, 2, 3, 4]) ➞ [-1, -2, -3, -4]
+
+# negate([-1, 2, -3, 4]) ➞ [1, -2, 3, -4]
+
+# negate([]) ➞ []
+
+# Notes
+
+# If you get an empty array, return an empty array: []
+def negate(arr)
+	arr.map {|num| num * -1}
+end
 # Mubashir needs your help to find next integral perfect square after the one passed as a parameter.
 
 # Create a function which takes a given number n and returns next integral perfect square number. Return nil if the given number is not a perfect square.
