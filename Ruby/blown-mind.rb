@@ -1,3 +1,18 @@
+# Create a function that determines if the temp of the water is considered boiling or not. temp will be measured in fahrenheit and celsius.
+# Examples
+
+# is_boiling("212F") ➞ true
+
+# is_boiling("100C") ➞ true
+
+# is_boiling("0F") ➞ false
+
+# Notes
+
+# The boiling point of water is 212F in fahrenheit and 100C in celsius.
+def is_boiling(temp)
+	temp[-1] == 'F' ? temp[0..temp.length - 2].to_i >= 212 : temp[0..temp.length - 2].to_i >= 100
+end
 # Create a function that takes a string and returns the word count. The string will be a sentence.
 # Examples
 
