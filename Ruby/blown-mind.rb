@@ -1,3 +1,18 @@
+# Create a function to remove all nil values from an array.
+# Examples
+
+# remove_nil(["a", nil, "b", nil]) ➞ ["a", "b"]
+
+# remove_nil([nil, nil, nil, nil, nil]) ➞ []
+
+# remove_nil([7, 8, nil, 9]) ➞ [7, 8, 9]
+
+# Notes
+
+# N/A
+def remove_nil(arr)
+	arr.compact
+end
 # Create a function that determines if the temp of the water is considered boiling or not. temp will be measured in fahrenheit and celsius.
 # Examples
 
