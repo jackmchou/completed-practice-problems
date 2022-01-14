@@ -1,3 +1,18 @@
+# Create a function that accepts an array of numbers and return both the minimum and maximum numbers, in that order (as an array).
+# Examples
+
+# min_max([1, 2, 3, 4, 5]) ➞ [1, 5]
+
+# min_max([2334454, 5]) ➞ [5, 2334454]
+
+# min_max([1]) ➞ [1, 1]
+
+# Notes
+
+# All test arrays will have at least one element and are valid.
+def min_max(nums)
+	[nums.min, nums.max]
+end
 # Given an array of women and an array of men, either:
 
 #     Return "sizes don't match" if the two arrays have different sizes.
