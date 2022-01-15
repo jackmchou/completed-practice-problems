@@ -1,3 +1,20 @@
+# Create a function that takes a number as an argument and returns "even" for even numbers and "odd" for odd numbers.
+# Examples
+
+# is_even_or_odd(3) ➞ "odd"
+
+# is_even_or_odd(146) ➞ "even"
+
+# is_even_or_odd(19) ➞ "odd"
+
+# Notes
+
+#     Input will always be a valid integer.
+#     Expect negative integers (whole numbers).
+#     Tests are case sensitive (return "even" or "odd" in lowercase).
+def is_even_or_odd(num)
+	num.even? ? 'even' : 'odd'
+end
 # Create a function that accepts an array of numbers and return both the minimum and maximum numbers, in that order (as an array).
 # Examples
 
