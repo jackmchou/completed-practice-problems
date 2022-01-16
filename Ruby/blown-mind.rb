@@ -1,3 +1,261 @@
+# Create a function that takes the height and radius of a cone as arguments and returns the volume of the cone rounded to the nearest hundredth.
+# Volume of a Cone Image
+# Examples
+# cone_volume(3, 2) ➞ 12.57
+# cone_volume(15, 6) ➞ 565.49
+# cone_volume(18, 0) ➞ 0
+# Notes
+#     See the resources tab for the formula.
+#     Return approximate answer by rounding the answer to the nearest hundredth.
+#     If the cone has no volume, return 0.
+def cone_volume(h, r)
+	(1 / 3.to_f * Math::PI * r * r * h).round(2)
+end
+# Create a function that takes a number as an argument and returns "even" for even numbers and "odd" for odd numbers.
+# Examples
+# is_even_or_odd(3) ➞ "odd"
+# is_even_or_odd(146) ➞ "even"
+# is_even_or_odd(19) ➞ "odd"
+# Notes
+#     Input will always be a valid integer.
+#     Expect negative integers (whole numbers).
+#     Tests are case sensitive (return "even" or "odd" in lowercase).
+def is_even_or_odd(num)
+	num.even? ? 'even' : 'odd'
+end
+# Create a function that accepts an array of numbers and return both the minimum and maximum numbers, in that order (as an array).
+# Examples
+# min_max([1, 2, 3, 4, 5]) ➞ [1, 5]
+# min_max([2334454, 5]) ➞ [5, 2334454]
+# min_max([1]) ➞ [1, 1]
+# Notes
+# All test arrays will have at least one element and are valid.
+def min_max(nums)
+	[nums.min, nums.max]
+end
+# Given an array of women and an array of men, either:
+#     Return "sizes don't match" if the two arrays have different sizes.
+#     If the sizes match, return an array of pairs, with the first woman paired with the first man, second woman paired with the second man, etc.
+# Examples
+# zip_it(["Elise", "Mary"], ["John", "Rick"])
+#  ➞ [("Elise", "John"), ("Mary", "Rick")]
+# zip_it(["Ana", "Amy", "Lisa"], ["Bob", "Josh"])
+#  ➞ "sizes don't match"
+# zip_it(["Ana", "Amy", "Lisa"], ["Bob", "Josh", "Tim"])
+#  ➞ [("Ana", "Bob"), ("Amy", "Josh"), ("Lisa", "Tim")]
+# Notes
+# Consider using the .zip function.
+def zip_it(women, men)
+	women.length == men.length ? women.zip(men) : "sizes don't match"
+end
+# Mubashir needs your help in a simple task.
+# Given an array of numbers arr:
+#     Create an object against each given number.
+#     The object key will be the number converted string.
+#     The value will be the corresponding character code converted string (check ASCII table).
+#     Return an array of the resulting objects.
+# Examples
+# num_to_obj([118, 117, 120]) ➞ [{"118":"v"}, {"117":"u"}, {"120":"x"}]
+# num_to_obj([101, 121, 110, 113, 103]) ➞ [{"101":"e"}, {"121":"y"}, {"110":"n"}, {"113":"q"}, {"103":"g"}]
+# num_to_obj([118, 103, 110]) ➞ [{"118":"v"}, {"103":"g"}, {"110":"n"}]
+# Notes
+#     All inputs will be array of numbers.
+#     All character codes are valid lower case letters.
+#     The input array will not be empty.
+def num_to_obj(arr)
+	arr.map {|num| { "#{num}" => num.chr}}
+end
+# Create a function to remove all nil values from an array.
+# Examples
+# remove_nil(["a", nil, "b", nil]) ➞ ["a", "b"]
+# remove_nil([nil, nil, nil, nil, nil]) ➞ []
+# remove_nil([7, 8, nil, 9]) ➞ [7, 8, 9]
+# Notes
+# N/A
+def remove_nil(arr)
+	arr.compact
+end
+# Create a function that determines if the temp of the water is considered boiling or not. temp will be measured in fahrenheit and celsius.
+# Examples
+# is_boiling("212F") ➞ true
+# is_boiling("100C") ➞ true
+# is_boiling("0F") ➞ false
+# Notes
+# The boiling point of water is 212F in fahrenheit and 100C in celsius.
+def is_boiling(temp)
+	temp[-1] == 'F' ? temp[0..temp.length - 2].to_i >= 212 : temp[0..temp.length - 2].to_i >= 100
+end
+# Create a function that takes a string and returns the word count. The string will be a sentence.
+# Examples
+# count_words("Just an example here move along") ➞ 6
+# count_words("This is a test") ➞ 4
+# count_words("What an easy task, right") ➞ 5
+# Notes
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def count_words(str)
+	str.split(' ').length
+end
+# Create a function that finds each factor of a given number n. Your solution should return an array of the number(s) that meet this criteria.
+# Examples
+# find_factors(9) ➞ [1, 3, 9]
+# # 9 has three factors 1, 3 and 9
+# find_factors(12) ➞ [1, 2, 3, 4, 6, 12]
+# find_factors(20) ➞ [1, 2, 4, 5, 10, 20]
+# find_factors(0) ➞ []
+# # 0 has no factors
+# Notes
+# Return an empty array if the given number is less than 1.
+def find_factors(n)
+	index = 1
+	result = []
+	while index <= n do
+		if n % index == 0
+			result << index
+		end 
+    index += 1
+  end
+	result
+end
+# Given the radius of a circle and the area of a square, return true if the circumference of the circle is greater than the square's perimeter and false if the square's perimeter is greater than the circumference of the circle.
+# Examples
+# circle_or_square(16, 625) ➞ true
+# circle_or_square(5, 100) ➞ false
+# circle_or_square(8, 144) ➞ true
+# Notes
+#     You can use Pi to 2 decimal places (3.14).
+#     Circumference of a circle equals 2 * Pi * radius.
+#     To find the perimeter of a square using its area, find the square root of area (to get side length) and multiply that by 4.
+def circle_or_square(rad, area)
+	2 * 3.14 * rad > Math.sqrt(area) * 4
+end
+# Given an array of numbers, negate all elements contained within.
+#     Negating a positive value -+n will return -n, because all +'s are removed.
+#     Negating a negative value --n will return n, because the first - turns the second minus into a +.
+# Examples
+# negate([1, 2, 3, 4]) ➞ [-1, -2, -3, -4]
+# negate([-1, 2, -3, 4]) ➞ [1, -2, 3, -4]
+# negate([]) ➞ []
+# Notes
+# If you get an empty array, return an empty array: []
+def negate(arr)
+	arr.map {|num| num * -1}
+end
+# Mubashir needs your help to find next integral perfect square after the one passed as a parameter.
+# Create a function which takes a given number n and returns next integral perfect square number. Return nil if the given number is not a perfect square.
+# Examples
+# next_square(121) ➞ 144
+# next_square(625) ➞ 676
+# next_square(114) ➞ nil
+# # 114 is not a perfect square
+# Notes
+# N/A
+def next_square(n)
+	result = (Math.sqrt(n) + 1) ** 2
+	result % 1 == 0 ? result : nil
+end
+# The 50-30-20 strategy is a simple way to budget, which involves spending 50% of after-tax income on needs, 30% after tax income on wants, and 20% after-tax income on savings or paying off debt.
+# Given the after-tax income as ati, what you are supposed to do is to make a function that will return a hash that shows how much a person needs to spend on needs, wants, and savings.
+# Examples
+# fifty_thirty_twenty(10000) ➞ { "Needs"=> 5000, "Wants"=> 3000, "Savings"=> 2000 }
+# fifty_thirty_twenty(50000) ➞ { "Needs"=> 25000, "Wants"=> 15000, "Savings"=> 10000 }
+# fifty_thirty_twenty(13450) ➞ { "Needs"=> 6725, "Wants"=> 4035, "Savings"=> 2690 }
+# Notes
+# N/A
+def fifty_thirty_twenty(ati)
+	{'Needs' => ati * 0.5, 'Wants' => ati * 0.3, 'Savings' => ati * 0.2 }
+end
+# Create a function that takes a number as an argument and returns the square root of that number cubed.
+# Examples
+# cube_squareroot(81) ➞ 729
+# cube_squareroot(1646089) ➞ 2111932187
+# cube_squareroot(695556) ➞ 580093704
+# Notes
+# All numbers will evenly square root, so don't worry about decimal numbers.
+def cube_squareroot(num)
+  Math.sqrt(num) ** 3
+end
+# Create a function that takes a string (a random name). If the last character of the name is an "n", return true, otherwise return false.
+# Examples
+# is_last_character_n("Aiden") ➞ true
+# is_last_character_n("Piet") ➞ false
+# is_last_character_n("Bert") ➞ false
+# is_last_character_n("Dean") ➞ true
+# Notes
+# The function must return a boolean value ( i.e. true or false).
+def is_last_character_n(word)
+	word[-1] == 'n'
+end
+# I have a bucket containing an amount of navy blue paint and I'd like to paint as many walls as possible. Create a function that returns the number of complete walls that I can paint, before I need to head to the shops to buy more.
+#     n is the number of square meters I can paint.
+#     w and h are the widths and heights of a single wall in meters.
+# Examples
+# how_many_walls(100, 4, 5) ➞ 5
+# how_many_walls(10, 15, 12) ➞ 0
+# how_many_walls(41, 3, 6) ➞ 2
+# Notes
+#     Don't count a wall if I don't manage to finish painting all of it before I run out of paint.
+#     All walls will have the same dimensions.
+#     All numbers will be positive integers.
+def how_many_walls(n, w, h)
+	n / (w * h)
+end
+# Emmy has written a function that returns a greeting to users. However, she's in love with Mubashir, and would like to greet him slightly differently. She added a special case in her function, but she made a mistake.
+# Can you help her?
+# Examples
+# greeting("Matt") ➞ "Hello, Matt!"
+# greeting("Helen") ➞ "Hello, Helen!"
+# greeting("Mubashir") ➞ "Hello, my Love!"
+# Notes
+#     READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
+#     Don't overthink this challenge; it's not supposed to be hard.
+def greeting(name)
+  name == "Mubashir" ? "Hello, my Love!" : "Hello, " + name + "!"
+end
+# Given an array of numbers, write a function that returns an array that...
+#     Has all duplicate elements removed.
+#     Is sorted from least value to greatest value.
+# Examples
+# unique_sort([1, 2, 4, 3]) ➞ [1, 2, 3, 4]
+# unique_sort([1, 4, 4, 4, 4, 4, 3, 2, 1, 2]) ➞ [1, 2, 3, 4]
+# unique_sort([6, 7, 3, 2, 1]) ➞ [1, 2, 3, 6, 7]
+# Notes
+# N/A
+def unique_sort(arr)
+	arr.uniq.sort
+end
+# Create a function that returns how many possible arrangements can come from a certain number of switches (on / off). In other words, for a given number of switches, how many different patterns of on and off can we have?
+# Examples
+# pos_com(1) ➞ 2
+# pos_com(3) ➞ 8
+# pos_com(10) ➞ 1024
+# Notes
+# All numbers will be whole and positive.
+def pos_com(n)
+	2 ** n
+end
+# Create a function that takes an array of numbers or letters and returns a string.
+# Examples
+# array_to_string([1, 2, 3, 4, 5, 6]) ➞ "123456"
+# array_to_string(["a", "b", "c", "d", "e", "f"]) ➞ "abcdef"
+# array_to_string([1, 2, 3, "a", "s", "dAAAA"]) ➞ "123asdAAAA"
+# Notes
+# N/A
+def array_to_string(arr)
+	arr.join
+end
+# A vehicle needs 10 times the amount of fuel than the distance it travels. However, it must always carry a minimum of 100 fuel before setting off.
+# Create a function which calculates the amount of fuel it needs, given the distance.
+# Examples
+# calculate_fuel(15) ➞ 150
+# calculate_fuel(23.5) ➞ 235
+# calculate_fuel(3) ➞ 100
+# Notes
+#     Distance will be a number greater than zero.
+#     Return 100 if the calculated fuel turns out to be less than 100.
+def calculate_fuel(n)
+	n * 10 > 100 ? n * 10 : 100
+end
 # Create a function which takes in a word and spells it out, by consecutively adding letters until the full word is completed.
 # Examples
 # spelling("bee") ➞ ["b", "be", "bee"]
