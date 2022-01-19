@@ -1,3 +1,18 @@
+# Create a function that finds the index of a given item.
+# Examples
+
+# search([1, 5, 3], 5) ➞ 1
+
+# search([9, 8, 3], 3) ➞ 2
+
+# search([1, 2, 3], 4) ➞ -1
+
+# Notes
+
+# If the item is not present, return -1.
+def search(arr, item)
+	arr.include?(item) ? arr.index(item) : -1
+end
 # Mubashir was walking through a straight street with exactly n identical houses on both sides. House numbers in the street look like this:
 
 # 1 |   | 6
