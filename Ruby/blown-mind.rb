@@ -1,3 +1,24 @@
+# Due to a programming concept known as truthiness, certain values can be evaluated to (i.e. take the place of) booleans. For example, 1 (or any number other than 0) is often equivalent to true, and 0 is often equivalent to false.
+
+# Create a function that returns the opposite of the given boolean, as a number.
+# Examples
+
+# flip_bool(true) ➞ 0
+
+# flip_bool(false) ➞ 1
+
+# flip_bool(1) ➞ 0
+
+# flip_bool(0) ➞ 1
+
+# Notes
+
+# N/A
+def flip_bool(b)
+	return 1 if b == 0
+	return 1 if b == false
+	b ? 0 : 1
+end
 # Create a function that finds the index of a given item.
 # Examples
 
