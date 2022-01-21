@@ -1,3 +1,20 @@
+# Create a function that takes a hash of student names and returns an array of student names in alphabetical order.
+# Examples
+
+# get_student_names({
+#   "Student 1" => "Steve",
+#   "Student 2" => "Becky",
+#   "Student 3" => "John"
+# }) ➞ ["Becky", "John", "Steve"]
+
+# Notes
+
+#     Don't forget to return your result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def get_student_names(students)
+	students.values.sort
+end
 # Due to a programming concept known as truthiness, certain values can be evaluated to (i.e. take the place of) booleans. For example, 1 (or any number other than 0) is often equivalent to true, and 0 is often equivalent to false.
 
 # Create a function that returns the opposite of the given boolean, as a number.
