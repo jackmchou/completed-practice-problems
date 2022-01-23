@@ -1,3 +1,21 @@
+# Create a function that takes an array of values and returns the first and last values in a new array.
+# Examples
+
+# first_last([5, 10, 15, 20, 25]) ➞ [5, 25]
+
+# first_last(["edabit", 13, nil, false, true]) ➞ ["edabit", true]
+
+# first_last([nil, 4, "6", "hello", nil]) ➞ [nil, nil]
+
+# Notes
+
+#     Test input will always contain a minimum of two elements within the array.
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def first_last(arr)
+	[arr[0], arr[-1]]
+end
 # Create a function that returns the selected filename from a path. Include the extension in your answer.
 # Examples
 
