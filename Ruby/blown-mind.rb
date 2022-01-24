@@ -1,3 +1,18 @@
+# Create a function that checks if the argument is an integer or a string. Return "int" if it's an integer and "str" if it's a string.
+# Examples
+
+# int_or_string(8) ➞ "int"
+
+# int_or_string("Hello") ➞ "str"
+
+# int_or_string(9843532) ➞ "int"
+
+# Notes
+
+# Input will either be an integer or a string.
+def int_or_string(param)
+	param.is_a?(Integer) ? 'int' : 'str'
+end
 # Create a function that takes an array of values and returns the first and last values in a new array.
 # Examples
 
