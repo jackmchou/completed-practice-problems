@@ -1,3 +1,33 @@
+# Create a function that takes a code of chess board square and return his color.
+
+# Examples
+
+# chess_board("a1") ➞ "black"
+
+# chess_board("e5") ➞ "black"
+
+# chess_board("d1") ➞ "white"
+
+# Notes
+
+# N/A
+def chess_board(pole)
+	letter = pole[0]
+	num = pole[1].to_i
+	if letter == 'a' or letter == 'c' or letter == 'e' or letter == 'g'
+		if num == 1 or num == 3 or num == 5 or num == 7
+			'black'
+		else
+			'white'
+		end
+	else 
+		if num == 1 or num == 3 or num == 5 or num == 7
+			'white'
+		else
+			'black'	
+		end
+	end
+end
 # Write a function that takes an integer and:
 
 #     If the number is a multiple of 3, return "Hello".
