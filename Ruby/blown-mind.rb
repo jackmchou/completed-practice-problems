@@ -1,3 +1,18 @@
+# Create a function to find nil in an array of numbers. The return value should be the index where nil is found. If nil is not found in the array, return -1.
+# Examples
+
+# find_nil([1, 2, nil]) ➞ 2
+
+# find_nil([nil, 1, 2, 3, 4]) ➞ 0
+
+# find_nil([0, 1, 2, 3, 4]) ➞ -1
+
+# Notes
+
+# nil will occur in the input array only once.
+def find_nil(arr)
+	arr.find_index(nil) == nil ? -1 : arr.find_index(nil)
+end
 # Create a function that finds the word "bomb" in the given string (not case sensitive). If found, return "Duck!!!", otherwise, return "There is no bomb, relax.".
 # Examples
 
