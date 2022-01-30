@@ -1,3 +1,29 @@
+# A "truthy" value is a value that translates to true when evaluated in a Boolean context. All values are truthy unless they're defined as falsy.
+
+# All falsy values are as follows:
+
+#     false
+#     nil
+
+# Create a function that takes an argument of any data type and returns 1 if it's truthy and 0 if it's falsy.
+# Examples
+
+# is_truthy(0) ➞ 1
+
+# is_truthy(false) ➞ 0
+
+# is_truthy("") ➞ 1
+
+# is_truthy("false") ➞ 1
+
+# Notes
+
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def is_truthy(val)
+	val ? 1 : 0
+end
 # Create a function to find nil in an array of numbers. The return value should be the index where nil is found. If nil is not found in the array, return -1.
 # Examples
 
