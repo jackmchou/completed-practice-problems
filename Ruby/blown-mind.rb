@@ -1,23 +1,29 @@
+# Create a function that takes in a word and determines whether or not it is plural. A plural word is one that ends in "s".
+# Examples
+# is_plural("changes") ➞ true
+# is_plural("change") ➞ false
+# is_plural("dudes") ➞ true
+# is_plural("magic") ➞ false
+# Notes
+#     Don't forget to return the result.
+#     Remember that return true (boolean) is not the same as return "true" (string).
+#     This is an oversimplification of the English language. We are ignoring edge cases like "goose" and "geese", "fungus" and "fungi", etc.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def is_plural(word)
+	word[-1] == 's'
+end
 # A "truthy" value is a value that translates to true when evaluated in a Boolean context. All values are truthy unless they're defined as falsy.
-
 # All falsy values are as follows:
-
 #     false
 #     nil
-
 # Create a function that takes an argument of any data type and returns 1 if it's truthy and 0 if it's falsy.
 # Examples
-
 # is_truthy(0) ➞ 1
-
 # is_truthy(false) ➞ 0
-
 # is_truthy("") ➞ 1
-
 # is_truthy("false") ➞ 1
-
 # Notes
-
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
@@ -26,46 +32,30 @@ def is_truthy(val)
 end
 # Create a function to find nil in an array of numbers. The return value should be the index where nil is found. If nil is not found in the array, return -1.
 # Examples
-
 # find_nil([1, 2, nil]) ➞ 2
-
 # find_nil([nil, 1, 2, 3, 4]) ➞ 0
-
 # find_nil([0, 1, 2, 3, 4]) ➞ -1
-
 # Notes
-
 # nil will occur in the input array only once.
 def find_nil(arr)
 	arr.find_index(nil) == nil ? -1 : arr.find_index(nil)
 end
 # Create a function that finds the word "bomb" in the given string (not case sensitive). If found, return "Duck!!!", otherwise, return "There is no bomb, relax.".
 # Examples
-
 # bomb("There is a bomb.") ➞ "Duck!!!"
-
 # bomb("Hey, did you think there is a bomb?") ➞ "Duck!!!"
-
 # bomb("This goes boom!!!") ➞ "There is no bomb, relax."
-
 # Notes
-
 # "bomb" may appear in different cases (i.e. uppercase, lowercase, mixed).
 def bomb(txt)
 	/bomb/i =~ txt ? 'Duck!!!' : "There is no bomb, relax."
 end
 # Create a function that takes a code of chess board square and return his color.
-
 # Examples
-
 # chess_board("a1") ➞ "black"
-
 # chess_board("e5") ➞ "black"
-
 # chess_board("d1") ➞ "white"
-
 # Notes
-
 # N/A
 def chess_board(pole)
 	letter = pole[0]
@@ -85,21 +75,14 @@ def chess_board(pole)
 	end
 end
 # Write a function that takes an integer and:
-
 #     If the number is a multiple of 3, return "Hello".
 #     If the number is a multiple of 5, return "World".
 #     If the number is a multiple of both 3 and 5, return "Hello World".
-
 # Examples
-
 # hello_world(3) ➞ "Hello"
-
 # hello_world(5) ➞ "World"
-
 # hello_world(15) ➞ "Hello World"
-
 # Notes
-
 # Don't forget to return the result.
 def hello_world(num)
 	if num % 3 == 0 and num % 5 == 0
@@ -112,30 +95,20 @@ def hello_world(num)
 end
 # Create a function that checks if the argument is an integer or a string. Return "int" if it's an integer and "str" if it's a string.
 # Examples
-
 # int_or_string(8) ➞ "int"
-
 # int_or_string("Hello") ➞ "str"
-
 # int_or_string(9843532) ➞ "int"
-
 # Notes
-
 # Input will either be an integer or a string.
 def int_or_string(param)
 	param.is_a?(Integer) ? 'int' : 'str'
 end
 # Create a function that takes an array of values and returns the first and last values in a new array.
 # Examples
-
 # first_last([5, 10, 15, 20, 25]) ➞ [5, 25]
-
 # first_last(["edabit", 13, nil, false, true]) ➞ ["edabit", true]
-
 # first_last([nil, 4, "6", "hello", nil]) ➞ [nil, nil]
-
 # Notes
-
 #     Test input will always contain a minimum of two elements within the array.
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
@@ -145,15 +118,10 @@ def first_last(arr)
 end
 # Create a function that returns the selected filename from a path. Include the extension in your answer.
 # Examples
-
 # get_filename("C:/Projects/pil_tests/ascii/edabit.txt") ➞ "edabit.txt"
-
 # get_filename("C:/Users/johnsmith/Music/Beethoven_5.mp3") ➞ "Beethoven_5.mp3"
-
 # get_filename("ffprobe.exe") ➞ "ffprobe.exe"
-
 # Notes
-
 #     Tests will include both absolute and relative paths.
 #     For simplicity, all paths will include forward slashes.
 def get_filename(path)
@@ -161,15 +129,12 @@ def get_filename(path)
 end
 # Create a function that takes a hash of student names and returns an array of student names in alphabetical order.
 # Examples
-
 # get_student_names({
 #   "Student 1" => "Steve",
 #   "Student 2" => "Becky",
 #   "Student 3" => "John"
 # }) ➞ ["Becky", "John", "Steve"]
-
 # Notes
-
 #     Don't forget to return your result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
@@ -177,20 +142,13 @@ def get_student_names(students)
 	students.values.sort
 end
 # Due to a programming concept known as truthiness, certain values can be evaluated to (i.e. take the place of) booleans. For example, 1 (or any number other than 0) is often equivalent to true, and 0 is often equivalent to false.
-
 # Create a function that returns the opposite of the given boolean, as a number.
 # Examples
-
 # flip_bool(true) ➞ 0
-
 # flip_bool(false) ➞ 1
-
 # flip_bool(1) ➞ 0
-
 # flip_bool(0) ➞ 1
-
 # Notes
-
 # N/A
 def flip_bool(b)
 	return 1 if b == 0
@@ -199,55 +157,35 @@ def flip_bool(b)
 end
 # Create a function that finds the index of a given item.
 # Examples
-
 # search([1, 5, 3], 5) ➞ 1
-
 # search([9, 8, 3], 3) ➞ 2
-
 # search([1, 2, 3], 4) ➞ -1
-
 # Notes
-
 # If the item is not present, return -1.
 def search(arr, item)
 	arr.include?(item) ? arr.index(item) : -1
 end
 # Mubashir was walking through a straight street with exactly n identical houses on both sides. House numbers in the street look like this:
-
 # 1 |   | 6
-
 # 3 |   | 4
-
 # 5 |   | 2
-
 # He noticed that Even numbered houses increases on the right while Odd numbered houses decreases on the left.
-
 # Create a function that takes a house number house and length of the street n and returns the house number on the opposite side.
 # Examples
-
 # opposite_house(1, 3) ➞ 6
-
 # opposite_house(2, 3) ➞ 5
-
 # opposite_house(3, 5) ➞ 8
-
 # Notes
-
 # N/A
 def opposite_house(house, n)
 	n * 2 + 1 - house
 end
 # Implement a function that returns an array containing all the consecutive numbers in ascendant order from the given value low up to the given value high (bounds included).
 # Examples
-
 # get_sequence(1, 5) ➞ [1, 2, 3, 4, 5]
-
 # get_sequence(98, 100) ➞ [98, 99, 100]
-
 # get_sequence(1000, 1000) ➞ [1000]
-
 # Notes
-
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
 def get_sequence(low, high)
