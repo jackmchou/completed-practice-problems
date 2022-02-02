@@ -1,3 +1,19 @@
+# Create a function that takes an array of words and transforms it into an array of each word's length.
+# Examples
+
+# word_lengths(["hello", "world"]) ➞ [5, 5]
+
+# word_lengths(["Halloween", "Thanksgiving", "Christmas"]) ➞ [9, 12, 9]
+
+# word_lengths(["She", "sells", "seashells", "down", "by", "the", "seashore"]) ➞ [3, 5, 9, 4, 2, 3, 8]
+
+# Notes
+
+#     No test case will contain punctuation.
+#     Arrays can be of various lengths.
+def word_lengths(arr)
+	arr.map {|word| word.length}
+end
 # Create a function that returns the string "Burp" with the amount of "r's" determined by the input parameters of the function.
 # Examples
 
