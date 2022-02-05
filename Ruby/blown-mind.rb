@@ -1,3 +1,18 @@
+# Create a function that takes an array of strings and integers, and filters out the array so that it returns an array of integers only.
+# Examples
+
+# filter_array([1, 2, 3, "a", "b", 4]) ➞ [1, 2, 3, 4]
+
+# filter_array(["A", 0, "Edabit", 1729, "Ruby", "1729"]) ➞ [0, 1729]
+
+# filter_array(["Nothing", "here"]) ➞ []
+
+# Notes
+
+# Don't overthink this one.
+def filter_array(arr)
+	arr.select {|item| item.is_a? Numeric }
+end
 # Create a function that takes the number of daily average recovered cases recovers, daily average new_cases, current active_cases, and returns the number of days it will take to reach zero cases.
 # Examples
 
