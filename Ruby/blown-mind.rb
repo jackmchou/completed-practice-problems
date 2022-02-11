@@ -1,3 +1,26 @@
+# Write a function that returns true if both numbers are:
+
+#     Smaller than 0, OR ...
+#     Greater than 0, OR ...
+#     Exactly 0
+
+# Otherwise, return false.
+# Examples
+
+# both(6, 2) ➞ true
+
+# both(0, 0) ➞ true
+
+# both(-1, 2) ➞ false
+
+# both(0, 2) ➞ false
+
+# Notes
+
+# Inputs will always be two numbers.
+def both(n1, n2)
+	(n1 < 0 && n2 < 0) || (n1 > 0 && n2 > 0) || (n1 == 0 && n2 == 0)
+end
 # You hired three programmers and you (hopefully) pay them. Create a function that takes three numbers (the hourly wages of each programmer) and returns the difference between the highest-paid programmer and the lowest-paid.
 # Examples
 
