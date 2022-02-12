@@ -1,3 +1,18 @@
+# Creat a function that returns true if the combined weight of a car car and the weight of the passengers p in the car is less than the maximum weight max_weight the car is allowed to carry. Otherwise, return false. The weight of the car and the weight of the passengers are given in pounds. The maximum weight is given in kilograms.
+# Examples
+
+# weight_allowed(3000, [150, 201, 75, 88, 195], 1700) ➞ true
+
+# weight_allowed(3200, [220, 101, 115, 228, 15], 1700) ➞ false
+
+# weight_allowed(2900, [225, 171, 300, 274, 191], 1850) ➞ true
+
+# Notes
+
+# 1 pound = 0.453592 kilogram
+def weight_allowed(car, p, max_weight)
+	((car + p.reduce(:+)) * 0.453592) < max_weight
+end
 # Given two arrays, which represent two sandwiches, return whether both sandwiches use the same type of bread. The bread will always be found at the start and end of the array.
 # Examples
 
