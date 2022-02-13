@@ -1,77 +1,69 @@
+A number is called Automorphic number if its square ends in the original number. Create a function that takes a number n and returns true if it is an Automorphic number, otherwise false.
+Examples
+automorphic(1) ➞ true
+automorphic(3) ➞ false
+# 3^2 = 9
+automorphic(6) ➞ true
+# 6^2 = 36 (ends with 6)
+automorphic(95) ➞ false
+# 95^2 = 9025 (does not end with 95)
+Notes
+N/A
+def automorphic(n)
+  nStr = n.to_s
+  (n ** 2).to_s[nStr.length * -1..-1] == nStr
+end
 # Creat a function that returns true if the combined weight of a car car and the weight of the passengers p in the car is less than the maximum weight max_weight the car is allowed to carry. Otherwise, return false. The weight of the car and the weight of the passengers are given in pounds. The maximum weight is given in kilograms.
 # Examples
-
 # weight_allowed(3000, [150, 201, 75, 88, 195], 1700) ➞ true
-
 # weight_allowed(3200, [220, 101, 115, 228, 15], 1700) ➞ false
-
 # weight_allowed(2900, [225, 171, 300, 274, 191], 1850) ➞ true
-
 # Notes
-
 # 1 pound = 0.453592 kilogram
 def weight_allowed(car, p, max_weight)
 	((car + p.reduce(:+)) * 0.453592) < max_weight
 end
 # Given two arrays, which represent two sandwiches, return whether both sandwiches use the same type of bread. The bread will always be found at the start and end of the array.
 # Examples
-
 # has_same_bread(
 #   ["white bread", "lettuce", "white bread"],
 #   ["white bread", "tomato", "white bread"]
 # ) ➞ true
-
 # has_same_bread(
 #   ["brown bread", "chicken", "brown bread"],
 #   ["white bread", "chicken", "white bread"]
 # ) ➞ false
-
 # has_same_bread(
 #   ["toast", "cheese", "toast"],
 #   ["brown bread", "cheese", "toast"]
 # ) ➞ false
-
 # Notes
-
 #     The arrays will always be exactly three elements long.
 #     The first piece of bread on one sandwich must be the same as the first piece of bread on the other sandwich. The same goes for the last piece of bread.
 def has_same_bread(arr1, arr2)
 	arr1[0] == arr2[0] && arr1[2] == arr2[2]
 end
 # Write a function that returns true if both numbers are:
-
 #     Smaller than 0, OR ...
 #     Greater than 0, OR ...
 #     Exactly 0
-
 # Otherwise, return false.
 # Examples
-
 # both(6, 2) ➞ true
-
 # both(0, 0) ➞ true
-
 # both(-1, 2) ➞ false
-
 # both(0, 2) ➞ false
-
 # Notes
-
 # Inputs will always be two numbers.
 def both(n1, n2)
 	(n1 < 0 && n2 < 0) || (n1 > 0 && n2 > 0) || (n1 == 0 && n2 == 0)
 end
 # You hired three programmers and you (hopefully) pay them. Create a function that takes three numbers (the hourly wages of each programmer) and returns the difference between the highest-paid programmer and the lowest-paid.
 # Examples
-
 # programmers(147, 33, 526) ➞ 493
-
 # programmers(33, 72, 74) ➞ 41
-
 # programmers(1, 5, 9) ➞ 8
-
 # Notes
-
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
 #     If you're really stuck, unlock solutions in the Solutions tab.
@@ -79,20 +71,14 @@ def programmers(one, two, three)
 	[one, two, three].max - [one, two, three].min
 end
 # A taxi journey costs $3 for the first kilometer travelled. However, all kilometers travelled after that will cost $2 each.
-
 # Create a function which returns the distance that the taxi must've travelled, given the cost as a parameter.
 # Examples
-
 # journey_distance(3) ➞ 1
 # # The first kilometer costs $3
-
 # journey_distance(9) ➞ 4
 # # The first kilometer costs $3 plus the other three kilometers (costing $2 each)
-
 # journey_distance(5) ➞ 2
-
 # Notes
-
 #     The input tests are integers >= 0.
 #     Remember that you are calculating the distance from the cost, not the other way around!
 def journey_distance(n)
@@ -100,15 +86,10 @@ def journey_distance(n)
 end
 # Create a function that takes an integer n and reverses it.
 # Examples
-
 # rev(5121) ➞ "1215"
-
 # rev(69) ➞ "96"
-
 # rev(-122157) ➞ "751221"
-
 # Notes
-
 #     This challenge is about using two operators that are related to division.
 #     If the number is negative, treat it like it's positive.
 def rev(n)
@@ -116,15 +97,10 @@ def rev(n)
 end
 # Create a function that takes an array and returns the sum of all numbers in the array.
 # Examples
-
 # get_sum_of_elements([2, 7, 4]) ➞ 13
-
 # get_sum_of_elements([45, 3, 0]) ➞ 48
-
 # get_sum_of_elements([-2, 84, 23]) ➞ 105
-
 # Notes
-
 # N/A
 def get_sum_of_elements(arr)
 	arr.reduce(:+)
@@ -146,30 +122,20 @@ def reverse_psychology(s = '')
 end
 # Create a function that takes an array of strings and integers, and filters out the array so that it returns an array of integers only.
 # Examples
-
 # filter_array([1, 2, 3, "a", "b", 4]) ➞ [1, 2, 3, 4]
-
 # filter_array(["A", 0, "Edabit", 1729, "Ruby", "1729"]) ➞ [0, 1729]
-
 # filter_array(["Nothing", "here"]) ➞ []
-
 # Notes
-
 # Don't overthink this one.
 def filter_array(arr)
 	arr.select {|item| item.is_a? Numeric }
 end
 # Create a function that takes the number of daily average recovered cases recovers, daily average new_cases, current active_cases, and returns the number of days it will take to reach zero cases.
 # Examples
-
 # end_corona(4000, 2000, 77000) ➞ 39
-
 # end_corona(3000, 2000, 50699) ➞ 51
-
 # end_corona(30000, 25000, 390205) ➞ 79
-
 # Notes
-
 #     The number of people who recover per day recovers will always be greater than daily new_cases.
 #     Be conservative and round up the number of days needed.
 def arr_between(num1, num2, arr)
@@ -177,15 +143,10 @@ def arr_between(num1, num2, arr)
 end
 # Create a function that converts a date formatted as MM/DD/YYYY to YYYYDDMM.
 # Examples
-
 # format_date("11/12/2019") ➞ "20191211"
-
 # format_date("12/31/2019") ➞ "20193112"
-
 # format_date("01/15/2019") ➞ "20191501"
-
 # Notes
-
 # Return value should be a string.
 def format_date(date)
 	month, day, year = date.split('/')
@@ -193,15 +154,10 @@ def format_date(date)
 end
 # Create a function that takes an array of words and transforms it into an array of each word's length.
 # Examples
-
 # word_lengths(["hello", "world"]) ➞ [5, 5]
-
 # word_lengths(["Halloween", "Thanksgiving", "Christmas"]) ➞ [9, 12, 9]
-
 # word_lengths(["She", "sells", "seashells", "down", "by", "the", "seashore"]) ➞ [3, 5, 9, 4, 2, 3, 8]
-
 # Notes
-
 #     No test case will contain punctuation.
 #     Arrays can be of various lengths.
 def word_lengths(arr)
@@ -209,15 +165,10 @@ def word_lengths(arr)
 end
 # Create a function that returns the string "Burp" with the amount of "r's" determined by the input parameters of the function.
 # Examples
-
 # long_burp(3) ➞ "Burrrp"
-
 # long_burp(5) ➞ "Burrrrrp"
-
 # long_burp(9) ➞ "Burrrrrrrrrp"
-
 # Notes
-
 #     Expect num to always be >= 1.
 #     Remember to use a capital "B".
 #     Don't forget to return the result.
