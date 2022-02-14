@@ -1,14 +1,32 @@
-A number is called Automorphic number if its square ends in the original number. Create a function that takes a number n and returns true if it is an Automorphic number, otherwise false.
-Examples
-automorphic(1) ➞ true
-automorphic(3) ➞ false
-# 3^2 = 9
-automorphic(6) ➞ true
-# 6^2 = 36 (ends with 6)
-automorphic(95) ➞ false
-# 95^2 = 9025 (does not end with 95)
-Notes
-N/A
+# Write a function that returns true if k^k == n for input (n, k) and return false otherwise.
+# Examples
+
+# k_to_k(4, 2) ➞ true
+
+# k_to_k(387420489, 9) ➞ true
+# # 9^9 == 387420489
+
+# k_to_k(3124, 5) ➞ false
+
+# k_to_k(17, 3) ➞ false
+
+# Notes
+
+# The ^ operator refers to exponentiation operation **, not the bitwise XOR operation.
+def k_to_k(n, k)
+	k ** k == n
+end
+# A number is called Automorphic number if its square ends in the original number. Create a function that takes a number n and returns true if it is an Automorphic number, otherwise false.
+# Examples
+# automorphic(1) ➞ true
+# automorphic(3) ➞ false
+# # 3^2 = 9
+# automorphic(6) ➞ true
+# # 6^2 = 36 (ends with 6)
+# automorphic(95) ➞ false
+# # 95^2 = 9025 (does not end with 95)
+# Notes
+# N/A
 def automorphic(n)
   nStr = n.to_s
   (n ** 2).to_s[nStr.length * -1..-1] == nStr
