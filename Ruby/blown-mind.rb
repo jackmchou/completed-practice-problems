@@ -1,3 +1,16 @@
+# Write a function that returns true if a hash is empty, and false otherwise.
+# Examples
+
+# is_empty({}) ➞ true
+
+# is_empty({ "a" => 1 }) ➞ false
+
+# Notes
+
+# N/A
+def is_empty(obj)
+	obj.empty?
+end
 # Write a function that returns true if k^k == n for input (n, k) and return false otherwise.
 # Examples
 
