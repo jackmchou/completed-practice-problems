@@ -1,3 +1,24 @@
+# Write a function that checks whether a person can watch an MA15+ rated movie. One of the following two conditions is required for admittance:
+
+#     The person is at least 15 years old.
+#     They have parental supervision.
+
+# The function accepts two parameters, age and is_supervised. Return a boolean.
+# Examples
+
+# accept_into_movie(14, true) ➞ true
+
+# accept_into_movie(14, false) ➞ false
+
+# accept_into_movie(16, false) ➞ true
+
+# Notes
+
+#     age is a decimal.
+#     is_supervised is a boolean.
+def accept_into_movie(age, is_supervised)
+	age >= 15 || is_supervised
+end
 # Write a function that returns true if a hash is empty, and false otherwise.
 # Examples
 
