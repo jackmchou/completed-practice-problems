@@ -1,3 +1,27 @@
+# Create a function that takes a number n and returns the sum of all square numbers up to and including n.
+
+# squares_sum(3) ➞ 14
+# # 1² + 2² + 3² =
+# # 1 + 4 + 9 =
+# # 14
+
+# Examples
+
+# squares_sum(3) ➞ 14
+
+# squares_sum(12) ➞ 650
+
+# squares_sum(13) ➞ 819
+
+# Notes
+
+# Remember that n is included in the total.
+def squares_sum(n)
+	if n == 1
+		return n
+	end
+	n ** 2 + squares_sum(n - 1)
+end
 # Write a function that checks whether a person can watch an MA15+ rated movie. One of the following two conditions is required for admittance:
 
 #     The person is at least 15 years old.
