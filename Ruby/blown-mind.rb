@@ -1,3 +1,21 @@
+# Given a number, return an array containing the two halves of the number. If the number is odd, make the rightmost number higher.
+# Examples
+
+# number_split(4) ➞ [2, 2]
+
+# number_split(10) ➞ [5, 5]
+
+# number_split(11) ➞ [5, 6]
+
+# number_split(-9) ➞ [-5, -4]
+
+# Notes
+
+#     All numbers will be integers.
+#     You can expect negative numbers too.
+def number_split(n)
+	n.even? ? [(n / 2), (n / 2)] : [(n / 2), (n / 2 + 1)]
+end
 # Create a function that takes a number n and returns the sum of all square numbers up to and including n.
 
 # squares_sum(3) ➞ 14
