@@ -1,3 +1,26 @@
+# Create a function that always returns true for every item in a given array. However, if an element is the word "flick", switch to always returning the opposite boolean value.
+# Examples
+
+# flick_switch(["edabit", "flick", "eda", "bit"]) ➞ [true, false, false, false]
+
+# flick_switch(["flick", 11037, 3.14, 53]) ➞[false, false, false, false]
+
+# flick_switch([false, false, "flick", "sheep", "flick"]) ➞ [true, true, false, false, true]
+
+# Notes
+
+#     "flick" will always be given in lowercase.
+#     An array may contain multiple flicks.
+#     Switch the boolean value on the same element as the flick itself.
+def flick_switch(arr)
+	bool = true
+	arr.map do |item|
+		if item == 'flick'
+			bool = !bool
+		end
+		bool
+	end
+end
 # Create a function that takes a string; we'll say that the front is the first three characters of the string. If the string length is less than three characters, the front is whatever is there. Return a new string, which is three copies of the front.
 # Examples
 
