@@ -1,14 +1,21 @@
+# Mubashir wants to remove numbers from a given string!
+# Help him by fixing the code in the code tab to pass this challenge. Look at the examples below to get an idea of what the function should do.
+# Examples
+# remove_numbers("mubashir1") ➞ "mubashir"
+# remove_numbers("12ma23tt") ➞ "matt"
+# remove_numbers("e1d2a3b4i5t6") ➞ "edabit"
+# Notes
+#     READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
+#     Don't overthink this challenge; it's not supposed to be hard.
+def remove_numbers(string)
+  string.gsub(/\d/, '')
+end
 # Create a function that takes a string and returns a string with spaces in between all of the characters.
 # Examples
-
 # space_me_out("space") ➞ "s p a c e"
-
 # space_me_out("far out") ➞ "f a r   o u t"
-
 # space_me_out("elongated musk") ➞ "e l o n g a t e d   m u s k"
-
 # Notes
-
 # Treat a space as its own character (i.e. leave three spaces between words).
 def space_me_out(s)
 	str = s.gsub(/./) {|letter| letter + ' '}
@@ -16,15 +23,10 @@ def space_me_out(s)
 end
 # Create a function that always returns true for every item in a given array. However, if an element is the word "flick", switch to always returning the opposite boolean value.
 # Examples
-
 # flick_switch(["edabit", "flick", "eda", "bit"]) ➞ [true, false, false, false]
-
 # flick_switch(["flick", 11037, 3.14, 53]) ➞[false, false, false, false]
-
 # flick_switch([false, false, "flick", "sheep", "flick"]) ➞ [true, true, false, false, true]
-
 # Notes
-
 #     "flick" will always be given in lowercase.
 #     An array may contain multiple flicks.
 #     Switch the boolean value on the same element as the flick itself.
@@ -39,69 +41,46 @@ def flick_switch(arr)
 end
 # Create a function that takes a string; we'll say that the front is the first three characters of the string. If the string length is less than three characters, the front is whatever is there. Return a new string, which is three copies of the front.
 # Examples
-
 # front_three("Python") ➞ "PytPytPyt"
-
 # front_three("Cucumber") ➞ "CucCucCuc"
-
 # front_three("bioshock") ➞ "biobiobio"
-
 # Notes
-
 # Don't forget to return the result.
 def front_three(str)
 	str[0..2] * 3
 end
 # Create a function that will work as the modulus operator % without using the modulus operator. The modulus operator is a way to determine the remainder of a division operation. Instead of returning the result of the division, the modulo operation returns the whole number remainder.
 # Examples
-
 # mod(5, 2) ➞ 1
-
 # mod(218, 5) ➞ 3
-
 # mod(6, 3) ➞ 0
-
 # Notes
-
 # Don't use the % operator to return the results.
 def mod(a, b)
 	a.modulo b
 end
 # Given a number, return an array containing the two halves of the number. If the number is odd, make the rightmost number higher.
 # Examples
-
 # number_split(4) ➞ [2, 2]
-
 # number_split(10) ➞ [5, 5]
-
 # number_split(11) ➞ [5, 6]
-
 # number_split(-9) ➞ [-5, -4]
-
 # Notes
-
 #     All numbers will be integers.
 #     You can expect negative numbers too.
 def number_split(n)
 	n.even? ? [(n / 2), (n / 2)] : [(n / 2), (n / 2 + 1)]
 end
 # Create a function that takes a number n and returns the sum of all square numbers up to and including n.
-
 # squares_sum(3) ➞ 14
 # # 1² + 2² + 3² =
 # # 1 + 4 + 9 =
 # # 14
-
 # Examples
-
 # squares_sum(3) ➞ 14
-
 # squares_sum(12) ➞ 650
-
 # squares_sum(13) ➞ 819
-
 # Notes
-
 # Remember that n is included in the total.
 def squares_sum(n)
 	if n == 1
@@ -110,21 +89,14 @@ def squares_sum(n)
 	n ** 2 + squares_sum(n - 1)
 end
 # Write a function that checks whether a person can watch an MA15+ rated movie. One of the following two conditions is required for admittance:
-
 #     The person is at least 15 years old.
 #     They have parental supervision.
-
 # The function accepts two parameters, age and is_supervised. Return a boolean.
 # Examples
-
 # accept_into_movie(14, true) ➞ true
-
 # accept_into_movie(14, false) ➞ false
-
 # accept_into_movie(16, false) ➞ true
-
 # Notes
-
 #     age is a decimal.
 #     is_supervised is a boolean.
 def accept_into_movie(age, is_supervised)
@@ -132,31 +104,21 @@ def accept_into_movie(age, is_supervised)
 end
 # Write a function that returns true if a hash is empty, and false otherwise.
 # Examples
-
 # is_empty({}) ➞ true
-
 # is_empty({ "a" => 1 }) ➞ false
-
 # Notes
-
 # N/A
 def is_empty(obj)
 	obj.empty?
 end
 # Write a function that returns true if k^k == n for input (n, k) and return false otherwise.
 # Examples
-
 # k_to_k(4, 2) ➞ true
-
 # k_to_k(387420489, 9) ➞ true
 # # 9^9 == 387420489
-
 # k_to_k(3124, 5) ➞ false
-
 # k_to_k(17, 3) ➞ false
-
 # Notes
-
 # The ^ operator refers to exponentiation operation **, not the bitwise XOR operation.
 def k_to_k(n, k)
 	k ** k == n
