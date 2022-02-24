@@ -1,3 +1,18 @@
+# Given a sandwich (as an array), return an array of fillings inside the sandwich. This involves ignoring the first and last elements.
+# Examples
+
+# get_fillings(["bread", "ham", "cheese", "ham", "bread"]) ➞ ["ham", "cheese", "ham"]
+
+# get_fillings(["bread", "sausage", "tomato", "bread"]) ➞ ["sausage", "tomato"]
+
+# get_fillings(["bread", "lettuce", "bacon", "tomato", "bread"]) ➞ ["lettuce", "bacon", "tomato"]
+
+# Notes
+
+# The first and last elements will always be "bread".
+def get_fillings(sandwich)
+	sandwich[1...-1]
+end
 # Mubashir wants to remove numbers from a given string!
 # Help him by fixing the code in the code tab to pass this challenge. Look at the examples below to get an idea of what the function should do.
 # Examples
