@@ -1,3 +1,35 @@
+# Parity bits are used as very simple checksum to ensure that binary data isn't corrupted during transit. Here's how they work:
+
+#     If a binary string has an odd number of 1's, the parity bit is a 1.
+#     If a binary string has an even number of 1's, the parity bit is a 0.
+#     The parity bit is appended to the end of the binary string.
+
+# Create a function that validates whether a binary string is valid, using parity bits.
+# Worked Example
+
+# validate_binary("10110010") ➞ true
+
+# # The last digit is the parity bit.
+# # 0 is the last digit.
+# # 0 means that there should be an even number of 1's.
+# # There are four 1's.
+# # Return true.
+
+# Examples
+
+# validate_binary("00101101") ➞ true
+
+# validate_binary("11000000") ➞ true
+
+# validate_binary("11000001") ➞ false
+
+# Notes
+
+#     All inputs will be a byte long (8 characters).
+#     You can find another parity bit involved challenge via this link.
+def validate_binary(b)
+	return b.count('1').even? if b[-1] == '0'
+end
 # Create a function that takes two lowercase strings str1 and str2 of letters from a to z and returns the sorted and longest string containing distinct letters.
 # Examples
 
