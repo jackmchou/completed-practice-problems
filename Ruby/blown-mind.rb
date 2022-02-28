@@ -1,3 +1,26 @@
+# Kinetic energy can be calculated with the following formula:
+
+# KE = 1/2mv²
+
+#     m is mass in kg
+#     v is velocity in m/s
+#     KE is kinetic energy in J
+
+# Return the Kinetic Energy in Joules, given the mass and velocity. For the purposes of this challenge, round answers to the nearest integer.
+# Examples
+
+# calc_kinetic_energy(60, 3) ➞ 270
+
+# calc_kinetic_energy(45, 10) ➞ 2250
+
+# calc_kinetic_energy(63.5, 7.35) ➞ 1715
+
+# Notes
+
+# Expect only positive numbers for inputs.
+def calc_kinetic_energy(m, v)
+	(0.5 * m * v ** 2).round
+end
 # Parity bits are used as very simple checksum to ensure that binary data isn't corrupted during transit. Here's how they work:
 
 #     If a binary string has an odd number of 1's, the parity bit is a 1.
@@ -28,7 +51,7 @@
 #     All inputs will be a byte long (8 characters).
 #     You can find another parity bit involved challenge via this link.
 def validate_binary(b)
-	return b.count('1').even? if b[-1] == '0'
+	b.count('1').even?
 end
 # Create a function that takes two lowercase strings str1 and str2 of letters from a to z and returns the sorted and longest string containing distinct letters.
 # Examples
