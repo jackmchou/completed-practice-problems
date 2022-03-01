@@ -1,3 +1,18 @@
+# Write a regular expression that matches only an even number. Numbers will be presented as strings.
+# Examples
+
+# "2341" ➞ false
+
+# "132" ➞ true
+
+# "29" ➞ false
+
+# "5578" ➞ true
+
+# Notes
+
+# This challenge is designed for RegEx only.
+x = /[2,4,6,8,0]$/
 # Create a function that takes a hash argument sizes (contains width, length, height keys) and returns the volume of the box.
 # Examples
 
