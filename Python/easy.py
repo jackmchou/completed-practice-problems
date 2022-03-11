@@ -1,3 +1,26 @@
+# Mubashir wants to swap two given numbers!
+
+# It is not returning the right values. Can you help him fix it?
+
+# a = 100
+# b = 200
+# a, b = swap(a, b)
+# print(a, b) # Should print out "200, 100", but the function prints out "100, 100"
+
+# Examples
+
+# swap(100, 200) ➞ [200, 100]
+
+# swap(44, 33) ➞ [33, 44]
+
+# swap(21, 12) ➞ [12, 21]
+
+# Notes
+
+# N/A
+def swap(a, b):
+	a, b = b, a
+	return [a, b]
 # A vehicle needs 10 times the amount of fuel than the distance it travels. However, it must always carry a minimum of 100 fuel before setting off.
 
 # Create a function which calculates the amount of fuel it needs, given the distance.
@@ -14,7 +37,7 @@
 #     Distance will be a number greater than zero.
 #     Return 100 if the calculated fuel turns out to be less than 100.
 def calculate_fuel(n):
-	return n * 10
+	return 100 if n * 10 < 100 else n * 10
 # Create a function that returns True if a string is empty and False otherwise.
 # Examples
 
