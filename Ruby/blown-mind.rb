@@ -1,3 +1,622 @@
+# Write a regular expression that matches only an even number. Numbers will be presented as strings.
+# Examples
+
+# "2341" ➞ false
+
+# "132" ➞ true
+
+# "29" ➞ false
+
+# "5578" ➞ true
+
+# Notes
+
+# This challenge is designed for RegEx only.
+x = /[2,4,6,8,0]$/
+# Create a function that takes a hash argument sizes (contains width, length, height keys) and returns the volume of the box.
+# Examples
+
+# volume_of_box({ "width": 2, "length": 5, "height": 1 }) ➞ 10
+
+# volume_of_box({ "width": 4, "length": 2, "height": 2 }) ➞ 16
+
+# volume_of_box({ "width": 2, "length": 3, "height": 5 }) ➞ 30
+
+# Notes
+
+#     Don't forget to return the result.
+#     Remember that the values are in an object.
+#     Volume is length * width * height.
+def volume_of_box(sizes)
+	sizes[:width] * sizes[:height] * sizes[:length]
+end
+# Kinetic energy can be calculated with the following formula:
+
+# KE = 1/2mv²
+
+#     m is mass in kg
+#     v is velocity in m/s
+#     KE is kinetic energy in J
+
+# Return the Kinetic Energy in Joules, given the mass and velocity. For the purposes of this challenge, round answers to the nearest integer.
+# Examples
+
+# calc_kinetic_energy(60, 3) ➞ 270
+
+# calc_kinetic_energy(45, 10) ➞ 2250
+
+# calc_kinetic_energy(63.5, 7.35) ➞ 1715
+
+# Notes
+
+# Expect only positive numbers for inputs.
+def calc_kinetic_energy(m, v)
+	(0.5 * m * v ** 2).round
+end
+# Parity bits are used as very simple checksum to ensure that binary data isn't corrupted during transit. Here's how they work:
+
+#     If a binary string has an odd number of 1's, the parity bit is a 1.
+#     If a binary string has an even number of 1's, the parity bit is a 0.
+#     The parity bit is appended to the end of the binary string.
+
+# Create a function that validates whether a binary string is valid, using parity bits.
+# Worked Example
+
+# validate_binary("10110010") ➞ true
+
+# # The last digit is the parity bit.
+# # 0 is the last digit.
+# # 0 means that there should be an even number of 1's.
+# # There are four 1's.
+# # Return true.
+
+# Examples
+
+# validate_binary("00101101") ➞ true
+
+# validate_binary("11000000") ➞ true
+
+# validate_binary("11000001") ➞ false
+
+# Notes
+
+#     All inputs will be a byte long (8 characters).
+#     You can find another parity bit involved challenge via this link.
+def validate_binary(b)
+	b.count('1').even?
+end
+# Create a function that takes two lowercase strings str1 and str2 of letters from a to z and returns the sorted and longest string containing distinct letters.
+# Examples
+
+# str1 = "mubashir"
+# str2 = "edabit"
+
+# longest_string(str1, str2) ➞ "abdehimrstu"
+# # Contains sorted and distinct letters of the given strings.
+
+# str1 = "abcdefghijklmnopqrstuvwxyz"
+# str2 = "abcdefghijklmnopqrstuvwxyz"
+
+# longest_string(str1, str2) ➞ "abcdefghijklmnopqrstuvwxyz"
+# # Contains sorted and distinct letters of the given strings.
+
+# Notes
+
+# N/A
+# Checking
+def longest_string(str1, str2)
+  (str1 + str2).split('').uniq.sort.join
+end
+# Given a sandwich (as an array), return an array of fillings inside the sandwich. This involves ignoring the first and last elements.
+# Examples
+
+# get_fillings(["bread", "ham", "cheese", "ham", "bread"]) ➞ ["ham", "cheese", "ham"]
+
+# get_fillings(["bread", "sausage", "tomato", "bread"]) ➞ ["sausage", "tomato"]
+
+# get_fillings(["bread", "lettuce", "bacon", "tomato", "bread"]) ➞ ["lettuce", "bacon", "tomato"]
+
+# Notes
+
+# The first and last elements will always be "bread".
+def get_fillings(sandwich)
+	sandwich[1...-1]
+end
+# Mubashir wants to remove numbers from a given string!
+# Help him by fixing the code in the code tab to pass this challenge. Look at the examples below to get an idea of what the function should do.
+# Examples
+# remove_numbers("mubashir1") ➞ "mubashir"
+# remove_numbers("12ma23tt") ➞ "matt"
+# remove_numbers("e1d2a3b4i5t6") ➞ "edabit"
+# Notes
+#     READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
+#     Don't overthink this challenge; it's not supposed to be hard.
+def remove_numbers(string)
+  string.gsub(/\d/, '')
+end
+# Create a function that takes a string and returns a string with spaces in between all of the characters.
+# Examples
+# space_me_out("space") ➞ "s p a c e"
+# space_me_out("far out") ➞ "f a r   o u t"
+# space_me_out("elongated musk") ➞ "e l o n g a t e d   m u s k"
+# Notes
+# Treat a space as its own character (i.e. leave three spaces between words).
+def space_me_out(s)
+	str = s.gsub(/./) {|letter| letter + ' '}
+	str.rstrip
+end
+# Create a function that always returns true for every item in a given array. However, if an element is the word "flick", switch to always returning the opposite boolean value.
+# Examples
+# flick_switch(["edabit", "flick", "eda", "bit"]) ➞ [true, false, false, false]
+# flick_switch(["flick", 11037, 3.14, 53]) ➞[false, false, false, false]
+# flick_switch([false, false, "flick", "sheep", "flick"]) ➞ [true, true, false, false, true]
+# Notes
+#     "flick" will always be given in lowercase.
+#     An array may contain multiple flicks.
+#     Switch the boolean value on the same element as the flick itself.
+def flick_switch(arr)
+	bool = true
+	arr.map do |item|
+		if item == 'flick'
+			bool = !bool
+		end
+		bool
+	end
+end
+# Create a function that takes a string; we'll say that the front is the first three characters of the string. If the string length is less than three characters, the front is whatever is there. Return a new string, which is three copies of the front.
+# Examples
+# front_three("Python") ➞ "PytPytPyt"
+# front_three("Cucumber") ➞ "CucCucCuc"
+# front_three("bioshock") ➞ "biobiobio"
+# Notes
+# Don't forget to return the result.
+def front_three(str)
+	str[0..2] * 3
+end
+# Create a function that will work as the modulus operator % without using the modulus operator. The modulus operator is a way to determine the remainder of a division operation. Instead of returning the result of the division, the modulo operation returns the whole number remainder.
+# Examples
+# mod(5, 2) ➞ 1
+# mod(218, 5) ➞ 3
+# mod(6, 3) ➞ 0
+# Notes
+# Don't use the % operator to return the results.
+def mod(a, b)
+	a.modulo b
+end
+# Given a number, return an array containing the two halves of the number. If the number is odd, make the rightmost number higher.
+# Examples
+# number_split(4) ➞ [2, 2]
+# number_split(10) ➞ [5, 5]
+# number_split(11) ➞ [5, 6]
+# number_split(-9) ➞ [-5, -4]
+# Notes
+#     All numbers will be integers.
+#     You can expect negative numbers too.
+def number_split(n)
+	n.even? ? [(n / 2), (n / 2)] : [(n / 2), (n / 2 + 1)]
+end
+# Create a function that takes a number n and returns the sum of all square numbers up to and including n.
+# squares_sum(3) ➞ 14
+# # 1² + 2² + 3² =
+# # 1 + 4 + 9 =
+# # 14
+# Examples
+# squares_sum(3) ➞ 14
+# squares_sum(12) ➞ 650
+# squares_sum(13) ➞ 819
+# Notes
+# Remember that n is included in the total.
+def squares_sum(n)
+	if n == 1
+		return n
+	end
+	n ** 2 + squares_sum(n - 1)
+end
+# Write a function that checks whether a person can watch an MA15+ rated movie. One of the following two conditions is required for admittance:
+#     The person is at least 15 years old.
+#     They have parental supervision.
+# The function accepts two parameters, age and is_supervised. Return a boolean.
+# Examples
+# accept_into_movie(14, true) ➞ true
+# accept_into_movie(14, false) ➞ false
+# accept_into_movie(16, false) ➞ true
+# Notes
+#     age is a decimal.
+#     is_supervised is a boolean.
+def accept_into_movie(age, is_supervised)
+	age >= 15 || is_supervised
+end
+# Write a function that returns true if a hash is empty, and false otherwise.
+# Examples
+# is_empty({}) ➞ true
+# is_empty({ "a" => 1 }) ➞ false
+# Notes
+# N/A
+def is_empty(obj)
+	obj.empty?
+end
+# Write a function that returns true if k^k == n for input (n, k) and return false otherwise.
+# Examples
+# k_to_k(4, 2) ➞ true
+# k_to_k(387420489, 9) ➞ true
+# # 9^9 == 387420489
+# k_to_k(3124, 5) ➞ false
+# k_to_k(17, 3) ➞ false
+# Notes
+# The ^ operator refers to exponentiation operation **, not the bitwise XOR operation.
+def k_to_k(n, k)
+	k ** k == n
+end
+# A number is called Automorphic number if its square ends in the original number. Create a function that takes a number n and returns true if it is an Automorphic number, otherwise false.
+# Examples
+# automorphic(1) ➞ true
+# automorphic(3) ➞ false
+# # 3^2 = 9
+# automorphic(6) ➞ true
+# # 6^2 = 36 (ends with 6)
+# automorphic(95) ➞ false
+# # 95^2 = 9025 (does not end with 95)
+# Notes
+# N/A
+def automorphic(n)
+  nStr = n.to_s
+  (n ** 2).to_s[nStr.length * -1..-1] == nStr
+end
+# Creat a function that returns true if the combined weight of a car car and the weight of the passengers p in the car is less than the maximum weight max_weight the car is allowed to carry. Otherwise, return false. The weight of the car and the weight of the passengers are given in pounds. The maximum weight is given in kilograms.
+# Examples
+# weight_allowed(3000, [150, 201, 75, 88, 195], 1700) ➞ true
+# weight_allowed(3200, [220, 101, 115, 228, 15], 1700) ➞ false
+# weight_allowed(2900, [225, 171, 300, 274, 191], 1850) ➞ true
+# Notes
+# 1 pound = 0.453592 kilogram
+def weight_allowed(car, p, max_weight)
+	((car + p.reduce(:+)) * 0.453592) < max_weight
+end
+# Given two arrays, which represent two sandwiches, return whether both sandwiches use the same type of bread. The bread will always be found at the start and end of the array.
+# Examples
+# has_same_bread(
+#   ["white bread", "lettuce", "white bread"],
+#   ["white bread", "tomato", "white bread"]
+# ) ➞ true
+# has_same_bread(
+#   ["brown bread", "chicken", "brown bread"],
+#   ["white bread", "chicken", "white bread"]
+# ) ➞ false
+# has_same_bread(
+#   ["toast", "cheese", "toast"],
+#   ["brown bread", "cheese", "toast"]
+# ) ➞ false
+# Notes
+#     The arrays will always be exactly three elements long.
+#     The first piece of bread on one sandwich must be the same as the first piece of bread on the other sandwich. The same goes for the last piece of bread.
+def has_same_bread(arr1, arr2)
+	arr1[0] == arr2[0] && arr1[2] == arr2[2]
+end
+# Write a function that returns true if both numbers are:
+#     Smaller than 0, OR ...
+#     Greater than 0, OR ...
+#     Exactly 0
+# Otherwise, return false.
+# Examples
+# both(6, 2) ➞ true
+# both(0, 0) ➞ true
+# both(-1, 2) ➞ false
+# both(0, 2) ➞ false
+# Notes
+# Inputs will always be two numbers.
+def both(n1, n2)
+	(n1 < 0 && n2 < 0) || (n1 > 0 && n2 > 0) || (n1 == 0 && n2 == 0)
+end
+# You hired three programmers and you (hopefully) pay them. Create a function that takes three numbers (the hourly wages of each programmer) and returns the difference between the highest-paid programmer and the lowest-paid.
+# Examples
+# programmers(147, 33, 526) ➞ 493
+# programmers(33, 72, 74) ➞ 41
+# programmers(1, 5, 9) ➞ 8
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def programmers(one, two, three)
+	[one, two, three].max - [one, two, three].min
+end
+# A taxi journey costs $3 for the first kilometer travelled. However, all kilometers travelled after that will cost $2 each.
+# Create a function which returns the distance that the taxi must've travelled, given the cost as a parameter.
+# Examples
+# journey_distance(3) ➞ 1
+# # The first kilometer costs $3
+# journey_distance(9) ➞ 4
+# # The first kilometer costs $3 plus the other three kilometers (costing $2 each)
+# journey_distance(5) ➞ 2
+# Notes
+#     The input tests are integers >= 0.
+#     Remember that you are calculating the distance from the cost, not the other way around!
+def journey_distance(n)
+	((n.to_f - 1) / 2).ceil || 0
+end
+# Create a function that takes an integer n and reverses it.
+# Examples
+# rev(5121) ➞ "1215"
+# rev(69) ➞ "96"
+# rev(-122157) ➞ "751221"
+# Notes
+#     This challenge is about using two operators that are related to division.
+#     If the number is negative, treat it like it's positive.
+def rev(n)
+	n.abs.to_s.reverse
+end
+# Create a function that takes an array and returns the sum of all numbers in the array.
+# Examples
+# get_sum_of_elements([2, 7, 4]) ➞ 13
+# get_sum_of_elements([45, 3, 0]) ➞ 48
+# get_sum_of_elements([-2, 84, 23]) ➞ 105
+# Notes
+# N/A
+def get_sum_of_elements(arr)
+	arr.reduce(:+)
+end
+# For this challenge, you will NOT be given a string. Your task isn't to add "Do not" before the given string. If there is no given string, you will not return "Do not do anything." Do not check the examples to know how to do this challenge.
+# 	Examples
+	
+# 	reverse_psychology("wash the dishes") ➞ "Do not wash the dishes."
+	
+# 	reverse_psychology("eat your lunch") ➞ "Do not eat your lunch."
+	
+# 	reverse_psychology("go to school") ➞ "Do not go to school."
+	
+# 	Notes
+	
+# 	Are available.
+def reverse_psychology(s = '')
+	s != '' ? "Do not " + s +'.' : "Do not do anything."
+end
+# Create a function that takes an array of strings and integers, and filters out the array so that it returns an array of integers only.
+# Examples
+# filter_array([1, 2, 3, "a", "b", 4]) ➞ [1, 2, 3, 4]
+# filter_array(["A", 0, "Edabit", 1729, "Ruby", "1729"]) ➞ [0, 1729]
+# filter_array(["Nothing", "here"]) ➞ []
+# Notes
+# Don't overthink this one.
+def filter_array(arr)
+	arr.select {|item| item.is_a? Numeric }
+end
+# Create a function that takes the number of daily average recovered cases recovers, daily average new_cases, current active_cases, and returns the number of days it will take to reach zero cases.
+# Examples
+# end_corona(4000, 2000, 77000) ➞ 39
+# end_corona(3000, 2000, 50699) ➞ 51
+# end_corona(30000, 25000, 390205) ➞ 79
+# Notes
+#     The number of people who recover per day recovers will always be greater than daily new_cases.
+#     Be conservative and round up the number of days needed.
+def arr_between(num1, num2, arr)
+	arr.select {|num| num1 < num < num2 }
+end
+# Create a function that converts a date formatted as MM/DD/YYYY to YYYYDDMM.
+# Examples
+# format_date("11/12/2019") ➞ "20191211"
+# format_date("12/31/2019") ➞ "20193112"
+# format_date("01/15/2019") ➞ "20191501"
+# Notes
+# Return value should be a string.
+def format_date(date)
+	month, day, year = date.split('/')
+	year + day + month
+end
+# Create a function that takes an array of words and transforms it into an array of each word's length.
+# Examples
+# word_lengths(["hello", "world"]) ➞ [5, 5]
+# word_lengths(["Halloween", "Thanksgiving", "Christmas"]) ➞ [9, 12, 9]
+# word_lengths(["She", "sells", "seashells", "down", "by", "the", "seashore"]) ➞ [3, 5, 9, 4, 2, 3, 8]
+# Notes
+#     No test case will contain punctuation.
+#     Arrays can be of various lengths.
+def word_lengths(arr)
+	arr.map {|word| word.length}
+end
+# Create a function that returns the string "Burp" with the amount of "r's" determined by the input parameters of the function.
+# Examples
+# long_burp(3) ➞ "Burrrp"
+# long_burp(5) ➞ "Burrrrrp"
+# long_burp(9) ➞ "Burrrrrrrrrp"
+# Notes
+#     Expect num to always be >= 1.
+#     Remember to use a capital "B".
+#     Don't forget to return the result.
+def long_burp(num)
+	'Bu' + 'r' * num + 'p'
+end
+# Create a function that takes in a word and determines whether or not it is plural. A plural word is one that ends in "s".
+# Examples
+# is_plural("changes") ➞ true
+# is_plural("change") ➞ false
+# is_plural("dudes") ➞ true
+# is_plural("magic") ➞ false
+# Notes
+#     Don't forget to return the result.
+#     Remember that return true (boolean) is not the same as return "true" (string).
+#     This is an oversimplification of the English language. We are ignoring edge cases like "goose" and "geese", "fungus" and "fungi", etc.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def is_plural(word)
+	word[-1] == 's'
+end
+# A "truthy" value is a value that translates to true when evaluated in a Boolean context. All values are truthy unless they're defined as falsy.
+# All falsy values are as follows:
+#     false
+#     nil
+# Create a function that takes an argument of any data type and returns 1 if it's truthy and 0 if it's falsy.
+# Examples
+# is_truthy(0) ➞ 1
+# is_truthy(false) ➞ 0
+# is_truthy("") ➞ 1
+# is_truthy("false") ➞ 1
+# Notes
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def is_truthy(val)
+	val ? 1 : 0
+end
+# Create a function to find nil in an array of numbers. The return value should be the index where nil is found. If nil is not found in the array, return -1.
+# Examples
+# find_nil([1, 2, nil]) ➞ 2
+# find_nil([nil, 1, 2, 3, 4]) ➞ 0
+# find_nil([0, 1, 2, 3, 4]) ➞ -1
+# Notes
+# nil will occur in the input array only once.
+def find_nil(arr)
+	arr.find_index(nil) == nil ? -1 : arr.find_index(nil)
+end
+# Create a function that finds the word "bomb" in the given string (not case sensitive). If found, return "Duck!!!", otherwise, return "There is no bomb, relax.".
+# Examples
+# bomb("There is a bomb.") ➞ "Duck!!!"
+# bomb("Hey, did you think there is a bomb?") ➞ "Duck!!!"
+# bomb("This goes boom!!!") ➞ "There is no bomb, relax."
+# Notes
+# "bomb" may appear in different cases (i.e. uppercase, lowercase, mixed).
+def bomb(txt)
+	/bomb/i =~ txt ? 'Duck!!!' : "There is no bomb, relax."
+end
+# Create a function that takes a code of chess board square and return his color.
+# Examples
+# chess_board("a1") ➞ "black"
+# chess_board("e5") ➞ "black"
+# chess_board("d1") ➞ "white"
+# Notes
+# N/A
+def chess_board(pole)
+	letter = pole[0]
+	num = pole[1].to_i
+	if letter == 'a' or letter == 'c' or letter == 'e' or letter == 'g'
+		if num == 1 or num == 3 or num == 5 or num == 7
+			'black'
+		else
+			'white'
+		end
+	else 
+		if num == 1 or num == 3 or num == 5 or num == 7
+			'white'
+		else
+			'black'	
+		end
+	end
+end
+# Write a function that takes an integer and:
+#     If the number is a multiple of 3, return "Hello".
+#     If the number is a multiple of 5, return "World".
+#     If the number is a multiple of both 3 and 5, return "Hello World".
+# Examples
+# hello_world(3) ➞ "Hello"
+# hello_world(5) ➞ "World"
+# hello_world(15) ➞ "Hello World"
+# Notes
+# Don't forget to return the result.
+def hello_world(num)
+	if num % 3 == 0 and num % 5 == 0
+			"Hello World" 
+	elsif num % 5 == 0
+			"World"
+	else
+		"Hello"
+	end
+end
+# Create a function that checks if the argument is an integer or a string. Return "int" if it's an integer and "str" if it's a string.
+# Examples
+# int_or_string(8) ➞ "int"
+# int_or_string("Hello") ➞ "str"
+# int_or_string(9843532) ➞ "int"
+# Notes
+# Input will either be an integer or a string.
+def int_or_string(param)
+	param.is_a?(Integer) ? 'int' : 'str'
+end
+# Create a function that takes an array of values and returns the first and last values in a new array.
+# Examples
+# first_last([5, 10, 15, 20, 25]) ➞ [5, 25]
+# first_last(["edabit", 13, nil, false, true]) ➞ ["edabit", true]
+# first_last([nil, 4, "6", "hello", nil]) ➞ [nil, nil]
+# Notes
+#     Test input will always contain a minimum of two elements within the array.
+#     Don't forget to return the result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def first_last(arr)
+	[arr[0], arr[-1]]
+end
+# Create a function that returns the selected filename from a path. Include the extension in your answer.
+# Examples
+# get_filename("C:/Projects/pil_tests/ascii/edabit.txt") ➞ "edabit.txt"
+# get_filename("C:/Users/johnsmith/Music/Beethoven_5.mp3") ➞ "Beethoven_5.mp3"
+# get_filename("ffprobe.exe") ➞ "ffprobe.exe"
+# Notes
+#     Tests will include both absolute and relative paths.
+#     For simplicity, all paths will include forward slashes.
+def get_filename(path)
+	path.rpartition('/')[-1]
+end
+# Create a function that takes a hash of student names and returns an array of student names in alphabetical order.
+# Examples
+# get_student_names({
+#   "Student 1" => "Steve",
+#   "Student 2" => "Becky",
+#   "Student 3" => "John"
+# }) ➞ ["Becky", "John", "Steve"]
+# Notes
+#     Don't forget to return your result.
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def get_student_names(students)
+	students.values.sort
+end
+# Due to a programming concept known as truthiness, certain values can be evaluated to (i.e. take the place of) booleans. For example, 1 (or any number other than 0) is often equivalent to true, and 0 is often equivalent to false.
+# Create a function that returns the opposite of the given boolean, as a number.
+# Examples
+# flip_bool(true) ➞ 0
+# flip_bool(false) ➞ 1
+# flip_bool(1) ➞ 0
+# flip_bool(0) ➞ 1
+# Notes
+# N/A
+def flip_bool(b)
+	return 1 if b == 0
+	return 1 if b == false
+	b ? 0 : 1
+end
+# Create a function that finds the index of a given item.
+# Examples
+# search([1, 5, 3], 5) ➞ 1
+# search([9, 8, 3], 3) ➞ 2
+# search([1, 2, 3], 4) ➞ -1
+# Notes
+# If the item is not present, return -1.
+def search(arr, item)
+	arr.include?(item) ? arr.index(item) : -1
+end
+# Mubashir was walking through a straight street with exactly n identical houses on both sides. House numbers in the street look like this:
+# 1 |   | 6
+# 3 |   | 4
+# 5 |   | 2
+# He noticed that Even numbered houses increases on the right while Odd numbered houses decreases on the left.
+# Create a function that takes a house number house and length of the street n and returns the house number on the opposite side.
+# Examples
+# opposite_house(1, 3) ➞ 6
+# opposite_house(2, 3) ➞ 5
+# opposite_house(3, 5) ➞ 8
+# Notes
+# N/A
+def opposite_house(house, n)
+	n * 2 + 1 - house
+end
+# Implement a function that returns an array containing all the consecutive numbers in ascendant order from the given value low up to the given value high (bounds included).
+# Examples
+# get_sequence(1, 5) ➞ [1, 2, 3, 4, 5]
+# get_sequence(98, 100) ➞ [98, 99, 100]
+# get_sequence(1000, 1000) ➞ [1000]
+# Notes
+#     If you get stuck on a challenge, find help in the Resources tab.
+#     If you're really stuck, unlock solutions in the Solutions tab.
+def get_sequence(low, high)
+	(low..high).to_a
+end
 # Create a function that takes the height and radius of a cone as arguments and returns the volume of the cone rounded to the nearest hundredth.
 # Volume of a Cone Image
 # Examples
