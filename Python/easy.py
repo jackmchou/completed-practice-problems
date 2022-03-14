@@ -1,70 +1,46 @@
 # Create a function that evaluates an equation.
 # Examples
-
 # eq("1+2") ➞ 3
-
 # eq("6/(9-7)") ➞ 3
-
 # eq("3+2-4") ➞ 1
-
 # Notes
-
 #     Don't print, return a value.
 #     Return the value, not the equation.
 #     The method used to solve this challenge should not be used in practice. However, it's important to be aware of how this functionality works and why it should not be used. Check the Resources for more information.
 def eq(evaluate):
 	return eval(evaluate)
 # Mubashir wants to swap two given numbers!
-
 # It is not returning the right values. Can you help him fix it?
-
 # a = 100
 # b = 200
 # a, b = swap(a, b)
 # print(a, b) # Should print out "200, 100", but the function prints out "100, 100"
-
 # Examples
-
 # swap(100, 200) ➞ [200, 100]
-
 # swap(44, 33) ➞ [33, 44]
-
 # swap(21, 12) ➞ [12, 21]
-
 # Notes
-
 # N/A
 def swap(a, b):
 	a, b = b, a
 	return [a, b]
 # A vehicle needs 10 times the amount of fuel than the distance it travels. However, it must always carry a minimum of 100 fuel before setting off.
-
 # Create a function which calculates the amount of fuel it needs, given the distance.
 # Examples
-
 # calculate_fuel(15) ➞ 150
-
 # calculate_fuel(23.5) ➞ 235
-
 # calculate_fuel(3) ➞ 100
-
 # Notes
-
 #     Distance will be a number greater than zero.
 #     Return 100 if the calculated fuel turns out to be less than 100.
 def calculate_fuel(n):
 	return 100 if n * 10 < 100 else n * 10
 # Create a function that returns True if a string is empty and False otherwise.
 # Examples
-
 # is_empty("") ➞ True
-
 # is_empty(" ") ➞ False
-
 # is_empty("a") ➞ False
-
 # Notes
-
 #     A string containing only whitespaces " " does not count as empty.
 #     Don't forget to return the result.
 #     If you get stuck on a challenge, find help in the Resources tab.
@@ -73,99 +49,64 @@ def is_empty(s):
 	return s == ''
 # Write a function that returns True if k^k == n for input (n, k) and return False otherwise.
 # Examples
-
 # k_to_k(4, 2) ➞ True
-
 # k_to_k(387420489, 9) ➞ True
 # # 9^9 == 387420489
-
 # k_to_k(3124, 5) ➞ False
-
 # k_to_k(17, 3) ➞ False
-
 # Notes
-
 # The ^ operator refers to exponentiation operation **, not the bitwise XOR operation.
 def k_to_k(n, k):
 	return k ** k == n
 # Create a function that takes a string (a random name). If the last character of the name is an "n", return True, otherwise return False.
 # Examples
-
 # is_last_character_n("Aiden") ➞ True
-
 # is_last_character_n("Piet") ➞ False
-
 # is_last_character_n("Bert") ➞ False
-
 # is_last_character_n("Dean") ➞ True
-
 # Notes
-
 # The function must return a boolean value ( i.e. True or False).
 def is_last_character_n(word):
 	return word[-1] == 'n'
 # Create a function that returns how many possible arrangements can come from a certain number of switches (on / off). In other words, for a given number of switches, how many different patterns of on and off can we have?
 # Examples
-
 # pos_com(1) ➞ 2
-
 # pos_com(3) ➞ 8
-
 # pos_com(10) ➞ 1024
-
 # Notes
-
 # All numbers will be whole and positive.
 def pos_com(num):
 	return 2 ** num
 # Create a function that returns a list of all the integers between two given numbers start and end.
 # Examples
-
 # range_of_num(2, 4) ➞ [3]
-
 # range_of_num(5, 9) ➞ [6, 7, 8]
-
 # range_of_num(2, 11) ➞ [3, 4, 5, 6, 7, 8, 9, 10]
-
 # Notes
-
 #     start will always be <= end.
 #     start and end are NOT included in the final list.
 #     If start == end, return an empty list.
 def range_of_num(start, end):
 	return list(range(start + 1, end))
 # Given a list of integers, determine whether the sum of its elements is even or odd.
-
 # The return value should be a string ("odd" or "even").
-
 # If the input list is empty, consider it as a list with a zero ([0]).
 # Examples
-
 # even_or_odd([0]) ➞ "even"
-
 # even_or_odd([1]) ➞ "odd"
-
 # even_or_odd([]) ➞ "even"
-
 # even_or_odd([0, 1, 5]) ➞ "even"
-
 # Notes
-
 # N/A
 def even_or_odd(lst):
 	if sum(lst) == 0: return 'even'
 	return 'even' if sum(lst) % 2 == 0 else 'odd'
 # Create a function that takes a number as an argument and returns "even" for even numbers and "odd" for odd numbers.
 # Examples
-
 # isEvenOrOdd(3) ➞ "odd"
-
 # isEvenOrOdd(146) ➞ "even"
-
 # isEvenOrOdd(19) ➞ "odd"
-
 # Notes
-
 #     Dont forget to return the result.
 #     Input will always be a valid integer.
 #     Expect negative integers (whole numbers).
@@ -174,17 +115,11 @@ def isEvenOrOdd(num):
 	return 'even' if num % 2 == 0 else 'odd'
 # Create a function that takes in a word and determines whether or not it is plural. A plural word is one that ends in "s".
 # Examples
-
 # is_plural("changes") ➞ True
-
 # is_plural("change") ➞ False
-
 # is_plural("dudes") ➞ True
-
 # is_plural("magic") ➞ False
-
 # Notes
-
 #     Don't forget to return the result.
 #     Remember that return True (boolean) is not the same as return "True" (string).
 #     This is an oversimplification of the English language. We are ignoring edge cases like "goose" and "geese", "fungus" and "fungi", etc.

@@ -1,29 +1,35 @@
+# When creating variables, the variable name must always start with a letter and cannot contain spaces, though numbers and underscores are allowed to be contained in it also.
+# Create a function which returns true if a given variable name is valid, otherwise return false.
+# Examples
+# variable_valid("result") ➞ true
+# variable_valid("odd_nums") ➞ true
+# variable_valid("2TimesN") ➞ false
+# Notes
+#     Inputs are given as strings.
+#     Variable names with spaces are not allowed.
+#     Although this question may seem like otherwise, you can't actually assign words with quotes around them as variables.
+def variable_valid(var)
+  if var.include? " "
+    return false
+	else
+    var.match(/^[A-z]/) != nil
+  end
+end
 # Write a regular expression that matches only an even number. Numbers will be presented as strings.
 # Examples
-
 # "2341" ➞ false
-
 # "132" ➞ true
-
 # "29" ➞ false
-
 # "5578" ➞ true
-
 # Notes
-
 # This challenge is designed for RegEx only.
 x = /[2,4,6,8,0]$/
 # Create a function that takes a hash argument sizes (contains width, length, height keys) and returns the volume of the box.
 # Examples
-
 # volume_of_box({ "width": 2, "length": 5, "height": 1 }) ➞ 10
-
 # volume_of_box({ "width": 4, "length": 2, "height": 2 }) ➞ 16
-
 # volume_of_box({ "width": 2, "length": 3, "height": 5 }) ➞ 30
-
 # Notes
-
 #     Don't forget to return the result.
 #     Remember that the values are in an object.
 #     Volume is length * width * height.
@@ -31,55 +37,37 @@ def volume_of_box(sizes)
 	sizes[:width] * sizes[:height] * sizes[:length]
 end
 # Kinetic energy can be calculated with the following formula:
-
 # KE = 1/2mv²
-
 #     m is mass in kg
 #     v is velocity in m/s
 #     KE is kinetic energy in J
-
 # Return the Kinetic Energy in Joules, given the mass and velocity. For the purposes of this challenge, round answers to the nearest integer.
 # Examples
-
 # calc_kinetic_energy(60, 3) ➞ 270
-
 # calc_kinetic_energy(45, 10) ➞ 2250
-
 # calc_kinetic_energy(63.5, 7.35) ➞ 1715
-
 # Notes
-
 # Expect only positive numbers for inputs.
 def calc_kinetic_energy(m, v)
 	(0.5 * m * v ** 2).round
 end
 # Parity bits are used as very simple checksum to ensure that binary data isn't corrupted during transit. Here's how they work:
-
 #     If a binary string has an odd number of 1's, the parity bit is a 1.
 #     If a binary string has an even number of 1's, the parity bit is a 0.
 #     The parity bit is appended to the end of the binary string.
-
 # Create a function that validates whether a binary string is valid, using parity bits.
 # Worked Example
-
 # validate_binary("10110010") ➞ true
-
 # # The last digit is the parity bit.
 # # 0 is the last digit.
 # # 0 means that there should be an even number of 1's.
 # # There are four 1's.
 # # Return true.
-
 # Examples
-
 # validate_binary("00101101") ➞ true
-
 # validate_binary("11000000") ➞ true
-
 # validate_binary("11000001") ➞ false
-
 # Notes
-
 #     All inputs will be a byte long (8 characters).
 #     You can find another parity bit involved challenge via this link.
 def validate_binary(b)
@@ -87,21 +75,15 @@ def validate_binary(b)
 end
 # Create a function that takes two lowercase strings str1 and str2 of letters from a to z and returns the sorted and longest string containing distinct letters.
 # Examples
-
 # str1 = "mubashir"
 # str2 = "edabit"
-
 # longest_string(str1, str2) ➞ "abdehimrstu"
 # # Contains sorted and distinct letters of the given strings.
-
 # str1 = "abcdefghijklmnopqrstuvwxyz"
 # str2 = "abcdefghijklmnopqrstuvwxyz"
-
 # longest_string(str1, str2) ➞ "abcdefghijklmnopqrstuvwxyz"
 # # Contains sorted and distinct letters of the given strings.
-
 # Notes
-
 # N/A
 # Checking
 def longest_string(str1, str2)
@@ -109,15 +91,10 @@ def longest_string(str1, str2)
 end
 # Given a sandwich (as an array), return an array of fillings inside the sandwich. This involves ignoring the first and last elements.
 # Examples
-
 # get_fillings(["bread", "ham", "cheese", "ham", "bread"]) ➞ ["ham", "cheese", "ham"]
-
 # get_fillings(["bread", "sausage", "tomato", "bread"]) ➞ ["sausage", "tomato"]
-
 # get_fillings(["bread", "lettuce", "bacon", "tomato", "bread"]) ➞ ["lettuce", "bacon", "tomato"]
-
 # Notes
-
 # The first and last elements will always be "bread".
 def get_fillings(sandwich)
 	sandwich[1...-1]
