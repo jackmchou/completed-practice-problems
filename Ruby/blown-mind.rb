@@ -1,3 +1,18 @@
+# Create a function that takes two integers and checks if they are equal.
+# Examples
+
+# is_equal(5, 6) ➞ false
+
+# is_equal(1, 1) ➞ true
+
+# is_equal("1", 1) ➞ false
+
+# Notes
+
+# If there is a string then it should return false.
+def is_equal(num1, num2)
+	num1.equal? num2
+end
 # When creating variables, the variable name must always start with a letter and cannot contain spaces, though numbers and underscores are allowed to be contained in it also.
 # Create a function which returns true if a given variable name is valid, otherwise return false.
 # Examples
