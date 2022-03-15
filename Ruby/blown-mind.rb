@@ -1,3 +1,19 @@
+# Given a fraction as a string, return whether or not it is greater than 1 when evaluated.
+# Examples
+
+# greater_than_one("1/2") ➞ false
+
+# greater_than_one("7/4") ➞ true
+
+# greater_than_one("10/10") ➞ false
+
+# Notes
+
+# Fractions must be strictly greater than 1 (see example #3).
+def greater_than_one(frac)
+  num1, num2 = frac.split('/')
+  (num1.to_i / num2.to_i) > 1
+end
 # Create a function that takes two integers and checks if they are equal.
 # Examples
 
