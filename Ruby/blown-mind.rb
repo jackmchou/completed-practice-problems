@@ -1,4 +1,14 @@
-
+# Create a function that takes three numbers as arguments and returns true if it's a triangle and false if not.
+# Examples
+# is_triangle(2, 3, 4) ➞ true
+# is_triangle(3, 4, 5) ➞ true
+# is_triangle(4, 3, 8) ➞ false
+# Notes
+#     a, b and, c are the side lengths of the triangles.
+#     Test input will always be three positive numbers.
+def is_triangle(a, b, c)
+	(a + b) > c and (a + c) > b and (b + c) > a
+end
 # Smash factor is a term in golf that relates to the amount of energy transferred from the club head to the golf ball. The formula for calculating smash factor is ball speed divided by club speed.
 
 # Create a function that takes ball speed bs and club speed cs as arguments and returns the smash factor to the nearest hundredth.
