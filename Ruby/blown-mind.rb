@@ -1,3 +1,32 @@
+# Write a function that takes two numbers and returns if they should be added, subtracted, multiplied or divided to get 24. If none of the operations can give 24, return nil.
+# Examples
+
+# operation(15, 9) ➞ "added"
+
+# operation(26, 2) ➞ "subtracted"
+
+# operation(11, 11) ➞ nil
+
+# Notes
+
+#     Only integers are used as test input.
+#     Numbers should be added, subtracted, divided or multiplied in the order they appear in the parameters.
+#     The function should return either "added", "subtracted", "divided", "multiplied" or nil.
+def operation(num1, num2)
+  test = 24
+	case test
+  when num1 + num2
+    "added"
+  when num1 - num2
+    "subtracted"
+  when num1 / num2
+    "divided"
+  when num1 * num2
+    "multiplied"
+  else
+    nil
+  end
+end
 # Create a function that returns an array of strings sorted by length in ascending order.
 # Examples
 
