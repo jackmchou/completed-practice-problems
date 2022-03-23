@@ -1,3 +1,22 @@
+# You will be given an array, showing how far James travels away from his home for each day. He may choose to travel towards or away from his house, so negative values are to be expected.
+
+# Create a function that calculates what distance James must walk to get back home.
+# Examples
+
+# distance_home([2, 4, 2, 5]) ➞ 13
+
+# distance_home([-1, -4, -3, -2]) ➞ 10
+
+# distance_home([3, 4, -5, -2]) ➞ 0
+
+# Notes
+
+#     Assume James only travels in a straight line.
+#     Distance is always a positive number.
+def distance_home(arr)
+	result = arr.reduce(:+)
+	result < 0 ? result.abs : result
+end
 # Create a function that calculates the chance of being an imposter. The formula for the chances of being an imposter is 100 × (i / p) where i is the imposter count and p is the player count. Make sure to round the value to the nearest integer and return the value as a percentage.
 # Examples
 
