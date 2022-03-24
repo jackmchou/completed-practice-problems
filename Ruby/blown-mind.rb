@@ -1,16 +1,10 @@
 # You will be given an array, showing how far James travels away from his home for each day. He may choose to travel towards or away from his house, so negative values are to be expected.
-
 # Create a function that calculates what distance James must walk to get back home.
 # Examples
-
 # distance_home([2, 4, 2, 5]) ➞ 13
-
 # distance_home([-1, -4, -3, -2]) ➞ 10
-
 # distance_home([3, 4, -5, -2]) ➞ 0
-
 # Notes
-
 #     Assume James only travels in a straight line.
 #     Distance is always a positive number.
 def distance_home(arr)
@@ -19,30 +13,20 @@ def distance_home(arr)
 end
 # Create a function that calculates the chance of being an imposter. The formula for the chances of being an imposter is 100 × (i / p) where i is the imposter count and p is the player count. Make sure to round the value to the nearest integer and return the value as a percentage.
 # Examples
-
 # imposter_formula(1, 10) ➞ "10%"
-
 # imposter_formula(2, 5) ➞ "40%"
-
 # imposter_formula(1, 8) ➞ "13%"
-
 # Notes
-
 # The player limit is 10 and the imposter count can only go up to 3.
 def imposter_formula(i, p)
 	"#{(100 * (i.to_f / p)).round}%"
 end
 # Write a function that takes two numbers and returns if they should be added, subtracted, multiplied or divided to get 24. If none of the operations can give 24, return nil.
 # Examples
-
 # operation(15, 9) ➞ "added"
-
 # operation(26, 2) ➞ "subtracted"
-
 # operation(11, 11) ➞ nil
-
 # Notes
-
 #     Only integers are used as test input.
 #     Numbers should be added, subtracted, divided or multiplied in the order they appear in the parameters.
 #     The function should return either "added", "subtracted", "divided", "multiplied" or nil.
@@ -63,17 +47,11 @@ def operation(num1, num2)
 end
 # Create a function that returns an array of strings sorted by length in ascending order.
 # Examples
-
 # sort_by_length(["a", "ccc", "dddd", "bb"]) ➞ ["a", "bb", "ccc", "dddd"]
-
 # sort_by_length(["apple", "pie", "shortcake"]) ➞ ["pie", "apple", "shortcake"]
-
 # sort_by_length(["may", "april", "september", "august"]) ➞ ["may", "april", "august", "september"]
-
 # sort_by_length([]) ➞ []
-
 # Notes
-
 #     Strings will have unique lengths, so don't worry about comparing two strings with identical length.
 #     Return an empty array if the input array is empty (see example #4).
 def sort_by_length(arr)
@@ -81,15 +59,10 @@ def sort_by_length(arr)
 end
 # Given a string of letters, how many capital letters are there?
 # Examples
-
 # capital_letters("fvLzpxmgXSDrobbgMVrc") ➞ 6
-
 # capital_letters("JMZWCneOTFLWYwBWxyFw") ➞ 14
-
 # capital_letters("mqeytbbjwqemcdrdsyvq") ➞ 0
-
 # Notes
-
 # N/A
 def capital_letters(str)
 	str.scan(/[A-Z]/).length
@@ -106,18 +79,12 @@ def is_triangle(a, b, c)
 	(a + b) > c and (a + c) > b and (b + c) > a
 end
 # Smash factor is a term in golf that relates to the amount of energy transferred from the club head to the golf ball. The formula for calculating smash factor is ball speed divided by club speed.
-
 # Create a function that takes ball speed bs and club speed cs as arguments and returns the smash factor to the nearest hundredth.
 # Examples
-
 # smash_factor(139.4, 93.8) ➞ 1.49
-
 # smash_factor(181.2, 124.5) ➞ 1.46
-
 # smash_factor(154.7, 104.3) ➞ 1.48
-
 # Notes
-
 #     Remember to round to the nearest hundredth.
 #     All values will be valid (so no dividing by zero).
 def smash_factor(bs, cs)
@@ -125,15 +92,10 @@ def smash_factor(bs, cs)
 end
 # Given an array of numbers, create a function which returns the array but with each element's index in the array added to itself. This means you add 0 to the number at index 0, add 1 to the number at index 1, etc...
 # Examples
-
 # add_indexes([0, 0, 0, 0, 0]) ➞ [0, 1, 2, 3, 4]
-
 # add_indexes([1, 2, 3, 4, 5]) ➞ [1, 3, 5, 7, 9]
-
 # add_indexes([5, 4, 3, 2, 1]) ➞ [5, 5, 5, 5, 5]
-
 # Notes
-
 # You'll only get numbers in the array.
 def add_indexes(arr)
   result = []
@@ -144,15 +106,10 @@ def add_indexes(arr)
 end
 # Given a fraction as a string, return whether or not it is greater than 1 when evaluated.
 # Examples
-
 # greater_than_one("1/2") ➞ false
-
 # greater_than_one("7/4") ➞ true
-
 # greater_than_one("10/10") ➞ false
-
 # Notes
-
 # Fractions must be strictly greater than 1 (see example #3).
 def greater_than_one(frac)
   num1, num2 = frac.split('/')
@@ -160,15 +117,10 @@ def greater_than_one(frac)
 end
 # Create a function that takes two integers and checks if they are equal.
 # Examples
-
 # is_equal(5, 6) ➞ false
-
 # is_equal(1, 1) ➞ true
-
 # is_equal("1", 1) ➞ false
-
 # Notes
-
 # If there is a string then it should return false.
 def is_equal(num1, num2)
 	num1.equal? num2
