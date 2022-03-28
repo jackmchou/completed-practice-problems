@@ -46,3 +46,8 @@ myFunction();
 function myFunction() {
 	alert("Hello World!");
 }
+// Make the function return "Hello".
+function myFunction() {
+	return "Hello";
+}
+document.getElementById("demo").innerHTML = myFunction();
