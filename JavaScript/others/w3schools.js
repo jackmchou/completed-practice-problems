@@ -55,3 +55,9 @@ document.getElementById("demo").innerHTML = myFunction();
 function myFunction() {
 	document.getElementById("demo").innerHTML = "Hello";
 }
+// Alert "John" by extracting information from the person object.
+const person = {
+  firstName: "John",
+  lastName: "Doe"
+};
+alert(person.firstName);
