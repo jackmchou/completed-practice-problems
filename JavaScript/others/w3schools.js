@@ -73,3 +73,5 @@ const person = {
 	name: "John", age: 50
 }
 alert(person.name + " is " + person.age)
+// The <button> element should do something when someone clicks on it. Try to fix it!
+`<button onclick="alert('Hello')">Click me.</button>`
