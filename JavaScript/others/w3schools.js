@@ -79,3 +79,7 @@ alert(person.name + " is " + person.age)
 `<button onclick="myFunction()">Click me.</button>`
 // The <div> element should turn red when someone moves the mouse over it.
 `<div onmouseover="this.style.backgroundColor='red'">myDIV.</div>`
+// Use the length property to alert the length of txt.
+let txt = "Hello World!";
+let x = txt.length;
+alert(x)
