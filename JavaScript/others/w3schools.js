@@ -86,3 +86,7 @@ alert(x)
 // Use escape characters to alert We are "Vikings".
 let txt = "We are \"Viking\"";
 alert(txt);
+// Concatenate the two strings to alert "Hello World!".
+let str1 = "Hello ";
+let str2 = "World!";
+alert(str1 + str2);
