@@ -83,3 +83,6 @@ alert(person.name + " is " + person.age)
 let txt = "Hello World!";
 let x = txt.length;
 alert(x)
+// Use escape characters to alert We are "Vikings".
+let txt = "We are \"Viking\"";
+alert(txt);
