@@ -90,3 +90,6 @@ alert(txt);
 let str1 = "Hello ";
 let str2 = "World!";
 alert(str1 + str2);
+// Convert the text into an UPPERCASE text:
+let txt = "Hello World!";
+txt = txt.toUpperCase();
