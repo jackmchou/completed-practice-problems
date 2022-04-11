@@ -102,3 +102,6 @@ txt = txt.replace("Hello", "Welcome");
 // Convert the value of txt to upper case.
 let txt = "Hello World";
 txt = txt.toUpperCase();
+// Convert the value of txt to lower case.
+let txt = "Hello World";
+txt = txt.toLowerCase();
