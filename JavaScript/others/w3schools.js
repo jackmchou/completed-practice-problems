@@ -105,3 +105,6 @@ txt = txt.toUpperCase();
 // Convert the value of txt to lower case.
 let txt = "Hello World";
 txt = txt.toLowerCase();
+// Get the value "Volvo" from the cars array.
+const cars = ["Saab", "Volvo", "BMW"];
+let x = cars[1]
