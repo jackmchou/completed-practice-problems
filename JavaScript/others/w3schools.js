@@ -117,3 +117,6 @@ alert(cars.length);
 // Use the correct Array method to remove the last item of the fruits array.
 const fruits = ["Banana", "Orange", "Apple"];
 fruits.pop();
+// Use the correct Array method to add "Kiwi" to the fruits array.
+const fruits = ["Banana", "Orange", "Apple"];
+fruits.push("Kiwi");
