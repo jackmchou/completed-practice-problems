@@ -1,29 +1,162 @@
+# You will be given an array, showing how far James travels away from his home for each day. He may choose to travel towards or away from his house, so negative values are to be expected.
+# Create a function that calculates what distance James must walk to get back home.
+# Examples
+# distance_home([2, 4, 2, 5]) ➞ 13
+# distance_home([-1, -4, -3, -2]) ➞ 10
+# distance_home([3, 4, -5, -2]) ➞ 0
+# Notes
+#     Assume James only travels in a straight line.
+#     Distance is always a positive number.
+def distance_home(arr)
+	result = arr.reduce(:+)
+	result < 0 ? result.abs : result
+end
+# Create a function that calculates the chance of being an imposter. The formula for the chances of being an imposter is 100 × (i / p) where i is the imposter count and p is the player count. Make sure to round the value to the nearest integer and return the value as a percentage.
+# Examples
+# imposter_formula(1, 10) ➞ "10%"
+# imposter_formula(2, 5) ➞ "40%"
+# imposter_formula(1, 8) ➞ "13%"
+# Notes
+# The player limit is 10 and the imposter count can only go up to 3.
+def imposter_formula(i, p)
+	"#{(100 * (i.to_f / p)).round}%"
+end
+# Write a function that takes two numbers and returns if they should be added, subtracted, multiplied or divided to get 24. If none of the operations can give 24, return nil.
+# Examples
+# operation(15, 9) ➞ "added"
+# operation(26, 2) ➞ "subtracted"
+# operation(11, 11) ➞ nil
+# Notes
+#     Only integers are used as test input.
+#     Numbers should be added, subtracted, divided or multiplied in the order they appear in the parameters.
+#     The function should return either "added", "subtracted", "divided", "multiplied" or nil.
+def operation(num1, num2)
+  test = 24
+	case test
+  when num1 + num2
+    "added"
+  when num1 - num2
+    "subtracted"
+  when num1 / num2
+    "divided"
+  when num1 * num2
+    "multiplied"
+  else
+    nil
+  end
+end
+# Create a function that returns an array of strings sorted by length in ascending order.
+# Examples
+# sort_by_length(["a", "ccc", "dddd", "bb"]) ➞ ["a", "bb", "ccc", "dddd"]
+# sort_by_length(["apple", "pie", "shortcake"]) ➞ ["pie", "apple", "shortcake"]
+# sort_by_length(["may", "april", "september", "august"]) ➞ ["may", "april", "august", "september"]
+# sort_by_length([]) ➞ []
+# Notes
+#     Strings will have unique lengths, so don't worry about comparing two strings with identical length.
+#     Return an empty array if the input array is empty (see example #4).
+def sort_by_length(arr)
+	arr.sort_by {|word| word.length}
+end
+# Given a string of letters, how many capital letters are there?
+# Examples
+# capital_letters("fvLzpxmgXSDrobbgMVrc") ➞ 6
+# capital_letters("JMZWCneOTFLWYwBWxyFw") ➞ 14
+# capital_letters("mqeytbbjwqemcdrdsyvq") ➞ 0
+# Notes
+# N/A
+def capital_letters(str)
+	str.scan(/[A-Z]/).length
+end
+# Create a function that takes three numbers as arguments and returns true if it's a triangle and false if not.
+# Examples
+# is_triangle(2, 3, 4) ➞ true
+# is_triangle(3, 4, 5) ➞ true
+# is_triangle(4, 3, 8) ➞ false
+# Notes
+#     a, b and, c are the side lengths of the triangles.
+#     Test input will always be three positive numbers.
+def is_triangle(a, b, c)
+	(a + b) > c and (a + c) > b and (b + c) > a
+end
+# Smash factor is a term in golf that relates to the amount of energy transferred from the club head to the golf ball. The formula for calculating smash factor is ball speed divided by club speed.
+# Create a function that takes ball speed bs and club speed cs as arguments and returns the smash factor to the nearest hundredth.
+# Examples
+# smash_factor(139.4, 93.8) ➞ 1.49
+# smash_factor(181.2, 124.5) ➞ 1.46
+# smash_factor(154.7, 104.3) ➞ 1.48
+# Notes
+#     Remember to round to the nearest hundredth.
+#     All values will be valid (so no dividing by zero).
+def smash_factor(bs, cs)
+	(bs / cs).round(2)
+end
+# Given an array of numbers, create a function which returns the array but with each element's index in the array added to itself. This means you add 0 to the number at index 0, add 1 to the number at index 1, etc...
+# Examples
+# add_indexes([0, 0, 0, 0, 0]) ➞ [0, 1, 2, 3, 4]
+# add_indexes([1, 2, 3, 4, 5]) ➞ [1, 3, 5, 7, 9]
+# add_indexes([5, 4, 3, 2, 1]) ➞ [5, 5, 5, 5, 5]
+# Notes
+# You'll only get numbers in the array.
+def add_indexes(arr)
+  result = []
+	arr.each_with_index do |item, index| 
+		result << item + index
+	end
+  result
+end
+# Given a fraction as a string, return whether or not it is greater than 1 when evaluated.
+# Examples
+# greater_than_one("1/2") ➞ false
+# greater_than_one("7/4") ➞ true
+# greater_than_one("10/10") ➞ false
+# Notes
+# Fractions must be strictly greater than 1 (see example #3).
+def greater_than_one(frac)
+  num1, num2 = frac.split('/')
+  (num1.to_i / num2.to_i) > 1
+end
+# Create a function that takes two integers and checks if they are equal.
+# Examples
+# is_equal(5, 6) ➞ false
+# is_equal(1, 1) ➞ true
+# is_equal("1", 1) ➞ false
+# Notes
+# If there is a string then it should return false.
+def is_equal(num1, num2)
+	num1.equal? num2
+end
+# When creating variables, the variable name must always start with a letter and cannot contain spaces, though numbers and underscores are allowed to be contained in it also.
+# Create a function which returns true if a given variable name is valid, otherwise return false.
+# Examples
+# variable_valid("result") ➞ true
+# variable_valid("odd_nums") ➞ true
+# variable_valid("2TimesN") ➞ false
+# Notes
+#     Inputs are given as strings.
+#     Variable names with spaces are not allowed.
+#     Although this question may seem like otherwise, you can't actually assign words with quotes around them as variables.
+def variable_valid(var)
+  if var.include? " "
+    return false
+	else
+    var.match(/^[A-z]/) != nil
+  end
+end
 # Write a regular expression that matches only an even number. Numbers will be presented as strings.
 # Examples
-
 # "2341" ➞ false
-
 # "132" ➞ true
-
 # "29" ➞ false
-
 # "5578" ➞ true
-
 # Notes
-
 # This challenge is designed for RegEx only.
 x = /[2,4,6,8,0]$/
 # Create a function that takes a hash argument sizes (contains width, length, height keys) and returns the volume of the box.
 # Examples
-
 # volume_of_box({ "width": 2, "length": 5, "height": 1 }) ➞ 10
-
 # volume_of_box({ "width": 4, "length": 2, "height": 2 }) ➞ 16
-
 # volume_of_box({ "width": 2, "length": 3, "height": 5 }) ➞ 30
-
 # Notes
-
 #     Don't forget to return the result.
 #     Remember that the values are in an object.
 #     Volume is length * width * height.
@@ -31,55 +164,37 @@ def volume_of_box(sizes)
 	sizes[:width] * sizes[:height] * sizes[:length]
 end
 # Kinetic energy can be calculated with the following formula:
-
 # KE = 1/2mv²
-
 #     m is mass in kg
 #     v is velocity in m/s
 #     KE is kinetic energy in J
-
 # Return the Kinetic Energy in Joules, given the mass and velocity. For the purposes of this challenge, round answers to the nearest integer.
 # Examples
-
 # calc_kinetic_energy(60, 3) ➞ 270
-
 # calc_kinetic_energy(45, 10) ➞ 2250
-
 # calc_kinetic_energy(63.5, 7.35) ➞ 1715
-
 # Notes
-
 # Expect only positive numbers for inputs.
 def calc_kinetic_energy(m, v)
 	(0.5 * m * v ** 2).round
 end
 # Parity bits are used as very simple checksum to ensure that binary data isn't corrupted during transit. Here's how they work:
-
 #     If a binary string has an odd number of 1's, the parity bit is a 1.
 #     If a binary string has an even number of 1's, the parity bit is a 0.
 #     The parity bit is appended to the end of the binary string.
-
 # Create a function that validates whether a binary string is valid, using parity bits.
 # Worked Example
-
 # validate_binary("10110010") ➞ true
-
 # # The last digit is the parity bit.
 # # 0 is the last digit.
 # # 0 means that there should be an even number of 1's.
 # # There are four 1's.
 # # Return true.
-
 # Examples
-
 # validate_binary("00101101") ➞ true
-
 # validate_binary("11000000") ➞ true
-
 # validate_binary("11000001") ➞ false
-
 # Notes
-
 #     All inputs will be a byte long (8 characters).
 #     You can find another parity bit involved challenge via this link.
 def validate_binary(b)
@@ -87,21 +202,15 @@ def validate_binary(b)
 end
 # Create a function that takes two lowercase strings str1 and str2 of letters from a to z and returns the sorted and longest string containing distinct letters.
 # Examples
-
 # str1 = "mubashir"
 # str2 = "edabit"
-
 # longest_string(str1, str2) ➞ "abdehimrstu"
 # # Contains sorted and distinct letters of the given strings.
-
 # str1 = "abcdefghijklmnopqrstuvwxyz"
 # str2 = "abcdefghijklmnopqrstuvwxyz"
-
 # longest_string(str1, str2) ➞ "abcdefghijklmnopqrstuvwxyz"
 # # Contains sorted and distinct letters of the given strings.
-
 # Notes
-
 # N/A
 # Checking
 def longest_string(str1, str2)
@@ -109,15 +218,10 @@ def longest_string(str1, str2)
 end
 # Given a sandwich (as an array), return an array of fillings inside the sandwich. This involves ignoring the first and last elements.
 # Examples
-
 # get_fillings(["bread", "ham", "cheese", "ham", "bread"]) ➞ ["ham", "cheese", "ham"]
-
 # get_fillings(["bread", "sausage", "tomato", "bread"]) ➞ ["sausage", "tomato"]
-
 # get_fillings(["bread", "lettuce", "bacon", "tomato", "bread"]) ➞ ["lettuce", "bacon", "tomato"]
-
 # Notes
-
 # The first and last elements will always be "bread".
 def get_fillings(sandwich)
 	sandwich[1...-1]
