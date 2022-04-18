@@ -123,3 +123,6 @@ fruits.push("Kiwi");
 // Use the splice() method to remove "Orange" and "Apple" from fruits.
 const fruits = ["Banana", "Orange", "Apple", "Kiwi"];
 fruits.splice(1, 2)
+// Use the correct Array method to sort the fruits array alphabetically.
+const fruits = ["Banana", "Orange", "Apple", "Kiwi"];
+fruits.sort()
