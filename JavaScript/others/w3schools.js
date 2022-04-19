@@ -126,3 +126,7 @@ fruits.splice(1, 2)
 // Use the correct Array method to sort the fruits array alphabetically.
 const fruits = ["Banana", "Orange", "Apple", "Kiwi"];
 fruits.sort()
+// Create a Date object and alert the current date and time.
+const d = new Date()
+alert(d);
+// 
