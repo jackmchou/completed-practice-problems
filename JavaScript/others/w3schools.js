@@ -129,4 +129,6 @@ fruits.sort()
 // Create a Date object and alert the current date and time.
 const d = new Date()
 alert(d);
-// 
+// Use the correct Date method to extract the year (four digits) out of a date object.
+const d = new Date();
+year = d.getFullYear();
