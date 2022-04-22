@@ -135,3 +135,6 @@ year = d.getFullYear();
 // Use the correct Date method to get the month (0-11) out of a date object.
 const d = new Date();
 month = d.getMonth();
+// Use the correct Date method to set the year of a date object to 2020.
+const d = new Date();
+d.setFullYear(2020);
