@@ -142,3 +142,5 @@ d.setFullYear(2020);
 let r = Math.random();
 // Use the correct Math method to return the largest number of 10 and 20.
 let x = Math.max(10, 20);
+// Use the correct Math method to round a number to the nearest integer.
+let x = Math.round(5.3);
