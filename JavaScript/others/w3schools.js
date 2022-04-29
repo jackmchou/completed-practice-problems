@@ -150,3 +150,7 @@ let x = Math.sqrt(9)
 x = 10;
 y = 5;
 alert(x > y);
+// Choose the correct comparison operator to alert true, when x is equal to y.
+x = 10;
+y = 10;
+alert(x = y);
