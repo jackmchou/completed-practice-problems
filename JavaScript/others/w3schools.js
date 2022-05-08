@@ -202,3 +202,9 @@ const fruits = ["Apple", "Banana", "Orange"];
 for (x of fruits) {
   console.log(x);
 }
+// Create a loop that runs as long as i is less than 10.
+let i = 0;
+while (i < 10) {
+  console.log(i);
+  i++
+}
