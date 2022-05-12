@@ -224,7 +224,12 @@ for (i = 0; i < 10; i++) {
 //Make the loop jump to the next iteration when i is 5.
 for (i = 0; i < 10; i++) {
   if (i == 5) {
-		break;
+		continue;
 	}
 	console.log(i);
 }
+// Use the getElementById method to find the <p> element, and change its text to "Hello".
+<p id="demo"></p>
+<script>
+	document.getElementById("demo").innerHTML = "Hello";
+</script>
