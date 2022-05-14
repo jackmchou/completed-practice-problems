@@ -236,6 +236,11 @@ for (i = 0; i < 10; i++) {
 // Use the getElementsByTagName method to find the first <p> element, and change its text to "Hello".
 <p id="demo"></p>
 <script>
-document.getElementsByTagName("p")[0].innerHTML = "Hello";
+	document.getElementsByTagName("p")[0].innerHTML = "Hello";
 </script>
-
+//Change the text of the first element that has the class name "test".
+<p class="test"></p>
+<p class="test"></p>
+<script>
+	document.getElementsByClassName("test")[0].innerHTML = "Hello";
+</script>
