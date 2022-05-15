@@ -246,7 +246,11 @@ for (i = 0; i < 10; i++) {
 </script>
 // Use HTML DOM to change the value of the image's src attribute.
 <img id="image" src="smiley.gif">
-
 <script>
 	document.getElementById("image").src = "pic_mountain.jpg";
+</script></img>
+//Use HTML DOM to change the value of the input field.
+<input type="text" id="myText" value="Hello">
+<script>
+document.getElementById("myText").value = "Have a nice day!";
 </script>
