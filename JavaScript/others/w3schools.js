@@ -253,4 +253,10 @@ for (i = 0; i < 10; i++) {
 <input type="text" id="myText" value="Hello">
 <script>
 document.getElementById("myText").value = "Have a nice day!";
+</script></input>
+//Change the text color of the <p> element to "red".
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").style.color = "red";
 </script>
