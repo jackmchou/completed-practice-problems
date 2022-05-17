@@ -260,3 +260,9 @@ document.getElementById("myText").value = "Have a nice day!";
 <script>
 document.getElementById("demo").style.color = "red";
 </script>
+//Change the font size of the p element to 40 pixels.
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo")
+</script>
