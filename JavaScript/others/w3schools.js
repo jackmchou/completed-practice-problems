@@ -264,5 +264,10 @@ document.getElementById("demo").style.color = "red";
 <p id="demo"></p>
 
 <script>
-document.getElementById("demo")
+document.getElementById("demo").style.fontSize = "40px"
+</script>
+//Use the CSS display property to hide the p element.
+<p id="demo"></p>
+<script>
+document.getElementById("demo").style.display = "none";
 </script>
