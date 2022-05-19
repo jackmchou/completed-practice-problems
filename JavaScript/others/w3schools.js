@@ -271,3 +271,8 @@ document.getElementById("demo").style.fontSize = "40px"
 <script>
 document.getElementById("demo").style.display = "none";
 </script>
+//Use the eventListener to assign an onclick event to the <button> element.
+<button id="demo">Click me1</button>
+<script>
+document.getElementById("demo").addEventListener("click", myFunction)
+</script>
