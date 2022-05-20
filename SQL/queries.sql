@@ -182,3 +182,8 @@ ADD Language TEXT
 DROP TABLE IF EXISTS movies;
 -- And drop the BoxOffice table as well
 DROP TABLE IF EXISTS boxoffice;
+
+
+-- W3Schools Exercises
+-- Insert the missing statement to get all the columns from the Customers table.
+SELECT * FROM Customers;
