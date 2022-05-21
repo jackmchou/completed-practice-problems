@@ -187,3 +187,5 @@ DROP TABLE IF EXISTS boxoffice;
 -- W3Schools Exercises
 -- Insert the missing statement to get all the columns from the Customers table.
 SELECT * FROM Customers;
+-- Write a statement that will select the City column from the Customers table.
+SELECT City FROM Customers;
