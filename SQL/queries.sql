@@ -194,3 +194,7 @@ SELECT DISTINCT Country FROM Customers;
 -- Select all records where the City column has the value "Berlin".
 SELECT * FROM Customers
 WHERE City = "Berlin";
+-- Use the NOT keyword to select all records where City is NOT "Berlin".
+SELECT * FROM Customers
+WHERE NOT City = "Berlin";
+
