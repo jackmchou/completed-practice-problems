@@ -197,4 +197,6 @@ WHERE City = "Berlin";
 -- Use the NOT keyword to select all records where City is NOT "Berlin".
 SELECT * FROM Customers
 WHERE NOT City = "Berlin";
-
+-- Select all records where the CustomerID column has the value 32.
+SELECT * FROM Customers
+WHERE CustomerID = 32;
