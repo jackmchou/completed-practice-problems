@@ -203,4 +203,8 @@ WHERE CustomerID = 32;
 -- Select all records where the City column has the value 'Berlin' and the PostalCode column has the value 12209.
 Select * FROM Customers;
 WHERE City = 'Berlin'
-AND PostalCode = 12209
+AND PostalCode = 12209;
+-- Select all records where the City column has the value 'Berlin' or 'London'.
+Select * FROM Customers;
+WHERE City = 'Berlin'
+OR City = 'London';
