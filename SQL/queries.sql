@@ -208,3 +208,6 @@ AND PostalCode = 12209;
 Select * FROM Customers;
 WHERE City = 'Berlin'
 OR City = 'London';
+-- Select all records from the Customers table, sort the result alphabetically by the column City.
+SELECT * FROM Customers
+ORDER BY City;
