@@ -217,4 +217,16 @@ ORDER BY City DESC
 -- Select all records from the Customers table, sort the result alphabetically, first by the column Country, then, by the column City.
 SELECT * FROM Customers
 ORDER BY Country, City;
-
+-- Insert a new record in the Customers table.
+INSERT INTO Customers 
+(CustomerName, 
+Address, 
+City, 
+PostalCode,
+Country)
+VALUES (
+'Hekkan Burger',
+'Gateveien 15',
+'Sandnes',
+'4306',
+'Norway');
