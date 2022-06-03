@@ -236,3 +236,6 @@ WHERE PostalCode IS NULL
 -- Select all records from the Customers where the PostalCode column is NOT empty.
 SELECT * FROM Customers
 WHERE PostalCode IS NOT NULL;
+-- Update the City column of all records in the Customers table.
+UPDATE Customers
+SET City = 'Oslo';
