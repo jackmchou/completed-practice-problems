@@ -239,3 +239,7 @@ WHERE PostalCode IS NOT NULL;
 -- Update the City column of all records in the Customers table.
 UPDATE Customers
 SET City = 'Oslo';
+-- Set the value of the City columns to 'Oslo', but only the ones where the Country column has the value "Norway".
+UPDATE Customers
+SET City = 'Oslo'
+WHERE Country = 'Norway';
