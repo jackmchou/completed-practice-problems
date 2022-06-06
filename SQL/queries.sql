@@ -247,3 +247,6 @@ WHERE Country = 'Norway';
 UPDATE Customers
 SET City = 'Oslo', Country = 'Norway'
 WHERE CustomerID = 32;
+-- Delete all the records from the Customers table where the Country value is 'Norway'.
+DELETE FROM Customers
+WHERE Country = 'Norway';
