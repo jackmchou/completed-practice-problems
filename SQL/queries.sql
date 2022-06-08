@@ -252,3 +252,7 @@ DELETE FROM Customers
 WHERE Country = 'Norway';
 -- Delete all the records from the Customers table.
 DELETE FROM Customers
+-- Use the MIN function to select the record with the smallest value of the Price column.
+SELECT MIN(Price)
+FROM Products;
+
