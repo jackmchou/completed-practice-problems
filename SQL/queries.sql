@@ -258,3 +258,7 @@ FROM Products;
 -- Use an SQL function to select the record with the highest value of the Price column.
 SELECT MAX(Price)
 FROM Product;
+-- Use the correct function to return the number of records that have the Price value set to 18.
+SELECT count(Price)
+FROM Product
+WHERE Price = 19;
