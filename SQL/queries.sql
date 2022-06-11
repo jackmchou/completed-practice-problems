@@ -262,3 +262,6 @@ FROM Product;
 SELECT count(Price)
 FROM Product
 WHERE Price = 19;
+-- Use an SQL function to calculate the average price of all products.
+SELECT avg(Price)
+FROM Products;
