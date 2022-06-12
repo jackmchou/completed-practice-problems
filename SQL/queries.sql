@@ -265,3 +265,7 @@ WHERE Price = 19;
 -- Use an SQL function to calculate the average price of all products.
 SELECT avg(Price)
 FROM Products;
+-- Use an SQL function to calculate the sum of all the Price column values in the Products table.
+SELECT sum(Price)
+FROM Products;
+
