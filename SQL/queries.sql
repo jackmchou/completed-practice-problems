@@ -268,4 +268,8 @@ FROM Products;
 -- Use an SQL function to calculate the sum of all the Price column values in the Products table.
 SELECT sum(Price)
 FROM Products;
+-- Select all records where the value of the City column starts with the letter "a".
+SELECT * FROM Customers
+WHERE City LIKE 'a%'
+
 
