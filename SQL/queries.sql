@@ -283,3 +283,7 @@ WHERE City LIKE 'a%b';
 -- Select all records where the value of the City column does NOT start with the letter "a".
 SELECT * FROM Customers
 WHERE City NOT LIKE 'a%';
+-- Select all records where the second letter of the City is an "a".
+SELECT * FROM Customers
+WHERE City NOT LIKE '_a%';
+
