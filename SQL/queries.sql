@@ -289,4 +289,8 @@ WHERE City NOT LIKE '_a%';
 -- Select all records where the first letter of the City is an "a" or a "c" or an "s".
 SELECT * FROM Customers
 WHERE City LIKE '[acs]%';
+-- Select all records where the first letter of the City starts with anything from an "a" to an "f".
+SELECT * FROM Customers
+WHERE City LIKE '[a-f]%';
+
 
