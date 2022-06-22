@@ -295,6 +295,10 @@ WHERE City LIKE '[a-f]%';
 -- Select all records where the first letter of the City is NOT an "a" or a "c" or an "f".
 SELECT * FROM Customers
 WHERE City LIKE '[^acf]%';
+-- Use the IN operator to select all the records where Country is either "Norway" or "France".
+SELECT * FROM Customers
+WHERE Country IN ('Norway', 'France');
+
 
 
 
