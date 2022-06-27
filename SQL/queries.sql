@@ -310,3 +310,6 @@ WHERE Price NOT Between 10 AND 20;
 -- Use the BETWEEN operator to select all the records where the value of the ProductName column is alphabetically between 'Geitost' and 'Pavlova'.
 SELECT * FROM Products
 WHERE ProductName BETWEEN 'Geitost' AND 'Pavlova';
+-- When displaying the Customers table, make an ALIAS of the PostalCode column, the column should be called Pno instead.
+SELECT CustomerName,
+Address, PostalCode AS Pno, FROM Customers;
