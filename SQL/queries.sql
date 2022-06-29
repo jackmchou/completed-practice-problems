@@ -316,3 +316,9 @@ Address, PostalCode AS Pno, FROM Customers;
 -- When displaying the Customers table, refer to the table as Consumers instead of Customers.
 SELECT *
 FROM Customers As Consumers;
+-- Insert the missing parts in the JOIN clause to join the two tables Orders and Customers, using the CustomerID field in both tables as the relationship between the two tables.
+SELECT *
+FROM Orders
+LEFT JOIN Customers
+ON Orders.CustomerID = Customers.CustomerID;
+
