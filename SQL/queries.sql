@@ -331,4 +331,7 @@ SELECT *
 FROM Orders
 RIGHT JOIN Customers
 ON Orders.CustomerID=Customers.CustomerID;
-
+-- List the number of customers in each country.
+SELECT count(CustomerID), Country
+FROM Customers
+GROUP BY Country;
