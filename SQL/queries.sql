@@ -340,3 +340,5 @@ SELECT count(CustomerID), Country
 FROM Customers
 GROUP BY Country
 ORDER BY count(CustomerID) DESC;
+-- Write the correct SQL statement to create a new database called testDB.
+CREATE DATABASE testDB;
